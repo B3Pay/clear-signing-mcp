@@ -1,0 +1,108 @@
+{
+  "abi": {
+    "address": "0x61Ab356a686958fb878B0dee6e87b1b4Fc36d553",
+    "functions": 51,
+    "name": "DiamondCutFacet",
+    "source": "sourcify"
+  },
+  "address": "0x6A000F20005980200259B80c5102003040001068",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x61Ab356a686958fb878B0dee6e87b1b4Fc36d553",
+        "name": "DiamondCutFacet"
+      },
+      {
+        "address": "0x77Af2076b0d2615207ff6e5A5631873349E0E37c",
+        "name": "DiamondLoupeFacet"
+      },
+      {
+        "address": "0xa1Feb108bE4fd3f6810aD8C970976B6Cf949D2E5",
+        "name": "OwnershipFacet"
+      },
+      {
+        "address": "0x31Afa355ac90F28411E2BB31300EE283c8A9B329",
+        "name": "AdminFacet"
+      },
+      {
+        "address": "0x592BF6f4dB32F9B6a0cdA542E6D2Fd2a508d762e",
+        "name": "BackwardCompatibilityFacet"
+      },
+      {
+        "address": "0xBE0714d43a0c4e568af6e6F2de7E123Fc90fECD6",
+        "name": "VersionFacet"
+      },
+      {
+        "address": "0xB00300C01C00A230b0DC106140047040a20b0c00",
+        "name": "ProPartnerFacet"
+      }
+    ],
+    "isContract": true,
+    "name": "AugustusV6",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 24562,
+  "fetchedAt": "2026-11-06T20:03:40.559Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 250,
+    "last30Days": 1000,
+    "newest": 1793995317,
+    "oldest": 1793428423,
+    "perDay": 152.40944515200374,
+    "requested": 1000,
+    "selectors": {
+      "0x0d893d62": 4,
+      "0x7f457675": 16,
+      "0xe3ead59e": 980
+    },
+    "senders": 258,
+    "sendersBySelector": {
+      "0x0d893d62": 4,
+      "0x7f457675": 8,
+      "0xe3ead59e": 249
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AugustusV6",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x61Ab356a686958fb878B0dee6e87b1b4Fc36d553",
+          "name": "DiamondCutFacet"
+        },
+        {
+          "address": "0x77Af2076b0d2615207ff6e5A5631873349E0E37c",
+          "name": "DiamondLoupeFacet"
+        },
+        {
+          "address": "0xa1Feb108bE4fd3f6810aD8C970976B6Cf949D2E5",
+          "name": "OwnershipFacet"
+        },
+        {
+          "address": "0x31Afa355ac90F28411E2BB31300EE283c8A9B329",
+          "name": "AdminFacet"
+        },
+        {
+          "address": "0x592BF6f4dB32F9B6a0cdA542E6D2Fd2a508d762e",
+          "name": "BackwardCompatibilityFacet"
+        },
+        {
+          "address": "0xBE0714d43a0c4e568af6e6F2de7E123Fc90fECD6",
+          "name": "VersionFacet"
+        },
+        {
+          "address": "0xB00300C01C00A230b0DC106140047040a20b0c00",
+          "name": "ProPartnerFacet"
+        }
+      ],
+      "type": "DiamondProxy"
+    },
+    "status": "verified"
+  }
+}

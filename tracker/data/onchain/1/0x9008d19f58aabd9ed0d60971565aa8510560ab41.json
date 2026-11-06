@@ -1,0 +1,46 @@
+{
+  "abi": {
+    "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+    "functions": 15,
+    "name": "GPv2Settlement",
+    "source": "sourcify"
+  },
+  "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "GPv2Settlement",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 16165,
+  "fetchedAt": "2026-11-06T20:11:35.068Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 12,
+    "last30Days": 1000,
+    "newest": 1793995547,
+    "oldest": 1793963843,
+    "perDay": 2725.2081756245266,
+    "requested": 1000,
+    "selectors": {
+      "0x13d79a0b": 993,
+      "0x15337bc0": 1,
+      "0xec6cb13f": 6
+    },
+    "senders": 25,
+    "sendersBySelector": {
+      "0x13d79a0b": 20,
+      "0x15337bc0": 1,
+      "0xec6cb13f": 4
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "GPv2Settlement",
+    "status": "verified"
+  }
+}

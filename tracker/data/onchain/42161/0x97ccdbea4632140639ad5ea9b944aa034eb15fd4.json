@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+    "functions": 26,
+    "name": "SpokePoolPeriphery",
+    "source": "sourcify"
+  },
+  "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 16914,
+  "fetchedAt": "2026-11-06T21:00:52.166Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1793994285,
+    "oldest": 1793829044,
+    "perDay": 522.8726526709472,
+    "requested": 1000,
+    "selectors": {
+      "0x110560ad": 266,
+      "0x609ea081": 345,
+      "0x711bc67b": 388,
+      "0x74663367": 1
+    },
+    "senders": 438,
+    "sendersBySelector": {
+      "0x110560ad": 221,
+      "0x609ea081": 224,
+      "0x711bc67b": 3,
+      "0x74663367": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SpokePoolPeriphery",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x00000000009726632680FB29d3F7A9734E3010E2",
+    "functions": 11,
+    "name": "RainbowRouter",
+    "source": "sourcify"
+  },
+  "address": "0x00000000009726632680FB29d3F7A9734E3010E2",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x00000000009726632680FB29d3F7A9734E3010E2",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 6909,
+  "fetchedAt": "2026-11-06T20:48:35.456Z",
+  "format": 2,
+  "sample": {
+    "count": 16,
+    "failed": 3,
+    "last30Days": 15,
+    "newest": 1793957821,
+    "oldest": 1791249788,
+    "perDay": 0.5,
+    "requested": 1000,
+    "selectors": {
+      "0x3c2b9a7d": 7,
+      "0x55e4b7be": 2,
+      "0x999b6464": 7
+    },
+    "senders": 11,
+    "sendersBySelector": {
+      "0x3c2b9a7d": 6,
+      "0x55e4b7be": 1,
+      "0x999b6464": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RainbowRouter",
+    "status": "verified"
+  }
+}

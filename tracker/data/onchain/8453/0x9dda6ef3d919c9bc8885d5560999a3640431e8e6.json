@@ -1,0 +1,32 @@
+{
+  "abi": null,
+  "address": "0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 6772,
+  "fetchedAt": "2026-11-06T20:56:28.675Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1793994303,
+    "oldest": 1793924259,
+    "perDay": 1233.5103649134828,
+    "requested": 1000,
+    "selectors": {
+      "0x5f575529": 1000
+    },
+    "senders": 719,
+    "sendersBySelector": {
+      "0x5f575529": 719
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

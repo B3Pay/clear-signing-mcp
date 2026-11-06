@@ -3154,9 +3154,17 @@
     {
       "stateMutability": "payable",
       "type": "receive"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
     }
   ],
   "address": "0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84",
+  "merged": [
+    "0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84",
+    "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5"
+  ],
   "name": "Ethereum_SpokePool",
   "source": "sourcify"
 }

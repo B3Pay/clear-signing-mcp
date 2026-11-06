@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+    "functions": 26,
+    "name": "SocketGateway",
+    "source": "sourcify"
+  },
+  "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 24305,
+  "fetchedAt": "2026-11-06T20:36:59.347Z",
+  "format": 2,
+  "sample": {
+    "count": 210,
+    "failed": 0,
+    "last30Days": 184,
+    "newest": 1793992487,
+    "oldest": 1791099029,
+    "perDay": 6.133333333333334,
+    "requested": 1000,
+    "selectors": {
+      "0x0000018c": 1,
+      "0x000001ad": 5,
+      "0x000001af": 168,
+      "0x37c6145a": 36
+    },
+    "senders": 195,
+    "sendersBySelector": {
+      "0x0000018c": 1,
+      "0x000001ad": 5,
+      "0x000001af": 157,
+      "0x37c6145a": 34
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SocketGateway",
+    "status": "verified"
+  }
+}

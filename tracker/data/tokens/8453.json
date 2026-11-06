@@ -1,1 +1,112 @@
-{}
+{
+  "0x0a14ef61afb32e5ca672e021784f71705ac14908": {
+    "decimals": 18,
+    "name": "Null",
+    "symbol": "NULL"
+  },
+  "0x134ba967d5973baafcd5abbf459b91eff34e0b07": {
+    "decimals": 18,
+    "name": "Clankdexer",
+    "symbol": "CLANKDEXER"
+  },
+  "0x23cd099eb438cca50349ee2bc809196b1ae00861": {
+    "decimals": 18,
+    "name": "Wrapped 0G",
+    "symbol": "W0G"
+  },
+  "0x311935cd80b76769bf2ecc9d8ab7635b2139cf82": {
+    "decimals": 9,
+    "name": "Solana",
+    "symbol": "SOL"
+  },
+  "0x4200000000000000000000000000000000000006": {
+    "decimals": 18,
+    "name": "Wrapped Ether",
+    "symbol": "WETH"
+  },
+  "0x752c5a95d202972e124390f30a50154409d3c858": {
+    "decimals": 18,
+    "name": "OFC",
+    "symbol": "OFC"
+  },
+  "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+    "decimals": 6,
+    "name": "USD Coin",
+    "symbol": "USDC"
+  },
+  "0x8b7dde054be9d180c1be7fae0874697374a49832": {
+    "decimals": 18,
+    "name": "Wrapped PROS",
+    "symbol": "PROS"
+  },
+  "0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
+    "decimals": 18,
+    "name": "Aerodrome",
+    "symbol": "AERO"
+  },
+  "0x982e673489b48c22488ec7fb21daf4967738bd11": {
+    "decimals": 18,
+    "name": "STONKCAT",
+    "symbol": "STONKCAT"
+  },
+  "0x98d0baa52b2d063e780de12f615f963fe8537553": {
+    "decimals": 18,
+    "name": "KAITO",
+    "symbol": "KAITO"
+  },
+  "0x9eadbe35f3ee3bf3e28180070c429298a1b02f93": {
+    "decimals": 18,
+    "name": "Limitless Official Token",
+    "symbol": "LMTS"
+  },
+  "0xa4a2e2ca3fbfe21aed83471d28b6f65a233c6e00": {
+    "decimals": 18,
+    "name": "Ribbita by Virtuals",
+    "symbol": "TIBBIR"
+  },
+  "0xa99f6e6785da0f5d6fb42495fe424bce029eeb3e": {
+    "decimals": 18,
+    "name": "Pendle",
+    "symbol": "PENDLE"
+  },
+  "0xac1bd2486aaf3b5c0fc3fd868558b082a531b2b4": {
+    "decimals": 18,
+    "name": "Toshi",
+    "symbol": "TOSHI"
+  },
+  "0xacfe6019ed1a7dc6f7b508c02d1b04ec88cc21bf": {
+    "decimals": 18,
+    "name": "Venice Token",
+    "symbol": "VVV"
+  },
+  "0xb200000000000000000000397293cb8cda9a10c5": {
+    "decimals": 8,
+    "name": "Sandisk Corporation",
+    "symbol": "SNDKc"
+  },
+  "0xb200000000000000000000c2e324d24d7eecd1fb": {
+    "decimals": 8,
+    "name": "Apple Inc.",
+    "symbol": "AAPLc"
+  },
+  "0xb200000000000000000000cfbdf64a8706a94a01": {
+    "decimals": 18,
+    "name": "BLUE CHIP",
+    "symbol": "BLUECHIP"
+  },
+  "0xb80194e3868511b8f43e1d5d6e255cd9e7c3e7dd": {
+    "decimals": 18,
+    "name": "Kinetiq Governance Token",
+    "symbol": "KNTQ"
+  },
+  "0xe2ef6ea8cb5ef092f068416ff8f9727eb2586ec9": {
+    "decimals": 18,
+    "name": "Mordiem",
+    "symbol": "MDM"
+  },
+  "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2": {
+    "decimals": 6,
+    "name": "Tether USD",
+    "symbol": "USDT"
+  }
+}

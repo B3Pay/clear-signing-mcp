@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0x933597a323Eb81cAe705C5bC29985172fd5A3973",
+    "functions": 48,
+    "name": "StargatePoolMigratable",
+    "source": "sourcify"
+  },
+  "address": "0x933597a323Eb81cAe705C5bC29985172fd5A3973",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "StargatePoolMigratable",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 23741,
+  "fetchedAt": "2026-11-06T21:00:59.643Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 7,
+    "last30Days": 44,
+    "newest": 1793960207,
+    "oldest": 1773483323,
+    "perDay": 1.4666666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x": 3,
+      "0x47e7ef24": 7,
+      "0x764f6a78": 10,
+      "0x7bde82f2": 9,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 668,
+      "0xcbef2aa9": 302
+    },
+    "senders": 298,
+    "sendersBySelector": {
+      "0x": 2,
+      "0x47e7ef24": 5,
+      "0x764f6a78": 2,
+      "0x7bde82f2": 6,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 124,
+      "0xcbef2aa9": 163
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "StargatePoolMigratable",
+    "status": "verified"
+  }
+}

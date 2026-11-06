@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0xcE8CcA271Ebc0533920C83d39F417ED6A0abB7D0",
+    "functions": 48,
+    "name": "StargatePoolMigratable",
+    "source": "sourcify"
+  },
+  "address": "0xcE8CcA271Ebc0533920C83d39F417ED6A0abB7D0",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xcE8CcA271Ebc0533920C83d39F417ED6A0abB7D0",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 23741,
+  "fetchedAt": "2026-11-06T21:26:31.488Z",
+  "format": 2,
+  "sample": {
+    "count": 30,
+    "failed": 1,
+    "last30Days": 23,
+    "newest": 1793880007,
+    "oldest": 1791092862,
+    "perDay": 0.7666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x": 1,
+      "0x7bde82f2": 8,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 18,
+      "0xcbef2aa9": 2
+    },
+    "senders": 14,
+    "sendersBySelector": {
+      "0x": 1,
+      "0x7bde82f2": 8,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 3,
+      "0xcbef2aa9": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "StargatePoolMigratable",
+    "status": "verified"
+  }
+}

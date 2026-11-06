@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x60674c53a4cC4ED350659C95fb8020B5AC61cA1D",
+    "functions": 75,
+    "name": "OP_SpokePool",
+    "source": "sourcify"
+  },
+  "address": "0x6f26Bf09B1C792e3228e5467807a900A503c0281",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x60674c53a4cC4ED350659C95fb8020B5AC61cA1D",
+        "name": "OP_SpokePool"
+      }
+    ],
+    "isContract": true,
+    "name": "ERC1967Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 680,
+  "fetchedAt": "2026-11-06T20:55:33.241Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x6f26Bf09B1C792e3228e5467807a900A503c0281&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x60674c53a4cC4ED350659C95fb8020B5AC61cA1D",
+          "name": "OP_SpokePool"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+    "functions": 19,
+    "name": "RelayApprovalProxy",
+    "source": "sourcify"
+  },
+  "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "RelayApprovalProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 13884,
+  "fetchedAt": "2026-11-06T20:32:39.744Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x5567954cD026CEbFE486062cb75848e0f1c12E58&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RelayApprovalProxy",
+    "status": "verified"
+  }
+}

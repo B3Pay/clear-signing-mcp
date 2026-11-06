@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+    "functions": 6,
+    "name": "NativeOrderFactory",
+    "source": "sourcify"
+  },
+  "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 2675,
+  "fetchedAt": "2026-11-06T20:07:22.839Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"c7afc8b19b9e614788273f07f6aa8081\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "NativeOrderFactory",
+    "status": "verified"
+  }
+}

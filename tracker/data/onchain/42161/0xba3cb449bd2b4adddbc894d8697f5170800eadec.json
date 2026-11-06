@@ -1,0 +1,41 @@
+{
+  "abi": {
+    "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+    "functions": 10,
+    "name": "CoWSwapEthFlow",
+    "source": "sourcify"
+  },
+  "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 6177,
+  "fetchedAt": "2026-11-06T20:21:37.368Z",
+  "format": 2,
+  "sample": {
+    "count": 995,
+    "failed": 0,
+    "last30Days": 896,
+    "newest": 1793990146,
+    "oldest": 1791094054,
+    "perDay": 29.866666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x322bba21": 987,
+      "0x4cb76498": 8
+    },
+    "senders": 625,
+    "sendersBySelector": {
+      "0x322bba21": 624,
+      "0x4cb76498": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CoWSwapEthFlow",
+    "status": "verified"
+  }
+}

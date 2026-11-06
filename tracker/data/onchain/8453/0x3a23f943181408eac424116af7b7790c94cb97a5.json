@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+    "functions": 26,
+    "name": "SocketGateway",
+    "source": "sourcify"
+  },
+  "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 24305,
+  "fetchedAt": "2026-11-06T21:21:30.427Z",
+  "format": 2,
+  "sample": {
+    "error": "the portal returned base-mainnet blocks 52068144..53498884 in more than 500 parts"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SocketGateway",
+    "status": "verified"
+  }
+}

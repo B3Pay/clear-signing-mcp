@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0xcE8CcA271Ebc0533920C83d39F417ED6A0abB7D0",
+    "functions": 48,
+    "name": "StargatePoolUSDC",
+    "source": "sourcify"
+  },
+  "address": "0xcE8CcA271Ebc0533920C83d39F417ED6A0abB7D0",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "StargatePoolUSDC",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 23555,
+  "fetchedAt": "2026-11-06T21:01:03.289Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 43,
+    "newest": 1793916115,
+    "oldest": 1785103275,
+    "perDay": 1.4333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x": 1,
+      "0x47e7ef24": 2,
+      "0x7bde82f2": 21,
+      "0xb0d7ca5d": 4,
+      "0xc7c7f5b3": 924,
+      "0xcbef2aa9": 48
+    },
+    "senders": 105,
+    "sendersBySelector": {
+      "0x": 1,
+      "0x47e7ef24": 2,
+      "0x7bde82f2": 19,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 36,
+      "0xcbef2aa9": 47
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "StargatePoolUSDC",
+    "status": "verified"
+  }
+}

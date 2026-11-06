@@ -1,0 +1,322 @@
+{
+  "abi": {
+    "address": "0xf7993A8df974AD022647E63402d6315137c58ABf",
+    "functions": 129,
+    "name": "DiamondCutFacet",
+    "source": "sourcify"
+  },
+  "address": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xf7993A8df974AD022647E63402d6315137c58ABf",
+        "name": "DiamondCutFacet"
+      },
+      {
+        "address": "0xF5ba8Db6fEA7aF820De35C8D0c294e17DBC1b9D2",
+        "name": "DiamondLoupeFacet"
+      },
+      {
+        "address": "0x6faA6906b9e4A59020e673910105567e809789E0",
+        "name": "OwnershipFacet"
+      },
+      {
+        "address": "0x04E051D8e3627A79785f8E210B1d61A877AA737A",
+        "name": "LayerSwapFacet"
+      },
+      {
+        "address": "0x1221db5424DC22DF9f426ec38A4F31950f6a5600",
+        "name": "EcoFacet"
+      },
+      {
+        "address": "0x77A13abB679A0DAFB4435D1Fa4cCC95D1ab51cfc",
+        "name": "AccessManagerFacet"
+      },
+      {
+        "address": "0xa7cc8D27420A8fA56353989F4c5db3b8FD9c7fE8",
+        "name": "SquidFacet"
+      },
+      {
+        "address": "0xd69e5eA7458aBFF098e9240f81F733898535c7A0",
+        "name": "GlacisFacet"
+      },
+      {
+        "address": "0xa0353221443CA4E2e6A040F30A57B47F5A6d479D",
+        "name": "SymbiosisFacet"
+      },
+      {
+        "address": "0x69cb467EfD8044ac9eDB88F363309ab1cbFA0A15",
+        "name": "PeripheryRegistryFacet"
+      },
+      {
+        "address": "0x65d6B9A368Be49bcA4964B66e54F828cAB64B8F9",
+        "name": "GasZipFacet"
+      },
+      {
+        "address": "0x0FC3045A569f55233BA26d92dB2e7DbB47C30D76",
+        "name": "LiFiIntentEscrowFacetV2"
+      },
+      {
+        "address": "0x8452788daad6af88fe88BC5dFc892974C11C32Ad",
+        "name": "FraxFacet"
+      },
+      {
+        "address": "0xb6424d61c2c3930c91D93E33D0654f9412bFDD81",
+        "name": "StargateFacetV2"
+      },
+      {
+        "address": "0xAd3f1634a917924cBb54A0F76e43ca035D2B6BCd",
+        "name": "AcrossFacetV4"
+      },
+      {
+        "address": "0xce52856e4d95220389350A822C60779D0D921E30",
+        "name": "EmergencyPauseFacet"
+      },
+      {
+        "address": "0x88E0Dd83E6da24bF317323E5Ca06842406D57eD0",
+        "name": "RelayDepositoryFacet"
+      },
+      {
+        "address": "0x007f2d2DDd83c12c73E9324F34493141a5d567d1",
+        "name": "DeBridgeDlnFacet"
+      },
+      {
+        "address": "0x5E79e8C67CC7FEd03b283E84A5e16500f094B6b5",
+        "name": "PolymerCCTPFacet"
+      },
+      {
+        "address": "0x2beEf67989a236e9CA97E8F731050bf7E8039e90",
+        "name": "AcrossV4SwapFacet"
+      },
+      {
+        "address": "0x02Db8a1c2170AEE6cd17715EcD1c567C9B296E2c",
+        "name": "GenericSwapFacetV3"
+      },
+      {
+        "address": "0x124Aa9169E6c0851a4A54D0ebb9158f2313d9Dd8",
+        "name": "MayanFacet"
+      },
+      {
+        "address": "0x8CD89Ea14345F24d0299c2180Aec97a417Ca34E3",
+        "name": "AcrossFacetPackedV4"
+      },
+      {
+        "address": "0x1841044080E6872c90Ac5048F0D1954CC546e9B7",
+        "name": "WhitelistManagerFacet"
+      },
+      {
+        "address": "0x4B0eC145d216101844072BcEE574A0e8873770B6",
+        "name": "CalldataVerificationFacet"
+      },
+      {
+        "address": "0xB815B47ad429436892Fc3C6ed1D401F515C7F763",
+        "name": "CelerCircleBridgeFacet"
+      },
+      {
+        "address": "0x8f00E690a45e75D7A1A765163829Ad33244a1C33",
+        "name": "NEARIntentsFacet"
+      },
+      {
+        "address": "0x317D089BBe46AaE816b27Eeb1ac26cFB7AB1850D",
+        "name": "AllBridgeFacet"
+      },
+      {
+        "address": "0x94eF6D1702ac7E30a5CeF39dEE26FAb180C251Fe",
+        "name": "WithdrawFacet"
+      }
+    ],
+    "isContract": true,
+    "name": "LiFiDiamond",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 5176,
+  "fetchedAt": "2026-11-06T20:20:33.607Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 6,
+    "last30Days": 1000,
+    "newest": 1793995793,
+    "oldest": 1793811909,
+    "perDay": 469.8614343825455,
+    "requested": 1000,
+    "selectors": {
+      "0x02631b09": 15,
+      "0x092e8fa4": 19,
+      "0x17917a4e": 4,
+      "0x1794958f": 95,
+      "0x2c57e884": 49,
+      "0x4666fc80": 4,
+      "0x4c279d6b": 143,
+      "0x5fd9ae2e": 18,
+      "0x606326ff": 38,
+      "0x6d21c5df": 33,
+      "0x736eac0b": 53,
+      "0x7dbcf1d9": 4,
+      "0x80c65808": 69,
+      "0xa1f1ce43": 10,
+      "0xa3443faa": 402,
+      "0xa6010a66": 2,
+      "0xa8f66666": 1,
+      "0xaf7060fd": 6,
+      "0xb4875292": 4,
+      "0xc46059b2": 1,
+      "0xee9e98e0": 13,
+      "0xf434d6ca": 17
+    },
+    "senders": 810,
+    "sendersBySelector": {
+      "0x02631b09": 14,
+      "0x092e8fa4": 3,
+      "0x17917a4e": 4,
+      "0x1794958f": 79,
+      "0x2c57e884": 31,
+      "0x4666fc80": 2,
+      "0x4c279d6b": 136,
+      "0x5fd9ae2e": 11,
+      "0x606326ff": 38,
+      "0x6d21c5df": 31,
+      "0x736eac0b": 47,
+      "0x7dbcf1d9": 4,
+      "0x80c65808": 62,
+      "0xa1f1ce43": 3,
+      "0xa3443faa": 369,
+      "0xa6010a66": 2,
+      "0xa8f66666": 1,
+      "0xaf7060fd": 6,
+      "0xb4875292": 4,
+      "0xc46059b2": 1,
+      "0xee9e98e0": 10,
+      "0xf434d6ca": 13
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "LiFiDiamond",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xf7993A8df974AD022647E63402d6315137c58ABf",
+          "name": "DiamondCutFacet"
+        },
+        {
+          "address": "0xF5ba8Db6fEA7aF820De35C8D0c294e17DBC1b9D2",
+          "name": "DiamondLoupeFacet"
+        },
+        {
+          "address": "0x6faA6906b9e4A59020e673910105567e809789E0",
+          "name": "OwnershipFacet"
+        },
+        {
+          "address": "0x04E051D8e3627A79785f8E210B1d61A877AA737A",
+          "name": "LayerSwapFacet"
+        },
+        {
+          "address": "0x1221db5424DC22DF9f426ec38A4F31950f6a5600",
+          "name": "EcoFacet"
+        },
+        {
+          "address": "0x77A13abB679A0DAFB4435D1Fa4cCC95D1ab51cfc",
+          "name": "AccessManagerFacet"
+        },
+        {
+          "address": "0xa7cc8D27420A8fA56353989F4c5db3b8FD9c7fE8",
+          "name": "SquidFacet"
+        },
+        {
+          "address": "0xd69e5eA7458aBFF098e9240f81F733898535c7A0",
+          "name": "GlacisFacet"
+        },
+        {
+          "address": "0xa0353221443CA4E2e6A040F30A57B47F5A6d479D",
+          "name": "SymbiosisFacet"
+        },
+        {
+          "address": "0x69cb467EfD8044ac9eDB88F363309ab1cbFA0A15",
+          "name": "PeripheryRegistryFacet"
+        },
+        {
+          "address": "0x65d6B9A368Be49bcA4964B66e54F828cAB64B8F9",
+          "name": "GasZipFacet"
+        },
+        {
+          "address": "0x0FC3045A569f55233BA26d92dB2e7DbB47C30D76",
+          "name": "LiFiIntentEscrowFacetV2"
+        },
+        {
+          "address": "0x8452788daad6af88fe88BC5dFc892974C11C32Ad",
+          "name": "FraxFacet"
+        },
+        {
+          "address": "0xb6424d61c2c3930c91D93E33D0654f9412bFDD81",
+          "name": "StargateFacetV2"
+        },
+        {
+          "address": "0xAd3f1634a917924cBb54A0F76e43ca035D2B6BCd",
+          "name": "AcrossFacetV4"
+        },
+        {
+          "address": "0xce52856e4d95220389350A822C60779D0D921E30",
+          "name": "EmergencyPauseFacet"
+        },
+        {
+          "address": "0x88E0Dd83E6da24bF317323E5Ca06842406D57eD0",
+          "name": "RelayDepositoryFacet"
+        },
+        {
+          "address": "0x007f2d2DDd83c12c73E9324F34493141a5d567d1",
+          "name": "DeBridgeDlnFacet"
+        },
+        {
+          "address": "0x5E79e8C67CC7FEd03b283E84A5e16500f094B6b5",
+          "name": "PolymerCCTPFacet"
+        },
+        {
+          "address": "0x2beEf67989a236e9CA97E8F731050bf7E8039e90",
+          "name": "AcrossV4SwapFacet"
+        },
+        {
+          "address": "0x02Db8a1c2170AEE6cd17715EcD1c567C9B296E2c",
+          "name": "GenericSwapFacetV3"
+        },
+        {
+          "address": "0x124Aa9169E6c0851a4A54D0ebb9158f2313d9Dd8",
+          "name": "MayanFacet"
+        },
+        {
+          "address": "0x8CD89Ea14345F24d0299c2180Aec97a417Ca34E3",
+          "name": "AcrossFacetPackedV4"
+        },
+        {
+          "address": "0x1841044080E6872c90Ac5048F0D1954CC546e9B7",
+          "name": "WhitelistManagerFacet"
+        },
+        {
+          "address": "0x4B0eC145d216101844072BcEE574A0e8873770B6",
+          "name": "CalldataVerificationFacet"
+        },
+        {
+          "address": "0xB815B47ad429436892Fc3C6ed1D401F515C7F763",
+          "name": "CelerCircleBridgeFacet"
+        },
+        {
+          "address": "0x8f00E690a45e75D7A1A765163829Ad33244a1C33",
+          "name": "NEARIntentsFacet"
+        },
+        {
+          "address": "0x317D089BBe46AaE816b27Eeb1ac26cFB7AB1850D",
+          "name": "AllBridgeFacet"
+        },
+        {
+          "address": "0x94eF6D1702ac7E30a5CeF39dEE26FAb180C251Fe",
+          "name": "WithdrawFacet"
+        }
+      ],
+      "type": "DiamondProxy"
+    },
+    "status": "verified"
+  }
+}

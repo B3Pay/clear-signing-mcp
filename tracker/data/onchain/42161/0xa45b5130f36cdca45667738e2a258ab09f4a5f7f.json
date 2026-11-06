@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0xA45B5130f36CDcA45667738e2a258AB09f4A5f7F",
+    "functions": 44,
+    "name": "StargatePoolNative",
+    "source": "sourcify"
+  },
+  "address": "0xA45B5130f36CDcA45667738e2a258AB09f4A5f7F",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xA45B5130f36CDcA45667738e2a258AB09f4A5f7F",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 22628,
+  "fetchedAt": "2026-11-06T21:19:51.825Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 1000,
+    "newest": 1793991133,
+    "oldest": 1793000332,
+    "perDay": 87.20217278747197,
+    "requested": 1000,
+    "selectors": {
+      "0x47e7ef24": 1,
+      "0x7bde82f2": 27,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 963,
+      "0xcbef2aa9": 8
+    },
+    "senders": 688,
+    "sendersBySelector": {
+      "0x47e7ef24": 1,
+      "0x7bde82f2": 27,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 652,
+      "0xcbef2aa9": 8
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "StargatePoolNative",
+    "status": "verified"
+  }
+}

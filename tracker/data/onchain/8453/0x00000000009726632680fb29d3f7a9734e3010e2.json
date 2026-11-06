@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0x00000000009726632680FB29d3F7A9734E3010E2",
+    "functions": 11,
+    "name": "RainbowRouter",
+    "source": "sourcify"
+  },
+  "address": "0x00000000009726632680FB29d3F7A9734E3010E2",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x00000000009726632680FB29d3F7A9734E3010E2",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 6909,
+  "fetchedAt": "2026-11-06T20:42:57.816Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"4118c4bf1a06166ea38cf73af6041734\"}}"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RainbowRouter",
+    "status": "verified"
+  }
+}

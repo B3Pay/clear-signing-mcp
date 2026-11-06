@@ -1,8 +1,18 @@
 {
+  "0x01bff41798a0bcf287b996046ca68b395dbc1071": {
+    "decimals": 6,
+    "name": "USD₮0",
+    "symbol": "USD₮0"
+  },
   "0x0b2c639c533813f4aa9d7837caf62653d097ff85": {
     "decimals": 6,
     "name": "USD Coin",
     "symbol": "USDC"
+  },
+  "0x1610e3c85dd44af31ed7f33a63642012dca0c5a5": {
+    "decimals": 18,
+    "name": "Metronome Synth ETH",
+    "symbol": "msETH"
   },
   "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb": {
     "decimals": 18,
@@ -24,10 +34,25 @@
     "name": "Optimism",
     "symbol": "OP"
   },
+  "0x4f604735c1cf31399c6e711d5962b2b3e0225ad3": {
+    "decimals": 18,
+    "name": "Glo Dollar",
+    "symbol": "USDGLO"
+  },
   "0x68f180fcce6836688e9084f035309e29bf0a2095": {
     "decimals": 8,
     "name": "Wrapped BTC",
     "symbol": "WBTC"
+  },
+  "0x6985884c4392d348587b19cb9eaaf157f13271cd": {
+    "decimals": 18,
+    "name": "LayerZero",
+    "symbol": "ZRO"
+  },
+  "0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979": {
+    "decimals": 18,
+    "name": "Fantom Bomb",
+    "symbol": "fBOMB"
   },
   "0x76fb31fb4af56892a25e32cfc43de717950c9278": {
     "decimals": 18,
@@ -39,6 +64,11 @@
     "name": "USD Coin",
     "symbol": "USDC"
   },
+  "0x8b21e9b7daf2c4325bf3d18c1beb79a347fe902a": {
+    "decimals": 18,
+    "name": "Collab.Land",
+    "symbol": "COLLAB"
+  },
   "0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9": {
     "decimals": 18,
     "name": "Synth sUSD (retired)",
@@ -48,6 +78,11 @@
     "decimals": 6,
     "name": "Tether USD",
     "symbol": "USDT"
+  },
+  "0x9560e827af36c94d2ac33a39bce1fe78631088db": {
+    "decimals": 18,
+    "name": "VelodromeV2",
+    "symbol": "VELO"
   },
   "0x9bcef72be871e61ed4fbbc7630889bee758eb81d": {
     "decimals": 18,
@@ -63,6 +98,11 @@
     "decimals": 18,
     "name": "Dai Stablecoin",
     "symbol": "DAI"
+  },
+  "0xdc6ff44d5d932cbd77b52e5612ba0529dc6226f1": {
+    "decimals": 18,
+    "name": "Worldcoin",
+    "symbol": "WLD"
   },
   "0xdfa46478f9e5ea86d57387849598dbfb2e964b02": {
     "decimals": 18,

@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0x0D05a7D3448512B78fa8A9e46c4872C88C4a0D05",
+    "functions": 22,
+    "name": "OdosRouterV3",
+    "source": "sourcify"
+  },
+  "address": "0x0D05a7D3448512B78fa8A9e46c4872C88C4a0D05",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x0D05a7D3448512B78fa8A9e46c4872C88C4a0D05",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 17084,
+  "fetchedAt": "2026-11-06T20:26:55.930Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"4e9c3125dfea6cbd93e2ae8c19b9de9a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "OdosRouterV3",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "abi": {
+    "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+    "functions": 26,
+    "name": "SpokePoolPeriphery",
+    "source": "blockscout"
+  },
+  "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "SpokePoolPeriphery",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 16914,
+  "fetchedAt": "2026-11-06T20:57:14.822Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x97CCDBea4632140639aD5eA9b944aa034eb15fD4&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

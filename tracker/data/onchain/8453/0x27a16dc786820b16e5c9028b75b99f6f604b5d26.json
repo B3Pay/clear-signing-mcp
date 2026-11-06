@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0x27a16dc786820B16E5c9028b75B99F6f604b5d26",
+    "functions": 48,
+    "name": "StargatePoolUSDC",
+    "source": "sourcify"
+  },
+  "address": "0x27a16dc786820B16E5c9028b75B99F6f604b5d26",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x27a16dc786820B16E5c9028b75B99F6f604b5d26",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 23555,
+  "fetchedAt": "2026-11-06T21:24:40.526Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"9db5f41b88e538a8f30b6a1853881172\"}}"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "StargatePoolUSDC",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+    "functions": 10,
+    "name": "CoWSwapEthFlow",
+    "source": "sourcify"
+  },
+  "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 6177,
+  "fetchedAt": "2026-11-06T21:14:34.793Z",
+  "format": 2,
+  "sample": {
+    "error": "the portal returned base-mainnet blocks 52068144..53498884 in more than 500 parts"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CoWSwapEthFlow",
+    "status": "verified"
+  }
+}

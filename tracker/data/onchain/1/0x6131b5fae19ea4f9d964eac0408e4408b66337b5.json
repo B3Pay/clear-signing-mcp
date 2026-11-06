@@ -1,0 +1,44 @@
+{
+  "abi": {
+    "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+    "functions": 10,
+    "name": "MetaAggregationRouterV2",
+    "source": "sourcify"
+  },
+  "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "MetaAggregationRouterV2",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 18652,
+  "fetchedAt": "2026-11-06T20:03:45.535Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 63,
+    "last30Days": 1000,
+    "newest": 1793995067,
+    "oldest": 1793954411,
+    "perDay": 2125.147579693034,
+    "requested": 1000,
+    "selectors": {
+      "0x": 1,
+      "0xe21fd0e9": 999
+    },
+    "senders": 364,
+    "sendersBySelector": {
+      "0x": 1,
+      "0xe21fd0e9": 363
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "MetaAggregationRouterV2",
+    "status": "verified"
+  }
+}

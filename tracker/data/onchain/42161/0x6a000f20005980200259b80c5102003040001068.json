@@ -1,0 +1,76 @@
+{
+  "abi": {
+    "address": "0xfa39c1c670b48956eeF9fd0BbD0E81A290326330",
+    "functions": 51,
+    "name": "DiamondCutFacet",
+    "source": "sourcify"
+  },
+  "address": "0x6A000F20005980200259B80c5102003040001068",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x6A000F20005980200259B80c5102003040001068",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 24562,
+  "fetchedAt": "2026-11-06T20:03:18.281Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 389,
+    "last30Days": 1000,
+    "newest": 1793994232,
+    "oldest": 1793975494,
+    "perDay": 4610.951008645533,
+    "requested": 1000,
+    "selectors": {
+      "0x7f457675": 6,
+      "0x876a02f6": 45,
+      "0xe3ead59e": 949
+    },
+    "senders": 58,
+    "sendersBySelector": {
+      "0x7f457675": 4,
+      "0x876a02f6": 7,
+      "0xe3ead59e": 50
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AugustusV6",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xfa39c1c670b48956eeF9fd0BbD0E81A290326330",
+          "name": "DiamondCutFacet"
+        },
+        {
+          "address": "0x515D89fB6b472D56Ca065AB21b32975f6ab8da3E",
+          "name": "DiamondLoupeFacet"
+        },
+        {
+          "address": "0x61Ab356a686958fb878B0dee6e87b1b4Fc36d553",
+          "name": "OwnershipFacet"
+        },
+        {
+          "address": "0xcd8875014ac31Fcbea5890d79834c90033518192",
+          "name": "AdminFacet"
+        },
+        {
+          "address": "0x49C46f7f88110ccA234ef27Cd664510f7bbF5998",
+          "name": "BackwardCompatibilityFacet"
+        },
+        {
+          "address": "0xa1686Ee049A745211D64ef2B305495D9425e7BD3",
+          "name": "VersionFacet"
+        },
+        {
+          "address": "0xB00300C01C00A230b0DC106140047040a20b0c00",
+          "name": "ProPartnerFacet"
+        }
+      ],
+      "type": "DiamondProxy"
+    },
+    "status": "verified"
+  }
+}

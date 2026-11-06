@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0x94E8da4a7707b2eDD1688C1ab3B09fD0fB8267Eb",
+    "functions": 27,
+    "name": "OpenOceanExchange",
+    "source": "sourcify"
+  },
+  "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2092,
+  "fetchedAt": "2026-11-06T20:13:57.149Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 62,
+    "last30Days": 1000,
+    "newest": 1793990199,
+    "oldest": 1792054690,
+    "perDay": 44.639420431524734,
+    "requested": 1000,
+    "selectors": {
+      "0x0a9704d5": 15,
+      "0x90411a32": 936,
+      "0xbc80f1a8": 49
+    },
+    "senders": 494,
+    "sendersBySelector": {
+      "0x0a9704d5": 14,
+      "0x90411a32": 453,
+      "0xbc80f1a8": 30
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "OpenOceanExchangeProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x94E8da4a7707b2eDD1688C1ab3B09fD0fB8267Eb",
+          "name": "OpenOceanExchange"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

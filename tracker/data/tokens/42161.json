@@ -1,1 +1,102 @@
-{}
+{
+  "0x064f8b858c2a603e1b106a2039f5446d32dc81c1": {
+    "decimals": 18,
+    "name": "Autonolas",
+    "symbol": "OLAS"
+  },
+  "0x092baadb7def4c3981454dd9c0a0d7ff07bcfc86": {
+    "decimals": 18,
+    "name": "MOR",
+    "symbol": "MOR"
+  },
+  "0x0a4f9962e24893a4a7567e52c1ce37d5482365de": {
+    "decimals": 18,
+    "name": "SushiSwap LP Token",
+    "symbol": "SLP"
+  },
+  "0x11cdb42b0eb46d95f990bedd4695a6e3fa034978": {
+    "decimals": 18,
+    "name": "Curve DAO Token",
+    "symbol": "CRV"
+  },
+  "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f": {
+    "decimals": 8,
+    "name": "Wrapped BTC",
+    "symbol": "WBTC"
+  },
+  "0x3d9907f9a368ad0a51be60f7da3b97cf940982d8": {
+    "decimals": 18,
+    "name": "Camelot token",
+    "symbol": "GRAIL"
+  },
+  "0x410c879c62f22794bd5ee98e2ee01490f6d47a6b": {
+    "decimals": 18,
+    "name": "Camelot LP",
+    "symbol": "CMLT-LP"
+  },
+  "0x539bde0d7dbd336b79148aa742883198bbf60342": {
+    "decimals": 18,
+    "name": "MAGIC",
+    "symbol": "MAGIC"
+  },
+  "0x56ef273754fa5ead63e0ba26c40431d35d09b56b": {
+    "decimals": 18,
+    "name": "TestMachine",
+    "symbol": "TEMCN"
+  },
+  "0x6985884c4392d348587b19cb9eaaf157f13271cd": {
+    "decimals": 18,
+    "name": "LayerZero",
+    "symbol": "ZRO"
+  },
+  "0x6fbbbd8bfb1cd3986b1d05e7861a0f62f87db74b": {
+    "decimals": 18,
+    "name": "Vision",
+    "symbol": "VSN"
+  },
+  "0x73db621cc8f0a767bed0e5c0a2920f480d77b765": {
+    "decimals": 18,
+    "name": "GTA",
+    "symbol": "GTA"
+  },
+  "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": {
+    "decimals": 18,
+    "name": "Wrapped Ether",
+    "symbol": "WETH"
+  },
+  "0x912ce59144191c1204e64559fe8253a0e49e6548": {
+    "decimals": 18,
+    "name": "Arbitrum",
+    "symbol": "ARB"
+  },
+  "0xa78d8321b20c4ef90ecd72f2588aa985a4bdb684": {
+    "decimals": 18,
+    "name": "Autonomi",
+    "symbol": "ANT"
+  },
+  "0xaf88d065e77c8cc2239327c5edb3a432268e5831": {
+    "decimals": 6,
+    "name": "USD Coin",
+    "symbol": "USDC"
+  },
+  "0xba0dda8762c24da9487f5fa026a9b64b695a07ea": {
+    "decimals": 18,
+    "name": "OX Coin",
+    "symbol": "OX"
+  },
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+    "decimals": 8,
+    "name": "Coinbase Wrapped BTC",
+    "symbol": "cbBTC"
+  },
+  "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1": {
+    "decimals": 18,
+    "name": "Dai Stablecoin",
+    "symbol": "DAI"
+  },
+  "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": {
+    "decimals": 6,
+    "name": "USD₮0",
+    "symbol": "USD₮0"
+  }
+}

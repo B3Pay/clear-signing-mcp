@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+    "functions": 5,
+    "name": "EnsoRouter",
+    "source": "sourcify"
+  },
+  "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 3313,
+  "fetchedAt": "2026-11-06T21:09:54.893Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"35b835364159556c59bda173ed7770a0\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "EnsoRouter",
+    "status": "verified"
+  }
+}

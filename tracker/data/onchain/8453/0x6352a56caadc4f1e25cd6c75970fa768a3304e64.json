@@ -1,0 +1,34 @@
+{
+  "abi": {
+    "address": "0x201263Cea08e8F1D6E2fdd1FD2cA44bf6145e2AF",
+    "functions": 19,
+    "name": "OpenOceanExchange",
+    "source": "sourcify"
+  },
+  "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 2161,
+  "fetchedAt": "2026-11-06T21:06:34.628Z",
+  "format": 2,
+  "sample": {
+    "error": "the portal returned base-mainnet blocks 52068144..53498884 in more than 500 parts"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "OpenOceanExchangeProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x201263Cea08e8F1D6E2fdd1FD2cA44bf6145e2AF",
+          "name": "OpenOceanExchange"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

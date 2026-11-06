@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0xdc181Bd607330aeeBEF6ea62e03e5e1Fb4B6F7C7",
+    "functions": 44,
+    "name": "StargatePoolNative",
+    "source": "sourcify"
+  },
+  "address": "0xdc181Bd607330aeeBEF6ea62e03e5e1Fb4B6F7C7",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xdc181Bd607330aeeBEF6ea62e03e5e1Fb4B6F7C7",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 22628,
+  "fetchedAt": "2026-11-06T21:46:58.789Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"8befdc9aca8a8a2aaee0cb766b99d261\"}}"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "StargatePoolNative",
+    "status": "verified"
+  }
+}
