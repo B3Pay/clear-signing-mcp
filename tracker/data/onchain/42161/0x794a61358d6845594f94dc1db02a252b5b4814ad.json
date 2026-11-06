@@ -1,0 +1,33 @@
+{
+  "abi": {
+    "address": "0xF05Fd3cC911b4c5E36e53c00354F645E22922C9A",
+    "functions": 83,
+    "name": "L2PoolInstance",
+    "source": "sourcify"
+  },
+  "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2400,
+  "fetchedAt": "2026-11-06T19:45:09.454Z",
+  "sample": {
+    "error": "HTTP 403 from https://arbitrum.blockscout.com/api?module=account&action=txlist&address=0x794a61358D6845594F94dc1DB02A252b5b4814aD&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "InitializableImmutableAdminUpgradeabilityProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xF05Fd3cC911b4c5E36e53c00354F645E22922C9A",
+          "name": "L2PoolInstance"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}
