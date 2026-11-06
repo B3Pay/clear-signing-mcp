@@ -1,3 +1,4 @@
+import type { RegistryIndex } from "@ethereum-sourcify/clear-signing"
 import type { Abi, Address, Hex } from "viem"
 
 /**
@@ -43,6 +44,15 @@ export interface DraftChain {
   }
 }
 
+/**
+ * A local clone of the ERC-7730 registry, read and never written: an index
+ * of its descriptors, and the folder the index's paths are relative to.
+ */
+export interface DraftRegistry {
+  readonly index: RegistryIndex
+  readonly descriptorDirectory: string
+}
+
 export interface DraftInput {
   readonly chainId: number
   readonly address: string
@@ -70,6 +80,13 @@ export interface DraftInput {
    * render raw without them.
    */
   readonly chains?: Readonly<Record<string, DraftChain>>
+  /**
+   * The registry the tests render against. A call that a `calldata` field
+   * carries then renders through the registry's descriptor for the contract
+   * it calls, as the registry's test runner renders it; without one, the
+   * tests index this draft alone, and such a call renders as raw bytes.
+   */
+  readonly registry?: DraftRegistry
 }
 
 export type FieldFormat =

@@ -97,9 +97,18 @@ export async function draftDescriptor(input: DraftInput): Promise<DraftResult> {
     chains: input.chains ?? {},
     review,
   }
+  const carriesCalls = [...formats.values()].some((f) =>
+    f.fields.some((field) => field.format === "calldata")
+  )
+  if (carriesCalls && !input.registry)
+    review.push(
+      "The tests index this draft alone, since no registry was given: a call that a calldata field carries is expected as raw bytes, which the registry's test runner fails when the registry describes the contract it calls."
+    )
+
   const cases = await withDraftResolver(
     fileName,
     deployments,
+    input.registry,
     async (render) => {
       const chosen = await chooseSamples(
         context,

@@ -1,7 +1,8 @@
 import { execFileSync } from "node:child_process"
-import { existsSync, readFileSync } from "node:fs"
-import { join } from "node:path"
+import { existsSync, readFileSync, readdirSync, type Dirent } from "node:fs"
+import { dirname, join, resolve } from "node:path"
 import {
+  mergeDescriptors,
   resolveCalldataDescriptor,
   type ChainClient,
   type Descriptor,
@@ -13,6 +14,7 @@ import {
   DEFAULT_ATTESTERS,
   type AttestationReport,
 } from "../src/attestation.js"
+import type { DraftRegistry } from "../src/draft/index.js"
 import {
   caip10,
   parseCalldataIndex,
@@ -60,6 +62,88 @@ export function loadRegistrySnapshot(dir: string): RegistrySnapshot {
       typedDataIndex: typed.index,
     },
   }
+}
+
+/**
+ * A clone as the draft engine reads it, so that a draft's tests render a
+ * call a `calldata` field carries as check-drafts' test runner renders it:
+ * with the calldata index the runner builds from the clone's files
+ * (src/descriptor-index.ts at validate.ts's TEST_RUNNER.commit). Every
+ * calldata-* and eip712-* file under registry/ and ercs/, outside tests/,
+ * testsv2/ and dot folders, is read with its includes merged, and the first
+ * in name order to list a contract deployment gets it; a file that cannot be
+ * read is left out. Typed data is not indexed, since a calldata field
+ * carries a contract call. index.calldata.json is not read: a workflow
+ * rewrites it after descriptors change, so it can lag them.
+ */
+export function draftRegistry(dir: string): DraftRegistry {
+  const root = resolve(dir)
+  if (!existsSync(join(root, "registry")))
+    throw new Error(
+      `${root} is not a clone of the ERC-7730 registry: it has no registry folder.`
+    )
+  const calldataIndex: Record<string, string> = {}
+  for (const path of descriptorPaths(root)) {
+    let descriptor: Descriptor
+    try {
+      descriptor = withIncludes(join(root, path), new Set())
+    } catch {
+      continue
+    }
+    for (const d of descriptor.context?.contract?.deployments ?? [])
+      if (d.chainId != null && d.address)
+        calldataIndex[`eip155:${d.chainId}:${d.address.toLowerCase()}`] ??= path
+  }
+  return {
+    index: { calldataIndex, typedDataIndex: {} },
+    descriptorDirectory: root,
+  }
+}
+
+/** The descriptor files the runner indexes, relative to the clone, in its order. */
+function descriptorPaths(root: string): string[] {
+  const out: string[] = []
+  const walk = (rel: string) => {
+    let entries: Dirent[]
+    try {
+      entries = readdirSync(join(root, rel), { withFileTypes: true })
+    } catch {
+      return
+    }
+    entries.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+    for (const entry of entries) {
+      const path = `${rel}/${entry.name}`
+      if (entry.isDirectory()) {
+        if (
+          entry.name !== "tests" &&
+          entry.name !== "testsv2" &&
+          !entry.name.startsWith(".")
+        )
+          walk(path)
+      } else if (
+        entry.isFile() &&
+        /^(calldata|eip712)-/.test(entry.name) &&
+        entry.name.endsWith(".json") &&
+        !entry.name.endsWith(".tests.json")
+      )
+        out.push(path)
+    }
+  }
+  walk("registry")
+  walk("ercs")
+  return out
+}
+
+/** A descriptor with what it includes merged in, as the runner merges it. */
+function withIncludes(file: string, seen: Set<string>): Descriptor {
+  if (seen.has(file)) throw new Error(`${file} includes itself`)
+  seen.add(file)
+  const descriptor = JSON.parse(readFileSync(file, "utf8")) as Descriptor
+  if (typeof descriptor.includes !== "string") return descriptor
+  return mergeDescriptors(
+    descriptor,
+    withIncludes(resolve(dirname(file), descriptor.includes), seen)
+  )
 }
 
 export interface DescriptorFacts {

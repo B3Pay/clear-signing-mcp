@@ -128,8 +128,9 @@ call. Nothing is submitted to the registry and no protocol is contacted
 from here.
 
 ```sh
-node tracker/dist/tracker/cli.js draft-top --limit 25    # from coverage.json
-node tracker/dist/tracker/cli.js draft --chain <id> --address <0x...> --owner <name>
+node tracker/dist/tracker/cli.js draft-top --limit 25 --registry <clone>  # from coverage.json
+node tracker/dist/tracker/cli.js draft --chain <id> --address <0x...> --owner <name> \
+  --registry <clone>
 node tracker/dist/tracker/cli.js check-drafts --registry <clone> \
   --runner <clear-signing-test-runner> --python <venv>/bin/python
 ```
@@ -146,6 +147,16 @@ node tracker/dist/tracker/cli.js check-drafts --registry <clone> \
   unsigned, the expected text rendered by `@ethereum-sourcify/clear-signing`)
   and a review note listing what a person must check. The engine
   (`draftDescriptor` in `src/draft/`) is deterministic: no network, no model.
+- With `--registry <clone>` (else `REGISTRY_DIR`), `draft` and `draft-top`
+  render the tests against the clone `check-drafts` uses: a call that a
+  `calldata` field carries, such as a multicall's inner call, is expected
+  as the registry's descriptor for the contract it calls renders it, which
+  is how the test runner renders it. The clone is indexed from its
+  descriptor files, as the runner indexes them, rather than from
+  `index.calldata.json`, which can lag them; it is read, never written or
+  fetched. Without it, the tests index the draft alone: such a call is
+  expected as raw bytes, the review note says so, and `check-drafts` fails
+  that test when the registry describes the contract it calls.
 - `check-drafts` checks each draft the way the registry's CI does: the v2
   schema, the registry's pinned `erc7730` linter (`lint_descriptor.py`, with
   the ABI read from `data/` rather than fetched), and the Sourcify test

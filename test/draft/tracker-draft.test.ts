@@ -1,15 +1,37 @@
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs"
+import {
+  copyFileSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
+import { fileURLToPath } from "node:url"
 import { afterEach, describe, expect, it } from "vitest"
-import { parseAbi, toFunctionSelector } from "viem"
+import {
+  encodeFunctionData,
+  parseAbi,
+  parseAbiItem,
+  toFunctionSelector,
+} from "viem"
 import {
   chooseSelectors,
+  draftContract,
   MAX_SELECTORS,
   sha256File,
   writeSummary,
 } from "../../tracker/draft.js"
-import type { OnchainRecord, SamplesFile } from "../../tracker/data.js"
+import {
+  dataPaths,
+  writeJson,
+  type OnchainRecord,
+  type SampleTx,
+  type SamplesFile,
+} from "../../tracker/data.js"
+import type { DraftTests } from "../../src/draft/index.js"
+import { draftRegistry } from "../../tracker/registry.js"
 import { readDraftSummaries } from "../../tracker/report.js"
 
 const ABI = parseAbi([
@@ -225,5 +247,125 @@ describe("writeSummary", () => {
     const changed = writeDraft({ passed: true, lint: "pass" })
     writeFileSync(changed.descriptor, "{}")
     expect(writeSummary(changed.dir)).toEqual({})
+  })
+})
+
+describe("draftContract with a registry clone", () => {
+  let dir: string | undefined
+  afterEach(() => {
+    if (dir) rmSync(dir, { recursive: true, force: true })
+    dir = undefined
+  })
+
+  // A contract that makes the calls it is given, here one to Disperse on
+  // Ethereum, which the clone describes (test/fixtures/registry).
+  const EXECUTOR = "0x000000000000000000000000000000000000e7ec"
+  const DISPERSE = "0xD152f549545093347A162Dce210e7293f1452150"
+  const USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+  const execute = parseAbiItem(
+    "function execute((address target, uint256 value, bytes callData)[] calls) payable"
+  )
+  const callData = encodeFunctionData({
+    abi: [
+      parseAbiItem(
+        "function disperseToken(address token, address[] recipients, uint256[] values)"
+      ),
+    ],
+    functionName: "disperseToken",
+    args: [USDC, ["0x00000000000000000000000000000000000000b1"], [1_500_000n]],
+  })
+  const sample = {
+    hash: `0x${"ab".repeat(32)}`,
+    chainId: 1,
+    blockNumber: 1,
+    timestamp: 1,
+    from: "0x00000000000000000000000000000000000000a1",
+    to: EXECUTOR,
+    value: "0",
+    input: encodeFunctionData({
+      abi: [execute],
+      functionName: "execute",
+      args: [[{ target: DISPERSE, value: 0n, callData }]],
+    }),
+    nonce: 7,
+    gas: "500000",
+    type: "eip1559",
+    maxFeePerGas: "2000000000",
+    maxPriorityFeePerGas: "1000000",
+    status: "success",
+  } satisfies SampleTx
+
+  it("renders a call a calldata field carries through the clone's descriptor", async () => {
+    dir = mkdtempSync(join(tmpdir(), "draft-contract-"))
+    const clone = join(dir, "clone")
+    mkdirSync(join(clone, "registry", "disperse"), { recursive: true })
+    copyFileSync(
+      fileURLToPath(
+        new URL(
+          "../fixtures/registry/disperse/calldata-Disperse.json",
+          import.meta.url
+        )
+      ),
+      join(clone, "registry", "disperse", "calldata-Disperse.json")
+    )
+    const trackerDir = join(dir, "tracker")
+    mkdirSync(join(trackerDir, "contracts"), { recursive: true })
+    const paths = dataPaths(join(trackerDir, "data"))
+    writeJson(paths.abi(1, EXECUTOR), {
+      source: "sourcify",
+      address: EXECUTOR,
+      name: "Executor",
+      abi: [execute],
+    })
+    writeJson(paths.samples(1, EXECUTOR), {
+      chainId: 1,
+      address: EXECUTOR,
+      txs: [sample],
+    })
+    writeJson(paths.onchain(1, EXECUTOR), {})
+    writeJson(paths.tokens(1), {
+      [USDC.toLowerCase()]: { name: "USD Coin", symbol: "USDC", decimals: 6 },
+    })
+    const chainsFile = join(dir, "chains_mini.json")
+    writeFileSync(
+      chainsFile,
+      JSON.stringify([
+        {
+          chainId: 1,
+          name: "Ethereum Mainnet",
+          nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+        },
+      ])
+    )
+
+    const outcome = await draftContract({
+      trackerDir,
+      chainId: 1,
+      address: EXECUTOR,
+      protocol: "example",
+      owner: "Example",
+      selectors: [toFunctionSelector(execute)],
+      chainsFile,
+      registry: draftRegistry(clone),
+    })
+    const tests = JSON.parse(
+      readFileSync(outcome.testsPath, "utf8")
+    ) as DraftTests
+    const action = tests.tests[0]?.expected.fields.find(
+      (f) => f.label === "Action"
+    )
+    expect(action?.value).toEqual({
+      intent: "Send tokens to many",
+      interpolatedIntent: "Send USDC to many",
+      owner: "Disperse",
+      fields: [
+        { label: "Token", value: "USDC" },
+        { label: "To", value: "0x00000000000000000000000000000000000000B1" },
+        { label: "Amount", value: "1.5 USDC" },
+      ],
+    })
+    expect(readFileSync(outcome.reviewPath, "utf8")).not.toContain(
+      "index this draft alone"
+    )
   })
 })

@@ -126,9 +126,12 @@ named, deadlines as dates and a payable function's value as a native amount,
 plus an intent and a sentence where one can be filled in. Each function with
 a sample transaction gets a test in the registry's `testsv2` form: the
 transaction rebuilt unsigned, its expected text rendered by
-`@ethereum-sourcify/clear-signing`. It is deterministic (no network, no
-model), and `review` lists what a person must check before anything is
-submitted. A draft is not a reviewed descriptor and never an attested one.
+`@ethereum-sourcify/clear-signing`. Given `registry`, a local clone's index
+and folder, a call that a `calldata` field carries is expected as the
+registry's descriptor for the contract it calls renders it. It is
+deterministic (no network, no model), and `review` lists what a person must
+check before anything is submitted. A draft is not a reviewed descriptor and
+never an attested one.
 
 ## Coverage tracker
 

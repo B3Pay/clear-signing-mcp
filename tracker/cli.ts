@@ -4,11 +4,12 @@ import { dirname, join, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import { parseArgs } from "node:util"
 import { ChainAccess } from "../src/chains.js"
+import type { DraftRegistry } from "../src/draft/index.js"
 import { dataPaths, stableJson } from "./data.js"
 import { diagnose } from "./diag.js"
 import { draftContract, draftTop } from "./draft.js"
 import { fetchAll, fetchDefiLlama } from "./fetch.js"
-import { loadRegistrySnapshot } from "./registry.js"
+import { draftRegistry, loadRegistrySnapshot } from "./registry.js"
 import { buildReport, readDraftSummaries } from "./report.js"
 import { loadUniverse } from "./universe.js"
 import { validateDrafts } from "./validate.js"
@@ -166,7 +167,7 @@ const commands: Readonly<Record<string, Command>> = {
 
   draft: {
     usage:
-      'draft --chain <id> --address 0x… --owner "<name>" [--protocol <id>] [--url https://…] [--legal-name <name>] [--name <contract>] [--selectors 0x…,0x…] [--chains chains_mini.json]',
+      'draft --chain <id> --address 0x… --owner "<name>" [--protocol <id>] [--url https://…] [--legal-name <name>] [--name <contract>] [--selectors 0x…,0x…] [--chains chains_mini.json] [--registry <clone of the registry>]',
     run: async (args) => {
       const { values } = parseArgs({
         args,
@@ -180,6 +181,7 @@ const commands: Readonly<Record<string, Command>> = {
           name: { type: "string" },
           selectors: { type: "string" },
           chains: { type: "string" },
+          registry: { type: "string" },
         },
       })
       const chainId = Number(values.chain)
@@ -187,6 +189,7 @@ const commands: Readonly<Record<string, Command>> = {
         console.error("draft needs --chain, --address and --owner")
         return 2
       }
+      const registry = registryForDrafts(values.registry)
       await draftContract({
         trackerDir,
         chainId,
@@ -200,6 +203,7 @@ const commands: Readonly<Record<string, Command>> = {
           ? { selectors: values.selectors.split(",").map((s) => s.trim()) }
           : {}),
         ...(values.chains ? { chainsFile: values.chains } : {}),
+        ...(registry ? { registry } : {}),
         log: (line) => console.log(line),
       })
       return 0
@@ -208,7 +212,7 @@ const commands: Readonly<Record<string, Command>> = {
 
   "draft-top": {
     usage:
-      "draft-top [--limit N] [--protocols p1,p2] [--chains chains_mini.json]",
+      "draft-top [--limit N] [--protocols p1,p2] [--chains chains_mini.json] [--registry <clone of the registry>]",
     run: async (args) => {
       const { values } = parseArgs({
         args,
@@ -216,8 +220,10 @@ const commands: Readonly<Record<string, Command>> = {
           limit: { type: "string", default: "25" },
           protocols: { type: "string" },
           chains: { type: "string" },
+          registry: { type: "string" },
         },
       })
+      const registry = registryForDrafts(values.registry)
       const { drafted, failed } = await draftTop({
         trackerDir,
         limit: Number(values.limit),
@@ -225,6 +231,7 @@ const commands: Readonly<Record<string, Command>> = {
           ? { protocols: values.protocols.split(",").map((s) => s.trim()) }
           : {}),
         ...(values.chains ? { chainsFile: values.chains } : {}),
+        ...(registry ? { registry } : {}),
         log: (line) => console.log(line),
       })
       console.log(`drafted ${drafted.length}, failed ${failed.length}`)
@@ -267,6 +274,22 @@ const commands: Readonly<Record<string, Command>> = {
       return results.every((r) => r.validation.passed) ? 0 : 1
     },
   },
+}
+
+/**
+ * The registry a draft's tests render against, read as check-drafts reads
+ * it: --registry, else REGISTRY_DIR; none when neither is given.
+ */
+function registryForDrafts(
+  flag: string | undefined
+): DraftRegistry | undefined {
+  const dir = flag ?? process.env.REGISTRY_DIR
+  if (!dir) return undefined
+  const registry = draftRegistry(dir)
+  console.log(
+    `registry ${registry.descriptorDirectory}: ${Object.keys(registry.index.calldataIndex).length} deployments`
+  )
+  return registry
 }
 
 function usage(): string {

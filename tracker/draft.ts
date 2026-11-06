@@ -18,6 +18,7 @@ import {
 import {
   draftDescriptor,
   type DraftChain,
+  type DraftRegistry,
   type DraftResult,
   type RenderedDisplay,
 } from "../src/draft/index.js"
@@ -76,6 +77,12 @@ export interface DraftOptions {
     readonly chainId: number
     readonly address: string
   }[]
+  /**
+   * A registry clone (registry.ts's draftRegistry): a call a `calldata`
+   * field carries then renders through the clone's descriptor for the
+   * contract it calls, as check-drafts' test runner renders it.
+   */
+  readonly registry?: DraftRegistry
   readonly log?: (line: string) => void
 }
 
@@ -182,6 +189,7 @@ export async function draftContract(
     samples: samplesFile.txs,
     tokens,
     chains: chainList.chains,
+    ...(options.registry ? { registry: options.registry } : {}),
   })
 
   const dir = join(options.trackerDir, "drafts", protocol)
@@ -603,6 +611,8 @@ export interface DraftTopOptions {
   /** Only drafts for these protocols. */
   readonly protocols?: readonly string[]
   readonly chainsFile?: string
+  /** A registry clone for every draft (see DraftOptions). */
+  readonly registry?: DraftRegistry
   readonly log?: (line: string) => void
 }
 
@@ -716,6 +726,7 @@ export async function draftTop(
           owner: candidate.owner,
           extraDeployments: candidate.others,
           ...(options.chainsFile ? { chainsFile: options.chainsFile } : {}),
+          ...(options.registry ? { registry: options.registry } : {}),
           log,
         })
       )

@@ -4,6 +4,7 @@ import { join } from "node:path"
 import {
   format,
   isFieldGroup,
+  type DescriptorResolver,
   type DisplayField,
   type DisplayFieldGroup,
   type DisplayModel,
@@ -15,6 +16,7 @@ import { createFilesystemResolver } from "@ethereum-sourcify/clear-signing/files
 import type {
   DraftChain,
   DraftDescriptor,
+  DraftRegistry,
   RenderedDisplay,
   RenderedField,
 } from "./types.js"
@@ -32,32 +34,58 @@ export type Render = (
   provider: ExternalDataProvider
 ) => Promise<DisplayModel>
 
-/** Runs `work` with a resolver over a temporary directory that holds the draft, then removes it. */
+/**
+ * Runs `work` with a resolver over a temporary directory that holds the
+ * draft, then removes it. The draft answers for its own deployments; with a
+ * registry, every other deployment is read from it, as the test runner reads
+ * the descriptor of a contract that a `calldata` field calls.
+ */
 export async function withDraftResolver<T>(
   fileName: string,
   deployments: readonly {
     readonly chainId: number
     readonly address: string
   }[],
+  registry: DraftRegistry | undefined,
   work: (render: Render) => Promise<T>
 ): Promise<T> {
   const root = mkdtempSync(join(tmpdir(), "erc7730-draft-"))
   try {
-    const relative = `registry/draft/${fileName}`
-    mkdirSync(join(root, "registry", "draft"), { recursive: true })
+    // Outside registry/ and ercs/, where a registry's index points.
+    const relative = `draft/${fileName}`
+    mkdirSync(join(root, "draft"), { recursive: true })
     const index: RegistryIndex = {
-      calldataIndex: Object.fromEntries(
-        deployments.map((d) => [
-          `eip155:${d.chainId}:${d.address.toLowerCase()}`,
-          relative,
-        ])
-      ),
-      typedDataIndex: {},
+      calldataIndex: {
+        ...registry?.index.calldataIndex,
+        ...Object.fromEntries(
+          deployments.map((d) => [
+            `eip155:${d.chainId}:${d.address.toLowerCase()}`,
+            relative,
+          ])
+        ),
+      },
+      typedDataIndex: registry?.index.typedDataIndex ?? {},
     }
-    const resolver = createFilesystemResolver({
+    const draft = createFilesystemResolver({
       index,
       descriptorDirectory: root,
     })
+    const clone =
+      registry &&
+      createFilesystemResolver({
+        index,
+        descriptorDirectory: registry.descriptorDirectory,
+      })
+    const resolver: DescriptorResolver = clone
+      ? {
+          index,
+          // A registry descriptor, and each file it includes, from the clone.
+          fetchDescriptor: (path) =>
+            path === relative
+              ? draft.fetchDescriptor(path)
+              : clone.fetchDescriptor(path),
+        }
+      : draft
     const render: Render = (descriptor, tx, provider) => {
       // Written before every render: a format can change between two renders.
       writeFileSync(join(root, relative), JSON.stringify(descriptor))

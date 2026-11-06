@@ -76,6 +76,7 @@ export {
   type DraftSample,
   type DraftToken,
   type DraftChain,
+  type DraftRegistry,
   type DraftDescriptor,
   type DraftTests,
   type DraftTestCase,

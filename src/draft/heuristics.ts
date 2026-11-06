@@ -314,7 +314,7 @@ export function draftFormat(
             order: c.order,
           })
           note(
-            `${leaf.path} is a call to ${callee.calleePath}: a wallet shows it through that contract's descriptor, and the draft's tests index this draft alone.`
+            `${leaf.path} is a call to ${callee.calleePath}: a wallet shows it through that contract's descriptor.`
           )
         } else {
           planned.push({

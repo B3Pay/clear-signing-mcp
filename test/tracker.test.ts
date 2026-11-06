@@ -1,6 +1,6 @@
 import { copyFileSync, mkdirSync, mkdtempSync, writeFileSync } from "node:fs"
 import { tmpdir } from "node:os"
-import { join } from "node:path"
+import { dirname, join } from "node:path"
 import { afterEach, describe, expect, it, vi } from "vitest"
 import {
   encodeFunctionData,
@@ -16,10 +16,11 @@ import {
   type ListedTx,
 } from "../tracker/fetch.js"
 import { choosePreview, draftCandidates } from "../tracker/draft.js"
-import type {
-  DescribedFunctions,
-  DescriptorFacts,
-  RegistrySnapshot,
+import {
+  draftRegistry,
+  type DescribedFunctions,
+  type DescriptorFacts,
+  type RegistrySnapshot,
 } from "../tracker/registry.js"
 import {
   bestElsewhere,
@@ -996,5 +997,64 @@ describe("the report's descriptor elsewhere", () => {
       elsewhere: null,
     })
     expect(at(8453, DISPERSE)).toMatchObject({ sample: null, elsewhere: null })
+  })
+})
+
+describe("draftRegistry", () => {
+  // A clone laid out as the registry is, with what the test runner indexes
+  // and what it leaves out.
+  const root = mkdtempSync(join(tmpdir(), "tracker-registry-"))
+  const [A, B, C, D, E] = ["a", "b", "c", "d", "e"].map(
+    (n) => `0x${n.repeat(40)}`
+  ) as [string, string, string, string, string]
+  const write = (path: string, value: unknown) => {
+    mkdirSync(dirname(join(root, path)), { recursive: true })
+    writeFileSync(
+      join(root, path),
+      typeof value === "string" ? value : JSON.stringify(value)
+    )
+  }
+  const claims = (...addresses: string[]) => ({
+    context: {
+      contract: {
+        deployments: addresses.map((address) => ({ chainId: 1, address })),
+      },
+    },
+  })
+  write("registry/a/calldata-A.json", claims(getAddress(A)))
+  // The first file in name order that lists a deployment gets it.
+  write("registry/c/calldata-C.json", claims(A, C))
+  // Deployments that come with what a file includes.
+  write("registry/b/calldata-B.json", { includes: "common-B.json" })
+  write("registry/b/common-B.json", claims(B))
+  write("ercs/calldata-erc20.json", claims(E))
+  // Not indexed: tests, dot folders, unreadable files, an includes cycle.
+  write("registry/a/testsv2/calldata-A.tests.json", claims(D))
+  write("registry/a/tests/calldata-T.json", claims(D))
+  write("registry/.draft/calldata-H.json", claims(D))
+  write("registry/d/calldata-D.json", "{ not json")
+  write("registry/d/calldata-Loop.json", {
+    includes: "calldata-Loop.json",
+    ...claims(D),
+  })
+
+  it("indexes the clone's descriptors as the test runner does", () => {
+    const registry = draftRegistry(root)
+    expect(registry.descriptorDirectory).toBe(root)
+    expect(registry.index).toEqual({
+      calldataIndex: {
+        [`eip155:1:${A}`]: "registry/a/calldata-A.json",
+        [`eip155:1:${B}`]: "registry/b/calldata-B.json",
+        [`eip155:1:${C}`]: "registry/c/calldata-C.json",
+        [`eip155:1:${E}`]: "ercs/calldata-erc20.json",
+      },
+      typedDataIndex: {},
+    })
+  })
+
+  it("refuses a folder that is not a clone of the registry", () => {
+    expect(() => draftRegistry(join(root, "ercs"))).toThrow(
+      "is not a clone of the ERC-7730 registry"
+    )
   })
 })

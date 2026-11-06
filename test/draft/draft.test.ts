@@ -25,7 +25,9 @@ import { createFilesystemResolver } from "@ethereum-sourcify/clear-signing/files
 import {
   draftDescriptor,
   type DraftChain,
+  type DraftDescriptor,
   type DraftInput,
+  type DraftRegistry,
   type DraftResult,
   type DraftSample,
   type DraftToken,
@@ -282,21 +284,26 @@ function sampleOf(chainId: number, to: string, input: `0x${string}`) {
 
 /**
  * Each test of a draft's tests file, rendered as the registry's test runner
- * renders it: the draft in a registry checkout, every deployment indexed,
- * tokens from the tests file alone.
+ * renders it: the draft in a registry checkout with `registry` (descriptors
+ * by path), every deployment indexed, tokens from the tests file alone.
  */
 async function asRunner(
   result: DraftResult,
-  chains: Readonly<Record<string, DraftChain>>
+  chains: Readonly<Record<string, DraftChain>>,
+  registry: Readonly<Record<string, DraftDescriptor>> = {}
 ): Promise<DisplayModel[]> {
   const root = mkdtempSync(join(tmpdir(), "draft-runner-"))
   try {
-    const path = `registry/draft/${result.fileName}`
-    mkdirSync(dirname(join(root, path)), { recursive: true })
-    writeFileSync(join(root, path), JSON.stringify(result.descriptor))
     const calldataIndex: Record<string, string> = {}
-    for (const d of result.descriptor.context.contract.deployments)
-      calldataIndex[`eip155:${d.chainId}:${d.address.toLowerCase()}`] = path
+    for (const [path, descriptor] of Object.entries({
+      [`registry/draft/${result.fileName}`]: result.descriptor,
+      ...registry,
+    })) {
+      mkdirSync(dirname(join(root, path)), { recursive: true })
+      writeFileSync(join(root, path), JSON.stringify(descriptor))
+      for (const d of descriptor.context.contract.deployments)
+        calldataIndex[`eip155:${d.chainId}:${d.address.toLowerCase()}`] ??= path
+    }
     const resolver = createFilesystemResolver({
       index: { calldataIndex, typedDataIndex: {} },
       descriptorDirectory: root,
@@ -390,6 +397,125 @@ describe("draftDescriptor: an array inside an array of structs", () => {
     expect(model && toRendered(model)).toEqual(result.tests.tests[0]?.expected)
     expect(result.tests.tests[0]?.expected.interpolatedIntent).toBe(
       "Swap 0 ETH for at least 0.0003 WETH"
+    )
+  })
+})
+
+describe("draftDescriptor: a call that a calldata field carries", () => {
+  // A contract that makes the calls it is given, here one to Disperse on
+  // Ethereum, which the registry describes (test/fixtures/registry).
+  const EXECUTOR = "0x000000000000000000000000000000000000e7ec"
+  const DISPERSE = "0xD152f549545093347A162Dce210e7293f1452150"
+  const DISPERSE_PATH = "registry/disperse/calldata-Disperse.json"
+  const USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+  const MAINNET: Record<string, DraftChain> = {
+    "1": {
+      name: "Ethereum Mainnet",
+      nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+    },
+  }
+  const disperse = JSON.parse(
+    readFileSync(
+      new URL(
+        "../fixtures/registry/disperse/calldata-Disperse.json",
+        import.meta.url
+      ),
+      "utf8"
+    )
+  ) as DraftDescriptor
+  const execute = parseAbiItem(
+    "function execute((address target, uint256 value, bytes callData)[] calls) payable"
+  ) as AbiFunction
+  const callData = encodeFunctionData({
+    abi: [
+      parseAbiItem(
+        "function disperseToken(address token, address[] recipients, uint256[] values)"
+      ),
+    ],
+    functionName: "disperseToken",
+    args: [
+      USDC,
+      [
+        "0x00000000000000000000000000000000000000b1",
+        "0x00000000000000000000000000000000000000b2",
+      ],
+      [1_500_000n, 2_000_000n],
+    ],
+  })
+  const input = encodeFunctionData({
+    abi: [execute],
+    functionName: "execute",
+    args: [[{ target: DISPERSE, value: 0n, callData }]],
+  })
+
+  let root: string
+  let registry: DraftRegistry
+  beforeAll(() => {
+    // A registry clone of one descriptor; the draft engine only reads it.
+    root = mkdtempSync(join(tmpdir(), "draft-registry-"))
+    mkdirSync(join(root, "registry", "disperse"), { recursive: true })
+    writeFileSync(join(root, DISPERSE_PATH), JSON.stringify(disperse))
+    registry = {
+      index: {
+        calldataIndex: {
+          [`eip155:1:${DISPERSE.toLowerCase()}`]: DISPERSE_PATH,
+        },
+        typedDataIndex: {},
+      },
+      descriptorDirectory: root,
+    }
+  })
+  afterAll(() => rmSync(root, { recursive: true, force: true }))
+
+  const draft = (more: Partial<DraftInput> = {}) =>
+    draftDescriptor({
+      chainId: 1,
+      address: EXECUTOR,
+      abi: [execute],
+      contractName: "Executor",
+      owner: "Example",
+      selectors: [toFunctionSelector(execute)],
+      samples: [sampleOf(1, EXECUTOR, input)],
+      tokens: {
+        [USDC.toLowerCase()]: { name: "USD Coin", symbol: "USDC", decimals: 6 },
+      },
+      chains: MAINNET,
+      ...more,
+    })
+  const action = (result: DraftResult) =>
+    result.tests.tests[0]?.expected.fields.find((f) => f.label === "Action")
+      ?.value
+
+  it("expects the call as the registry's descriptor for it renders it, as the runner does", async () => {
+    const result = await draft({ registry })
+    expect(action(result)).toEqual({
+      intent: "Send tokens to many",
+      interpolatedIntent: "Send USDC to many",
+      owner: "Disperse",
+      fields: [
+        { label: "Token", value: "USDC" },
+        { label: "To", value: "0x00000000000000000000000000000000000000B1" },
+        { label: "Amount", value: "1.5 USDC" },
+        { label: "To", value: "0x00000000000000000000000000000000000000b2" },
+        { label: "Amount", value: "2 USDC" },
+      ],
+    })
+    expect(Object.keys(result.tests.dataProvider?.tokens ?? {})).toEqual([
+      USDC.toLowerCase(),
+    ])
+    expect(result.review.join("\n")).not.toContain("index this draft alone")
+    const [model] = await asRunner(result, MAINNET, {
+      [DISPERSE_PATH]: disperse,
+    })
+    expect(model?.warnings ?? []).toEqual([])
+    expect(model && toRendered(model)).toEqual(result.tests.tests[0]?.expected)
+  })
+
+  it("expects raw bytes without a registry, and says so", async () => {
+    const result = await draft()
+    expect(action(result)).toBe(callData)
+    expect(result.review.join("\n")).toContain(
+      "The tests index this draft alone, since no registry was given"
     )
   })
 })
