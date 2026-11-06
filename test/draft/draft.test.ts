@@ -6,11 +6,19 @@ import {
   writeFileSync,
 } from "node:fs"
 import { tmpdir } from "node:os"
-import { join } from "node:path"
+import { dirname, join } from "node:path"
 import { afterAll, beforeAll, describe, expect, it } from "vitest"
-import { parseTransaction, type Abi } from "viem"
+import {
+  encodeFunctionData,
+  parseAbiItem,
+  parseTransaction,
+  toFunctionSelector,
+  type Abi,
+  type AbiFunction,
+} from "viem"
 import {
   format,
+  type DisplayModel,
   type ExternalDataProvider,
 } from "@ethereum-sourcify/clear-signing"
 import { createFilesystemResolver } from "@ethereum-sourcify/clear-signing/filesystem"
@@ -245,5 +253,143 @@ describe("the draft under @ethereum-sourcify/clear-signing", () => {
       expect(model.warnings ?? []).toEqual([])
       expect(toRendered(model)).toEqual(test.expected)
     }
+  })
+})
+
+const BASE: Record<string, DraftChain> = {
+  "8453": {
+    name: "Base",
+    nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+  },
+}
+
+/** A sample transaction to `to` on `chainId` with `input`, rebuildable unsigned. */
+function sampleOf(chainId: number, to: string, input: `0x${string}`) {
+  return {
+    hash: `0x${"ab".repeat(32)}`,
+    chainId,
+    to: to as `0x${string}`,
+    value: "0",
+    input,
+    nonce: 7,
+    gas: "500000",
+    type: "eip1559",
+    maxFeePerGas: "2000000000",
+    maxPriorityFeePerGas: "1000000",
+    status: "success",
+  } satisfies DraftSample
+}
+
+/**
+ * Each test of a draft's tests file, rendered as the registry's test runner
+ * renders it: the draft in a registry checkout, every deployment indexed,
+ * tokens from the tests file alone.
+ */
+async function asRunner(
+  result: DraftResult,
+  chains: Readonly<Record<string, DraftChain>>
+): Promise<DisplayModel[]> {
+  const root = mkdtempSync(join(tmpdir(), "draft-runner-"))
+  try {
+    const path = `registry/draft/${result.fileName}`
+    mkdirSync(dirname(join(root, path)), { recursive: true })
+    writeFileSync(join(root, path), JSON.stringify(result.descriptor))
+    const calldataIndex: Record<string, string> = {}
+    for (const d of result.descriptor.context.contract.deployments)
+      calldataIndex[`eip155:${d.chainId}:${d.address.toLowerCase()}`] = path
+    const resolver = createFilesystemResolver({
+      index: { calldataIndex, typedDataIndex: {} },
+      descriptorDirectory: root,
+    })
+    const tokens = result.tests.dataProvider?.tokens ?? {}
+    const provider: ExternalDataProvider = {
+      resolveToken: (_chainId, address) =>
+        Promise.resolve(tokens[address.toLowerCase()] ?? null),
+      resolveChainInfo: (chainId) =>
+        Promise.resolve(chains[String(chainId)] ?? null),
+    }
+    const models: DisplayModel[] = []
+    for (const test of result.tests.tests) {
+      const tx = parseTransaction(test.rawTx)
+      models.push(
+        await format(
+          {
+            chainId: Number(tx.chainId),
+            to: tx.to ?? "0x",
+            data: tx.data ?? "0x",
+            value: tx.value ?? 0n,
+          },
+          {
+            descriptorResolverOptions: { type: "custom", resolver },
+            externalDataProvider: provider,
+          }
+        )
+      )
+    }
+    return models
+  } finally {
+    rmSync(root, { recursive: true, force: true })
+  }
+}
+
+describe("draftDescriptor: an array inside an array of structs", () => {
+  // OKX DexRouter's dagSwapTo on Base, as the trial run drafted it.
+  const OKX = "0x67d03631FE51B741C0C00c4E16eb662AC84381df"
+  const WETH = "0x4200000000000000000000000000000000000006"
+  const USDC = "0x833589fCD6eDb6E08f4C7C32D4f71b54bdA02913"
+  const dagSwapTo = parseAbiItem(
+    "function dagSwapTo(uint256 orderId, address receiver, (uint256 fromToken, address toToken, uint256 fromTokenAmount, uint256 minReturnAmount, uint256 deadLine) baseRequest, (address[] mixAdapters, address[] assetTo, uint256[] rawData, bytes[] extraData, uint256 fromToken)[] paths) payable returns (uint256 returnAmount)"
+  ) as AbiFunction
+  const input = encodeFunctionData({
+    abi: [dagSwapTo],
+    functionName: "dagSwapTo",
+    args: [
+      1n,
+      "0x00000000000000000000000000000000000000a1",
+      {
+        fromToken: BigInt(USDC),
+        toToken: WETH,
+        fromTokenAmount: 1_000_000n,
+        minReturnAmount: 300_000_000_000_000n,
+        deadLine: 1_800_000_000n,
+      },
+      [
+        {
+          mixAdapters: ["0x00000000000000000000000000000000000000a2"],
+          assetTo: ["0x00000000000000000000000000000000000000a3"],
+          rawData: [123n],
+          extraData: ["0x1234"],
+          fromToken: BigInt(USDC),
+        },
+      ],
+    ],
+  })
+
+  it("renders every test case as the runner does, with no warning", async () => {
+    const result = await draftDescriptor({
+      chainId: 8453,
+      address: OKX,
+      abi: [dagSwapTo],
+      contractName: "DexRouter",
+      owner: "OKX",
+      selectors: [toFunctionSelector(dagSwapTo)],
+      samples: [sampleOf(8453, OKX, input)],
+      tokens: {
+        [WETH.toLowerCase()]: {
+          name: "Wrapped Ether",
+          symbol: "WETH",
+          decimals: 18,
+        },
+      },
+      chains: BASE,
+    })
+    expect(result.tests.tests).toHaveLength(1)
+    expect(result.review.join("\n")).not.toContain("test runner fails")
+    const [model] = await asRunner(result, BASE)
+    expect(model?.warnings ?? []).toEqual([])
+    expect(model && toRendered(model)).toEqual(result.tests.tests[0]?.expected)
+    expect(result.tests.tests[0]?.expected.interpolatedIntent).toBe(
+      "Swap 0 ETH for at least 0.0003 WETH"
+    )
   })
 })

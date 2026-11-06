@@ -333,6 +333,48 @@ describe("draftFormat: bridges, calls, signatures, time", () => {
     expectEveryParameter(result)
   })
 
+  it("hides an array inside an array of structs: the library expands one [] per path", () => {
+    // OKX DexRouter on Base: the library renders paths.[].mixAdapters.[] as
+    // "No value found for field 'paths.[0].mixAdapters.[]'", failing the call.
+    const result = draft(
+      "function dagSwapTo(uint256 orderId, address receiver, (uint256 fromToken, address toToken, uint256 fromTokenAmount, uint256 minReturnAmount, uint256 deadLine) baseRequest, (address[] mixAdapters, address[] assetTo, uint256[] rawData, bytes[] extraData, uint256 fromToken)[] paths) payable returns (uint256 returnAmount)"
+    )
+    for (const path of [
+      "paths.[].mixAdapters.[]",
+      "paths.[].assetTo.[]",
+      "paths.[].rawData.[]",
+      "paths.[].extraData.[]",
+    ]) {
+      expect(result.field(path).visible).toBe("never")
+      expect(result.review.join("\n")).toContain(
+        `${path} is hidden: the draft does not display an array inside an array of structs (the clear-signing library expands one [] per path)`
+      )
+    }
+    // A member of the struct is one [] deep, and shown.
+    expect(result.field("paths.[].fromToken")).toEqual({
+      path: "paths.[].fromToken",
+      label: "From token",
+      format: "raw",
+    })
+    expectEveryParameter(result)
+
+    // An array of structs inside one is hidden whole.
+    const orders = draft(
+      "function settle((uint256 amount, (address token, uint256 amount)[] legs)[] orders)"
+    )
+    expect(orders.described.leaves.map((leaf) => leaf.path)).toEqual([
+      "orders.[].amount",
+      "orders.[].legs.[]",
+    ])
+    expect(orders.field("orders.[].legs.[]").visible).toBe("never")
+    expectEveryParameter(orders)
+
+    for (const { format } of [result, orders])
+      for (const field of format.fields)
+        if (field.visible !== "never")
+          expect(field.path.split("[]").length - 1).toBeLessThanOrEqual(1)
+  })
+
   it("formats durations as durations", () => {
     const result = draft(
       "function lock(uint256 amount, uint256 duration)",

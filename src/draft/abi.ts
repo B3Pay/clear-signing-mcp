@@ -97,11 +97,19 @@ export function describe(fn: AbiFunction): DescribedFunction {
   }
 }
 
+/**
+ * @ethereum-sourcify/clear-signing expands the first [] of a field's path and
+ * no other: below an array of structs, a second [] has no value to show, and
+ * the whole render fails with INVALID_DESCRIPTOR.
+ */
+const ONE_ARRAY = "the clear-signing library expands one [] per path"
+
 function walk(
   params: readonly Param[],
   prefix: string | undefined,
   out: Leaf[]
 ): void {
+  const inArray = prefix?.includes("[]") ?? false
   params.forEach((param, index) => {
     const name = paramName(param, index)
     const unnamed = !(param.name && param.name.length > 0)
@@ -117,22 +125,29 @@ function walk(
     }
     if (base === "tuple") {
       if (dims === 0) walk(param.components ?? [], path, out)
-      else if (dims === 1) walk(param.components ?? [], `${path}.[]`, out)
+      else if (dims === 1 && !inArray)
+        walk(param.components ?? [], `${path}.[]`, out)
       else
         out.push({
           ...leaf,
           path: `${path}.[]`,
           array: true,
-          unsupported: "an array of arrays of structs",
+          unsupported:
+            dims === 1
+              ? `an array of structs inside an array of structs (${ONE_ARRAY})`
+              : "an array of arrays of structs",
         })
       return
     }
-    if (dims >= 2) {
+    if (dims >= 2 || (dims === 1 && inArray)) {
       out.push({
         ...leaf,
         path: `${path}.[]`,
         array: true,
-        unsupported: "an array of arrays",
+        unsupported:
+          dims >= 2
+            ? "an array of arrays"
+            : `an array inside an array of structs (${ONE_ARRAY})`,
       })
       return
     }
