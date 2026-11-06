@@ -194,6 +194,10 @@ describe("writeSummary", () => {
     const { dir } = writeDraft({ passed: true, lint: "warnings" })
     const expected = {
       functions: 2,
+      selectors: [
+        toFunctionSelector("function a()"),
+        toFunctionSelector("function b()"),
+      ].sort(),
       testedTxs: 2,
       lint: "warnings",
       // The preview is the first test that has a sentence to show.

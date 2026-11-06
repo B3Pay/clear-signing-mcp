@@ -156,6 +156,12 @@ export interface Contract {
     readonly functions: number
     readonly testedTxs: number
     readonly lint: "pass" | "warnings"
+    /** 0..1 of this contract's recent calls with calldata whose function the
+     *  draft formats; null without such calls. */
+    readonly txShareCovered: number | null
+    /** 0..1 of its distinct senders per function whose function the draft
+     *  formats; null when senders are unknown. */
+    readonly signerShareCovered: number | null
     /** How one real transaction reads with the draft (present only if the page shows previews). */
     readonly preview?: {
       readonly txHash: string

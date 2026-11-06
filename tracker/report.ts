@@ -88,6 +88,8 @@ export function explorerTx(chainId: ChainId, hash: string): string {
 /** What the draft step leaves for the report, per deployment. */
 export interface DraftSummary {
   readonly functions: number
+  /** Lowercase 4-byte selectors of the functions the draft formats, sorted. */
+  readonly selectors: readonly string[]
   readonly testedTxs: number
   readonly lint: "pass" | "warnings"
   readonly preview?: {
@@ -114,9 +116,18 @@ export function readDraftSummaries(
       throw new Error(`${path}: "${key}" is not chainId:address in lowercase`)
     const fail = (why: string) => new Error(`${path} ${key}: ${why}`)
     if (!isRecord(value)) throw fail("not an object")
-    const { functions, testedTxs, lint, preview } = value
+    const { functions, selectors, testedTxs, lint, preview } = value
     if (!Number.isInteger(functions) || (functions as number) < 1)
       throw fail("functions must be a positive integer")
+    if (
+      !Array.isArray(selectors) ||
+      selectors.length !== functions ||
+      !selectors.every(
+        (selector) =>
+          typeof selector === "string" && /^0x[0-9a-f]{8}$/.test(selector)
+      )
+    )
+      throw fail("selectors must be the lowercase selector of each function")
     if (!Number.isInteger(testedTxs) || (testedTxs as number) < 1)
       throw fail("testedTxs must be a positive integer")
     if (lint !== "pass" && lint !== "warnings")
@@ -146,7 +157,8 @@ export function readDraftSummaries(
       }
     }
     out.set(key, {
-      functions: functions as number,
+      functions,
+      selectors: selectors as string[],
       testedTxs: testedTxs as number,
       lint,
       ...(parsedPreview ? { preview: parsedPreview } : {}),
@@ -773,6 +785,12 @@ async function buildContract(
           functions: draft.functions,
           testedTxs: draft.testedTxs,
           lint: draft.lint,
+          // What the draft would format of this contract's recent calls.
+          txShareCovered: shareOf(sample?.selectors, new Set(draft.selectors)),
+          signerShareCovered: shareOf(
+            sample?.sendersBySelector,
+            new Set(draft.selectors)
+          ),
           ...(input.previews && draft.preview
             ? { preview: draft.preview }
             : {}),

@@ -480,6 +480,7 @@ describe("readDraftSummaries", () => {
   const key = "8453:0x00000000000000000000000000000000000000c0"
   const draft = {
     functions: 4,
+    selectors: ["0x0dbe671f", "0x12345678", "0x4df7e3d0", "0xabcdef01"],
     testedTxs: 8,
     lint: "pass",
     preview: {
@@ -515,6 +516,13 @@ describe("readDraftSummaries", () => {
         })
       )
     ).toThrow(/preview/)
+    expect(() =>
+      readDraftSummaries(
+        write("selectors.json", {
+          [key]: { ...draft, selectors: draft.selectors.slice(1) },
+        })
+      )
+    ).toThrow(/selectors/)
   })
 })
 
@@ -818,7 +826,7 @@ describe("the report's descriptor elsewhere", () => {
     perDay: 4,
     selectors: { [ether]: 30, [token]: 10 },
     senders: 12,
-    sendersBySelector: { [ether]: 9, [token]: 3 },
+    sendersBySelector: { [ether]: 8, [token]: 4 },
   }
   const write = (
     chainId: number,
@@ -931,6 +939,33 @@ describe("the report's descriptor elsewhere", () => {
     expect(report.totals.describedElsewhere).toBe(1)
     expect(report.chains["42161"].describedElsewhere).toBe(1)
     expect(report.chains["8453"].describedElsewhere).toBe(0)
+  })
+
+  it("measures what a draft would format of the contract's recent calls", async () => {
+    const report = await buildReport({
+      universe,
+      dataDir,
+      registry,
+      previews: false,
+      now: new Date(NOW * 1000),
+      drafts: new Map([
+        [
+          `8453:${LOOKALIKE.toLowerCase()}`,
+          { functions: 1, selectors: [ether], testedTxs: 3, lint: "pass" },
+        ],
+      ]),
+    })
+    const lookalike = report.protocols[0]!.contracts.find(
+      (c) => c.address === LOOKALIKE
+    )
+    // disperseEther: 30 of the 40 calls, 8 of the 12 senders per function.
+    expect(lookalike?.draft).toEqual({
+      functions: 1,
+      testedTxs: 3,
+      lint: "pass",
+      txShareCovered: 0.75,
+      signerShareCovered: 0.6667,
+    })
   })
 
   it("gives an empty sample the span it read, and a failed read no sample", async () => {

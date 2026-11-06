@@ -494,11 +494,13 @@ export function writeSummary(draftsDir: string): Record<string, DraftSummary> {
         const tests = readJson<DraftResult["tests"]>(testsPath)
         if (!descriptor || !tests) continue
         const first = choosePreview(tests.tests)
-        const functions = Object.keys(descriptor.display.formats).length
+        const formats = Object.keys(descriptor.display.formats)
+        const functions = formats.length
         const testedTxs = validation.checks.tests.passed
         if (functions < 1 || testedTxs < 1) continue
         const summary: DraftSummary = {
           functions,
+          selectors: formats.map((format) => selectorOfFormat(format)).sort(),
           testedTxs,
           lint,
           ...(first
@@ -563,6 +565,13 @@ export function choosePreview<T extends { readonly expected: RenderedDisplay }>(
   })
   // Text that reads like a link or a message is never shown.
   return best && best.score < 10_000 ? best.test : undefined
+}
+
+/** A `display.formats` key's 4-byte selector: the key itself, or its signature's. */
+function selectorOfFormat(format: string): string {
+  return /^0x[0-9a-fA-F]{8}$/.test(format)
+    ? format.toLowerCase()
+    : toFunctionSelector(`function ${format}`).toLowerCase()
 }
 
 /** Text from a render, made inert and short for the public page. */
