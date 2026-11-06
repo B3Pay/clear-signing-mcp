@@ -1,0 +1,288 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 1,
+          "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2"
+        },
+        {
+          "chainId": 10,
+          "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Mayan",
+    "contractName": "MayanForwarder",
+    "info": {
+      "url": "https://mayan.finance"
+    }
+  },
+  "display": {
+    "formats": {
+      "swapAndForwardEth(uint256 amountIn,address swapProtocol,bytes swapData,address middleToken,uint256 minMiddleAmount,address mayanProtocol,bytes mayanData)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "amountIn",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "middleToken"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "minMiddleAmount",
+            "label": "Minimum to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "middleToken"
+            }
+          },
+          {
+            "path": "swapProtocol",
+            "label": "Swap protocol",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "swapData",
+            "label": "Swap data",
+            "format": "raw"
+          },
+          {
+            "path": "mayanProtocol",
+            "label": "Mayan protocol",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "mayanData",
+            "label": "Mayan data",
+            "format": "raw"
+          },
+          {
+            "path": "middleToken",
+            "label": "Middle token",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap {amountIn}"
+      },
+      "swapAndForwardERC20(address tokenIn,uint256 amountIn,(uint256 value,uint256 deadline,uint8 v,bytes32 r,bytes32 s) permitParams,address swapProtocol,bytes swapData,address middleToken,uint256 minMiddleAmount,address mayanProtocol,bytes mayanData)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "amountIn",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "tokenIn"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "permitParams.value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "minMiddleAmount",
+            "label": "Minimum to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "middleToken",
+              "nativeCurrencyAddress": "0x0000000000000000000000000000000000000000"
+            }
+          },
+          {
+            "path": "permitParams.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "swapProtocol",
+            "label": "Swap protocol",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "swapData",
+            "label": "Swap data",
+            "format": "raw"
+          },
+          {
+            "path": "mayanProtocol",
+            "label": "Mayan protocol",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "mayanData",
+            "label": "Mayan data",
+            "format": "raw"
+          },
+          {
+            "path": "tokenIn",
+            "label": "Token in",
+            "visible": "never"
+          },
+          {
+            "path": "permitParams.v",
+            "label": "V",
+            "visible": "never"
+          },
+          {
+            "path": "permitParams.r",
+            "label": "R",
+            "visible": "never"
+          },
+          {
+            "path": "permitParams.s",
+            "label": "S",
+            "visible": "never"
+          },
+          {
+            "path": "middleToken",
+            "label": "Middle token",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap {amountIn}"
+      },
+      "forwardERC20(address tokenIn,uint256 amountIn,(uint256 value,uint256 deadline,uint8 v,bytes32 r,bytes32 s) permitParams,address mayanProtocol,bytes protocolData)": {
+        "intent": "Forward ERC20",
+        "fields": [
+          {
+            "path": "amountIn",
+            "label": "Amount in",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "tokenIn"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "permitParams.value",
+            "label": "Value",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "tokenIn"
+            }
+          },
+          {
+            "path": "permitParams.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "mayanProtocol",
+            "label": "Mayan protocol",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "protocolData",
+            "label": "Protocol data",
+            "format": "raw"
+          },
+          {
+            "path": "tokenIn",
+            "label": "Token in",
+            "visible": "never"
+          },
+          {
+            "path": "permitParams.v",
+            "label": "V",
+            "visible": "never"
+          },
+          {
+            "path": "permitParams.r",
+            "label": "R",
+            "visible": "never"
+          },
+          {
+            "path": "permitParams.s",
+            "label": "S",
+            "visible": "never"
+          }
+        ]
+      }
+    }
+  }
+}

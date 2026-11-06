@@ -1,0 +1,107 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 42161,
+          "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Wrapped Ether (WETH)",
+    "contractName": "aeWETH",
+    "info": {
+      "url": "https://weth.io"
+    }
+  },
+  "display": {
+    "formats": {
+      "approve(address spender,uint256 amount)": {
+        "intent": "Approve",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount to approve",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "@.to"
+            }
+          },
+          {
+            "path": "spender",
+            "label": "Spender",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ],
+        "interpolatedIntent": "Approve {spender} to spend {amount}"
+      },
+      "transfer(address recipient,uint256 amount)": {
+        "intent": "Transfer",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "@.to"
+            }
+          },
+          {
+            "path": "recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ],
+        "interpolatedIntent": "Transfer {amount} to {recipient}"
+      },
+      "withdraw(uint256 amount)": {
+        "intent": "Withdraw",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount to withdraw",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "@.to"
+            }
+          }
+        ],
+        "interpolatedIntent": "Withdraw {amount}"
+      },
+      "deposit()": {
+        "intent": "Deposit",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Amount to deposit",
+            "format": "amount"
+          }
+        ],
+        "interpolatedIntent": "Deposit {@.value}"
+      }
+    }
+  }
+}

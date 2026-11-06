@@ -1,0 +1,556 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Aerodrome (legacy, now Aero)",
+    "contractName": "Router",
+    "info": {
+      "url": "https://aerodrome.finance"
+    }
+  },
+  "display": {
+    "formats": {
+      "swapExactTokensForTokens(uint256 amountIn,uint256 amountOutMin,(address from,address to,bool stable,address factory)[] routes,address to,uint256 deadline)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "amountIn",
+            "label": "Amount in",
+            "format": "raw"
+          },
+          {
+            "path": "amountOutMin",
+            "label": "Amount out min",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].stable",
+            "label": "Stable",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].factory",
+            "label": "Factory",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ]
+      },
+      "swapExactTokensForETHSupportingFeeOnTransferTokens(uint256 amountIn,uint256 amountOutMin,(address from,address to,bool stable,address factory)[] routes,address to,uint256 deadline)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "amountIn",
+            "label": "Amount in",
+            "format": "raw"
+          },
+          {
+            "path": "amountOutMin",
+            "label": "Minimum to receive",
+            "format": "amount"
+          },
+          {
+            "path": "routes.[].from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].stable",
+            "label": "Stable",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].factory",
+            "label": "Factory",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ],
+        "interpolatedIntent": "Swap for at least {amountOutMin}"
+      },
+      "swapExactETHForTokensSupportingFeeOnTransferTokens(uint256 amountOutMin,(address from,address to,bool stable,address factory)[] routes,address to,uint256 deadline)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Amount to send",
+            "format": "amount"
+          },
+          {
+            "path": "amountOutMin",
+            "label": "Amount out min",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].stable",
+            "label": "Stable",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].factory",
+            "label": "Factory",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ],
+        "interpolatedIntent": "Swap {@.value}"
+      },
+      "swapExactETHForTokens(uint256 amountOutMin,(address from,address to,bool stable,address factory)[] routes,address to,uint256 deadline)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Amount to send",
+            "format": "amount"
+          },
+          {
+            "path": "amountOutMin",
+            "label": "Amount out min",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].stable",
+            "label": "Stable",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].factory",
+            "label": "Factory",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ],
+        "interpolatedIntent": "Swap {@.value}"
+      },
+      "swapExactTokensForETH(uint256 amountIn,uint256 amountOutMin,(address from,address to,bool stable,address factory)[] routes,address to,uint256 deadline)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "amountIn",
+            "label": "Amount in",
+            "format": "raw"
+          },
+          {
+            "path": "amountOutMin",
+            "label": "Minimum to receive",
+            "format": "amount"
+          },
+          {
+            "path": "routes.[].from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].stable",
+            "label": "Stable",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].factory",
+            "label": "Factory",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ],
+        "interpolatedIntent": "Swap for at least {amountOutMin}"
+      },
+      "swapExactTokensForTokensSupportingFeeOnTransferTokens(uint256 amountIn,uint256 amountOutMin,(address from,address to,bool stable,address factory)[] routes,address to,uint256 deadline)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "amountIn",
+            "label": "Amount in",
+            "format": "raw"
+          },
+          {
+            "path": "amountOutMin",
+            "label": "Amount out min",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "routes.[].stable",
+            "label": "Stable",
+            "format": "raw"
+          },
+          {
+            "path": "routes.[].factory",
+            "label": "Factory",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

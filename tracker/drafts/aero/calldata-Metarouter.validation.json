@@ -1,0 +1,63 @@
+{
+  "descriptor": "calldata-Metarouter.json",
+  "tests": "testsv2/calldata-Metarouter.tests.json",
+  "descriptorSha256": "21d9af9a847779fedcf564f771be92ab6cd32162412dbe1c62b2fc58318d1f98",
+  "testsSha256": "a6c666bcaf9dd90bf52f38723de96bfec19500d320b068d40779b104d0ea2a33",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Missing display format: Function onERC721Received(address,address,uint256,bytes) (selector: 0x150b7a02) exists in reference ABI (see https://repo.sourcify.dev/8453/0x0fef9e88a7b76bcdbf451780c6774fe32965ee98) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function uniswapV3SwapCallback(int256,int256,bytes) (selector: 0xfa461e33) exists in reference ABI (see https://repo.sourcify.dev/8453/0x0fef9e88a7b76bcdbf451780c6774fe32965ee98) but has no display format defined in the descriptor.",
+        "warning: Owner too long: Owner `Aero (Aerodrome + Velodrome)` exceeds 22 characters and may be truncated on Ledger devices."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/aero/calldata-Metarouter.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "suggestions",
+      "messages": [
+        "no-interpolated-intent: execute(bytes _commands,bytes[] _inputs,uint256 _deadline): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads."
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 1,
+      "cases": [
+        {
+          "description": "execute 0x3593564c 0x48cb7583",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] execute 0x3593564c 0x48cb7583",
+        "done: 1 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

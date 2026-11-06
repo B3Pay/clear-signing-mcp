@@ -1,0 +1,655 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 1,
+          "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4"
+        },
+        {
+          "chainId": 10,
+          "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Across Protocol",
+    "contractName": "SpokePoolPeriphery",
+    "info": {
+      "url": "https://across.to"
+    }
+  },
+  "display": {
+    "formats": {
+      "depositNative(address spokePool,address depositor,bytes32 recipient,address inputToken,uint256 inputAmount,bytes32 outputToken,uint256 outputAmount,uint256 destinationChainId,bytes32 exclusiveRelayer,uint32 quoteTimestamp,uint32 fillDeadline,uint32 exclusivityParameter,bytes message)": {
+        "intent": "Bridge",
+        "fields": [
+          {
+            "path": "inputAmount",
+            "label": "Amount to bridge",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "inputToken"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "outputAmount",
+            "label": "Amount to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "outputToken.[12:32]",
+              "chainIdPath": "#.destinationChainId"
+            }
+          },
+          {
+            "path": "spokePool",
+            "label": "Spoke pool",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositor",
+            "label": "Depositor",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "recipient",
+            "label": "Recipient",
+            "format": "raw"
+          },
+          {
+            "path": "destinationChainId",
+            "label": "Destination chain",
+            "format": "chainId"
+          },
+          {
+            "path": "exclusiveRelayer",
+            "label": "Exclusive relayer",
+            "format": "raw"
+          },
+          {
+            "path": "quoteTimestamp",
+            "label": "Quote timestamp",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "fillDeadline",
+            "label": "Fill deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "exclusivityParameter",
+            "label": "Exclusivity param",
+            "format": "raw"
+          },
+          {
+            "path": "message",
+            "label": "Message",
+            "format": "raw"
+          },
+          {
+            "path": "inputToken",
+            "label": "Input token",
+            "visible": "never"
+          },
+          {
+            "path": "outputToken",
+            "label": "Output token",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Bridge {inputAmount} to {destinationChainId}"
+      },
+      "swapAndBridge(((uint256 amount,address recipient) submissionFees,(address inputToken,bytes32 outputToken,uint256 outputAmount,address depositor,bytes32 recipient,uint256 destinationChainId,bytes32 exclusiveRelayer,uint32 quoteTimestamp,uint32 fillDeadline,uint32 exclusivityParameter,bytes message) depositData,address swapToken,address exchange,uint8 transferType,uint256 swapTokenAmount,uint256 minExpectedInputTokenAmount,bytes routerCalldata,bool enableProportionalAdjustment,address spokePool,uint256 nonce) swapAndDepositData)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "swapAndDepositData.submissionFees.amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "swapAndDepositData.swapTokenAmount",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "swapAndDepositData.swapToken"
+            }
+          },
+          {
+            "path": "swapAndDepositData.minExpectedInputTokenAmount",
+            "label": "Minimum to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "swapAndDepositData.swapToken"
+            }
+          },
+          {
+            "path": "swapAndDepositData.depositData.outputAmount",
+            "label": "Amount to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "swapAndDepositData.depositData.outputToken.[12:32]",
+              "chainIdPath": "#.swapAndDepositData.depositData.destinationChainId"
+            }
+          },
+          {
+            "path": "swapAndDepositData.submissionFees.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "swapAndDepositData.depositData.inputToken",
+            "label": "Input token",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "swapAndDepositData.depositData.depositor",
+            "label": "Depositor",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "swapAndDepositData.depositData.recipient",
+            "label": "Recipient",
+            "format": "raw"
+          },
+          {
+            "path": "swapAndDepositData.depositData.destinationChainId",
+            "label": "Destination chain",
+            "format": "chainId"
+          },
+          {
+            "path": "swapAndDepositData.depositData.exclusiveRelayer",
+            "label": "Exclusive relayer",
+            "format": "raw"
+          },
+          {
+            "path": "swapAndDepositData.depositData.quoteTimestamp",
+            "label": "Quote timestamp",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "swapAndDepositData.depositData.fillDeadline",
+            "label": "Fill deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "swapAndDepositData.depositData.exclusivityParameter",
+            "label": "Exclusivity param",
+            "format": "raw"
+          },
+          {
+            "path": "swapAndDepositData.depositData.message",
+            "label": "Message",
+            "format": "raw"
+          },
+          {
+            "path": "swapAndDepositData.exchange",
+            "label": "Exchange",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "swapAndDepositData.transferType",
+            "label": "Transfer type",
+            "format": "raw"
+          },
+          {
+            "path": "swapAndDepositData.routerCalldata",
+            "label": "Router calldata",
+            "format": "raw"
+          },
+          {
+            "path": "swapAndDepositData.enableProportionalAdjustment",
+            "label": "Enable proportional adjustment",
+            "format": "raw"
+          },
+          {
+            "path": "swapAndDepositData.spokePool",
+            "label": "Spoke pool",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "swapAndDepositData.nonce",
+            "label": "Nonce",
+            "format": "raw"
+          },
+          {
+            "path": "swapAndDepositData.depositData.outputToken",
+            "label": "Output token",
+            "visible": "never"
+          },
+          {
+            "path": "swapAndDepositData.swapToken",
+            "label": "Swap token",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap {swapAndDepositData.swapTokenAmount} for {swapAndDepositData.depositData.outputAmount}"
+      },
+      "depositWithAuthorization(address signatureOwner,((uint256 amount,address recipient) submissionFees,(address inputToken,bytes32 outputToken,uint256 outputAmount,address depositor,bytes32 recipient,uint256 destinationChainId,bytes32 exclusiveRelayer,uint32 quoteTimestamp,uint32 fillDeadline,uint32 exclusivityParameter,bytes message) baseDepositData,uint256 inputAmount,address spokePool,uint256 nonce) depositData,uint256 validAfter,uint256 validBefore,bytes receiveWithAuthSignature)": {
+        "intent": "Bridge",
+        "fields": [
+          {
+            "path": "depositData.submissionFees.amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.inputAmount",
+            "label": "Input amount",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.baseDepositData.outputAmount",
+            "label": "Amount to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "depositData.baseDepositData.outputToken.[12:32]",
+              "chainIdPath": "#.depositData.baseDepositData.destinationChainId"
+            }
+          },
+          {
+            "path": "signatureOwner",
+            "label": "Signature owner",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositData.submissionFees.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.inputToken",
+            "label": "Input token",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "depositData.baseDepositData.depositor",
+            "label": "Depositor",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.recipient",
+            "label": "Recipient",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.baseDepositData.destinationChainId",
+            "label": "Destination chain",
+            "format": "chainId"
+          },
+          {
+            "path": "depositData.baseDepositData.exclusiveRelayer",
+            "label": "Exclusive relayer",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.baseDepositData.quoteTimestamp",
+            "label": "Quote timestamp",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.fillDeadline",
+            "label": "Fill deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.exclusivityParameter",
+            "label": "Exclusivity param",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.baseDepositData.message",
+            "label": "Message",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.spokePool",
+            "label": "Spoke pool",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositData.nonce",
+            "label": "Nonce",
+            "format": "raw"
+          },
+          {
+            "path": "validAfter",
+            "label": "Valid after",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "validBefore",
+            "label": "Valid before",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.outputToken",
+            "label": "Output token",
+            "visible": "never"
+          },
+          {
+            "path": "receiveWithAuthSignature",
+            "label": "Receive with auth signature",
+            "visible": "never"
+          }
+        ]
+      },
+      "depositWithPermit2(address signatureOwner,((uint256 amount,address recipient) submissionFees,(address inputToken,bytes32 outputToken,uint256 outputAmount,address depositor,bytes32 recipient,uint256 destinationChainId,bytes32 exclusiveRelayer,uint32 quoteTimestamp,uint32 fillDeadline,uint32 exclusivityParameter,bytes message) baseDepositData,uint256 inputAmount,address spokePool,uint256 nonce) depositData,((address token,uint256 amount) permitted,uint256 nonce,uint256 deadline) permit,bytes signature)": {
+        "intent": "Bridge",
+        "fields": [
+          {
+            "path": "depositData.submissionFees.amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.inputAmount",
+            "label": "Input amount",
+            "format": "raw"
+          },
+          {
+            "path": "permit.permitted.amount",
+            "label": "Amount to bridge",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "permit.permitted.token"
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.outputAmount",
+            "label": "Amount to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "depositData.baseDepositData.outputToken.[12:32]",
+              "chainIdPath": "#.depositData.baseDepositData.destinationChainId"
+            }
+          },
+          {
+            "path": "signatureOwner",
+            "label": "Signature owner",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositData.submissionFees.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.inputToken",
+            "label": "Input token",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "depositData.baseDepositData.depositor",
+            "label": "Depositor",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.recipient",
+            "label": "Recipient",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.baseDepositData.destinationChainId",
+            "label": "Destination chain",
+            "format": "chainId"
+          },
+          {
+            "path": "depositData.baseDepositData.exclusiveRelayer",
+            "label": "Exclusive relayer",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.baseDepositData.quoteTimestamp",
+            "label": "Quote timestamp",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.fillDeadline",
+            "label": "Fill deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.exclusivityParameter",
+            "label": "Exclusivity param",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.baseDepositData.message",
+            "label": "Message",
+            "format": "raw"
+          },
+          {
+            "path": "depositData.spokePool",
+            "label": "Spoke pool",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "depositData.nonce",
+            "label": "Nonce",
+            "format": "raw"
+          },
+          {
+            "path": "permit.nonce",
+            "label": "Nonce",
+            "format": "raw"
+          },
+          {
+            "path": "permit.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "depositData.baseDepositData.outputToken",
+            "label": "Output token",
+            "visible": "never"
+          },
+          {
+            "path": "permit.permitted.token",
+            "label": "Token",
+            "visible": "never"
+          },
+          {
+            "path": "signature",
+            "label": "Signature",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Bridge {permit.permitted.amount} to {depositData.baseDepositData.destinationChainId}"
+      }
+    }
+  }
+}

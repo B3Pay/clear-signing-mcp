@@ -1,0 +1,198 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x7C5f5A4bBd8fD63184577525326123B519429bDc"
+        },
+        {
+          "chainId": 1,
+          "address": "0xbD216513d74C8cf14cf4747E6AaA6420FF64ee9e"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xd88F38F930b7952f2DB2432Cb002E7abbF3dD869"
+        },
+        {
+          "chainId": 10,
+          "address": "0x3C3Ea4B57a46241e54610e5f022E5c45859A1017"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Uniswap",
+    "contractName": "PositionManager",
+    "info": {
+      "url": "https://app.uniswap.org"
+    }
+  },
+  "display": {
+    "formats": {
+      "modifyLiquidities(bytes unlockData,uint256 deadline)": {
+        "intent": "Modify liquidities",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "unlockData",
+            "label": "Unlock data",
+            "format": "raw"
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ]
+      },
+      "multicall(bytes[] data)": {
+        "intent": "Multicall",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "data.[]",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "@.to",
+              "amountPath": "@.value"
+            }
+          }
+        ]
+      },
+      "safeTransferFrom(address from,address to,uint256 id,bytes data)": {
+        "intent": "Safe transfer from",
+        "fields": [
+          {
+            "path": "from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "id",
+            "label": "ID",
+            "format": "raw"
+          },
+          {
+            "path": "data",
+            "label": "Data",
+            "format": "raw"
+          }
+        ]
+      },
+      "transferFrom(address from,address to,uint256 id)": {
+        "intent": "Transfer",
+        "fields": [
+          {
+            "path": "from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "id",
+            "label": "ID",
+            "format": "raw"
+          }
+        ]
+      },
+      "subscribe(uint256 tokenId,address newSubscriber,bytes data)": {
+        "intent": "Subscribe",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          },
+          {
+            "path": "newSubscriber",
+            "label": "New subscriber",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "data",
+            "label": "Data",
+            "format": "raw"
+          }
+        ]
+      }
+    }
+  }
+}

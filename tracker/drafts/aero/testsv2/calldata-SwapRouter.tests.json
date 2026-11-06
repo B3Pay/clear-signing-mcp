@@ -1,0 +1,188 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-SwapRouter.json",
+  "dataProvider": {
+    "tokens": {
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
+        "name": "USD Coin",
+        "symbol": "USDC",
+        "decimals": 6
+      },
+      "0xb200000000000000000000d9192b6b456483c2e8": {
+        "name": "Amazon.com Inc.",
+        "symbol": "AMZNc",
+        "decimals": 8
+      },
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbBTC",
+        "decimals": 8
+      }
+    }
+  },
+  "tests": [
+    {
+      "description": "exactInputSingle 0xa026383e 0x71377f77",
+      "rawTx": "0x02f901318221058302c57d8398968083fbc520830e9aa6949ee35bf1bd69a03c6f0393582030fce8bb93d41880b90104a026383e000000000000000000000000b200000000000000000000d9192b6b456483c2e8000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000005feea8f691be66225cb7add010d9ec04333f2289000000000000000000000000000000000000000000000000000000006aee4eac000000000000000000000000000000000000000000000000000000006e5468ea000000000000000000000000000000000000000000000000000000011e6a4a190000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x71377f7790158d03afe99828d1d16e7cda59ff556f79dbd2f9c047e657278627",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap 18.51025642 AMZNc for at least 4805.249561 USDC",
+        "owner": "Aero (Aerodrome + Velodrome)",
+        "fields": [
+          {
+            "label": "Amount to send",
+            "value": "18.51025642 AMZNc"
+          },
+          {
+            "label": "Value sent",
+            "value": "0 ETH"
+          },
+          {
+            "label": "Minimum to receive",
+            "value": "4805.249561 USDC"
+          },
+          {
+            "label": "Tick spacing",
+            "value": "10"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-06 22:03:24Z"
+          },
+          {
+            "label": "Sqrt price limit X96",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "description": "exactOutputSingle 0xc714e838 0x6e089e0e",
+      "rawTx": "0xf9012d825f638389667c830f4240949ee35bf1bd69a03c6f0393582030fce8bb93d41880b90104c714e838000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000cbb7c0000ab88b473b1f5afd9ef808440eed33bf0000000000000000000000000000000000000000000000000000000000000032000000000000000000000000e155f50c62c94b843fae0b1dabecb4acce113b18000000000000000000000000000000000000000000000000000000006aee4e5c00000000000000000000000000000000000000000000000000000000000927c0000000000000000000000000000000000000000000000000000000001c38cdc600000000000000000000000000000000000000000000000000000000000000008221058080",
+      "txHash": "0x6e089e0e7714b0a61edecc563fd7377b5d103c6ec80db97222e5088b5fad3d12",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap at most 473.484742 USDC for 0.006 cbBTC",
+        "owner": "Aero (Aerodrome + Velodrome)",
+        "fields": [
+          {
+            "label": "Maximum to send",
+            "value": "473.484742 USDC"
+          },
+          {
+            "label": "Value sent",
+            "value": "0 ETH"
+          },
+          {
+            "label": "Amount to receive",
+            "value": "0.006 cbBTC"
+          },
+          {
+            "label": "Tick spacing",
+            "value": "50"
+          },
+          {
+            "label": "Recipient",
+            "value": "0xe155F50C62c94B843FaE0b1dABecB4AccE113B18"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-06 22:02:04Z"
+          },
+          {
+            "label": "Sqrt price limit X96",
+            "value": "0"
+          }
+        ]
+      }
+    },
+    {
+      "description": "exactInput 0xc04b8d59 0x81d399a6",
+      "rawTx": "0x02f90150822105820cc3830f424083a7d8c08309c29d949ee35bf1bd69a03c6f0393582030fce8bb93d41880b90124c04b8d59000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000004285252faf4ac08a09c3fdc662b19c275e728fb7000000000000000000000000000000000000000000000000000000006aee4e5200000000000000000000000000000000000000000000000006dab186b7aa89640000000000000000000000000000000000000000000000000000000000048fdc000000000000000000000000000000000000000000000000000000000000002b3f5bf3edac59d650d8fdf9657a71f2f904a3a4ee000064833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000000000000000000000c0",
+      "txHash": "0x81d399a69f0461e07f1d8d68dfdda255ba1ec3e8bf819750a0ad39a144032935",
+      "expected": {
+        "intent": "Swap",
+        "owner": "Aero (Aerodrome + Velodrome)",
+        "fields": [
+          {
+            "label": "Amount in",
+            "value": "493902301315631460"
+          },
+          {
+            "label": "Value sent",
+            "value": "0 ETH"
+          },
+          {
+            "label": "Amount out minimum",
+            "value": "298972"
+          },
+          {
+            "label": "Path",
+            "value": "0x3f5bf3edac59d650d8fdf9657a71f2f904a3a4ee000064833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x4285252fAF4AC08a09C3Fdc662B19C275e728fB7"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-06 22:01:54Z"
+          }
+        ]
+      }
+    },
+    {
+      "description": "multicall 0xac9650d8 0x4b24f46e",
+      "rawTx": "0x02f901f082210582211b830f424083a7d8c083095559949ee35bf1bd69a03c6f0393582030fce8bb93d41880b901c4ac9650d80000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000124c04b8d59000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000a000000000000000000000000049aa24cf9dc3d7a67af0cfafdcb581b560ff1272000000000000000000000000000000000000000000000000000000006aee4e1e0000000000000000000000000000000000000000000000000000000015722f1b0000000000000000000000000000000000000000000000000000000017d6b0a3000000000000000000000000000000000000000000000000000000000000002b60a3e35cc302bfa44cb288bc5a4f316fdb1adb42000001833589fcd6edb6e08f4c7c32d4f71b54bda0291300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x4b24f46e52ba370a3a182319220e2216afc572536810c0daf00716f51ae7bab9",
+      "expected": {
+        "intent": "Multicall",
+        "owner": "Aero (Aerodrome + Velodrome)",
+        "fields": [
+          {
+            "label": "Value sent",
+            "value": "0 ETH"
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "owner": "Aero (Aerodrome + Velodrome)",
+              "fields": [
+                {
+                  "label": "Amount in",
+                  "value": "359804699"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Amount out minimum",
+                  "value": "399945891"
+                },
+                {
+                  "label": "Path",
+                  "value": "0x60a3e35cc302bfa44cb288bc5a4f316fdb1adb42000001833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x49aa24CF9Dc3d7a67Af0CFAfdcb581b560Ff1272"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:01:02Z"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

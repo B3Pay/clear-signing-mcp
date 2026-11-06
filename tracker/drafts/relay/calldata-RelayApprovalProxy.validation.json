@@ -1,0 +1,78 @@
+{
+  "descriptor": "calldata-RelayApprovalProxy.json",
+  "tests": "testsv2/calldata-RelayApprovalProxy.tests.json",
+  "descriptorSha256": "74e66ed53985867a0a50ba12ae2c1a7c53fcb60e94e608acced7ca8cf30c6ec0",
+  "testsSha256": "c23765a8419fae708499b964786ceab74c67a5d50922c617d37289fef4482f81",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Display intent too long: Display intent(s) `Permit 2 transfer and multicall` exceed 30 characters and may be truncated on Ledger devices.",
+        "warning: Missing display field: No display field is defined for path `#.calls.[]` in function 0x0a2b8f36 (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58).",
+        "warning: Missing display field: No display field is defined for path `#.calls.[]` in function 0xf9e4bab4 (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58).",
+        "warning: Missing display field: No display field is defined for path `#.permit.permitted.[]` in function 0x0a2b8f36 (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58).",
+        "warning: Missing display format: Function cancelOwnershipHandover() (selector: 0x54d1f13d) exists in reference ABI (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function completeOwnershipHandover(address) (selector: 0xf04e283e) exists in reference ABI (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function permit3009TransferAndMulticall((address,uint256,uint256,uint256,uint8,bytes32,bytes32)[],address[],(address,bool,uint256,bytes)[],address,address,bytes,bytes[]) (selector: 0x745599f3) exists in reference ABI (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function permitTransferAndMulticall((address,address,uint256,uint256,uint8,bytes32,bytes32)[],(address,bool,uint256,bytes)[],address,address,bytes) (selector: 0xbd4967a9) exists in reference ABI (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function renounceOwnership() (selector: 0x715018a6) exists in reference ABI (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function requestOwnershipHandover() (selector: 0x25692962) exists in reference ABI (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferOwnership(address) (selector: 0xf2fde38b) exists in reference ABI (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function withdraw(address,address) (selector: 0xf940e385) exists in reference ABI (see https://repo.sourcify.dev/8453/0x5567954cd026cebfe486062cb75848e0f1c12e58) but has no display format defined in the descriptor."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/relay/calldata-RelayApprovalProxy.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "suggestions",
+      "messages": [
+        "no-interpolated-intent: transferAndMulticall(address[] tokens,uint256[] amounts,(address target,bool allowFailure,uint256 value,bytes callData)[] calls,address refundTo,address nftRecipient,bytes metadata): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: permit2TransferAndMulticall(address user,((address token,uint256 amount)[] permitted,uint256 nonce,uint256 deadline) permit,(address target,bool allowFailure,uint256 value,bytes callData)[] calls,address refundTo,address nftRecipient,bytes metadata,bytes permitSignature): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads."
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 2,
+      "cases": [
+        {
+          "description": "transferAndMulticall 0xf9e4bab4 0x47edde00",
+          "status": "pass"
+        },
+        {
+          "description": "permit2TransferAndMulticall 0x0a2b8f36 0x2ab4145c",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] transferAndMulticall 0xf9e4bab4 0x47edde00",
+        "[pass] permit2TransferAndMulticall 0x0a2b8f36 0x2ab4145c",
+        "done: 2 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

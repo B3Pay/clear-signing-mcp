@@ -1,0 +1,168 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-Spoke.json",
+  "tests": [
+    {
+      "description": "multicall 0xac9650d8 0x82af2f04",
+      "rawTx": "0x02f901ee01188477359400847bf0c93d8302b6e89494e7a5dcbe816e498b89ab752661904e2f56c48580b901c4ac9650d800000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000000000e00000000000000000000000000000000000000000000000000000000000000064852a56a5000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000003ecbf4000000000000000000000000eeb9afb4ed985addd7615d59e4aa1f3377c6a56a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000649e35c53300000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000001000000000000000000000000eeb9afb4ed985addd7615d59e4aa1f3377c6a56a00000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x82af2f04a227b4542fbf16c5207cdbdaeaadfed24aef40eff451b4ae5cd4f46b",
+      "expected": {
+        "intent": "Multicall",
+        "owner": "Aave v4",
+        "fields": [
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Supply",
+              "owner": "Aave v4",
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "4115444"
+                },
+                {
+                  "label": "Reserve ID",
+                  "value": "4"
+                },
+                {
+                  "label": "On behalf of",
+                  "value": "0xeeb9afb4ED985AdDd7615d59E4AA1F3377C6A56A"
+                }
+              ]
+            }
+          },
+          {
+            "label": "Action",
+            "value": "0x9e35c53300000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000001000000000000000000000000eeb9afb4ed985addd7615d59e4aa1f3377c6a56a"
+          }
+        ]
+      }
+    },
+    {
+      "description": "borrow 0xd6bda0c0 0x25ce4809",
+      "rawTx": "0x02f88d01198477359400847c2747e28304582d9494e7a5dcbe816e498b89ab752661904e2f56c48580b864d6bda0c000000000000000000000000000000000000000000000000000000000000000070000000000000000000000000000000000000000000000000000000089173700000000000000000000000000eeb9afb4ed985addd7615d59e4aa1f3377c6a56ac0",
+      "txHash": "0x25ce48097d662371c6289d16a967913719b97b60f55455886a755c1cad7c34da",
+      "expected": {
+        "intent": "Borrow",
+        "owner": "Aave v4",
+        "fields": [
+          {
+            "label": "Amount",
+            "value": "2300000000"
+          },
+          {
+            "label": "Reserve ID",
+            "value": "7"
+          },
+          {
+            "label": "On behalf of",
+            "value": "0xeeb9afb4ED985AdDd7615d59E4AA1F3377C6A56A"
+          }
+        ]
+      }
+    },
+    {
+      "description": "withdraw 0x0ad58d2f 0xa7676c48",
+      "rawTx": "0x02f88e018209fb830208d5841f9728808306ba799494e7a5dcbe816e498b89ab752661904e2f56c48580b8640ad58d2f0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000c249fdd3277800000000000000000000000000005929d94eb4c41d91955154465a58a531ad4cf7b8c0",
+      "txHash": "0xa7676c482941590ef57c06d920bf7234a4da5f4f65f396aebc17159dbb163e72",
+      "expected": {
+        "intent": "Withdraw",
+        "owner": "Aave v4",
+        "fields": [
+          {
+            "label": "Amount",
+            "value": "14000000000000000000"
+          },
+          {
+            "label": "Reserve ID",
+            "value": "1"
+          },
+          {
+            "label": "On behalf of",
+            "value": "0x5929D94eb4C41D91955154465a58a531Ad4CF7b8"
+          }
+        ]
+      }
+    },
+    {
+      "description": "setUserPositionManager 0x8874e104 0xc2d0ffc1",
+      "rawTx": "0x02f86d01808423c34600842d41ffa08301301a9494e7a5dcbe816e498b89ab752661904e2f56c48580b8448874e104000000000000000000000000e68ab4f90fe026b9873f5f276ed2d7efbbbe42be0000000000000000000000000000000000000000000000000000000000000001c0",
+      "txHash": "0xc2d0ffc14b044fdbd9497916cfcd034c8bb71d81a1a74b4701d261f2516d43af",
+      "expected": {
+        "intent": "Set user position manager",
+        "owner": "Aave v4",
+        "fields": [
+          {
+            "label": "Position manager",
+            "value": "0xe68ab4F90Fe026B9873F5F276eD2d7efBbbE42Be"
+          },
+          {
+            "label": "Approve",
+            "value": "true"
+          }
+        ]
+      }
+    },
+    {
+      "description": "supply 0x852a56a5 0x881784bf",
+      "rawTx": "0x02f88f011285010ee7ea18850161627f70830333e59494e7a5dcbe816e498b89ab752661904e2f56c48580b864852a56a50000000000000000000000000000000000000000000000000000000000000007000000000000000000000000000000000000000000000000000000003e67f3c000000000000000000000000037c885d14c029fb2963285423d49157073715f64c0",
+      "txHash": "0x881784bf0045322dcbf23db0312db19131d20472829b98fb0ec5671dac2be2f9",
+      "expected": {
+        "intent": "Supply",
+        "owner": "Aave v4",
+        "fields": [
+          {
+            "label": "Amount",
+            "value": "1047000000"
+          },
+          {
+            "label": "Reserve ID",
+            "value": "7"
+          },
+          {
+            "label": "On behalf of",
+            "value": "0x37C885D14c029fb2963285423d49157073715F64"
+          }
+        ]
+      }
+    },
+    {
+      "description": "repay 0xb1e8f8ef 0x3c885814",
+      "rawTx": "0x02f88d014e8423c346008428c50300830394479494e7a5dcbe816e498b89ab752661904e2f56c48580b864b1e8f8ef000000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000000000000422e257c000000000000000000000000dd2efcc83e79853c4eb1b4bf8d0972882d72c43fc0",
+      "txHash": "0x3c8858142f3e455346e433c8057feaf4dbf9bade2dcba71a807a8d262babd799",
+      "expected": {
+        "intent": "Repay",
+        "owner": "Aave v4",
+        "fields": [
+          {
+            "label": "Amount",
+            "value": "1110320508"
+          },
+          {
+            "label": "Reserve ID",
+            "value": "8"
+          },
+          {
+            "label": "On behalf of",
+            "value": "0xdD2EFCc83e79853c4eB1b4Bf8d0972882d72c43f"
+          }
+        ]
+      }
+    },
+    {
+      "description": "updateUserDynamicConfig 0x826002e2 0xa5294eaa",
+      "rawTx": "0x02f84c010d84773594008498cf6cf683015f109494e7a5dcbe816e498b89ab752661904e2f56c48580a4826002e2000000000000000000000000abaf129654034f91b1943756831666ff5e0b3303c0",
+      "txHash": "0xa5294eaa613c93834961b2ff9b8d949bce292f43146894c661cc33c27f7ffea8",
+      "expected": {
+        "intent": "Update user dynamic config",
+        "owner": "Aave v4",
+        "fields": [
+          {
+            "label": "On behalf of",
+            "value": "0xAbaF129654034f91b1943756831666ff5e0b3303"
+          }
+        ]
+      }
+    }
+  ]
+}

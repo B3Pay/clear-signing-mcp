@@ -1,0 +1,229 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x49d7d4f17Ec56Ef8fA04E464AF5D1A4942CC31e6"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Aero (Aerodrome + Velodrome)",
+    "contractName": "Voter",
+    "info": {
+      "url": "https://aero.xyz"
+    }
+  },
+  "display": {
+    "formats": {
+      "allocate(uint256 _tokenId,(uint256 chainId,uint128 delta,uint256 gasLimit,uint256 value)[] _chainDispatches,(uint256 chainId,uint256 gasLimit,uint256 value,(address gauge,uint128 allocated,bytes data)[] gauges)[] _gaugeDispatches,address _refundRecipient)": {
+        "intent": "Allocate",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_chainDispatches.[].value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "_gaugeDispatches.[].value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "_tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          },
+          {
+            "path": "_chainDispatches.[].chainId",
+            "label": "Chain",
+            "format": "chainId"
+          },
+          {
+            "path": "_chainDispatches.[].delta",
+            "label": "Delta",
+            "format": "raw"
+          },
+          {
+            "path": "_chainDispatches.[].gasLimit",
+            "label": "Gas limit",
+            "format": "raw"
+          },
+          {
+            "path": "_gaugeDispatches.[].chainId",
+            "label": "Chain",
+            "format": "chainId"
+          },
+          {
+            "path": "_gaugeDispatches.[].gasLimit",
+            "label": "Gas limit",
+            "format": "raw"
+          },
+          {
+            "path": "_refundRecipient",
+            "label": "Refund recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_gaugeDispatches.[].gauges.[]",
+            "label": "Gauges",
+            "visible": "never"
+          }
+        ]
+      },
+      "claimRewards(uint256 _tokenId,(uint256 chainId,uint256 gasLimit,uint256 value,address recipient,(address votingRewardsManager,uint256 maxCheckpoints)[] feeClaims,(address votingRewardsManager,uint256 programId,uint256 maxCheckpoints)[] incentiveClaims)[] _claimRewardsParams,address _refundRecipient)": {
+        "intent": "Claim rewards",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_claimRewardsParams.[].value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "_tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          },
+          {
+            "path": "_claimRewardsParams.[].chainId",
+            "label": "Chain",
+            "format": "chainId"
+          },
+          {
+            "path": "_claimRewardsParams.[].gasLimit",
+            "label": "Gas limit",
+            "format": "raw"
+          },
+          {
+            "path": "_claimRewardsParams.[].recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_refundRecipient",
+            "label": "Refund recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_claimRewardsParams.[].feeClaims.[]",
+            "label": "Fee claims",
+            "visible": "never"
+          },
+          {
+            "path": "_claimRewardsParams.[].incentiveClaims.[]",
+            "label": "Incentive claims",
+            "visible": "never"
+          }
+        ]
+      },
+      "allocateGauges(uint256 _tokenId,uint256 _chainId,(address gauge,uint128 allocated,bytes data)[] _gauges,uint256 _gasLimit,address _refundRecipient)": {
+        "intent": "Allocate gauges",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          },
+          {
+            "path": "_chainId",
+            "label": "Chain",
+            "format": "chainId"
+          },
+          {
+            "path": "_gauges.[].gauge",
+            "label": "Gauge",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_gauges.[].allocated",
+            "label": "Allocated",
+            "format": "raw"
+          },
+          {
+            "path": "_gauges.[].data",
+            "label": "Data",
+            "format": "raw"
+          },
+          {
+            "path": "_gasLimit",
+            "label": "Gas limit",
+            "format": "raw"
+          },
+          {
+            "path": "_refundRecipient",
+            "label": "Refund recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

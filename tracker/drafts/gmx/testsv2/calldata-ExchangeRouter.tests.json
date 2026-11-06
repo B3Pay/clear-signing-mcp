@@ -1,0 +1,141 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-ExchangeRouter.json",
+  "dataProvider": {
+    "tokens": {
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": {
+        "name": "Wrapped Ether",
+        "symbol": "WETH",
+        "decimals": 18
+      },
+      "0xaf88d065e77c8cc2239327c5edb3a432268e5831": {
+        "name": "USD Coin",
+        "symbol": "USDC",
+        "decimals": 6
+      }
+    }
+  },
+  "tests": [
+    {
+      "description": "multicall 0xac9650d8 0x84d7b4b8",
+      "rawTx": "0x02f901ae82a4b18275c7808401dfe390830a386c947de39ff2e232a2203196788d37e234cf8f1b83f180b90184ac9650d800000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e4dd5baad26505e9df22461ec1834eb1d1bd437016bde9c4324d59b8cb14c30c2d082da7beffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000302ab5fcc0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x84d7b4b8579d84d16dd1795203a56a37095a8aa43c7652faf33cf6b4a1a50835",
+      "expected": {
+        "intent": "Multicall",
+        "owner": "GMX",
+        "fields": [
+          {
+            "label": "Value sent",
+            "value": "0 ETH"
+          },
+          {
+            "label": "Action",
+            "value": "0xdd5baad26505e9df22461ec1834eb1d1bd437016bde9c4324d59b8cb14c30c2d082da7beffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000302ab5fcc00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+          }
+        ]
+      }
+    },
+    {
+      "description": "claimFundingFees 0xc41b1ab3 0x898cd3b9",
+      "rawTx": "0x02f902d282a4b1820b2f840172e600840172e60083174b7a947de39ff2e232a2203196788d37e234cf8f1b83f180b902a4c41b1ab300000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000180000000000000000000000000e76d313c5092c47f114fd2282bda1802c9825fac000000000000000000000000000000000000000000000000000000000000000800000000000000000000000070d95587d40a2caf56bd97485ab3eec10bee633600000000000000000000000070d95587d40a2caf56bd97485ab3eec10bee6336000000000000000000000000872b5d567a2469ed92d252eacb0eb3bb0769e05b000000000000000000000000a8a455ed94b315460cff7d96966d91330f6a3ba0000000000000000000000000a8a455ed94b315460cff7d96966d91330f6a3ba00000000000000000000000000df2be76f517bcf0000abffcb6344b3b2ac4cc4f0000000000000000000000000df2be76f517bcf0000abffcb6344b3b2ac4cc4f000000000000000000000000cbd4c1b0c89d50793c5a3e8d96d98fcb4f1b1c47000000000000000000000000000000000000000000000000000000000000000800000000000000000000000082af49447d8a07e3bd95bd0d56f35241523fbab1000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e5831000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e583100000000000000000000000082af49447d8a07e3bd95bd0d56f35241523fbab1000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e583100000000000000000000000082af49447d8a07e3bd95bd0d56f35241523fbab1000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e5831000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e5831c0",
+      "txHash": "0x898cd3b9503e4b349ef60180738eb7ee138098fd99122f5305e8005340de5d0a",
+      "expected": {
+        "intent": "Claim funding fees",
+        "owner": "GMX",
+        "fields": [
+          {
+            "label": "Value sent",
+            "value": "0 ETH"
+          },
+          {
+            "label": "Markets",
+            "value": "0x70d95587d40A2caf56bd97485aB3Eec10Bee6336"
+          },
+          {
+            "label": "Markets",
+            "value": "0x70d95587d40A2caf56bd97485aB3Eec10Bee6336"
+          },
+          {
+            "label": "Markets",
+            "value": "0x872b5D567a2469Ed92D252eaCB0EB3BB0769e05b"
+          },
+          {
+            "label": "Markets",
+            "value": "0xa8A455Ed94b315460CfF7d96966d91330f6A3bA0"
+          },
+          {
+            "label": "Markets",
+            "value": "0xa8A455Ed94b315460CfF7d96966d91330f6A3bA0"
+          },
+          {
+            "label": "Markets",
+            "value": "0x0Df2BE76F517BCF0000AbfFcB6344B3b2aC4Cc4f"
+          },
+          {
+            "label": "Markets",
+            "value": "0x0Df2BE76F517BCF0000AbfFcB6344B3b2aC4Cc4f"
+          },
+          {
+            "label": "Markets",
+            "value": "0xcBd4c1b0c89D50793c5A3e8d96d98FcB4f1B1c47"
+          },
+          {
+            "label": "Tokens",
+            "value": "WETH"
+          },
+          {
+            "label": "Tokens",
+            "value": "USDC"
+          },
+          {
+            "label": "Tokens",
+            "value": "USDC"
+          },
+          {
+            "label": "Tokens",
+            "value": "WETH"
+          },
+          {
+            "label": "Tokens",
+            "value": "USDC"
+          },
+          {
+            "label": "Tokens",
+            "value": "WETH"
+          },
+          {
+            "label": "Tokens",
+            "value": "USDC"
+          },
+          {
+            "label": "Tokens",
+            "value": "USDC"
+          },
+          {
+            "label": "Recipient",
+            "value": "0xE76D313C5092C47F114Fd2282bda1802c9825fAc"
+          }
+        ]
+      }
+    },
+    {
+      "description": "cancelOrder 0x7489ec23 0xf3579942",
+      "rawTx": "0x02f84c82a4b18203038084015054c8831b6a99947de39ff2e232a2203196788d37e234cf8f1b83f180a47489ec2322de5e5367f188fa5b63201753f7f5354b9639149e759d1961dafc3e07032decc0",
+      "txHash": "0xf35799420f8c28e086733eeba6f178d2bf3420771eca412518f8adca24d630d8",
+      "expected": {
+        "intent": "Cancel order",
+        "owner": "GMX",
+        "fields": [
+          {
+            "label": "Value sent",
+            "value": "0 ETH"
+          },
+          {
+            "label": "Key",
+            "value": "0x22de5e5367f188fa5b63201753f7f5354b9639149e759d1961dafc3e07032dec"
+          }
+        ]
+      }
+    }
+  ]
+}

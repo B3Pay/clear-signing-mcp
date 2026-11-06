@@ -1,0 +1,144 @@
+{
+  "descriptor": "calldata-Trading.json",
+  "tests": "testsv2/calldata-Trading.tests.json",
+  "descriptorSha256": "0531c105e09545dee2c2ceae552d814654586a179d0c237b4f3e9f909d187690",
+  "testsSha256": "c92215d238932362fc49454d15c1566eed1f2182e26269d9131011941969e2f4",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Display intent too long: Display intent(s) `Execute position update batched` exceed 30 characters and may be truncated on Ledger devices.",
+        "warning: Missing display format: Function cancelOpenLimitOrder(uint256,uint256) (selector: 0xb9b6573a) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelPendingMarketOrder(uint256) (selector: 0xc5ed6a08) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelRfqByOperator(uint256) (selector: 0xaa2590ff) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelRfqsByOperator(uint256[]) (selector: 0x0aacdcf7) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelRollLimitOrders(address,uint256,uint256) (selector: 0x4f3c5f67) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelTwap(uint256) (selector: 0xea32d906) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelTwapByOperator(uint256) (selector: 0xc618477b) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelTwapsByOperator(uint256[]) (selector: 0x7e0c4e92) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function claimExecFees(address,uint256) (selector: 0xddc9ef6a) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function closeRfq((address,uint256,uint256,uint256,uint256,uint256,uint256,uint256)) (selector: 0x600c3698) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function closeTradeMarket(uint256,uint256,uint256,uint256) (selector: 0xe5a97c92) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function closeTradeMarketWithCoinExposure(uint256,uint256,uint256,uint256) (selector: 0x1594c97c) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function closeTwap((address,uint256,uint256,uint256,uint256,uint256,uint256,uint256)) (selector: 0x8c310842) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function executeCloseRfqSlice((uint256,uint256,uint256),bytes[],uint8,(int256,uint256,int256,bool,int256,bool,int256)) (selector: 0x021b9485) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function executeOpenRfqSlice((uint256,uint256,uint256,uint256,uint256),bytes[],uint8,(int256,uint256,int256,bool,int256,bool,int256)) (selector: 0xa12d6010) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function executeRfqBatched(uint8,bytes,bytes) (selector: 0x9747e2d3) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function increasePositionSize((address,uint256,uint256,uint256,uint256,uint256),uint256) (selector: 0x7dbd3b48) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function increasePositionSizeWithCoinExposure((address,uint256,uint256,uint256,uint256,uint256),uint256,uint256,uint256,uint256) (selector: 0x912263d9) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function initialize(address,address) (selector: 0x485cc955) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function openRfq((address,uint256,uint256,bool,bool,uint256,uint256,uint256,uint256,uint256,uint256,uint256)) (selector: 0xa30421c1) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function openTrade((address,uint256,uint256,uint256,uint256,uint256,bool,uint256,uint256,uint256,uint256),uint8,uint256) (selector: 0x19cde9a1) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function openTradeWithCoinExposure((address,uint256,uint256,uint256,uint256,uint256,bool,uint256,uint256,uint256,uint256),uint8,uint256,uint256,uint256,uint256) (selector: 0x179c2a92) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function openTwap((address,uint256,uint256,bool,bool,uint256,uint256,uint256,uint256,uint256,uint256,uint256)) (selector: 0x00de5ec9) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function pause() (selector: 0x8456cb59) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function removeDelegate(address) (selector: 0x67e7646f) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setDelegate(address,uint256) (selector: 0xd6a510d9) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setDelegateWithSig(bytes,bytes) (selector: 0xf4ec01eb) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setMarketExecFeeReceiver(address) (selector: 0x442c5666) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setTradingModules(address,address,address,address,address,address) (selector: 0x949c28b8) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function unpause() (selector: 0x3f4ba83a) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function updateMargin(uint256,uint256,uint8,uint256,bytes[],uint8) (selector: 0xb9fe2af3) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function updateOpenLimitOrder(uint256,uint256,uint256,uint256,uint256,uint256) (selector: 0xc641558e) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function updateOperator(address,bool) (selector: 0x6d44a3b2) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function wireSuite(address,address) (selector: 0x7e9dc32b) exists in reference ABI (see https://repo.sourcify.dev/8453/0x44914408af82bc9983bbb330e3578e1105e11d4e) but has no display format defined in the descriptor.",
+        "warning: Owner too long: Owner `Veranta (formerly Avantis)` exceeds 22 characters and may be truncated on Ledger devices."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/avantis/calldata-Trading.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "suggestions",
+      "messages": [
+        "no-interpolated-intent: executeMarketOrderBatched(uint8 _orderType,bytes _userSignature,bytes _userIntent,bytes[] _priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: executeLimitOrder(uint8 _orderType,address _trader,uint256 _pairIndex,uint256 _index,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: executePartialTpSl(bytes _userIntent,bytes _signature,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: executeMarketOrder(uint256 orderId,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: executePositionUpdateBatched(uint8 _orderType,bytes _userSignature,bytes _userIntent,bytes[] _priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: executeTwapBatched(uint8 _orderType,bytes _userSignature,bytes _userIntent): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: delegatedAction(address trader,bytes call_data): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: executeOpenTwapSlice((uint256 twapId,uint256 sliceId,uint256 collateral,uint256 leverage,uint256 coinExposure) _slice,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: executeCloseTwapSlice((uint256 twapId,uint256 sliceId,uint256 coinSize) _slice,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads."
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 9,
+      "cases": [
+        {
+          "description": "executeMarketOrderBatched 0xfb7830cf 0x63849b29",
+          "status": "pass"
+        },
+        {
+          "description": "executeLimitOrder 0x46a8f4cb 0x916b5240",
+          "status": "pass"
+        },
+        {
+          "description": "executePartialTpSl 0x10820f39 0x1e6d8259",
+          "status": "pass"
+        },
+        {
+          "description": "executeMarketOrder 0x7aad21e4 0x189e4e7b",
+          "status": "pass"
+        },
+        {
+          "description": "executePositionUpdateBatched 0x3d778c12 0x26e9acdc",
+          "status": "pass"
+        },
+        {
+          "description": "executeTwapBatched 0x1db3a3e3 0x94506585",
+          "status": "pass"
+        },
+        {
+          "description": "delegatedAction 0x9a10cc32 0x6bbca735",
+          "status": "pass"
+        },
+        {
+          "description": "executeOpenTwapSlice 0x28a9aaa6 0xb772e5f6",
+          "status": "pass"
+        },
+        {
+          "description": "executeCloseTwapSlice 0x2a08ecdd 0x1b694743",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] executeMarketOrderBatched 0xfb7830cf 0x63849b29",
+        "[pass] executeLimitOrder 0x46a8f4cb 0x916b5240",
+        "[pass] executePartialTpSl 0x10820f39 0x1e6d8259",
+        "[pass] executeMarketOrder 0x7aad21e4 0x189e4e7b",
+        "[pass] executePositionUpdateBatched 0x3d778c12 0x26e9acdc",
+        "[pass] executeTwapBatched 0x1db3a3e3 0x94506585",
+        "[pass] delegatedAction 0x9a10cc32 0x6bbca735",
+        "[pass] executeOpenTwapSlice 0x28a9aaa6 0xb772e5f6",
+        "[pass] executeCloseTwapSlice 0x2a08ecdd 0x1b694743",
+        "done: 9 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

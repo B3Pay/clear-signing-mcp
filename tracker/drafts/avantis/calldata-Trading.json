@@ -1,0 +1,574 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x44914408af82bC9983bbb330e3578E1105e11d4e"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Veranta (formerly Avantis)",
+    "contractName": "Trading",
+    "info": {
+      "url": "https://www.veranta.xyz"
+    }
+  },
+  "display": {
+    "formats": {
+      "executeMarketOrderBatched(uint8 _orderType,bytes _userSignature,bytes _userIntent,bytes[] _priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams)": {
+        "intent": "Execute market order batched",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_orderType",
+            "label": "Order type",
+            "format": "raw"
+          },
+          {
+            "path": "_userIntent",
+            "label": "User intent",
+            "format": "raw"
+          },
+          {
+            "path": "_priceUpdateData.[]",
+            "label": "Price update data",
+            "format": "raw"
+          },
+          {
+            "path": "_priceSourcing",
+            "label": "Price sourcing",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.spreadP",
+            "label": "Spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.bookDepth",
+            "label": "Book depth",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.impactParam",
+            "label": "Impact param",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.byPass",
+            "label": "By pass",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.maxSpreadP",
+            "label": "Max spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_1",
+            "label": "Slot 1",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_3",
+            "label": "Slot 3",
+            "format": "raw"
+          },
+          {
+            "path": "_userSignature",
+            "label": "User signature",
+            "visible": "never"
+          }
+        ]
+      },
+      "executeLimitOrder(uint8 _orderType,address _trader,uint256 _pairIndex,uint256 _index,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams)": {
+        "intent": "Execute limit order",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_orderType",
+            "label": "Order type",
+            "format": "raw"
+          },
+          {
+            "path": "_trader",
+            "label": "Trader",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_pairIndex",
+            "label": "Pair index",
+            "format": "raw"
+          },
+          {
+            "path": "_index",
+            "label": "Index",
+            "format": "raw"
+          },
+          {
+            "path": "priceUpdateData.[]",
+            "label": "Price update data",
+            "format": "raw"
+          },
+          {
+            "path": "_priceSourcing",
+            "label": "Price sourcing",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.spreadP",
+            "label": "Spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.bookDepth",
+            "label": "Book depth",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.impactParam",
+            "label": "Impact param",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.byPass",
+            "label": "By pass",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.maxSpreadP",
+            "label": "Max spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_1",
+            "label": "Slot 1",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_3",
+            "label": "Slot 3",
+            "format": "raw"
+          }
+        ]
+      },
+      "executePartialTpSl(bytes _userIntent,bytes _signature,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams)": {
+        "intent": "Execute partial tp sl",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_userIntent",
+            "label": "User intent",
+            "format": "raw"
+          },
+          {
+            "path": "priceUpdateData.[]",
+            "label": "Price update data",
+            "format": "raw"
+          },
+          {
+            "path": "_priceSourcing",
+            "label": "Price sourcing",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.spreadP",
+            "label": "Spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.bookDepth",
+            "label": "Book depth",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.impactParam",
+            "label": "Impact param",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.byPass",
+            "label": "By pass",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.maxSpreadP",
+            "label": "Max spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_1",
+            "label": "Slot 1",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_3",
+            "label": "Slot 3",
+            "format": "raw"
+          },
+          {
+            "path": "_signature",
+            "label": "Signature",
+            "visible": "never"
+          }
+        ]
+      },
+      "executeMarketOrder(uint256 orderId,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams)": {
+        "intent": "Execute market order",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "orderId",
+            "label": "Order ID",
+            "format": "raw"
+          },
+          {
+            "path": "priceUpdateData.[]",
+            "label": "Price update data",
+            "format": "raw"
+          },
+          {
+            "path": "_priceSourcing",
+            "label": "Price sourcing",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.spreadP",
+            "label": "Spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.bookDepth",
+            "label": "Book depth",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.impactParam",
+            "label": "Impact param",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.byPass",
+            "label": "By pass",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.maxSpreadP",
+            "label": "Max spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_1",
+            "label": "Slot 1",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_3",
+            "label": "Slot 3",
+            "format": "raw"
+          }
+        ]
+      },
+      "executePositionUpdateBatched(uint8 _orderType,bytes _userSignature,bytes _userIntent,bytes[] _priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams)": {
+        "intent": "Execute position update batched",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_orderType",
+            "label": "Order type",
+            "format": "raw"
+          },
+          {
+            "path": "_userIntent",
+            "label": "User intent",
+            "format": "raw"
+          },
+          {
+            "path": "_priceUpdateData.[]",
+            "label": "Price update data",
+            "format": "raw"
+          },
+          {
+            "path": "_priceSourcing",
+            "label": "Price sourcing",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.spreadP",
+            "label": "Spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.bookDepth",
+            "label": "Book depth",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.impactParam",
+            "label": "Impact param",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.byPass",
+            "label": "By pass",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.maxSpreadP",
+            "label": "Max spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_1",
+            "label": "Slot 1",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_3",
+            "label": "Slot 3",
+            "format": "raw"
+          },
+          {
+            "path": "_userSignature",
+            "label": "User signature",
+            "visible": "never"
+          }
+        ]
+      },
+      "executeTwapBatched(uint8 _orderType,bytes _userSignature,bytes _userIntent)": {
+        "intent": "Execute twap batched",
+        "fields": [
+          {
+            "path": "_orderType",
+            "label": "Order type",
+            "format": "raw"
+          },
+          {
+            "path": "_userIntent",
+            "label": "User intent",
+            "format": "raw"
+          },
+          {
+            "path": "_userSignature",
+            "label": "User signature",
+            "visible": "never"
+          }
+        ]
+      },
+      "delegatedAction(address trader,bytes call_data)": {
+        "intent": "Delegated action",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "trader",
+            "label": "Trader",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "call_data",
+            "label": "Call data",
+            "format": "raw"
+          }
+        ]
+      },
+      "executeOpenTwapSlice((uint256 twapId,uint256 sliceId,uint256 collateral,uint256 leverage,uint256 coinExposure) _slice,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams)": {
+        "intent": "Execute open twap slice",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_slice.twapId",
+            "label": "Twap ID",
+            "format": "raw"
+          },
+          {
+            "path": "_slice.sliceId",
+            "label": "Slice ID",
+            "format": "raw"
+          },
+          {
+            "path": "_slice.collateral",
+            "label": "Collateral",
+            "format": "raw"
+          },
+          {
+            "path": "_slice.leverage",
+            "label": "Leverage",
+            "format": "raw"
+          },
+          {
+            "path": "_slice.coinExposure",
+            "label": "Coin exposure",
+            "format": "raw"
+          },
+          {
+            "path": "priceUpdateData.[]",
+            "label": "Price update data",
+            "format": "raw"
+          },
+          {
+            "path": "_priceSourcing",
+            "label": "Price sourcing",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.spreadP",
+            "label": "Spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.bookDepth",
+            "label": "Book depth",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.impactParam",
+            "label": "Impact param",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.byPass",
+            "label": "By pass",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.maxSpreadP",
+            "label": "Max spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_1",
+            "label": "Slot 1",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_3",
+            "label": "Slot 3",
+            "format": "raw"
+          }
+        ]
+      },
+      "executeCloseTwapSlice((uint256 twapId,uint256 sliceId,uint256 coinSize) _slice,bytes[] priceUpdateData,uint8 _priceSourcing,(int256 spreadP,uint256 bookDepth,int256 impactParam,bool byPass,int256 maxSpreadP,bool slot_1,int256 slot_3) _spreadParams)": {
+        "intent": "Execute close twap slice",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_slice.twapId",
+            "label": "Twap ID",
+            "format": "raw"
+          },
+          {
+            "path": "_slice.sliceId",
+            "label": "Slice ID",
+            "format": "raw"
+          },
+          {
+            "path": "_slice.coinSize",
+            "label": "Coin size",
+            "format": "raw"
+          },
+          {
+            "path": "priceUpdateData.[]",
+            "label": "Price update data",
+            "format": "raw"
+          },
+          {
+            "path": "_priceSourcing",
+            "label": "Price sourcing",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.spreadP",
+            "label": "Spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.bookDepth",
+            "label": "Book depth",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.impactParam",
+            "label": "Impact param",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.byPass",
+            "label": "By pass",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.maxSpreadP",
+            "label": "Max spread p",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_1",
+            "label": "Slot 1",
+            "format": "raw"
+          },
+          {
+            "path": "_spreadParams.slot_3",
+            "label": "Slot 3",
+            "format": "raw"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "descriptor": "calldata-UniversalRouter.json",
+  "tests": "testsv2/calldata-UniversalRouter.tests.json",
+  "descriptorSha256": "78f619764921aae7174334d6a0cfdd1526cfe08bef12d27f4ba37cc682d1cb1d",
+  "testsSha256": "ad122a5d9dc0a8f0a9ad326c8c15b5e08528cb8f2156873f8af46ba316606fc0",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Deployment ABIs differ: The reference ABIs of the deployments do not all expose the same functions, display fields are validated against each distinct reference ABI: 8453:0xd9c500dff816a1da21a48a732d3498bf09dc9aeb; 42161:0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912, 1:0x65b382653f7c31bc0af67f188122035461ec9c76",
+        "warning: Missing display format: Function acceptOwnership() (selector: 0x79ba5097) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function collectRewards(bytes) (selector: 0x709a1cc2) exists in reference ABI (see https://repo.sourcify.dev/42161/0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function execute(bytes,bytes[]) (selector: 0x24856bc3) exists in reference ABI (see https://repo.sourcify.dev/42161/0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function execute(bytes,bytes[]) (selector: 0x24856bc3) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function lockAcquired(bytes) (selector: 0xab6291fe) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function pancakeV3SwapCallback(int256,int256,bytes) (selector: 0x23a69e75) exists in reference ABI (see https://repo.sourcify.dev/42161/0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function pancakeV3SwapCallback(int256,int256,bytes) (selector: 0x23a69e75) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function pause() (selector: 0x8456cb59) exists in reference ABI (see https://repo.sourcify.dev/42161/0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function pause() (selector: 0x8456cb59) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function renounceOwnership() (selector: 0x715018a6) exists in reference ABI (see https://repo.sourcify.dev/42161/0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function renounceOwnership() (selector: 0x715018a6) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setStableSwap(address,address) (selector: 0x24dec034) exists in reference ABI (see https://repo.sourcify.dev/42161/0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setStableSwap(address,address) (selector: 0x24dec034) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferOwnership(address) (selector: 0xf2fde38b) exists in reference ABI (see https://repo.sourcify.dev/42161/0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferOwnership(address) (selector: 0xf2fde38b) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function unpause() (selector: 0x3f4ba83a) exists in reference ABI (see https://repo.sourcify.dev/42161/0xfe6508f0015c778bdcc1fb5465ba5ebe224c9912) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function unpause() (selector: 0x3f4ba83a) exists in reference ABI (see https://repo.sourcify.dev/8453/0xd9c500dff816a1da21a48a732d3498bf09dc9aeb) but has no display format defined in the descriptor.",
+        "warning: URL too long: URL `https://pancakeswap.finance` exceeds 26 characters and may be truncated on Ledger devices."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/pancakeswap/calldata-UniversalRouter.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "suggestions",
+      "messages": [
+        "no-interpolated-intent: execute(bytes commands,bytes[] inputs,uint256 deadline): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads."
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 1,
+      "cases": [
+        {
+          "description": "execute 0x3593564c 0x60d13ed2",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] execute 0x3593564c 0x60d13ed2",
+        "done: 1 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0xd9C500DfF816a1Da21A48A732d3498Bf09dc9AEB"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xFE6508f0015C778Bdcc1fB5465bA5ebE224C9912"
+        },
+        {
+          "chainId": 1,
+          "address": "0x65b382653f7C31bC0Af67f188122035461ec9C76"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "PancakeSwap",
+    "contractName": "UniversalRouter",
+    "info": {
+      "url": "https://pancakeswap.finance"
+    }
+  },
+  "display": {
+    "formats": {
+      "execute(bytes commands,bytes[] inputs,uint256 deadline)": {
+        "intent": "Execute",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "commands",
+            "label": "Commands",
+            "format": "raw"
+          },
+          {
+            "path": "inputs.[]",
+            "label": "Inputs",
+            "format": "raw"
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

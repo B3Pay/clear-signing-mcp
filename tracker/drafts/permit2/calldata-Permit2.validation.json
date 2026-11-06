@@ -1,0 +1,104 @@
+{
+  "descriptor": "calldata-Permit2.json",
+  "tests": "testsv2/calldata-Permit2.tests.json",
+  "descriptorSha256": "6aab4f7390f92763f2774c684b6a730eac0db2c5dc56dd58e7e4fdb17538ca74",
+  "testsSha256": "80214624f34e6c3b442baf1b98ffab12b71027e330be9fcb35975a14266d1eca",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Display intent too long: Display intent(s) `Approve {spender} to spend {amount}` exceed 30 characters and may be truncated on Ledger devices.",
+        "warning: Missing display field: No display field is defined for path `#.approvals.[]` in function 0xcc53287f (see https://repo.sourcify.dev/8453/0x000000000022d473030f116ddee9f6b43ac78ba3).",
+        "warning: Missing display field: No display field is defined for path `#.permit.permitted.[]` in function 0xedd9444b (see https://repo.sourcify.dev/8453/0x000000000022d473030f116ddee9f6b43ac78ba3).",
+        "warning: Missing display field: No display field is defined for path `#.transferDetails.[]` in function 0x0d58b1db (see https://repo.sourcify.dev/8453/0x000000000022d473030f116ddee9f6b43ac78ba3).",
+        "warning: Missing display field: No display field is defined for path `#.transferDetails.[]` in function 0xedd9444b (see https://repo.sourcify.dev/8453/0x000000000022d473030f116ddee9f6b43ac78ba3).",
+        "warning: Missing display format: Function invalidateNonces(address,address,uint48) (selector: 0x65d9723c) exists in reference ABI (see https://repo.sourcify.dev/8453/0x000000000022d473030f116ddee9f6b43ac78ba3) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function invalidateUnorderedNonces(uint256,uint256) (selector: 0x3ff9dcb1) exists in reference ABI (see https://repo.sourcify.dev/8453/0x000000000022d473030f116ddee9f6b43ac78ba3) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function permit(address,((address,uint160,uint48,uint48)[],address,uint256),bytes) (selector: 0x2a2d80d1) exists in reference ABI (see https://repo.sourcify.dev/8453/0x000000000022d473030f116ddee9f6b43ac78ba3) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function permitWitnessTransferFrom(((address,uint256)[],uint256,uint256),(address,uint256)[],address,bytes32,string,bytes) (selector: 0xfe8ec1a7) exists in reference ABI (see https://repo.sourcify.dev/8453/0x000000000022d473030f116ddee9f6b43ac78ba3) but has no display format defined in the descriptor.",
+        "warning: URL too long: URL `https://github.com/Uniswap/permit2` exceeds 26 characters and may be truncated on Ledger devices."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/permit2/calldata-Permit2.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "suggestions",
+      "messages": [
+        "no-interpolated-intent: transferFrom((address from,address to,uint160 amount,address token)[] transferDetails): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: lockdown((address token,address spender)[] approvals): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: permitTransferFrom(((address token,uint256 amount) permitted,uint256 nonce,uint256 deadline) permit,(address to,uint256 requestedAmount) transferDetails,address owner,bytes signature): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: permitWitnessTransferFrom(((address token,uint256 amount) permitted,uint256 nonce,uint256 deadline) permit,(address to,uint256 requestedAmount) transferDetails,address owner,bytes32 witness,string witnessTypeString,bytes signature): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: permitTransferFrom(((address token,uint256 amount)[] permitted,uint256 nonce,uint256 deadline) permit,(address to,uint256 requestedAmount)[] transferDetails,address owner,bytes signature): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads."
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 7,
+      "cases": [
+        {
+          "description": "approve 0x87517c45 0xe6b4c333",
+          "status": "pass"
+        },
+        {
+          "description": "transferFrom 0x0d58b1db 0x9a840e09",
+          "status": "pass"
+        },
+        {
+          "description": "lockdown 0xcc53287f 0x37bbab42",
+          "status": "pass"
+        },
+        {
+          "description": "permitTransferFrom 0x30f28b7a 0xb3e8312c",
+          "status": "pass"
+        },
+        {
+          "description": "transferFrom 0x36c78516 0x34973982",
+          "status": "pass"
+        },
+        {
+          "description": "permitWitnessTransferFrom 0x137c29fe 0xdd1d3578",
+          "status": "pass"
+        },
+        {
+          "description": "permitTransferFrom 0xedd9444b 0xc2f57be8",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] approve 0x87517c45 0xe6b4c333",
+        "[pass] transferFrom 0x0d58b1db 0x9a840e09",
+        "[pass] lockdown 0xcc53287f 0x37bbab42",
+        "[pass] permitTransferFrom 0x30f28b7a 0xb3e8312c",
+        "[pass] transferFrom 0x36c78516 0x34973982",
+        "[pass] permitWitnessTransferFrom 0x137c29fe 0xdd1d3578",
+        "[pass] permitTransferFrom 0xedd9444b 0xc2f57be8",
+        "done: 7 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

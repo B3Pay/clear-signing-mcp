@@ -1,0 +1,64 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x0fEf9e88A7b76BCDBF451780C6774FE32965Ee98"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0fEf9e88A7b76BCDBF451780C6774FE32965Ee98"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0fEf9e88A7b76BCDBF451780C6774FE32965Ee98"
+        },
+        {
+          "chainId": 10,
+          "address": "0x0fEf9e88A7b76BCDBF451780C6774FE32965Ee98"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Aero (Aerodrome + Velodrome)",
+    "contractName": "Metarouter",
+    "info": {
+      "url": "https://aero.xyz"
+    }
+  },
+  "display": {
+    "formats": {
+      "execute(bytes _commands,bytes[] _inputs,uint256 _deadline)": {
+        "intent": "Execute",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_commands",
+            "label": "Commands",
+            "format": "raw"
+          },
+          {
+            "path": "_inputs.[]",
+            "label": "Inputs",
+            "format": "raw"
+          },
+          {
+            "path": "_deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

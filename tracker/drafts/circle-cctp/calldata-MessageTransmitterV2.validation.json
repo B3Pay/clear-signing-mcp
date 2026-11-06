@@ -1,0 +1,77 @@
+{
+  "descriptor": "calldata-MessageTransmitterV2.json",
+  "tests": "testsv2/calldata-MessageTransmitterV2.tests.json",
+  "descriptorSha256": "9756695b71ca9cb1e9aff992dae9aeb823f0ead5b8a48131074649671137f909",
+  "testsSha256": "8141af53543d35540a5d549ee2a5738d8823355bda374a00a1053ca81c77809a",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Missing display format: Function acceptOwnership() (selector: 0x79ba5097) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function changeAdmin(address) (selector: 0x8f283970) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function disableAttester(address) (selector: 0x2d025080) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function enableAttester(address) (selector: 0xfae36879) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function initialize(address,address,address,address,address[],uint256,uint256) (selector: 0x5f747e7d) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function pause() (selector: 0x8456cb59) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function rescueERC20(address,address,uint256) (selector: 0xb2118a8d) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function sendMessage(uint32,bytes32,bytes32,uint32,bytes) (selector: 0x14b157ab) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setMaxMessageBodySize(uint256) (selector: 0x92492c68) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setSignatureThreshold(uint256) (selector: 0xbbde5374) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferOwnership(address) (selector: 0xf2fde38b) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function unpause() (selector: 0x3f4ba83a) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function updateAttesterManager(address) (selector: 0xde7769d4) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function updatePauser(address) (selector: 0x554bab3c) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function updateRescuer(address) (selector: 0x2ab60045) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function upgradeTo(address) (selector: 0x3659cfe6) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function upgradeToAndCall(address,bytes) (selector: 0x4f1ef286) exists in reference ABI (see https://repo.sourcify.dev/1/0x81d40f21f12a8f0e3252bccb954d722d4c464b64) but has no display format defined in the descriptor."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/circle-cctp/calldata-MessageTransmitterV2.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "suggestions",
+      "messages": [
+        "no-interpolated-intent: receiveMessage(bytes message,bytes attestation): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads."
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 1,
+      "cases": [
+        {
+          "description": "receiveMessage 0x57ecfd28 0xd54d17c2",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] receiveMessage 0x57ecfd28 0xd54d17c2",
+        "done: 1 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

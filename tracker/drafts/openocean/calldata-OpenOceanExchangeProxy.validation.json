@@ -1,0 +1,99 @@
+{
+  "descriptor": "calldata-OpenOceanExchangeProxy.json",
+  "tests": "testsv2/calldata-OpenOceanExchangeProxy.tests.json",
+  "descriptorSha256": "5f4848e3089d85ca674292ba89480081f5d2697567c1375c4c8835806ca04a26",
+  "testsSha256": "32ad603300685b5976804958607629a2fc123a49a0a31479d145be3583106cdd",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Deployment ABIs differ: The reference ABIs of the deployments do not all expose the same functions, display fields are validated against each distinct reference ABI: 8453:0x6352a56caadc4f1e25cd6c75970fa768a3304e64; 1:0x6352a56caadc4f1e25cd6c75970fa768a3304e64, 42161:0x6352a56caadc4f1e25cd6c75970fa768a3304e64, 10:0x6352a56caadc4f1e25cd6c75970fa768a3304e64",
+        "warning: Display intent too long: Display intent(s) `Swap for at least {desc.minReturnAmount}` exceed 30 characters and may be truncated on Ledger devices.",
+        "warning: Missing display field: No display field is defined for path `#.calls.[]` in function 0x0a9704d5 (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64).",
+        "warning: Missing display field: No display field is defined for path `#.calls.[]` in function 0x0a9704d5 (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64).",
+        "warning: Missing display field: No display field is defined for path `#.calls.[]` in function 0x90411a32 (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64).",
+        "warning: Missing display field: No display field is defined for path `#.calls.[]` in function 0x90411a32 (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64).",
+        "warning: Missing display format: Function admin() (selector: 0xf851a440) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function admin() (selector: 0xf851a440) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function callUniswap(address,uint256,uint256,bytes32[]) (selector: 0x8980041a) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function callUniswapTo(address,uint256,uint256,bytes32[],address) (selector: 0x6b58f2f0) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function callUniswapToWithPermit(address,uint256,uint256,bytes32[],bytes,address) (selector: 0x22dca3d7) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function callUniswapWithPermit(address,uint256,uint256,bytes32[],bytes) (selector: 0xd57360fc) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function changeAdmin(address) (selector: 0x8f283970) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function changeAdmin(address) (selector: 0x8f283970) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function implementation() (selector: 0x5c60da1b) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function implementation() (selector: 0x5c60da1b) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function initialize() (selector: 0x8129fc1c) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function initialize() (selector: 0x8129fc1c) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function pause() (selector: 0x8456cb59) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function pause() (selector: 0x8456cb59) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function renounceOwnership() (selector: 0x715018a6) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function renounceOwnership() (selector: 0x715018a6) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function rescueFunds(address,uint256) (selector: 0x78e3214f) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function rescueFunds(address,uint256) (selector: 0x78e3214f) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setPermit2(address) (selector: 0x101ec30a) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setPermit2(address) (selector: 0x101ec30a) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function swapGmxV2(address,(address,address,address,address,uint256,uint256,uint256,uint256,address,bytes),(uint256,uint256,uint256,bytes)[]) (selector: 0x30eef8bd) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferOwnership(address) (selector: 0xf2fde38b) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferOwnership(address) (selector: 0xf2fde38b) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function uniswapV3SwapCallback(int256,int256,bytes) (selector: 0xfa461e33) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function uniswapV3SwapTo(address,uint256,uint256,uint256[]) (selector: 0xbc80f1a8) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function uniswapV3SwapToWithPermit(address,uint256,uint256,uint256[],bytes,address) (selector: 0xe52d01be) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function upgradeTo(address) (selector: 0x3659cfe6) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function upgradeTo(address) (selector: 0x3659cfe6) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function upgradeToAndCall(address,bytes) (selector: 0x4f1ef286) exists in reference ABI (see https://repo.sourcify.dev/1/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function upgradeToAndCall(address,bytes) (selector: 0x4f1ef286) exists in reference ABI (see https://repo.sourcify.dev/8453/0x6352a56caadc4f1e25cd6c75970fa768a3304e64) but has no display format defined in the descriptor."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/openocean/calldata-OpenOceanExchangeProxy.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "pass",
+      "messages": []
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 2,
+      "cases": [
+        {
+          "description": "swap 0x90411a32 0x8102c653",
+          "status": "pass"
+        },
+        {
+          "description": "simpleSwap 0x0a9704d5 0x23971fc0",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] swap 0x90411a32 0x8102c653",
+        "[pass] simpleSwap 0x0a9704d5 0x23971fc0",
+        "done: 2 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}
