@@ -7,23 +7,41 @@
   },
   "address": "0x50DC9aE51f78C593d4138263da7088A973b8184E",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x93c951D3281Cc79e9FE1B1C87e50693D202F4C17",
-        "name": "Vyper_contract"
-      }
-    ],
-    "isContract": true,
-    "name": "Stake DAO sdPENDLE Gauge",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2161,
-  "fetchedAt": "2026-11-06T21:53:55.930Z",
+  "fetchedAt": "2026-11-06T22:50:40.013Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x50DC9aE51f78C593d4138263da7088A973b8184E&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 35,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 35,
+    "newest": 1793948543,
+    "oldest": 1791578891,
+    "perDay": 1.1666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 5,
+      "0x2e1a7d4d": 12,
+      "0x38d07436": 1,
+      "0x4b820093": 1,
+      "0xb6b55f25": 16
+    },
+    "senders": 19,
+    "sendersBySelector": {
+      "0x095ea7b3": 2,
+      "0x2e1a7d4d": 6,
+      "0x38d07436": 1,
+      "0x4b820093": 1,
+      "0xb6b55f25": 12
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

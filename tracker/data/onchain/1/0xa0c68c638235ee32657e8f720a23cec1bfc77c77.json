@@ -7,23 +7,33 @@
   },
   "address": "0xA0c68C638235ee32657e8f720a23ceC1bFc77C77",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xF0235dCa8fb0D3999685724dCBB9DD00c5d62DFa",
-        "name": "RootChainManager"
-      }
-    ],
-    "isContract": true,
-    "name": "RootChainManagerProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2949,
-  "fetchedAt": "2026-11-06T21:49:21.281Z",
+  "fetchedAt": "2026-11-06T22:50:05.276Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xA0c68C638235ee32657e8f720a23ceC1bFc77C77&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794000395,
+    "oldest": 1793686667,
+    "perDay": 275.3977968176255,
+    "requested": 1000,
+    "selectors": {
+      "0x3805550f": 648,
+      "0x4faa8a26": 35,
+      "0xe3dec8fb": 317
+    },
+    "senders": 188,
+    "sendersBySelector": {
+      "0x3805550f": 139,
+      "0x4faa8a26": 24,
+      "0xe3dec8fb": 54
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

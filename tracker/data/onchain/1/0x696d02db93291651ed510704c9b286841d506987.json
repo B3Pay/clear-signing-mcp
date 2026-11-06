@@ -20,10 +20,34 @@
   },
   "chainId": 1,
   "codeBytes": 45,
-  "fetchedAt": "2026-11-06T21:53:25.733Z",
+  "fetchedAt": "2026-11-06T22:51:32.668Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x696d02Db93291651ED510704c9b286841d506987&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 39,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 39,
+    "newest": 1793937695,
+    "oldest": 1791584399,
+    "perDay": 1.3,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 12,
+      "0x6e553f65": 13,
+      "0xb460af94": 9,
+      "0xba087652": 5
+    },
+    "senders": 25,
+    "sendersBySelector": {
+      "0x095ea7b3": 11,
+      "0x6e553f65": 9,
+      "0xb460af94": 7,
+      "0xba087652": 4
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "status": "not_verified"

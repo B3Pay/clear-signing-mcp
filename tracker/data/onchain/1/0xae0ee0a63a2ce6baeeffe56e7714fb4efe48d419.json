@@ -1,29 +1,43 @@
 {
   "abi": {
-    "address": "0x95ff25A59Dc9c5A41cF0709dc916041E5dC7fd95",
-    "functions": 72,
-    "name": "StarknetEthBridge",
+    "address": "0xae0Ee0A63A2cE6BaeEFFE56e7714FB4EFE48D419",
+    "functions": 15,
+    "name": "Proxy",
     "source": "sourcify"
   },
   "address": "0xae0Ee0A63A2cE6BaeEFFE56e7714FB4EFE48D419",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x95ff25A59Dc9c5A41cF0709dc916041E5dC7fd95",
-        "name": "StarknetEthBridge"
-      }
-    ],
-    "isContract": true,
-    "name": "Proxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 6150,
-  "fetchedAt": "2026-11-06T21:49:40.872Z",
+  "fetchedAt": "2026-11-06T22:50:05.538Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xae0Ee0A63A2cE6BaeEFFE56e7714FB4EFE48D419&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 11,
+    "last30Days": 1000,
+    "newest": 1794001535,
+    "oldest": 1792809875,
+    "perDay": 72.50390211973213,
+    "requested": 1000,
+    "selectors": {
+      "0x00f714ce": 896,
+      "0x0efe6a8b": 33,
+      "0x2e1a7d4d": 1,
+      "0x69328dec": 61,
+      "0xe2bbb158": 9
+    },
+    "senders": 148,
+    "sendersBySelector": {
+      "0x00f714ce": 108,
+      "0x0efe6a8b": 23,
+      "0x2e1a7d4d": 1,
+      "0x69328dec": 15,
+      "0xe2bbb158": 4
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

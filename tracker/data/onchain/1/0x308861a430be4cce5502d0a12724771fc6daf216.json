@@ -7,23 +7,41 @@
   },
   "address": "0x308861A430be4cce5502d0A12724771Fc6DaF216",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x17A16747D03006c9754548AC0d0afF48783A4a45",
-        "name": "LiquidityPool"
-      }
-    ],
-    "isContract": true,
-    "name": "UUPSProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 845,
-  "fetchedAt": "2026-11-06T21:52:42.183Z",
+  "fetchedAt": "2026-11-06T22:50:09.713Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x308861A430be4cce5502d0A12724771Fc6DaF216&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 394,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 2,
+    "last30Days": 393,
+    "newest": 1794000323,
+    "oldest": 1791403307,
+    "perDay": 13.1,
+    "requested": 1000,
+    "selectors": {
+      "0x03dcfbdc": 7,
+      "0x397a1b28": 343,
+      "0x7e3db158": 2,
+      "0xd0e30db0": 39,
+      "0xde70b59f": 3
+    },
+    "senders": 332,
+    "sendersBySelector": {
+      "0x03dcfbdc": 7,
+      "0x397a1b28": 307,
+      "0x7e3db158": 1,
+      "0xd0e30db0": 20,
+      "0xde70b59f": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

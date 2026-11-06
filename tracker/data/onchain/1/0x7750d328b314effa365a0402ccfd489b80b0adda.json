@@ -7,23 +7,37 @@
   },
   "address": "0x7750d328b314EfFa365A0402CcfD489B80B0adda",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xa0673C53980665a706352412D2538bA005403C26",
-        "name": "RewardsCoordinator"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2151,
-  "fetchedAt": "2026-11-06T21:52:57.340Z",
+  "fetchedAt": "2026-11-06T22:50:10.589Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x7750d328b314EfFa365A0402CcfD489B80B0adda&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 655,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 4,
+    "last30Days": 653,
+    "newest": 1793984903,
+    "oldest": 1791404231,
+    "perDay": 21.766666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x3ccc861d": 650,
+      "0x3efe1db6": 4,
+      "0x4c696768": 1
+    },
+    "senders": 599,
+    "sendersBySelector": {
+      "0x3ccc861d": 597,
+      "0x3efe1db6": 1,
+      "0x4c696768": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

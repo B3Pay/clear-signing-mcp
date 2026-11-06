@@ -7,18 +7,45 @@
   },
   "address": "0x4857DB576eE0e45F10525eC59527BfD10beeC60b",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "Slipstream V3 Deposit",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 24516,
-  "fetchedAt": "2026-11-06T21:49:58.342Z",
+  "fetchedAt": "2026-11-06T22:50:06.532Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x4857DB576eE0e45F10525eC59527BfD10beeC60b&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 47,
+    "last30Days": 1000,
+    "newest": 1794002507,
+    "oldest": 1793932463,
+    "perDay": 1233.5103649134828,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 66,
+      "0x0c49ccbe": 1,
+      "0x219f5d17": 20,
+      "0x42966c68": 1,
+      "0xa22cb465": 7,
+      "0xac9650d8": 431,
+      "0xb5007d1f": 472,
+      "0xb88d4fde": 1,
+      "0xfc6f7865": 1
+    },
+    "senders": 14,
+    "sendersBySelector": {
+      "0x095ea7b3": 3,
+      "0x0c49ccbe": 1,
+      "0x219f5d17": 2,
+      "0x42966c68": 1,
+      "0xa22cb465": 5,
+      "0xac9650d8": 7,
+      "0xb5007d1f": 7,
+      "0xb88d4fde": 1,
+      "0xfc6f7865": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

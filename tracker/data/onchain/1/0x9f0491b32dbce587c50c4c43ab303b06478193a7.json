@@ -7,23 +7,39 @@
   },
   "address": "0x9F0491B32DBce587c50c4C43AB303b06478193A7",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x678f0D5Aac7398502B50B24B3Ce67EA2dC4Fc29C",
-        "name": "UserWithdrawalManager"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2227,
-  "fetchedAt": "2026-11-06T21:53:10.506Z",
+  "fetchedAt": "2026-11-06T22:51:24.822Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x9F0491B32DBce587c50c4C43AB303b06478193A7&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 351,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 5,
+    "last30Days": 351,
+    "newest": 1793997191,
+    "oldest": 1791430259,
+    "perDay": 11.7,
+    "requested": 1000,
+    "selectors": {
+      "0x1f7ec122": 107,
+      "0x379607f5": 173,
+      "0xad8a16dc": 52,
+      "0xccc143b8": 19
+    },
+    "senders": 141,
+    "sendersBySelector": {
+      "0x1f7ec122": 60,
+      "0x379607f5": 114,
+      "0xad8a16dc": 8,
+      "0xccc143b8": 18
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

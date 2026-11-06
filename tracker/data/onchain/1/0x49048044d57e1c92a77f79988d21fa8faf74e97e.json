@@ -7,23 +7,35 @@
   },
   "address": "0x49048044D57e1C92A77f79988d21Fa8fAF74E97e",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x03863Ab7F64B733cFF85C8fF44a86601C568Ca70",
-        "name": "OptimismPortal2"
-      }
-    ],
-    "isContract": true,
-    "name": "Proxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2096,
-  "fetchedAt": "2026-11-06T21:49:18.450Z",
+  "fetchedAt": "2026-11-06T22:50:05.421Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x49048044D57e1C92A77f79988d21Fa8fAF74E97e&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794002507,
+    "oldest": 1793987927,
+    "perDay": 5925.925925925925,
+    "requested": 1000,
+    "selectors": {
+      "0x43ca1c50": 5,
+      "0x4870496f": 4,
+      "0x8c3152e9": 1,
+      "0xe9e05c42": 990
+    },
+    "senders": 14,
+    "sendersBySelector": {
+      "0x43ca1c50": 5,
+      "0x4870496f": 4,
+      "0x8c3152e9": 1,
+      "0xe9e05c42": 4
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

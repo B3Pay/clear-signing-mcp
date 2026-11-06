@@ -7,18 +7,49 @@
   },
   "address": "0xf8C786b1064889fFd3c8A08B48D5e0c159F4cBe3",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "crvUSDController",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 22775,
-  "fetchedAt": "2026-11-06T21:51:45.244Z",
+  "fetchedAt": "2026-11-06T22:50:08.538Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xf8C786b1064889fFd3c8A08B48D5e0c159F4cBe3&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 93,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 1,
+    "last30Days": 93,
+    "newest": 1793985947,
+    "oldest": 1791420359,
+    "perDay": 3.1,
+    "requested": 1000,
+    "selectors": {
+      "0x23cfed03": 4,
+      "0x24049e57": 23,
+      "0x3d140d21": 1,
+      "0x4ba96d46": 3,
+      "0x5794e890": 1,
+      "0xacb70815": 1,
+      "0xb4440df4": 25,
+      "0xd14ff5b6": 5,
+      "0xdd171e7c": 30
+    },
+    "senders": 27,
+    "sendersBySelector": {
+      "0x23cfed03": 4,
+      "0x24049e57": 8,
+      "0x3d140d21": 1,
+      "0x4ba96d46": 2,
+      "0x5794e890": 1,
+      "0xacb70815": 1,
+      "0xb4440df4": 13,
+      "0xd14ff5b6": 3,
+      "0xdd171e7c": 12
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

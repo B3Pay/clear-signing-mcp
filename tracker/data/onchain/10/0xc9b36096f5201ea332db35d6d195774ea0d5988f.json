@@ -7,18 +7,33 @@
   },
   "address": "0xc9b36096f5201ea332Db35d6D195774ea0D5988f",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "CompositeLiquidityRouter",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 14632,
-  "fetchedAt": "2026-11-06T21:50:35.653Z",
+  "fetchedAt": "2026-11-06T23:30:53.535Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xc9b36096f5201ea332Db35d6D195774ea0D5988f&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 4,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 4,
+    "newest": 1793434107,
+    "oldest": 1793365067,
+    "perDay": 0.5269915431276094,
+    "requested": 1000,
+    "selectors": {
+      "0xd8a7f9fe": 4
+    },
+    "senders": 2,
+    "sendersBySelector": {
+      "0xd8a7f9fe": 2
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

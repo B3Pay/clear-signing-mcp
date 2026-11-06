@@ -7,18 +7,33 @@
   },
   "address": "0x62e31802c6145A2D5E842EeD8efe01fC224422fA",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "MaverickV2Router",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 9985,
-  "fetchedAt": "2026-11-06T21:50:33.954Z",
+  "fetchedAt": "2026-11-06T22:50:07.280Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x62e31802c6145A2D5E842EeD8efe01fC224422fA&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 24,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 24,
+    "newest": 1793909219,
+    "oldest": 1791571775,
+    "perDay": 0.8,
+    "requested": 1000,
+    "selectors": {
+      "0xa3b105ca": 24
+    },
+    "senders": 2,
+    "sendersBySelector": {
+      "0xa3b105ca": 2
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

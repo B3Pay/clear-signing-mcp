@@ -7,15 +7,47 @@
   },
   "address": "0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
   "blockscout": {
-    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
-    "status": "error"
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 8453,
   "codeBytes": 1933,
-  "fetchedAt": "2026-11-06T22:08:58.752Z",
+  "fetchedAt": "2026-11-06T23:32:13.180Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+    "count": 1000,
+    "failed": 6,
+    "last30Days": 1000,
+    "newest": 1794002344,
+    "oldest": 1793970499,
+    "perDay": 2713.1417804992934,
+    "requested": 1000,
+    "selectors": {
+      "0x00a718a9": 1,
+      "0x28530a47": 7,
+      "0x2dad97d4": 7,
+      "0x573ade81": 125,
+      "0x5a3b74b9": 4,
+      "0x617ba037": 410,
+      "0x69328dec": 224,
+      "0xa415bcad": 209,
+      "0xac9650d8": 12,
+      "0xe8eda9df": 1
+    },
+    "senders": 569,
+    "sendersBySelector": {
+      "0x00a718a9": 1,
+      "0x28530a47": 7,
+      "0x2dad97d4": 5,
+      "0x573ade81": 94,
+      "0x5a3b74b9": 4,
+      "0x617ba037": 308,
+      "0x69328dec": 175,
+      "0xa415bcad": 177,
+      "0xac9650d8": 12,
+      "0xe8eda9df": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

@@ -7,18 +7,37 @@
   },
   "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "SwapRouter02",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 24497,
-  "fetchedAt": "2026-11-06T21:49:51.389Z",
+  "fetchedAt": "2026-11-06T23:30:52.560Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 65,
+    "last30Days": 1000,
+    "newest": 1794002193,
+    "oldest": 1793975679,
+    "perDay": 3258.6558044806516,
+    "requested": 1000,
+    "selectors": {
+      "0x04e45aaf": 509,
+      "0x5023b4df": 485,
+      "0x5ae401dc": 3,
+      "0xac9650d8": 1,
+      "0xb858183f": 2
+    },
+    "senders": 10,
+    "sendersBySelector": {
+      "0x04e45aaf": 6,
+      "0x5023b4df": 1,
+      "0x5ae401dc": 2,
+      "0xac9650d8": 1,
+      "0xb858183f": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

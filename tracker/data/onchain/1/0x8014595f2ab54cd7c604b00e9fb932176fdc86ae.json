@@ -7,18 +7,35 @@
   },
   "address": "0x8014595F2AB54cD7c604B00E9fb932176fDc86Ae",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "CrvDepositor",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 5225,
-  "fetchedAt": "2026-11-06T21:53:27.209Z",
+  "fetchedAt": "2026-11-06T22:50:22.195Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x8014595F2AB54cD7c604B00E9fb932176fDc86Ae&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 8,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 8,
+    "newest": 1793500187,
+    "oldest": 1792150043,
+    "perDay": 0.26666666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x80ed71e4": 6,
+      "0x9a408321": 2
+    },
+    "senders": 7,
+    "sendersBySelector": {
+      "0x80ed71e4": 5,
+      "0x9a408321": 2
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

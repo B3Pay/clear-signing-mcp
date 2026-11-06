@@ -7,23 +7,45 @@
   },
   "address": "0x7f50786A0b15723D741727882ee99a0BF34e3466",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x2717c6A0029d63E90eB12283507E06BF77A9754d",
-        "name": "Vyper_contract"
-      }
-    ],
-    "isContract": true,
-    "name": "Stake DAO sdCRV Gauge",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2151,
-  "fetchedAt": "2026-11-06T21:53:54.456Z",
+  "fetchedAt": "2026-11-06T22:50:41.950Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x7f50786A0b15723D741727882ee99a0BF34e3466&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 178,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 1,
+    "last30Days": 178,
+    "newest": 1793977583,
+    "oldest": 1791428039,
+    "perDay": 5.933333333333334,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 2,
+      "0x2e1a7d4d": 49,
+      "0x38d07436": 3,
+      "0x4b820093": 15,
+      "0x6e553f65": 10,
+      "0xb6b55f25": 98,
+      "0xe6f1daf2": 1
+    },
+    "senders": 66,
+    "sendersBySelector": {
+      "0x095ea7b3": 2,
+      "0x2e1a7d4d": 14,
+      "0x38d07436": 3,
+      "0x4b820093": 7,
+      "0x6e553f65": 2,
+      "0xb6b55f25": 50,
+      "0xe6f1daf2": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

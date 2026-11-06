@@ -1,29 +1,41 @@
 {
   "abi": {
-    "address": "0xAEAe84d0858BC009Ff460c50EaA75f15b02671dC",
-    "functions": 31,
-    "name": "L2OPStackSyncPoolETHUpgradeable",
+    "address": "0xC9475e18E2C5C26EA6ADCD55fabE07920beA887e",
+    "functions": 0,
+    "name": "TransparentUpgradeableProxy",
     "source": "sourcify"
   },
   "address": "0xC9475e18E2C5C26EA6ADCD55fabE07920beA887e",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xAEAe84d0858BC009Ff460c50EaA75f15b02671dC",
-        "name": "L2OPStackSyncPoolETHUpgradeable"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 756,
-  "fetchedAt": "2026-11-06T21:52:53.371Z",
+  "fetchedAt": "2026-11-06T23:30:55.373Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xC9475e18E2C5C26EA6ADCD55fabE07920beA887e&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 5,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 5,
+    "newest": 1793761825,
+    "oldest": 1793383825,
+    "perDay": 0.6587394289095118,
+    "requested": 1000,
+    "selectors": {
+      "0x03e74675": 4,
+      "0x0efe6a8b": 1
+    },
+    "senders": 2,
+    "sendersBySelector": {
+      "0x03e74675": 1,
+      "0x0efe6a8b": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

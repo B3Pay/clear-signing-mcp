@@ -7,18 +7,49 @@
   },
   "address": "0xFAf8FD17D9840595845582fCB047DF13f006787d",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "VotingEscrow",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 24251,
-  "fetchedAt": "2026-11-06T21:50:18.663Z",
+  "fetchedAt": "2026-11-06T23:30:53.299Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xFAf8FD17D9840595845582fCB047DF13f006787d&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 361,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 3,
+    "last30Days": 361,
+    "newest": 1793999981,
+    "oldest": 1793348177,
+    "perDay": 47.56098676726675,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 311,
+      "0x23b872dd": 3,
+      "0x2e1a7d4d": 19,
+      "0x35b0f6bd": 8,
+      "0x42842e0e": 10,
+      "0xb2383e55": 3,
+      "0xb52c05fe": 1,
+      "0xd1c2babb": 5,
+      "0xe75b1c2e": 1
+    },
+    "senders": 270,
+    "sendersBySelector": {
+      "0x095ea7b3": 241,
+      "0x23b872dd": 2,
+      "0x2e1a7d4d": 19,
+      "0x35b0f6bd": 8,
+      "0x42842e0e": 10,
+      "0xb2383e55": 3,
+      "0xb52c05fe": 1,
+      "0xd1c2babb": 2,
+      "0xe75b1c2e": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

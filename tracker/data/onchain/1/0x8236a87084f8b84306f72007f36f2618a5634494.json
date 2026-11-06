@@ -7,23 +7,39 @@
   },
   "address": "0x8236a87084f8B84306f72007F36F2618A5634494",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xE15382BC6968a50C5Ff5aF193D03de6BE4d0270f",
-        "name": "StakedLBTC"
-      }
-    ],
-    "isContract": true,
-    "name": "Lombard Staked BTC",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 1159,
-  "fetchedAt": "2026-11-06T21:53:56.389Z",
+  "fetchedAt": "2026-11-06T22:50:40.943Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x8236a87084f8B84306f72007F36F2618A5634494&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1793999531,
+    "oldest": 1791760655,
+    "perDay": 38.59079287999871,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 606,
+      "0x30b93d85": 184,
+      "0x6bc63893": 7,
+      "0xa9059cbb": 144,
+      "0xd505accf": 1,
+      "0xdb006a75": 58
+    },
+    "senders": 626,
+    "sendersBySelector": {
+      "0x095ea7b3": 403,
+      "0x30b93d85": 109,
+      "0x6bc63893": 7,
+      "0xa9059cbb": 87,
+      "0xd505accf": 1,
+      "0xdb006a75": 44
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

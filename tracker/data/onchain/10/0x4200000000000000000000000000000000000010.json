@@ -7,23 +7,39 @@
   },
   "address": "0x4200000000000000000000000000000000000010",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xAE9ed42f43a3ee45c3A9dEf8ae6B48cBb58Ed1a1",
-        "name": "L2StandardBridge"
-      }
-    ],
-    "isContract": true,
-    "name": "Proxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 2055,
-  "fetchedAt": "2026-11-06T21:49:33.060Z",
+  "fetchedAt": "2026-11-06T23:30:53.037Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x4200000000000000000000000000000000000010&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 70,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 70,
+    "newest": 1793998191,
+    "oldest": 1793368343,
+    "perDay": 9.222352004733164,
+    "requested": 1000,
+    "selectors": {
+      "0x32b7006d": 9,
+      "0x540abf73": 14,
+      "0xa3a79548": 42,
+      "0xe11013dd": 5
+    },
+    "senders": 29,
+    "sendersBySelector": {
+      "0x32b7006d": 6,
+      "0x540abf73": 2,
+      "0xa3a79548": 18,
+      "0xe11013dd": 4
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

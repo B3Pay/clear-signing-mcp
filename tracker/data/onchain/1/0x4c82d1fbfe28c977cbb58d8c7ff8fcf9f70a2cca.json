@@ -7,18 +7,31 @@
   },
   "address": "0x4C82D1fBFe28C977cBB58D8C7FF8FCF9F70a2cCA",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "UniversalRouter",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 24546,
-  "fetchedAt": "2026-11-06T21:49:54.080Z",
+  "fetchedAt": "2026-11-06T22:50:05.964Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x4C82D1fBFe28C977cBB58D8C7FF8FCF9F70a2cCA&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 138,
+    "last30Days": 1000,
+    "newest": 1794002459,
+    "oldest": 1793769011,
+    "perDay": 370.10383468695386,
+    "requested": 1000,
+    "selectors": {
+      "0x24856bc3": 1,
+      "0x3593564c": 999
+    },
+    "senders": 63,
+    "sendersBySelector": {
+      "0x24856bc3": 1,
+      "0x3593564c": 62
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

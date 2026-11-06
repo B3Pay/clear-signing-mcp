@@ -7,18 +7,33 @@
   },
   "address": "0x42dB77B3103c71059F4b997d6441cFB299FD0d94",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "PoolV3",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 18096,
-  "fetchedAt": "2026-11-06T21:53:49.893Z",
+  "fetchedAt": "2026-11-06T23:30:55.698Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x42dB77B3103c71059F4b997d6441cFB299FD0d94&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 12,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 12,
+    "newest": 1793842179,
+    "oldest": 1793407881,
+    "perDay": 1.5809746293828282,
+    "requested": 1000,
+    "selectors": {
+      "0xba087652": 12
+    },
+    "senders": 12,
+    "sendersBySelector": {
+      "0xba087652": 12
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

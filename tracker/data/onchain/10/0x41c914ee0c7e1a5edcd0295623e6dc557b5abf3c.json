@@ -7,18 +7,37 @@
   },
   "address": "0x41C914ee0c7E1A5edCD0295623e6dC557B5aBf3C",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "Voter",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 17087,
-  "fetchedAt": "2026-11-06T21:50:18.620Z",
+  "fetchedAt": "2026-11-06T23:30:53.390Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x41C914ee0c7E1A5edCD0295623e6dC557B5aBf3C&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 668,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 4,
+    "last30Days": 668,
+    "newest": 1793999957,
+    "oldest": 1793347909,
+    "perDay": 88.00758770231077,
+    "requested": 1000,
+    "selectors": {
+      "0x310bd74b": 253,
+      "0x370fb5fa": 38,
+      "0x7715ee75": 377
+    },
+    "senders": 259,
+    "sendersBySelector": {
+      "0x310bd74b": 210,
+      "0x370fb5fa": 28,
+      "0x7715ee75": 215
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

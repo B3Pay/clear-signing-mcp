@@ -7,18 +7,35 @@
   },
   "address": "0xa50CB9dFFcc740EE6b6f2D4B3CBc3a876b28c335",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "CurveDepositor",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 3963,
-  "fetchedAt": "2026-11-06T21:53:52.644Z",
+  "fetchedAt": "2026-11-06T22:51:06.918Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xa50CB9dFFcc740EE6b6f2D4B3CBc3a876b28c335&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 4,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 4,
+    "newest": 1793114195,
+    "oldest": 1791541871,
+    "perDay": 0.13333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x6e553f65": 3,
+      "0xbca7a9e2": 1
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0x6e553f65": 3,
+      "0xbca7a9e2": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

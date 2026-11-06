@@ -7,18 +7,35 @@
   },
   "address": "0x112088363eE4CcF3F37EaBD98FDDeEd98F0Be485",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "VaultBundlesV1",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 6781,
-  "fetchedAt": "2026-11-06T21:51:25.644Z",
+  "fetchedAt": "2026-11-06T23:30:54.172Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x112088363eE4CcF3F37EaBD98FDDeEd98F0Be485&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 68,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 68,
+    "newest": 1793999547,
+    "oldest": 1793354577,
+    "perDay": 8.95885623316936,
+    "requested": 1000,
+    "selectors": {
+      "0x6bbba4e0": 35,
+      "0x932084a8": 33
+    },
+    "senders": 36,
+    "sendersBySelector": {
+      "0x6bbba4e0": 23,
+      "0x932084a8": 24
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

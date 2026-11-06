@@ -7,18 +7,35 @@
   },
   "address": "0xd01607c3C5eCABa394D8be377a08590149325722",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "WrappedTokenGatewayV3",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 5428,
-  "fetchedAt": "2026-11-06T21:50:35.146Z",
+  "fetchedAt": "2026-11-06T22:50:07.097Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xd01607c3C5eCABa394D8be377a08590149325722&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 4,
+    "last30Days": 1000,
+    "newest": 1794002171,
+    "oldest": 1793783795,
+    "perDay": 395.64787339268054,
+    "requested": 1000,
+    "selectors": {
+      "0x474cf53d": 609,
+      "0x80500d20": 251,
+      "0xbcc3c255": 78,
+      "0xe74f7b85": 62
+    },
+    "senders": 583,
+    "sendersBySelector": {
+      "0x474cf53d": 412,
+      "0x80500d20": 171,
+      "0xbcc3c255": 41,
+      "0xe74f7b85": 39
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

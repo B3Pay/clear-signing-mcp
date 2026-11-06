@@ -7,23 +7,37 @@
   },
   "address": "0xDdA0483184E75a5579ef9635ED14BacCf9d50283",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x98E1d95B4b3A5A082642e17274D67d62691288F1",
-        "name": "PufferWithdrawalManager"
-      }
-    ],
-    "isContract": true,
-    "name": "ERC1967Proxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 163,
-  "fetchedAt": "2026-11-06T21:53:09.901Z",
+  "fetchedAt": "2026-11-06T22:50:11.192Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xDdA0483184E75a5579ef9635ED14BacCf9d50283&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 246,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 36,
+    "last30Days": 243,
+    "newest": 1793957039,
+    "oldest": 1791400583,
+    "perDay": 8.1,
+    "requested": 1000,
+    "selectors": {
+      "0x6a4800a4": 116,
+      "0xa231d21b": 61,
+      "0xef027fbf": 69
+    },
+    "senders": 154,
+    "sendersBySelector": {
+      "0x6a4800a4": 54,
+      "0xa231d21b": 56,
+      "0xef027fbf": 63
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

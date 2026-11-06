@@ -1,29 +1,43 @@
 {
   "abi": {
-    "address": "0x6ad74D4B79A06A492C288eF66Ef868Dd981fdC85",
-    "functions": 72,
-    "name": "StarknetERC20Bridge",
+    "address": "0xbb3400F107804DFB482565FF1Ec8D8aE66747605",
+    "functions": 15,
+    "name": "Proxy",
     "source": "sourcify"
   },
   "address": "0xbb3400F107804DFB482565FF1Ec8D8aE66747605",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x6ad74D4B79A06A492C288eF66Ef868Dd981fdC85",
-        "name": "StarknetERC20Bridge"
-      }
-    ],
-    "isContract": true,
-    "name": "Proxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 6338,
-  "fetchedAt": "2026-11-06T21:49:49.102Z",
+  "fetchedAt": "2026-11-06T22:50:05.804Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xbb3400F107804DFB482565FF1Ec8D8aE66747605&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 59,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 59,
+    "newest": 1793896391,
+    "oldest": 1791452531,
+    "perDay": 1.9666666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x00f714ce": 6,
+      "0x0efe6a8b": 31,
+      "0x69328dec": 22
+    },
+    "senders": 20,
+    "sendersBySelector": {
+      "0x00f714ce": 1,
+      "0x0efe6a8b": 16,
+      "0x69328dec": 5
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

@@ -7,15 +7,39 @@
   },
   "address": "0xb125E6687d4313864e53df431d5425969c15Eb2F",
   "blockscout": {
-    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xb125E6687d4313864e53df431d5425969c15Eb2F",
-    "status": "error"
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 8453,
   "codeBytes": 1878,
-  "fetchedAt": "2026-11-06T22:08:58.896Z",
+  "fetchedAt": "2026-11-06T23:32:14.122Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+    "count": 90,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 90,
+    "newest": 1794002345,
+    "oldest": 1793918466,
+    "perDay": 91.91706659731908,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 3,
+      "0xa9059cbb": 1,
+      "0xf2b9fdb8": 43,
+      "0xf3fef3a3": 43
+    },
+    "senders": 38,
+    "sendersBySelector": {
+      "0x095ea7b3": 3,
+      "0xa9059cbb": 1,
+      "0xf2b9fdb8": 24,
+      "0xf3fef3a3": 21
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

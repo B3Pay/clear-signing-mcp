@@ -7,23 +7,29 @@
   },
   "address": "0xaAA687e218F9B53183A6AA9639FBD9D6e69EcB73",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x8A1B70D89eb1659aC6437f4A79Dddd70FE933fa9",
-        "name": "RSETHPoolV2ExternalBridge"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 2837,
-  "fetchedAt": "2026-11-06T21:53:00.000Z",
+  "fetchedAt": "2026-11-06T23:30:55.777Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xaAA687e218F9B53183A6AA9639FBD9D6e69EcB73&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 0,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

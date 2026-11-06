@@ -7,18 +7,51 @@
   },
   "address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "UniswapV2Router02",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 21943,
-  "fetchedAt": "2026-11-06T21:51:06.439Z",
+  "fetchedAt": "2026-11-06T22:50:06.387Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 48,
+    "last30Days": 1000,
+    "newest": 1794002507,
+    "oldest": 1793983619,
+    "perDay": 4574.33290978399,
+    "requested": 1000,
+    "selectors": {
+      "0x02751cec": 14,
+      "0x18cbafe5": 23,
+      "0x38ed1739": 206,
+      "0x5c11d795": 103,
+      "0x791ac947": 174,
+      "0x7ff36ab5": 417,
+      "0x8803dbee": 12,
+      "0xaf2979eb": 3,
+      "0xb6f9de95": 15,
+      "0xbaa2abde": 11,
+      "0xe8e33700": 3,
+      "0xf305d719": 19
+    },
+    "senders": 363,
+    "sendersBySelector": {
+      "0x02751cec": 14,
+      "0x18cbafe5": 16,
+      "0x38ed1739": 51,
+      "0x5c11d795": 31,
+      "0x791ac947": 137,
+      "0x7ff36ab5": 126,
+      "0x8803dbee": 6,
+      "0xaf2979eb": 3,
+      "0xb6f9de95": 14,
+      "0xbaa2abde": 8,
+      "0xe8e33700": 3,
+      "0xf305d719": 18
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

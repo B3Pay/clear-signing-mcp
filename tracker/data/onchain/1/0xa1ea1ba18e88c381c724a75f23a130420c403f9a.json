@@ -7,18 +7,33 @@
   },
   "address": "0xA1Ea1bA18E88C381C724a75F23a130420C403f9a",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "MkrSky",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2386,
-  "fetchedAt": "2026-11-06T21:51:04.557Z",
+  "fetchedAt": "2026-11-06T22:50:07.663Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xA1Ea1bA18E88C381C724a75F23a130420C403f9a&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 53,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 1,
+    "last30Days": 53,
+    "newest": 1793213555,
+    "oldest": 1791456203,
+    "perDay": 1.7666666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0xab89605a": 53
+    },
+    "senders": 46,
+    "sendersBySelector": {
+      "0xab89605a": 46
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

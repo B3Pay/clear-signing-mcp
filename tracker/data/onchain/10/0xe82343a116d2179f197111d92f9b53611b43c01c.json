@@ -7,18 +7,33 @@
   },
   "address": "0xE82343A116d2179F197111D92f9B53611B43C01c",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "BeefyZapRouter",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 10660,
-  "fetchedAt": "2026-11-06T21:53:50.013Z",
+  "fetchedAt": "2026-11-06T23:30:55.578Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xE82343A116d2179F197111D92f9B53611B43C01c&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 221,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 30,
+    "last30Days": 221,
+    "newest": 1794000917,
+    "oldest": 1793346885,
+    "perDay": 29.11628275780042,
+    "requested": 1000,
+    "selectors": {
+      "0xf41b2db6": 221
+    },
+    "senders": 105,
+    "sendersBySelector": {
+      "0xf41b2db6": 105
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

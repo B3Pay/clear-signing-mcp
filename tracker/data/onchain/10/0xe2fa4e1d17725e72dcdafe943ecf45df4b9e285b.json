@@ -7,18 +7,33 @@
   },
   "address": "0xe2fa4e1d17725e72dcdAfe943Ecf45dF4B9E285b",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "Router",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 22402,
-  "fetchedAt": "2026-11-06T21:50:33.935Z",
+  "fetchedAt": "2026-11-06T23:30:53.437Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xe2fa4e1d17725e72dcdAfe943Ecf45dF4B9E285b&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 2,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 2,
+    "newest": 1793635909,
+    "oldest": 1793635377,
+    "perDay": 0.2634957715638047,
+    "requested": 1000,
+    "selectors": {
+      "0x19c6989f": 2
+    },
+    "senders": 2,
+    "sendersBySelector": {
+      "0x19c6989f": 2
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

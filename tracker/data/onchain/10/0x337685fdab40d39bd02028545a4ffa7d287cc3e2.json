@@ -7,18 +7,33 @@
   },
   "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "MayanForwarder2",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 8840,
-  "fetchedAt": "2026-11-06T21:49:30.346Z",
+  "fetchedAt": "2026-11-06T23:30:52.258Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x337685fdaB40D39bd02028545a4FfA7D287cC3E2&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 5,
+    "last30Days": 1000,
+    "newest": 1794000399,
+    "oldest": 1793954919,
+    "perDay": 1899.7361477572558,
+    "requested": 1000,
+    "selectors": {
+      "0x30dedc57": 995,
+      "0xe4269fc4": 2,
+      "0xfa74fd43": 3
+    },
+    "senders": 12,
+    "sendersBySelector": {
+      "0x30dedc57": 8,
+      "0xe4269fc4": 2,
+      "0xfa74fd43": 3
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

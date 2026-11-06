@@ -1,5 +1,23 @@
 {
   "address": "0x79EA96012eEa67A83431F1701B3dFf7e37F9E282",
   "chainId": 8453,
-  "txs": []
+  "txs": [
+    {
+      "blockNumber": 53943022,
+      "chainId": 8453,
+      "from": "0xa98CF67EF892e43Ca6EAcA4274BacC20f05C9Cee",
+      "gas": "74440",
+      "gasPrice": "6000000",
+      "hash": "0x437912ca44feef432679da55b5afa07afa519fbe617a7c74c239f33f3b90f8ef",
+      "input": "0xc47f002700000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000",
+      "maxFeePerGas": "6200000",
+      "maxPriorityFeePerGas": "1000000",
+      "nonce": 5,
+      "status": "success",
+      "timestamp": 1793978980,
+      "to": "0x79EA96012eEa67A83431F1701B3dFf7e37F9E282",
+      "type": "eip1559",
+      "value": "0"
+    }
+  ]
 }

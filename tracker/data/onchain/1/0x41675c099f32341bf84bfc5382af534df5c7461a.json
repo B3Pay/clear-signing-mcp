@@ -7,18 +7,49 @@
   },
   "address": "0x41675C099F32341bf84BFc5382aF534df5C7461a",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "Safe",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 23579,
-  "fetchedAt": "2026-11-06T21:52:24.805Z",
+  "fetchedAt": "2026-11-06T22:50:09.607Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x41675C099F32341bf84BFc5382aF534df5C7461a&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 10,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 10,
+    "newest": 1793468351,
+    "oldest": 1793467883,
+    "perDay": 0.3333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x22019a1c": 1,
+      "0x3ccfd60b": 1,
+      "0x4e71d92d": 1,
+      "0x8260910c": 2,
+      "0x97079f5a": 1,
+      "0x9890220b": 1,
+      "0xa9059cbb": 1,
+      "0xce31a06b": 1,
+      "0xdb2e21bc": 1
+    },
+    "senders": 1,
+    "sendersBySelector": {
+      "0x22019a1c": 1,
+      "0x3ccfd60b": 1,
+      "0x4e71d92d": 1,
+      "0x8260910c": 1,
+      "0x97079f5a": 1,
+      "0x9890220b": 1,
+      "0xa9059cbb": 1,
+      "0xce31a06b": 1,
+      "0xdb2e21bc": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

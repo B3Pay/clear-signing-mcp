@@ -7,23 +7,29 @@
   },
   "address": "0x0B9857ae2D4A3DBe74ffE1d7DF045bb7F96E4840",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x3FFf9BdC3ce99d3D587b0d06Aa7C4a10075193b4",
-        "name": "Outbox"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2147,
-  "fetchedAt": "2026-11-06T21:49:17.248Z",
+  "fetchedAt": "2026-11-06T22:50:05.004Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x0B9857ae2D4A3DBe74ffE1d7DF045bb7F96E4840&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 1000,
+    "newest": 1793998775,
+    "oldest": 1793498855,
+    "perDay": 172.8276524243879,
+    "requested": 1000,
+    "selectors": {
+      "0x08635a95": 1000
+    },
+    "senders": 81,
+    "sendersBySelector": {
+      "0x08635a95": 81
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

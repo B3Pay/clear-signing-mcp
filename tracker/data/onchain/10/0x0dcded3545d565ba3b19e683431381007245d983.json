@@ -7,18 +7,33 @@
   },
   "address": "0x0DCDED3545D565bA3B19E683431381007245d983",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "CurveRouterOptimismv1.1",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 13338,
-  "fetchedAt": "2026-11-06T21:50:18.853Z",
+  "fetchedAt": "2026-11-06T23:30:53.388Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x0DCDED3545D565bA3B19E683431381007245d983&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 7,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 7,
+    "newest": 1793957137,
+    "oldest": 1793349045,
+    "perDay": 0.9222352004733164,
+    "requested": 1000,
+    "selectors": {
+      "0x5c9c18e2": 7
+    },
+    "senders": 3,
+    "sendersBySelector": {
+      "0x5c9c18e2": 3
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

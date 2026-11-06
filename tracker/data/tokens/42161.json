@@ -4,6 +4,11 @@
     "name": "Global Dollar",
     "symbol": "USDG"
   },
+  "0x01d1e02ee618ba3e6eb5d145ad3c9a90f34155f3": {
+    "decimals": 18,
+    "name": "DEVRAL",
+    "symbol": "DEVRAL"
+  },
   "0x04419d3509f13054f60d253e0c79491d9e683399": {
     "decimals": 18,
     "name": "Main WETH v3",
@@ -29,10 +34,20 @@
     "name": "SushiSwap LP Token",
     "symbol": "SLP"
   },
+  "0x0b2b2b2076d95dda7817e785989fe353fe955ef9": {
+    "decimals": 18,
+    "name": "Staked USDai",
+    "symbol": "sUSDai"
+  },
   "0x0c06ccf38114ddfc35e07427b9424adcca9f44f8": {
     "decimals": 18,
     "name": "Monerium EURe",
     "symbol": "EURe"
+  },
+  "0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8": {
+    "decimals": 18,
+    "name": "Pendle",
+    "symbol": "PENDLE"
   },
   "0x0de59c86c306b9fead9fb67e65551e2b6897c3f6": {
     "decimals": 18,
@@ -79,10 +94,25 @@
     "name": "PT Syrup USDC 29JAN2026",
     "symbol": "PT-syrupUSDC-29JAN2026"
   },
+  "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2": {
+    "decimals": 18,
+    "name": "Staked USDe",
+    "symbol": "sUSDe"
+  },
   "0x21f132ade35684b230af974b80b5bfd2678ebd80": {
     "decimals": 18,
     "name": "Balancer Surge yUSD-Aave USDC",
     "symbol": "Surge yUSD-Aave USDC"
+  },
+  "0x221866774f8d08df45da02ed8c628985d38d6145": {
+    "decimals": 18,
+    "name": "Unified Stable Gold",
+    "symbol": "USG"
+  },
+  "0x23ee2343b892b1bb63503a4fabc840e0e2c6810f": {
+    "decimals": 6,
+    "name": "Axelar",
+    "symbol": "AXL"
   },
   "0x2eadce7ebdedf3c7291f1f658208a2720ff4b74d": {
     "decimals": 18,
@@ -119,6 +149,11 @@
     "name": "rsETH",
     "symbol": "rsETH"
   },
+  "0x390c1bb01f3f627144a40617e287d4ce3d5abcfa": {
+    "decimals": 18,
+    "name": "Gauntlet USDG Premium",
+    "symbol": "gtusdgp"
+  },
   "0x3c842f18c8385f06114ac9a71a35453a9262a0a4": {
     "decimals": 18,
     "name": "Balancer plsRDNT-RDNT-WETH",
@@ -148,6 +183,11 @@
     "decimals": 6,
     "name": "Syrup USDC",
     "symbol": "syrupUSDC"
+  },
+  "0x45d91340b3b7b96985a72b5c678f7d9e8d664b62": {
+    "decimals": 6,
+    "name": "Spark Savings USDT",
+    "symbol": "spUSDT"
   },
   "0x45df0656f8adf017590009d2f1898eeca4f0a205": {
     "decimals": 18,
@@ -184,6 +224,11 @@
     "name": "BTC+",
     "symbol": "BTC+"
   },
+  "0x4cd5a94a30876320ac65f2e192493ee476f13866": {
+    "decimals": 18,
+    "name": "GMX Liquidity Vault [USDG-USDG]",
+    "symbol": "GLV [USDG-USDG]"
+  },
   "0x4d9ba415649c4b3c703562770c8ff3033478cea1": {
     "decimals": 18,
     "name": "GMX Market",
@@ -198,6 +243,11 @@
     "decimals": 18,
     "name": "Loaded Lions",
     "symbol": "LION"
+  },
+  "0x528a5bac7e746c9a509a1f4f6df58a03d44279f9": {
+    "decimals": 18,
+    "name": "GMX Liquidity Vault [WETH-USDC]",
+    "symbol": "GLV [WETH-USDC]"
   },
   "0x539bde0d7dbd336b79148aa742883198bbf60342": {
     "decimals": 18,
@@ -214,10 +264,20 @@
     "name": "BarkX Token",
     "symbol": "BARKX"
   },
+  "0x5542f81425d0662bfc6163324337d0890067ffb6": {
+    "decimals": 6,
+    "name": "DEV USD Coin",
+    "symbol": "DEV-USDC"
+  },
   "0x5575552988a3a80504bbaeb1311674fcfd40ad4b": {
     "decimals": 18,
     "name": "Sperax",
     "symbol": "SPA"
+  },
+  "0x55a2b207b0074e13adcb858950a81b7a04775e0f": {
+    "decimals": 18,
+    "name": "Gauntlet USDC Balanced",
+    "symbol": "gtusdcb"
   },
   "0x56637ef065dc19ed71b7bd8b60dbda9a1ba12a7e": {
     "decimals": 18,
@@ -254,6 +314,11 @@
     "name": "Plutus RDNT/WETH",
     "symbol": "plsRDNT"
   },
+  "0x6491c05a82219b8d1479057361ff1654749b876b": {
+    "decimals": 18,
+    "name": "USDS Stablecoin",
+    "symbol": "USDS"
+  },
   "0x657e8c867d8b37dcc18fa4caead9c45eb088c642": {
     "decimals": 8,
     "name": "ether.fi BTC",
@@ -284,6 +349,11 @@
     "name": "Dopex Governance Token",
     "symbol": "DPX"
   },
+  "0x6f7d514bbd4aff3bcd1140b7344b32f063dee486": {
+    "decimals": 18,
+    "name": "Compound WETH",
+    "symbol": "cWETHv3"
+  },
   "0x6fbbbd8bfb1cd3986b1d05e7861a0f62f87db74b": {
     "decimals": 18,
     "name": "Vision",
@@ -294,10 +364,20 @@
     "name": "GMX Market",
     "symbol": "GM"
   },
+  "0x719a06acbe535b85ccb8c9a2b59cab9f8b9bce57": {
+    "decimals": 18,
+    "name": "Gennii",
+    "symbol": "GenZ"
+  },
   "0x73db621cc8f0a767bed0e5c0a2920f480d77b765": {
     "decimals": 18,
     "name": "GTA",
     "symbol": "GTA"
+  },
+  "0x74e6afef5705beb126c6d3bf46f8fad8f3e07825": {
+    "decimals": 6,
+    "name": "Revert Lend Arbitrum USDC,",
+    "symbol": "rlArbUSDC"
   },
   "0x78483d06a82ae76e0ff9c72afd80e5b2cea3b2a0": {
     "decimals": 18,
@@ -313,6 +393,11 @@
     "decimals": 6,
     "name": "3S-ETH/USD",
     "symbol": "3S-ETH/USD"
+  },
+  "0x7e97fa6893871a2751b5fe961978dccb2c201e65": {
+    "decimals": 18,
+    "name": "Gauntlet USDC Core",
+    "symbol": "gtUSDCc"
   },
   "0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc": {
     "decimals": 6,
@@ -449,6 +534,11 @@
     "name": "OX Coin",
     "symbol": "OX"
   },
+  "0xbeeff72b77e7584a450e887125f25e8d8819016a": {
+    "decimals": 18,
+    "name": "Steakhouse USDG Pro",
+    "symbol": "bbqUSDG"
+  },
   "0xbfd18cbc1030db694c6cee3dd00d38e58ffe0102": {
     "decimals": 18,
     "name": "Moo Uniswap Gamma LINK-ETH",
@@ -509,10 +599,20 @@
     "name": "Dai Stablecoin",
     "symbol": "DAI"
   },
+  "0xddb46999f8891663a8f2828d25298f70416d7610": {
+    "decimals": 18,
+    "name": "Savings USDS",
+    "symbol": "sUSDS"
+  },
   "0xe0e0be96ff15bd3dc7d4de458eae5b0160b443a1": {
     "decimals": 18,
     "name": "Reward Cow Uniswap Arb ETH-USDC",
     "symbol": "rcowUniswapArbETH-USDC"
+  },
+  "0xe1b0dc5a21b10f1634fbfbe9976fba2ee2e1c762": {
+    "decimals": 6,
+    "name": "syrupUSDG",
+    "symbol": "syrupUSDG"
   },
   "0xe9f5a048103293aeeb05f1d986bb91ef38410d8e": {
     "decimals": 18,

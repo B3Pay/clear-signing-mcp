@@ -7,23 +7,35 @@
   },
   "address": "0xcf62F905562626CfcDD2261162a51fd02Fc9c5b6",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xAad4A1D92053a62cE7a787641d8b4E5883e96700",
-        "name": "SfrxUSD"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 1488,
-  "fetchedAt": "2026-11-06T21:51:54.714Z",
+  "fetchedAt": "2026-11-06T22:50:09.120Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xcf62F905562626CfcDD2261162a51fd02Fc9c5b6&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 182,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 182,
+    "newest": 1794002411,
+    "oldest": 1791421991,
+    "perDay": 6.066666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 176,
+      "0xa9059cbb": 6
+    },
+    "senders": 140,
+    "sendersBySelector": {
+      "0x095ea7b3": 135,
+      "0xa9059cbb": 5
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

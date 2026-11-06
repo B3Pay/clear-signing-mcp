@@ -7,23 +7,39 @@
   },
   "address": "0xF8B1378579659D8F7EE5f3C929c2f3E332E41Fd6",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xb93Ac04010Bd61F45BF492022A5b49a902F798F3",
-        "name": "L1GatewayRouter"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2206,
-  "fetchedAt": "2026-11-06T21:49:33.129Z",
+  "fetchedAt": "2026-11-06T22:50:06.530Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xF8B1378579659D8F7EE5f3C929c2f3E332E41Fd6&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 55,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 55,
+    "newest": 1793985419,
+    "oldest": 1791447599,
+    "perDay": 1.8333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x21425ee0": 42,
+      "0x9f8420b3": 3,
+      "0xce0b63ce": 7,
+      "0xf219fa66": 3
+    },
+    "senders": 19,
+    "sendersBySelector": {
+      "0x21425ee0": 9,
+      "0x9f8420b3": 2,
+      "0xce0b63ce": 7,
+      "0xf219fa66": 2
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

@@ -7,23 +7,47 @@
   },
   "address": "0xAC0F906E433d58FA868F936E8A43230473652885",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xf113BfD6423291b1dD2cA76f897bFf54456e7c88",
-        "name": "EthGenesisVault"
-      }
-    ],
-    "isContract": true,
-    "name": "ERC1967Proxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 130,
-  "fetchedAt": "2026-11-06T21:53:12.409Z",
+  "fetchedAt": "2026-11-06T22:50:22.315Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xAC0F906E433d58FA868F936E8A43230473652885&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 143,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 142,
+    "newest": 1793981687,
+    "oldest": 1791406403,
+    "perDay": 4.733333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x066055e0": 4,
+      "0x1a7ff553": 64,
+      "0x201b9eb5": 1,
+      "0x36fe59d2": 1,
+      "0x8697d2c2": 25,
+      "0x8ceab9aa": 18,
+      "0xac9650d8": 19,
+      "0xf9609f08": 11
+    },
+    "senders": 39,
+    "sendersBySelector": {
+      "0x066055e0": 4,
+      "0x1a7ff553": 1,
+      "0x201b9eb5": 1,
+      "0x36fe59d2": 1,
+      "0x8697d2c2": 24,
+      "0x8ceab9aa": 18,
+      "0xac9650d8": 7,
+      "0xf9609f08": 7
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

@@ -7,18 +7,41 @@
   },
   "address": "0x0000000000000068F116a894984e2DB1123eB395",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "Seaport",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 23981,
-  "fetchedAt": "2026-11-06T21:52:03.045Z",
+  "fetchedAt": "2026-11-06T22:50:08.958Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x0000000000000068F116a894984e2DB1123eB395&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 34,
+    "last30Days": 1000,
+    "newest": 1794002507,
+    "oldest": 1793986247,
+    "perDay": 5313.653136531366,
+    "requested": 1000,
+    "selectors": {
+      "0x00000000": 131,
+      "0x5b34b966": 3,
+      "0x87201b41": 165,
+      "0xe7acab24": 319,
+      "0xf2d12b12": 139,
+      "0xfb0f3ee1": 1,
+      "0xfd9f1e10": 242
+    },
+    "senders": 557,
+    "sendersBySelector": {
+      "0x00000000": 69,
+      "0x5b34b966": 2,
+      "0x87201b41": 100,
+      "0xe7acab24": 193,
+      "0xf2d12b12": 83,
+      "0xfb0f3ee1": 1,
+      "0xfd9f1e10": 171
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

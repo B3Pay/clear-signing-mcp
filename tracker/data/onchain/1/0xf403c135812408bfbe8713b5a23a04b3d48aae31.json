@@ -7,18 +7,43 @@
   },
   "address": "0xF403C135812408BFbE8713b5A23a04b3D48AAE31",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "Booster",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 14398,
-  "fetchedAt": "2026-11-06T21:53:27.301Z",
+  "fetchedAt": "2026-11-06T22:50:22.002Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xF403C135812408BFbE8713b5A23a04b3D48AAE31&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 587,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 11,
+    "last30Days": 586,
+    "newest": 1794000791,
+    "oldest": 1791400571,
+    "perDay": 19.533333333333335,
+    "requested": 1000,
+    "selectors": {
+      "0x22230b96": 5,
+      "0x43a0d066": 41,
+      "0x441a3e70": 2,
+      "0x60759fce": 503,
+      "0x958e2d31": 15,
+      "0xcc956f3f": 21
+    },
+    "senders": 237,
+    "sendersBySelector": {
+      "0x22230b96": 2,
+      "0x43a0d066": 13,
+      "0x441a3e70": 2,
+      "0x60759fce": 205,
+      "0x958e2d31": 14,
+      "0xcc956f3f": 9
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

@@ -7,18 +7,33 @@
   },
   "address": "0x9AA79C84b79816ab920bBcE20f8f74557B514734",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "LayerZeroTellerWithRateLimiting",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 20173,
-  "fetchedAt": "2026-11-06T21:52:54.169Z",
+  "fetchedAt": "2026-11-06T22:50:09.866Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x9AA79C84b79816ab920bBcE20f8f74557B514734&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 146,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 146,
+    "newest": 1793971415,
+    "oldest": 1791419831,
+    "perDay": 4.866666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x0efe6a8b": 146
+    },
+    "senders": 116,
+    "sendersBySelector": {
+      "0x0efe6a8b": 116
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

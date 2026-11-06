@@ -7,18 +7,29 @@
   },
   "address": "0x4d56c9cBa373AD39dF69Eb18F076b7348000AE09",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "GHO v3",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 18096,
-  "fetchedAt": "2026-11-06T21:53:45.071Z",
+  "fetchedAt": "2026-11-06T22:50:40.629Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x4d56c9cBa373AD39dF69Eb18F076b7348000AE09&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

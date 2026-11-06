@@ -7,23 +7,43 @@
   },
   "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9",
-        "name": "WithdrawalQueueERC721"
-      }
-    ],
-    "isContract": true,
-    "name": "OssifiableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2497,
-  "fetchedAt": "2026-11-06T21:52:39.311Z",
+  "fetchedAt": "2026-11-06T22:50:10.151Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 2,
+    "last30Days": 1000,
+    "newest": 1794002351,
+    "oldest": 1793362175,
+    "perDay": 134.9628852065682,
+    "requested": 1000,
+    "selectors": {
+      "0x42842e0e": 1,
+      "0x7951b76f": 30,
+      "0xa22cb465": 1,
+      "0xacf41e4d": 389,
+      "0xb88d4fde": 2,
+      "0xd6681042": 138,
+      "0xe3afe0a3": 426,
+      "0xf8444436": 13
+    },
+    "senders": 718,
+    "sendersBySelector": {
+      "0x42842e0e": 1,
+      "0x7951b76f": 22,
+      "0xa22cb465": 1,
+      "0xacf41e4d": 353,
+      "0xb88d4fde": 2,
+      "0xd6681042": 130,
+      "0xe3afe0a3": 389,
+      "0xf8444436": 12
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

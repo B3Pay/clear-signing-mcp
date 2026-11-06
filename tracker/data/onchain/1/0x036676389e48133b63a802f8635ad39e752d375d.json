@@ -7,23 +7,35 @@
   },
   "address": "0x036676389e48133B63a802f8635AD39E752D375D",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xEA38dFa108318288f36F13d06e821a64AcDA8320",
-        "name": "LRTDepositPool"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2837,
-  "fetchedAt": "2026-11-06T21:52:58.863Z",
+  "fetchedAt": "2026-11-06T22:50:15.415Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x036676389e48133B63a802f8635AD39E752D375D&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 17,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 17,
+    "newest": 1793970671,
+    "oldest": 1791453323,
+    "perDay": 0.5666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x72c51c0b": 9,
+      "0xc3ae1766": 8
+    },
+    "senders": 16,
+    "sendersBySelector": {
+      "0x72c51c0b": 9,
+      "0xc3ae1766": 7
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

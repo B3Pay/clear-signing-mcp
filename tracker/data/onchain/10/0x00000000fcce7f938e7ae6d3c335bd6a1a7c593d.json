@@ -7,18 +7,33 @@
   },
   "address": "0x00000000fcCe7f938e7aE6D3c335bD6a1a7c593D",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "StorageRegistry",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 13520,
-  "fetchedAt": "2026-11-06T21:52:13.251Z",
+  "fetchedAt": "2026-11-06T23:30:55.053Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x00000000fcCe7f938e7aE6D3c335bD6a1a7c593D&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 452,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 452,
+    "newest": 1793998157,
+    "oldest": 1793350357,
+    "perDay": 59.55004437341986,
+    "requested": 1000,
+    "selectors": {
+      "0x783a112b": 452
+    },
+    "senders": 2,
+    "sendersBySelector": {
+      "0x783a112b": 2
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "match",

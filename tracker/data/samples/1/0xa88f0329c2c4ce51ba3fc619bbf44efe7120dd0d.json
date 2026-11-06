@@ -1,5 +1,40 @@
 {
   "address": "0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d",
   "chainId": 1,
-  "txs": []
+  "txs": [
+    {
+      "blockNumber": 26357914,
+      "chainId": 1,
+      "from": "0x3F2C43E136313059E959bF5bB0E9D3b2EB5ACbEc",
+      "gas": "283743",
+      "gasPrice": "709676163",
+      "hash": "0xe09fa7e16c286e2fd31d4341be625aea612f31cddeffd182e1a81ad478bc9937",
+      "input": "0x946fe3e800000000000000000000000011d00000000000000000000000000000000011d0",
+      "maxFeePerGas": "752700000",
+      "maxPriorityFeePerGas": "600000000",
+      "nonce": 8,
+      "status": "success",
+      "timestamp": 1793993447,
+      "to": "0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d",
+      "type": "eip1559",
+      "value": "523726609122187225"
+    },
+    {
+      "blockNumber": 26357824,
+      "chainId": 1,
+      "from": "0x3F2C43E136313059E959bF5bB0E9D3b2EB5ACbEc",
+      "gas": "283743",
+      "gasPrice": "723297381",
+      "hash": "0x195e92b6f0acfcedcca6d69defbe95ebc5be50321ddf202996bc2e2ef1619281",
+      "input": "0x946fe3e800000000000000000000000011d00000000000000000000000000000000011d0",
+      "maxFeePerGas": "747100000",
+      "maxPriorityFeePerGas": "600000000",
+      "nonce": 7,
+      "status": "success",
+      "timestamp": 1793992367,
+      "to": "0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d",
+      "type": "eip1559",
+      "value": "587303226508825306"
+    }
+  ]
 }

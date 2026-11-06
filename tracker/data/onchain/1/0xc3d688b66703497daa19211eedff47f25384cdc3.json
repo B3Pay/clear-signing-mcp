@@ -7,23 +7,43 @@
   },
   "address": "0xc3d688B66703497DAA19211EEdff47f25384cdc3",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x63e749153BaF1838f63cA22c275370BD2B1cEB15",
-        "name": "CometWithExtendedAssetList"
-      }
-    ],
-    "isContract": true,
-    "name": "Compound USDC",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 1878,
-  "fetchedAt": "2026-11-06T21:51:07.639Z",
+  "fetchedAt": "2026-11-06T22:50:07.747Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xc3d688B66703497DAA19211EEdff47f25384cdc3&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 22,
+    "last30Days": 1000,
+    "newest": 1793998631,
+    "oldest": 1792959851,
+    "perDay": 83.17449315543233,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 75,
+      "0x110496e5": 35,
+      "0xa9059cbb": 5,
+      "0xbb24d994": 1,
+      "0xc3b35a7e": 1,
+      "0xc3cecfd2": 1,
+      "0xf2b9fdb8": 340,
+      "0xf3fef3a3": 542
+    },
+    "senders": 384,
+    "sendersBySelector": {
+      "0x095ea7b3": 53,
+      "0x110496e5": 32,
+      "0xa9059cbb": 4,
+      "0xbb24d994": 1,
+      "0xc3b35a7e": 1,
+      "0xc3cecfd2": 1,
+      "0xf2b9fdb8": 132,
+      "0xf3fef3a3": 261
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

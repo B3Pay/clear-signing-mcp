@@ -7,18 +7,33 @@
   },
   "address": "0xc4Ab8C031717d7ecCCD653BE898e0f92410E11dC",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "WETHRouter",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 2868,
-  "fetchedAt": "2026-11-06T21:51:39.215Z",
+  "fetchedAt": "2026-11-06T23:30:54.209Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xc4Ab8C031717d7ecCCD653BE898e0f92410E11dC&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 5,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 5,
+    "newest": 1793868717,
+    "oldest": 1793442213,
+    "perDay": 0.6587394289095118,
+    "requested": 1000,
+    "selectors": {
+      "0xe5974619": 5
+    },
+    "senders": 1,
+    "sendersBySelector": {
+      "0xe5974619": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

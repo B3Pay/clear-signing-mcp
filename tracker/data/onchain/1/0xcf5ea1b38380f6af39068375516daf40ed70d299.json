@@ -7,23 +7,35 @@
   },
   "address": "0xcf5EA1b38380f6aF39068375516Daf40Ed70D299",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x716DF97EBC05CCb2745Bf04CD67df75cf2d11ee9",
-        "name": "StaderStakePoolsManager"
-      }
-    ],
-    "isContract": true,
-    "name": "TransparentUpgradeableProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2227,
-  "fetchedAt": "2026-11-06T21:53:10.340Z",
+  "fetchedAt": "2026-11-06T22:50:22.491Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xcf5EA1b38380f6aF39068375516Daf40Ed70D299&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 65,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 64,
+    "newest": 1793923907,
+    "oldest": 1791410351,
+    "perDay": 2.1333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0xb7482509": 64,
+      "0xf340fa01": 1
+    },
+    "senders": 51,
+    "sendersBySelector": {
+      "0xb7482509": 50,
+      "0xf340fa01": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

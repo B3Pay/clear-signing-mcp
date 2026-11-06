@@ -7,18 +7,35 @@
   },
   "address": "0xe0F9978b907853F354d79188A3dEfbD41978af62",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "PSM3",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 10,
   "codeBytes": 8131,
-  "fetchedAt": "2026-11-06T21:50:51.199Z",
+  "fetchedAt": "2026-11-06T23:30:53.699Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xe0F9978b907853F354d79188A3dEfbD41978af62&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 3,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 3,
+    "newest": 1793976419,
+    "oldest": 1793713649,
+    "perDay": 0.39524365734570704,
+    "requested": 1000,
+    "selectors": {
+      "0x1a019e37": 2,
+      "0xd9caed12": 1
+    },
+    "senders": 3,
+    "sendersBySelector": {
+      "0x1a019e37": 2,
+      "0xd9caed12": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

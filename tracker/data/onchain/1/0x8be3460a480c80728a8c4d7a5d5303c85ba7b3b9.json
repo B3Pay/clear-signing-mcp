@@ -7,23 +7,39 @@
   },
   "address": "0x8bE3460A480c80728a8C4D7a5D5303c85ba7B3b9",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x7fD57b46aE1a7b14f6940508381877Ee03e1018B",
-        "name": "StakedENA"
-      }
-    ],
-    "isContract": true,
-    "name": "Ethena Staked ENA",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2876,
-  "fetchedAt": "2026-11-06T21:51:54.615Z",
+  "fetchedAt": "2026-11-06T22:50:09.299Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x8bE3460A480c80728a8C4D7a5D5303c85ba7B3b9&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 1000,
+    "newest": 1794001295,
+    "oldest": 1793047343,
+    "perDay": 90.57059474690551,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 314,
+      "0x44337ea1": 2,
+      "0x6e553f65": 67,
+      "0x9343d9e1": 233,
+      "0xa9059cbb": 155,
+      "0xf2888dbb": 229
+    },
+    "senders": 837,
+    "sendersBySelector": {
+      "0x095ea7b3": 260,
+      "0x44337ea1": 1,
+      "0x6e553f65": 59,
+      "0x9343d9e1": 219,
+      "0xa9059cbb": 145,
+      "0xf2888dbb": 220
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

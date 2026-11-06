@@ -7,23 +7,39 @@
   },
   "address": "0x35D8949372D46B7a3D5A56006AE77B215fc69bC0",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x9F2BD21bF8012fce0D5845537c1DefF3a89BC85B",
-        "name": "Usd0PP"
-      }
-    ],
-    "isContract": true,
-    "name": "Staked USD0",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 1129,
-  "fetchedAt": "2026-11-06T21:51:55.276Z",
+  "fetchedAt": "2026-11-06T22:50:08.978Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x35D8949372D46B7a3D5A56006AE77B215fc69bC0&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 123,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 1,
+    "last30Days": 123,
+    "newest": 1793945615,
+    "oldest": 1791424115,
+    "perDay": 4.1,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 98,
+      "0x13cfbb24": 17,
+      "0xa9059cbb": 7,
+      "0xd0248fb4": 1
+    },
+    "senders": 76,
+    "sendersBySelector": {
+      "0x095ea7b3": 71,
+      "0x13cfbb24": 2,
+      "0xa9059cbb": 4,
+      "0xd0248fb4": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

@@ -7,15 +7,29 @@
   },
   "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
   "blockscout": {
-    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
-    "status": "error"
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 8453,
   "codeBytes": 2175,
-  "fetchedAt": "2026-11-06T22:08:56.763Z",
+  "fetchedAt": "2026-11-06T23:31:02.948Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1794002478,
+    "oldest": 1793966358,
+    "perDay": 2392.0265780730897,
+    "requested": 1000,
+    "selectors": {
+      "0x57ecfd28": 1000
+    },
+    "senders": 135,
+    "sendersBySelector": {
+      "0x57ecfd28": 135
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

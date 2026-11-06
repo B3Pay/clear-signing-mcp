@@ -1,5 +1,36 @@
 {
   "address": "0x6Ee3aaCcf9f2321E49063C4F8da775DdBd407268",
   "chainId": 1,
-  "txs": []
+  "txs": [
+    {
+      "blockNumber": 26306905,
+      "chainId": 1,
+      "from": "0xFFC2E97D0e1602648a635bE44121B2b7D0bcfEBF",
+      "gas": "188295",
+      "gasPrice": "678400000",
+      "hash": "0xc79c5a7aa9dd41d4aa28c60497e3b4f63406559942f4f036cbb1ed41fc8383f3",
+      "input": "0x0efe6a8b0000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c599000000000000000000000000000000000000000000000000000000000034ce640000000000000000000000000000000000000000000000000000000000000000",
+      "nonce": 107,
+      "status": "success",
+      "timestamp": 1793379359,
+      "to": "0x6Ee3aaCcf9f2321E49063C4F8da775DdBd407268",
+      "type": "legacy",
+      "value": "0"
+    },
+    {
+      "blockNumber": 26285686,
+      "chainId": 1,
+      "from": "0xFFC2E97D0e1602648a635bE44121B2b7D0bcfEBF",
+      "gas": "188295",
+      "gasPrice": "899600000",
+      "hash": "0x18413668ff108bd5395607837b91f7427142dc4b3f5d026d11b515caf3cbe6d6",
+      "input": "0x0efe6a8b0000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c599000000000000000000000000000000000000000000000000000000000035199d0000000000000000000000000000000000000000000000000000000000000000",
+      "nonce": 102,
+      "status": "success",
+      "timestamp": 1793123819,
+      "to": "0x6Ee3aaCcf9f2321E49063C4F8da775DdBd407268",
+      "type": "legacy",
+      "value": "0"
+    }
+  ]
 }

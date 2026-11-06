@@ -1,29 +1,59 @@
 {
   "abi": {
-    "address": "0x61525EaaCDdB97D9184aFc205827E6A4fd0Bf62A",
-    "functions": 31,
-    "name": "L1StandardBridge",
+    "address": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
+    "functions": 5,
+    "name": "L1ChugSplashProxy",
     "source": "sourcify"
   },
   "address": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0x61525EaaCDdB97D9184aFc205827E6A4fd0Bf62A",
-        "name": "L1StandardBridge"
-      }
-    ],
-    "isContract": true,
-    "name": "L1ChugSplashProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2513,
-  "fetchedAt": "2026-11-06T21:49:18.925Z",
+  "fetchedAt": "2026-11-06T22:50:04.383Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x3154Cf16ccdb4C6d922629664174b904d80F2C35&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 74,
+    "last30Days": 1000,
+    "newest": 1794002435,
+    "oldest": 1793442851,
+    "perDay": 154.4004117344313,
+    "requested": 1000,
+    "selectors": {
+      "0x": 13,
+      "0x09fc8843": 38,
+      "0x3d12e6fd": 1,
+      "0x540abf73": 24,
+      "0x58a997f6": 129,
+      "0x838b2520": 186,
+      "0x947c33bc": 1,
+      "0x9a2ac6d5": 44,
+      "0xb0a0d6f9": 1,
+      "0xb1a1a882": 237,
+      "0xdfdf577e": 2,
+      "0xe11013dd": 323,
+      "0xfca0d204": 1
+    },
+    "senders": 563,
+    "sendersBySelector": {
+      "0x": 10,
+      "0x09fc8843": 6,
+      "0x3d12e6fd": 1,
+      "0x540abf73": 8,
+      "0x58a997f6": 89,
+      "0x838b2520": 69,
+      "0x947c33bc": 1,
+      "0x9a2ac6d5": 22,
+      "0xb0a0d6f9": 1,
+      "0xb1a1a882": 200,
+      "0xdfdf577e": 2,
+      "0xe11013dd": 164,
+      "0xfca0d204": 1
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

@@ -7,18 +7,37 @@
   },
   "address": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
   "blockscout": {
-    "implementations": [],
-    "isContract": true,
-    "name": "Steakhouse USDT Morpho Vault",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 19340,
-  "fetchedAt": "2026-11-06T21:51:22.793Z",
+  "fetchedAt": "2026-11-06T22:50:08.165Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xbEef047a543E45807105E51A8BBEFCc5950fcfBa&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 21,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 21,
+    "newest": 1793873627,
+    "oldest": 1791503807,
+    "perDay": 0.7,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 17,
+      "0x6e553f65": 2,
+      "0xba087652": 2
+    },
+    "senders": 17,
+    "sendersBySelector": {
+      "0x095ea7b3": 14,
+      "0x6e553f65": 2,
+      "0xba087652": 2
+    },
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",

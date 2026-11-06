@@ -7,23 +7,29 @@
   },
   "address": "0xF579b345cdA0860668b857De10ABD62442133D0F",
   "blockscout": {
-    "implementations": [
-      {
-        "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
-        "name": "BorrowPositionRouter"
-      }
-    ],
-    "isContract": true,
-    "name": "RouterProxy",
-    "status": "ok",
-    "verified": true
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
   },
   "chainId": 1,
   "codeBytes": 2976,
-  "fetchedAt": "2026-11-06T21:51:53.053Z",
+  "fetchedAt": "2026-11-06T22:50:08.427Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xF579b345cdA0860668b857De10ABD62442133D0F&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
   },
   "sourcify": {
     "match": "exact_match",
