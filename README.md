@@ -117,6 +117,28 @@ The functions behind the tools are exported for use without MCP:
 `clearSigningStatus`, `explainCalls`, `explainTypedData` and `simulate`, each
 taking a context from `createContext(loadConfig(process.env))`.
 
+## Drafting a descriptor
+
+`draftDescriptor` drafts an ERC-7730 v2 calldata descriptor from a contract's
+ABI and real transactions to it: one format per function people call, with
+amounts paired with the tokens they are counted in, recipients and spenders
+named, deadlines as dates and a payable function's value as a native amount,
+plus an intent and a sentence where one can be filled in. Each function with
+a sample transaction gets a test in the registry's `testsv2` form: the
+transaction rebuilt unsigned, its expected text rendered by
+`@ethereum-sourcify/clear-signing`. It is deterministic (no network, no
+model), and `review` lists what a person must check before anything is
+submitted. A draft is not a reviewed descriptor and never an attested one.
+
+## Coverage tracker
+
+[`tracker/`](tracker/README.md) measures how much of what people sign on
+Ethereum, Base, Arbitrum One and OP Mainnet the registry formats: a curated
+list of the most-used contracts, each checked against the registry and scored
+by its recent transactions, with drafts for the biggest gaps checked the way
+the registry's CI checks a submission. Its report is published at
+[b3pay.net/clear-signing/coverage](https://b3pay.net/clear-signing/coverage/).
+
 ## Configuration
 
 Environment variables only, so no secret is ever written to a tracked file.
@@ -196,6 +218,10 @@ the one listed auditor, attestation file layout, test vectors);
 `@ethereum-sourcify/clear-signing` 0.3.1; the Sourcify v2 lookup API; the MCP
 TypeScript SDK 2.4.0; viem 2.57.16; anvil 1.7.1 (`eth_simulateV1` with
 `traceTransfers`). The live test re-checks the registry each time it runs.
+For drafts: the registry's CI at the same commit (its v2 schema, the
+`sourcifyeth/python-erc7730` linter pinned at `ccd51ad`, the selector and
+recommended-field scripts) and the Sourcify test runner at `277965d`; for
+the tracker, the SQD portal's EVM stream API.
 
 ## License
 
