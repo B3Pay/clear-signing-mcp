@@ -46,9 +46,9 @@ import {
  *
  * - its bytecode size (RPC), so a wrong address shows up as "no code";
  * - its Sourcify verification, name, proxy implementations and ABI;
- * - Blockscout's view of the same, and its ABI when Sourcify has none;
- * - the latest transactions sent to it (Blockscout, or the SQD portal on
- *   Base and Arbitrum One), counted per selector;
+ * - Blockscout's view of the same, and its ABI, when Sourcify lacks them;
+ * - the latest transactions sent to it (the SQD portal, or Blockscout on
+ *   Ethereum and OP Mainnet where the portal fails), counted per selector;
  * - for up to two recent successful transactions per selector, the full
  *   transaction (RPC), to build test vectors from real calldata;
  * - symbol and decimals of every address in those calls that answers like
@@ -203,9 +203,9 @@ export async function fetchAll(
   // ones.
   const contractLimiter = new Limiter(16)
 
-  // Base and Arbitrum One are sampled through the SQD portal, every
-  // contract of a chain in one scan, which starts now and runs beside the
-  // other chains' work. A contract there takes a slot once its chain's scan
+  // Every chain is sampled through the SQD portal, all of a chain's
+  // contracts in one scan, which starts now and runs beside the other
+  // chains' scans. A contract there takes a slot once its chain's scan
   // is done, so it never holds one while it waits. The scan stops reading
   // PORTAL_MARGIN_MS before a run's deadline, so that its contracts still
   // start before it, each with what the scan read.
@@ -351,10 +351,20 @@ async function fetchContract(
     codeError = errorText(error)
   }
 
-  const [sourcify, blockscout] = await Promise.all([
-    sourcifyFacts(chainId, address),
-    blockscoutFacts(chainId, address),
-  ])
+  // Blockscout is the fallback for what Sourcify lacks; its keyless API
+  // rate-limits the runner, so it is asked only when needed.
+  const sourcify = await sourcifyFacts(chainId, address)
+  const blockscout =
+    sourcify.facts.status === "verified" &&
+    sourcify.abi &&
+    (!sourcify.facts.proxy || sourcify.facts.proxy.implementations.length > 0)
+      ? {
+          facts: {
+            status: "skipped" as const,
+            reason: "Sourcify has the verified source and ABI",
+          },
+        }
+      : await blockscoutFacts(chainId, address)
 
   // The ABI users call through: the implementation's, behind a proxy.
   const abiFile = await resolveAbi(
@@ -640,35 +650,62 @@ function selectorOf(input: string): string {
   return input.length >= 10 ? input.slice(0, 10).toLowerCase() : "0x"
 }
 
+/** Chains whose Blockscout answers the runner's `txlist`: the fallback when
+ *  the portal fails a contract. Base's and Arbitrum's answer a Cloudflare
+ *  challenge. */
+const TXLIST_FALLBACK: ReadonlySet<TrackedChainId> = new Set([1, 10])
+
 /**
- * The latest transactions sent to `address`, newest first: from Blockscout's
- * Etherscan-style `txlist` with `filter_by=to` on Ethereum and OP Mainnet,
- * and from the SQD portal on Base and Arbitrum One, whose Blockscout the
- * runner cannot reach. Only top-level transactions count: a call made from
- * inside another contract is not a signature request.
+ * The latest transactions sent to `address`, newest first: from the SQD
+ * portal's scan of the contract's chain (sqd.ts), or, where the portal
+ * failed it, from Blockscout's Etherscan-style `txlist` with `filter_by=to`
+ * on Ethereum and OP Mainnet. Only top-level transactions count: a call
+ * made from inside another contract is not a signature request.
  */
-async function latestTransactions(
+export async function latestTransactions(
   chainId: TrackedChainId,
   address: Address,
   size: number,
   portal?: PortalSample | Error
 ): Promise<{ summary: SampleSummary; txs: ListedTx[] }> {
+  let portalError: Error | undefined
   if (SQD_DATASETS[chainId]) {
-    if (portal instanceof Error) throw portal
-    const sample =
-      portal ?? (await latestPortalTransactions(chainId, address, size))
-    const txs = sample.txs.map((tx) => ({
-      hash: tx.hash,
-      timestamp: tx.timestamp,
-      from: tx.from,
-      selector: tx.selector,
-      failed: tx.failed,
-    }))
-    return {
-      summary: summarize("sqd-portal", size, txs, sample.covered),
-      txs,
+    try {
+      if (portal instanceof Error) throw portal
+      const sample =
+        portal ?? (await latestPortalTransactions(chainId, address, size))
+      const txs = sample.txs.map((tx) => ({
+        hash: tx.hash,
+        timestamp: tx.timestamp,
+        from: tx.from,
+        selector: tx.selector,
+        failed: tx.failed,
+      }))
+      return {
+        summary: summarize("sqd-portal", size, txs, sample.covered),
+        txs,
+      }
+    } catch (error) {
+      portalError = error instanceof Error ? error : new Error(String(error))
+      if (!TXLIST_FALLBACK.has(chainId)) throw portalError
     }
   }
+  try {
+    return await blockscoutTransactions(chainId, address, size)
+  } catch (error) {
+    if (!portalError) throw error
+    throw new Error(
+      `SQD portal: ${portalError.message}; Blockscout: ${errorText(error)}`,
+      { cause: error }
+    )
+  }
+}
+
+async function blockscoutTransactions(
+  chainId: TrackedChainId,
+  address: Address,
+  size: number
+): Promise<{ summary: SampleSummary; txs: ListedTx[] }> {
   const url =
     `${BLOCKSCOUT[chainId]}/api?module=account&action=txlist&address=${address}` +
     `&filter_by=to&sort=desc&page=1&offset=${size}`

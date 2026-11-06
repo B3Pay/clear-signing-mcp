@@ -3,7 +3,12 @@ import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { afterEach, describe, expect, it, vi } from "vitest"
 import { encodeFunctionData, getAddress, parseAbi, type Hex } from "viem"
-import { addressesInCall, summarize, type ListedTx } from "../tracker/fetch.js"
+import {
+  addressesInCall,
+  latestTransactions,
+  summarize,
+  type ListedTx,
+} from "../tracker/fetch.js"
 import { choosePreview, draftCandidates } from "../tracker/draft.js"
 import type { DescriptorFacts } from "../tracker/registry.js"
 import {
@@ -393,6 +398,62 @@ describe("the SQD portal source", () => {
     const sample = await latestPortalTransactions(8453, CONTRACT, 100)
     expect(sample.txs).toHaveLength(0)
     expect(sample.complete30Days).toBe(true)
+  })
+})
+
+describe("latestTransactions", () => {
+  const ADDRESS = getAddress("0x00000000000000000000000000000000000000c1")
+  const txlist = {
+    status: "1",
+    message: "OK",
+    result: [
+      {
+        hash: `0x${"ab".repeat(32)}`,
+        timeStamp: String(NOW - DAY),
+        from: "0x00000000000000000000000000000000000000AA",
+        to: ADDRESS.toLowerCase(),
+        input: "0xa9059cbb0000",
+        isError: "0",
+        txreceipt_status: "1",
+      },
+    ],
+  }
+  const urls: string[] = []
+
+  afterEach(() => {
+    vi.unstubAllGlobals()
+    urls.length = 0
+  })
+
+  it("falls back to Blockscout on Ethereum when the portal failed", async () => {
+    vi.stubGlobal("fetch", (input: string) => {
+      urls.push(input)
+      return Promise.resolve(Response.json(txlist))
+    })
+    const listed = await latestTransactions(
+      1,
+      ADDRESS,
+      10,
+      new Error("HTTP 529 from the portal")
+    )
+    expect(listed.summary.source).toBe("blockscout-txlist")
+    expect(listed.txs).toHaveLength(1)
+    expect(listed.txs[0]!.selector).toBe("0xa9059cbb")
+    expect(urls[0]).toContain("https://eth.blockscout.com/api?module=account")
+  })
+
+  it("does not ask Blockscout where it cannot answer, and names both failures", async () => {
+    vi.stubGlobal("fetch", (input: string) => {
+      urls.push(input)
+      return Promise.resolve(new Response("{}", { status: 400 }))
+    })
+    await expect(
+      latestTransactions(8453, ADDRESS, 10, new Error("portal down"))
+    ).rejects.toThrow("portal down")
+    expect(urls).toHaveLength(0)
+    await expect(
+      latestTransactions(10, ADDRESS, 10, new Error("portal down"))
+    ).rejects.toThrow(/SQD portal: portal down; Blockscout: .*400/)
   })
 })
 

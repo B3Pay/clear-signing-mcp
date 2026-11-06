@@ -5,16 +5,20 @@ import type { TrackedChainId } from "./universe.js"
 /**
  * Recent transactions to a contract from the SQD Network portal
  * (https://docs.sqd.dev/en/api/evm/stream), which answers without an API
- * key. Used on Base and Arbitrum One, whose Blockscout instances answer the
- * fetch step's runner with a Cloudflare challenge. The sample is the one
- * Blockscout's txlist gives on the other chains: the latest top-level
- * transactions whose `to` is the contract, newest first, here from
- * finalized blocks only.
+ * key: the latest top-level transactions whose `to` is the contract, newest
+ * first, from finalized blocks only. Used on all four chains, a chain's
+ * contracts in one scan. Blockscout's keyless `txlist`, which gives the same
+ * sample one contract per request, rate-limits the fetch step's runner
+ * within seconds on Ethereum and OP Mainnet, and answers it with a
+ * Cloudflare challenge on Base and Arbitrum One; it is the fallback where it
+ * answers. Dataset slugs: https://docs.sqd.dev/en/data/all-networks.
  */
 
 export const SQD_PORTAL = "https://portal.sqd.dev/datasets"
 
 export const SQD_DATASETS: Readonly<Partial<Record<TrackedChainId, string>>> = {
+  1: "ethereum-mainnet",
+  10: "optimism-mainnet",
   8453: "base-mainnet",
   42161: "arbitrum-one",
 }
@@ -22,6 +26,8 @@ export const SQD_DATASETS: Readonly<Partial<Record<TrackedChainId, string>>> = {
 /** Nominal seconds per block, for a first guess; the real rate is measured. */
 const NOMINAL_BLOCK_SECONDS: Readonly<Partial<Record<TrackedChainId, number>>> =
   {
+    1: 12,
+    10: 2,
     8453: 2,
     42161: 0.25,
   }

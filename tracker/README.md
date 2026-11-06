@@ -35,24 +35,27 @@ node tracker/dist/tracker/cli.js report --registry <clone of the registry>
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | Bytecode size                          | Public RPC (publicnode, the chains' own), or `RPC_URL_<chainId>`                                                   |
 | Verification, proxy, ABI               | Sourcify v2; Blockscout where Sourcify has none. Behind a proxy, the implementations' ABIs merged with the proxy's |
-| Latest 1,000 transactions              | Blockscout `txlist` on Ethereum and OP Mainnet; the SQD Network portal on Base and Arbitrum One                    |
+| Latest 1,000 transactions              | The SQD Network portal, for at most 30 days back; Blockscout `txlist` on Ethereum and OP Mainnet where it fails    |
 | Two full transactions per top function | RPC, to build test vectors from real calldata                                                                      |
 | Token symbol and decimals              | RPC multicall, for every address in those calls                                                                    |
 | TVL                                    | DefiLlama, summed over the four chains                                                                             |
 
-Base's and Arbitrum's Blockscout answer GitHub's runners with a Cloudflare
-challenge, so those chains are sampled through the
-[SQD portal](https://docs.sqd.dev/en/api/evm/stream), which needs no key: the
-same sample, the latest 1,000 top-level transactions whose `to` is the
-contract, scanned back from the finalized head for at most 30 days. One scan
-per chain asks about 50 contracts per request, in windows each three times
-longer than the last; a contract leaves the scan once it has its 1,000, so a
-busy one costs one short window and the quiet ones share the long ones. The
-scan stops reading 10 minutes before a run's time limit. A request the
-portal still refuses after eight tries (it answers 529 "overloaded" at
-times), or one the time limit cuts short, stops only its own 50 contracts,
-and keeps nothing of that window: each keeps every transaction of the whole
-windows read before, and that span is recorded (`covered`).
+Transactions come from the
+[SQD Network portal](https://docs.sqd.dev/en/api/evm/stream), which needs no
+key: the latest 1,000 top-level transactions whose `to` is the contract,
+scanned back from the finalized head for at most 30 days. Blockscout's
+keyless `txlist` gives the same sample one contract per request, but it
+rate-limited the runner within seconds on Ethereum and OP Mainnet (HTTP 429
+for more than nine in ten of their contracts in one run), and answers it with a Cloudflare
+challenge on Base and Arbitrum One; it is kept as the fallback on Ethereum and
+OP Mainnet. One scan per chain asks about 50 contracts per request, in
+windows each three times longer than the last; a contract leaves the scan once
+it has its 1,000, so a busy one costs one short window and the quiet ones
+share the long ones. The scan stops reading 10 minutes before a run's time
+limit. A request the portal still refuses after eight tries (it answers 529
+"overloaded" at times), or one the time limit cuts short, stops only its own
+50 contracts, and keeps nothing of that window: each keeps every transaction
+of the whole windows read before, and that span is recorded (`covered`).
 
 `report` resolves each deployment's descriptor from a local clone of the
 registry with Sourcify's `@ethereum-sourcify/clear-signing` library,

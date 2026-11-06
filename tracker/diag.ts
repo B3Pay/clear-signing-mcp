@@ -4,7 +4,7 @@
  * pick sources; reads only.
  */
 
-const AAVE_BASE = "0xA238Dd80C259a72e81d7e4664a9801593F98d1c5"
+const AAVE_ETH = "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2"
 const AAVE_L2 = "0x794a61358D6845594F94dc1DB02A252b5b4814aD"
 const UNIVERSAL_ROUTER_ARB = "0xA51afAFe0263b40EdaEf0Df8781eA9aa03E381a3"
 
@@ -31,9 +31,19 @@ const PROBES: readonly {
   /** A summary of the body, printed instead of its start and end. */
   summarize?: (text: string) => string
 }[] = [
+  // The four datasets the fetch samples from (sqd.ts SQD_DATASETS).
+  ...[
+    "ethereum-mainnet",
+    "optimism-mainnet",
+    "base-mainnet",
+    "arbitrum-one",
+  ].map((dataset) => ({
+    name: `sqd portal ${dataset} finalized head`,
+    url: `https://portal.sqd.dev/datasets/${dataset}/finalized-head`,
+  })),
   {
-    // Does a long range with no match come back empty, or end with the
-    // last block scanned? The SQD source treats an empty answer as "none".
+    // How far one answer reaches when nothing matches: the portal names the
+    // last block it read, so the scan continues from there.
     name: "sqd portal base empty range",
     url: "https://portal.sqd.dev/datasets/base-mainnet/finalized-stream",
     init: {
@@ -45,28 +55,6 @@ const PROBES: readonly {
         toBlock: 51_000_000,
         fields: { block: { number: true, timestamp: true } },
         transactions: [{ to: [UNUSED] }],
-      }),
-    },
-  },
-  {
-    name: "sqd portal arbitrum finalized head",
-    url: "https://portal.sqd.dev/datasets/arbitrum-one/finalized-head",
-  },
-  {
-    name: "sqd portal arbitrum stream",
-    url: "https://portal.sqd.dev/datasets/arbitrum-one/finalized-stream",
-    init: {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        type: "evm",
-        fromBlock: 400_000_000,
-        toBlock: 400_010_000,
-        fields: {
-          block: { number: true, timestamp: true },
-          transaction: { hash: true, sighash: true, status: true },
-        },
-        transactions: [{ to: [AAVE_L2.toLowerCase()] }],
       }),
     },
   },
@@ -96,8 +84,9 @@ const PROBES: readonly {
     summarize: countByRecipient,
   },
   {
-    name: "base blockscout txlist",
-    url: `https://base.blockscout.com/api?module=account&action=txlist&address=${AAVE_BASE}&filter_by=to&sort=desc&page=1&offset=5`,
+    // The fallback where the portal fails a contract.
+    name: "eth blockscout txlist",
+    url: `https://eth.blockscout.com/api?module=account&action=txlist&address=${AAVE_ETH}&filter_by=to&sort=desc&page=1&offset=5`,
   },
 ]
 

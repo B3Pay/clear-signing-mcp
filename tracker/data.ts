@@ -30,6 +30,9 @@ export type BlockscoutFacts =
       readonly implementations: readonly { address: Address; name?: string }[]
     }
   | { readonly status: "error"; readonly reason: string }
+  /** Not asked: Sourcify had the verified source, ABI and any proxy's
+   *  implementations, and Blockscout is only the fallback for those. */
+  | { readonly status: "skipped"; readonly reason: string }
 
 export interface SampleSummary {
   readonly source: "blockscout-txlist" | "sqd-portal"
