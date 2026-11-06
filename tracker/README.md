@@ -150,4 +150,6 @@ node tracker/dist/tracker/cli.js check-drafts --registry <clone> \
   schema, the registry's pinned `erc7730` linter (`lint_descriptor.py`, with
   the ABI read from `data/` rather than fetched), and the Sourcify test
   runner. Drafts that pass every check are listed in `drafts/summary.json`,
-  which `report` reads for the public preview.
+  which `report` reads for the public preview, with the share of the
+  contract's recent calls each draft formats. A change to `drafts/` runs
+  the `Tracker fetch` workflow again, so its report includes them.

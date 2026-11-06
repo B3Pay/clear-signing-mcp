@@ -3,7 +3,9 @@ name: Tracker fetch
 # The coverage tracker's networked steps (tracker/README.md): Sourcify,
 # Blockscout, the SQD portal and public RPCs, all read-only. It commits what
 # it read, and the coverage report built from it against the registry's
-# latest commit, to tracker/data/ on the branch it ran on.
+# latest commit, to tracker/data/ on the branch it ran on. The report takes
+# the checked drafts' summary from tracker/drafts/, so a change there runs
+# it again.
 on:
   workflow_dispatch:
     inputs:
@@ -18,6 +20,7 @@ on:
     branches: [claude/project-thread-zbvn8j]
     paths:
       - tracker/contracts/**
+      - tracker/drafts/**
       - tracker/*.ts
       - .github/workflows/tracker-fetch.yml
 
