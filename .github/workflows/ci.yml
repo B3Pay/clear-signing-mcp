@@ -65,5 +65,12 @@ jobs:
       - name: Build
         run: pnpm build
 
+      # The coverage tracker (tracker/README.md): it builds, and its contract
+      # list is well formed. Its networked steps run in Tracker fetch.
+      - name: Tracker
+        run: |
+          pnpm tracker:build
+          node tracker/dist/tracker/cli.js validate
+
       - name: Package contents
         run: pnpm pack --dry-run
