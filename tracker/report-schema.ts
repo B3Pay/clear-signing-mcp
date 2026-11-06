@@ -110,9 +110,12 @@ export interface Contract {
     readonly writable: number
     readonly formatted: number
   }
+  /** Recent transactions; null when they could not be read. */
   readonly sample: null | {
-    readonly count: number // transactions in the sample
+    readonly count: number // transactions in the sample; 0 when there were none
     readonly perDay: number | null
+    /** The oldest and newest transaction in the sample; for an empty one, the
+     *  span read (or, when that is not known, the time it was read). */
     readonly oldest: string // ISO
     readonly newest: string // ISO
     readonly txShareCovered: number | null // 0..1, null when no calldata txs

@@ -799,7 +799,25 @@ describe("the report's descriptor elsewhere", () => {
   ])
   const ether = toFunctionSelector(full[0])
   const token = toFunctionSelector(full[1])
-  const write = (chainId: number, address: string, abi: typeof full) => {
+  const busy = {
+    source: "sqd-portal",
+    requested: 1000,
+    count: 40,
+    failed: 0,
+    oldest: NOW - 10 * DAY,
+    newest: NOW,
+    last30Days: 40,
+    perDay: 4,
+    selectors: { [ether]: 30, [token]: 10 },
+    senders: 12,
+    sendersBySelector: { [ether]: 9, [token]: 3 },
+  }
+  const write = (
+    chainId: number,
+    address: string,
+    abi: typeof full,
+    sample: object = busy
+  ) => {
     const at = (kind: string) =>
       join(dataDir, kind, String(chainId), `${address.toLowerCase()}.json`)
     mkdirSync(join(dataDir, "onchain", String(chainId)), { recursive: true })
@@ -819,26 +837,32 @@ describe("the report's descriptor elsewhere", () => {
         sourcify: { status: "verified", match: "exact_match" },
         blockscout: { status: "skipped", reason: "test" },
         abi: { source: "sourcify", address, functions: abi.length },
-        sample: {
-          source: "sqd-portal",
-          requested: 1000,
-          count: 40,
-          failed: 0,
-          oldest: NOW - 10 * DAY,
-          newest: NOW,
-          last30Days: 40,
-          perDay: 4,
-          selectors: { [ether]: 30, [token]: 10 },
-          senders: 12,
-          sendersBySelector: { [ether]: 9, [token]: 3 },
-        },
+        sample,
       })
     )
   }
   write(1, DISPERSE, full)
   write(42161, DISPERSE, full)
   write(8453, LOOKALIKE, full.slice(0, 2) as unknown as typeof full)
-  const contract = (chainId: 1 | 8453 | 42161, address: `0x${string}`) => ({
+  // OP Mainnet: a complete 30-day scan that found nothing; Base: a failed read.
+  const month = { since: NOW - 30 * DAY, until: NOW - 600 }
+  write(10, DISPERSE, full, {
+    ...busy,
+    count: 0,
+    oldest: null,
+    newest: null,
+    last30Days: 0,
+    perDay: 0,
+    covered: month,
+    selectors: {},
+    senders: 0,
+    sendersBySelector: {},
+  })
+  write(8453, DISPERSE, full, { error: "SQD portal: HTTP 529" })
+  const contract = (
+    chainId: 1 | 10 | 8453 | 42161,
+    address: `0x${string}`
+  ) => ({
     chainId,
     address,
     name: "Disperse",
@@ -858,6 +882,8 @@ describe("the report's descriptor elsewhere", () => {
         contract(1, DISPERSE),
         contract(42161, DISPERSE),
         contract(8453, LOOKALIKE),
+        contract(10, DISPERSE),
+        contract(8453, DISPERSE),
       ],
     },
   ]
@@ -871,7 +897,9 @@ describe("the report's descriptor elsewhere", () => {
       now: new Date(NOW * 1000),
     })
     const byChain = new Map(
-      report.protocols[0]!.contracts.map((c) => [c.chainId, c])
+      report.protocols[0]!.contracts.filter(
+        (c) => c.chainId !== 8453 || c.address === LOOKALIKE
+      ).map((c) => [c.chainId, c])
     )
     expect(byChain.get(1)).toMatchObject({ status: "covered", elsewhere: null })
     expect(byChain.get(42161)).toMatchObject({
@@ -895,5 +923,35 @@ describe("the report's descriptor elsewhere", () => {
     expect(report.totals.describedElsewhere).toBe(1)
     expect(report.chains["42161"].describedElsewhere).toBe(1)
     expect(report.chains["8453"].describedElsewhere).toBe(0)
+  })
+
+  it("gives an empty sample the span it read, and a failed read no sample", async () => {
+    const report = await buildReport({
+      universe,
+      dataDir,
+      registry,
+      previews: false,
+      now: new Date(NOW * 1000),
+    })
+    const at = (chainId: number, address: string) =>
+      report.protocols[0]!.contracts.find(
+        (c) => c.chainId === chainId && c.address === address
+      )
+    // A complete scan with no calls: 0 a day over the month it read, and
+    // nothing for a descriptor elsewhere to format.
+    expect(at(10, DISPERSE)).toMatchObject({
+      status: "uncovered",
+      sample: {
+        count: 0,
+        perDay: 0,
+        oldest: new Date(month.since * 1000).toISOString(),
+        newest: new Date(month.until * 1000).toISOString(),
+        txShareCovered: null,
+        signerShareCovered: null,
+      },
+      topFunctions: [],
+      elsewhere: null,
+    })
+    expect(at(8453, DISPERSE)).toMatchObject({ sample: null, elsewhere: null })
   })
 })

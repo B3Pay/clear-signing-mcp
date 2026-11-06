@@ -11,6 +11,7 @@ import {
   readJson,
   type AbiFile,
   type OnchainRecord,
+  type SampleSummary,
 } from "./data.js"
 import { caip10 } from "../src/registry.js"
 import {
@@ -213,6 +214,26 @@ function tvlOf(
   const children = file.protocols.filter((p) => p.parent === `parent#${slug}`)
   if (children.length === 0) return null
   return children.reduce((acc, child) => acc + sum(child.tvl), 0)
+}
+
+/**
+ * The span a sample shows: its oldest and newest transaction; with none, the
+ * span the scan read every transaction of, or else the time it was read.
+ */
+export function sampleSpan(
+  sample: Pick<SampleSummary, "oldest" | "newest" | "covered">,
+  fetchedAt: string
+): { oldest: string; newest: string } {
+  const iso = (seconds: number) => new Date(seconds * 1000).toISOString()
+  if (sample.oldest !== null && sample.newest !== null)
+    return { oldest: iso(sample.oldest), newest: iso(sample.newest) }
+  if (sample.covered)
+    return {
+      oldest: iso(sample.covered.since),
+      newest: iso(sample.covered.until),
+    }
+  const at = new Date(fetchedAt).toISOString()
+  return { oldest: at, newest: at }
 }
 
 /** A label without a trailing "(Base)": the page shows the chain beside it. */
@@ -644,6 +665,7 @@ async function buildContract(
   const formatted = descriptor?.selectors ?? new Set<string>()
 
   const sample = onchain && !("error" in onchain.sample) ? onchain.sample : null
+  const span = onchain && sample ? sampleSpan(sample, onchain.fetchedAt) : null
   const calldataCounts = sample
     ? Object.entries(sample.selectors).filter(([selector]) => selector !== "0x")
     : []
@@ -720,16 +742,16 @@ async function buildContract(
           ).length,
         }
       : null,
-    sample: sample
-      ? {
-          count: sample.count,
-          perDay: sample.perDay === null ? null : round(sample.perDay, 2),
-          oldest: new Date((sample.oldest ?? 0) * 1000).toISOString(),
-          newest: new Date((sample.newest ?? 0) * 1000).toISOString(),
-          txShareCovered: share,
-          signerShareCovered: signerShare,
-        }
-      : null,
+    sample:
+      sample && span
+        ? {
+            count: sample.count,
+            perDay: sample.perDay === null ? null : round(sample.perDay, 2),
+            ...span,
+            txShareCovered: share,
+            signerShareCovered: signerShare,
+          }
+        : null,
     topFunctions: calldataCounts
       .sort(([, a], [, b]) => b - a)
       .slice(0, 5)
