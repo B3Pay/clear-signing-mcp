@@ -173,7 +173,10 @@ export async function fetchAll(
     }
   log(`fetching ${jobs.length} contracts (${skipped} fresh enough to skip)`)
 
-  const contractLimiter = new Limiter(6)
+  // Each service has its own limit (`limits`, sqd.ts); this one only bounds
+  // how many contracts are in flight, so that slow chains don't hold up fast
+  // ones.
+  const contractLimiter = new Limiter(16)
   await Promise.all(
     jobs.map(({ protocol, contract }) =>
       contractLimiter.run(async () => {
@@ -181,6 +184,7 @@ export async function fetchAll(
           deferred += 1
           return
         }
+        const started = Date.now()
         try {
           const record = await fetchContract(
             contract,
@@ -197,7 +201,8 @@ export async function fetchAll(
             `${protocol.protocol} ${TRACKED_CHAINS[contract.chainId]} ${contract.name} ${contract.address}: code ${record.onchain.codeBytes ?? "?"} B, sourcify ${record.onchain.sourcify.status}, abi ${record.onchain.abi?.source ?? "none"}, ` +
               ("error" in sample
                 ? `sample error: ${sample.error}`
-                : `${sample.count} txs, ${sample.perDay === null ? "?" : sample.perDay.toFixed(1)}/day, ${Object.keys(sample.selectors).length} selectors, ${record.samples.txs.length} kept`)
+                : `${sample.count} txs, ${sample.perDay === null ? "?" : sample.perDay.toFixed(1)}/day, ${Object.keys(sample.selectors).length} selectors, ${record.samples.txs.length} kept`) +
+              ` (${Math.round((Date.now() - started) / 1000)} s)`
           )
         } catch (error) {
           problems.push(
