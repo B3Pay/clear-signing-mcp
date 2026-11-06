@@ -27,6 +27,7 @@ import {
   type TokensFile,
 } from "./data.js"
 import { errorText, getJson, isRecord, Limiter } from "./net.js"
+import { latestPortalTransactions, SQD_DATASETS } from "./sqd.js"
 import {
   TRACKED_CHAINS,
   type TrackedChainId,
@@ -41,7 +42,8 @@ import {
  * - its bytecode size (RPC), so a wrong address shows up as "no code";
  * - its Sourcify verification, name, proxy implementations and ABI;
  * - Blockscout's view of the same, and its ABI when Sourcify has none;
- * - the latest transactions sent to it (Blockscout), counted per selector;
+ * - the latest transactions sent to it (Blockscout, or the SQD portal on
+ *   Base and Arbitrum One), counted per selector;
  * - for up to two recent successful transactions per selector, the full
  *   transaction (RPC), to build test vectors from real calldata;
  * - symbol and decimals of every address in those calls that answers like
@@ -76,6 +78,9 @@ const PUBLIC_RPC: Readonly<Record<TrackedChainId, readonly string[]>> = {
 
 export const SOURCIFY = "https://sourcify.dev/server"
 
+/** Bumped when a record gains a fact: older records are read again. */
+export const RECORD_FORMAT = 2
+
 export interface FetchOptions {
   readonly dataDir: string
   /** Re-read contracts fetched less than this long ago; default: skip them. */
@@ -89,6 +94,10 @@ export interface FetchOptions {
     protocol: UniverseProtocol,
     contract: UniverseContract
   ) => boolean
+  /** Start no new contract after this time (epoch ms), so that a run with a
+   *  time limit ends cleanly and commits what it read; the next run picks up
+   *  the rest. */
+  readonly deadline?: number
   readonly log?: (line: string) => void
 }
 
@@ -121,7 +130,12 @@ function rpcClient(chainId: TrackedChainId): PublicClient {
 export async function fetchAll(
   universe: readonly UniverseProtocol[],
   options: FetchOptions
-): Promise<{ fetched: number; skipped: number; problems: string[] }> {
+): Promise<{
+  fetched: number
+  skipped: number
+  deferred: number
+  problems: string[]
+}> {
   const log = options.log ?? (() => undefined)
   const paths = dataPaths(options.dataDir)
   const clients = new Map<TrackedChainId, PublicClient>()
@@ -137,6 +151,7 @@ export async function fetchAll(
   const problems: string[] = []
   let fetched = 0
   let skipped = 0
+  let deferred = 0
 
   const jobs: { protocol: UniverseProtocol; contract: UniverseContract }[] = []
   for (const protocol of universe)
@@ -147,6 +162,8 @@ export async function fetchAll(
       )
       if (
         existing &&
+        existing.format === RECORD_FORMAT &&
+        !("error" in existing.sample) &&
         Date.now() - Date.parse(existing.fetchedAt) < options.maxAgeMs
       ) {
         skipped += 1
@@ -160,6 +177,10 @@ export async function fetchAll(
   await Promise.all(
     jobs.map(({ protocol, contract }) =>
       contractLimiter.run(async () => {
+        if (options.deadline !== undefined && Date.now() > options.deadline) {
+          deferred += 1
+          return
+        }
         try {
           const record = await fetchContract(
             contract,
@@ -197,7 +218,9 @@ export async function fetchAll(
       problems.push(`tokens on ${chainId}: ${errorText(error)}`)
     }
   }
-  return { fetched, skipped, problems }
+  if (deferred > 0)
+    log(`deferred ${deferred} contracts to the next run: time limit reached`)
+  return { fetched, skipped, deferred, problems }
 }
 
 async function fetchContract(
@@ -263,6 +286,7 @@ async function fetchContract(
   }
 
   const onchain: OnchainRecord = {
+    format: RECORD_FORMAT,
     chainId,
     address,
     fetchedAt: new Date().toISOString(),
@@ -494,10 +518,13 @@ async function resolveAbi(
   }
 }
 
-interface ListedTx {
+export interface ListedTx {
   readonly hash: Hex
   readonly timestamp: number
-  readonly input: Hex
+  /** Lowercase sender. */
+  readonly from: string
+  /** Lowercase 4-byte selector, or "0x" for a call without one. */
+  readonly selector: string
   readonly failed: boolean
 }
 
@@ -506,16 +533,31 @@ function selectorOf(input: string): string {
 }
 
 /**
- * The latest transactions sent to `address`, newest first, from Blockscout's
- * Etherscan-style `txlist` with `filter_by=to`. Only top-level transactions
- * count: a call made from inside another contract is not a signature
- * request.
+ * The latest transactions sent to `address`, newest first: from Blockscout's
+ * Etherscan-style `txlist` with `filter_by=to` on Ethereum and OP Mainnet,
+ * and from the SQD portal on Base and Arbitrum One, whose Blockscout the
+ * runner cannot reach. Only top-level transactions count: a call made from
+ * inside another contract is not a signature request.
  */
 async function latestTransactions(
   chainId: TrackedChainId,
   address: Address,
   size: number
 ): Promise<{ summary: SampleSummary; txs: ListedTx[] }> {
+  if (SQD_DATASETS[chainId]) {
+    const sample = await latestPortalTransactions(chainId, address, size)
+    const txs = sample.txs.map((tx) => ({
+      hash: tx.hash,
+      timestamp: tx.timestamp,
+      from: tx.from,
+      selector: tx.selector,
+      failed: tx.failed,
+    }))
+    return {
+      summary: summarize("sqd-portal", size, txs, sample.complete30Days),
+      txs,
+    }
+  }
   const url =
     `${BLOCKSCOUT[chainId]}/api?module=account&action=txlist&address=${address}` +
     `&filter_by=to&sort=desc&page=1&offset=${size}`
@@ -536,49 +578,73 @@ async function latestTransactions(
       item.to.toLowerCase() !== address.toLowerCase()
     )
       continue
-    if (typeof item.hash !== "string" || typeof item.input !== "string")
+    if (
+      typeof item.hash !== "string" ||
+      typeof item.input !== "string" ||
+      typeof item.from !== "string"
+    )
       continue
     txs.push({
       hash: item.hash as Hex,
       timestamp: Number(item.timeStamp),
-      input: item.input as Hex,
+      from: item.from.toLowerCase(),
+      selector: selectorOf(item.input),
       failed: item.isError === "1" || item.txreceipt_status === "0",
     })
   }
+  return { summary: summarize("blockscout-txlist", size, txs, false), txs }
+}
+
+/**
+ * Counts per selector and the rate: the last 30 days' count over 30 when the
+ * sample reaches back that far (or holds every transaction of those 30
+ * days), else the sample's count over its time span.
+ */
+export function summarize(
+  source: SampleSummary["source"],
+  requested: number,
+  txs: readonly ListedTx[],
+  complete30Days: boolean,
+  nowSeconds = Date.now() / 1000
+): SampleSummary {
   const selectors: Record<string, number> = {}
+  const sendersOf = new Map<string, Set<string>>()
   for (const tx of txs) {
-    const selector = selectorOf(tx.input)
-    selectors[selector] = (selectors[selector] ?? 0) + 1
+    selectors[tx.selector] = (selectors[tx.selector] ?? 0) + 1
+    const set = sendersOf.get(tx.selector) ?? new Set<string>()
+    set.add(tx.from)
+    sendersOf.set(tx.selector, set)
   }
+  const sendersBySelector = Object.fromEntries(
+    [...sendersOf.entries()].map(([selector, set]) => [selector, set.size])
+  )
   const times = txs.map((tx) => tx.timestamp).filter(Number.isFinite)
   const oldest = times.length ? Math.min(...times) : null
   const newest = times.length ? Math.max(...times) : null
   const spanDays =
     oldest !== null && newest !== null ? (newest - oldest) / 86_400 : 0
-  const monthAgo = Date.now() / 1000 - 30 * 86_400
+  const monthAgo = nowSeconds - 30 * 86_400
   const last30Days = times.filter((t) => t >= monthAgo).length
-  const reachesBack = oldest !== null && oldest <= monthAgo
-  const perDay =
-    txs.length < 2
+  const reachesBack = complete30Days || (oldest !== null && oldest <= monthAgo)
+  const perDay = reachesBack
+    ? last30Days / 30
+    : txs.length < 2
       ? null
-      : reachesBack
-        ? last30Days / 30
-        : spanDays > 0
-          ? txs.length / spanDays
-          : null
+      : spanDays > 0
+        ? txs.length / spanDays
+        : null
   return {
-    summary: {
-      source: "blockscout-txlist",
-      requested: size,
-      count: txs.length,
-      failed: txs.filter((tx) => tx.failed).length,
-      oldest,
-      newest,
-      last30Days,
-      perDay,
-      selectors,
-    },
-    txs,
+    source,
+    requested,
+    count: txs.length,
+    failed: txs.filter((tx) => tx.failed).length,
+    oldest,
+    newest,
+    last30Days,
+    perDay,
+    selectors,
+    senders: new Set(txs.map((tx) => tx.from)).size,
+    sendersBySelector,
   }
 }
 
@@ -590,17 +656,13 @@ function pickPerSelector(
   const bySelector = new Map<string, ListedTx[]>()
   for (const tx of txs) {
     if (tx.failed) continue
-    const selector = selectorOf(tx.input)
-    const list = bySelector.get(selector) ?? []
+    const list = bySelector.get(tx.selector) ?? []
     if (list.length < perSelector) list.push(tx)
-    bySelector.set(selector, list)
+    bySelector.set(tx.selector, list)
   }
   const counts = new Map<string, number>()
   for (const tx of txs)
-    counts.set(
-      selectorOf(tx.input),
-      (counts.get(selectorOf(tx.input)) ?? 0) + 1
-    )
+    counts.set(tx.selector, (counts.get(tx.selector) ?? 0) + 1)
   return [...bySelector.entries()]
     .sort(([a], [b]) => (counts.get(b) ?? 0) - (counts.get(a) ?? 0))
     .slice(0, selectorsKept)

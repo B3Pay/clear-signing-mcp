@@ -11,8 +11,11 @@
 export type ChainId = 1 | 8453 | 42161 | 10
 
 /** covered: the registry has a descriptor for this deployment and it formats
- *  at least 95% of the contract's recent transactions (by selector);
- *  partial: a descriptor exists but formats less than that;
+ *  at least 95% of what recent senders called (each sender counted once per
+ *  function; by transactions when senders are unknown, by the ABI's
+ *  state-changing functions when there were no recent calls);
+ *  partial: a descriptor exists but formats less than that, or its reach
+ *  could not be measured;
  *  uncovered: no descriptor for this deployment in the registry. */
 export type CoverageStatus = "covered" | "partial" | "uncovered"
 
@@ -55,6 +58,10 @@ export interface Totals {
    *  transactions per day, whose function the registry formats. Plain
    *  transfers with no calldata are left out. Null when no sample. */
   readonly txShareCovered: number | null
+  /** The same weighting over each contract's signer share: of the distinct
+   *  senders per function in its sample, the share whose function the
+   *  registry formats. A relayer bot that sends many calls counts once. */
+  readonly signerShareCovered: number | null
   /** Sum of the contracts' recent transactions per day. */
   readonly perDay: number
 }
@@ -105,12 +112,15 @@ export interface Contract {
     readonly oldest: string // ISO
     readonly newest: string // ISO
     readonly txShareCovered: number | null // 0..1, null when no calldata txs
+    /** 0..1: distinct senders per function whose function is formatted. */
+    readonly signerShareCovered: number | null
   }
   /** The most-called functions in the sample, up to 5. */
   readonly topFunctions: readonly {
     readonly selector: string // 0x12345678
     readonly signature: string | null // e.g. "execute(bytes,bytes[],uint256)"
-    readonly share: number // 0..1 of the sample
+    readonly share: number // 0..1 of the sample's calls with calldata
+    readonly senders: number | null // distinct senders of this function in the sample
     readonly formatted: boolean // the registry descriptor formats it
   }[]
   readonly draft: null | {

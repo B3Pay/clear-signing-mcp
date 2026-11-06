@@ -1,0 +1,1029 @@
+{
+  "protocols": [
+    {
+      "protocol": "across",
+      "name": "Across Protocol",
+      "category": "bridge",
+      "website": "https://across.to",
+      "defillama": "across",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5",
+          "name": "Ethereum_SpokePool",
+          "label": "Across SpokePool (Ethereum)",
+          "role": "Bridge deposits: users send tokens or ETH to be filled on another chain (deposit / depositV3, speedUpDeposit)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "chains[\"1\"].contracts.SpokePool; same address on docs.across.to/chains-and-contracts. ERC1967 proxy; name is the implementation in deployments/"
+        },
+        {
+          "chainId": 10,
+          "address": "0x6f26Bf09B1C792e3228e5467807a900A503c0281",
+          "name": "Optimism_SpokePool",
+          "label": "Across SpokePool (OP Mainnet)",
+          "role": "Bridge deposits: users send tokens or ETH to be filled on another chain (deposit / depositV3, speedUpDeposit)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "chains[\"10\"].contracts.SpokePool; same address on docs.across.to/chains-and-contracts. ERC1967 proxy; name is the implementation in deployments/"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x09aea4b2242abC8bb4BB78D537A67a245A7bEC64",
+          "name": "Base_SpokePool",
+          "label": "Across SpokePool (Base)",
+          "role": "Bridge deposits: users send tokens or ETH to be filled on another chain (deposit / depositV3, speedUpDeposit)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "chains[\"8453\"].contracts.SpokePool; same address on docs.across.to/chains-and-contracts. ERC1967 proxy; name is the implementation in deployments/"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xe35e9842fceaCA96570B734083f4a58e8F7C5f2A",
+          "name": "Arbitrum_SpokePool",
+          "label": "Across SpokePool (Arbitrum One)",
+          "role": "Bridge deposits: users send tokens or ETH to be filled on another chain (deposit / depositV3, speedUpDeposit)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "chains[\"42161\"].contracts.SpokePool; same address on docs.across.to/chains-and-contracts. ERC1967 proxy; name is the implementation in deployments/"
+        },
+        {
+          "chainId": 1,
+          "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+          "name": "SpokePoolPeriphery",
+          "label": "Across SpokePoolPeriphery (Ethereum)",
+          "role": "Swap-and-bridge and permit/authorization deposits (swapAndBridge, depositWithPermit, depositWithAuthorization)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "chains[\"1\"].contracts.SpokePoolPeriphery (CREATE2, same address on all four chains); docs.across.to/chains-and-contracts lists the same. Deployed at Ethereum block 25639548 (2026); an older periphery, 0x89415a82d909a7238d69094C3Dd1dCC1aCbDa85C, is in deployments/"
+        },
+        {
+          "chainId": 10,
+          "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+          "name": "SpokePoolPeriphery",
+          "label": "Across SpokePoolPeriphery (OP Mainnet)",
+          "role": "Swap-and-bridge and permit/authorization deposits (swapAndBridge, depositWithPermit, depositWithAuthorization)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "chains[\"10\"].contracts.SpokePoolPeriphery (CREATE2, same address on all four chains); docs.across.to/chains-and-contracts lists the same. Deployed at Ethereum block 25639548 (2026); an older periphery, 0x89415a82d909a7238d69094C3Dd1dCC1aCbDa85C, is in deployments/"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+          "name": "SpokePoolPeriphery",
+          "label": "Across SpokePoolPeriphery (Base)",
+          "role": "Swap-and-bridge and permit/authorization deposits (swapAndBridge, depositWithPermit, depositWithAuthorization)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "chains[\"8453\"].contracts.SpokePoolPeriphery (CREATE2, same address on all four chains); docs.across.to/chains-and-contracts lists the same. Deployed at Ethereum block 25639548 (2026); an older periphery, 0x89415a82d909a7238d69094C3Dd1dCC1aCbDa85C, is in deployments/"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+          "name": "SpokePoolPeriphery",
+          "label": "Across SpokePoolPeriphery (Arbitrum One)",
+          "role": "Swap-and-bridge and permit/authorization deposits (swapAndBridge, depositWithPermit, depositWithAuthorization)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "chains[\"42161\"].contracts.SpokePoolPeriphery (CREATE2, same address on all four chains); docs.across.to/chains-and-contracts lists the same. Deployed at Ethereum block 25639548 (2026); an older periphery, 0x89415a82d909a7238d69094C3Dd1dCC1aCbDa85C, is in deployments/"
+        }
+      ]
+    },
+    {
+      "protocol": "stargate",
+      "name": "Stargate (v2)",
+      "category": "bridge",
+      "website": "https://stargate.finance",
+      "notes": "LayerZero's main user-facing bridge; LayerZero endpoints are not user entry points and are left out. Base has no USDT pool.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x77b2043768d28E9C9aB44E1aBfC95944bcE57931",
+          "name": "StargatePoolNative",
+          "label": "Stargate native ETH pool (Ethereum)",
+          "role": "Bridge native ETH (send); add or remove ETH liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolNative.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xc026395860Db2d07ee33e05fE50ed7bD583189C7",
+          "name": "StargatePoolUSDC",
+          "label": "Stargate USDC pool (Ethereum)",
+          "role": "Bridge USDC (send); add or remove USDC liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolUSDC.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x933597a323Eb81cAe705C5bC29985172fd5A3973",
+          "name": "StargatePoolUSDT",
+          "label": "Stargate USDT pool (Ethereum)",
+          "role": "Bridge USDT (send); add or remove USDT liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/ethereum-mainnet/StargatePoolUSDT.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 10,
+          "address": "0xe8CDF27AcD73a434D661C84887215F7598e7d0d3",
+          "name": "StargatePoolNative",
+          "label": "Stargate native ETH pool (OP Mainnet)",
+          "role": "Bridge native ETH (send); add or remove ETH liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/optimism-mainnet/StargatePoolNative.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 10,
+          "address": "0xcE8CcA271Ebc0533920C83d39F417ED6A0abB7D0",
+          "name": "StargatePoolUSDC",
+          "label": "Stargate USDC pool (OP Mainnet)",
+          "role": "Bridge USDC (send); add or remove USDC liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/optimism-mainnet/StargatePoolUSDC.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x19cFCE47eD54a88614648DC3f19A5980097007dD",
+          "name": "StargatePoolUSDT",
+          "label": "Stargate USDT pool (OP Mainnet)",
+          "role": "Bridge USDT (send); add or remove USDT liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/optimism-mainnet/StargatePoolUSDT.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xdc181Bd607330aeeBEF6ea62e03e5e1Fb4B6F7C7",
+          "name": "StargatePoolNative",
+          "label": "Stargate native ETH pool (Base)",
+          "role": "Bridge native ETH (send); add or remove ETH liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/base-mainnet/StargatePoolNative.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x27a16dc786820B16E5c9028b75B99F6f604b5d26",
+          "name": "StargatePoolUSDC",
+          "label": "Stargate USDC pool (Base)",
+          "role": "Bridge USDC (send); add or remove USDC liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/base-mainnet/StargatePoolUSDC.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xA45B5130f36CDcA45667738e2a258AB09f4A5f7F",
+          "name": "StargatePoolNative",
+          "label": "Stargate native ETH pool (Arbitrum One)",
+          "role": "Bridge native ETH (send); add or remove ETH liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/arbitrum-mainnet/StargatePoolNative.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xe8CDF27AcD73a434D661C84887215F7598e7d0d3",
+          "name": "StargatePoolUSDC",
+          "label": "Stargate USDC pool (Arbitrum One)",
+          "role": "Bridge USDC (send); add or remove USDC liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/arbitrum-mainnet/StargatePoolUSDC.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xcE8CcA271Ebc0533920C83d39F417ED6A0abB7D0",
+          "name": "StargatePoolUSDT",
+          "label": "Stargate USDT pool (Arbitrum One)",
+          "role": "Bridge USDT (send); add or remove USDT liquidity",
+          "version": "v2",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/stargate-protocol/stargate-v2/35e04fd94bd15cecaccb5c382bd642cafe87d96d/packages/stg-evm-v2/deployments/arbitrum-mainnet/StargatePoolUSDT.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy artifact field `address`; artifact has no implementation field (not a proxy)"
+        }
+      ]
+    },
+    {
+      "protocol": "circle-cctp",
+      "name": "Circle CCTP",
+      "category": "bridge",
+      "website": "https://www.circle.com",
+      "notes": "V2 contracts share one address on all four chains. V1 is in its phase-out window.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+          "name": "TokenMessengerV2",
+          "label": "CCTP TokenMessengerV2 (Ethereum)",
+          "role": "Burn USDC to bridge it natively (depositForBurn, depositForBurnWithHook)",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v2.tokenMessenger of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim). AdminUpgradableProxy per circlefin/evm-cctp-contracts scripts/v2"
+        },
+        {
+          "chainId": 1,
+          "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
+          "name": "MessageTransmitterV2",
+          "label": "CCTP MessageTransmitterV2 (Ethereum)",
+          "role": "Mint USDC on the destination chain (receiveMessage) when the user completes a transfer themselves",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v2.messageTransmitter of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xBd3fa81B58Ba92a82136038B25aDec7066af3155",
+          "name": "TokenMessenger",
+          "label": "CCTP TokenMessenger V1 (Ethereum)",
+          "role": "Legacy CCTP V1 burn (depositForBurn); Circle phases V1 out from 2026-10-31 to 2026-12-01",
+          "version": "v1",
+          "proxy": false,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v1.tokenMessenger of this chain; same in wormhole-sdk-ts circle.ts. Deprecated: developers.circle.com/cctp/migration-from-v1-to-v2 says V1 deprecation begins 2026-10-31 and completes 2026-12-01. Source prints the address in lowercase; checksummed here"
+        },
+        {
+          "chainId": 10,
+          "address": "0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+          "name": "TokenMessengerV2",
+          "label": "CCTP TokenMessengerV2 (OP Mainnet)",
+          "role": "Burn USDC to bridge it natively (depositForBurn, depositForBurnWithHook)",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v2.tokenMessenger of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim). AdminUpgradableProxy per circlefin/evm-cctp-contracts scripts/v2"
+        },
+        {
+          "chainId": 10,
+          "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
+          "name": "MessageTransmitterV2",
+          "label": "CCTP MessageTransmitterV2 (OP Mainnet)",
+          "role": "Mint USDC on the destination chain (receiveMessage) when the user completes a transfer themselves",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v2.messageTransmitter of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x2B4069517957735bE00ceE0fadAE88a26365528f",
+          "name": "TokenMessenger",
+          "label": "CCTP TokenMessenger V1 (OP Mainnet)",
+          "role": "Legacy CCTP V1 burn (depositForBurn); Circle phases V1 out from 2026-10-31 to 2026-12-01",
+          "version": "v1",
+          "proxy": false,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v1.tokenMessenger of this chain; same in wormhole-sdk-ts circle.ts. Deprecated: developers.circle.com/cctp/migration-from-v1-to-v2 says V1 deprecation begins 2026-10-31 and completes 2026-12-01"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+          "name": "TokenMessengerV2",
+          "label": "CCTP TokenMessengerV2 (Base)",
+          "role": "Burn USDC to bridge it natively (depositForBurn, depositForBurnWithHook)",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v2.tokenMessenger of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim). AdminUpgradableProxy per circlefin/evm-cctp-contracts scripts/v2"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
+          "name": "MessageTransmitterV2",
+          "label": "CCTP MessageTransmitterV2 (Base)",
+          "role": "Mint USDC on the destination chain (receiveMessage) when the user completes a transfer themselves",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v2.messageTransmitter of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x1682Ae6375C4E4A97e4B583BC394c861A46D8962",
+          "name": "TokenMessenger",
+          "label": "CCTP TokenMessenger V1 (Base)",
+          "role": "Legacy CCTP V1 burn (depositForBurn); Circle phases V1 out from 2026-10-31 to 2026-12-01",
+          "version": "v1",
+          "proxy": false,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v1.tokenMessenger of this chain; same in wormhole-sdk-ts circle.ts. Deprecated: developers.circle.com/cctp/migration-from-v1-to-v2 says V1 deprecation begins 2026-10-31 and completes 2026-12-01"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+          "name": "TokenMessengerV2",
+          "label": "CCTP TokenMessengerV2 (Arbitrum One)",
+          "role": "Burn USDC to bridge it natively (depositForBurn, depositForBurnWithHook)",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v2.tokenMessenger of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim). AdminUpgradableProxy per circlefin/evm-cctp-contracts scripts/v2"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
+          "name": "MessageTransmitterV2",
+          "label": "CCTP MessageTransmitterV2 (Arbitrum One)",
+          "role": "Mint USDC on the destination chain (receiveMessage) when the user completes a transfer themselves",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v2.messageTransmitter of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x19330d10D9Cc8751218eaf51E8885D058642E08A",
+          "name": "TokenMessenger",
+          "label": "CCTP TokenMessenger V1 (Arbitrum One)",
+          "role": "Legacy CCTP V1 burn (depositForBurn); Circle phases V1 out from 2026-10-31 to 2026-12-01",
+          "version": "v1",
+          "proxy": false,
+          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "chains.mjs, cctp.contracts.v1.tokenMessenger of this chain; same in wormhole-sdk-ts circle.ts. Deprecated: developers.circle.com/cctp/migration-from-v1-to-v2 says V1 deprecation begins 2026-10-31 and completes 2026-12-01"
+        }
+      ]
+    },
+    {
+      "protocol": "debridge",
+      "name": "deBridge (DLN)",
+      "category": "bridge",
+      "website": "https://debridge.finance",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xeF4fB24aD0916217251F553c0596F8Edc630EB66",
+          "name": "DlnSource",
+          "label": "deBridge DlnSource (Ethereum)",
+          "role": "Create a cross-chain order (createOrder, createSaltedOrder) to bridge or swap to another chain",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/debridge-finance/dln-contracts/d54e94f2b5102bff89a4df506404bb77f3edc148/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Prod addresses' (same address on chains 1, 42161, 10, 8453 among others); same on docs.debridge.com/dln-details/overview/deployed-contracts. Deployed with deployProxy"
+        },
+        {
+          "chainId": 10,
+          "address": "0xeF4fB24aD0916217251F553c0596F8Edc630EB66",
+          "name": "DlnSource",
+          "label": "deBridge DlnSource (OP Mainnet)",
+          "role": "Create a cross-chain order (createOrder, createSaltedOrder) to bridge or swap to another chain",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/debridge-finance/dln-contracts/d54e94f2b5102bff89a4df506404bb77f3edc148/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Prod addresses' (same address on chains 1, 42161, 10, 8453 among others); same on docs.debridge.com/dln-details/overview/deployed-contracts. Deployed with deployProxy"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xeF4fB24aD0916217251F553c0596F8Edc630EB66",
+          "name": "DlnSource",
+          "label": "deBridge DlnSource (Base)",
+          "role": "Create a cross-chain order (createOrder, createSaltedOrder) to bridge or swap to another chain",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/debridge-finance/dln-contracts/d54e94f2b5102bff89a4df506404bb77f3edc148/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Prod addresses' (same address on chains 1, 42161, 10, 8453 among others); same on docs.debridge.com/dln-details/overview/deployed-contracts. Deployed with deployProxy"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xeF4fB24aD0916217251F553c0596F8Edc630EB66",
+          "name": "DlnSource",
+          "label": "deBridge DlnSource (Arbitrum One)",
+          "role": "Create a cross-chain order (createOrder, createSaltedOrder) to bridge or swap to another chain",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/debridge-finance/dln-contracts/d54e94f2b5102bff89a4df506404bb77f3edc148/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Prod addresses' (same address on chains 1, 42161, 10, 8453 among others); same on docs.debridge.com/dln-details/overview/deployed-contracts. Deployed with deployProxy"
+        },
+        {
+          "chainId": 1,
+          "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251",
+          "name": "DeBridgeRouter",
+          "label": "deBridge Router / crosschain forwarder (Ethereum)",
+          "role": "Swap on the source chain, then create the DLN order (the app's route when the input token must be swapped first)",
+          "source": "https://registry.npmjs.org/@debridge-finance/dln-client/-/dln-client-17.6.2.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "dist/esm/evm/config/config.js defaultAddresses.crossChainForwarderAddress; docs.debridge.com deployed-contracts lists it as DeBridgeRouter, same address on every EVM chain (WebFetch, verbatim)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251",
+          "name": "DeBridgeRouter",
+          "label": "deBridge Router / crosschain forwarder (OP Mainnet)",
+          "role": "Swap on the source chain, then create the DLN order (the app's route when the input token must be swapped first)",
+          "source": "https://registry.npmjs.org/@debridge-finance/dln-client/-/dln-client-17.6.2.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "dist/esm/evm/config/config.js defaultAddresses.crossChainForwarderAddress; docs.debridge.com deployed-contracts lists it as DeBridgeRouter, same address on every EVM chain (WebFetch, verbatim)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251",
+          "name": "DeBridgeRouter",
+          "label": "deBridge Router / crosschain forwarder (Base)",
+          "role": "Swap on the source chain, then create the DLN order (the app's route when the input token must be swapped first)",
+          "source": "https://registry.npmjs.org/@debridge-finance/dln-client/-/dln-client-17.6.2.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "dist/esm/evm/config/config.js defaultAddresses.crossChainForwarderAddress; docs.debridge.com deployed-contracts lists it as DeBridgeRouter, same address on every EVM chain (WebFetch, verbatim)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251",
+          "name": "DeBridgeRouter",
+          "label": "deBridge Router / crosschain forwarder (Arbitrum One)",
+          "role": "Swap on the source chain, then create the DLN order (the app's route when the input token must be swapped first)",
+          "source": "https://registry.npmjs.org/@debridge-finance/dln-client/-/dln-client-17.6.2.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "dist/esm/evm/config/config.js defaultAddresses.crossChainForwarderAddress; docs.debridge.com deployed-contracts lists it as DeBridgeRouter, same address on every EVM chain (WebFetch, verbatim)"
+        }
+      ]
+    },
+    {
+      "protocol": "wormhole",
+      "name": "Wormhole (Portal)",
+      "category": "bridge",
+      "website": "https://wormhole.com",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x3ee18B2214AFF97000D974cf647E7C347E8fa585",
+          "name": "TokenBridge",
+          "label": "Wormhole Token Bridge (Portal) (Ethereum)",
+          "role": "Bridge tokens and ETH (transferTokens, wrapAndTransferETH) and redeem incoming transfers (completeTransfer)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/tokenBridge.ts",
+          "sourceKind": "raw",
+          "sourceNote": "tokenBridgeContracts, Mainnet, \"Ethereum\""
+        },
+        {
+          "chainId": 10,
+          "address": "0x1D68124e65faFC907325e3EDbF8c4d84499DAa8b",
+          "name": "TokenBridge",
+          "label": "Wormhole Token Bridge (Portal) (OP Mainnet)",
+          "role": "Bridge tokens and ETH (transferTokens, wrapAndTransferETH) and redeem incoming transfers (completeTransfer)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/tokenBridge.ts",
+          "sourceKind": "raw",
+          "sourceNote": "tokenBridgeContracts, Mainnet, \"Optimism\""
+        },
+        {
+          "chainId": 8453,
+          "address": "0x8d2de8d2f73F1F4cAB472AC9A881C9b123C79627",
+          "name": "TokenBridge",
+          "label": "Wormhole Token Bridge (Portal) (Base)",
+          "role": "Bridge tokens and ETH (transferTokens, wrapAndTransferETH) and redeem incoming transfers (completeTransfer)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/tokenBridge.ts",
+          "sourceKind": "raw",
+          "sourceNote": "tokenBridgeContracts, Mainnet, \"Base\""
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0b2402144Bb366A632D14B83F244D2e0e21bD39c",
+          "name": "TokenBridge",
+          "label": "Wormhole Token Bridge (Portal) (Arbitrum One)",
+          "role": "Bridge tokens and ETH (transferTokens, wrapAndTransferETH) and redeem incoming transfers (completeTransfer)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/tokenBridge.ts",
+          "sourceKind": "raw",
+          "sourceNote": "tokenBridgeContracts, Mainnet, \"Arbitrum\""
+        },
+        {
+          "chainId": 1,
+          "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
+          "name": "CircleRelayer",
+          "label": "Wormhole CCTP relayer (Ethereum)",
+          "role": "Automatic USDC route of Wormhole Connect / Portal (transferTokensWithRelay); built on CCTP V1, so it winds down with V1",
+          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/circle.ts",
+          "sourceKind": "raw",
+          "sourceNote": "circleContracts, Mainnet, \"Ethereum\".wormholeRelayer; platforms/evm/protocols/cctp/src/automaticCircleBridge.ts sends the user transaction here. The CircleIntegration contract it calls is not user-facing"
+        },
+        {
+          "chainId": 10,
+          "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
+          "name": "CircleRelayer",
+          "label": "Wormhole CCTP relayer (OP Mainnet)",
+          "role": "Automatic USDC route of Wormhole Connect / Portal (transferTokensWithRelay); built on CCTP V1, so it winds down with V1",
+          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/circle.ts",
+          "sourceKind": "raw",
+          "sourceNote": "circleContracts, Mainnet, \"Optimism\".wormholeRelayer; platforms/evm/protocols/cctp/src/automaticCircleBridge.ts sends the user transaction here. The CircleIntegration contract it calls is not user-facing"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
+          "name": "CircleRelayer",
+          "label": "Wormhole CCTP relayer (Base)",
+          "role": "Automatic USDC route of Wormhole Connect / Portal (transferTokensWithRelay); built on CCTP V1, so it winds down with V1",
+          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/circle.ts",
+          "sourceKind": "raw",
+          "sourceNote": "circleContracts, Mainnet, \"Base\".wormholeRelayer; platforms/evm/protocols/cctp/src/automaticCircleBridge.ts sends the user transaction here. The CircleIntegration contract it calls is not user-facing"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
+          "name": "CircleRelayer",
+          "label": "Wormhole CCTP relayer (Arbitrum One)",
+          "role": "Automatic USDC route of Wormhole Connect / Portal (transferTokensWithRelay); built on CCTP V1, so it winds down with V1",
+          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/circle.ts",
+          "sourceKind": "raw",
+          "sourceNote": "circleContracts, Mainnet, \"Arbitrum\".wormholeRelayer; platforms/evm/protocols/cctp/src/automaticCircleBridge.ts sends the user transaction here. The CircleIntegration contract it calls is not user-facing"
+        }
+      ]
+    },
+    {
+      "protocol": "usdt0",
+      "name": "USDT0",
+      "category": "bridge",
+      "website": "https://usdt0.to",
+      "notes": "Tether's LayerZero OFT bridge for USDT; the user-facing LayerZero entry points. Base is not on the deployments page. Token contracts are left out (plain ERC-20).",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee",
+          "name": "OAdapterUpgradeable",
+          "label": "USDT0 OFT Adapter (Ethereum)",
+          "role": "Bridge USDT out of Ethereum as USDT0 (send, after approving USDT to the adapter)",
+          "source": "https://docs.usdt0.to/technical-documentation/deployments",
+          "sourceKind": "webfetch",
+          "sourceNote": "Listed as 'OFT Adapter' (two WebFetch passes agree); docs.usdt0.to/technical-documentation/developer says send is called on OAdapterUpgradeable on Ethereum. The IOTA lockbox adapter is left out"
+        },
+        {
+          "chainId": 10,
+          "address": "0xF03b4d9AC1D5d1E7c4cEf54C2A313b9fe051A0aD",
+          "name": "OUpgradeable",
+          "label": "USDT0 OFT (OP Mainnet)",
+          "role": "Bridge USDT0 from OP Mainnet to another chain (send)",
+          "source": "https://docs.usdt0.to/technical-documentation/deployments",
+          "sourceKind": "webfetch",
+          "sourceNote": "Listed as 'OFT' under Optimism (two WebFetch passes agree); the developer guide says send is called on OUpgradeable, not on the token"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x14E4A1B13bf7F943c8ff7C51fb60FA964A298D92",
+          "name": "OUpgradeable",
+          "label": "USDT0 OFT (Arbitrum One)",
+          "role": "Bridge USDT0 from Arbitrum One to another chain (send)",
+          "source": "https://docs.usdt0.to/technical-documentation/deployments",
+          "sourceKind": "webfetch",
+          "sourceNote": "Listed as 'OFT' under Arbitrum One (two WebFetch passes agree); the developer guide says send is called on OUpgradeable, not on the token"
+        }
+      ]
+    },
+    {
+      "protocol": "mayan",
+      "name": "Mayan",
+      "category": "bridge",
+      "website": "https://mayan.finance",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+          "name": "MayanForwarder",
+          "label": "Mayan Forwarder (Ethereum)",
+          "role": "Single EVM entry point for Mayan cross-chain swaps (Swift, MCTP and Wormhole routes)",
+          "source": "https://raw.githubusercontent.com/mayan-finance/swap-sdk/cf99924161d1e7fee181dd715d2a76f2aa05147d/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "MAYAN_FORWARDER_CONTRACT; docs.mayan.finance/resources/chains-contracts lists this address on Ethereum, Arbitrum, Optimism and Base and calls it the single entry point for EVM swaps"
+        },
+        {
+          "chainId": 10,
+          "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+          "name": "MayanForwarder",
+          "label": "Mayan Forwarder (OP Mainnet)",
+          "role": "Single EVM entry point for Mayan cross-chain swaps (Swift, MCTP and Wormhole routes)",
+          "source": "https://raw.githubusercontent.com/mayan-finance/swap-sdk/cf99924161d1e7fee181dd715d2a76f2aa05147d/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "MAYAN_FORWARDER_CONTRACT; docs.mayan.finance/resources/chains-contracts lists this address on Ethereum, Arbitrum, Optimism and Base and calls it the single entry point for EVM swaps"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+          "name": "MayanForwarder",
+          "label": "Mayan Forwarder (Base)",
+          "role": "Single EVM entry point for Mayan cross-chain swaps (Swift, MCTP and Wormhole routes)",
+          "source": "https://raw.githubusercontent.com/mayan-finance/swap-sdk/cf99924161d1e7fee181dd715d2a76f2aa05147d/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "MAYAN_FORWARDER_CONTRACT; docs.mayan.finance/resources/chains-contracts lists this address on Ethereum, Arbitrum, Optimism and Base and calls it the single entry point for EVM swaps"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+          "name": "MayanForwarder",
+          "label": "Mayan Forwarder (Arbitrum One)",
+          "role": "Single EVM entry point for Mayan cross-chain swaps (Swift, MCTP and Wormhole routes)",
+          "source": "https://raw.githubusercontent.com/mayan-finance/swap-sdk/cf99924161d1e7fee181dd715d2a76f2aa05147d/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "MAYAN_FORWARDER_CONTRACT; docs.mayan.finance/resources/chains-contracts lists this address on Ethereum, Arbitrum, Optimism and Base and calls it the single entry point for EVM swaps"
+        }
+      ]
+    },
+    {
+      "protocol": "hyperliquid-bridge",
+      "name": "Hyperliquid Bridge",
+      "category": "bridge",
+      "website": "https://hyperliquid.xyz",
+      "defillama": "hyperliquid-bridge",
+      "notes": "Owner of CctpExtension is Circle; listed here because it is the Hyperliquid deposit path. CctpExtensionV2 (0x3289e443a95B28Bcedacc4B33C689b0C9b84ffAB) is relayer-submitted and left out.",
+      "contracts": [
+        {
+          "chainId": 42161,
+          "address": "0x2Df1c51E09aECF9cacB7bc98cB1742757f163dF7",
+          "name": "Bridge2",
+          "label": "Hyperliquid Bridge2 (legacy USDC bridge)",
+          "role": "Legacy USDC deposits: the user transfers native USDC to this address (the transaction goes to the USDC contract); withdrawals are signed on Hyperliquid, not Arbitrum. Docs mark it deprecated in favour of CCTP",
+          "proxy": false,
+          "source": "https://hyperliquid.gitbook.io/hyperliquid-docs/for-developers/api/bridge2",
+          "sourceKind": "webfetch",
+          "sourceNote": "The Arbiscan link and the permit example on the page agree; docs.mayan.finance/resources/chains-contracts lists the same address as Hyperliquid Bridge2 (WebFetch). Bridge2.sol in hyperliquid-dex/contracts is not upgradeable. Source prints the address in lowercase; checksummed here"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xA95d9c1F655341597C94393fDdc30cf3c08E4fcE",
+          "name": "CctpExtension",
+          "label": "Circle CctpExtension (Arbitrum to HyperCore)",
+          "role": "Deposit USDC from Arbitrum to Hyperliquid (HyperCore) via CCTP in one transaction (batchDepositForBurnWithAuth)",
+          "proxy": false,
+          "source": "https://developers.circle.com/cctp/references/hypercore-contract-addresses",
+          "sourceKind": "webfetch",
+          "sourceNote": "Circle docs, verbatim; matches the ERC-7730 registry (registry/hyperliquid/calldata-CctpExtension.json). Circle's how-to has the user's wallet send this transaction. Deployed without a proxy (circlefin/hyperevm-circle-contracts README)"
+        }
+      ]
+    },
+    {
+      "protocol": "arbitrum-bridge",
+      "name": "Arbitrum Bridge",
+      "category": "bridge",
+      "website": "https://bridge.arbitrum.io",
+      "defillama": "arbitrum-bridge",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x72Ce9c846789fdB6fC1f34aC4AD25Dd9ef7031ef",
+          "name": "L1GatewayRouter",
+          "label": "Arbitrum L1 Gateway Router",
+          "role": "Deposit ERC-20 tokens to Arbitrum One (outboundTransfer, outboundTransferCustomRefund)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/cbb96c6f7f84d71bdef65d0fd9d3d7275a236711/packages/sdk/src/lib/dataEntities/networks.ts",
+          "sourceKind": "raw",
+          "sourceNote": "mainnetTokenBridge.parentGatewayRouter (Arbitrum One)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4Dbd4fc535Ac27206064B68FfCf827b0A60BAB3f",
+          "name": "Inbox",
+          "label": "Arbitrum One Inbox (delayed inbox)",
+          "role": "Deposit ETH to Arbitrum One (depositEth) and create retryable tickets",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/cbb96c6f7f84d71bdef65d0fd9d3d7275a236711/packages/sdk/src/lib/dataEntities/networks.ts",
+          "sourceKind": "raw",
+          "sourceNote": "mainnetETHBridge.inbox (Arbitrum One)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0B9857ae2D4A3DBe74ffE1d7DF045bb7F96E4840",
+          "name": "Outbox",
+          "label": "Arbitrum One Outbox",
+          "role": "Claim a withdrawal on Ethereum after the challenge period (executeTransaction)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/cbb96c6f7f84d71bdef65d0fd9d3d7275a236711/packages/sdk/src/lib/dataEntities/networks.ts",
+          "sourceKind": "raw",
+          "sourceNote": "mainnetETHBridge.outbox (Arbitrum One)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x5288c571Fd7aD117beA99bF60FE0846C4E84F933",
+          "name": "L2GatewayRouter",
+          "label": "Arbitrum L2 Gateway Router",
+          "role": "Withdraw ERC-20 tokens to Ethereum (outboundTransfer)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/cbb96c6f7f84d71bdef65d0fd9d3d7275a236711/packages/sdk/src/lib/dataEntities/networks.ts",
+          "sourceKind": "raw",
+          "sourceNote": "mainnetTokenBridge.childGatewayRouter (Arbitrum One)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0000000000000000000000000000000000000064",
+          "name": "ArbSys",
+          "label": "ArbSys precompile",
+          "role": "Withdraw ETH to Ethereum (withdrawEth)",
+          "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/cbb96c6f7f84d71bdef65d0fd9d3d7275a236711/packages/sdk/src/lib/dataEntities/constants.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ARB_SYS_ADDRESS; a precompile at address 100 on every Arbitrum chain"
+        }
+      ]
+    },
+    {
+      "protocol": "optimism-bridge",
+      "name": "OP Mainnet Standard Bridge",
+      "category": "bridge",
+      "website": "https://www.optimism.io",
+      "defillama": "optimism-bridge",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1",
+          "name": "L1StandardBridge",
+          "label": "OP Mainnet L1StandardBridge",
+          "role": "Deposit ETH and ERC-20 tokens to OP Mainnet (depositETH, depositERC20, bridgeETHTo)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/7e1be4543c870ec5ac3353ab0ecf4deab100602c/superchain/configs/mainnet/op.toml",
+          "sourceKind": "raw",
+          "sourceNote": "[addresses] L1StandardBridgeProxy"
+        },
+        {
+          "chainId": 1,
+          "address": "0xbEb5Fc579115071764c7423A4f12eDde41f106Ed",
+          "name": "OptimismPortal2",
+          "label": "OP Mainnet OptimismPortal",
+          "role": "Deposit ETH (depositTransaction) and prove and finalize withdrawals on Ethereum",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/7e1be4543c870ec5ac3353ab0ecf4deab100602c/superchain/configs/mainnet/op.toml",
+          "sourceKind": "raw",
+          "sourceNote": "[addresses] OptimismPortalProxy"
+        },
+        {
+          "chainId": 10,
+          "address": "0x4200000000000000000000000000000000000010",
+          "name": "L2StandardBridge",
+          "label": "OP Mainnet L2StandardBridge",
+          "role": "Withdraw ETH and ERC-20 tokens to Ethereum (withdraw, withdrawTo, bridgeETHTo)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/ethereum-optimism/specs/354f6481f6d9f1d2089f1c74b2d6e1323b1538ee/specs/protocol/predeploys.md",
+          "sourceKind": "raw",
+          "sourceNote": "Predeploy table; Proxied: Yes"
+        },
+        {
+          "chainId": 10,
+          "address": "0x4200000000000000000000000000000000000016",
+          "name": "L2ToL1MessagePasser",
+          "label": "OP Mainnet L2ToL1MessagePasser",
+          "role": "Start a withdrawal directly (initiateWithdrawal), as viem's OP Stack initiateWithdrawal does",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/ethereum-optimism/specs/354f6481f6d9f1d2089f1c74b2d6e1323b1538ee/specs/protocol/predeploys.md",
+          "sourceKind": "raw",
+          "sourceNote": "Predeploy table; Proxied: Yes"
+        }
+      ]
+    },
+    {
+      "protocol": "base-bridge",
+      "name": "Base Bridge",
+      "category": "bridge",
+      "website": "https://base.org",
+      "defillama": "base-bridge",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
+          "name": "L1StandardBridge",
+          "label": "Base L1StandardBridge",
+          "role": "Deposit ETH and ERC-20 tokens to Base (depositETH, depositERC20, bridgeETHTo)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/5b055be4d294ce43814a44c8839d89b2436dc8aa/superchain/configs/mainnet/base.toml",
+          "sourceKind": "raw",
+          "sourceNote": "[addresses] L1StandardBridgeProxy in the last base.toml before Base left the superchain-registry (2026-04-27); docs.base.org/specifications/reference/base-contracts lists the same today (WebFetch)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x49048044D57e1C92A77f79988d21Fa8fAF74E97e",
+          "name": "OptimismPortal2",
+          "label": "Base OptimismPortal",
+          "role": "Deposit ETH (depositTransaction) and prove and finalize withdrawals on Ethereum",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/ethereum-optimism/superchain-registry/5b055be4d294ce43814a44c8839d89b2436dc8aa/superchain/configs/mainnet/base.toml",
+          "sourceKind": "raw",
+          "sourceNote": "[addresses] OptimismPortalProxy in the last base.toml before removal; base/base chain config (deposit_contract_address) and docs.base.org list the same"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x4200000000000000000000000000000000000010",
+          "name": "L2StandardBridge",
+          "label": "Base L2StandardBridge",
+          "role": "Withdraw ETH and ERC-20 tokens to Ethereum (withdraw, withdrawTo, bridgeETHTo)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/base/base/bcec015741dff48d06bebb9115f0d5c9a41bf0f4/crates/common/consensus/src/predeploys.rs",
+          "sourceKind": "raw",
+          "sourceNote": "Predeploys::L2_STANDARD_BRIDGE"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x4200000000000000000000000000000000000016",
+          "name": "L2ToL1MessagePasser",
+          "label": "Base L2ToL1MessagePasser",
+          "role": "Start a withdrawal directly (initiateWithdrawal), as viem's OP Stack initiateWithdrawal does",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/base/base/bcec015741dff48d06bebb9115f0d5c9a41bf0f4/crates/common/consensus/src/predeploys.rs",
+          "sourceKind": "raw",
+          "sourceNote": "Predeploys::L2_TO_L1_MESSAGE_PASSER"
+        }
+      ]
+    },
+    {
+      "protocol": "polygon-pos-bridge",
+      "name": "Polygon PoS Bridge",
+      "category": "bridge",
+      "website": "https://portal.polygon.technology",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xA0c68C638235ee32657e8f720a23ceC1bFc77C77",
+          "name": "RootChainManager",
+          "label": "Polygon PoS RootChainManager",
+          "role": "Deposit ETH and ERC-20 tokens to Polygon PoS (depositEtherFor, depositFor) and complete withdrawals (exit)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/maticnetwork/static/9214e2edb60898d593029e3dc29232cf6ca46f3f/network/mainnet/v1/index.json",
+          "sourceKind": "raw",
+          "sourceNote": "Main.POSContracts.RootChainManagerProxy. The EtherPredicate is not listed: users reach it only through RootChainManager"
+        }
+      ]
+    },
+    {
+      "protocol": "zksync-bridge",
+      "name": "ZKsync Era Bridge",
+      "category": "bridge",
+      "website": "https://zksync.io",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x303a465B659cBB0ab36eE643eA362c509EEb5213",
+          "name": "Bridgehub",
+          "label": "ZKsync Bridgehub",
+          "role": "Deposit ETH and ERC-20 tokens to ZKsync Era (requestL2TransactionDirect, requestL2TransactionTwoBridges)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/matter-labs/zksync-docs/5197d976b02d72a9dff711040da0f4273f91987a/content/20.zksync-protocol/20.contracts/10.l1-contracts/30.zk-chain-addresses.md",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet table, Bridgehub; zksync-ethers deposits call these two Bridgehub functions. The docs (rollup/bridging-assets) say only testnet withdrawals need a manual claim, so the L1 shared bridge is left out"
+        }
+      ]
+    },
+    {
+      "protocol": "linea-bridge",
+      "name": "Linea Bridge",
+      "category": "bridge",
+      "website": "https://linea.build",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xd19d4B5d358258f05D7B411E21A1460D11B0876F",
+          "name": "LineaRollup",
+          "label": "Linea L1 Message Service (LineaRollup)",
+          "role": "Deposit ETH to Linea (sendMessage) and claim withdrawals on Ethereum (claimMessageWithProof)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Consensys/doc.linea/1d10ee79c056c4cffe5dd7792035e170fd06d8f2/docs/network/build/contracts.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Deployed contracts table: `LineaRollup`: Linea Rollup and L1 Message Service"
+        },
+        {
+          "chainId": 1,
+          "address": "0x051F1D88f0aF5763fB888eC4378b4D8B29ea3319",
+          "name": "TokenBridge",
+          "label": "Linea L1 Token Bridge",
+          "role": "Deposit ERC-20 tokens to Linea (bridgeToken, bridgeTokenWithPermit)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Consensys/doc.linea/1d10ee79c056c4cffe5dd7792035e170fd06d8f2/docs/network/build/contracts.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Deployed contracts table: L1 Token bridge"
+        }
+      ]
+    },
+    {
+      "protocol": "scroll-bridge",
+      "name": "Scroll Bridge",
+      "category": "bridge",
+      "website": "https://scroll.io",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xF8B1378579659D8F7EE5f3C929c2f3E332E41Fd6",
+          "name": "L1GatewayRouter",
+          "label": "Scroll L1 Gateway Router",
+          "role": "Deposit ETH and ERC-20 tokens to Scroll (depositETH, depositERC20)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/scroll-tech/scroll-documentation/762fb923680aaea700ced619a88483a7005c4f9b/src/content/docs/en/developers/scroll-contracts.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "ETH and ERC20 Bridge: L1 Gateway Router"
+        },
+        {
+          "chainId": 1,
+          "address": "0x6774Bcbd5ceCeF1336b5300fb5186a12DDD8b367",
+          "name": "L1ScrollMessenger",
+          "label": "Scroll L1 Messenger",
+          "role": "Claim withdrawals on Ethereum (relayMessageWithProof)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/scroll-tech/scroll-documentation/762fb923680aaea700ced619a88483a7005c4f9b/src/content/docs/en/developers/scroll-contracts.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Scroll Messenger: L1 Messenger"
+        }
+      ]
+    },
+    {
+      "protocol": "starkgate",
+      "name": "StarkGate (Starknet)",
+      "category": "bridge",
+      "website": "https://starkgate.starknet.io",
+      "defillama": "starkgate",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xae0Ee0A63A2cE6BaeEFFE56e7714FB4EFE48D419",
+          "name": "StarknetEthBridge",
+          "label": "StarkGate ETH bridge",
+          "role": "Deposit ETH to Starknet (deposit) and complete withdrawals on Ethereum (withdraw)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/starknet-io/starknet-addresses/51b31a7854442e020508f2fc625078f65eb279d8/bridged_tokens/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "entry id \"eth\", l1_bridge_address. Name is the StarkGate bridge family; the verified name behind the StarkWare proxy may differ"
+        },
+        {
+          "chainId": 1,
+          "address": "0xF6080D9fbEEbcd44D89aFfBFd42F098cbFf92816",
+          "name": "StarknetERC20Bridge",
+          "label": "StarkGate USDC bridge",
+          "role": "Deposit USDC to Starknet (deposit) and complete withdrawals on Ethereum (withdraw)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/starknet-io/starknet-addresses/51b31a7854442e020508f2fc625078f65eb279d8/bridged_tokens/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "entry id \"usdc\", l1_bridge_address. Name is the StarkGate bridge family; the verified name behind the StarkWare proxy may differ"
+        },
+        {
+          "chainId": 1,
+          "address": "0xcE5485Cfb26914C5dcE00B9BAF0580364daFC7a4",
+          "name": "StarknetTokenBridge",
+          "label": "StarkGate STRK bridge",
+          "role": "Deposit STRK to Starknet (deposit) and complete withdrawals on Ethereum (withdraw)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/starknet-io/starknet-addresses/51b31a7854442e020508f2fc625078f65eb279d8/bridged_tokens/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "entry id \"strk\", l1_bridge_address. Name is the StarkGate bridge family; the verified name behind the StarkWare proxy may differ"
+        },
+        {
+          "chainId": 1,
+          "address": "0xbb3400F107804DFB482565FF1Ec8D8aE66747605",
+          "name": "StarknetERC20Bridge",
+          "label": "StarkGate USDT bridge",
+          "role": "Deposit USDT to Starknet (deposit) and complete withdrawals on Ethereum (withdraw)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/starknet-io/starknet-addresses/51b31a7854442e020508f2fc625078f65eb279d8/bridged_tokens/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "entry id \"usdt\", l1_bridge_address. Name is the StarkGate bridge family; the verified name behind the StarkWare proxy may differ"
+        },
+        {
+          "chainId": 1,
+          "address": "0x283751A21eafBFcD52297820D27C1f1963D9b5b4",
+          "name": "StarknetERC20Bridge",
+          "label": "StarkGate WBTC bridge",
+          "role": "Deposit WBTC to Starknet (deposit) and complete withdrawals on Ethereum (withdraw)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/starknet-io/starknet-addresses/51b31a7854442e020508f2fc625078f65eb279d8/bridged_tokens/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "entry id \"wbtc\", l1_bridge_address. Name is the StarkGate bridge family; the verified name behind the StarkWare proxy may differ"
+        }
+      ]
+    }
+  ]
+}

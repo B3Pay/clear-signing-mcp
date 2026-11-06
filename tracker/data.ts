@@ -32,7 +32,7 @@ export type BlockscoutFacts =
   | { readonly status: "error"; readonly reason: string }
 
 export interface SampleSummary {
-  readonly source: "blockscout-txlist" | "blockscout-v2"
+  readonly source: "blockscout-txlist" | "sqd-portal"
   /** How many transactions were asked for. */
   readonly requested: number
   /** Top-level transactions sent to the contract in the sample. */
@@ -45,15 +45,21 @@ export interface SampleSummary {
   readonly last30Days: number
   /**
    * Recent transactions per day: the last 30 days' count over 30 when the
-   * sample reaches back that far, else the sample's count over its time span.
-   * Null below 2 transactions.
+   * sample reaches back that far or holds all of those 30 days, else the
+   * sample's count over its time span. Null when that span is unknown.
    */
   readonly perDay: number | null
   /** Transactions per 4-byte selector; "0x" is a call with no selector (a plain transfer). */
   readonly selectors: Readonly<Record<string, number>>
+  /** Distinct senders in the sample. */
+  readonly senders: number
+  /** Distinct senders per selector: the people (or bots) who called each function. */
+  readonly sendersBySelector: Readonly<Record<string, number>>
 }
 
 export interface OnchainRecord {
+  /** The record's format (fetch.ts RECORD_FORMAT); absent in the first one. */
+  readonly format?: number
   readonly chainId: number
   readonly address: Address
   readonly fetchedAt: string

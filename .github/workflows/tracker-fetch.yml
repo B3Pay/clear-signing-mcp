@@ -1,8 +1,9 @@
 name: Tracker fetch
 
-# The coverage tracker's networked step (tracker/README.md): Sourcify,
-# Blockscout and public RPCs, all read-only. It commits what it read to
-# tracker/data/ on the branch it ran on.
+# The coverage tracker's networked steps (tracker/README.md): Sourcify,
+# Blockscout, the SQD portal and public RPCs, all read-only. It commits what
+# it read, and the coverage report built from it against the registry's
+# latest commit, to tracker/data/ on the branch it ran on.
 on:
   workflow_dispatch:
     inputs:
@@ -31,7 +32,7 @@ jobs:
   fetch:
     name: Read on-chain facts and real transactions
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -59,9 +60,16 @@ jobs:
           ONLY: ${{ github.event.inputs.only }}
           MAX_AGE: ${{ github.event.inputs.max-age-hours || '20' }}
         run: |
-          args=(--max-age-hours "$MAX_AGE")
+          # Contracts left when 80 minutes are up wait for the next run.
+          args=(--max-age-hours "$MAX_AGE" --minutes 80)
           if [ -n "$ONLY" ]; then args+=(--only "$ONLY"); fi
           node tracker/dist/tracker/cli.js fetch "${args[@]}"
+
+      - name: Clone the registry
+        run: git clone --depth 1 https://github.com/ethereum/clear-signing-erc7730-registry.git "$RUNNER_TEMP/registry"
+
+      - name: Report
+        run: node tracker/dist/tracker/cli.js report --registry "$RUNNER_TEMP/registry" --attestations
 
       - name: Commit the data
         run: |
@@ -72,7 +80,7 @@ jobs:
             echo "No new data."
             exit 0
           fi
-          git commit -m "Tracker data: on-chain facts and transaction samples" -m "Written by the Tracker fetch workflow, run ${{ github.run_id }}."
+          git commit -m "Tracker data: on-chain facts, transaction samples and coverage" -m "Written by the Tracker fetch workflow, run ${{ github.run_id }}."
           for attempt in 1 2 3 4; do
             if git push origin "HEAD:${{ github.ref_name }}"; then exit 0; fi
             git pull --rebase origin "${{ github.ref_name }}"
