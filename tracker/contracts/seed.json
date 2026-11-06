@@ -32,6 +32,26 @@
           "proxy": true,
           "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/aave/calldata-lpv3.json",
           "sourceKind": "registry"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "name": "Pool",
+          "label": "Aave v3 Pool",
+          "role": "Supply, borrow, repay and withdraw",
+          "proxy": true,
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/aave/calldata-lpv3.json",
+          "sourceKind": "registry"
+        },
+        {
+          "chainId": 10,
+          "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "name": "Pool",
+          "label": "Aave v3 Pool",
+          "role": "Supply, borrow, repay and withdraw",
+          "proxy": true,
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/aave/calldata-lpv3.json",
+          "sourceKind": "registry"
         }
       ]
     },

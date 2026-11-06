@@ -3,6 +3,7 @@ import { dirname, join, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import { parseArgs } from "node:util"
 import { dataPaths } from "./data.js"
+import { diagnose } from "./diag.js"
 import { fetchAll, fetchDefiLlama } from "./fetch.js"
 import { loadUniverse } from "./universe.js"
 
@@ -36,6 +37,11 @@ async function main(): Promise<number> {
     const universe = loadUniverse(contractsDir)
     const contracts = universe.reduce((n, p) => n + p.contracts.length, 0)
     console.log(`${universe.length} protocols, ${contracts} contracts: valid`)
+    return 0
+  }
+
+  if (command === "diag") {
+    await diagnose((line) => console.log(line))
     return 0
   }
 

@@ -404,6 +404,40 @@ async function blockscoutAbi(
   }
 }
 
+async function abiOf(
+  chainId: TrackedChainId,
+  address: Address,
+  known?: { facts: SourcifyFacts; abi?: Abi }
+): Promise<
+  { source: "sourcify" | "blockscout"; name?: string; abi: Abi } | undefined
+> {
+  const fromSourcify = known ?? (await sourcifyFacts(chainId, address))
+  if (fromSourcify.abi && fromSourcify.facts.status === "verified")
+    return {
+      source: "sourcify",
+      ...(fromSourcify.facts.name ? { name: fromSourcify.facts.name } : {}),
+      abi: fromSourcify.abi,
+    }
+  try {
+    const fromBlockscout = await blockscoutAbi(chainId, address)
+    if (fromBlockscout)
+      return {
+        source: "blockscout",
+        ...(fromBlockscout.name ? { name: fromBlockscout.name } : {}),
+        abi: fromBlockscout.abi,
+      }
+  } catch {
+    // no ABI from Blockscout either
+  }
+  return undefined
+}
+
+/**
+ * The ABI users call through. Behind a proxy that is the implementation's
+ * functions; behind a diamond (EIP-2535), every facet's. The proxy's own
+ * functions are added after, so a selector is described once, by the
+ * implementation first.
+ */
 async function resolveAbi(
   chainId: TrackedChainId,
   address: Address,
@@ -411,60 +445,53 @@ async function resolveAbi(
   sourcifyAbi: Abi | undefined,
   blockscout: { facts: BlockscoutFacts }
 ): Promise<AbiFile | undefined> {
-  // Behind a proxy, users call the implementation's functions.
-  const sourcifyImpl =
-    sourcify.status === "verified"
-      ? sourcify.proxy?.implementations[0]
-      : undefined
-  const blockscoutImpl =
-    blockscout.facts.status === "ok"
-      ? blockscout.facts.implementations[0]
-      : undefined
-  const implementation = sourcifyImpl ?? blockscoutImpl
-  const target = implementation?.address ?? address
+  const implementations =
+    sourcify.status === "verified" && sourcify.proxy?.implementations.length
+      ? sourcify.proxy.implementations
+      : blockscout.facts.status === "ok"
+        ? blockscout.facts.implementations
+        : []
+  const own = await abiOf(chainId, address, {
+    facts: sourcify,
+    ...(sourcifyAbi ? { abi: sourcifyAbi } : {}),
+  })
+  const parts: {
+    address: Address
+    source: "sourcify" | "blockscout"
+    name?: string
+    abi: Abi
+  }[] = []
+  for (const implementation of implementations.slice(0, 40)) {
+    if (implementation.address === address) continue
+    const found = await abiOf(chainId, implementation.address)
+    if (found) parts.push({ address: implementation.address, ...found })
+  }
+  if (own) parts.push({ address, ...own })
+  if (parts.length === 0) return undefined
 
-  if (target !== address) {
-    const impl = await sourcifyFacts(chainId, target)
-    if (impl.abi && impl.facts.status === "verified")
-      return {
-        source: "sourcify",
-        address: target,
-        ...(impl.facts.name ? { name: impl.facts.name } : {}),
-        abi: impl.abi,
-      }
-    try {
-      const fromBlockscout = await blockscoutAbi(chainId, target)
-      if (fromBlockscout)
-        return {
-          source: "blockscout",
-          address: target,
-          ...(fromBlockscout.name ? { name: fromBlockscout.name } : {}),
-          abi: fromBlockscout.abi,
-        }
-    } catch {
-      // fall through to the contract's own ABI
+  const seen = new Set<string>()
+  const merged: Abi[number][] = []
+  for (const part of parts) {
+    for (const item of part.abi) {
+      const key =
+        item.type === "function" ||
+        item.type === "event" ||
+        item.type === "error"
+          ? `${item.type}:${item.name}(${(item.inputs ?? []).map((input) => input.type).join(",")})`
+          : item.type
+      if (seen.has(key)) continue
+      seen.add(key)
+      merged.push(item)
     }
   }
-  if (sourcifyAbi && sourcify.status === "verified")
-    return {
-      source: "sourcify",
-      address,
-      ...(sourcify.name ? { name: sourcify.name } : {}),
-      abi: sourcifyAbi,
-    }
-  try {
-    const fromBlockscout = await blockscoutAbi(chainId, address)
-    if (fromBlockscout)
-      return {
-        source: "blockscout",
-        address,
-        ...(fromBlockscout.name ? { name: fromBlockscout.name } : {}),
-        abi: fromBlockscout.abi,
-      }
-  } catch {
-    // no ABI
+  const primary = parts[0]!
+  return {
+    source: primary.source,
+    address: primary.address,
+    ...(primary.name ? { name: primary.name } : {}),
+    ...(parts.length > 1 ? { merged: parts.map((part) => part.address) } : {}),
+    abi: merged,
   }
-  return undefined
 }
 
 interface ListedTx {
@@ -528,6 +555,17 @@ async function latestTransactions(
   const newest = times.length ? Math.max(...times) : null
   const spanDays =
     oldest !== null && newest !== null ? (newest - oldest) / 86_400 : 0
+  const monthAgo = Date.now() / 1000 - 30 * 86_400
+  const last30Days = times.filter((t) => t >= monthAgo).length
+  const reachesBack = oldest !== null && oldest <= monthAgo
+  const perDay =
+    txs.length < 2
+      ? null
+      : reachesBack
+        ? last30Days / 30
+        : spanDays > 0
+          ? txs.length / spanDays
+          : null
   return {
     summary: {
       source: "blockscout-txlist",
@@ -536,7 +574,8 @@ async function latestTransactions(
       failed: txs.filter((tx) => tx.failed).length,
       oldest,
       newest,
-      perDay: txs.length >= 2 && spanDays > 0 ? txs.length / spanDays : null,
+      last30Days,
+      perDay,
       selectors,
     },
     txs,

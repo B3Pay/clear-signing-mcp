@@ -51,6 +51,9 @@ jobs:
       - name: Build the tracker
         run: pnpm tracker:build
 
+      - name: Check which data sources answer
+        run: node tracker/dist/tracker/cli.js diag
+
       - name: Fetch
         env:
           ONLY: ${{ github.event.inputs.only }}

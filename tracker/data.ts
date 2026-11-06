@@ -41,7 +41,13 @@ export interface SampleSummary {
   /** Unix seconds of the oldest and newest transaction in the sample. */
   readonly oldest: number | null
   readonly newest: number | null
-  /** Transactions per day over the sample's time span; null below 2 transactions. */
+  /** Transactions in the sample from the 30 days before the fetch. */
+  readonly last30Days: number
+  /**
+   * Recent transactions per day: the last 30 days' count over 30 when the
+   * sample reaches back that far, else the sample's count over its time span.
+   * Null below 2 transactions.
+   */
   readonly perDay: number | null
   /** Transactions per 4-byte selector; "0x" is a call with no selector (a plain transfer). */
   readonly selectors: Readonly<Record<string, number>>
@@ -68,8 +74,11 @@ export interface OnchainRecord {
 
 export interface AbiFile {
   readonly source: "sourcify" | "blockscout"
+  /** The contract whose ABI comes first: the implementation, behind a proxy. */
   readonly address: Address
   readonly name?: string
+  /** Every contract whose ABI was merged in, when more than one (facets, then the proxy). */
+  readonly merged?: readonly Address[]
   readonly abi: Abi
 }
 
