@@ -27,7 +27,12 @@ import {
   type TokensFile,
 } from "./data.js"
 import { errorText, getJson, isRecord, Limiter } from "./net.js"
-import { latestPortalTransactions, SQD_DATASETS } from "./sqd.js"
+import {
+  latestPortalSamples,
+  latestPortalTransactions,
+  SQD_DATASETS,
+  type PortalSample,
+} from "./sqd.js"
 import {
   TRACKED_CHAINS,
   type TrackedChainId,
@@ -80,6 +85,8 @@ export const SOURCIFY = "https://sourcify.dev/server"
 
 /** Longest one contract's reads may take. */
 const CONTRACT_TIMEOUT_MS = 10 * 60_000
+/** How long before a run's deadline the SQD scans stop reading. */
+const PORTAL_MARGIN_MS = 10 * 60_000
 
 function withTimeout<T>(
   promise: Promise<T>,
@@ -194,9 +201,58 @@ export async function fetchAll(
   // how many contracts are in flight, so that slow chains don't hold up fast
   // ones.
   const contractLimiter = new Limiter(16)
+
+  // Base and Arbitrum One are sampled through the SQD portal, every
+  // contract of a chain in one scan, which starts now and runs beside the
+  // other chains' work. A contract there takes a slot once its chain's scan
+  // is done, so it never holds one while it waits. The scan stops reading
+  // PORTAL_MARGIN_MS before a run's deadline, so that its contracts still
+  // start before it, each with what the scan read.
+  const portalScans = new Map<
+    TrackedChainId,
+    Promise<Map<string, PortalSample> | Error>
+  >()
+  for (const id of Object.keys(SQD_DATASETS).map(Number) as TrackedChainId[]) {
+    const addresses = jobs
+      .filter((job) => job.contract.chainId === id)
+      .map((job) => job.contract.address)
+    if (addresses.length === 0) continue
+    const started = Date.now()
+    portalScans.set(
+      id,
+      latestPortalSamples(id, addresses, options.sampleSize, {
+        log,
+        ...(options.deadline === undefined
+          ? {}
+          : { deadline: options.deadline - PORTAL_MARGIN_MS }),
+      }).then(
+        (samples) => {
+          log(
+            `${TRACKED_CHAINS[id]}: sampled ${samples.size} contracts through the SQD portal in ${Math.round((Date.now() - started) / 1000)} s`
+          )
+          return samples
+        },
+        (error: unknown) => {
+          log(
+            `${TRACKED_CHAINS[id]}: SQD portal scan failed: ${errorText(error)}`
+          )
+          return error instanceof Error ? error : new Error(String(error))
+        }
+      )
+    )
+  }
+
   await Promise.all(
-    jobs.map(({ protocol, contract }) =>
-      contractLimiter.run(async () => {
+    jobs.map(async ({ protocol, contract }) => {
+      const scan = await portalScans.get(contract.chainId)
+      // A failed scan fails each of its contracts' samples, not their other
+      // facts; so does a scan that stopped before it read any block.
+      const portal =
+        scan instanceof Error || scan === undefined
+          ? scan
+          : (scan.get(contract.address.toLowerCase()) ??
+            new Error("the portal scan stopped before it read any block"))
+      return contractLimiter.run(async () => {
         if (options.deadline !== undefined && Date.now() > options.deadline) {
           deferred += 1
           return
@@ -206,7 +262,7 @@ export async function fetchAll(
           // A contract whose sources stop answering is given up on, not
           // waited for: it is read again by the next run.
           const record = await withTimeout(
-            fetchContract(contract, client(contract.chainId), options),
+            fetchContract(contract, client(contract.chainId), options, portal),
             CONTRACT_TIMEOUT_MS,
             `gave up after ${CONTRACT_TIMEOUT_MS / 60_000} minutes`
           )
@@ -232,7 +288,7 @@ export async function fetchAll(
           )
         }
       })
-    )
+    })
   )
 
   // Tokens are looked up for every kept transaction, read in this run or an
@@ -272,7 +328,8 @@ export async function fetchAll(
 async function fetchContract(
   contract: UniverseContract,
   client: PublicClient,
-  options: FetchOptions
+  options: FetchOptions,
+  portal?: PortalSample | Error
 ): Promise<{
   onchain: OnchainRecord
   samples: SamplesFile
@@ -312,7 +369,8 @@ async function fetchContract(
     const listed = await latestTransactions(
       chainId,
       address,
-      options.sampleSize
+      options.sampleSize,
+      portal
     )
     sample = listed.summary
     const picked = pickPerSelector(
@@ -588,10 +646,13 @@ function selectorOf(input: string): string {
 async function latestTransactions(
   chainId: TrackedChainId,
   address: Address,
-  size: number
+  size: number,
+  portal?: PortalSample | Error
 ): Promise<{ summary: SampleSummary; txs: ListedTx[] }> {
   if (SQD_DATASETS[chainId]) {
-    const sample = await latestPortalTransactions(chainId, address, size)
+    if (portal instanceof Error) throw portal
+    const sample =
+      portal ?? (await latestPortalTransactions(chainId, address, size))
     const txs = sample.txs.map((tx) => ({
       hash: tx.hash,
       timestamp: tx.timestamp,
@@ -600,7 +661,7 @@ async function latestTransactions(
       failed: tx.failed,
     }))
     return {
-      summary: summarize("sqd-portal", size, txs, sample.complete30Days),
+      summary: summarize("sqd-portal", size, txs, sample.covered),
       txs,
     }
   }
@@ -638,19 +699,21 @@ async function latestTransactions(
       failed: item.isError === "1" || item.txreceipt_status === "0",
     })
   }
-  return { summary: summarize("blockscout-txlist", size, txs, false), txs }
+  return { summary: summarize("blockscout-txlist", size, txs, null), txs }
 }
 
 /**
  * Counts per selector and the rate: the last 30 days' count over 30 when the
  * sample reaches back that far (or holds every transaction of those 30
- * days), else the sample's count over its time span.
+ * days); else, for a sample that holds every transaction of a span
+ * (`covered`), its count over that span; else its count over the time
+ * between its oldest and newest transaction.
  */
 export function summarize(
   source: SampleSummary["source"],
   requested: number,
   txs: readonly ListedTx[],
-  complete30Days: boolean,
+  covered: { readonly since: number; readonly until: number } | null,
   nowSeconds = Date.now() / 1000
 ): SampleSummary {
   const selectors: Record<string, number> = {}
@@ -671,18 +734,26 @@ export function summarize(
     oldest !== null && newest !== null ? (newest - oldest) / 86_400 : 0
   const monthAgo = nowSeconds - 30 * 86_400
   const last30Days = times.filter((t) => t >= monthAgo).length
-  const reachesBack = complete30Days || (oldest !== null && oldest <= monthAgo)
+  const reachesBack =
+    (covered !== null && covered.since <= monthAgo) ||
+    (oldest !== null && oldest <= monthAgo)
+  const coveredDays = covered ? (covered.until - covered.since) / 86_400 : 0
   const perDay = reachesBack
     ? last30Days / 30
-    : txs.length < 2
-      ? null
-      : spanDays > 0
-        ? txs.length / spanDays
-        : null
+    : coveredDays > 0
+      ? txs.length / coveredDays
+      : txs.length < 2
+        ? null
+        : spanDays > 0
+          ? txs.length / spanDays
+          : null
   return {
     source,
     requested,
     count: txs.length,
+    ...(covered
+      ? { covered: { since: covered.since, until: covered.until } }
+      : {}),
     failed: txs.filter((tx) => tx.failed).length,
     oldest,
     newest,

@@ -33,25 +33,35 @@ function tx(
 describe("summarize", () => {
   it("rates a sample younger than 30 days by its own time span", () => {
     const txs = [tx(NOW - DAY), tx(NOW - 2 * DAY), tx(NOW - 3 * DAY)]
-    const summary = summarize("blockscout-txlist", 1000, txs, false, NOW)
+    const summary = summarize("blockscout-txlist", 1000, txs, null, NOW)
     expect(summary.perDay).toBeCloseTo(3 / 2)
     expect(summary.last30Days).toBe(3)
   })
 
   it("rates a sample that reaches back 30 days by its last 30 days", () => {
     const txs = [tx(NOW - DAY), tx(NOW - 10 * DAY), tx(NOW - 40 * DAY)]
-    const summary = summarize("blockscout-txlist", 1000, txs, false, NOW)
+    const summary = summarize("blockscout-txlist", 1000, txs, null, NOW)
     expect(summary.perDay).toBeCloseTo(2 / 30)
   })
 
   it("rates a complete 30-day scan by its count, even when empty", () => {
-    expect(summarize("sqd-portal", 1000, [], true, NOW).perDay).toBe(0)
-    const one = summarize("sqd-portal", 1000, [tx(NOW - DAY)], true, NOW)
+    const month = { since: NOW - 31 * DAY, until: NOW - 600 }
+    expect(summarize("sqd-portal", 1000, [], month, NOW).perDay).toBe(0)
+    const one = summarize("sqd-portal", 1000, [tx(NOW - DAY)], month, NOW)
     expect(one.perDay).toBeCloseTo(1 / 30)
   })
 
+  it("rates a scan that stopped short by the span it read", () => {
+    // Two calls an hour apart in a scan of three days: 2/3 a day, not 48.
+    const covered = { since: NOW - 3 * DAY, until: NOW }
+    const txs = [tx(NOW - 3_600), tx(NOW - 7_200)]
+    const summary = summarize("sqd-portal", 1000, txs, covered, NOW)
+    expect(summary.perDay).toBeCloseTo(2 / 3)
+    expect(summary.covered).toEqual(covered)
+  })
+
   it("has no rate for an empty sample that is not known to be complete", () => {
-    expect(summarize("blockscout-txlist", 1000, [], false, NOW).perDay).toBe(
+    expect(summarize("blockscout-txlist", 1000, [], null, NOW).perDay).toBe(
       null
     )
   })
@@ -64,7 +74,7 @@ describe("summarize", () => {
       tx(NOW - 40, "0xbbbbbbbb", "0x01", true),
       tx(NOW - 50, "0x", "0x03"),
     ]
-    const summary = summarize("blockscout-txlist", 1000, txs, false, NOW)
+    const summary = summarize("blockscout-txlist", 1000, txs, null, NOW)
     expect(summary.selectors).toEqual({
       "0xaaaaaaaa": 3,
       "0xbbbbbbbb": 1,
@@ -171,6 +181,7 @@ describe("the SQD portal source", () => {
 
   afterEach(() => {
     vi.unstubAllGlobals()
+    vi.restoreAllMocks()
     vi.resetModules()
     requests.length = 0
   })
@@ -207,6 +218,110 @@ describe("the SQD portal source", () => {
     expect(sample.txs.length).toBe(
       Math.floor((HEAD - oldest.blockNumber) / 1_000) + 1
     )
+  })
+
+  it("scans a chain's contracts together and lets busy ones leave early", async () => {
+    const BUSY = "0x00000000000000000000000000000000000000b0"
+    const scans: string[][] = []
+    // BUSY gets a transaction in every block, CONTRACT one every 1,000.
+    vi.stubGlobal("fetch", (input: string, init?: { body?: string }) => {
+      if (input.endsWith("/finalized-head"))
+        return Promise.resolve(Response.json({ number: HEAD, hash: "0xhead" }))
+      const body = JSON.parse(init?.body ?? "{}") as {
+        fromBlock: number
+        toBlock: number
+        includeAllBlocks?: boolean
+        transactions?: { to: string[] }[]
+      }
+      if (body.includeAllBlocks)
+        return Promise.resolve(
+          new Response(
+            `${JSON.stringify({ header: { number: body.fromBlock, timestamp: timeOf(body.fromBlock) } })}\n`
+          )
+        )
+      const wanted = body.transactions?.[0]?.to ?? []
+      scans.push(wanted)
+      const lines: string[] = []
+      for (
+        let block = body.fromBlock;
+        block <= body.toBlock && lines.length < 400;
+        block += 1
+      ) {
+        const txs = [
+          ...(wanted.includes(BUSY) ? [BUSY] : []),
+          ...(wanted.includes(CONTRACT) && block % 1_000 === 0
+            ? [CONTRACT]
+            : []),
+        ].map((to, i) => ({
+          hash: `0x${(block * 2 + i).toString(16).padStart(64, "0")}`,
+          from: "0x01",
+          to,
+          sighash: "0x12345678",
+          status: 1,
+          transactionIndex: i,
+        }))
+        if (txs.length > 0)
+          lines.push(
+            JSON.stringify({
+              header: { number: block, timestamp: timeOf(block) },
+              transactions: txs,
+            })
+          )
+      }
+      return Promise.resolve(
+        lines.length ? new Response(`${lines.join("\n")}\n`) : new Response("")
+      )
+    })
+    const { latestPortalSamples } = await import("../tracker/sqd.js")
+    const samples = await latestPortalSamples(8453, [BUSY, CONTRACT], 200)
+    const busy = samples.get(BUSY)!
+    expect(busy.txs).toHaveLength(200)
+    expect(busy.txs[0]!.blockNumber).toBe(HEAD)
+    expect(busy.txs[199]!.blockNumber).toBe(HEAD - 199)
+    expect(busy.complete30Days).toBe(false)
+    const quiet = samples.get(CONTRACT)!
+    expect(quiet.txs).toHaveLength(200)
+    expect(quiet.txs[0]!.blockNumber).toBe(HEAD)
+    // Once BUSY had its sample, the scans asked for CONTRACT alone.
+    expect(scans[0]).toEqual([BUSY, CONTRACT])
+    expect(scans[scans.length - 1]).toEqual([CONTRACT])
+  })
+
+  it("keeps what whole windows read when the time limit cuts a scan short", async () => {
+    // Every request takes a minute; the scan may read for 30.
+    let now = 1_000_000_000
+    vi.spyOn(Date, "now").mockImplementation(() => now)
+    const answer = portal(1_000)
+    vi.stubGlobal("fetch", (input: string, init?: { body?: string }) => {
+      now += 60_000
+      return answer(input, init)
+    })
+    const { latestPortalSamples } = await import("../tracker/sqd.js")
+    const deadline = now + 30 * 60_000
+    const samples = await latestPortalSamples(8453, [CONTRACT], 5_000, {
+      deadline,
+    })
+    // It stopped within a request or two of the limit, not 30 days back.
+    expect(now - deadline).toBeLessThanOrEqual(2 * 60_000)
+    const sample = samples.get(CONTRACT)!
+    expect(sample.complete30Days).toBe(false)
+    expect(sample.covered).not.toBeNull()
+    const { since, until } = sample.covered!
+    expect(until).toBe(timeOf(HEAD))
+    // `since` is where a whole window began: the window the limit cut short
+    // left nothing behind, so the sample is every transaction since then.
+    const from = (since - timeOf(0)) / 2
+    expect(requests.some((r) => r.fromBlock === from)).toBe(true)
+    expect(sample.txs.every((t) => t.blockNumber >= from)).toBe(true)
+    expect(sample.txs).toHaveLength(
+      Math.floor(HEAD / 1_000) - Math.ceil(from / 1_000) + 1
+    )
+    expect(until - since).toBeLessThan(30 * 86_400)
+    // Past the limit, nothing more is read, and no contract gets a sample.
+    const late = await latestPortalSamples(8453, [CONTRACT], 5_000, {
+      deadline: now - 1,
+    })
+    expect(late.size).toBe(0)
   })
 
   it("takes an empty answer as no transactions in the range", async () => {

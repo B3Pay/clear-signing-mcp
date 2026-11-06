@@ -27,7 +27,7 @@ const NOMINAL_BLOCK_SECONDS: Readonly<Partial<Record<TrackedChainId, number>>> =
   }
 
 const MONTH = 30 * 86_400
-/** The first window scanned back from the head; each next one is 4 times longer. */
+/** The first window scanned back from the head. */
 const FIRST_WINDOW_SECONDS = 600
 const MAX_RESPONSE_BYTES = 64 * 1024 * 1024
 
@@ -39,6 +39,8 @@ export interface PortalTx {
   readonly timestamp: number
   /** Lowercase sender. */
   readonly from: string
+  /** Lowercase recipient: the contract. */
+  readonly to: string
   /** Lowercase 4-byte selector, or "0x" for a call without one. */
   readonly selector: string
   readonly failed: boolean
@@ -47,8 +49,12 @@ export interface PortalTx {
 export interface PortalSample {
   /** Newest first, at most the size asked for. */
   readonly txs: readonly PortalTx[]
-  /** The scan reached a block more than 30 days old: `txs` is every
-   *  transaction of those 30 days. */
+  /** Unless the sample was cut at the size asked for: `txs` is every
+   *  transaction to the contract between these block times (Unix seconds),
+   *  so a quiet contract's rate is its count over this span. */
+  readonly covered: { readonly since: number; readonly until: number } | null
+  /** `covered` reaches back more than 30 days: `txs` is every transaction
+   *  of those 30 days. */
   readonly complete30Days: boolean
 }
 
@@ -59,6 +65,8 @@ interface Block {
 
 interface Clock {
   readonly head: number
+  /** Unix seconds. */
+  readonly headTime: number
   /** The newest block more than 30 days (and an hour) older than `head`. */
   readonly boundary: number
   readonly secondsPerBlock: number
@@ -184,7 +192,7 @@ async function measureClock(
     const elapsed = headTime - (await blockTime(dataset, candidate))
     const secondsPerBlock = elapsed / Math.max(1, head - candidate)
     if (elapsed >= target || candidate === 0)
-      return { head, boundary: candidate, secondsPerBlock }
+      return { head, headTime, boundary: candidate, secondsPerBlock }
     // Too recent: step back by the measured rate, with 2% to spare.
     back = Math.ceil((target / Math.max(secondsPerBlock, 1e-3)) * 1.02)
   }
@@ -200,16 +208,25 @@ function clockFor(chainId: TrackedChainId, dataset: string): Promise<Clock> {
   return found
 }
 
-/** Every transaction to `address` in blocks `from..to`, following the
- *  portal's continuation: a response that stops short of `to` is continued
- *  from the block after its last one, and an empty one ends the range. */
+/** Thrown by {@link scan} when the deadline passes between two parts. */
+class TimeLimitReached extends Error {
+  constructor() {
+    super("the portal scan reached its time limit")
+  }
+}
+
+/** Every transaction to one of `addresses` in blocks `from..to`, following
+ *  the portal's continuation: a response that stops short of `to` is
+ *  continued from the block after its last one, and an empty one ends the
+ *  range. Past `deadline`, it asks for no further part. */
 async function scan(
   dataset: string,
   from: number,
   to: number,
-  address: string
+  addresses: readonly string[],
+  deadline?: number
 ): Promise<PortalTx[]> {
-  const target = address.toLowerCase()
+  const targets = new Set(addresses.map((a) => a.toLowerCase()))
   const out: PortalTx[] = []
   let next = from
   for (let part = 0; next <= to; part += 1) {
@@ -217,6 +234,8 @@ async function scan(
       throw new Error(
         `the portal returned ${dataset} blocks ${from}..${to} in more than 500 parts`
       )
+    if (part > 0 && deadline !== undefined && Date.now() > deadline)
+      throw new TimeLimitReached()
     const blocks = parseBlocks(
       await request(dataset, "finalized-stream", {
         type: "evm",
@@ -233,7 +252,7 @@ async function scan(
             transactionIndex: true,
           },
         },
-        transactions: [{ to: [target] }],
+        transactions: [{ to: [...targets] }],
       })
     )
     if (blocks.length === 0) break
@@ -242,11 +261,12 @@ async function scan(
         if (
           !isRecord(tx) ||
           typeof tx.hash !== "string" ||
-          typeof tx.from !== "string"
+          typeof tx.from !== "string" ||
+          typeof tx.to !== "string"
         )
           continue
-        if (typeof tx.to !== "string" || tx.to.toLowerCase() !== target)
-          continue
+        const recipient = tx.to.toLowerCase()
+        if (!targets.has(recipient)) continue
         out.push({
           hash: tx.hash as Hex,
           blockNumber: block.header.number,
@@ -254,6 +274,7 @@ async function scan(
             typeof tx.transactionIndex === "number" ? tx.transactionIndex : 0,
           timestamp: block.header.timestamp,
           from: tx.from.toLowerCase(),
+          to: recipient,
           selector:
             typeof tx.sighash === "string" &&
             /^0x[0-9a-fA-F]{8}$/.test(tx.sighash)
@@ -269,36 +290,123 @@ async function scan(
   return out
 }
 
+/** Contracts asked about in one portal request. */
+const ADDRESSES_PER_REQUEST = 50
+/** Each window is this many times longer than the one before it. */
+const GROWTH = 3
+
+export interface PortalScanOptions {
+  readonly log?: (line: string) => void
+  /** Read no more after this time (epoch ms): no new window, and a window
+   *  in progress is dropped at its next part. Contracts still short of the
+   *  size asked for keep what the windows before read, with the span those
+   *  covered; if no window was read, the result is empty. */
+  readonly deadline?: number
+}
+
 /**
- * The latest `size` transactions to `address`, scanning back from the
- * finalized head in windows that grow fourfold, at most 30 days back.
+ * The latest `size` transactions to each of `addresses`, all scanned
+ * together: windows back from the finalized head, each three times longer
+ * than the last, at most 30 days back. A contract leaves the scan once it
+ * has `size` transactions, so a busy one costs one short window and a quiet
+ * one shares the long windows with the others.
  */
-export async function latestPortalTransactions(
+export async function latestPortalSamples(
   chainId: TrackedChainId,
-  address: string,
-  size: number
-): Promise<PortalSample> {
+  addresses: readonly string[],
+  size: number,
+  options: PortalScanOptions = {}
+): Promise<Map<string, PortalSample>> {
+  const { log, deadline } = options
   const dataset = SQD_DATASETS[chainId]
   if (!dataset) throw new Error(`no SQD portal dataset for chain ${chainId}`)
   const clock = await clockFor(chainId, dataset)
-  const found: PortalTx[] = []
+  const found = new Map<string, PortalTx[]>(
+    addresses.map((a) => [a.toLowerCase(), []])
+  )
+  const pending = new Set(found.keys())
+  /** The oldest block every window so far has read. */
+  let scannedFrom: number | null = null
   let to = clock.head
   let span = Math.max(
     1,
     Math.ceil(FIRST_WINDOW_SECONDS / Math.max(clock.secondsPerBlock, 1e-3))
   )
-  let complete30Days = false
-  for (let window = 0; window < 16; window += 1) {
-    const from = Math.max(clock.boundary, to - span + 1)
-    found.push(...(await scan(dataset, from, to, address)))
-    if (found.length >= size) break
-    if (from <= clock.boundary) {
-      complete30Days = true
+  for (let window = 0; window < 24 && pending.size > 0; window += 1) {
+    if (deadline !== undefined && Date.now() > deadline) {
+      log?.(
+        `${dataset}: time limit reached, ${pending.size} contracts keep what blocks ${scannedFrom ?? "-"}..${clock.head} hold`
+      )
       break
     }
+    const started = Date.now()
+    const from = Math.max(clock.boundary, to - span + 1)
+    const list = [...pending]
+    const batches: string[][] = []
+    for (let i = 0; i < list.length; i += ADDRESSES_PER_REQUEST)
+      batches.push(list.slice(i, i + ADDRESSES_PER_REQUEST))
+    // The dataset's limiter decides how many of these run at once. A window
+    // the deadline cuts short is dropped whole: what it read of some
+    // contracts would not say what it missed of the others.
+    let answers: PortalTx[][]
+    try {
+      answers = await Promise.all(
+        batches.map((batch) => scan(dataset, from, to, batch, deadline))
+      )
+    } catch (error) {
+      if (!(error instanceof TimeLimitReached)) throw error
+      log?.(
+        `${dataset}: time limit reached in blocks ${from}..${to}, ${pending.size} contracts keep what blocks ${scannedFrom ?? "-"}..${clock.head} hold`
+      )
+      break
+    }
+    let count = 0
+    for (const txs of answers) {
+      count += txs.length
+      for (const tx of txs) found.get(tx.to)?.push(tx)
+    }
+    scannedFrom = from
+    for (const address of list)
+      if ((found.get(address)?.length ?? 0) >= size) pending.delete(address)
+    log?.(
+      `${dataset} blocks ${from}..${to}: ${count} transactions to ${list.length} contracts in ${Math.round((Date.now() - started) / 1000)} s, ${pending.size} still short of ${size}`
+    )
+    if (from <= clock.boundary) break
     to = from - 1
-    span *= 4
+    span *= GROWTH
   }
-  found.sort((a, b) => b.blockNumber - a.blockNumber || b.index - a.index)
-  return { txs: found.slice(0, size), complete30Days }
+  const since =
+    scannedFrom === null || pending.size === 0
+      ? null
+      : await blockTime(dataset, scannedFrom)
+  const out = new Map<string, PortalSample>()
+  for (const [address, txs] of found) {
+    txs.sort((a, b) => b.blockNumber - a.blockNumber || b.index - a.index)
+    if (!pending.has(address)) {
+      out.set(address, {
+        txs: txs.slice(0, size),
+        covered: null,
+        complete30Days: false,
+      })
+    } else if (since !== null) {
+      out.set(address, {
+        txs,
+        covered: { since, until: clock.headTime },
+        complete30Days: clock.headTime - since >= MONTH,
+      })
+    }
+  }
+  return out
+}
+
+/** One contract's sample; see {@link latestPortalSamples}. */
+export async function latestPortalTransactions(
+  chainId: TrackedChainId,
+  address: string,
+  size: number
+): Promise<PortalSample> {
+  const samples = await latestPortalSamples(chainId, [address], size)
+  const sample = samples.get(address.toLowerCase())
+  if (!sample) throw new Error(`the portal scan read no blocks for ${address}`)
+  return sample
 }

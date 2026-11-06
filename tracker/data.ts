@@ -43,10 +43,14 @@ export interface SampleSummary {
   readonly newest: number | null
   /** Transactions in the sample from the 30 days before the fetch. */
   readonly last30Days: number
+  /** The span (Unix seconds) the sample holds every transaction of, when it
+   *  was not cut at the size asked for (SQD portal samples only). */
+  readonly covered?: { readonly since: number; readonly until: number }
   /**
    * Recent transactions per day: the last 30 days' count over 30 when the
-   * sample reaches back that far or holds all of those 30 days, else the
-   * sample's count over its time span. Null when that span is unknown.
+   * sample reaches back that far or holds all of those 30 days; else its
+   * count over `covered`, when it has one; else its count over the time
+   * between its oldest and newest transaction. Null when that is unknown.
    */
   readonly perDay: number | null
   /** Transactions per 4-byte selector; "0x" is a call with no selector (a plain transfer). */
