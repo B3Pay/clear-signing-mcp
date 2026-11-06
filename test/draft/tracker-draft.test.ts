@@ -509,8 +509,13 @@ describe("draftContract with a registry clone", () => {
         { label: "Amount", value: "1.5 USDC" },
       ],
     })
-    expect(readFileSync(outcome.reviewPath, "utf8")).not.toContain(
-      "index this draft alone"
+    const review = readFileSync(outcome.reviewPath, "utf8")
+    expect(review).not.toContain("index this draft alone")
+    // What the tests were rendered against, and no path of this machine.
+    expect(review).toContain(
+      "- Tests rendered against: the registry at an unknown commit"
     )
+    expect(review).toContain("- Chain names: chains_mini.json (sha256 ")
+    expect(review).not.toContain(dir)
   })
 })

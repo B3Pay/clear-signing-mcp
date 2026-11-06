@@ -1,3 +1,4 @@
+import { execFileSync } from "node:child_process"
 import { createHash } from "node:crypto"
 import {
   existsSync,
@@ -8,7 +9,7 @@ import {
   writeFileSync,
 } from "node:fs"
 import { tmpdir } from "node:os"
-import { dirname, join } from "node:path"
+import { basename, dirname, join } from "node:path"
 import {
   getAddress,
   parseAbiItem,
@@ -215,6 +216,7 @@ export async function draftContract(
       onchain,
       selection,
       chainList,
+      registry: options.registry,
       result,
     })
   )
@@ -380,9 +382,11 @@ export async function loadChainList(
   const sourceFile = `${path}.source`
   return {
     file: path,
+    // The file's name alone, not where it sits on this machine: the
+    // sha256 pins what it held.
     source: existsSync(sourceFile)
       ? readFileSync(sourceFile, "utf8").trim()
-      : path,
+      : basename(path),
     sha256: createHash("sha256").update(bytes).digest("hex"),
     chains,
   }
@@ -418,6 +422,18 @@ async function downloadChainList(
 // ---------------------------------------------------------------------------
 // The review note and the summary the report reads.
 
+/** The commit a registry clone is at, for the review note; "an unknown commit" when git cannot say. */
+function registryCommit(dir: string): string {
+  try {
+    const commit = execFileSync("git", ["-C", dir, "rev-parse", "HEAD"], {
+      encoding: "utf8",
+    }).trim()
+    return /^[0-9a-f]{40}$/.test(commit) ? commit : "an unknown commit"
+  } catch {
+    return "an unknown commit"
+  }
+}
+
 function reviewMarkdown(input: {
   protocol: string
   address: string
@@ -426,6 +442,7 @@ function reviewMarkdown(input: {
   onchain: OnchainRecord
   selection: SelectorChoice
   chainList: ChainList
+  registry?: DraftRegistry | undefined
   result: DraftResult
 }): string {
   const { result } = input
@@ -442,6 +459,7 @@ function reviewMarkdown(input: {
     `- ABI: ${input.abiFile.source}, ${input.abiFile.name ?? "unnamed"} at ${input.abiFile.address}`,
     `- Descriptor: ${result.fileName}; tests: ${testsFile} (${result.tests.tests.length})`,
     `- Chain names: ${input.chainList.source} (sha256 ${input.chainList.sha256})`,
+    `- Tests rendered against: ${input.registry ? `the registry at ${registryCommit(input.registry.descriptorDirectory)}` : "this draft alone, with no registry clone"}`,
     "",
     "## Functions",
     "",
