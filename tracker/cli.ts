@@ -8,7 +8,7 @@ import { dataPaths, stableJson } from "./data.js"
 import { diagnose } from "./diag.js"
 import { fetchAll, fetchDefiLlama } from "./fetch.js"
 import { loadRegistrySnapshot } from "./registry.js"
-import { buildReport } from "./report.js"
+import { buildReport, readDraftSummaries } from "./report.js"
 import { loadUniverse } from "./universe.js"
 
 /**
@@ -101,13 +101,17 @@ const commands: Readonly<Record<string, Command>> = {
 
   report: {
     usage:
-      "report --registry <clone of the registry> [--out file] [--no-previews] [--attestations]",
+      "report --registry <clone of the registry> [--out file] [--drafts summary.json] [--no-previews] [--attestations]",
     run: async (args) => {
       const { values } = parseArgs({
         args,
         options: {
           registry: { type: "string" },
           out: { type: "string", default: join(dataDir, "coverage.json") },
+          drafts: {
+            type: "string",
+            default: join(trackerDir, "drafts", "summary.json"),
+          },
           "no-previews": { type: "boolean", default: false },
           attestations: { type: "boolean", default: false },
         },
@@ -130,10 +134,12 @@ const commands: Readonly<Record<string, Command>> = {
           }).chainClient()
         : undefined
       const problems: string[] = []
+      const drafts = readDraftSummaries(values.drafts)
       const report = await buildReport({
         universe,
         dataDir,
         registry,
+        drafts,
         previews: !values["no-previews"],
         ...(mainnet ? { mainnet } : {}),
         log: (line) => problems.push(line),

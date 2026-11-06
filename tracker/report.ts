@@ -1,5 +1,6 @@
 import { toFunctionSelector, type Abi, type AbiFunction } from "viem"
 import type { ChainClient } from "@ethereum-sourcify/clear-signing"
+import { isRecord } from "./net.js"
 import {
   dataPaths,
   readJson,
@@ -86,6 +87,64 @@ export interface DraftSummary {
   }
 }
 
+/**
+ * The draft step's summary file: tested drafts by `chainId:address`
+ * (lowercase). A missing file means no drafts; a malformed entry is an error,
+ * so a broken summary never shows as fewer drafts.
+ */
+export function readDraftSummaries(
+  path: string
+): ReadonlyMap<string, DraftSummary> {
+  const file = readJson<unknown>(path)
+  const out = new Map<string, DraftSummary>()
+  if (file === undefined) return out
+  if (!isRecord(file)) throw new Error(`${path} is not an object`)
+  for (const [key, value] of Object.entries(file)) {
+    if (!/^\d+:0x[0-9a-f]{40}$/.test(key))
+      throw new Error(`${path}: "${key}" is not chainId:address in lowercase`)
+    const fail = (why: string) => new Error(`${path} ${key}: ${why}`)
+    if (!isRecord(value)) throw fail("not an object")
+    const { functions, testedTxs, lint, preview } = value
+    if (!Number.isInteger(functions) || (functions as number) < 1)
+      throw fail("functions must be a positive integer")
+    if (!Number.isInteger(testedTxs) || (testedTxs as number) < 1)
+      throw fail("testedTxs must be a positive integer")
+    if (lint !== "pass" && lint !== "warnings")
+      throw fail('lint must be "pass" or "warnings"')
+    let parsedPreview: DraftSummary["preview"]
+    if (preview !== undefined) {
+      if (
+        !isRecord(preview) ||
+        typeof preview.txHash !== "string" ||
+        !/^0x[0-9a-fA-F]{64}$/.test(preview.txHash) ||
+        typeof preview.intent !== "string" ||
+        !Array.isArray(preview.fields) ||
+        !preview.fields.every(
+          (field) =>
+            isRecord(field) &&
+            typeof field.label === "string" &&
+            typeof field.value === "string"
+        )
+      )
+        throw fail("preview must be {txHash, intent, fields: [{label, value}]}")
+      parsedPreview = {
+        txHash: preview.txHash,
+        intent: preview.intent,
+        fields: (preview.fields as { label: string; value: string }[]).map(
+          ({ label, value }) => ({ label, value })
+        ),
+      }
+    }
+    out.set(key, {
+      functions: functions as number,
+      testedTxs: testedTxs as number,
+      lint,
+      ...(parsedPreview ? { preview: parsedPreview } : {}),
+    })
+  }
+  return out
+}
+
 export interface ReportInput {
   readonly universe: readonly UniverseProtocol[]
   readonly dataDir: string
@@ -145,6 +204,12 @@ function tvlOf(
   const children = file.protocols.filter((p) => p.parent === `parent#${slug}`)
   if (children.length === 0) return null
   return children.reduce((acc, child) => acc + sum(child.tvl), 0)
+}
+
+/** A label without a trailing "(Base)": the page shows the chain beside it. */
+export function withoutChain(label: string, chainId: ChainId): string {
+  const suffix = ` (${TRACKED_CHAINS[chainId]})`
+  return label.endsWith(suffix) ? label.slice(0, -suffix.length) : label
 }
 
 /**
@@ -407,7 +472,7 @@ async function buildContract(
     chainId,
     address: entry.address,
     name: entry.name,
-    label: entry.label,
+    label: withoutChain(entry.label, chainId),
     role: entry.role,
     ...(entry.version ? { version: entry.version } : {}),
     status: statusOf(descriptor, {

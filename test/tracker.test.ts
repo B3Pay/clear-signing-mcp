@@ -1,7 +1,14 @@
+import { mkdtempSync, writeFileSync } from "node:fs"
+import { tmpdir } from "node:os"
+import { join } from "node:path"
 import { afterEach, describe, expect, it, vi } from "vitest"
 import { summarize, type ListedTx } from "../tracker/fetch.js"
 import type { DescriptorFacts } from "../tracker/registry.js"
-import { statusOf } from "../tracker/report.js"
+import {
+  readDraftSummaries,
+  statusOf,
+  withoutChain,
+} from "../tracker/report.js"
 
 const NOW = 1_800_000_000
 const DAY = 86_400
@@ -206,5 +213,64 @@ describe("the SQD portal source", () => {
     const sample = await latestPortalTransactions(8453, CONTRACT, 100)
     expect(sample.txs).toHaveLength(0)
     expect(sample.complete30Days).toBe(true)
+  })
+})
+
+describe("readDraftSummaries", () => {
+  const dir = mkdtempSync(join(tmpdir(), "tracker-drafts-"))
+  const write = (name: string, value: unknown) => {
+    const path = join(dir, name)
+    writeFileSync(path, JSON.stringify(value))
+    return path
+  }
+  const key = "8453:0x00000000000000000000000000000000000000c0"
+  const draft = {
+    functions: 4,
+    testedTxs: 8,
+    lint: "pass",
+    preview: {
+      txHash: `0x${"ab".repeat(32)}`,
+      intent: "Swap",
+      fields: [{ label: "Send", value: "1 ETH" }],
+    },
+  }
+
+  it("reads tested drafts by chainId:address", () => {
+    const drafts = readDraftSummaries(write("ok.json", { [key]: draft }))
+    expect(drafts.get(key)).toEqual(draft)
+  })
+
+  it("has no drafts when there is no file", () => {
+    expect(readDraftSummaries(join(dir, "missing.json")).size).toBe(0)
+  })
+
+  it("refuses a malformed entry instead of dropping it", () => {
+    const upper = `8453:0x${"C0".padStart(40, "0")}`
+    expect(() =>
+      readDraftSummaries(write("key.json", { [upper]: draft }))
+    ).toThrow(/lowercase/)
+    expect(() =>
+      readDraftSummaries(
+        write("lint.json", { [key]: { ...draft, lint: "fail" } })
+      )
+    ).toThrow(/lint/)
+    expect(() =>
+      readDraftSummaries(
+        write("preview.json", {
+          [key]: { ...draft, preview: { ...draft.preview, txHash: "0x1" } },
+        })
+      )
+    ).toThrow(/preview/)
+  })
+})
+
+describe("withoutChain", () => {
+  it("drops a trailing chain name the page already shows", () => {
+    expect(withoutChain("Across SpokePool (Arbitrum One)", 42161)).toBe(
+      "Across SpokePool"
+    )
+    expect(withoutChain("Universal Router (v4)", 8453)).toBe(
+      "Universal Router (v4)"
+    )
   })
 })
