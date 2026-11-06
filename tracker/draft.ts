@@ -32,6 +32,7 @@ import {
 } from "./data.js"
 import { cleanText } from "../src/text.js"
 import type { DraftSummary } from "./report.js"
+import type { CoverageReport } from "./report-schema.js"
 import { deploymentKey, loadUniverse } from "./universe.js"
 
 /**
@@ -66,6 +67,15 @@ export interface DraftOptions {
   readonly selectors?: readonly string[]
   /** A chainid.network chains_mini.json; default: a cached download. */
   readonly chainsFile?: string
+  /**
+   * The same contract on other chains, listed in the descriptor's
+   * deployments. Each must have an ABI in tracker data with every function
+   * the draft describes; the tests use this deployment's transactions.
+   */
+  readonly extraDeployments?: readonly {
+    readonly chainId: number
+    readonly address: string
+  }[]
   readonly log?: (line: string) => void
 }
 
@@ -136,8 +146,31 @@ export async function draftContract(
       `No selector of ${options.chainId}:${address} has a sample transaction to test it with.`
     )
 
+  const extraDeployments = (options.extraDeployments ?? []).filter((d) => {
+    const other = readJson<AbiFile>(paths.abi(d.chainId, d.address))
+    const has = new Set(
+      (other?.abi ?? []).flatMap((item) =>
+        item.type === "function" ? [toFunctionSelector(item).toLowerCase()] : []
+      )
+    )
+    const missing = selection.selectors.filter((sel) => !has.has(sel))
+    if (missing.length > 0)
+      log(
+        `left out ${d.chainId}:${d.address}: its ABI lacks ${missing.join(", ")}`
+      )
+    return missing.length === 0
+  })
+
   const chainList = await loadChainList(options.chainsFile, log)
   const result = await draftDescriptor({
+    ...(extraDeployments.length > 0
+      ? {
+          extraDeployments: extraDeployments.map((d) => ({
+            chainId: d.chainId,
+            address: getAddress(d.address),
+          })),
+        }
+      : {}),
     chainId: options.chainId,
     address,
     abi: abiFile.abi,
@@ -552,4 +585,126 @@ function flatFields(
 function writeText(path: string, text: string): void {
   mkdirSync(dirname(path), { recursive: true })
   writeFileSync(path, text)
+}
+
+export interface DraftTopOptions {
+  readonly trackerDir: string
+  /** How many contracts to draft: the busiest without a registry descriptor. */
+  readonly limit: number
+  /** Only drafts for these protocols. */
+  readonly protocols?: readonly string[]
+  readonly chainsFile?: string
+  readonly log?: (line: string) => void
+}
+
+/** One contract to draft: its busiest deployment, and the same contract elsewhere. */
+export interface DraftCandidate {
+  readonly protocol: string
+  readonly owner: string
+  readonly name: string
+  readonly primary: { readonly chainId: number; readonly address: string }
+  readonly others: readonly {
+    readonly chainId: number
+    readonly address: string
+  }[]
+  /** Estimated distinct senders a day, summed over the deployments. */
+  readonly sendersPerDay: number
+}
+
+/**
+ * The contracts most worth a draft, from the report (data/coverage.json):
+ * those the registry has no descriptor for, ranked by an estimate of how
+ * many distinct senders call them a day (each deployment's senders per
+ * sampled transaction, times its transactions a day). Deployments of one
+ * protocol's contract under the same name on several chains are one
+ * candidate, drafted as one descriptor, as the registry lists them.
+ */
+export function draftCandidates(trackerDir: string): DraftCandidate[] {
+  const dataDir = join(trackerDir, "data")
+  const paths = dataPaths(dataDir)
+  const report = readJson<CoverageReport>(join(dataDir, "coverage.json"))
+  if (!report)
+    throw new Error(
+      `No report at ${join(dataDir, "coverage.json")}: run the report step first.`
+    )
+  const groups = new Map<string, DraftCandidate & { best: number }>()
+  for (const protocol of report.protocols)
+    for (const contract of protocol.contracts) {
+      if (contract.status !== "uncovered" || !contract.sample) continue
+      const onchain = readJson<OnchainRecord>(
+        paths.onchain(contract.chainId, contract.address)
+      )
+      if (!onchain || "error" in onchain.sample || !onchain.abi) continue
+      const sample = onchain.sample
+      if (sample.count === 0 || sample.perDay === null) continue
+      const rate = (sample.senders / sample.count) * sample.perDay
+      const key = `${protocol.id}/${contract.name}`
+      const here = { chainId: contract.chainId, address: contract.address }
+      const group = groups.get(key)
+      if (!group) {
+        groups.set(key, {
+          protocol: protocol.id,
+          owner: protocol.name,
+          name: contract.name,
+          primary: here,
+          others: [],
+          sendersPerDay: rate,
+          best: rate,
+        })
+        continue
+      }
+      const busier = rate > group.best
+      groups.set(key, {
+        ...group,
+        primary: busier ? here : group.primary,
+        others: [...group.others, busier ? group.primary : here],
+        sendersPerDay: group.sendersPerDay + rate,
+        best: Math.max(group.best, rate),
+      })
+    }
+  return [...groups.values()]
+    .map(({ best: _best, ...candidate }) => candidate)
+    .sort(
+      (a, b) =>
+        b.sendersPerDay - a.sendersPerDay ||
+        a.protocol.localeCompare(b.protocol) ||
+        a.name.localeCompare(b.name)
+    )
+}
+
+/** Drafts the `limit` best candidates; one that cannot be drafted is logged and skipped. */
+export async function draftTop(
+  options: DraftTopOptions
+): Promise<{ drafted: DraftOutcome[]; failed: string[] }> {
+  const log = options.log ?? (() => {})
+  const candidates = draftCandidates(options.trackerDir).filter(
+    (c) => !options.protocols || options.protocols.includes(c.protocol)
+  )
+  const drafted: DraftOutcome[] = []
+  const failed: string[] = []
+  for (const candidate of candidates.slice(0, options.limit)) {
+    const where = `${candidate.protocol} ${candidate.name} ${candidate.primary.chainId}:${candidate.primary.address}`
+    log(
+      `drafting ${where} (+${candidate.others.length} deployments, about ${Math.round(candidate.sendersPerDay)} senders a day)`
+    )
+    try {
+      drafted.push(
+        await draftContract({
+          trackerDir: options.trackerDir,
+          chainId: candidate.primary.chainId,
+          address: candidate.primary.address,
+          protocol: candidate.protocol,
+          owner: candidate.owner,
+          extraDeployments: candidate.others,
+          ...(options.chainsFile ? { chainsFile: options.chainsFile } : {}),
+          log,
+        })
+      )
+    } catch (error) {
+      const message = `${where}: ${error instanceof Error ? error.message : String(error)}`
+      failed.push(message)
+      log(`FAILED ${message}`)
+    }
+  }
+  return { drafted, failed }
 }

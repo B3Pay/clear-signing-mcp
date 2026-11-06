@@ -1,10 +1,10 @@
-import { mkdtempSync, writeFileSync } from "node:fs"
+import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { afterEach, describe, expect, it, vi } from "vitest"
 import { encodeFunctionData, getAddress, parseAbi, type Hex } from "viem"
 import { addressesInCall, summarize, type ListedTx } from "../tracker/fetch.js"
-import { choosePreview } from "../tracker/draft.js"
+import { choosePreview, draftCandidates } from "../tracker/draft.js"
 import type { DescriptorFacts } from "../tracker/registry.js"
 import {
   readDraftSummaries,
@@ -332,5 +332,80 @@ describe("choosePreview", () => {
     expect(choosePreview([scam, link])).toBeUndefined()
     const ok = test("Swap 2 ETH", [["Send", "2 ETH"]], false)
     expect(choosePreview([scam, ok])).toBe(ok)
+  })
+})
+
+describe("draftCandidates", () => {
+  const dir = mkdtempSync(join(tmpdir(), "tracker-candidates-"))
+  const A = "0x00000000000000000000000000000000000000a1"
+  const B = "0x00000000000000000000000000000000000000b2"
+  const C = "0x00000000000000000000000000000000000000c3"
+  const D = "0x00000000000000000000000000000000000000d4"
+  const record = (
+    chainId: number,
+    address: string,
+    count: number,
+    senders: number,
+    perDay: number
+  ) => {
+    const path = join(dir, "data", "onchain", String(chainId))
+    mkdirSync(path, { recursive: true })
+    writeFileSync(
+      join(path, `${address}.json`),
+      JSON.stringify({
+        chainId,
+        address,
+        abi: { source: "sourcify", address, functions: 3 },
+        sample: { count, senders, perDay },
+      })
+    )
+  }
+  const contract = (
+    chainId: number,
+    address: string,
+    name: string,
+    status: string
+  ) => ({ chainId, address, name, status, sample: { count: 1 } })
+  mkdirSync(join(dir, "data"), { recursive: true })
+  writeFileSync(
+    join(dir, "data", "coverage.json"),
+    JSON.stringify({
+      protocols: [
+        {
+          id: "swap",
+          name: "Swap",
+          contracts: [
+            contract(1, A, "Router", "uncovered"),
+            contract(8453, B, "Router", "uncovered"),
+            contract(1, C, "Pool", "covered"),
+          ],
+        },
+        {
+          id: "lend",
+          name: "Lend",
+          contracts: [contract(10, D, "Market", "uncovered")],
+        },
+      ],
+    })
+  )
+  // Router: 100 senders per 1,000 calls at 1,000 a day on Ethereum (100 a
+  // day), 500 per 1,000 at 1,000 a day on Base (500 a day).
+  record(1, A, 1000, 100, 1000)
+  record(8453, B, 1000, 500, 1000)
+  record(1, C, 1000, 900, 5000)
+  record(10, D, 100, 50, 400)
+
+  it("groups a contract's deployments and ranks by senders a day", () => {
+    const candidates = draftCandidates(dir)
+    expect(candidates.map((c) => `${c.protocol}/${c.name}`)).toEqual([
+      "swap/Router",
+      "lend/Market",
+    ])
+    const router = candidates[0]!
+    expect(router.primary).toEqual({ chainId: 8453, address: B })
+    expect(router.others).toEqual([{ chainId: 1, address: A }])
+    expect(router.sendersPerDay).toBeCloseTo(600)
+    expect(router.owner).toBe("Swap")
+    expect(candidates[1]!.sendersPerDay).toBeCloseTo(200)
   })
 })

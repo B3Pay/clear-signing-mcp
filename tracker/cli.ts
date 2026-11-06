@@ -6,7 +6,7 @@ import { parseArgs } from "node:util"
 import { ChainAccess } from "../src/chains.js"
 import { dataPaths, stableJson } from "./data.js"
 import { diagnose } from "./diag.js"
-import { draftContract } from "./draft.js"
+import { draftContract, draftTop } from "./draft.js"
 import { fetchAll, fetchDefiLlama } from "./fetch.js"
 import { loadRegistrySnapshot } from "./registry.js"
 import { buildReport, readDraftSummaries } from "./report.js"
@@ -22,6 +22,7 @@ import { validateDrafts } from "./validate.js"
  *   fetch         read on-chain facts and real transactions (network)
  *   report        score each contract against a registry clone: coverage.json
  *   draft         draft one contract's descriptor and tests: tracker/drafts/
+ *   draft-top     draft the busiest contracts the registry does not describe
  *   check-drafts  check drafts as the registry's CI does: drafts/summary.json
  */
 
@@ -201,6 +202,32 @@ const commands: Readonly<Record<string, Command>> = {
         ...(values.chains ? { chainsFile: values.chains } : {}),
         log: (line) => console.log(line),
       })
+      return 0
+    },
+  },
+
+  "draft-top": {
+    usage:
+      "draft-top [--limit N] [--protocols p1,p2] [--chains chains_mini.json]",
+    run: async (args) => {
+      const { values } = parseArgs({
+        args,
+        options: {
+          limit: { type: "string", default: "25" },
+          protocols: { type: "string" },
+          chains: { type: "string" },
+        },
+      })
+      const { drafted, failed } = await draftTop({
+        trackerDir,
+        limit: Number(values.limit),
+        ...(values.protocols
+          ? { protocols: values.protocols.split(",").map((s) => s.trim()) }
+          : {}),
+        ...(values.chains ? { chainsFile: values.chains } : {}),
+        log: (line) => console.log(line),
+      })
+      console.log(`drafted ${drafted.length}, failed ${failed.length}`)
       return 0
     },
   },
