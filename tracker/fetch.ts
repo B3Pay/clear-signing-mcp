@@ -78,6 +78,23 @@ const PUBLIC_RPC: Readonly<Record<TrackedChainId, readonly string[]>> = {
 
 export const SOURCIFY = "https://sourcify.dev/server"
 
+/** Longest one contract's reads may take. */
+const CONTRACT_TIMEOUT_MS = 10 * 60_000
+
+function withTimeout<T>(
+  promise: Promise<T>,
+  ms: number,
+  message: string
+): Promise<T> {
+  let timer: NodeJS.Timeout | undefined
+  return Promise.race([
+    promise,
+    new Promise<never>((_, reject) => {
+      timer = setTimeout(() => reject(new Error(message)), ms)
+    }),
+  ]).finally(() => clearTimeout(timer))
+}
+
 /** Bumped when a record gains a fact: older records are read again. */
 export const RECORD_FORMAT = 2
 
@@ -186,10 +203,12 @@ export async function fetchAll(
         }
         const started = Date.now()
         try {
-          const record = await fetchContract(
-            contract,
-            client(contract.chainId),
-            options
+          // A contract whose sources stop answering is given up on, not
+          // waited for: it is read again by the next run.
+          const record = await withTimeout(
+            fetchContract(contract, client(contract.chainId), options),
+            CONTRACT_TIMEOUT_MS,
+            `gave up after ${CONTRACT_TIMEOUT_MS / 60_000} minutes`
           )
           fetched += 1
           const candidates =

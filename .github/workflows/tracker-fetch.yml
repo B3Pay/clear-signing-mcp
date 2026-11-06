@@ -55,7 +55,11 @@ jobs:
       - name: Check which data sources answer
         run: node tracker/dist/tracker/cli.js diag
 
+      # A fetch that overruns is stopped, and what it read is still reported
+      # and committed: each contract's files are written as it finishes.
       - name: Fetch
+        timeout-minutes: 95
+        continue-on-error: true
         env:
           ONLY: ${{ github.event.inputs.only }}
           MAX_AGE: ${{ github.event.inputs.max-age-hours || '20' }}
