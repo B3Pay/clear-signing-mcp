@@ -1,0 +1,4 @@
+# Anvil, used only by the simulation tests, ships its binary as an optional
+# platform package; its postinstall is a fallback downloader that is not needed.
+ignoredBuiltDependencies:
+  - "@foundry-rs/anvil"

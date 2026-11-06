@@ -1,0 +1,7 @@
+dist
+coverage
+node_modules
+pnpm-lock.yaml
+# Data copied from the registry, and a generated compiler artifact: kept byte for byte.
+test/fixtures
+test/contracts/TestToken.json
