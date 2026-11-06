@@ -237,6 +237,50 @@ describe("draftFormat: native currency", () => {
     )
   })
 
+  it("names the value sent as the amount only when nothing else given carries one", () => {
+    // OKX's DexRouter: the token sold is a uint256, so its amount is raw.
+    const swap = draft(
+      "function dagSwapByOrderId(uint256 orderId, (uint256 fromToken, address toToken, uint256 fromTokenAmount, uint256 minReturnAmount, uint256 deadLine) baseRequest) payable returns (uint256 returnAmount)"
+    )
+    expect(swap.field("@.value")).toEqual({
+      path: "@.value",
+      label: "Value sent",
+      format: "amount",
+    })
+    expect(swap.field("baseRequest.fromTokenAmount").format).toBe("raw")
+    expect(swap.format.interpolatedIntent).toBe(
+      "Swap for at least {baseRequest.minReturnAmount}"
+    )
+    // A LayerZero OFT send: the value is the messaging fee, not the amount.
+    const send = draft(
+      "function send((uint32 dstEid, bytes32 to, uint256 amountLD, uint256 minAmountLD, bytes extraOptions, bytes composeMsg, bytes oftCmd) _sendParam, (uint256 nativeFee, uint256 lzTokenFee) _fee, address _refundAddress) payable"
+    )
+    expect(send.field("@.value").label).toBe("Value sent")
+    expect(send.format.interpolatedIntent).toBeUndefined()
+    // Payable for a multicall: a burn or a claim receives, it sends nothing.
+    for (const signature of [
+      "function burn(uint256 tokenId) payable",
+      "function claimFundingFees(address[] markets, address[] tokens, address receiver) payable returns (uint256[])",
+    ])
+      expect(draft(signature).format.interpolatedIntent).toBeUndefined()
+    // What the signer wraps is the value sent.
+    expect(draft("function deposit() payable").format.interpolatedIntent).toBe(
+      "Deposit {@.value}"
+    )
+  })
+
+  it("reads deadLine as a deadline", () => {
+    const result = draft(
+      "function swap((uint256 fromToken, address toToken, uint256 fromTokenAmount, uint256 minReturnAmount, uint256 deadLine) baseRequest)"
+    )
+    expect(result.field("baseRequest.deadLine")).toEqual({
+      path: "baseRequest.deadLine",
+      label: "Deadline",
+      format: "date",
+      params: { encoding: "timestamp" },
+    })
+  })
+
   it("counts what a swap ...ForETH returns in native currency", () => {
     const result = draft(
       "function swapExactTokensForETH(uint256 amountIn, uint256 amountOutMin, address[] path, address to, uint256 deadline) returns (uint256[] amounts)"

@@ -395,8 +395,9 @@ describe("draftDescriptor: an array inside an array of structs", () => {
     const [model] = await asRunner(result, BASE)
     expect(model?.warnings ?? []).toEqual([])
     expect(model && toRendered(model)).toEqual(result.tests.tests[0]?.expected)
+    // The token sold is a uint256, so the value sent (0 ETH) is not its amount.
     expect(result.tests.tests[0]?.expected.interpolatedIntent).toBe(
-      "Swap 0 ETH for at least 0.0003 WETH"
+      "Swap for at least 0.0003 WETH"
     )
   })
 })

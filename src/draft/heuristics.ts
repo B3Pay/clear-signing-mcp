@@ -276,7 +276,10 @@ export function draftFormat(
         planned.push({
           field: {
             path: leaf.path,
-            label: leaf.name === "deadline" ? "Deadline" : humanize(leaf.name),
+            label:
+              leaf.name.toLowerCase() === "deadline"
+                ? "Deadline"
+                : humanize(leaf.name),
             format: "date",
             params: { encoding: "timestamp" },
           },
@@ -482,6 +485,8 @@ function nativeSideOf(name: string): Side | undefined {
 
 function isDate(ws: readonly string[]): boolean {
   if (ws.some((w) => DATE_WORDS.has(w))) return true
+  // deadLine, as OKX's DexRouter spells it.
+  if (ws.some((w, i) => w === "dead" && ws[i + 1] === "line")) return true
   if (
     ws[0] === "valid" &&
     ["to", "until", "after", "before", "from"].includes(ws[1] ?? "")
@@ -690,7 +695,9 @@ function nativeValue(planned: readonly Planned[], verb: Verb): Planned {
   const amounts = planned.filter(
     (p) => p.role.kind === "amount" && p.field.format !== "raw"
   )
-  const firstIn = amounts.find((p) => p.group === 0)
+  // An amount the signer gives, even one shown raw for want of its token:
+  // the value sent is then a fee or a top-up, not "Amount to send".
+  const firstIn = planned.find((p) => p.role.kind === "amount" && p.group === 0)
   const exactOut =
     verb.intent === "Swap" &&
     !firstIn &&
@@ -748,9 +755,25 @@ function interpolate(
   verb: Verb,
   planned: readonly Planned[]
 ): string | undefined {
+  // The value sent is the amount of the sentence only when nothing else the
+  // signer gives carries one, even raw: a token swap sends 0 ETH, a bridge's
+  // value is its fee, and a payable claim or burn receives, not sends. Added
+  // liquidity is the exception: the token and the ETH go in together.
+  const valueIsAmount =
+    verb.intent === "Add liquidity" ||
+    (!verb.receives &&
+      !planned.some(
+        (p) =>
+          p.role.kind === "amount" &&
+          p.group === 0 &&
+          p.field.path !== "@.value"
+      ))
   // A list has no single value to put in a sentence.
   const shown = planned.filter(
-    (p) => p.field.visible === undefined && !p.field.path.includes("[]")
+    (p) =>
+      p.field.visible === undefined &&
+      !p.field.path.includes("[]") &&
+      (valueIsAmount || p.field.path !== "@.value")
   )
   const amounts = shown.filter(
     (p) =>
