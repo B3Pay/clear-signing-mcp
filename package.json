@@ -47,7 +47,9 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:live": "LIVE=1 vitest run test/live",
-    "start": "node dist/cli.js"
+    "start": "node dist/cli.js",
+    "tracker:build": "tsc -p tracker/tsconfig.build.json",
+    "tracker": "node tracker/dist/tracker/cli.js"
   },
   "dependencies": {
     "@ethereum-sourcify/clear-signing": "0.3.1",

@@ -5,3 +5,6 @@ pnpm-lock.yaml
 # Data copied from the registry, and a generated compiler artifact: kept byte for byte.
 test/fixtures
 test/contracts/TestToken.json
+tracker/dist
+# Written by the tracker fetch step: kept byte for byte.
+tracker/data

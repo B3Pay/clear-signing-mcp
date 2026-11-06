@@ -1,0 +1,78 @@
+name: Tracker fetch
+
+# The coverage tracker's networked step (tracker/README.md): Sourcify,
+# Blockscout and public RPCs, all read-only. It commits what it read to
+# tracker/data/ on the branch it ran on.
+on:
+  workflow_dispatch:
+    inputs:
+      only:
+        description: Comma-separated protocol ids to fetch (default all)
+        required: false
+      max-age-hours:
+        description: Skip contracts fetched less than this many hours ago
+        required: false
+        default: "0"
+  push:
+    branches: [claude/project-thread-zbvn8j]
+    paths:
+      - tracker/contracts/**
+      - tracker/*.ts
+      - .github/workflows/tracker-fetch.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tracker-fetch-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    name: Read on-chain facts and real transactions
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: Build the tracker
+        run: pnpm tracker:build
+
+      - name: Fetch
+        env:
+          ONLY: ${{ github.event.inputs.only }}
+          MAX_AGE: ${{ github.event.inputs.max-age-hours || '20' }}
+        run: |
+          args=(--max-age-hours "$MAX_AGE")
+          if [ -n "$ONLY" ]; then args+=(--only "$ONLY"); fi
+          node tracker/dist/tracker/cli.js fetch "${args[@]}"
+
+      - name: Commit the data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tracker/data
+          if git diff --cached --quiet; then
+            echo "No new data."
+            exit 0
+          fi
+          git commit -m "Tracker data: on-chain facts and transaction samples" -m "Written by the Tracker fetch workflow, run ${{ github.run_id }}."
+          for attempt in 1 2 3 4; do
+            if git push origin "HEAD:${{ github.ref_name }}"; then exit 0; fi
+            git pull --rebase origin "${{ github.ref_name }}"
+            sleep $((attempt * 5))
+          done
+          exit 1
