@@ -9,44 +9,59 @@ const AAVE_L2 = "0x794a61358D6845594F94dc1DB02A252b5b4814aD"
 
 const PROBES: readonly { name: string; url: string; init?: RequestInit }[] = [
   {
-    name: "base blockscout txlist",
+    name: "hypersync base query",
+    url: "https://8453.hypersync.xyz/query",
+    init: {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        from_block: 54_000_000,
+        to_block: 54_000_200,
+        transactions: [{ to: [AAVE_BASE.toLowerCase()] }],
+        field_selection: {
+          transaction: ["hash", "input", "block_number"],
+          block: ["number", "timestamp"],
+        },
+      }),
+    },
+  },
+  {
+    name: "hypersync arbitrum height",
+    url: "https://42161.hypersync.xyz/height",
+  },
+  {
+    name: "sqd portal base head",
+    url: "https://portal.sqd.dev/datasets/base-mainnet/head",
+  },
+  {
+    name: "sqd portal arbitrum head",
+    url: "https://portal.sqd.dev/datasets/arbitrum-one/head",
+  },
+  {
+    name: "sqd portal base stream",
+    url: "https://portal.sqd.dev/datasets/base-mainnet/stream",
+    init: {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        type: "evm",
+        fromBlock: 38_000_000,
+        toBlock: 38_000_100,
+        fields: {
+          block: { number: true, timestamp: true },
+          transaction: { hash: true, input: true, to: true },
+        },
+        transactions: [{ to: [AAVE_BASE.toLowerCase()] }],
+      }),
+    },
+  },
+  {
+    name: "arbitrum blockscout v2 transactions",
+    url: `https://arbitrum.blockscout.com/api/v2/addresses/${AAVE_L2}/transactions?filter=to`,
+  },
+  {
+    name: "base blockscout default user agent",
     url: `https://base.blockscout.com/api?module=account&action=txlist&address=${AAVE_BASE}&filter_by=to&sort=desc&page=1&offset=5`,
-  },
-  {
-    name: "base blockscout v2 address",
-    url: `https://base.blockscout.com/api/v2/addresses/${AAVE_BASE}`,
-  },
-  {
-    name: "base routescan txlist",
-    url: `https://api.routescan.io/v2/network/mainnet/evm/8453/etherscan/api?module=account&action=txlist&address=${AAVE_BASE}&sort=desc&page=1&offset=5`,
-  },
-  {
-    name: "arbitrum blockscout txlist",
-    url: `https://arbitrum.blockscout.com/api?module=account&action=txlist&address=${AAVE_L2}&filter_by=to&sort=desc&page=1&offset=5`,
-  },
-  {
-    name: "optimism blockscout txlist",
-    url: `https://optimism.blockscout.com/api?module=account&action=txlist&address=${AAVE_L2}&filter_by=to&sort=desc&page=1&offset=5`,
-  },
-  {
-    name: "arbitrum routescan txlist",
-    url: `https://api.routescan.io/v2/network/mainnet/evm/42161/etherscan/api?module=account&action=txlist&address=${AAVE_L2}&sort=desc&page=1&offset=5`,
-  },
-  {
-    name: "optimism routescan txlist",
-    url: `https://api.routescan.io/v2/network/mainnet/evm/10/etherscan/api?module=account&action=txlist&address=${AAVE_L2}&sort=desc&page=1&offset=5`,
-  },
-  {
-    name: "subsquid base archive height",
-    url: "https://v2.archive.subsquid.io/network/base-mainnet/height",
-  },
-  {
-    name: "hypersync base height",
-    url: "https://8453.hypersync.xyz/height",
-  },
-  {
-    name: "sourcify base lookup",
-    url: `https://sourcify.dev/server/v2/contract/8453/${AAVE_BASE}`,
   },
 ]
 
