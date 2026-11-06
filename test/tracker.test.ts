@@ -2,7 +2,8 @@ import { mkdtempSync, writeFileSync } from "node:fs"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { afterEach, describe, expect, it, vi } from "vitest"
-import { summarize, type ListedTx } from "../tracker/fetch.js"
+import { encodeFunctionData, getAddress, parseAbi, type Hex } from "viem"
+import { addressesInCall, summarize, type ListedTx } from "../tracker/fetch.js"
 import type { DescriptorFacts } from "../tracker/registry.js"
 import {
   readDraftSummaries,
@@ -271,6 +272,33 @@ describe("withoutChain", () => {
     )
     expect(withoutChain("Universal Router (v4)", 8453)).toBe(
       "Universal Router (v4)"
+    )
+  })
+})
+
+describe("addressesInCall", () => {
+  it("finds addresses, nested ones and ones passed as bytes32", () => {
+    const abi = parseAbi([
+      "function deposit(bytes32 depositor, bytes32 inputToken, address recipient, (address token, uint256 amount)[] legs, bytes32 salt)",
+    ])
+    const usdc = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+    const recipient = getAddress("0x00000000000000000000000000000000000000aa")
+    const weth = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+    const padded = (address: string): Hex =>
+      `0x${address.slice(2).toLowerCase().padStart(64, "0")}`
+    const input = encodeFunctionData({
+      abi,
+      functionName: "deposit",
+      args: [
+        `0x${"0".repeat(64)}`,
+        padded(usdc),
+        recipient,
+        [{ token: weth, amount: 1n }],
+        `0x${"ab".repeat(32)}`,
+      ],
+    })
+    expect(addressesInCall(abi, input).sort()).toEqual(
+      [usdc, recipient, weth].sort()
     )
   })
 })

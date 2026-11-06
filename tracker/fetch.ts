@@ -211,6 +211,28 @@ export async function fetchAll(
     )
   )
 
+  // Tokens are looked up for every kept transaction, read in this run or an
+  // earlier one, so a better address extraction reaches older samples too.
+  for (const protocol of universe)
+    for (const contract of protocol.contracts) {
+      if (options.only && !options.only(protocol, contract)) continue
+      const samples = readJson<SamplesFile>(
+        paths.samples(contract.chainId, contract.address)
+      )
+      if (!samples) continue
+      const abiFile = readJson<AbiFile>(
+        paths.abi(contract.chainId, contract.address)
+      )
+      const candidates =
+        tokenCandidates.get(contract.chainId) ?? new Set<Address>()
+      candidates.add(contract.address)
+      if (abiFile)
+        for (const tx of samples.txs)
+          for (const found of addressesInCall(abiFile.abi, tx.input))
+            candidates.add(found)
+      tokenCandidates.set(contract.chainId, candidates)
+    }
+
   for (const [chainId, candidates] of tokenCandidates) {
     try {
       await fetchTokens([...candidates], client(chainId), paths.tokens(chainId))
@@ -730,6 +752,14 @@ export function addressesInCall(abi: Abi, input: Hex): Address[] {
   const walk = (value: unknown) => {
     if (typeof value === "string" && /^0x[0-9a-fA-F]{40}$/.test(value)) {
       found.add(getAddress(value))
+    } else if (
+      // An address passed as bytes32, left-padded with zeros, as Across's
+      // deposit and fillRelay pass their tokens.
+      typeof value === "string" &&
+      /^0x0{24}[0-9a-fA-F]{40}$/.test(value) &&
+      !/^0x0{64}$/.test(value)
+    ) {
+      found.add(getAddress(`0x${value.slice(26)}`))
     } else if (Array.isArray(value)) {
       value.forEach(walk)
     } else if (isRecord(value)) {
