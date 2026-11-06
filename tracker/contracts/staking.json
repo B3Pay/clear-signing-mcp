@@ -1,0 +1,1344 @@
+{
+  "protocols": [
+    {
+      "protocol": "lido",
+      "name": "Lido",
+      "category": "liquid-staking",
+      "website": "https://lido.fi",
+      "defillama": "lido",
+      "notes": "Bridged wstETH on L2s is a plain token and is left out. Lido Earn (Mellow-based earnETH/earnUSD queues) left out: several deposit queues per asset and no source says which one the app uses.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+          "name": "Lido",
+          "label": "stETH (Lido)",
+          "role": "Stake ETH for stETH (submit); stETH transfers and approvals",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lidofinance/docs/ede9326e763bab0360964ca2deb7fc73fde8011e/docs/deployed-contracts/index.md",
+          "sourceKind": "raw",
+          "sourceNote": "Core Protocol: 'Lido and stETH token' (proxy)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+          "name": "WstETH",
+          "label": "wstETH",
+          "role": "Wrap stETH into wstETH and unwrap it back",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/lidofinance/docs/ede9326e763bab0360964ca2deb7fc73fde8011e/docs/deployed-contracts/index.md",
+          "sourceKind": "raw",
+          "sourceNote": "Core Protocol: 'wstETH token'"
+        },
+        {
+          "chainId": 1,
+          "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+          "name": "WithdrawalQueueERC721",
+          "label": "Withdrawal Queue (unstETH NFT)",
+          "role": "Request stETH/wstETH withdrawals and claim the ETH",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lidofinance/docs/ede9326e763bab0360964ca2deb7fc73fde8011e/docs/deployed-contracts/index.md",
+          "sourceKind": "raw",
+          "sourceNote": "Core Protocol: 'Withdrawal Queue ERC721' (proxy)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d",
+          "name": "wstETH referral staker",
+          "label": "wstETH referral staker",
+          "role": "Stake ETH and receive wstETH directly, with a referral",
+          "source": "https://raw.githubusercontent.com/lidofinance/docs/ede9326e763bab0360964ca2deb7fc73fde8011e/docs/deployed-contracts/index.md",
+          "sourceKind": "raw",
+          "sourceNote": "Core Protocol: 'wstETH referral staker'. name is the docs label; explorer contract name and usage share not checked"
+        },
+        {
+          "chainId": 10,
+          "address": "0x76A50b8c7349cCDDb7578c6627e79b5d99D24138",
+          "name": "ERC20RebasableBridgedPermit",
+          "label": "stETH on OP Mainnet",
+          "role": "Wrap bridged wstETH into rebasing stETH on OP Mainnet and unwrap back",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lidofinance/docs/ede9326e763bab0360964ca2deb7fc73fde8011e/docs/deployed-contracts/index.md",
+          "sourceKind": "raw",
+          "sourceNote": "Lido Multichain > Optimism part: 'StETH ERC20RebasableBridgedPermit' (proxy)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x72229141D4B016682d3618ECe47c046f30Da4AD1",
+          "name": "CustomSenderReferral",
+          "label": "Direct Staking on Arbitrum",
+          "role": "Stake from Arbitrum and receive wstETH there (Direct Staking via Chainlink CCIP)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lidofinance/docs/ede9326e763bab0360964ca2deb7fc73fde8011e/docs/deployed-contracts/index.md",
+          "sourceKind": "raw",
+          "sourceNote": "Direct Staking on Arbitrum > Arbitrum part: 'CustomSenderReferral' (proxy)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x328de900860816d29D1367F6903a24D8ed40C997",
+          "name": "CustomSenderReferral",
+          "label": "Direct Staking on OP Mainnet",
+          "role": "Stake from OP Mainnet and receive wstETH there (Direct Staking via Chainlink CCIP)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lidofinance/docs/ede9326e763bab0360964ca2deb7fc73fde8011e/docs/deployed-contracts/index.md",
+          "sourceKind": "raw",
+          "sourceNote": "Direct Staking on Optimism > Optimism part: 'CustomSenderReferral' (proxy)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x328de900860816d29D1367F6903a24D8ed40C997",
+          "name": "CustomSenderReferral",
+          "label": "Direct Staking on Base",
+          "role": "Stake from Base and receive wstETH there (Direct Staking via Chainlink CCIP)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lidofinance/docs/ede9326e763bab0360964ca2deb7fc73fde8011e/docs/deployed-contracts/index.md",
+          "sourceKind": "raw",
+          "sourceNote": "Direct Staking on Base > Base part: 'CustomSenderReferral' (proxy)"
+        }
+      ]
+    },
+    {
+      "protocol": "rocket-pool",
+      "name": "Rocket Pool",
+      "category": "liquid-staking",
+      "website": "https://rocketpool.net",
+      "defillama": "rocket-pool",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xCE15294273CFb9D9b628F4D61636623decDF4fdC",
+          "name": "RocketDepositPool",
+          "label": "Deposit Pool",
+          "role": "Deposit ETH to mint rETH",
+          "version": "Saturn 1",
+          "source": "https://raw.githubusercontent.com/rocket-pool/docs.rocketpool.net/804660b0f89f65f839b12b2315cbdf3372d329b3/docs/en/protocol/contracts-integrations.md",
+          "sourceKind": "raw",
+          "sourceNote": "rocketDepositPool in 'All Active Deployed Protocol Contracts' (updated in commit fb9282a, 'mainnet saturn 1 contract addresses', 2026-02-09). The page's 'Key Protocol Contracts' table and version history still show the Atlas-era 0xDD3f50F8A6CafbE9b31a427582963f465E745AF8"
+        },
+        {
+          "chainId": 1,
+          "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+          "name": "RocketTokenRETH",
+          "label": "rETH",
+          "role": "Burn rETH for ETH; rETH transfers and approvals",
+          "source": "https://raw.githubusercontent.com/rocket-pool/docs.rocketpool.net/804660b0f89f65f839b12b2315cbdf3372d329b3/docs/en/protocol/contracts-integrations.md",
+          "sourceKind": "raw",
+          "sourceNote": "rocketTokenRETH in 'All Active Deployed Protocol Contracts'"
+        },
+        {
+          "chainId": 1,
+          "address": "0x16D5A408e807db8eF7c578279BEeEe6b228f1c1C",
+          "name": "RocketSwapRouter",
+          "label": "Swap Router",
+          "role": "Swap ETH and rETH through DEX liquidity from the Rocket Pool stake page",
+          "source": "https://raw.githubusercontent.com/rocket-pool/docs.rocketpool.net/804660b0f89f65f839b12b2315cbdf3372d329b3/docs/en/protocol/contracts-integrations.md",
+          "sourceKind": "raw",
+          "sourceNote": "rocketSwapRouter in 'All Active Deployed Protocol Contracts'; the source prints it lowercase (checksummed here)"
+        }
+      ]
+    },
+    {
+      "protocol": "etherfi",
+      "name": "ether.fi",
+      "category": "restaking",
+      "website": "https://www.ether.fi",
+      "defillama": "ether.fi-stake",
+      "notes": "No native-minting sync pool on Arbitrum (weETH there is bridged).",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x308861A430be4cce5502d0A12724771Fc6DaF216",
+          "name": "LiquidityPool",
+          "label": "Liquidity Pool (stake ETH for eETH)",
+          "role": "Deposit ETH for eETH; request withdrawals",
+          "source": "https://raw.githubusercontent.com/etherfi-protocol/smart-contracts/15ff96d4d5e8e6a19a472cd40a7bcb858c9e7a88/script/deploys/Deployed.s.sol",
+          "sourceKind": "raw",
+          "sourceNote": "LIQUIDITY_POOL"
+        },
+        {
+          "chainId": 1,
+          "address": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+          "name": "WeETH",
+          "label": "weETH",
+          "role": "Wrap eETH into weETH and unwrap",
+          "source": "https://raw.githubusercontent.com/etherfi-protocol/smart-contracts/15ff96d4d5e8e6a19a472cd40a7bcb858c9e7a88/script/deploys/Deployed.s.sol",
+          "sourceKind": "raw",
+          "sourceNote": "WEETH"
+        },
+        {
+          "chainId": 1,
+          "address": "0x7d5706f6ef3F89B3951E23e557CDFBC3239D4E2c",
+          "name": "WithdrawRequestNFT",
+          "label": "Withdraw Request NFT",
+          "role": "Claim finalized eETH withdrawal requests",
+          "source": "https://raw.githubusercontent.com/etherfi-protocol/smart-contracts/15ff96d4d5e8e6a19a472cd40a7bcb858c9e7a88/script/deploys/Deployed.s.sol",
+          "sourceKind": "raw",
+          "sourceNote": "WITHDRAW_REQUEST_NFT"
+        },
+        {
+          "chainId": 1,
+          "address": "0xcfC6d9Bd7411962Bfe7145451A7EF71A24b6A7A2",
+          "name": "DepositAdapter",
+          "label": "Deposit Adapter",
+          "role": "Deposit ETH, WETH, stETH or wstETH and receive weETH in one transaction",
+          "source": "https://raw.githubusercontent.com/etherfi-protocol/smart-contracts/15ff96d4d5e8e6a19a472cd40a7bcb858c9e7a88/script/deploys/Deployed.s.sol",
+          "sourceKind": "raw",
+          "sourceNote": "DEPOSIT_ADAPTER"
+        },
+        {
+          "chainId": 1,
+          "address": "0xDadEf1fFBFeaAB4f68A9fD181395F68b4e4E7Ae0",
+          "name": "EtherFiRedemptionManager",
+          "label": "Redemption Manager (instant exit)",
+          "role": "Redeem eETH/weETH for ETH instantly",
+          "source": "https://raw.githubusercontent.com/etherfi-protocol/smart-contracts/15ff96d4d5e8e6a19a472cd40a7bcb858c9e7a88/script/deploys/Deployed.s.sol",
+          "sourceKind": "raw",
+          "sourceNote": "ETHERFI_REDEMPTION_MANAGER"
+        },
+        {
+          "chainId": 1,
+          "address": "0x6Ee3aaCcf9f2321E49063C4F8da775DdBd407268",
+          "name": "TellerWithLayerZeroRateLimiting",
+          "label": "eBTC Teller",
+          "role": "Deposit wrapped BTC to mint eBTC",
+          "source": "https://raw.githubusercontent.com/Veda-Labs/boring-vault/cffa9c3f62c70fb80cdae7f95a0be1bf6d0ead2c/test/resources/ChainValues.sol",
+          "sourceKind": "raw",
+          "sourceNote": "values[mainnet][\"eBTCTeller\"] in Veda's boring-vault repo (ether.fi's vault provider); name as in Veda's eBTC deployment skeleton"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xc38e046dFDAdf15f7F56853674242888301208a5",
+          "name": "L2OPStackSyncPoolETHUpgradeable",
+          "label": "weETH native minting on Base",
+          "role": "Deposit ETH on Base and receive weETH (native minting sync pool)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/etherfi-protocol/weETH-cross-chain/ac4bf655b79cc16d635f513d69bc6e8571061fb3/utils/L2Constants.sol",
+          "sourceKind": "raw",
+          "sourceNote": "L2_SYNC_POOL of the 'base' config (CHAIN_ID 8453). name is the repo's OP-stack sync pool implementation, not checked on an explorer"
+        },
+        {
+          "chainId": 10,
+          "address": "0xC9475e18E2C5C26EA6ADCD55fabE07920beA887e",
+          "name": "L2OPStackSyncPoolETHUpgradeable",
+          "label": "weETH native minting on OP Mainnet",
+          "role": "Deposit ETH on OP Mainnet and receive weETH (native minting sync pool)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/etherfi-protocol/weETH-cross-chain/ac4bf655b79cc16d635f513d69bc6e8571061fb3/utils/L2Constants.sol",
+          "sourceKind": "raw",
+          "sourceNote": "L2_SYNC_POOL of the 'op' config (CHAIN_ID 10). name is the repo's OP-stack sync pool implementation, not checked on an explorer"
+        }
+      ]
+    },
+    {
+      "protocol": "etherfi-liquid",
+      "name": "ether.fi Liquid",
+      "category": "yield",
+      "website": "https://www.ether.fi",
+      "notes": "Veda BoringVaults. Users deposit through the Teller and withdraw through the BoringOnChainQueue. Tellers share one address across chains; only Ethereum is listed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x9AA79C84b79816ab920bBcE20f8f74557B514734",
+          "name": "TellerWithLayerZeroRateLimiting",
+          "label": "Liquid ETH Teller",
+          "role": "Deposit ETH or ETH LSTs into the Liquid ETH vault",
+          "source": "https://etherfi.gitbook.io/etherfi/products/liquid/live-vaults/liquid-eth-vault.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Cross-checked: same mixed-case address as Teller in Veda's https://raw.githubusercontent.com/Veda-Labs/boring-vault/cffa9c3f62c70fb80cdae7f95a0be1bf6d0ead2c/deployments/skeletons/addresses/Optimism/LiquidETH.json (checksum valid)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0D2dF071207E18Ca8638b4f04E98c53155eC2cE0",
+          "name": "BoringOnChainQueue",
+          "label": "Liquid ETH Withdraw Queue",
+          "role": "Request withdrawals from Liquid ETH",
+          "source": "https://etherfi.gitbook.io/etherfi/products/liquid/live-vaults/liquid-eth-vault.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Cross-checked: same mixed-case address as BoringOnChainQueue in Veda's deployments/skeletons/addresses/Optimism/LiquidETH.json @cffa9c3 (checksum valid)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4DE413a26fC24c3FC27Cc983be70aA9c5C299387",
+          "name": "TellerWithLayerZeroRateLimiting",
+          "label": "Liquid USD Teller",
+          "role": "Deposit stablecoins into the Liquid USD vault",
+          "source": "https://etherfi.gitbook.io/etherfi/products/liquid/live-vaults/liquid-usd-vault.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "ether.fi docs print it lowercase; the checksummed form is printed in Veda's https://raw.githubusercontent.com/Veda-Labs/boring-vault/cffa9c3f62c70fb80cdae7f95a0be1bf6d0ead2c/deployments/skeletons/addresses/Optimism/LiquidUSD.json"
+        },
+        {
+          "chainId": 1,
+          "address": "0x38FC1BA73b7ED289955a07d9F11A85b6E388064A",
+          "name": "BoringOnChainQueue",
+          "label": "Liquid USD Withdraw Queue",
+          "role": "Request withdrawals from Liquid USD",
+          "source": "https://etherfi.gitbook.io/etherfi/products/liquid/live-vaults/liquid-usd-vault.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "ether.fi docs print it lowercase; the checksummed form is printed in Veda's deployments/skeletons/addresses/Optimism/LiquidUSD.json @cffa9c3"
+        },
+        {
+          "chainId": 1,
+          "address": "0x8Ea0B382D054dbEBeB1d0aE47ee4AC433C730353",
+          "name": "TellerWithLayerZeroRateLimiting",
+          "label": "Liquid BTC Teller",
+          "role": "Deposit wrapped BTC into the Liquid BTC vault",
+          "source": "https://etherfi.gitbook.io/etherfi/products/liquid/live-vaults/liquid-btc-vault.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Also in Veda's https://raw.githubusercontent.com/Veda-Labs/boring-vault/cffa9c3f62c70fb80cdae7f95a0be1bf6d0ead2c/deployments/addresses/Mainnet/Tellers.json (lowercase) and mixed-case in skeletons/addresses/Optimism/LiquidBTC.json. Veda's Mainnet/EtherFiLiquidBTC.json still names an older TellerWithMultiAssetSupport 0x9E88C603307fdC33aA5F26E38b6f6aeF3eE92d48; the ether.fi docs list this one"
+        },
+        {
+          "chainId": 1,
+          "address": "0x77A2fd42F8769d8063F2E75061FC200014E41Edf",
+          "name": "BoringOnChainQueue",
+          "label": "Liquid BTC Withdraw Queue",
+          "role": "Request withdrawals from Liquid BTC",
+          "source": "https://raw.githubusercontent.com/Veda-Labs/boring-vault/cffa9c3f62c70fb80cdae7f95a0be1bf6d0ead2c/deployments/addresses/Mainnet/EtherFiLiquidBTC.json",
+          "sourceKind": "raw",
+          "sourceNote": "BoringOnChainQueue of EtherFiLiquidBTC on Mainnet; also listed in the ether.fi Liquid BTC docs page"
+        }
+      ]
+    },
+    {
+      "protocol": "eigenlayer",
+      "name": "EigenLayer",
+      "category": "restaking",
+      "website": "https://www.eigenlayer.xyz",
+      "defillama": "eigenlayer",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x858646372CC42E1A627fcE94aa7A7033e7CF075A",
+          "name": "StrategyManager",
+          "label": "Strategy Manager",
+          "role": "Deposit LSTs and other tokens into restaking strategies",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Layr-Labs/eigenlayer-contracts/29b57bf1010366d840b55213634efe72f66b6358/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet deployment table"
+        },
+        {
+          "chainId": 1,
+          "address": "0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A",
+          "name": "DelegationManager",
+          "label": "Delegation Manager",
+          "role": "Delegate to operators; queue and complete withdrawals",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Layr-Labs/eigenlayer-contracts/29b57bf1010366d840b55213634efe72f66b6358/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet deployment table"
+        },
+        {
+          "chainId": 1,
+          "address": "0x91E677b07F7AF907ec9a428aafA9fc14a0d3A338",
+          "name": "EigenPodManager",
+          "label": "EigenPod Manager",
+          "role": "Create an EigenPod for native ETH restaking",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Layr-Labs/eigenlayer-contracts/29b57bf1010366d840b55213634efe72f66b6358/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet deployment table"
+        },
+        {
+          "chainId": 1,
+          "address": "0x7750d328b314EfFa365A0402CcfD489B80B0adda",
+          "name": "RewardsCoordinator",
+          "label": "Rewards Coordinator",
+          "role": "Claim restaking rewards",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Layr-Labs/eigenlayer-contracts/29b57bf1010366d840b55213634efe72f66b6358/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet deployment table"
+        }
+      ]
+    },
+    {
+      "protocol": "kelp",
+      "name": "Kelp",
+      "category": "restaking",
+      "website": "https://kelpdao.xyz",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x036676389e48133B63a802f8635AD39E752D375D",
+          "name": "LRTDepositPool",
+          "label": "rsETH Deposit Pool",
+          "role": "Deposit ETH or LSTs to mint rsETH",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Kelp-DAO/LRT-rsETH/3dded885f6f797f5959aff449c3a30c5cbb6ce23/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Deployed Contracts > ETH Mainnet"
+        },
+        {
+          "chainId": 1,
+          "address": "0x62De59c08eB5dAE4b7E6F7a8cAd3006d6965ec16",
+          "name": "LRTWithdrawalManager",
+          "label": "rsETH Withdrawal Manager",
+          "role": "Request and complete rsETH withdrawals",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Kelp-DAO/LRT-rsETH/3dded885f6f797f5959aff449c3a30c5cbb6ce23/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Deployed Contracts > ETH Mainnet"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x376A7564AF88242D6B8598A5cfdD2E9759711B61",
+          "name": "RSETHPool",
+          "label": "rsETH Pool on Arbitrum",
+          "role": "Deposit ETH on Arbitrum and receive rsETH",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Kelp-DAO/LRT-rsETH/3dded885f6f797f5959aff449c3a30c5cbb6ce23/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Deployed Contracts > Arbitrum (proxy address table)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x291088312150482826b3A37d5A69a4c54DAa9118",
+          "name": "RSETHPoolV3ExternalBridge",
+          "label": "rsETH Pool on Base",
+          "role": "Deposit ETH on Base and receive rsETH",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Kelp-DAO/LRT-rsETH/3dded885f6f797f5959aff449c3a30c5cbb6ce23/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Deployed Contracts > Base (proxy address table)"
+        },
+        {
+          "chainId": 10,
+          "address": "0xaAA687e218F9B53183A6AA9639FBD9D6e69EcB73",
+          "name": "RSETHPoolV2ExternalBridge",
+          "label": "rsETH Pool on OP Mainnet",
+          "role": "Deposit ETH on OP Mainnet and receive rsETH",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Kelp-DAO/LRT-rsETH/3dded885f6f797f5959aff449c3a30c5cbb6ce23/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Deployed Contracts > Optimism (proxy address table)"
+        }
+      ]
+    },
+    {
+      "protocol": "renzo",
+      "name": "Renzo",
+      "category": "restaking",
+      "website": "https://www.renzoprotocol.com",
+      "defillama": "renzo",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x74a09653A083691711cF8215a6ab074BB4e99ef5",
+          "name": "RestakeManager",
+          "label": "Restake Manager",
+          "role": "Deposit ETH or LSTs to mint ezETH",
+          "source": "https://docs.renzoprotocol.com/docs/contracts/ethereum-mainnet.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs print it mixed-case; EIP-55 checksum valid. No GitHub source found"
+        },
+        {
+          "chainId": 1,
+          "address": "0x5efc9D10E42FB517456f4ac41EB5e2eBe42C8918",
+          "name": "WithdrawQueue",
+          "label": "Withdraw Queue",
+          "role": "Request ezETH withdrawals and claim them",
+          "source": "https://docs.renzoprotocol.com/docs/contracts/ethereum-mainnet.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs print it mixed-case; EIP-55 checksum valid. No GitHub source found"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xf25484650484DE3d554fB0b7125e7696efA4ab99",
+          "name": "xRenzoDeposit",
+          "label": "xRenzoDeposit on Arbitrum",
+          "role": "Deposit ETH/WETH on Arbitrum to mint ezETH",
+          "source": "https://docs.renzoprotocol.com/docs/contracts/layer-2s/arbitrum.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs print it lowercase, so no checksum check was possible; the same string came back from three separate fetches of the Arbitrum and Base pages. No second source found"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xf25484650484DE3d554fB0b7125e7696efA4ab99",
+          "name": "xRenzoDeposit",
+          "label": "xRenzoDeposit on Base",
+          "role": "Deposit ETH/WETH on Base to mint ezETH",
+          "source": "https://docs.renzoprotocol.com/docs/contracts/layer-2s/base.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs print it lowercase, so no checksum check was possible; the same string came back from three separate fetches of the Arbitrum and Base pages. No second source found"
+        }
+      ]
+    },
+    {
+      "protocol": "puffer",
+      "name": "Puffer",
+      "category": "restaking",
+      "website": "https://www.puffer.fi",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xD9A442856C234a39a81a089C06451EBAa4306a72",
+          "name": "PufferVault",
+          "label": "pufETH Vault",
+          "role": "Deposit ETH, WETH or stETH to mint pufETH (ERC-4626) and redeem",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/PufferFinance/Deployments-and-ACL/52f1e1052910fd4826e3c05e8492186862c84bb3/docs/deployments/mainnet.md",
+          "sourceKind": "raw",
+          "sourceNote": "Listed with a separate implementation address"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4aA799C5dfc01ee7d790e3bf1a7C2257CE1DcefF",
+          "name": "PufferDepositor",
+          "label": "Puffer Depositor",
+          "role": "Deposit stETH/wstETH (with permit) to mint pufETH",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/PufferFinance/Deployments-and-ACL/52f1e1052910fd4826e3c05e8492186862c84bb3/docs/deployments/mainnet.md",
+          "sourceKind": "raw",
+          "sourceNote": "The source prints it lowercase (checksummed here); listed with a separate implementation address"
+        },
+        {
+          "chainId": 1,
+          "address": "0xDdA0483184E75a5579ef9635ED14BacCf9d50283",
+          "name": "PufferWithdrawalManager",
+          "label": "Withdrawal Manager",
+          "role": "Request pufETH withdrawals and complete them",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/PufferFinance/Deployments-and-ACL/52f1e1052910fd4826e3c05e8492186862c84bb3/docs/deployments/mainnet.md",
+          "sourceKind": "raw",
+          "sourceNote": "Listed with a separate implementation address"
+        }
+      ]
+    },
+    {
+      "protocol": "swell",
+      "name": "Swell",
+      "category": "restaking",
+      "website": "https://www.swellnetwork.io",
+      "notes": "swETH and swEXIT left out: no official source for their Ethereum addresses was reachable (Swell's docs list only Swellchain contracts, its GitHub READMEs list none).",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xFAe103DC9cf190eD75350761e95403b7b8aFa6c0",
+          "name": "RswETH",
+          "label": "rswETH",
+          "role": "Deposit ETH to mint rswETH (deposit, depositWithReferral)",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/swell/calldata-swell.json",
+          "sourceKind": "registry",
+          "sourceNote": "Registry file owned by Swell; its functions name rswETH (depositViaDepositManager ... _minRswETH). Contract name assumed from the token"
+        }
+      ]
+    },
+    {
+      "protocol": "meth",
+      "name": "mETH Protocol (Mantle)",
+      "category": "liquid-staking",
+      "website": "https://www.methprotocol.xyz",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xe3cBd06D7dadB3F4e6557bAb7EdD924CD1489E8f",
+          "name": "Staking",
+          "label": "mETH Staking",
+          "role": "Stake ETH for mETH; request and claim unstakes",
+          "source": "https://raw.githubusercontent.com/mantle-lsp/contracts/bbc4e8bf7d3e3b4ca0c5be07aba409ac66611c76/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Contract addresses > L1"
+        }
+      ]
+    },
+    {
+      "protocol": "stader",
+      "name": "Stader (ETHx)",
+      "category": "liquid-staking",
+      "website": "https://www.staderlabs.com",
+      "defillama": "stader",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xcf5EA1b38380f6aF39068375516Daf40Ed70D299",
+          "name": "StaderStakePoolsManager",
+          "label": "Stake Pools Manager",
+          "role": "Deposit ETH to mint ETHx",
+          "source": "https://raw.githubusercontent.com/stader-labs/ethx/9d4a9211431d6c0cdf014bd64d3718cba4ce96ab/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Contracts Deployed > ETH Mainnet: STADER_STAKE_POOL_MANAGER"
+        },
+        {
+          "chainId": 1,
+          "address": "0x9F0491B32DBce587c50c4C43AB303b06478193A7",
+          "name": "UserWithdrawalManager",
+          "label": "User Withdrawal Manager",
+          "role": "Request ETHx withdrawals and claim ETH",
+          "source": "https://raw.githubusercontent.com/stader-labs/ethx/9d4a9211431d6c0cdf014bd64d3718cba4ce96ab/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Contracts Deployed > ETH Mainnet: USER_WITHDRAWAL_MANAGER"
+        }
+      ]
+    },
+    {
+      "protocol": "frax-ether",
+      "name": "Frax Ether",
+      "category": "liquid-staking",
+      "website": "https://frax.finance",
+      "defillama": "frax-ether",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xbAFA44EFE7901E04E39Dad13167D089C559c1138",
+          "name": "frxETHMinter",
+          "label": "frxETH Minter",
+          "role": "Submit ETH to mint frxETH (optionally straight into sfrxETH)",
+          "source": "https://raw.githubusercontent.com/FraxFinance/frax-solidity/2702e7e147212b85a28e198a7eba1c3bab9119db/src/types/constants.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ethereum.frxeth_minter. Older constants file; whether frxETH v2 still mints through this contract was not confirmed"
+        },
+        {
+          "chainId": 1,
+          "address": "0xac3E018457B222d93114458476f3E3416Abbe38F",
+          "name": "sfrxETH",
+          "label": "sfrxETH vault",
+          "role": "Stake frxETH into the sfrxETH ERC-4626 vault and redeem",
+          "source": "https://raw.githubusercontent.com/FraxFinance/frax-solidity/2702e7e147212b85a28e198a7eba1c3bab9119db/src/types/constants.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ethereum sfrxETH"
+        }
+      ]
+    },
+    {
+      "protocol": "stakewise",
+      "name": "StakeWise V3",
+      "category": "liquid-staking",
+      "website": "https://stakewise.io",
+      "notes": "Thousands of operator vaults exist; only the Genesis vault (the protocol's own) is listed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xAC0F906E433d58FA868F936E8A43230473652885",
+          "name": "GenesisVault",
+          "label": "Genesis Vault",
+          "role": "Deposit ETH, mint osETH against the stake, and enter the exit queue",
+          "source": "https://raw.githubusercontent.com/stakewise/v3-core/513fa34fe17e001c0c20e33d3e99feffb01d5d09/deployments/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "GenesisVault"
+        }
+      ]
+    },
+    {
+      "protocol": "symbiotic",
+      "name": "Symbiotic",
+      "category": "restaking",
+      "website": "https://symbiotic.fi",
+      "defillama": "symbiotic",
+      "notes": "Vault TVL could not be read from this sandbox, so these are flagship vaults (curators and collateral the apps feature), not a verified top 5. Many other Symbiotic vaults are entered through Mellow LRT vaults instead.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xc10A7f0AC6E3944F4860eE97a937C51572e3a1Da",
+          "name": "VaultTokenized",
+          "label": "Gauntlet Restaked wstETH",
+          "role": "Deposit wstETH, withdraw and claim",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/symbiotic/calldata-VaultV1Tokenized-wstETH.json",
+          "sourceKind": "registry",
+          "sourceNote": "Vault name from symbioticfi/metadata-mainnet"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4e0554959A631B3D3938ffC158e0a7b2124aF9c5",
+          "name": "Vault",
+          "label": "MEV Capital wstETH Vault",
+          "role": "Deposit wstETH, withdraw and claim",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/symbiotic/calldata-VaultV1-wstETH.json",
+          "sourceKind": "registry",
+          "sourceNote": "Vault name from symbioticfi/metadata-mainnet"
+        },
+        {
+          "chainId": 1,
+          "address": "0x3bA6930baC1630873F5fd206e293cA543Fcea7A2",
+          "name": "VaultTokenized",
+          "label": "Gauntlet Restaked sUSDe",
+          "role": "Deposit sUSDe, withdraw and claim",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/symbiotic/calldata-VaultV1Tokenized-sUSDe.json",
+          "sourceKind": "registry",
+          "sourceNote": "Vault name from symbioticfi/metadata-mainnet"
+        },
+        {
+          "chainId": 1,
+          "address": "0x087cbB1a89aA038A167E27588B5eC01484b40Fb7",
+          "name": "Vault",
+          "label": "Lombard-Flow Traders-LBTC",
+          "role": "Deposit LBTC, withdraw and claim",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/symbiotic/calldata-VaultV1-LBTC.json",
+          "sourceKind": "registry",
+          "sourceNote": "Vault name and Lombard app deposit link from symbioticfi/metadata-mainnet"
+        },
+        {
+          "chainId": 1,
+          "address": "0xc6132FAF04627c8d05d6E759FAbB331Ef2D8F8fD",
+          "name": "VaultTokenized",
+          "label": "Spark SPK Staking Vault",
+          "role": "Stake SPK, withdraw and claim",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/symbiotic/calldata-VaultV1Tokenized-SPK.json",
+          "sourceKind": "registry",
+          "sourceNote": "Vault name from symbioticfi/metadata-mainnet"
+        },
+        {
+          "chainId": 1,
+          "address": "0xa13e65cA0FeFa52cCb9615108fF400EF4806866B",
+          "name": "RewardsV2",
+          "label": "Rewards V2",
+          "role": "Claim staker rewards and curator fees",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/symbiotic/calldata-RewardsV2.json",
+          "sourceKind": "registry"
+        }
+      ]
+    },
+    {
+      "protocol": "pendle",
+      "name": "Pendle",
+      "category": "yield",
+      "website": "https://www.pendle.finance",
+      "defillama": "pendle",
+      "notes": "Limit orders are signed off-chain (EIP-712) and are not covered here.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+          "name": "PendleRouterV4",
+          "label": "Pendle Router V4",
+          "role": "Swap PT/YT, add/remove liquidity, mint/redeem SY, PT and YT",
+          "version": "v4",
+          "source": "https://raw.githubusercontent.com/pendle-finance/pendle-core-v2-public/87685c89d05087535e9b9647eeda0e3d297d1f06/deployments/1-core.json",
+          "sourceKind": "raw",
+          "sourceNote": "key 'router'"
+        },
+        {
+          "chainId": 1,
+          "address": "0x999999999991E178D52Cd95AFd4b00d066664144",
+          "name": "sPENDLE",
+          "label": "sPENDLE (staked PENDLE)",
+          "role": "Stake PENDLE for sPENDLE and unstake",
+          "source": "https://raw.githubusercontent.com/pendle-finance/pendle-core-v2-public/87685c89d05087535e9b9647eeda0e3d297d1f06/deployments/1-core.json",
+          "sourceKind": "raw",
+          "sourceNote": "key 'sPendle'"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+          "name": "PendleRouterV4",
+          "label": "Pendle Router V4",
+          "role": "Swap PT/YT, add/remove liquidity, mint/redeem SY, PT and YT",
+          "version": "v4",
+          "source": "https://raw.githubusercontent.com/pendle-finance/pendle-core-v2-public/87685c89d05087535e9b9647eeda0e3d297d1f06/deployments/42161-core.json",
+          "sourceKind": "raw",
+          "sourceNote": "key 'router'"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+          "name": "PendleRouterV4",
+          "label": "Pendle Router V4",
+          "role": "Swap PT/YT, add/remove liquidity, mint/redeem SY, PT and YT",
+          "version": "v4",
+          "source": "https://raw.githubusercontent.com/pendle-finance/pendle-core-v2-public/87685c89d05087535e9b9647eeda0e3d297d1f06/deployments/8453-core.json",
+          "sourceKind": "raw",
+          "sourceNote": "key 'router'"
+        },
+        {
+          "chainId": 10,
+          "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+          "name": "PendleRouterV4",
+          "label": "Pendle Router V4",
+          "role": "Swap PT/YT, add/remove liquidity, mint/redeem SY, PT and YT",
+          "version": "v4",
+          "source": "https://raw.githubusercontent.com/pendle-finance/pendle-core-v2-public/87685c89d05087535e9b9647eeda0e3d297d1f06/deployments/10-core.json",
+          "sourceKind": "raw",
+          "sourceNote": "key 'router'"
+        }
+      ]
+    },
+    {
+      "protocol": "yearn",
+      "name": "Yearn",
+      "category": "yield",
+      "website": "https://yearn.fi",
+      "defillama": "yearn-finance",
+      "notes": "Vaults ranked by TVL from yDaemon's GitHub data snapshot (late Sept 2025), endorsed v3 vaults only; yvUSD (newer flagship, not in that snapshot) added from Yearn's docs. L2 v3 vaults held under $2M each and are left out.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x696d02Db93291651ED510704c9b286841d506987",
+          "name": "yvUSD",
+          "label": "yvUSD",
+          "role": "Deposit into the yvUSD vault (ERC-4626) and redeem",
+          "source": "https://raw.githubusercontent.com/yearn/yearn-devdocs/5147c9cda6d7ace72997b51bdd4661ec8aa23c4f/docs/developers/addresses/yvusd-contracts.md",
+          "sourceKind": "raw",
+          "sourceNote": "'yvUSD vault'. name is the docs label; TVL not checked"
+        },
+        {
+          "chainId": 1,
+          "address": "0x182863131F9a4630fF9E27830d945B1413e347E8",
+          "name": "USDS-1 yVault",
+          "label": "yvUSDS-1",
+          "role": "Deposit USDS into the vault (ERC-4626) and redeem",
+          "version": "3.0.3",
+          "source": "https://raw.githubusercontent.com/yearn/ydaemon/55467cd324935139a3df111f40df55abe5c770ca/data/meta/vaults/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "The source prints it lowercase (checksummed here); name is the vault token name"
+        },
+        {
+          "chainId": 1,
+          "address": "0xBe53A109B494E5c9f97b9Cd39Fe969BE68BF6204",
+          "name": "USDC-1 yVault",
+          "label": "yvUSDC-1",
+          "role": "Deposit USDC into the vault (ERC-4626) and redeem",
+          "version": "3.0.2",
+          "source": "https://raw.githubusercontent.com/yearn/ydaemon/55467cd324935139a3df111f40df55abe5c770ca/data/meta/vaults/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "ydaemon prints it lowercase; the same checksummed address is printed in yearn-devdocs docs/developers/addresses/styfi-contracts.md @5147c9c (reward token yvUSDC)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x00C8a649C9837523ebb406Ceb17a6378Ab5C74cF",
+          "name": "USDC Fluid Lender",
+          "label": "ysUSDC Fluid Lender",
+          "role": "Deposit USDC into the single-strategy vault (ERC-4626) and redeem",
+          "version": "3.0.4",
+          "source": "https://raw.githubusercontent.com/yearn/ydaemon/55467cd324935139a3df111f40df55abe5c770ca/data/meta/vaults/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "The source prints it lowercase (checksummed here); name is the vault token name"
+        },
+        {
+          "chainId": 1,
+          "address": "0xc9f01b5c6048B064E6d925d1c2d7206d4fEeF8a3",
+          "name": "Spark USDS Compounder",
+          "label": "ysUSDS Spark Compounder",
+          "role": "Deposit USDS into the single-strategy vault (ERC-4626) and redeem",
+          "version": "3.0.4",
+          "source": "https://raw.githubusercontent.com/yearn/ydaemon/55467cd324935139a3df111f40df55abe5c770ca/data/meta/vaults/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "The source prints it lowercase (checksummed here); name is the vault token name"
+        },
+        {
+          "chainId": 1,
+          "address": "0x1112dbCF805682e828606f74AB717abf4b4FD8DE",
+          "name": "Yearn4626Router",
+          "label": "Yearn 4626 Router",
+          "role": "Deposit, migrate and redeem across Yearn vaults in one transaction",
+          "source": "https://raw.githubusercontent.com/yearn/yearn-devdocs/5147c9cda6d7ace72997b51bdd4661ec8aa23c4f/scripts/fetchedAddressData.json",
+          "sourceKind": "raw"
+        }
+      ]
+    },
+    {
+      "protocol": "convex",
+      "name": "Convex Finance",
+      "category": "yield",
+      "website": "https://www.convexfinance.com",
+      "defillama": "convex-finance",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xF403C135812408BFbE8713b5A23a04b3D48AAE31",
+          "name": "Booster",
+          "label": "Booster",
+          "role": "Deposit Curve LP tokens and stake them; withdraw",
+          "source": "https://raw.githubusercontent.com/convex-eth/platform/4f22038387ca4ce014dec3d7f5781a8e28051c13/contracts/contracts.json",
+          "sourceKind": "raw",
+          "sourceNote": "system.booster"
+        },
+        {
+          "chainId": 1,
+          "address": "0x8014595F2AB54cD7c604B00E9fb932176fDc86Ae",
+          "name": "CrvDepositor",
+          "label": "CRV Depositor",
+          "role": "Convert CRV into cvxCRV",
+          "source": "https://raw.githubusercontent.com/convex-eth/platform/4f22038387ca4ce014dec3d7f5781a8e28051c13/contracts/contracts.json",
+          "sourceKind": "raw",
+          "sourceNote": "system.crvDepositor"
+        },
+        {
+          "chainId": 1,
+          "address": "0xaa0C3f5F7DFD688C6E646F66CD2a6B66ACdbE434",
+          "name": "CvxCrvStakingWrapper",
+          "label": "Staked cvxCRV (stkcvxCRV)",
+          "role": "Stake cvxCRV and pick the reward weighting",
+          "source": "https://raw.githubusercontent.com/convex-eth/platform/4f22038387ca4ce014dec3d7f5781a8e28051c13/contracts/contracts.json",
+          "sourceKind": "raw",
+          "sourceNote": "system.cvxCrvWrappedStaking"
+        },
+        {
+          "chainId": 1,
+          "address": "0x72a19342e8F1838460eBFCCEf09F6585e32db86E",
+          "name": "CvxLockerV2",
+          "label": "vlCVX Locker",
+          "role": "Lock CVX as vlCVX and process expired locks",
+          "source": "https://raw.githubusercontent.com/convex-eth/platform/4f22038387ca4ce014dec3d7f5781a8e28051c13/contracts/contracts.json",
+          "sourceKind": "raw",
+          "sourceNote": "system.locker"
+        },
+        {
+          "chainId": 1,
+          "address": "0xCF50b810E57Ac33B91dCF525C6ddd9881B139332",
+          "name": "CvxRewardPool",
+          "label": "CVX Staking",
+          "role": "Stake CVX for cvxCRV rewards",
+          "source": "https://raw.githubusercontent.com/convex-eth/platform/4f22038387ca4ce014dec3d7f5781a8e28051c13/contracts/contracts.json",
+          "sourceKind": "raw",
+          "sourceNote": "system.cvxRewards"
+        },
+        {
+          "chainId": 1,
+          "address": "0x3f29cB4111CbdA8081642DA1f75B3c12DECf2516",
+          "name": "ClaimZap",
+          "label": "Claim Zap",
+          "role": "Claim rewards from many Convex pools in one transaction",
+          "source": "https://raw.githubusercontent.com/convex-eth/platform/4f22038387ca4ce014dec3d7f5781a8e28051c13/contracts/contracts.json",
+          "sourceKind": "raw",
+          "sourceNote": "system.claimZap"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xF403C135812408BFbE8713b5A23a04b3D48AAE31",
+          "name": "Booster",
+          "label": "Booster (Arbitrum)",
+          "role": "Deposit Curve LP tokens on Arbitrum and stake them; withdraw",
+          "source": "https://raw.githubusercontent.com/convex-eth/sidechain-platform/72ef3da1e27d2fd515368bbfbfd364e80e40fb04/contracts/contracts.json",
+          "sourceKind": "raw",
+          "sourceNote": "Arbitrum booster in Convex's sidechain-platform contracts.json"
+        }
+      ]
+    },
+    {
+      "protocol": "aura",
+      "name": "Aura Finance",
+      "category": "yield",
+      "website": "https://aura.finance",
+      "defillama": "aura",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xA57b8d98dAE62B26Ec3bcC4a365338157060B234",
+          "name": "Booster",
+          "label": "Booster",
+          "role": "Deposit Balancer BPT and stake it; withdraw",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/deployments/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "booster"
+        },
+        {
+          "chainId": 1,
+          "address": "0xB188b1CB84Fb0bA13cb9ee1292769F903A9feC59",
+          "name": "RewardPoolDepositWrapper",
+          "label": "Reward Pool Deposit Wrapper",
+          "role": "Join a Balancer pool with one token and stake in Aura in one transaction",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/deployments/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "rewardPoolDepositWrapper"
+        },
+        {
+          "chainId": 1,
+          "address": "0x3Fa73f1E5d8A792C80F426fc8F84FBF7Ce9bBCAC",
+          "name": "AuraLocker",
+          "label": "vlAURA Locker",
+          "role": "Lock AURA as vlAURA and process expired locks",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/deployments/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "auraLocker (vlAURA)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x68655AD9852a99C87C0934c7290BB62CFa5D4123",
+          "name": "CrvDepositorWrapper",
+          "label": "auraBAL Depositor Wrapper",
+          "role": "Convert BAL into auraBAL",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/deployments/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "crvDepositorWrapper"
+        },
+        {
+          "chainId": 1,
+          "address": "0xfAA2eD111B4F580fCb85C48E6DC6782Dc5FCD7a6",
+          "name": "AuraBalVault",
+          "label": "Staked auraBAL vault",
+          "role": "Deposit auraBAL into the auto-compounding vault and withdraw",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/deployments/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "auraBalVault"
+        },
+        {
+          "chainId": 1,
+          "address": "0x1Bc4d50d8785587f0d44f4296408e20f592Ae347",
+          "name": "AuraClaimZapV4",
+          "label": "Claim Zap",
+          "role": "Claim and optionally relock or restake rewards in one transaction",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/deployments/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "auraClaimZapV4"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x98Ef32edd24e2c92525E59afc4475C1242a30184",
+          "name": "BoosterLite",
+          "label": "Booster Lite (Arbitrum)",
+          "role": "Deposit Balancer BPT on Arbitrum and stake it; withdraw",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/tasks/deploy/arbitrum-config.ts",
+          "sourceKind": "raw",
+          "sourceNote": "booster in the Arbitrum sidechain config; also listed as BOOSTER_LITE in Stake DAO's address book"
+        },
+        {
+          "chainId": 10,
+          "address": "0x98Ef32edd24e2c92525E59afc4475C1242a30184",
+          "name": "BoosterLite",
+          "label": "Booster Lite (OP Mainnet)",
+          "role": "Deposit Balancer BPT on OP Mainnet and stake it; withdraw",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/tasks/deploy/optimism-config.ts",
+          "sourceKind": "raw",
+          "sourceNote": "booster in the Optimism sidechain config"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x98Ef32edd24e2c92525E59afc4475C1242a30184",
+          "name": "BoosterLite",
+          "label": "Booster Lite (Base)",
+          "role": "Deposit Balancer BPT on Base and stake it; withdraw",
+          "source": "https://raw.githubusercontent.com/aurafinance/aura-contracts/36599d53946aab701e2a1757e164261f49529399/tasks/deploy/base-config.ts",
+          "sourceKind": "raw",
+          "sourceNote": "booster in the Base sidechain config"
+        }
+      ]
+    },
+    {
+      "protocol": "beefy",
+      "name": "Beefy",
+      "category": "yield",
+      "website": "https://beefy.com",
+      "defillama": "beefy",
+      "notes": "Plain vault deposits go to thousands of per-vault contracts; only the zap router, used for single-token entry and exit, is listed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x5Cc9400FfB4Da168Cf271e912F589462C3A00d1F",
+          "name": "BeefyZapRouter",
+          "label": "Zap Router",
+          "role": "Zap any token into or out of a Beefy vault in one transaction",
+          "source": "https://raw.githubusercontent.com/beefyfinance/beefy-api/7f6a244db1f8c88640c19a7423394de7fb51cd31/packages/address-book/src/address-book/ethereum/platforms/beefyfinance.ts",
+          "sourceKind": "raw",
+          "sourceNote": "address-book key 'zap' (with 'zapTokenManager'); contract name not checked on an explorer"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x6F19Da51d488926C007B9eBaa5968291a2eC6a63",
+          "name": "BeefyZapRouter",
+          "label": "Zap Router",
+          "role": "Zap any token into or out of a Beefy vault in one transaction",
+          "source": "https://raw.githubusercontent.com/beefyfinance/beefy-api/7f6a244db1f8c88640c19a7423394de7fb51cd31/packages/address-book/src/address-book/base/platforms/beefyfinance.ts",
+          "sourceKind": "raw",
+          "sourceNote": "address-book key 'zap'"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xf49F7bB6F4F50d272A0914a671895c4384696E5A",
+          "name": "BeefyZapRouter",
+          "label": "Zap Router",
+          "role": "Zap any token into or out of a Beefy vault in one transaction",
+          "source": "https://raw.githubusercontent.com/beefyfinance/beefy-api/7f6a244db1f8c88640c19a7423394de7fb51cd31/packages/address-book/src/address-book/arbitrum/platforms/beefyfinance.ts",
+          "sourceKind": "raw",
+          "sourceNote": "address-book key 'zap'"
+        },
+        {
+          "chainId": 10,
+          "address": "0xE82343A116d2179F197111D92f9B53611B43C01c",
+          "name": "BeefyZapRouter",
+          "label": "Zap Router",
+          "role": "Zap any token into or out of a Beefy vault in one transaction",
+          "source": "https://raw.githubusercontent.com/beefyfinance/beefy-api/7f6a244db1f8c88640c19a7423394de7fb51cd31/packages/address-book/src/address-book/optimism/platforms/beefyfinance.ts",
+          "sourceKind": "raw",
+          "sourceNote": "address-book key 'zap'"
+        }
+      ]
+    },
+    {
+      "protocol": "gearbox",
+      "name": "Gearbox Protocol",
+      "category": "lending",
+      "website": "https://gearbox.fi",
+      "defillama": "gearbox",
+      "notes": "Passive lending pools (PoolV3, ERC-4626) from Gearbox's sdk-gov token list. Credit facades are per credit manager and are left out. Newer permissionless (v3.1) curated pools are not covered by this source.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xda00000035fef4082F78dEF6A8903bee419FbF8E",
+          "name": "PoolV3",
+          "label": "USDC pool (dUSDCV3)",
+          "role": "Deposit USDC to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet dUSDCV3"
+        },
+        {
+          "chainId": 1,
+          "address": "0xda0002859B2d05F66a753d8241fCDE8623f26F4f",
+          "name": "PoolV3",
+          "label": "WETH pool (dWETHV3)",
+          "role": "Deposit WETH to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet dWETHV3"
+        },
+        {
+          "chainId": 1,
+          "address": "0x05A811275fE9b4DE503B3311F51edF6A856D936e",
+          "name": "PoolV3",
+          "label": "USDT pool (dUSDTV3)",
+          "role": "Deposit USDT to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet dUSDTV3"
+        },
+        {
+          "chainId": 1,
+          "address": "0xda00010eDA646913F273E10E7A5d1F659242757d",
+          "name": "PoolV3",
+          "label": "WBTC pool (dWBTCV3)",
+          "role": "Deposit WBTC to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet dWBTCV3"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4d56c9cBa373AD39dF69Eb18F076b7348000AE09",
+          "name": "PoolV3",
+          "label": "GHO pool (dGHOV3)",
+          "role": "Deposit GHO to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Mainnet dGHOV3"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x890A69EF363C9c7BdD5E36eb95Ceb569F63ACbF6",
+          "name": "PoolV3",
+          "label": "USDC pool (dUSDCV3)",
+          "role": "Deposit USDC to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Arbitrum dUSDCV3"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x04419d3509f13054f60d253E0c79491d9E683399",
+          "name": "PoolV3",
+          "label": "WETH pool (dWETHV3)",
+          "role": "Deposit WETH to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Arbitrum dWETHV3"
+        },
+        {
+          "chainId": 10,
+          "address": "0xa210BB193Ca352Fa81fBd0e81Cb800580b0762eE",
+          "name": "PoolV3",
+          "label": "USDC pool (dUSDCV3)",
+          "role": "Deposit USDC to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Optimism dUSDCV3"
+        },
+        {
+          "chainId": 10,
+          "address": "0x42dB77B3103c71059F4b997d6441cFB299FD0d94",
+          "name": "PoolV3",
+          "label": "WETH pool (dWETHV3)",
+          "role": "Deposit WETH to earn lending yield, withdraw",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Optimism dWETHV3"
+        }
+      ]
+    },
+    {
+      "protocol": "stake-dao",
+      "name": "Stake DAO",
+      "category": "yield",
+      "website": "https://www.stakedao.org",
+      "notes": "Addresses from Stake DAO's offchain-registry address book (data updated 2026-10-23), the source its docs page cites. Names are address-book keys.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xa50CB9dFFcc740EE6b6f2D4B3CBc3a876b28c335",
+          "name": "CRV Depositor",
+          "label": "sdCRV Depositor",
+          "role": "Convert CRV into sdCRV (and optionally stake it)",
+          "source": "https://raw.githubusercontent.com/stake-dao/offchain-registry/4213ad0455a78cfa36c326ae3c48f0bd37568b05/data/address-book/address-book.json",
+          "sourceKind": "raw",
+          "sourceNote": "protocols.curve, chain 1, locker DEPOSITOR (replaces 0x88C88Aa6a9cedc2aff9b4cA6820292F39cc64026 of the 2024 address book)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x7f50786A0b15723D741727882ee99a0BF34e3466",
+          "name": "sdCRV Gauge",
+          "label": "sdCRV Gauge",
+          "role": "Stake sdCRV and claim rewards",
+          "source": "https://raw.githubusercontent.com/stake-dao/offchain-registry/4213ad0455a78cfa36c326ae3c48f0bd37568b05/data/address-book/address-book.json",
+          "sourceKind": "raw",
+          "sourceNote": "protocols.curve, chain 1, locker GAUGE"
+        },
+        {
+          "chainId": 1,
+          "address": "0x7F5c485D24fB1832A14f122C8722ef15C158Acb5",
+          "name": "PENDLE Depositor",
+          "label": "sdPENDLE Depositor",
+          "role": "Convert PENDLE into sdPENDLE (and optionally stake it)",
+          "source": "https://raw.githubusercontent.com/stake-dao/offchain-registry/4213ad0455a78cfa36c326ae3c48f0bd37568b05/data/address-book/address-book.json",
+          "sourceKind": "raw",
+          "sourceNote": "protocols.pendle, chain 1, locker DEPOSITOR"
+        },
+        {
+          "chainId": 1,
+          "address": "0x50DC9aE51f78C593d4138263da7088A973b8184E",
+          "name": "sdPENDLE Gauge",
+          "label": "sdPENDLE Gauge",
+          "role": "Stake sdPENDLE and claim rewards",
+          "source": "https://raw.githubusercontent.com/stake-dao/offchain-registry/4213ad0455a78cfa36c326ae3c48f0bd37568b05/data/address-book/address-book.json",
+          "sourceKind": "raw",
+          "sourceNote": "protocols.pendle, chain 1, locker GAUGE"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0f542fA75c871EB1b93Ef881b73e46acF733392f",
+          "name": "STAKEDAO_ROUTER",
+          "label": "Stake DAO Router",
+          "role": "Deposit into, withdraw from and claim Stake DAO reward vaults (module-based router)",
+          "source": "https://raw.githubusercontent.com/stake-dao/offchain-registry/4213ad0455a78cfa36c326ae3c48f0bd37568b05/data/address-book/address-book.json",
+          "sourceKind": "raw",
+          "sourceNote": "protocols.sd, chain 1, router STAKEDAO_ROUTER"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0f542fA75c871EB1b93Ef881b73e46acF733392f",
+          "name": "STAKEDAO_ROUTER",
+          "label": "Stake DAO Router",
+          "role": "Deposit into, withdraw from and claim Stake DAO reward vaults (module-based router)",
+          "source": "https://raw.githubusercontent.com/stake-dao/offchain-registry/4213ad0455a78cfa36c326ae3c48f0bd37568b05/data/address-book/address-book.json",
+          "sourceKind": "raw",
+          "sourceNote": "protocols.sd, chain 42161, router STAKEDAO_ROUTER"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x0f542fA75c871EB1b93Ef881b73e46acF733392f",
+          "name": "STAKEDAO_ROUTER",
+          "label": "Stake DAO Router",
+          "role": "Deposit into, withdraw from and claim Stake DAO reward vaults (module-based router)",
+          "source": "https://raw.githubusercontent.com/stake-dao/offchain-registry/4213ad0455a78cfa36c326ae3c48f0bd37568b05/data/address-book/address-book.json",
+          "sourceKind": "raw",
+          "sourceNote": "protocols.sd, chain 8453, router STAKEDAO_ROUTER"
+        },
+        {
+          "chainId": 10,
+          "address": "0x0f542fA75c871EB1b93Ef881b73e46acF733392f",
+          "name": "STAKEDAO_ROUTER",
+          "label": "Stake DAO Router",
+          "role": "Deposit into, withdraw from and claim Stake DAO reward vaults (module-based router)",
+          "source": "https://raw.githubusercontent.com/stake-dao/offchain-registry/4213ad0455a78cfa36c326ae3c48f0bd37568b05/data/address-book/address-book.json",
+          "sourceKind": "raw",
+          "sourceNote": "protocols.sd, chain 10, router STAKEDAO_ROUTER"
+        }
+      ]
+    },
+    {
+      "protocol": "lombard",
+      "name": "Lombard",
+      "category": "liquid-staking",
+      "website": "https://www.lombard.finance",
+      "notes": "Babylon-staked BTC. LBTC itself is the entry point: mint with a notarized BTC deposit proof, redeem back to BTC.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x8236a87084f8B84306f72007F36F2618A5634494",
+          "name": "StakedLBTC",
+          "label": "LBTC",
+          "role": "Mint LBTC from a notarized BTC deposit and redeem LBTC to BTC",
+          "source": "https://raw.githubusercontent.com/lombard-finance/evm-smart-contracts/7fe83e56f2265c0c281747c8dd3bb141d3022c46/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "mainnet.lombard.StakedLBTC; also in registry/lombard/calldata-lbtc-mainnet.json"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xecAc9C5F704e954931349Da37F60E39f515c11c1",
+          "name": "StakedLBTC",
+          "label": "LBTC on Base",
+          "role": "Mint LBTC on Base from a notarized BTC deposit and redeem LBTC to BTC",
+          "source": "https://raw.githubusercontent.com/lombard-finance/evm-smart-contracts/7fe83e56f2265c0c281747c8dd3bb141d3022c46/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "base.lombard.StakedLBTC (chainId 0x2105)"
+        }
+      ]
+    },
+    {
+      "protocol": "solv",
+      "name": "Solv Protocol",
+      "category": "yield",
+      "website": "https://solv.finance",
+      "notes": "SolvBTC and its yield tokens (BTC+ included) are minted and redeemed through SolvBTCRouterV2.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x3d93B9e8F0886358570646dAd9421564C5fE6334",
+          "name": "SolvBTCRouterV2",
+          "label": "SolvBTC Router V2",
+          "role": "Deposit BTC assets to mint SolvBTC or its yield tokens; request and cancel withdrawals",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/solv-finance/SolvBTC/c371d219a90c5f03c9c9330035bb411245e65857/deployments/mainnet/SolvBTCRouterV2Proxy.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy record SolvBTCRouterV2Proxy (deployments/mainnet, .chainId 1)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x92E8A4407FD1ae7a53a32f1f832184edF071080A",
+          "name": "SolvBTCRouterV2",
+          "label": "SolvBTC Router V2",
+          "role": "Deposit BTC assets to mint SolvBTC or its yield tokens; request and cancel withdrawals",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/solv-finance/SolvBTC/c371d219a90c5f03c9c9330035bb411245e65857/deployments/arb/SolvBTCRouterV2Proxy.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy record SolvBTCRouterV2Proxy (deployments/arb, .chainId 42161)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xcf871588203aF2A70E8513db43D785023f5E8aA1",
+          "name": "SolvBTCRouterV2",
+          "label": "SolvBTC Router V2",
+          "role": "Deposit BTC assets to mint SolvBTC or its yield tokens; request and cancel withdrawals",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/solv-finance/SolvBTC/c371d219a90c5f03c9c9330035bb411245e65857/deployments/base/SolvBTCRouterV2Proxy.json",
+          "sourceKind": "raw",
+          "sourceNote": "hardhat-deploy record SolvBTCRouterV2Proxy (deployments/base, .chainId 8453)"
+        }
+      ]
+    },
+    {
+      "protocol": "bedrock",
+      "name": "Bedrock (uniBTC)",
+      "category": "restaking",
+      "website": "https://www.bedrock.technology",
+      "notes": "Babylon-related BTC vault. Only Ethereum listed; usage on Base, Arbitrum and OP Mainnet (where the registry also lists vaults) was not checked.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x047D41F2544B7F63A8e991aF2068a363d210d6Da",
+          "name": "Vault",
+          "label": "uniBTC Vault (wrapped BTC)",
+          "role": "Deposit wrapped BTC to mint uniBTC",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/bedrock/calldata-vaultWithoutNative.json",
+          "sourceKind": "registry",
+          "sourceNote": "Registry contractName 'Bedrock uniBTC Vault(Wrapped BTC)'; usage not verified"
+        }
+      ]
+    }
+  ]
+}
