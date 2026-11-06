@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x1005217ad392DC64CEf501FA1777A27D42166748",
+    "functions": 37,
+    "name": "OptimismPortal2",
+    "source": "sourcify"
+  },
+  "address": "0xbEb5Fc579115071764c7423A4f12eDde41f106Ed",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x1005217ad392DC64CEf501FA1777A27D42166748",
+        "name": "OptimismPortal2"
+      }
+    ],
+    "isContract": true,
+    "name": "Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2055,
+  "fetchedAt": "2026-11-06T21:49:18.052Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xbEb5Fc579115071764c7423A4f12eDde41f106Ed&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x1005217ad392DC64CEf501FA1777A27D42166748",
+          "name": "OptimismPortal2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

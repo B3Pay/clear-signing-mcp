@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x38B0C12AB81976e9417D4ebfe2A34DB6DF22e6AD",
+    "functions": 9,
+    "name": "BlueBundlesV1",
+    "source": "sourcify"
+  },
+  "address": "0x38B0C12AB81976e9417D4ebfe2A34DB6DF22e6AD",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "BlueBundlesV1",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 18095,
+  "fetchedAt": "2026-11-06T21:51:19.645Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x38B0C12AB81976e9417D4ebfe2A34DB6DF22e6AD&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "BlueBundlesV1",
+    "status": "verified"
+  }
+}

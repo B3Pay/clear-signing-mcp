@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x5c3b380e5Aeec389d1014Da3Eb372FA2C9e0fc76",
+    "functions": 19,
+    "name": "MaverickV2Router",
+    "source": "sourcify"
+  },
+  "address": "0x5c3b380e5Aeec389d1014Da3Eb372FA2C9e0fc76",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x5c3b380e5Aeec389d1014Da3Eb372FA2C9e0fc76",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 9985,
+  "fetchedAt": "2026-11-06T21:55:49.544Z",
+  "format": 2,
+  "sample": {
+    "count": 5,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 3,
+    "newest": 1792589049,
+    "oldest": 1791251580,
+    "perDay": 0.1,
+    "requested": 1000,
+    "selectors": {
+      "0xa4af5a7f": 4,
+      "0xac9650d8": 1
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0xa4af5a7f": 3,
+      "0xac9650d8": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MaverickV2Router",
+    "status": "verified"
+  }
+}

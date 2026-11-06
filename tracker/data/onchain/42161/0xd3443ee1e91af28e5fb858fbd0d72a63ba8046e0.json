@@ -1,0 +1,74 @@
+{
+  "abi": {
+    "address": "0xeb754588efF264793bb80Be65866D11Bc8d6CBdD",
+    "functions": 110,
+    "name": "GToken",
+    "source": "sourcify"
+  },
+  "address": "0xd3443ee1e91aF28e5FB858Fbd0D72A63bA8046E0",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xd3443ee1e91aF28e5FB858Fbd0D72A63bA8046E0",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T21:55:52.020Z",
+  "format": 2,
+  "sample": {
+    "count": 217,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 2,
+    "last30Days": 190,
+    "newest": 1793985997,
+    "oldest": 1791100964,
+    "perDay": 6.333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x": 1,
+      "0x0344e8a3": 10,
+      "0x095ea7b3": 9,
+      "0x0dfb5287": 17,
+      "0x6e553f65": 19,
+      "0x94bf804d": 1,
+      "0xa50043a0": 11,
+      "0xa8abe905": 83,
+      "0xa9059cbb": 2,
+      "0xba087652": 51,
+      "0xca9d07ba": 8,
+      "0xe8e43110": 5
+    },
+    "senders": 85,
+    "sendersBySelector": {
+      "0x": 1,
+      "0x0344e8a3": 8,
+      "0x095ea7b3": 8,
+      "0x0dfb5287": 1,
+      "0x6e553f65": 10,
+      "0x94bf804d": 1,
+      "0xa50043a0": 4,
+      "0xa8abe905": 53,
+      "0xa9059cbb": 2,
+      "0xba087652": 40,
+      "0xca9d07ba": 2,
+      "0xe8e43110": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xeb754588efF264793bb80Be65866D11Bc8d6CBdD",
+          "name": "GToken"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

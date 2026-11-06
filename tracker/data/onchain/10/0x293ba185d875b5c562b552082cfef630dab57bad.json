@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x293Ba185d875B5c562B552082cfef630dab57baD",
+    "functions": 2,
+    "name": "LpMigrator",
+    "source": "sourcify"
+  },
+  "address": "0x293Ba185d875B5c562B552082cfef630dab57baD",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "LpMigrator",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 5906,
+  "fetchedAt": "2026-11-06T21:50:15.901Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x293Ba185d875B5c562B552082cfef630dab57baD&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "LpMigrator",
+    "status": "verified"
+  }
+}

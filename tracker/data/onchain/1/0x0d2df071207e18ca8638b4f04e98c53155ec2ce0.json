@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x0D2dF071207E18Ca8638b4f04E98c53155eC2cE0",
+    "functions": 24,
+    "name": "BoringOnChainQueue",
+    "source": "sourcify"
+  },
+  "address": "0x0D2dF071207E18Ca8638b4f04E98c53155eC2cE0",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "BoringOnChainQueue",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 10778,
+  "fetchedAt": "2026-11-06T21:52:54.629Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x0D2dF071207E18Ca8638b4f04E98c53155eC2cE0&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BoringOnChainQueue",
+    "status": "verified"
+  }
+}

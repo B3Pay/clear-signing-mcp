@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+    "functions": 28,
+    "name": "Morpho",
+    "source": "sourcify"
+  },
+  "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Morpho",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 15623,
+  "fetchedAt": "2026-11-06T21:51:19.177Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Morpho",
+    "status": "verified"
+  }
+}

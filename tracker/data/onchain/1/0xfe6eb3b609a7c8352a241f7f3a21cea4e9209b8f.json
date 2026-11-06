@@ -1,0 +1,31 @@
+{
+  "abi": {
+    "address": "0x1b992302652A92611DCd5090D1Cb388C6377f455",
+    "functions": 66,
+    "name": "SparkVault",
+    "source": "sourcify"
+  },
+  "address": "0xfE6eb3b609a7C8352A241f7F3A21CEA4e9209B8f",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x1b992302652A92611DCd5090D1Cb388C6377f455",
+        "name": "SparkVault"
+      }
+    ],
+    "isContract": true,
+    "name": "ERC1967Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 163,
+  "fetchedAt": "2026-11-06T21:50:51.983Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xfE6eb3b609a7C8352A241f7F3A21CEA4e9209B8f&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

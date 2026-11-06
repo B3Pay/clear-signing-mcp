@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xe2fa4e1d17725e72dcdAfe943Ecf45dF4B9E285b",
+    "functions": 39,
+    "name": "Router",
+    "source": "sourcify"
+  },
+  "address": "0xe2fa4e1d17725e72dcdAfe943Ecf45dF4B9E285b",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Router",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 22402,
+  "fetchedAt": "2026-11-06T21:50:33.935Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xe2fa4e1d17725e72dcdAfe943Ecf45dF4B9E285b&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Router",
+    "status": "verified"
+  }
+}

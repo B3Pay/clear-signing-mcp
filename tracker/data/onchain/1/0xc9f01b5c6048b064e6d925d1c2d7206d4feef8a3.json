@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+    "functions": 103,
+    "name": "TokenizedStrategy",
+    "source": "sourcify"
+  },
+  "address": "0xc9f01b5c6048B064E6d925d1c2d7206d4fEeF8a3",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+        "name": "TokenizedStrategy"
+      }
+    ],
+    "isContract": true,
+    "name": "SparkCompounder",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 9085,
+  "fetchedAt": "2026-11-06T21:53:26.506Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xc9f01b5c6048B064E6d925d1c2d7206d4fEeF8a3&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SparkCompounder",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+          "name": "TokenizedStrategy"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

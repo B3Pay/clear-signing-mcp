@@ -14,15 +14,35 @@
     "name": "Wrapped 0G",
     "symbol": "W0G"
   },
+  "0x291088312150482826b3a37d5a69a4c54daa9118": {
+    "decimals": 18,
+    "name": "rsETH",
+    "symbol": "rsETH"
+  },
   "0x311935cd80b76769bf2ecc9d8ab7635b2139cf82": {
     "decimals": 9,
     "name": "Solana",
     "symbol": "SOL"
   },
+  "0x3128a0f7f0ea68e7b7c9b00afa7e41045828e858": {
+    "decimals": 18,
+    "name": "Spark USDC Vault",
+    "symbol": "sUSDC"
+  },
   "0x4200000000000000000000000000000000000006": {
     "decimals": 18,
     "name": "Wrapped Ether",
     "symbol": "WETH"
+  },
+  "0x46e6b214b524310239732d51387075e0e70970bf": {
+    "decimals": 18,
+    "name": "Compound WETH",
+    "symbol": "cWETHv3"
+  },
+  "0x628ff693426583d9a7fb391e54366292f509d457": {
+    "decimals": 8,
+    "name": "Moonwell WETH",
+    "symbol": "mWETH"
   },
   "0x752c5a95d202972e124390f30a50154409d3c858": {
     "decimals": 18,
@@ -38,6 +58,11 @@
     "decimals": 18,
     "name": "Wrapped PROS",
     "symbol": "PROS"
+  },
+  "0x9272d6153133175175bc276512b2336be3931ce9": {
+    "decimals": 18,
+    "name": "Fluid Wrapped Ether",
+    "symbol": "fWETH"
   },
   "0x940181a94a35a4569e4529a3cdfb74e38fd98631": {
     "decimals": 18,
@@ -79,6 +104,16 @@
     "name": "Venice Token",
     "symbol": "VVV"
   },
+  "0xad20523a7dc37babc1cc74897e4977232b3d02e5": {
+    "decimals": 6,
+    "name": "Gains Network USDC",
+    "symbol": "gUSDC"
+  },
+  "0xb125e6687d4313864e53df431d5425969c15eb2f": {
+    "decimals": 6,
+    "name": "Compound USDC",
+    "symbol": "cUSDCv3"
+  },
   "0xb200000000000000000000397293cb8cda9a10c5": {
     "decimals": 8,
     "name": "Sandisk Corporation",
@@ -99,10 +134,55 @@
     "name": "Kinetiq Governance Token",
     "symbol": "KNTQ"
   },
+  "0xbeef0e0834849acc03f0089f01f4f1eeb06873c9": {
+    "decimals": 18,
+    "name": "Steakhouse Prime USDC",
+    "symbol": "steakUSDC"
+  },
+  "0xbeefe94c8ad530842bfe7d8b397938ffc1cb83b2": {
+    "decimals": 18,
+    "name": "Steakhouse Prime USDC",
+    "symbol": "steakUSDC"
+  },
   "0xe2ef6ea8cb5ef092f068416ff8f9727eb2586ec9": {
     "decimals": 18,
     "name": "Mordiem",
     "symbol": "MDM"
+  },
+  "0xe66e3a37c3274ac24fe8590f7d84a2427194dc17": {
+    "decimals": 18,
+    "name": "Staked WELL",
+    "symbol": "stkWELL"
+  },
+  "0xebf418fe2512e7e6bd9b87a8f0f294acdc67e6b4": {
+    "decimals": 18,
+    "name": "veNFT",
+    "symbol": "veNFT"
+  },
+  "0xecac9c5f704e954931349da37f60e39f515c11c1": {
+    "decimals": 8,
+    "name": "Lombard BTC",
+    "symbol": "LBTC"
+  },
+  "0xedc817a28e8b93b03976fbd4a3ddbc9f7d176c22": {
+    "decimals": 8,
+    "name": "Moonwell USDC",
+    "symbol": "mUSDC"
+  },
+  "0xee8f4ec5672f09119b96ab6fb59c27e1b7e44b61": {
+    "decimals": 18,
+    "name": "Gauntlet USDC Prime",
+    "symbol": "gtUSDCp"
+  },
+  "0xf42f5795d9ac7e9d757db633d693cd548cfd9169": {
+    "decimals": 6,
+    "name": "Fluid USD Coin",
+    "symbol": "fUSDC"
+  },
+  "0xf877acafa28c19b96727966690b2f44d35ad5976": {
+    "decimals": 8,
+    "name": "Moonwell cbBTC",
+    "symbol": "mcbBTC"
   },
   "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2": {
     "decimals": 6,

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xCe01C90dE7FD1bcFa39e237FE6D8D9F569e8A6a3",
+    "functions": 41,
+    "name": "LockstakeEngine",
+    "source": "sourcify"
+  },
+  "address": "0xCe01C90dE7FD1bcFa39e237FE6D8D9F569e8A6a3",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "LockstakeEngine",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 15134,
+  "fetchedAt": "2026-11-06T21:51:04.009Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xCe01C90dE7FD1bcFa39e237FE6D8D9F569e8A6a3&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "LockstakeEngine",
+    "status": "verified"
+  }
+}

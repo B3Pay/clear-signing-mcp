@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+    "functions": 5,
+    "name": "SafeProxyFactory",
+    "source": "sourcify"
+  },
+  "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "SafeProxyFactory",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 3054,
+  "fetchedAt": "2026-11-06T21:52:23.796Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SafeProxyFactory",
+    "status": "verified"
+  }
+}

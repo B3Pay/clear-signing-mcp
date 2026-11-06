@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xA188EEC8F81263234dA3622A406892F3D630f98c",
+    "functions": 19,
+    "name": "UsdsPsmWrapper",
+    "source": "sourcify"
+  },
+  "address": "0xA188EEC8F81263234dA3622A406892F3D630f98c",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "UsdsPsmWrapper",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2972,
+  "fetchedAt": "2026-11-06T21:51:04.401Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xA188EEC8F81263234dA3622A406892F3D630f98c&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UsdsPsmWrapper",
+    "status": "verified"
+  }
+}

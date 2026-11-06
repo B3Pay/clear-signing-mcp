@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x00000000Fc25870C6eD6b6c7E41Fb078b7656f69",
+    "functions": 27,
+    "name": "IdGateway",
+    "source": "sourcify"
+  },
+  "address": "0x00000000Fc25870C6eD6b6c7E41Fb078b7656f69",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "IdGateway",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 7467,
+  "fetchedAt": "2026-11-06T21:52:10.469Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x00000000Fc25870C6eD6b6c7E41Fb078b7656f69&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "IdGateway",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xAC4c6e212A361c968F1725b4d055b47E63F80b75",
+    "functions": 3,
+    "name": "RedSnwapper",
+    "source": "sourcify"
+  },
+  "address": "0xAC4c6e212A361c968F1725b4d055b47E63F80b75",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "RedSnwapper",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 4978,
+  "fetchedAt": "2026-11-06T21:50:34.461Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xAC4c6e212A361c968F1725b4d055b47E63F80b75&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RedSnwapper",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+    "functions": 14,
+    "name": "MayanForwarder2",
+    "source": "sourcify"
+  },
+  "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 8840,
+  "fetchedAt": "2026-11-06T22:08:56.412Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MayanForwarder2",
+    "status": "verified"
+  }
+}

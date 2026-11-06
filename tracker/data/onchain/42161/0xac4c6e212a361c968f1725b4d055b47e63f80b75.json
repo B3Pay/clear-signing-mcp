@@ -1,0 +1,41 @@
+{
+  "abi": {
+    "address": "0xAC4c6e212A361c968F1725b4d055b47E63F80b75",
+    "functions": 3,
+    "name": "RedSnwapper",
+    "source": "sourcify"
+  },
+  "address": "0xAC4c6e212A361c968F1725b4d055b47E63F80b75",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xAC4c6e212A361c968F1725b4d055b47E63F80b75",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 4978,
+  "fetchedAt": "2026-11-06T21:55:49.243Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 23,
+    "last30Days": 1000,
+    "newest": 1793998270,
+    "oldest": 1793617635,
+    "perDay": 226.98911030252077,
+    "requested": 1000,
+    "selectors": {
+      "0x5f3bd1c8": 470,
+      "0xd33721a5": 530
+    },
+    "senders": 407,
+    "sendersBySelector": {
+      "0x5f3bd1c8": 261,
+      "0xd33721a5": 164
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RedSnwapper",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x17A16747D03006c9754548AC0d0afF48783A4a45",
+    "functions": 68,
+    "name": "LiquidityPool",
+    "source": "sourcify"
+  },
+  "address": "0x308861A430be4cce5502d0A12724771Fc6DaF216",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x17A16747D03006c9754548AC0d0afF48783A4a45",
+        "name": "LiquidityPool"
+      }
+    ],
+    "isContract": true,
+    "name": "UUPSProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 845,
+  "fetchedAt": "2026-11-06T21:52:42.183Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x308861A430be4cce5502d0A12724771Fc6DaF216&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x17A16747D03006c9754548AC0d0afF48783A4a45",
+          "name": "LiquidityPool"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

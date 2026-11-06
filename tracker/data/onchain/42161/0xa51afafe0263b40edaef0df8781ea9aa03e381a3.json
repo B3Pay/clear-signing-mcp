@@ -1,0 +1,41 @@
+{
+  "abi": {
+    "address": "0xA51afAFe0263b40EdaEf0Df8781eA9aa03E381a3",
+    "functions": 8,
+    "name": "UniversalRouter",
+    "source": "sourcify"
+  },
+  "address": "0xA51afAFe0263b40EdaEf0Df8781eA9aa03E381a3",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xA51afAFe0263b40EdaEf0Df8781eA9aa03E381a3",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 19499,
+  "fetchedAt": "2026-11-06T21:55:47.999Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 10,
+    "last30Days": 1000,
+    "newest": 1794000192,
+    "oldest": 1793907910,
+    "perDay": 936.260592531588,
+    "requested": 1000,
+    "selectors": {
+      "0x24856bc3": 16,
+      "0x3593564c": 984
+    },
+    "senders": 54,
+    "sendersBySelector": {
+      "0x24856bc3": 2,
+      "0x3593564c": 52
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "UniversalRouter",
+    "status": "verified"
+  }
+}

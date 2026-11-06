@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+    "functions": 5,
+    "name": "SafeProxyFactory",
+    "source": "sourcify"
+  },
+  "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 3054,
+  "fetchedAt": "2026-11-06T21:55:51.851Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1793998888,
+    "oldest": 1792028207,
+    "perDay": 43.84271224008351,
+    "requested": 1000,
+    "selectors": {
+      "0x1688f0b9": 1000
+    },
+    "senders": 143,
+    "sendersBySelector": {
+      "0x1688f0b9": 143
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SafeProxyFactory",
+    "status": "verified"
+  }
+}

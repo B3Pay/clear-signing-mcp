@@ -1,0 +1,62 @@
+{
+  "abi": {
+    "address": "0xdC8DF20bE448E41FdE88E2478d6Bc4d3C9A092d6",
+    "functions": 48,
+    "name": "UsdcVaultL2",
+    "source": "sourcify"
+  },
+  "address": "0x940098b108fB7D0a7E374f6eDED7760787464609",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x940098b108fB7D0a7E374f6eDED7760787464609",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 163,
+  "fetchedAt": "2026-11-06T21:55:50.542Z",
+  "format": 2,
+  "sample": {
+    "count": 316,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 273,
+    "newest": 1793991923,
+    "oldest": 1791094995,
+    "perDay": 9.1,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 14,
+      "0x0c71b121": 74,
+      "0x9f40a7b3": 101,
+      "0xa318c1a4": 109,
+      "0xa9059cbb": 6,
+      "0xba087652": 12
+    },
+    "senders": 150,
+    "sendersBySelector": {
+      "0x095ea7b3": 10,
+      "0x0c71b121": 40,
+      "0x9f40a7b3": 76,
+      "0xa318c1a4": 49,
+      "0xa9059cbb": 5,
+      "0xba087652": 12
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xdC8DF20bE448E41FdE88E2478d6Bc4d3C9A092d6",
+          "name": "UsdcVaultL2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

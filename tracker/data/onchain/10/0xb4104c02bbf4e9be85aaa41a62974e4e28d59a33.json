@@ -1,0 +1,33 @@
+{
+  "abi": {
+    "address": "0x65299Eb6a77ee1b1a7eF7051cce71005b2A707aB",
+    "functions": 62,
+    "name": "MWethDelegate",
+    "source": "sourcify"
+  },
+  "address": "0xb4104C02BBf4E9be85AAa41a62974E4e28D59A33",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x65299Eb6a77ee1b1a7eF7051cce71005b2A707aB",
+        "name": "MWethDelegate"
+      }
+    ],
+    "isContract": true,
+    "name": "MErc20Delegator",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 7261,
+  "fetchedAt": "2026-11-06T21:51:39.457Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xb4104C02BBf4E9be85AAa41a62974E4e28D59A33&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MErc20Delegator",
+    "status": "verified"
+  }
+}

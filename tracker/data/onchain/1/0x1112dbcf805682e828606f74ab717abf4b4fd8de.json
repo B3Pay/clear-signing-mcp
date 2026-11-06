@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x1112dbCF805682e828606f74AB717abf4b4FD8DE",
+    "functions": 34,
+    "name": "Yearn4626Router",
+    "source": "sourcify"
+  },
+  "address": "0x1112dbCF805682e828606f74AB717abf4b4FD8DE",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Yearn4626Router",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 7711,
+  "fetchedAt": "2026-11-06T21:53:26.639Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x1112dbCF805682e828606f74AB717abf4b4FD8DE&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Yearn4626Router",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x5C20B550819128074FD538Edf79791733ccEdd18",
+    "functions": 48,
+    "name": "fToken",
+    "source": "sourcify"
+  },
+  "address": "0x5C20B550819128074FD538Edf79791733ccEdd18",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "fToken",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 19617,
+  "fetchedAt": "2026-11-06T21:51:24.293Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x5C20B550819128074FD538Edf79791733ccEdd18&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "fToken",
+    "status": "verified"
+  }
+}

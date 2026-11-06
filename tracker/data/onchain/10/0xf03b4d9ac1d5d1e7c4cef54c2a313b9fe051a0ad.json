@@ -1,0 +1,31 @@
+{
+  "abi": {
+    "address": "0xe549d79883D8D242C5eFBE30C26AA2371C67A023",
+    "functions": 39,
+    "name": "OUpgradeable",
+    "source": "sourcify"
+  },
+  "address": "0xF03b4d9AC1D5d1E7c4cEf54C2A313b9fe051A0aD",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xe549d79883D8D242C5eFBE30C26AA2371C67A023",
+        "name": "OUpgradeable"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 2739,
+  "fetchedAt": "2026-11-06T21:49:35.867Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xF03b4d9AC1D5d1E7c4cEf54C2A313b9fe051A0aD&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

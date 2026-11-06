@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xA57b8d98dAE62B26Ec3bcC4a365338157060B234",
+    "functions": 62,
+    "name": "Booster",
+    "source": "sourcify"
+  },
+  "address": "0xA57b8d98dAE62B26Ec3bcC4a365338157060B234",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Booster",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 21256,
+  "fetchedAt": "2026-11-06T21:53:37.833Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xA57b8d98dAE62B26Ec3bcC4a365338157060B234&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Booster",
+    "status": "verified"
+  }
+}

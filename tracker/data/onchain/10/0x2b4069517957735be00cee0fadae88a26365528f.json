@@ -1,0 +1,41 @@
+{
+  "abi": {
+    "address": "0x2B4069517957735bE00ceE0fadAE88a26365528f",
+    "functions": 19,
+    "name": "TokenMessenger",
+    "source": "sourcify"
+  },
+  "address": "0x2B4069517957735bE00ceE0fadAE88a26365528f",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 13497,
+  "fetchedAt": "2026-11-06T21:49:00.204Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 32,
+    "last30Days": 28,
+    "newest": 1793879953,
+    "oldest": 1776143543,
+    "perDay": 0.9333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x6fd3504e": 1000
+    },
+    "senders": 312,
+    "sendersBySelector": {
+      "0x6fd3504e": 312
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TokenMessenger",
+    "status": "verified"
+  }
+}

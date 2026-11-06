@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xE774E19f087523EA316fCCb4B156169153f18b9d",
+    "functions": 18,
+    "name": "DepositAdapter",
+    "source": "sourcify"
+  },
+  "address": "0xcfC6d9Bd7411962Bfe7145451A7EF71A24b6A7A2",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xE774E19f087523EA316fCCb4B156169153f18b9d",
+        "name": "DepositAdapter"
+      }
+    ],
+    "isContract": true,
+    "name": "UUPSProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 190,
+  "fetchedAt": "2026-11-06T21:52:43.817Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xcfC6d9Bd7411962Bfe7145451A7EF71A24b6A7A2&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xE774E19f087523EA316fCCb4B156169153f18b9d",
+          "name": "DepositAdapter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

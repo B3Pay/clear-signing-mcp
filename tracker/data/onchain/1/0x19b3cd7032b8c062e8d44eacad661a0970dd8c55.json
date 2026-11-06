@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55",
+    "functions": 76,
+    "name": "MetaMorphoV1_1",
+    "source": "sourcify"
+  },
+  "address": "0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "MetaMorphoV1_1",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 19730,
+  "fetchedAt": "2026-11-06T21:51:20.133Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MetaMorphoV1_1",
+    "status": "verified"
+  }
+}

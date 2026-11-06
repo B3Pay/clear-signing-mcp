@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x890A69EF363C9c7BdD5E36eb95Ceb569F63ACbF6",
+    "functions": 72,
+    "name": "PoolV3",
+    "source": "sourcify"
+  },
+  "address": "0x890A69EF363C9c7BdD5E36eb95Ceb569F63ACbF6",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x890A69EF363C9c7BdD5E36eb95Ceb569F63ACbF6",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 18096,
+  "fetchedAt": "2026-11-06T21:55:52.434Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PoolV3",
+    "status": "verified"
+  }
+}

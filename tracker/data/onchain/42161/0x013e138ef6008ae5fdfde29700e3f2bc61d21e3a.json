@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a",
+    "functions": 26,
+    "name": "LBRouter",
+    "source": "sourcify"
+  },
+  "address": "0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x013e138EF6008ae5FDFDE29700e3f2Bc61d21E3a",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 21011,
+  "fetchedAt": "2026-11-06T21:55:49.277Z",
+  "format": 2,
+  "sample": {
+    "count": 26,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 24,
+    "newest": 1793984611,
+    "oldest": 1791099987,
+    "perDay": 0.8,
+    "requested": 1000,
+    "selectors": {
+      "0x81c2fdfb": 26
+    },
+    "senders": 14,
+    "sendersBySelector": {
+      "0x81c2fdfb": 14
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "LBRouter",
+    "status": "verified"
+  }
+}

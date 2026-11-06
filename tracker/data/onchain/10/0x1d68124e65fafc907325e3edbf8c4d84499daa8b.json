@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xcC02226Ed784F3FE5F3725ff39E8d8caE756c9Ce",
+    "functions": 43,
+    "name": "BridgeImplementation",
+    "source": "sourcify"
+  },
+  "address": "0x1D68124e65faFC907325e3EDbF8c4d84499DAa8b",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xcC02226Ed784F3FE5F3725ff39E8d8caE756c9Ce",
+        "name": "BridgeImplementation"
+      }
+    ],
+    "isContract": true,
+    "name": "Wormhole",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 680,
+  "fetchedAt": "2026-11-06T21:49:26.164Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x1D68124e65faFC907325e3EDbF8c4d84499DAa8b&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TokenBridge",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xcC02226Ed784F3FE5F3725ff39E8d8caE756c9Ce",
+          "name": "BridgeImplementation"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

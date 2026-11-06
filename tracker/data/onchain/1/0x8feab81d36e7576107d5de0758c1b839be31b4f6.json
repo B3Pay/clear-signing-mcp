@@ -15,10 +15,38 @@
   },
   "chainId": 1,
   "codeBytes": 13322,
-  "fetchedAt": "2026-11-06T20:43:35.868Z",
+  "fetchedAt": "2026-11-06T21:48:47.987Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 214,
+    "last30Days": 1000,
+    "newest": 1794001403,
+    "oldest": 1793981783,
+    "perDay": 4403.6697247706425,
+    "requested": 1000,
+    "selectors": {
+      "0x08298b5a": 77,
+      "0x0c307f76": 730,
+      "0x0d5f0e3b": 72,
+      "0x44014e98": 1,
+      "0x9871efa4": 8,
+      "0x98d2ac62": 33,
+      "0xb8815477": 1,
+      "0xf2c42696": 78
+    },
+    "senders": 378,
+    "sendersBySelector": {
+      "0x08298b5a": 50,
+      "0x0c307f76": 233,
+      "0x0d5f0e3b": 63,
+      "0x44014e98": 1,
+      "0x9871efa4": 8,
+      "0x98d2ac62": 29,
+      "0xb8815477": 1,
+      "0xf2c42696": 37
+    },
+    "source": "blockscout-txlist"
   },
   "sourcify": {
     "match": "match",

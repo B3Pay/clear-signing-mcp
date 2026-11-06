@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x167540D2DFF14120365CfDDF2F86e3045D4fa712",
+    "functions": 20,
+    "name": "GlvRouter",
+    "source": "sourcify"
+  },
+  "address": "0x167540D2DFF14120365CfDDF2F86e3045D4fa712",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x167540D2DFF14120365CfDDF2F86e3045D4fa712",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 10656,
+  "fetchedAt": "2026-11-06T21:55:50.886Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 18,
+    "last30Days": 1000,
+    "newest": 1793993861,
+    "oldest": 1791894721,
+    "perDay": 41.159713025334185,
+    "requested": 1000,
+    "selectors": {
+      "0xac9650d8": 1000
+    },
+    "senders": 500,
+    "sendersBySelector": {
+      "0xac9650d8": 500
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "GlvRouter",
+    "status": "verified"
+  }
+}

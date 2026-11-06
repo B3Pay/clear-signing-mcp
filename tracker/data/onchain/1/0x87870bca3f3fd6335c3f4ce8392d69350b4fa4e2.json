@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x728a138A4823392C2EFA55e028d434F526fE03CF",
+    "functions": 74,
+    "name": "PoolInstance",
+    "source": "sourcify"
+  },
+  "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x728a138A4823392C2EFA55e028d434F526fE03CF",
+        "name": "PoolInstance"
+      }
+    ],
+    "isContract": true,
+    "name": "InitializableImmutableAdminUpgradeabilityProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2400,
+  "fetchedAt": "2026-11-06T21:50:35.810Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "InitializableImmutableAdminUpgradeabilityProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x728a138A4823392C2EFA55e028d434F526fE03CF",
+          "name": "PoolInstance"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

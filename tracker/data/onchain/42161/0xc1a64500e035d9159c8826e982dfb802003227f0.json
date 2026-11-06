@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0xC1A64500E035D9159C8826E982dFb802003227f0",
+    "functions": 15,
+    "name": "CompositeLiquidityRouter",
+    "source": "sourcify"
+  },
+  "address": "0xC1A64500E035D9159C8826E982dFb802003227f0",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xC1A64500E035D9159C8826E982dFb802003227f0",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 14632,
+  "fetchedAt": "2026-11-06T21:55:49.023Z",
+  "format": 2,
+  "sample": {
+    "count": 42,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 42,
+    "newest": 1793433923,
+    "oldest": 1791433487,
+    "perDay": 1.4,
+    "requested": 1000,
+    "selectors": {
+      "0x19c6989f": 31,
+      "0xd8a7f9fe": 11
+    },
+    "senders": 24,
+    "sendersBySelector": {
+      "0x19c6989f": 19,
+      "0xd8a7f9fe": 5
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CompositeLiquidityRouter",
+    "status": "verified"
+  }
+}

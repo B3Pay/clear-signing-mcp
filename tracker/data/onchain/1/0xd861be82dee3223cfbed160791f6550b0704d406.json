@@ -1,0 +1,31 @@
+{
+  "abi": {
+    "address": "0xe5a90E1a154D9444356A9DfA27bb164Feee847BF",
+    "functions": 39,
+    "name": "SUsd0",
+    "source": "sourcify"
+  },
+  "address": "0xd861bE82dEe3223CFBEd160791f6550b0704D406",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xe5a90E1a154D9444356A9DfA27bb164Feee847BF",
+        "name": "SUsd0"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 1129,
+  "fetchedAt": "2026-11-06T21:51:55.971Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xd861bE82dEe3223CFBEd160791f6550b0704D406&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

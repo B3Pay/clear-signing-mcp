@@ -1,0 +1,86 @@
+{
+  "abi": {
+    "address": "0xFf84c4a0d639D598af2088E2FfB76Cdbdf1DE0ed",
+    "functions": 11,
+    "name": "GNSMultiCollatDiamond",
+    "source": "sourcify"
+  },
+  "address": "0xFF162c694eAA571f685030649814282eA457f169",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xFF162c694eAA571f685030649814282eA457f169",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T21:55:51.540Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 173,
+    "last30Days": 1000,
+    "newest": 1794000296,
+    "oldest": 1793970286,
+    "perDay": 2879.0403198933686,
+    "requested": 1000,
+    "selectors": {
+      "0x0bce9aaa": 8,
+      "0x24058ad3": 17,
+      "0x36ce736b": 51,
+      "0x3f85355a": 1,
+      "0x5bfcc4f8": 223,
+      "0x604755cf": 3,
+      "0x737b84cd": 86,
+      "0x85886333": 20,
+      "0x88be5e4f": 125,
+      "0xa4bb127e": 18,
+      "0xa7cac572": 26,
+      "0xac9650d8": 16,
+      "0xaeaca82a": 1,
+      "0xb54a02bd": 3,
+      "0xb5d9e9d0": 25,
+      "0xb6919540": 15,
+      "0xc7e2b2a9": 306,
+      "0xd79261fd": 3,
+      "0xeb9359aa": 44,
+      "0xf401f2bb": 9
+    },
+    "senders": 68,
+    "sendersBySelector": {
+      "0x0bce9aaa": 5,
+      "0x24058ad3": 8,
+      "0x36ce736b": 18,
+      "0x3f85355a": 1,
+      "0x5bfcc4f8": 35,
+      "0x604755cf": 3,
+      "0x737b84cd": 14,
+      "0x85886333": 4,
+      "0x88be5e4f": 1,
+      "0xa4bb127e": 4,
+      "0xa7cac572": 6,
+      "0xac9650d8": 8,
+      "0xaeaca82a": 1,
+      "0xb54a02bd": 1,
+      "0xb5d9e9d0": 9,
+      "0xb6919540": 5,
+      "0xc7e2b2a9": 2,
+      "0xd79261fd": 1,
+      "0xeb9359aa": 2,
+      "0xf401f2bb": 5
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xFf84c4a0d639D598af2088E2FfB76Cdbdf1DE0ed",
+          "name": "GNSMultiCollatDiamond"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

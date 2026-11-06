@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x20Cfe11d61A51328Abd07C87b0eB14431E28F2dA",
+    "functions": 27,
+    "name": "DepositWithdrawalRouter",
+    "source": "sourcify"
+  },
+  "address": "0xf8b2c637A68cF6A17b1DF9F8992EeBeFf63d2dFf",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x20Cfe11d61A51328Abd07C87b0eB14431E28F2dA",
+        "name": "DepositWithdrawalRouter"
+      }
+    ],
+    "isContract": true,
+    "name": "RouterProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2976,
+  "fetchedAt": "2026-11-06T21:51:52.411Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xf8b2c637A68cF6A17b1DF9F8992EeBeFf63d2dFf&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RouterProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x20Cfe11d61A51328Abd07C87b0eB14431E28F2dA",
+          "name": "DepositWithdrawalRouter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "abi": {
+    "address": "0x0A2D27A86a2eA07bcc34e457c65AECA7631c0f10",
+    "functions": 49,
+    "name": "FrxUSDCustodianUsdc",
+    "source": "sourcify"
+  },
+  "address": "0x4F95C5bA0C7c69FB2f9340E190cCeE890B3bd87c",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x0A2D27A86a2eA07bcc34e457c65AECA7631c0f10",
+        "name": "FrxUSDCustodianUsdc"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 1488,
+  "fetchedAt": "2026-11-06T21:51:55.537Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x4F95C5bA0C7c69FB2f9340E190cCeE890B3bd87c&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

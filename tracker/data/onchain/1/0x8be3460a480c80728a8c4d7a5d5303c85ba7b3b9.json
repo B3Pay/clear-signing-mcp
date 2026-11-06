@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x7fD57b46aE1a7b14f6940508381877Ee03e1018B",
+    "functions": 65,
+    "name": "StakedENA",
+    "source": "sourcify"
+  },
+  "address": "0x8bE3460A480c80728a8C4D7a5D5303c85ba7B3b9",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x7fD57b46aE1a7b14f6940508381877Ee03e1018B",
+        "name": "StakedENA"
+      }
+    ],
+    "isContract": true,
+    "name": "Ethena Staked ENA",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2876,
+  "fetchedAt": "2026-11-06T21:51:54.615Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x8bE3460A480c80728a8C4D7a5D5303c85ba7B3b9&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x7fD57b46aE1a7b14f6940508381877Ee03e1018B",
+          "name": "StakedENA"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

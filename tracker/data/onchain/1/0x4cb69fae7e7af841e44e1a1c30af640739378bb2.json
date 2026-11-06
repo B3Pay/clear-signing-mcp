@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
+    "functions": 33,
+    "name": "CircleRelayer",
+    "source": "sourcify"
+  },
+  "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "CircleRelayer",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 9915,
+  "fetchedAt": "2026-11-06T21:49:02.611Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CircleRelayer",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xF0235dCa8fb0D3999685724dCBB9DD00c5d62DFa",
+    "functions": 50,
+    "name": "RootChainManager",
+    "source": "sourcify"
+  },
+  "address": "0xA0c68C638235ee32657e8f720a23ceC1bFc77C77",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xF0235dCa8fb0D3999685724dCBB9DD00c5d62DFa",
+        "name": "RootChainManager"
+      }
+    ],
+    "isContract": true,
+    "name": "RootChainManagerProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2949,
+  "fetchedAt": "2026-11-06T21:49:21.281Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xA0c68C638235ee32657e8f720a23ceC1bFc77C77&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RootChainManagerProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xF0235dCa8fb0D3999685724dCBB9DD00c5d62DFa",
+          "name": "RootChainManager"
+        }
+      ],
+      "type": "MaticProxy"
+    },
+    "status": "verified"
+  }
+}

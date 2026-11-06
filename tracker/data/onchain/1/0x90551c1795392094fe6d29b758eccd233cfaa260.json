@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x90551c1795392094FE6D29B758EcCD233cFAa260",
+    "functions": 59,
+    "name": "fTokenNativeUnderlying",
+    "source": "sourcify"
+  },
+  "address": "0x90551c1795392094FE6D29B758EcCD233cFAa260",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "fTokenNativeUnderlying",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 21098,
+  "fetchedAt": "2026-11-06T21:51:25.208Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x90551c1795392094FE6D29B758EcCD233cFAa260&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "fTokenNativeUnderlying",
+    "status": "verified"
+  }
+}

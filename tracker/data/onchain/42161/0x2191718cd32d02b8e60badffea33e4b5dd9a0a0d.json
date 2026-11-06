@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x2191718CD32d02B8E60BAdFFeA33E4B5DD9A0A0D",
+    "functions": 9,
+    "name": "CurveRouterSidechainv1.1",
+    "source": "sourcify"
+  },
+  "address": "0x2191718CD32d02B8E60BAdFFeA33E4B5DD9A0A0D",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x2191718CD32d02B8E60BAdFFeA33E4B5DD9A0A0D",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 12586,
+  "fetchedAt": "2026-11-06T21:55:48.791Z",
+  "format": 2,
+  "sample": {
+    "count": 304,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 15,
+    "last30Days": 261,
+    "newest": 1793985047,
+    "oldest": 1791102282,
+    "perDay": 8.7,
+    "requested": 1000,
+    "selectors": {
+      "0x5c9c18e2": 226,
+      "0xc872a3c5": 78
+    },
+    "senders": 120,
+    "sendersBySelector": {
+      "0x5c9c18e2": 119,
+      "0xc872a3c5": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CurveRouterSidechainv1.1",
+    "status": "verified"
+  }
+}

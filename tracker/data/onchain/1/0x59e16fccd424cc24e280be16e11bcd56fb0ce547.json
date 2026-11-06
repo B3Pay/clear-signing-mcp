@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x59E16fcCd424Cc24e280Be16E11Bcd56fb0CE547",
+    "functions": 21,
+    "name": "ETHRegistrarController",
+    "source": "sourcify"
+  },
+  "address": "0x59E16fcCd424Cc24e280Be16E11Bcd56fb0CE547",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "ETHRegistrarController",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 9739,
+  "fetchedAt": "2026-11-06T21:52:07.830Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x59E16fcCd424Cc24e280Be16E11Bcd56fb0CE547&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ETHRegistrarController",
+    "status": "verified"
+  }
+}

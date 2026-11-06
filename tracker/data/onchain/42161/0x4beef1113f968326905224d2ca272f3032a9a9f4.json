@@ -1,0 +1,58 @@
+{
+  "abi": {
+    "address": "0xeb754588efF264793bb80Be65866D11Bc8d6CBdD",
+    "functions": 110,
+    "name": "GToken",
+    "source": "sourcify"
+  },
+  "address": "0x4BeeF1113F968326905224D2Ca272f3032A9a9F4",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x4BeeF1113F968326905224D2Ca272f3032A9a9F4",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T21:55:51.726Z",
+  "format": 2,
+  "sample": {
+    "count": 12,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 11,
+    "newest": 1793099122,
+    "oldest": 1791201271,
+    "perDay": 0.36666666666666664,
+    "requested": 1000,
+    "selectors": {
+      "0x6e553f65": 2,
+      "0xa50043a0": 1,
+      "0xa8abe905": 7,
+      "0xba087652": 2
+    },
+    "senders": 5,
+    "sendersBySelector": {
+      "0x6e553f65": 1,
+      "0xa50043a0": 1,
+      "0xa8abe905": 5,
+      "0xba087652": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xeb754588efF264793bb80Be65866D11Bc8d6CBdD",
+          "name": "GToken"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

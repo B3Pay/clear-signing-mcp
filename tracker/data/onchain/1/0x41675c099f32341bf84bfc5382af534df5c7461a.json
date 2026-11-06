@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x41675C099F32341bf84BFc5382aF534df5C7461a",
+    "functions": 30,
+    "name": "Safe",
+    "source": "sourcify"
+  },
+  "address": "0x41675C099F32341bf84BFc5382aF534df5C7461a",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Safe",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 23579,
+  "fetchedAt": "2026-11-06T21:52:24.805Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x41675C099F32341bf84BFc5382aF534df5C7461a&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Safe",
+    "status": "verified"
+  }
+}

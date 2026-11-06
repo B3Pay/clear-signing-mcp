@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x372ABD1810eAF23Cb9D941BbE7596DFb2c46BC65",
+    "functions": 41,
+    "name": "BorrowerOperations",
+    "source": "sourcify"
+  },
+  "address": "0x372ABD1810eAF23Cb9D941BbE7596DFb2c46BC65",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "BorrowerOperations",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 24559,
+  "fetchedAt": "2026-11-06T21:51:37.513Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x372ABD1810eAF23Cb9D941BbE7596DFb2c46BC65&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BorrowerOperations",
+    "status": "verified"
+  }
+}

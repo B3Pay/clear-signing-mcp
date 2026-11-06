@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xcb3643CC8294B23171272845473dEc49739d4Ba3",
+    "functions": 12,
+    "name": "BaseBulker",
+    "source": "sourcify"
+  },
+  "address": "0xcb3643CC8294B23171272845473dEc49739d4Ba3",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "BaseBulker",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 4154,
+  "fetchedAt": "2026-11-06T21:51:15.226Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xcb3643CC8294B23171272845473dEc49739d4Ba3&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BaseBulker",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x5D53B303D62a7861f88650045b8D5DeB59dfb3Dc",
+    "functions": 50,
+    "name": "EtherFiRedemptionManager",
+    "source": "sourcify"
+  },
+  "address": "0xDadEf1fFBFeaAB4f68A9fD181395F68b4e4E7Ae0",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x5D53B303D62a7861f88650045b8D5DeB59dfb3Dc",
+        "name": "EtherFiRedemptionManager"
+      }
+    ],
+    "isContract": true,
+    "name": "UUPSProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 142,
+  "fetchedAt": "2026-11-06T21:52:49.273Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xDadEf1fFBFeaAB4f68A9fD181395F68b4e4E7Ae0&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x5D53B303D62a7861f88650045b8D5DeB59dfb3Dc",
+          "name": "EtherFiRedemptionManager"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

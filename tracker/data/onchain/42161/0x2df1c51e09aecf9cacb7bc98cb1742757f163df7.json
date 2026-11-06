@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x2Df1c51E09aECF9cacB7bc98cB1742757f163dF7",
+    "functions": 33,
+    "name": "Bridge2",
+    "source": "sourcify"
+  },
+  "address": "0x2Df1c51E09aECF9cacB7bc98cB1742757f163dF7",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x2Df1c51E09aECF9cacB7bc98cB1742757f163dF7",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 19394,
+  "fetchedAt": "2026-11-06T21:55:47.828Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794000393,
+    "oldest": 1793970784,
+    "perDay": 2918.0316795568915,
+    "requested": 1000,
+    "selectors": {
+      "0x1f12171f": 417,
+      "0xb30b5bce": 175,
+      "0xc5bdf3ca": 408
+    },
+    "senders": 43,
+    "sendersBySelector": {
+      "0x1f12171f": 4,
+      "0xb30b5bce": 39,
+      "0xc5bdf3ca": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Bridge2",
+    "status": "verified"
+  }
+}

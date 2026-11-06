@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x1B0e765F6224C21223AeA2af16c1C46E38885a40",
+    "functions": 9,
+    "name": "CometRewards",
+    "source": "sourcify"
+  },
+  "address": "0x1B0e765F6224C21223AeA2af16c1C46E38885a40",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "CometRewards",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2822,
+  "fetchedAt": "2026-11-06T21:51:07.283Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x1B0e765F6224C21223AeA2af16c1C46E38885a40&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CometRewards",
+    "status": "verified"
+  }
+}

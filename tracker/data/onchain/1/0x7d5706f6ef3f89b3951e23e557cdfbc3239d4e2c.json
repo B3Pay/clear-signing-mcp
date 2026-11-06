@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x41617D01362770ebAAC10311aB899FBc8a4E4A7E",
+    "functions": 53,
+    "name": "WithdrawRequestNFT",
+    "source": "sourcify"
+  },
+  "address": "0x7d5706f6ef3F89B3951E23e557CDFBC3239D4E2c",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x41617D01362770ebAAC10311aB899FBc8a4E4A7E",
+        "name": "WithdrawRequestNFT"
+      }
+    ],
+    "isContract": true,
+    "name": "UUPSProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 845,
+  "fetchedAt": "2026-11-06T21:52:43.697Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x7d5706f6ef3F89B3951E23e557CDFBC3239D4E2c&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x41617D01362770ebAAC10311aB899FBc8a4E4A7E",
+          "name": "WithdrawRequestNFT"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

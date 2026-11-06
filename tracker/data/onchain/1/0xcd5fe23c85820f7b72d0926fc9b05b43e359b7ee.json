@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xA6Ca0607190d03CF16fe6F2865Cf40c3D160ccf3",
+    "functions": 44,
+    "name": "WeETH",
+    "source": "sourcify"
+  },
+  "address": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xA6Ca0607190d03CF16fe6F2865Cf40c3D160ccf3",
+        "name": "WeETH"
+      }
+    ],
+    "isContract": true,
+    "name": "UUPSProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 845,
+  "fetchedAt": "2026-11-06T21:52:43.346Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xA6Ca0607190d03CF16fe6F2865Cf40c3D160ccf3",
+          "name": "WeETH"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xb576765fB15505433aF24FEe2c0325895C559FB2",
+    "functions": 97,
+    "name": "VaultV2",
+    "source": "sourcify"
+  },
+  "address": "0xb576765fB15505433aF24FEe2c0325895C559FB2",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "VaultV2",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 21808,
+  "fetchedAt": "2026-11-06T21:51:20.753Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xb576765fB15505433aF24FEe2c0325895C559FB2&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "VaultV2",
+    "status": "verified"
+  }
+}

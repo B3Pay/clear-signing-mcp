@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xCD979B10A55FCdAC23ec785CE3066c6ef8a479A4",
+    "functions": 39,
+    "name": "OAdapterUpgradeable",
+    "source": "sourcify"
+  },
+  "address": "0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xCD979B10A55FCdAC23ec785CE3066c6ef8a479A4",
+        "name": "OAdapterUpgradeable"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2739,
+  "fetchedAt": "2026-11-06T21:49:03.365Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xCD979B10A55FCdAC23ec785CE3066c6ef8a479A4",
+          "name": "OAdapterUpgradeable"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

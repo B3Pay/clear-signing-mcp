@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0x8b194bEae1d3e0788A1a35173978001ACDFba668",
+    "functions": 29,
+    "name": "aeWETH",
+    "source": "sourcify"
+  },
+  "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2092,
+  "fetchedAt": "2026-11-06T21:55:52.120Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794000422,
+    "oldest": 1793987367,
+    "perDay": 6618.153963998468,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 148,
+      "0x2e1a7d4d": 383,
+      "0xa9059cbb": 149,
+      "0xd0e30db0": 320
+    },
+    "senders": 217,
+    "sendersBySelector": {
+      "0x095ea7b3": 124,
+      "0x2e1a7d4d": 81,
+      "0xa9059cbb": 103,
+      "0xd0e30db0": 43
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x8b194bEae1d3e0788A1a35173978001ACDFba668",
+          "name": "aeWETH"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

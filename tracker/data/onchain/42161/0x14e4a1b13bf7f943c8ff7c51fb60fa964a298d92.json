@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0x00678FDaAB0D5C91b843a22Fa38E08AF1bBDa85E",
+    "functions": 39,
+    "name": "OUpgradeable",
+    "source": "sourcify"
+  },
+  "address": "0x14E4A1B13bf7F943c8ff7C51fb60FA964A298D92",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x14E4A1B13bf7F943c8ff7C51fb60FA964A298D92",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2739,
+  "fetchedAt": "2026-11-06T21:55:48.421Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 14,
+    "last30Days": 1000,
+    "newest": 1793999248,
+    "oldest": 1792789373,
+    "perDay": 71.41233598512243,
+    "requested": 1000,
+    "selectors": {
+      "0xc7c7f5b3": 1000
+    },
+    "senders": 340,
+    "sendersBySelector": {
+      "0xc7c7f5b3": 340
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x00678FDaAB0D5C91b843a22Fa38E08AF1bBDa85E",
+          "name": "OUpgradeable"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

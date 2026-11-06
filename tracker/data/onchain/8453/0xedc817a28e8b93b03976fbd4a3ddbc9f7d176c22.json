@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0xEdc817A28E8B93B03976FBd4a3dDBc9f7D176c22",
+    "functions": 54,
+    "name": "MErc20Delegator",
+    "source": "sourcify"
+  },
+  "address": "0xEdc817A28E8B93B03976FBd4a3dDBc9f7D176c22",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xEdc817A28E8B93B03976FBd4a3dDBc9f7D176c22",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 7544,
+  "fetchedAt": "2026-11-06T22:08:59.260Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MErc20Delegator",
+    "status": "verified"
+  }
+}

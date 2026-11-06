@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x7dE39FF2e232A2203196788d37e234cF8F1b83f1",
+    "functions": 32,
+    "name": "ExchangeRouter",
+    "source": "sourcify"
+  },
+  "address": "0x7dE39FF2e232A2203196788d37e234cF8F1b83f1",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x7dE39FF2e232A2203196788d37e234cF8F1b83f1",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 20999,
+  "fetchedAt": "2026-11-06T21:55:50.840Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 6,
+    "last30Days": 1000,
+    "newest": 1794000111,
+    "oldest": 1793931150,
+    "perDay": 1252.8820637751774,
+    "requested": 1000,
+    "selectors": {
+      "0x49287a22": 1,
+      "0x5a03cd94": 1,
+      "0x7489ec23": 9,
+      "0xac9650d8": 938,
+      "0xc41b1ab3": 51
+    },
+    "senders": 219,
+    "sendersBySelector": {
+      "0x49287a22": 1,
+      "0x5a03cd94": 1,
+      "0x7489ec23": 2,
+      "0xac9650d8": 194,
+      "0xc41b1ab3": 45
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ExchangeRouter",
+    "status": "verified"
+  }
+}

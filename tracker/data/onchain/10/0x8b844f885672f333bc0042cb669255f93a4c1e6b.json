@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x8B844f885672f333Bc0042cB669255f93a4C1E6b",
+    "functions": 13,
+    "name": "UniversalRouter",
+    "source": "sourcify"
+  },
+  "address": "0x8B844f885672f333Bc0042cB669255f93a4C1E6b",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "UniversalRouter",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 24546,
+  "fetchedAt": "2026-11-06T21:49:50.300Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x8B844f885672f333Bc0042cB669255f93a4C1E6b&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "UniversalRouter",
+    "status": "verified"
+  }
+}

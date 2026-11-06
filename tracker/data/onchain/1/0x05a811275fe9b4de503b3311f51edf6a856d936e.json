@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x05A811275fE9b4DE503B3311F51edF6A856D936e",
+    "functions": 72,
+    "name": "PoolV3_USDT",
+    "source": "sourcify"
+  },
+  "address": "0x05A811275fE9b4DE503B3311F51edF6A856D936e",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Universal USDT v3",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 18157,
+  "fetchedAt": "2026-11-06T21:53:42.192Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x05A811275fE9b4DE503B3311F51edF6A856D936e&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PoolV3_USDT",
+    "status": "verified"
+  }
+}

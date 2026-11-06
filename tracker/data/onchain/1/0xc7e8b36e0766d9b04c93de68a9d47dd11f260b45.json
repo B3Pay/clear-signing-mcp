@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xc7E8b36E0766D9B04c93De68A9D47dD11f260B45",
+    "functions": 51,
+    "name": "xMPL",
+    "source": "sourcify"
+  },
+  "address": "0xc7E8b36E0766D9B04c93De68A9D47dD11f260B45",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Staked Syrup",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 9790,
+  "fetchedAt": "2026-11-06T21:51:54.282Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xc7E8b36E0766D9B04c93De68A9D47dD11f260B45&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "xMPL",
+    "status": "verified"
+  }
+}

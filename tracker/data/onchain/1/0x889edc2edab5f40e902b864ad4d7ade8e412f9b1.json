@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9",
+    "functions": 74,
+    "name": "WithdrawalQueueERC721",
+    "source": "sourcify"
+  },
+  "address": "0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9",
+        "name": "WithdrawalQueueERC721"
+      }
+    ],
+    "isContract": true,
+    "name": "OssifiableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2497,
+  "fetchedAt": "2026-11-06T21:52:39.311Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x889edC2eDab5f40e902b864aD4d7AdE8E412F9B1&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "OssifiableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xE42C659Dc09109566720EA8b2De186c2Be7D94D9",
+          "name": "WithdrawalQueueERC721"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

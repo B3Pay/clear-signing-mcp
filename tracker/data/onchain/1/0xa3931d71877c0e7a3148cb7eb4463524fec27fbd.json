@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x4e7991e5C547ce825BdEb665EE14a3274f9F61e0",
+    "functions": 50,
+    "name": "SUsds",
+    "source": "sourcify"
+  },
+  "address": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x4e7991e5C547ce825BdEb665EE14a3274f9F61e0",
+        "name": "SUsds"
+      }
+    ],
+    "isContract": true,
+    "name": "ERC1967Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 170,
+  "fetchedAt": "2026-11-06T21:50:59.726Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x4e7991e5C547ce825BdEb665EE14a3274f9F61e0",
+          "name": "SUsds"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

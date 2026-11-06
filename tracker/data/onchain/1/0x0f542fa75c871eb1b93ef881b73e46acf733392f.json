@@ -1,0 +1,26 @@
+{
+  "abi": {
+    "address": "0x0f542fA75c871EB1b93Ef881b73e46acF733392f",
+    "functions": 7,
+    "name": "Router",
+    "source": "blockscout"
+  },
+  "address": "0x0f542fA75c871EB1b93Ef881b73e46acF733392f",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Router",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2499,
+  "fetchedAt": "2026-11-06T21:53:56.059Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x0f542fA75c871EB1b93Ef881b73e46acF733392f&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

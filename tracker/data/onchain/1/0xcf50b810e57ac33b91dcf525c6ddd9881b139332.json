@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xCF50b810E57Ac33B91dCF525C6ddd9881B139332",
+    "functions": 37,
+    "name": "cvxRewardPool",
+    "source": "sourcify"
+  },
+  "address": "0xCF50b810E57Ac33B91dCF525C6ddd9881B139332",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "cvxRewardPool",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 7909,
+  "fetchedAt": "2026-11-06T21:53:30.831Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xCF50b810E57Ac33B91dCF525C6ddd9881B139332&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "cvxRewardPool",
+    "status": "verified"
+  }
+}

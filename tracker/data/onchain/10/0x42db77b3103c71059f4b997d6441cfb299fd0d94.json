@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x42dB77B3103c71059F4b997d6441cFB299FD0d94",
+    "functions": 72,
+    "name": "PoolV3",
+    "source": "sourcify"
+  },
+  "address": "0x42dB77B3103c71059F4b997d6441cFB299FD0d94",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "PoolV3",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 18096,
+  "fetchedAt": "2026-11-06T21:53:49.893Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x42dB77B3103c71059F4b997d6441cFB299FD0d94&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PoolV3",
+    "status": "verified"
+  }
+}

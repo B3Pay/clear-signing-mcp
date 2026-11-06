@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x30a388A64b99192702a83D2CA9B95D79702afbf2",
+    "functions": 9,
+    "name": "BlueBundlesV1",
+    "source": "sourcify"
+  },
+  "address": "0x30a388A64b99192702a83D2CA9B95D79702afbf2",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x30a388A64b99192702a83D2CA9B95D79702afbf2",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 18095,
+  "fetchedAt": "2026-11-06T21:55:50.121Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1793997779,
+    "oldest": 1792833714,
+    "perDay": 74.22265938757715,
+    "requested": 1000,
+    "selectors": {
+      "0x827d6bd8": 240,
+      "0xa4d5ece4": 42,
+      "0xb1268765": 687,
+      "0xc0229fe8": 31
+    },
+    "senders": 253,
+    "sendersBySelector": {
+      "0x827d6bd8": 95,
+      "0xa4d5ece4": 12,
+      "0xb1268765": 202,
+      "0xc0229fe8": 14
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "BlueBundlesV1",
+    "status": "verified"
+  }
+}

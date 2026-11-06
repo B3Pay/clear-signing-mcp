@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xa0673C53980665a706352412D2538bA005403C26",
+    "functions": 77,
+    "name": "RewardsCoordinator",
+    "source": "sourcify"
+  },
+  "address": "0x7750d328b314EfFa365A0402CcfD489B80B0adda",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xa0673C53980665a706352412D2538bA005403C26",
+        "name": "RewardsCoordinator"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2151,
+  "fetchedAt": "2026-11-06T21:52:57.340Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x7750d328b314EfFa365A0402CcfD489B80B0adda&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xa0673C53980665a706352412D2538bA005403C26",
+          "name": "RewardsCoordinator"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -19,6 +19,11 @@
     "name": "Wrapped liquid staked Ether 2.0",
     "symbol": "wstETH"
   },
+  "0x2e44e174f7d53f0212823acc11c01a11d58c5bcb": {
+    "decimals": 6,
+    "name": "Compound USDC",
+    "symbol": "cUSDCv3"
+  },
   "0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6": {
     "decimals": 18,
     "name": "ChainLink Token",
@@ -34,10 +39,20 @@
     "name": "Optimism",
     "symbol": "OP"
   },
+  "0x42db77b3103c71059f4b997d6441cfb299fd0d94": {
+    "decimals": 18,
+    "name": "WETH v3",
+    "symbol": "dWETHV3"
+  },
   "0x4f604735c1cf31399c6e711d5962b2b3e0225ad3": {
     "decimals": 18,
     "name": "Glo Dollar",
     "symbol": "USDGLO"
+  },
+  "0x65559aa14915a70190438ef90104769e5e890a00": {
+    "decimals": 18,
+    "name": "Ethereum Name Service",
+    "symbol": "ENS"
   },
   "0x68f180fcce6836688e9084f035309e29bf0a2095": {
     "decimals": 8,
@@ -53,6 +68,11 @@
     "decimals": 18,
     "name": "Fantom Bomb",
     "symbol": "fBOMB"
+  },
+  "0x76a50b8c7349ccddb7578c6627e79b5d99d24138": {
+    "decimals": 18,
+    "name": "Liquid staked Ether 2.0",
+    "symbol": "stETH"
   },
   "0x76fb31fb4af56892a25e32cfc43de717950c9278": {
     "decimals": 18,
@@ -74,6 +94,16 @@
     "name": "Synth sUSD (retired)",
     "symbol": "sUSD"
   },
+  "0x8e08617b0d66359d73aa11e11017834c29155525": {
+    "decimals": 8,
+    "name": "Moonwell USDC",
+    "symbol": "mUSDC"
+  },
+  "0x9485aca5bbbe1667ad97c7fe7c4531a624c8b1ed": {
+    "decimals": 18,
+    "name": "EURA (previously agEUR)",
+    "symbol": "EURA"
+  },
   "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58": {
     "decimals": 6,
     "name": "Tether USD",
@@ -84,15 +114,40 @@
     "name": "VelodromeV2",
     "symbol": "VELO"
   },
+  "0x995e394b8b2437ac8ce61ee0bc610d617962b214": {
+    "decimals": 6,
+    "name": "Compound USDT",
+    "symbol": "cUSDTv3"
+  },
   "0x9bcef72be871e61ed4fbbc7630889bee758eb81d": {
     "decimals": 18,
     "name": "Rocket Pool ETH",
     "symbol": "rETH"
   },
+  "0xa210bb193ca352fa81fbd0e81cb800580b0762ee": {
+    "decimals": 6,
+    "name": "Main USDC v3",
+    "symbol": "dUSDCV3"
+  },
+  "0xaaa687e218f9b53183a6aa9639fbd9d6e69ecb73": {
+    "decimals": 18,
+    "name": "rsETH",
+    "symbol": "rsETH"
+  },
+  "0xb4104c02bbf4e9be85aaa41a62974e4e28d59a33": {
+    "decimals": 8,
+    "name": "Moonwell WETH",
+    "symbol": "mWETH"
+  },
   "0xc40f949f8a4e094d1b49a23ea9241d289b7b2819": {
     "decimals": 18,
     "name": "LUSD Stablecoin",
     "symbol": "LUSD"
+  },
+  "0xcf9326e24ebffbef22ce1050007a43a3c0b6db55": {
+    "decimals": 18,
+    "name": "Spark USDC Vault",
+    "symbol": "sUSDC"
   },
   "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1": {
     "decimals": 18,
@@ -104,9 +159,29 @@
     "name": "Worldcoin",
     "symbol": "WLD"
   },
+  "0xdecc0c09c3b5f6e92ef4184125d5648a66e35298": {
+    "decimals": 6,
+    "name": "USD Coin-LP",
+    "symbol": "S*USDC"
+  },
   "0xdfa46478f9e5ea86d57387849598dbfb2e964b02": {
     "decimals": 18,
     "name": "Mai Stablecoin",
     "symbol": "MAI"
+  },
+  "0xe36a30d249f7761327fd973001a32010b521b6fd": {
+    "decimals": 18,
+    "name": "Compound WETH",
+    "symbol": "cWETHv3"
+  },
+  "0xef4461891dfb3ac8572ccf7c794664a8dd927945": {
+    "decimals": 18,
+    "name": "WalletConnect",
+    "symbol": "WCT"
+  },
+  "0xfaf8fd17d9840595845582fcb047df13f006787d": {
+    "decimals": 18,
+    "name": "veNFT",
+    "symbol": "veNFT"
   }
 }

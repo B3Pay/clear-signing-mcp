@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xf943Cb8D5f06f2bBF352878ebEF3Ec5C537A20bA",
+    "functions": 52,
+    "name": "UsdcVault",
+    "source": "sourcify"
+  },
+  "address": "0xBc65ad17c5C0a2A4D159fa5a503f4992c7B545FE",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xf943Cb8D5f06f2bBF352878ebEF3Ec5C537A20bA",
+        "name": "UsdcVault"
+      }
+    ],
+    "isContract": true,
+    "name": "ERC1967Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 163,
+  "fetchedAt": "2026-11-06T21:50:51.724Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xBc65ad17c5C0a2A4D159fa5a503f4992c7B545FE&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xf943Cb8D5f06f2bBF352878ebEF3Ec5C537A20bA",
+          "name": "UsdcVault"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

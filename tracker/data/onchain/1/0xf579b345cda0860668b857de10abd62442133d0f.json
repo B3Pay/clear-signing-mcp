@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+    "functions": 16,
+    "name": "BorrowPositionRouter",
+    "source": "sourcify"
+  },
+  "address": "0xF579b345cdA0860668b857De10ABD62442133D0F",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+        "name": "BorrowPositionRouter"
+      }
+    ],
+    "isContract": true,
+    "name": "RouterProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2976,
+  "fetchedAt": "2026-11-06T21:51:53.053Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xF579b345cdA0860668b857De10ABD62442133D0F&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RouterProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+          "name": "BorrowPositionRouter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

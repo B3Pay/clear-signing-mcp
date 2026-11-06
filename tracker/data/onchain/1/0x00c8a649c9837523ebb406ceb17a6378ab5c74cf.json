@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+    "functions": 107,
+    "name": "TokenizedStrategy",
+    "source": "sourcify"
+  },
+  "address": "0x00C8a649C9837523ebb406Ceb17a6378Ab5C74cF",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+        "name": "TokenizedStrategy"
+      }
+    ],
+    "isContract": true,
+    "name": "USDC Fluid Lender",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 10095,
+  "fetchedAt": "2026-11-06T21:53:26.199Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x00C8a649C9837523ebb406Ceb17a6378Ab5C74cF&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "FluidLenderMainnet",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+          "name": "TokenizedStrategy"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

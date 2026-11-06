@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x136f1EFcC3f8f88516B9E94110D56FDBfB1778d1",
+    "functions": 12,
+    "name": "BatchRouter",
+    "source": "sourcify"
+  },
+  "address": "0x136f1EFcC3f8f88516B9E94110D56FDBfB1778d1",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "BatchRouter",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 17569,
+  "fetchedAt": "2026-11-06T21:50:28.196Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x136f1EFcC3f8f88516B9E94110D56FDBfB1778d1&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BatchRouter",
+    "status": "verified"
+  }
+}

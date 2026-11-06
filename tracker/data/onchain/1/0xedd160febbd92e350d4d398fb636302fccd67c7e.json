@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+    "functions": 31,
+    "name": "SafeL2",
+    "source": "sourcify"
+  },
+  "address": "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "SafeL2",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 22231,
+  "fetchedAt": "2026-11-06T21:52:24.689Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xEdd160fEBBD92E350D4D398fb636302fccd67C7e&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SafeL2",
+    "status": "verified"
+  }
+}

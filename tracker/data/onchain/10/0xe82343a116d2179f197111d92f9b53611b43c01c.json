@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xE82343A116d2179F197111D92f9B53611B43C01c",
+    "functions": 10,
+    "name": "BeefyZapRouter",
+    "source": "sourcify"
+  },
+  "address": "0xE82343A116d2179F197111D92f9B53611B43C01c",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "BeefyZapRouter",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 10660,
+  "fetchedAt": "2026-11-06T21:53:50.013Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0xE82343A116d2179F197111D92f9B53611B43C01c&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BeefyZapRouter",
+    "status": "verified"
+  }
+}

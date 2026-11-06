@@ -1,0 +1,58 @@
+{
+  "abi": {
+    "address": "0xa27CED4DD23a2435CEC24b5B7ae349F43b9930b6",
+    "functions": 43,
+    "name": "BridgeImplementation",
+    "source": "sourcify"
+  },
+  "address": "0x0b2402144Bb366A632D14B83F244D2e0e21bD39c",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x0b2402144Bb366A632D14B83F244D2e0e21bD39c",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 680,
+  "fetchedAt": "2026-11-06T21:55:48.222Z",
+  "format": 2,
+  "sample": {
+    "count": 873,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 12,
+    "last30Days": 667,
+    "newest": 1793985583,
+    "oldest": 1791096633,
+    "perDay": 22.233333333333334,
+    "requested": 1000,
+    "selectors": {
+      "0x0f5287b0": 432,
+      "0xc48fa115": 1,
+      "0xc6878519": 439,
+      "0xe8059810": 1
+    },
+    "senders": 50,
+    "sendersBySelector": {
+      "0x0f5287b0": 32,
+      "0xc48fa115": 1,
+      "0xc6878519": 38,
+      "0xe8059810": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TokenBridge",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xa27CED4DD23a2435CEC24b5B7ae349F43b9930b6",
+          "name": "BridgeImplementation"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

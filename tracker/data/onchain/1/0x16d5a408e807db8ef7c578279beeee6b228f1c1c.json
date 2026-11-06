@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x16D5A408e807db8eF7c578279BEeEe6b228f1c1C",
+    "functions": 12,
+    "name": "RocketSwapRouter",
+    "source": "sourcify"
+  },
+  "address": "0x16D5A408e807db8eF7c578279BEeEe6b228f1c1C",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "RocketSwapRouter",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 15016,
+  "fetchedAt": "2026-11-06T21:52:40.693Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x16D5A408e807db8eF7c578279BEeEe6b228f1c1C&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RocketSwapRouter",
+    "status": "verified"
+  }
+}

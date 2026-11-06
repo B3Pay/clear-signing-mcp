@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x0DCDED3545D565bA3B19E683431381007245d983",
+    "functions": 9,
+    "name": "CurveRouterOptimismv1.1",
+    "source": "sourcify"
+  },
+  "address": "0x0DCDED3545D565bA3B19E683431381007245d983",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "CurveRouterOptimismv1.1",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 13338,
+  "fetchedAt": "2026-11-06T21:50:18.853Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x0DCDED3545D565bA3B19E683431381007245d983&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CurveRouterOptimismv1.1",
+    "status": "verified"
+  }
+}

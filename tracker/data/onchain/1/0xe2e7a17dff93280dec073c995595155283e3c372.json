@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x1b992302652A92611DCd5090D1Cb388C6377f455",
+    "functions": 66,
+    "name": "SparkVault",
+    "source": "sourcify"
+  },
+  "address": "0xe2e7a17dFf93280dec073C995595155283e3C372",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x1b992302652A92611DCd5090D1Cb388C6377f455",
+        "name": "SparkVault"
+      }
+    ],
+    "isContract": true,
+    "name": "Spark Savings USDT",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 163,
+  "fetchedAt": "2026-11-06T21:50:51.155Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xe2e7a17dFf93280dec073C995595155283e3C372&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x1b992302652A92611DCd5090D1Cb388C6377f455",
+          "name": "SparkVault"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

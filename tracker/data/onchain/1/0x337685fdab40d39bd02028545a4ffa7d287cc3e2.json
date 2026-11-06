@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+    "functions": 14,
+    "name": "MayanForwarder2",
+    "source": "sourcify"
+  },
+  "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "MayanForwarder2",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 8840,
+  "fetchedAt": "2026-11-06T21:49:06.010Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x337685fdaB40D39bd02028545a4FfA7D287cC3E2&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MayanForwarder2",
+    "status": "verified"
+  }
+}

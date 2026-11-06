@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x4200000000000000000000000000000000000006",
+    "functions": 11,
+    "name": "WETH9",
+    "source": "sourcify"
+  },
+  "address": "0x4200000000000000000000000000000000000006",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "L2 Standard Bridged WETH (Optimism)",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 2041,
+  "fetchedAt": "2026-11-06T21:52:23.320Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x4200000000000000000000000000000000000006&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "WETH9",
+    "status": "verified"
+  }
+}

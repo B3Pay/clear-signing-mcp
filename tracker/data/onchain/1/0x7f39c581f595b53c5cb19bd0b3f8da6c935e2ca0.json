@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+    "functions": 21,
+    "name": "WstETH",
+    "source": "sourcify"
+  },
+  "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Wrapped stETH",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 6492,
+  "fetchedAt": "2026-11-06T21:52:39.758Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "WstETH",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+    "functions": 73,
+    "name": "MetaMorpho",
+    "source": "sourcify"
+  },
+  "address": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Steakhouse USDT Morpho Vault",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 19340,
+  "fetchedAt": "2026-11-06T21:51:22.793Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xbEef047a543E45807105E51A8BBEFCc5950fcfBa&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MetaMorpho",
+    "status": "verified"
+  }
+}

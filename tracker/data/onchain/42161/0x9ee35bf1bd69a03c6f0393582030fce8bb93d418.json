@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418",
+    "functions": 17,
+    "name": "SwapRouter",
+    "source": "sourcify"
+  },
+  "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 10060,
+  "fetchedAt": "2026-11-06T21:55:48.790Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 1000,
+    "newest": 1794000424,
+    "oldest": 1793821820,
+    "perDay": 483.75176367830505,
+    "requested": 1000,
+    "selectors": {
+      "0xa026383e": 996,
+      "0xc04b8d59": 3,
+      "0xc714e838": 1
+    },
+    "senders": 10,
+    "sendersBySelector": {
+      "0xa026383e": 7,
+      "0xc04b8d59": 2,
+      "0xc714e838": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SwapRouter",
+    "status": "verified"
+  }
+}

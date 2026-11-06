@@ -1,0 +1,33 @@
+{
+  "abi": {
+    "address": "0xE0D1fab527A85D955d4c05323250367E61bA3f18",
+    "functions": 69,
+    "name": "StarknetTokenBridge",
+    "source": "sourcify"
+  },
+  "address": "0x283751A21eafBFcD52297820D27C1f1963D9b5b4",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xE0D1fab527A85D955d4c05323250367E61bA3f18",
+        "name": "StarknetTokenBridge"
+      }
+    ],
+    "isContract": true,
+    "name": "Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 6338,
+  "fetchedAt": "2026-11-06T21:49:42.293Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x283751A21eafBFcD52297820D27C1f1963D9b5b4&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Proxy",
+    "status": "verified"
+  }
+}

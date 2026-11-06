@@ -1,0 +1,60 @@
+{
+  "abi": {
+    "address": "0x5D3DfD6B0C855DCfE2CB768bB0800D16553C758b",
+    "functions": 91,
+    "name": "CometWithExtendedAssetList",
+    "source": "sourcify"
+  },
+  "address": "0x9c4ec768c28520B50860ea7a15bd7213a9fF58bf",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x9c4ec768c28520B50860ea7a15bd7213a9fF58bf",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 1878,
+  "fetchedAt": "2026-11-06T21:55:50.319Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 7,
+    "last30Days": 1000,
+    "newest": 1793996809,
+    "oldest": 1791482436,
+    "perDay": 34.362443440173756,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 42,
+      "0x110496e5": 24,
+      "0xa9059cbb": 4,
+      "0xbb24d994": 4,
+      "0xc3cecfd2": 2,
+      "0xf2b9fdb8": 398,
+      "0xf3fef3a3": 526
+    },
+    "senders": 337,
+    "sendersBySelector": {
+      "0x095ea7b3": 39,
+      "0x110496e5": 23,
+      "0xa9059cbb": 4,
+      "0xbb24d994": 2,
+      "0xc3cecfd2": 2,
+      "0xf2b9fdb8": 157,
+      "0xf3fef3a3": 251
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x5D3DfD6B0C855DCfE2CB768bB0800D16553C758b",
+          "name": "CometWithExtendedAssetList"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

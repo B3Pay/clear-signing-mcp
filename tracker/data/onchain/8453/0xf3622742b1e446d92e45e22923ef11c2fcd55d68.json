@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0xF3622742b1E446D92e45E22923Ef11C2fcD55D68",
+    "functions": 10,
+    "name": "CornersFeeLocker",
+    "source": "sourcify"
+  },
+  "address": "0xF3622742b1E446D92e45E22923Ef11C2fcD55D68",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xF3622742b1E446D92e45E22923Ef11C2fcD55D68",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 2663,
+  "fetchedAt": "2026-11-06T22:09:00.377Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CornersFeeLocker",
+    "status": "verified"
+  }
+}

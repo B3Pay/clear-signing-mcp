@@ -1,0 +1,23 @@
+{
+  "address": "0x88730d254A2f7e6AC8388c3198aFd694bA9f7fae",
+  "chainId": 42161,
+  "txs": [
+    {
+      "blockNumber": 517031610,
+      "chainId": 42161,
+      "from": "0x3844597c2b75E8510d8895173adDC28dd995fA45",
+      "gas": "207039",
+      "gasPrice": "20004000",
+      "hash": "0xd7c3343d2b21858746a0d16d0c3810dbdeb8e371cdf6c8aeae6076e172a91a2f",
+      "input": "0xb7034f7e0000000000000000000000006f7d514bbd4aff3bcd1140b7344b32f063dee4860000000000000000000000003844597c2b75e8510d8895173addc28dd995fa450000000000000000000000000000000000000000000000000000000000000001",
+      "maxFeePerGas": "28630000",
+      "maxPriorityFeePerGas": "0",
+      "nonce": 4125,
+      "status": "success",
+      "timestamp": 1792617360,
+      "to": "0x88730d254A2f7e6AC8388c3198aFd694bA9f7fae",
+      "type": "eip1559",
+      "value": "0"
+    }
+  ]
+}

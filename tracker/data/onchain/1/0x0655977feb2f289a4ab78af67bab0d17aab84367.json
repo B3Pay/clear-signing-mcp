@@ -1,0 +1,31 @@
+{
+  "abi": {
+    "address": "0xd8063123BBA3B480569244AE66BFE72B6c84b00d",
+    "functions": 90,
+    "name": "YearnV3Vault",
+    "source": "sourcify"
+  },
+  "address": "0x0655977FEb2f289A4aB78af67BAB0d17aAb84367",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xd8063123BBA3B480569244AE66BFE72B6c84b00d",
+        "name": "Yearn V3 Vault"
+      }
+    ],
+    "isContract": true,
+    "name": "Savings crvUSD",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 45,
+  "fetchedAt": "2026-11-06T21:51:48.180Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x0655977FEb2f289A4aB78af67BAB0d17aAb84367&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

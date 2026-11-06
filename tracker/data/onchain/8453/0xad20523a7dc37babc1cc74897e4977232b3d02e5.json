@@ -1,0 +1,34 @@
+{
+  "abi": {
+    "address": "0x9Be87673fd2129f47B8A8e914d50b27ebbf95ED6",
+    "functions": 110,
+    "name": "GToken",
+    "source": "sourcify"
+  },
+  "address": "0xad20523A7dC37bAbc1CC74897E4977232b3D02e5",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xad20523A7dC37bAbc1CC74897E4977232b3D02e5",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T22:09:00.877Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x9Be87673fd2129f47B8A8e914d50b27ebbf95ED6",
+          "name": "GToken"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

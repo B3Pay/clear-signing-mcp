@@ -1,0 +1,33 @@
+{
+  "abi": {
+    "address": "0x6ad74D4B79A06A492C288eF66Ef868Dd981fdC85",
+    "functions": 72,
+    "name": "StarknetERC20Bridge",
+    "source": "sourcify"
+  },
+  "address": "0xbb3400F107804DFB482565FF1Ec8D8aE66747605",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x6ad74D4B79A06A492C288eF66Ef868Dd981fdC85",
+        "name": "StarknetERC20Bridge"
+      }
+    ],
+    "isContract": true,
+    "name": "Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 6338,
+  "fetchedAt": "2026-11-06T21:49:49.102Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xbb3400F107804DFB482565FF1Ec8D8aE66747605&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Proxy",
+    "status": "verified"
+  }
+}

@@ -15,10 +15,30 @@
   },
   "chainId": 10,
   "codeBytes": 6909,
-  "fetchedAt": "2026-11-06T20:43:14.483Z",
+  "fetchedAt": "2026-11-06T21:48:46.966Z",
   "format": 2,
   "sample": {
-    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x00000000009726632680FB29d3F7A9734E3010E2&filter_by=to&sort=desc&page=1&offset=1000"
+    "count": 1000,
+    "failed": 81,
+    "last30Days": 3,
+    "newest": 1793359343,
+    "oldest": 1769523519,
+    "perDay": 0.1,
+    "requested": 1000,
+    "selectors": {
+      "0x01e33667": 1,
+      "0x3c2b9a7d": 199,
+      "0x55e4b7be": 403,
+      "0x999b6464": 397
+    },
+    "senders": 377,
+    "sendersBySelector": {
+      "0x01e33667": 1,
+      "0x3c2b9a7d": 109,
+      "0x55e4b7be": 78,
+      "0x999b6464": 259
+    },
+    "source": "blockscout-txlist"
   },
   "sourcify": {
     "match": "exact_match",

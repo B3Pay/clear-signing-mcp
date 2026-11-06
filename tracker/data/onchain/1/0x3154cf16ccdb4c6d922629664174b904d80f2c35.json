@@ -1,0 +1,33 @@
+{
+  "abi": {
+    "address": "0x61525EaaCDdB97D9184aFc205827E6A4fd0Bf62A",
+    "functions": 31,
+    "name": "L1StandardBridge",
+    "source": "sourcify"
+  },
+  "address": "0x3154Cf16ccdb4C6d922629664174b904d80F2C35",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x61525EaaCDdB97D9184aFc205827E6A4fd0Bf62A",
+        "name": "L1StandardBridge"
+      }
+    ],
+    "isContract": true,
+    "name": "L1ChugSplashProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2513,
+  "fetchedAt": "2026-11-06T21:49:18.925Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x3154Cf16ccdb4C6d922629664174b904d80F2C35&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "L1ChugSplashProxy",
+    "status": "verified"
+  }
+}

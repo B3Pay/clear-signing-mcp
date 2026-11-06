@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x6a8BEd4062C895130E2d09bA442D3eCEAd5Df6c2",
+    "functions": 54,
+    "name": "DelegationManager",
+    "source": "sourcify"
+  },
+  "address": "0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x6a8BEd4062C895130E2d09bA442D3eCEAd5Df6c2",
+        "name": "DelegationManager"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2151,
+  "fetchedAt": "2026-11-06T21:52:57.086Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x39053D51B77DC0d36036Fc1fCc8Cb819df8Ef37A&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x6a8BEd4062C895130E2d09bA442D3eCEAd5Df6c2",
+          "name": "DelegationManager"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

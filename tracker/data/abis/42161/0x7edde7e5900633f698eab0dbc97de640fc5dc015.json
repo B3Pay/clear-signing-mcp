@@ -1,0 +1,1494 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "amountDai",
+          "type": "uint128"
+        }
+      ],
+      "name": "DaiHarvested",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "asset",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "delegatee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "name": "Delegated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "ids",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "amountGns",
+          "type": "uint128"
+        }
+      ],
+      "name": "GnsClaimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "amountGns",
+          "type": "uint128"
+        }
+      ],
+      "name": "GnsStaked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "amountGns",
+          "type": "uint128"
+        }
+      ],
+      "name": "GnsUnstaked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "version",
+          "type": "uint8"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "RewardDistributed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "amountToken",
+          "type": "uint128"
+        }
+      ],
+      "name": "RewardHarvested",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isOldDai",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "ids",
+          "type": "uint256[]"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "amountToken",
+          "type": "uint128"
+        }
+      ],
+      "name": "RewardHarvestedFromUnlock",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "precisionDelta",
+          "type": "uint128"
+        }
+      ],
+      "name": "RewardTokenAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "manager",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "authorized",
+          "type": "bool"
+        }
+      ],
+      "name": "UnlockManagerUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "UnlockScheduleRevoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "staker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint128",
+              "name": "totalGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "claimedGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "debtDai",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint48",
+              "name": "start",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint48",
+              "name": "duration",
+              "type": "uint48"
+            },
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum IGNSStaking.UnlockType",
+              "name": "unlockType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint16",
+              "name": "__placeholder",
+              "type": "uint16"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct IGNSStaking.UnlockSchedule",
+          "name": "schedule",
+          "type": "tuple"
+        }
+      ],
+      "name": "UnlockScheduled",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "accDaiPerToken",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "name": "addRewardToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "claimUnlockedGns",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "compoundGnsRewards",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint128",
+              "name": "totalGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint48",
+              "name": "start",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint48",
+              "name": "duration",
+              "type": "uint48"
+            },
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum IGNSStaking.UnlockType",
+              "name": "unlockType",
+              "type": "uint8"
+            }
+          ],
+          "internalType": "struct IGNSStaking.UnlockScheduleInput",
+          "name": "_schedule",
+          "type": "tuple"
+        },
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        }
+      ],
+      "name": "createUnlockSchedule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "dai",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amountToken",
+          "type": "uint256"
+        }
+      ],
+      "name": "distributeReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getRewardTokens",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getUnlockSchedules",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint128",
+              "name": "totalGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "claimedGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "debtDai",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint48",
+              "name": "start",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint48",
+              "name": "duration",
+              "type": "uint48"
+            },
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum IGNSStaking.UnlockType",
+              "name": "unlockType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint16",
+              "name": "__placeholder",
+              "type": "uint16"
+            }
+          ],
+          "internalType": "struct IGNSStaking.UnlockSchedule",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        }
+      ],
+      "name": "getUnlockSchedules",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint128",
+              "name": "totalGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "claimedGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "debtDai",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint48",
+              "name": "start",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint48",
+              "name": "duration",
+              "type": "uint48"
+            },
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum IGNSStaking.UnlockType",
+              "name": "unlockType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint16",
+              "name": "__placeholder",
+              "type": "uint16"
+            }
+          ],
+          "internalType": "struct IGNSStaking.UnlockSchedule[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gns",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "gnsBalance",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "harvestAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "harvestDai",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "harvestDaiAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "harvestDaiFromUnlock",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "name": "harvestToken",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "harvestTokenAll",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "harvestTokenFromUnlock",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "harvestTokens",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "harvestTokensAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "harvestTokensFromUnlock",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_gns",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC20",
+          "name": "_dai",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "initializeV2",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "name": "isRewardToken",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pendingOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        }
+      ],
+      "name": "pendingRewardDai",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "pendingRewardDaiFromUnlocks",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "pending",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        }
+      ],
+      "name": "pendingRewardToken",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        }
+      ],
+      "name": "pendingRewardTokens",
+      "outputs": [
+        {
+          "internalType": "uint128[]",
+          "name": "pendingTokens",
+          "type": "uint128[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_ids",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "pendingRewardTokensFromUnlocks",
+      "outputs": [
+        {
+          "internalType": "uint128[]",
+          "name": "pendingTokens",
+          "type": "uint128[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint128",
+              "name": "totalGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "claimedGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "debtDai",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint48",
+              "name": "start",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint48",
+              "name": "duration",
+              "type": "uint48"
+            },
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum IGNSStaking.UnlockType",
+              "name": "unlockType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint16",
+              "name": "__placeholder",
+              "type": "uint16"
+            }
+          ],
+          "internalType": "struct IGNSStaking.UnlockSchedule",
+          "name": "_schedule",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint48",
+          "name": "_timestamp",
+          "type": "uint48"
+        }
+      ],
+      "name": "releasableGns",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "revokeUnlockSchedule",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "rewardTokenState",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "accRewardPerGns",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "precisionDelta",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "rewardTokens",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_token",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_delegatee",
+          "type": "address"
+        }
+      ],
+      "name": "setDelegatee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_manager",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_authorized",
+          "type": "bool"
+        }
+      ],
+      "name": "setUnlockManager",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint128",
+          "name": "_amountGns",
+          "type": "uint128"
+        }
+      ],
+      "name": "stakeGns",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "stakerInfos",
+      "outputs": [
+        {
+          "internalType": "uint48",
+          "name": "lastDepositTs",
+          "type": "uint48"
+        },
+        {
+          "internalType": "uint208",
+          "name": "__placeholder",
+          "type": "uint208"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "stakers",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "stakedGns",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "debtDai",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_staker",
+          "type": "address"
+        }
+      ],
+      "name": "totalGnsStaked",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "unlockManagers",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint128",
+              "name": "totalGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "claimedGns",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "debtDai",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint48",
+              "name": "start",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint48",
+              "name": "duration",
+              "type": "uint48"
+            },
+            {
+              "internalType": "bool",
+              "name": "revocable",
+              "type": "bool"
+            },
+            {
+              "internalType": "enum IGNSStaking.UnlockType",
+              "name": "unlockType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint16",
+              "name": "__placeholder",
+              "type": "uint16"
+            }
+          ],
+          "internalType": "struct IGNSStaking.UnlockSchedule",
+          "name": "_schedule",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint48",
+          "name": "_timestamp",
+          "type": "uint48"
+        }
+      ],
+      "name": "unlockedGns",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint128",
+          "name": "_amountGns",
+          "type": "uint128"
+        }
+      ],
+      "name": "unstakeGns",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "userTokenRewards",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "debtToken",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "__placeholder",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "userTokenUnlockRewards",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "debtToken",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint128",
+          "name": "__placeholder",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "previousAdmin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAdmin",
+          "type": "address"
+        }
+      ],
+      "name": "AdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "beacon",
+          "type": "address"
+        }
+      ],
+      "name": "BeaconUpgraded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        }
+      ],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "address": "0x2F92517968b93Fc5D226ebbB8e631204F273BAac",
+  "merged": [
+    "0x2F92517968b93Fc5D226ebbB8e631204F273BAac",
+    "0x7edDE7e5900633F698EaB0Dbc97DE640fC5dC015"
+  ],
+  "name": "GNSStaking",
+  "source": "sourcify"
+}

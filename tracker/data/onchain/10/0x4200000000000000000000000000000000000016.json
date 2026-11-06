@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x27E51B2254433A3284D9ba73Ea551C397DB2a124",
+    "functions": 11,
+    "name": "L2ToL1MessagePasser",
+    "source": "sourcify"
+  },
+  "address": "0x4200000000000000000000000000000000000016",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x27E51B2254433A3284D9ba73Ea551C397DB2a124",
+        "name": "L2ToL1MessagePasser"
+      }
+    ],
+    "isContract": true,
+    "name": "Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 2055,
+  "fetchedAt": "2026-11-06T21:49:33.195Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x4200000000000000000000000000000000000016&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x27E51B2254433A3284D9ba73Ea551C397DB2a124",
+          "name": "L2ToL1MessagePasser"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

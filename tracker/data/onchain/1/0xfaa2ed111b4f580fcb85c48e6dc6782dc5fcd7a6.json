@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xfAA2eD111B4F580fCb85C48E6DC6782Dc5FCD7a6",
+    "functions": 51,
+    "name": "AuraBalVault",
+    "source": "sourcify"
+  },
+  "address": "0xfAA2eD111B4F580fCb85C48E6DC6782Dc5FCD7a6",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "AuraBalVault",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 11266,
+  "fetchedAt": "2026-11-06T21:53:40.872Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xfAA2eD111B4F580fCb85C48E6DC6782Dc5FCD7a6&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AuraBalVault",
+    "status": "verified"
+  }
+}

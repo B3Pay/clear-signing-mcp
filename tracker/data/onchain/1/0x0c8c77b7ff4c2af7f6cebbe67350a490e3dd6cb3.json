@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x0C8C77B7FF4c2aF7F6CEBbe67350A490E3DD6cB3",
+    "functions": 12,
+    "name": "FluidVaultT1",
+    "source": "sourcify"
+  },
+  "address": "0x0C8C77B7FF4c2aF7F6CEBbe67350A490E3DD6cB3",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "FluidVaultT1",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 23759,
+  "fetchedAt": "2026-11-06T21:51:30.176Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x0C8C77B7FF4c2aF7F6CEBbe67350A490E3DD6cB3&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "FluidVaultT1",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x3b2fdFdEFE919dBcCE0bc5ac426097d5523B8AFA",
+    "functions": 58,
+    "name": "PufferVaultV5",
+    "source": "sourcify"
+  },
+  "address": "0xD9A442856C234a39a81a089C06451EBAa4306a72",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x3b2fdFdEFE919dBcCE0bc5ac426097d5523B8AFA",
+        "name": "PufferVaultV5"
+      }
+    ],
+    "isContract": true,
+    "name": "pufETH",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 163,
+  "fetchedAt": "2026-11-06T21:53:08.622Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xD9A442856C234a39a81a089C06451EBAa4306a72&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x3b2fdFdEFE919dBcCE0bc5ac426097d5523B8AFA",
+          "name": "PufferVaultV5"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

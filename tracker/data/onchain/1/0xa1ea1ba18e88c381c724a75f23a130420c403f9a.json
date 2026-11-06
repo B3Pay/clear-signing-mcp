@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xA1Ea1bA18E88C381C724a75F23a130420C403f9a",
+    "functions": 12,
+    "name": "MkrSky",
+    "source": "sourcify"
+  },
+  "address": "0xA1Ea1bA18E88C381C724a75F23a130420C403f9a",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "MkrSky",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2386,
+  "fetchedAt": "2026-11-06T21:51:04.557Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xA1Ea1bA18E88C381C724a75F23a130420C403f9a&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "MkrSky",
+    "status": "verified"
+  }
+}

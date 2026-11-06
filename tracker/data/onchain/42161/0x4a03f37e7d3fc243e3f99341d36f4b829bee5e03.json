@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x4A03F37e7d3fC243e3f99341d36f4b829BEe5E03",
+    "functions": 48,
+    "name": "fToken",
+    "source": "sourcify"
+  },
+  "address": "0x4A03F37e7d3fC243e3f99341d36f4b829BEe5E03",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x4A03F37e7d3fC243e3f99341d36f4b829BEe5E03",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 19617,
+  "fetchedAt": "2026-11-06T21:55:50.320Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 898,
+    "newest": 1793984999,
+    "oldest": 1791125403,
+    "perDay": 29.933333333333334,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 12,
+      "0x6e553f65": 249,
+      "0xa9059cbb": 2,
+      "0xb460af94": 473,
+      "0xba087652": 264
+    },
+    "senders": 439,
+    "sendersBySelector": {
+      "0x095ea7b3": 11,
+      "0x6e553f65": 161,
+      "0xa9059cbb": 2,
+      "0xb460af94": 170,
+      "0xba087652": 242
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "fToken",
+    "status": "verified"
+  }
+}

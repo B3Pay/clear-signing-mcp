@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+    "functions": 39,
+    "name": "Vyper_contract",
+    "source": "sourcify"
+  },
+  "address": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "stZeta StableSwap",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 15735,
+  "fetchedAt": "2026-11-06T21:50:17.412Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xDC24316b9AE028F1497c275EB9192a3Ea0f67022&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Vyper_contract",
+    "status": "verified"
+  }
+}

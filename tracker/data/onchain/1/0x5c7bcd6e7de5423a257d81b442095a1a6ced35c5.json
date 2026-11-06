@@ -20,7 +20,7 @@
   },
   "chainId": 1,
   "codeBytes": 680,
-  "fetchedAt": "2026-11-06T20:55:12.897Z",
+  "fetchedAt": "2026-11-06T21:49:02.513Z",
   "format": 2,
   "sample": {
     "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5&filter_by=to&sort=desc&page=1&offset=1000"

@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xCe56012E880851baa234cD092aF516A0fcA9CFe3",
+    "functions": 30,
+    "name": "DeBridgeRouter",
+    "source": "sourcify"
+  },
+  "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xCe56012E880851baa234cD092aF516A0fcA9CFe3",
+        "name": "DeBridgeRouter"
+      }
+    ],
+    "isContract": true,
+    "name": "CrosschainForwarderProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 2733,
+  "fetchedAt": "2026-11-06T21:49:26.435Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CrosschainForwarderProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xCe56012E880851baa234cD092aF516A0fcA9CFe3",
+          "name": "DeBridgeRouter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

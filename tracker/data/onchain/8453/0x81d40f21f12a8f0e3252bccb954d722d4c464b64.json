@@ -1,0 +1,34 @@
+{
+  "abi": {
+    "address": "0x7Db629f6Acc20Be49a0A7565c21CC178E9Ac21e3",
+    "functions": 36,
+    "name": "MessageTransmitterV2",
+    "source": "sourcify"
+  },
+  "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 2175,
+  "fetchedAt": "2026-11-06T22:08:56.763Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AdminUpgradableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x7Db629f6Acc20Be49a0A7565c21CC178E9Ac21e3",
+          "name": "MessageTransmitterV2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+    "functions": 39,
+    "name": "SwapRouter02",
+    "source": "sourcify"
+  },
+  "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "SwapRouter02",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 24497,
+  "fetchedAt": "2026-11-06T21:49:53.571Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SwapRouter02",
+    "status": "verified"
+  }
+}

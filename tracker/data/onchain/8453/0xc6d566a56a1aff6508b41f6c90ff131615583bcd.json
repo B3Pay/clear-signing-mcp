@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0xC6d566A56A1aFf6508b41f6c90ff131615583BCD",
+    "functions": 43,
+    "name": "L2Resolver",
+    "source": "sourcify"
+  },
+  "address": "0xC6d566A56A1aFf6508b41f6c90ff131615583BCD",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xC6d566A56A1aFf6508b41f6c90ff131615583BCD",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 13070,
+  "fetchedAt": "2026-11-06T22:08:59.780Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "L2Resolver",
+    "status": "verified"
+  }
+}

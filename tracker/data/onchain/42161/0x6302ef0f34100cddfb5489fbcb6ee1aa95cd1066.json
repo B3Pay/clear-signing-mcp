@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0x6302ef0F34100CDDFb5489fbcB6eE1AA95CD1066",
+    "functions": 44,
+    "name": "EthereumVaultConnector",
+    "source": "sourcify"
+  },
+  "address": "0x6302ef0F34100CDDFb5489fbcB6eE1AA95CD1066",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x6302ef0F34100CDDFb5489fbcB6eE1AA95CD1066",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 22050,
+  "fetchedAt": "2026-11-06T21:55:50.142Z",
+  "format": 2,
+  "sample": {
+    "count": 330,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 2,
+    "last30Days": 281,
+    "newest": 1793968466,
+    "oldest": 1791098531,
+    "perDay": 9.366666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x9f5c462a": 7,
+      "0xc16ae7a4": 321,
+      "0xc368516c": 1,
+      "0xd44fee5a": 1
+    },
+    "senders": 145,
+    "sendersBySelector": {
+      "0x9f5c462a": 3,
+      "0xc16ae7a4": 141,
+      "0xc368516c": 1,
+      "0xd44fee5a": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "EthereumVaultConnector",
+    "status": "verified"
+  }
+}

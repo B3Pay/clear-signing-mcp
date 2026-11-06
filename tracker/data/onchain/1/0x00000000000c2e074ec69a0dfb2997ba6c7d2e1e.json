@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
+    "functions": 13,
+    "name": "ENSRegistryWithFallback",
+    "source": "sourcify"
+  },
+  "address": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "ENSRegistryWithFallback",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 5346,
+  "fetchedAt": "2026-11-06T21:52:09.281Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ENSRegistryWithFallback",
+    "status": "verified"
+  }
+}

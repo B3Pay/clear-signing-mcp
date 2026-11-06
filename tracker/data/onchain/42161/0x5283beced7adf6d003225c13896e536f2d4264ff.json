@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x5283BEcEd7ADF6D003225C13896E536f2D4264FF",
+    "functions": 13,
+    "name": "WrappedTokenGatewayV3",
+    "source": "sourcify"
+  },
+  "address": "0x5283BEcEd7ADF6D003225C13896E536f2D4264FF",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x5283BEcEd7ADF6D003225C13896E536f2D4264FF",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 5428,
+  "fetchedAt": "2026-11-06T21:55:49.600Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1793998984,
+    "oldest": 1793818851,
+    "perDay": 479.64559519910284,
+    "requested": 1000,
+    "selectors": {
+      "0x474cf53d": 440,
+      "0x80500d20": 211,
+      "0xbcc3c255": 201,
+      "0xe74f7b85": 148
+    },
+    "senders": 373,
+    "sendersBySelector": {
+      "0x474cf53d": 273,
+      "0x80500d20": 119,
+      "0xbcc3c255": 27,
+      "0xe74f7b85": 11
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "WrappedTokenGatewayV3",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x3f29cB4111CbdA8081642DA1f75B3c12DECf2516",
+    "functions": 12,
+    "name": "ClaimZap",
+    "source": "sourcify"
+  },
+  "address": "0x3f29cB4111CbdA8081642DA1f75B3c12DECf2516",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "ClaimZap",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 5750,
+  "fetchedAt": "2026-11-06T21:53:34.440Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x3f29cB4111CbdA8081642DA1f75B3c12DECf2516&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ClaimZap",
+    "status": "verified"
+  }
+}

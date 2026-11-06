@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+    "functions": 5,
+    "name": "SafeProxyFactory",
+    "source": "sourcify"
+  },
+  "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 3054,
+  "fetchedAt": "2026-11-06T22:09:01.079Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SafeProxyFactory",
+    "status": "verified"
+  }
+}

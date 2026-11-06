@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x76f7260C40221b2D6af2d27E40664304e0B991ef",
+    "functions": 91,
+    "name": "CometWithExtendedAssetList",
+    "source": "sourcify"
+  },
+  "address": "0x995E394b8B2437aC8Ce61Ee0bC610D617962B214",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x76f7260C40221b2D6af2d27E40664304e0B991ef",
+        "name": "CometWithExtendedAssetList"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 1878,
+  "fetchedAt": "2026-11-06T21:51:10.019Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x995E394b8B2437aC8Ce61Ee0bC610D617962B214&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x76f7260C40221b2D6af2d27E40664304e0B991ef",
+          "name": "CometWithExtendedAssetList"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

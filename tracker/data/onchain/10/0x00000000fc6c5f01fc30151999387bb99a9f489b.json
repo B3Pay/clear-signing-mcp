@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x00000000Fc6c5F01Fc30151999387Bb99A9f489b",
+    "functions": 49,
+    "name": "IdRegistry",
+    "source": "sourcify"
+  },
+  "address": "0x00000000Fc6c5F01Fc30151999387Bb99A9f489b",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "IdRegistry",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 13600,
+  "fetchedAt": "2026-11-06T21:52:17.735Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x00000000Fc6c5F01Fc30151999387Bb99A9f489b&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "IdRegistry",
+    "status": "verified"
+  }
+}

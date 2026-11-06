@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0xCE15294273CFb9D9b628F4D61636623decDF4fdC",
+    "functions": 29,
+    "name": "RocketDepositPool",
+    "source": "sourcify"
+  },
+  "address": "0xCE15294273CFb9D9b628F4D61636623decDF4fdC",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "RocketDepositPool",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 22228,
+  "fetchedAt": "2026-11-06T21:52:39.997Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xCE15294273CFb9D9b628F4D61636623decDF4fdC&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RocketDepositPool",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0xf652B3610D75D81871bf96DB50825d9af28391E0",
+    "functions": 12,
+    "name": "ClankerAirdropV2",
+    "source": "sourcify"
+  },
+  "address": "0xf652B3610D75D81871bf96DB50825d9af28391E0",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0xf652B3610D75D81871bf96DB50825d9af28391E0",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 4749,
+  "fetchedAt": "2026-11-06T22:09:00.634Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ClankerAirdropV2",
+    "status": "verified"
+  }
+}

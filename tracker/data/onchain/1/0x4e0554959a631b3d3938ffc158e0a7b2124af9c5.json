@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xDd649AdaB2e67cAdC2EC29d75ABe73f3Df08065c",
+    "functions": 67,
+    "name": "Vault",
+    "source": "sourcify"
+  },
+  "address": "0x4e0554959A631B3D3938ffC158e0a7b2124aF9c5",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xDd649AdaB2e67cAdC2EC29d75ABe73f3Df08065c",
+        "name": "Vault"
+      }
+    ],
+    "isContract": true,
+    "name": "MigratableEntityProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 808,
+  "fetchedAt": "2026-11-06T21:53:13.696Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x4e0554959A631B3D3938ffC158e0a7b2124aF9c5&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MigratableEntityProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xDd649AdaB2e67cAdC2EC29d75ABe73f3Df08065c",
+          "name": "Vault"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

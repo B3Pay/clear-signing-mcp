@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xAE9ed42f43a3ee45c3A9dEf8ae6B48cBb58Ed1a1",
+    "functions": 24,
+    "name": "L2StandardBridge",
+    "source": "sourcify"
+  },
+  "address": "0x4200000000000000000000000000000000000010",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xAE9ed42f43a3ee45c3A9dEf8ae6B48cBb58Ed1a1",
+        "name": "L2StandardBridge"
+      }
+    ],
+    "isContract": true,
+    "name": "Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 2055,
+  "fetchedAt": "2026-11-06T21:49:33.060Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x4200000000000000000000000000000000000010&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xAE9ed42f43a3ee45c3A9dEf8ae6B48cBb58Ed1a1",
+          "name": "L2StandardBridge"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

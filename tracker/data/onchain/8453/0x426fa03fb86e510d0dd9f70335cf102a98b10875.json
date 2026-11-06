@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0x426fA03fB86E510d0Dd9F70335Cf102a98b10875",
+    "functions": 0,
+    "name": "TransparentUpgradeableProxy",
+    "source": "sourcify"
+  },
+  "address": "0x426fA03fB86E510d0Dd9F70335Cf102a98b10875",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x426fA03fB86E510d0Dd9F70335Cf102a98b10875",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 1201,
+  "fetchedAt": "2026-11-06T22:08:59.675Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "status": "verified"
+  }
+}

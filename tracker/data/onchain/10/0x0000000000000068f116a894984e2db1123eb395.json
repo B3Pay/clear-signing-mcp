@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x0000000000000068F116a894984e2DB1123eB395",
+    "functions": 18,
+    "name": "Seaport",
+    "source": "sourcify"
+  },
+  "address": "0x0000000000000068F116a894984e2DB1123eB395",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Seaport",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 23981,
+  "fetchedAt": "2026-11-06T21:52:07.997Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x0000000000000068F116a894984e2DB1123eB395&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Seaport",
+    "status": "verified"
+  }
+}

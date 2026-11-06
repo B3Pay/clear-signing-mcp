@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x2717c6A0029d63E90eB12283507E06BF77A9754d",
+    "functions": 53,
+    "name": "Vyper_contract",
+    "source": "sourcify"
+  },
+  "address": "0x7f50786A0b15723D741727882ee99a0BF34e3466",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x2717c6A0029d63E90eB12283507E06BF77A9754d",
+        "name": "Vyper_contract"
+      }
+    ],
+    "isContract": true,
+    "name": "Stake DAO sdCRV Gauge",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2151,
+  "fetchedAt": "2026-11-06T21:53:54.456Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x7f50786A0b15723D741727882ee99a0BF34e3466&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x2717c6A0029d63E90eB12283507E06BF77A9754d",
+          "name": "Vyper_contract"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

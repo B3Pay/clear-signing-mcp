@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xAad4A1D92053a62cE7a787641d8b4E5883e96700",
+    "functions": 80,
+    "name": "SfrxUSD",
+    "source": "sourcify"
+  },
+  "address": "0xcf62F905562626CfcDD2261162a51fd02Fc9c5b6",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xAad4A1D92053a62cE7a787641d8b4E5883e96700",
+        "name": "SfrxUSD"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 1488,
+  "fetchedAt": "2026-11-06T21:51:54.714Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0xcf62F905562626CfcDD2261162a51fd02Fc9c5b6&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xAad4A1D92053a62cE7a787641d8b4E5883e96700",
+          "name": "SfrxUSD"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

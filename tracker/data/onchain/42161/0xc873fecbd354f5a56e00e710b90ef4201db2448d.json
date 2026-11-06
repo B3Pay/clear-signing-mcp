@@ -1,0 +1,65 @@
+{
+  "abi": {
+    "address": "0xc873fEcbd354f5A56E00E710B90EF4201db2448d",
+    "functions": 16,
+    "name": "CamelotRouter",
+    "source": "sourcify"
+  },
+  "address": "0xc873fEcbd354f5A56E00E710B90EF4201db2448d",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xc873fEcbd354f5A56E00E710B90EF4201db2448d",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 14739,
+  "fetchedAt": "2026-11-06T21:55:49.406Z",
+  "format": 2,
+  "sample": {
+    "count": 710,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 36,
+    "last30Days": 638,
+    "newest": 1793999398,
+    "oldest": 1791097388,
+    "perDay": 21.266666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x02751cec": 2,
+      "0x2195995c": 13,
+      "0x38ed1739": 25,
+      "0x52aa4c22": 43,
+      "0x5b0d5984": 20,
+      "0x791ac947": 1,
+      "0xac3893ba": 340,
+      "0xaf2979eb": 1,
+      "0xb4822be3": 36,
+      "0xbaa2abde": 192,
+      "0xe8e33700": 27,
+      "0xf305d719": 10
+    },
+    "senders": 240,
+    "sendersBySelector": {
+      "0x02751cec": 2,
+      "0x2195995c": 11,
+      "0x38ed1739": 1,
+      "0x52aa4c22": 11,
+      "0x5b0d5984": 18,
+      "0x791ac947": 1,
+      "0xac3893ba": 24,
+      "0xaf2979eb": 1,
+      "0xb4822be3": 8,
+      "0xbaa2abde": 176,
+      "0xe8e33700": 12,
+      "0xf305d719": 5
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CamelotRouter",
+    "status": "verified"
+  }
+}

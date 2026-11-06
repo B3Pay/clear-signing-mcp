@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x8dFBb21dbD61af533092d54B293660CF77A30Ce2",
+    "functions": 59,
+    "name": "Comptroller",
+    "source": "sourcify"
+  },
+  "address": "0x8dFBb21dbD61af533092d54B293660CF77A30Ce2",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Comptroller",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 17178,
+  "fetchedAt": "2026-11-06T21:51:39.071Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x8dFBb21dbD61af533092d54B293660CF77A30Ce2&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Comptroller",
+    "status": "verified"
+  }
+}

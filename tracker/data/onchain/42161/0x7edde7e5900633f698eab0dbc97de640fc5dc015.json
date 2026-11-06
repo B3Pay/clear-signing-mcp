@@ -1,0 +1,60 @@
+{
+  "abi": {
+    "address": "0x2F92517968b93Fc5D226ebbB8e631204F273BAac",
+    "functions": 50,
+    "name": "GNSStaking",
+    "source": "sourcify"
+  },
+  "address": "0x7edDE7e5900633F698EaB0Dbc97DE640fC5dC015",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x7edDE7e5900633F698EaB0Dbc97DE640fC5dC015",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T21:55:51.882Z",
+  "format": 2,
+  "sample": {
+    "count": 34,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 32,
+    "newest": 1793999981,
+    "oldest": 1791173473,
+    "perDay": 1.0666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x2aabff15": 10,
+      "0x2abbe3ea": 2,
+      "0x6023eb7f": 1,
+      "0xd784f188": 20,
+      "0xdad5d0be": 1
+    },
+    "senders": 24,
+    "sendersBySelector": {
+      "0x2aabff15": 10,
+      "0x2abbe3ea": 2,
+      "0x6023eb7f": 1,
+      "0xd784f188": 20,
+      "0xdad5d0be": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x2F92517968b93Fc5D226ebbB8e631204F273BAac",
+          "name": "GNSStaking"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

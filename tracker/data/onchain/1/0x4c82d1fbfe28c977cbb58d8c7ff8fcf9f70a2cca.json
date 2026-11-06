@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x4C82D1fBFe28C977cBB58D8C7FF8FCF9F70a2cCA",
+    "functions": 13,
+    "name": "UniversalRouter",
+    "source": "sourcify"
+  },
+  "address": "0x4C82D1fBFe28C977cBB58D8C7FF8FCF9F70a2cCA",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "UniversalRouter",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 24546,
+  "fetchedAt": "2026-11-06T21:49:54.080Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x4C82D1fBFe28C977cBB58D8C7FF8FCF9F70a2cCA&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "UniversalRouter",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x7F5c485D24fB1832A14f122C8722ef15C158Acb5",
+    "functions": 21,
+    "name": "Depositor",
+    "source": "sourcify"
+  },
+  "address": "0x7F5c485D24fB1832A14f122C8722ef15C158Acb5",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Depositor",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 7373,
+  "fetchedAt": "2026-11-06T21:53:54.764Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://eth.blockscout.com/api?module=account&action=txlist&address=0x7F5c485D24fB1832A14f122C8722ef15C158Acb5&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Depositor",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "functions": 26,
+    "name": "Vault",
+    "source": "sourcify"
+  },
+  "address": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 24512,
+  "fetchedAt": "2026-11-06T21:55:48.958Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 45,
+    "last30Days": 1000,
+    "newest": 1793991923,
+    "oldest": 1791440290,
+    "perDay": 33.86066883442877,
+    "requested": 1000,
+    "selectors": {
+      "0x0e8e3e84": 1,
+      "0x52bbbe29": 383,
+      "0x5c38449e": 155,
+      "0x8bdb3913": 390,
+      "0x945bcec9": 20,
+      "0xb95cac28": 1,
+      "0xfa6e671d": 50
+    },
+    "senders": 339,
+    "sendersBySelector": {
+      "0x0e8e3e84": 1,
+      "0x52bbbe29": 11,
+      "0x5c38449e": 1,
+      "0x8bdb3913": 306,
+      "0x945bcec9": 10,
+      "0xb95cac28": 1,
+      "0xfa6e671d": 50
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Vault",
+    "status": "verified"
+  }
+}

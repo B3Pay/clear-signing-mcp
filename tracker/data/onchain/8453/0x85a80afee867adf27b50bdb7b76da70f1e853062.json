@@ -1,0 +1,25 @@
+{
+  "abi": {
+    "address": "0x85a80afee867aDf27B50BdB7b76DA70f1E853062",
+    "functions": 12,
+    "name": "BatchRouter",
+    "source": "sourcify"
+  },
+  "address": "0x85a80afee867aDf27B50BdB7b76DA70f1E853062",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x85a80afee867aDf27B50BdB7b76DA70f1E853062",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 17569,
+  "fetchedAt": "2026-11-06T22:08:57.821Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 529 from https://portal.sqd.dev/datasets/base-mainnet/finalized-stream: {\"error\":{\"type\":\"rate_limit_error\",\"code\":\"overloaded\",\"message\":\"Service is overloaded, please try again later\",\"request_id\":\"a7e58d575786834435058e97abb7085a\"}}"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BatchRouter",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "abi": {
+    "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+    "functions": 0,
+    "name": "PendleRouterV4",
+    "source": "sourcify"
+  },
+  "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "PendleRouterV4",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 287,
+  "fetchedAt": "2026-11-06T21:53:25.721Z",
+  "format": 2,
+  "sample": {
+    "error": "HTTP 429 from https://optimism.blockscout.com/api?module=account&action=txlist&address=0x888888888889758F76e7103c6CbF23ABbF58F946&filter_by=to&sort=desc&page=1&offset=1000"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PendleRouterV4",
+    "status": "verified"
+  }
+}
