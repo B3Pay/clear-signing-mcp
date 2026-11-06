@@ -253,60 +253,6 @@
       ]
     },
     {
-      "protocol": "odos",
-      "name": "Odos",
-      "category": "aggregator",
-      "website": "https://odos.xyz",
-      "defillama": "odos",
-      "notes": "Router V3 sits at one address on every supported EVM chain. Router V2 (per-chain addresses) ran in parallel with V3 until 2026-01-30 and is retired after that, per docs.odos.xyz/build/api_migration, so V2 is not listed. Odos limit orders are EIP-712 signed.",
-      "contracts": [
-        {
-          "chainId": 1,
-          "address": "0x0D05a7D3448512B78fa8A9e46c4872C88C4a0D05",
-          "name": "OdosRouterV3",
-          "label": "Odos Router V3",
-          "role": "Swap router for the Odos app and API (single and multi-token swaps)",
-          "version": "v3",
-          "source": "https://raw.githubusercontent.com/odos-xyz/odos-router-v3/6b72e444ce2f94b7a4ccf262cbe8141d7be16267/README.md",
-          "sourceKind": "raw",
-          "sourceNote": "README 'Deployments': same address on all supported EVM chains (mixed case, EIP-55 valid)"
-        },
-        {
-          "chainId": 8453,
-          "address": "0x0D05a7D3448512B78fa8A9e46c4872C88C4a0D05",
-          "name": "OdosRouterV3",
-          "label": "Odos Router V3",
-          "role": "Swap router for the Odos app and API (single and multi-token swaps)",
-          "version": "v3",
-          "source": "https://raw.githubusercontent.com/odos-xyz/odos-router-v3/6b72e444ce2f94b7a4ccf262cbe8141d7be16267/README.md",
-          "sourceKind": "raw",
-          "sourceNote": "README 'Deployments': same address on all supported EVM chains (mixed case, EIP-55 valid)"
-        },
-        {
-          "chainId": 42161,
-          "address": "0x0D05a7D3448512B78fa8A9e46c4872C88C4a0D05",
-          "name": "OdosRouterV3",
-          "label": "Odos Router V3",
-          "role": "Swap router for the Odos app and API (single and multi-token swaps)",
-          "version": "v3",
-          "source": "https://raw.githubusercontent.com/odos-xyz/odos-router-v3/6b72e444ce2f94b7a4ccf262cbe8141d7be16267/README.md",
-          "sourceKind": "raw",
-          "sourceNote": "README 'Deployments': same address on all supported EVM chains (mixed case, EIP-55 valid)"
-        },
-        {
-          "chainId": 10,
-          "address": "0x0D05a7D3448512B78fa8A9e46c4872C88C4a0D05",
-          "name": "OdosRouterV3",
-          "label": "Odos Router V3",
-          "role": "Swap router for the Odos app and API (single and multi-token swaps)",
-          "version": "v3",
-          "source": "https://raw.githubusercontent.com/odos-xyz/odos-router-v3/6b72e444ce2f94b7a4ccf262cbe8141d7be16267/README.md",
-          "sourceKind": "raw",
-          "sourceNote": "README 'Deployments': same address on all supported EVM chains (mixed case, EIP-55 valid)"
-        }
-      ]
-    },
-    {
       "protocol": "openocean",
       "name": "OpenOcean",
       "category": "aggregator",

@@ -5,7 +5,7 @@
       "name": "GMX",
       "category": "derivatives",
       "website": "https://gmx.io",
-      "notes": "GMX v2 (synthetics) on Arbitrum. ExchangeRouter, GlvRouter and SubaccountRouter are redeployed on upgrades; these are the 2.2.1 deployment the live app uses (the gmx-synthetics main branch still records the older 2.2c set). Express/gasless trading goes through GelatoRelayRouter 0x5503b99308dB6923758F9A22d118207D633c4e87 as EIP-712 signatures a relayer submits, so it is not listed as a transaction target.",
+      "notes": "GMX v2 (synthetics) on Arbitrum. ExchangeRouter, GlvRouter and SubaccountRouter are redeployed on upgrades; these are the 2.2.1 deployment the live app uses (the gmx-synthetics main branch still records the older 2.2c set). Express/gasless trading goes through GelatoRelayRouter 0x5503b99308dB6923758F9A22d118207D633c4e87 as EIP-712 signatures a relayer submits, so it is not listed as a transaction target. The Router users approve collateral to (0x7452c558d45f8afC8c83dAe62C3f8A5BE19c71f6) is left out: users sign their orders to the routers above, which pull tokens through it.",
       "contracts": [
         {
           "chainId": 42161,
@@ -42,17 +42,6 @@
           "source": "https://raw.githubusercontent.com/gmx-io/gmx-interface/1673062f3d4647cce6d311d7bc4585450c4b5db3/sdk/src/configs/contracts.ts",
           "sourceKind": "raw",
           "sourceNote": "ARBITRUM block of the gmx-interface release branch (the live app config); same address in gmx-synthetics release_2.2.1 deployments/arbitrum"
-        },
-        {
-          "chainId": 42161,
-          "address": "0x7452c558d45f8afC8c83dAe62C3f8A5BE19c71f6",
-          "name": "Router",
-          "label": "GMX v2 Router (token approval spender)",
-          "role": "spender users approve collateral tokens to; ExchangeRouter/GlvRouter pull tokens through it (not itself a transaction target)",
-          "proxy": false,
-          "source": "https://raw.githubusercontent.com/gmx-io/gmx-interface/1673062f3d4647cce6d311d7bc4585450c4b5db3/sdk/src/configs/contracts.ts",
-          "sourceKind": "raw",
-          "sourceNote": "SyntheticsRouter in the gmx-interface config; deployments/arbitrum/Router.json in gmx-synthetics (unchanged since 2023)"
         },
         {
           "chainId": 42161,

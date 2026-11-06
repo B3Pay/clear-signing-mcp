@@ -1058,7 +1058,7 @@
       "category": "lending",
       "website": "https://gearbox.fi",
       "defillama": "gearbox",
-      "notes": "Passive lending pools (PoolV3, ERC-4626) from Gearbox's sdk-gov token list. Credit facades are per credit manager and are left out. Newer permissionless (v3.1) curated pools are not covered by this source.",
+      "notes": "Passive lending pools (PoolV3, ERC-4626) from Gearbox's sdk-gov token list. Credit facades are per credit manager and are left out. Newer permissionless (v3.1) curated pools are not covered by this source. The v3.0 pools on Arbitrum One and OP Mainnet are left out: Gearbox DAO vote GIP-271 (passed 2025-11-21) sunset the v3.0 markets on those chains.",
       "contracts": [
         {
           "chainId": 1,
@@ -1114,50 +1114,6 @@
           "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
           "sourceKind": "raw",
           "sourceNote": "Mainnet dGHOV3"
-        },
-        {
-          "chainId": 42161,
-          "address": "0x890A69EF363C9c7BdD5E36eb95Ceb569F63ACbF6",
-          "name": "PoolV3",
-          "label": "USDC pool (dUSDCV3)",
-          "role": "Deposit USDC to earn lending yield, withdraw",
-          "version": "v3",
-          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
-          "sourceKind": "raw",
-          "sourceNote": "Arbitrum dUSDCV3"
-        },
-        {
-          "chainId": 42161,
-          "address": "0x04419d3509f13054f60d253E0c79491d9E683399",
-          "name": "PoolV3",
-          "label": "WETH pool (dWETHV3)",
-          "role": "Deposit WETH to earn lending yield, withdraw",
-          "version": "v3",
-          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
-          "sourceKind": "raw",
-          "sourceNote": "Arbitrum dWETHV3"
-        },
-        {
-          "chainId": 10,
-          "address": "0xa210BB193Ca352Fa81fBd0e81Cb800580b0762eE",
-          "name": "PoolV3",
-          "label": "USDC pool (dUSDCV3)",
-          "role": "Deposit USDC to earn lending yield, withdraw",
-          "version": "v3",
-          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
-          "sourceKind": "raw",
-          "sourceNote": "Optimism dUSDCV3"
-        },
-        {
-          "chainId": 10,
-          "address": "0x42dB77B3103c71059F4b997d6441cFB299FD0d94",
-          "name": "PoolV3",
-          "label": "WETH pool (dWETHV3)",
-          "role": "Deposit WETH to earn lending yield, withdraw",
-          "version": "v3",
-          "source": "https://raw.githubusercontent.com/Gearbox-protocol/sdk-gov/b6f5832fdfbe906b8c0a325c9b489682d9e4fb96/src/tokens/token.ts",
-          "sourceKind": "raw",
-          "sourceNote": "Optimism dWETHV3"
         }
       ]
     },

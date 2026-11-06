@@ -243,7 +243,7 @@
       "name": "Circle CCTP",
       "category": "bridge",
       "website": "https://www.circle.com",
-      "notes": "V2 contracts share one address on all four chains. V1 is in its phase-out window.",
+      "notes": "V2 contracts share one address on all four chains. V1 is in its phase-out window. The V1 TokenMessenger on OP Mainnet is left out: Circle ends V1 by 2026-12-01 (developers.circle.com/cctp/migration-from-v1-to-v2), and V2 is listed there.",
       "contracts": [
         {
           "chainId": 1,
@@ -304,18 +304,6 @@
           "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
           "sourceKind": "raw",
           "sourceNote": "chains.mjs, cctp.contracts.v2.messageTransmitter of this chain; same on developers.circle.com/cctp/references/contract-addresses (WebFetch, verbatim)"
-        },
-        {
-          "chainId": 10,
-          "address": "0x2B4069517957735bE00ceE0fadAE88a26365528f",
-          "name": "TokenMessenger",
-          "label": "CCTP TokenMessenger V1 (OP Mainnet)",
-          "role": "Legacy CCTP V1 burn (depositForBurn); Circle phases V1 out from 2026-10-31 to 2026-12-01",
-          "version": "v1",
-          "proxy": false,
-          "source": "https://registry.npmjs.org/@circle-fin/bridge-kit/-/bridge-kit-1.17.1.tgz",
-          "sourceKind": "raw",
-          "sourceNote": "chains.mjs, cctp.contracts.v1.tokenMessenger of this chain; same in wormhole-sdk-ts circle.ts. Deprecated: developers.circle.com/cctp/migration-from-v1-to-v2 says V1 deprecation begins 2026-10-31 and completes 2026-12-01"
         },
         {
           "chainId": 8453,
@@ -488,6 +476,7 @@
       "name": "Wormhole (Portal)",
       "category": "bridge",
       "website": "https://wormhole.com",
+      "notes": "The CCTP relayer on Arbitrum One is left out: it runs on CCTP V1, which Circle ends by 2026-12-01, and it had no calls in the 30 days read on 2026-11-06.",
       "contracts": [
         {
           "chainId": 1,
@@ -562,16 +551,6 @@
           "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/circle.ts",
           "sourceKind": "raw",
           "sourceNote": "circleContracts, Mainnet, \"Base\".wormholeRelayer; platforms/evm/protocols/cctp/src/automaticCircleBridge.ts sends the user transaction here. The CircleIntegration contract it calls is not user-facing"
-        },
-        {
-          "chainId": 42161,
-          "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
-          "name": "CircleRelayer",
-          "label": "Wormhole CCTP relayer (Arbitrum One)",
-          "role": "Automatic USDC route of Wormhole Connect / Portal (transferTokensWithRelay); built on CCTP V1, so it winds down with V1",
-          "source": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-sdk-ts/2a8ea439ef7c928aa0d0d139ec008c1a11909b2a/core/base/src/constants/contracts/circle.ts",
-          "sourceKind": "raw",
-          "sourceNote": "circleContracts, Mainnet, \"Arbitrum\".wormholeRelayer; platforms/evm/protocols/cctp/src/automaticCircleBridge.ts sends the user transaction here. The CircleIntegration contract it calls is not user-facing"
         }
       ]
     },

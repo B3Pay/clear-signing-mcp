@@ -20,6 +20,11 @@ source (`source`, `sourceKind`, `sourceNote`). `cli.js validate` checks the
 list: EIP-55 addresses, known chains, https sources, no protocol or
 deployment listed twice.
 
+A contract taken out after review is named in its protocol's `notes`, with
+the reason. Odos is out entirely: its app went read-only on 2026-07-27 and
+its API was retired on 2026-07-30 (the team's announcement, reported by
+Cointelegraph on 2026-07-24), so nothing generates calls to its router.
+
 ## The steps
 
 ```sh
