@@ -350,7 +350,9 @@ export function bestElsewhere(
     const chainName = CHAIN_NAMES[described.chainId]
     if (!chainName) continue
     const sameAddress = described.address === own
-    if (abiSelectors) {
+    // An ABI with no functions (a contract that dispatches in its fallback)
+    // says nothing about what it can be called with: like no ABI.
+    if (abiSelectors && abiSelectors.size > 0) {
       if (![...described.selectors].every((s) => abiSelectors.has(s))) continue
     } else if (!sameAddress) continue
     const txShareCovered = shareOf(sample.selectors, described.selectors)

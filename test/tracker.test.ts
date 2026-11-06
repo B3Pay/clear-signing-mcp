@@ -728,6 +728,14 @@ describe("bestElsewhere", () => {
     expect(bestElsewhere(X, abi, sample, candidates)).toBeNull()
   })
 
+  it("reads an ABI with no functions as no ABI", () => {
+    const best = bestElsewhere(X, new Set(), sample, [
+      { described: described(1, Y, ["0xbbbbbbbb"]), label: "Router" },
+      { described: described(1, X, ["0xaaaaaaaa"]), label: "Router" },
+    ])
+    expect(best).toMatchObject({ address: getAddress(X), sameAddress: true })
+  })
+
   it("takes only the same address on another chain when there is no ABI", () => {
     const best = bestElsewhere(X, null, sample, [
       { described: described(1, Y, ["0xbbbbbbbb"]), label: "Router" },
