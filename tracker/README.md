@@ -162,5 +162,9 @@ node tracker/dist/tracker/cli.js check-drafts --registry <clone> \
   the ABI read from `data/` rather than fetched), and the Sourcify test
   runner. Drafts that pass every check are listed in `drafts/summary.json`,
   which `report` reads for the public preview, with the share of the
-  contract's recent calls each draft formats. A change to `drafts/` runs
+  contract's recent calls each draft formats. Only formats that make a call
+  readable count: one that shows an amount besides the value sent, or no raw
+  `bytes`. A Universal Router's `execute(commands, inputs)` passes every
+  check yet shows its commands as raw bytes, so it is not counted, and a
+  draft with nothing else is not listed. A change to `drafts/` runs
   the `Tracker fetch` workflow again, so its report includes them.

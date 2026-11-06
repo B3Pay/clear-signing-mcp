@@ -11,12 +11,15 @@ import { tmpdir } from "node:os"
 import { dirname, join } from "node:path"
 import {
   getAddress,
+  parseAbiItem,
   toFunctionSelector,
   type Abi,
   type AbiFunction,
 } from "viem"
+import { describe } from "../src/draft/abi.js"
 import {
   draftDescriptor,
+  type DescriptorField,
   type DraftChain,
   type DraftRegistry,
   type DraftResult,
@@ -501,14 +504,28 @@ export function writeSummary(draftsDir: string): Record<string, DraftSummary> {
         const descriptor = readJson<DraftResult["descriptor"]>(descriptorPath)
         const tests = readJson<DraftResult["tests"]>(testsPath)
         if (!descriptor || !tests) continue
-        const first = choosePreview(tests.tests)
-        const formats = Object.keys(descriptor.display.formats)
-        const functions = formats.length
-        const testedTxs = validation.checks.tests.passed
+        // Only the formats that make a call readable count, and show.
+        const formats = Object.entries(descriptor.display.formats)
+        const readable = formats
+          .filter(([key, format]) => readableFormat(key, format))
+          .map(([key]) => key)
+        const opaque = new Set(
+          formats
+            .filter(([key]) => !readable.includes(key))
+            .map(([key]) => selectorOfFormat(key))
+        )
+        // A test's description is "<function> <selector> <hash>".
+        const shown = tests.tests.filter(
+          (test) => !opaque.has(test.description.split(" ")[1] ?? "")
+        )
+        const first = choosePreview(shown)
+        const functions = readable.length
+        const testedTxs =
+          validation.checks.tests.passed - (tests.tests.length - shown.length)
         if (functions < 1 || testedTxs < 1) continue
         const summary: DraftSummary = {
           functions,
-          selectors: formats.map((format) => selectorOfFormat(format)).sort(),
+          selectors: readable.map((format) => selectorOfFormat(format)).sort(),
           testedTxs,
           lint,
           ...(first
@@ -573,6 +590,37 @@ export function choosePreview<T extends { readonly expected: RenderedDisplay }>(
   })
   // Text that reads like a link or a message is never shown.
   return best && best.score < 10_000 ? best.test : undefined
+}
+
+/**
+ * Whether a format makes the calls it formats readable: it shows an amount
+ * besides the value sent, or no raw `bytes` payload. A Universal Router's
+ * execute(bytes commands, bytes[] inputs, uint256 deadline) passes the
+ * registry's checks, yet shows the commands and their inputs as raw bytes:
+ * a wallet would name the function and little else, so such a format is
+ * left out of the public summary, and a draft with no other format is too.
+ */
+export function readableFormat(
+  key: string,
+  format: { readonly fields?: readonly DescriptorField[] }
+): boolean {
+  const shown = (format.fields ?? []).filter((f) => f.visible !== "never")
+  if (
+    shown.some(
+      (f) =>
+        (f.format === "tokenAmount" || f.format === "amount") &&
+        f.path !== "@.value"
+    )
+  )
+    return true
+  let types: ReadonlyMap<string, string>
+  try {
+    const fn = parseAbiItem(`function ${key}`) as AbiFunction
+    types = new Map(describe(fn).leaves.map((leaf) => [leaf.path, leaf.type]))
+  } catch {
+    return true
+  }
+  return !shown.some((f) => f.format === "raw" && types.get(f.path) === "bytes")
 }
 
 /** A `display.formats` key's 4-byte selector: the key itself, or its signature's. */

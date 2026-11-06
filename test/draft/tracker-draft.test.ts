@@ -20,6 +20,7 @@ import {
   chooseSelectors,
   draftContract,
   MAX_SELECTORS,
+  readableFormat,
   sha256File,
   writeSummary,
 } from "../../tracker/draft.js"
@@ -247,6 +248,150 @@ describe("writeSummary", () => {
     const changed = writeDraft({ passed: true, lint: "pass" })
     writeFileSync(changed.descriptor, "{}")
     expect(writeSummary(changed.dir)).toEqual({})
+  })
+})
+
+describe("readableFormat", () => {
+  const EXECUTE = "execute(bytes commands,bytes[] inputs,uint256 deadline)"
+  const execute = [
+    { path: "@.value", label: "Value sent", format: "amount" as const },
+    { path: "commands", label: "Commands", format: "raw" as const },
+    { path: "inputs.[]", label: "Inputs", format: "raw" as const },
+    {
+      path: "deadline",
+      label: "Deadline",
+      format: "date" as const,
+      params: { encoding: "timestamp" },
+    },
+  ]
+
+  it("does not count a format that shows its payload as raw bytes", () => {
+    expect(readableFormat(EXECUTE, { fields: execute })).toBe(false)
+    expect(
+      readableFormat("receiveMessage(bytes message,bytes attestation)", {
+        fields: [
+          { path: "message", label: "Message", format: "raw" },
+          { path: "attestation", label: "Attestation", format: "raw" },
+        ],
+      })
+    ).toBe(false)
+  })
+
+  it("counts a format that shows an amount, or no raw bytes", () => {
+    // An amount besides the value sent makes the call readable.
+    expect(
+      readableFormat("swap(address tokenFrom,uint256 amount,bytes data)", {
+        fields: [
+          {
+            path: "amount",
+            label: "Amount to send",
+            format: "tokenAmount",
+            params: { tokenPath: "tokenFrom" },
+          },
+          { path: "data", label: "Data", format: "raw" },
+        ],
+      })
+    ).toBe(true)
+    // WETH's deposit(): the value sent, and nothing raw.
+    expect(
+      readableFormat("deposit()", {
+        fields: [{ path: "@.value", label: "Amount", format: "amount" }],
+      })
+    ).toBe(true)
+    // Raw bytes a draft hides are not shown.
+    expect(
+      readableFormat(EXECUTE, {
+        fields: execute.map((f) =>
+          f.format === "raw" ? { ...f, visible: "never" as const } : f
+        ),
+      })
+    ).toBe(true)
+  })
+
+  it("lists only a draft's readable formats, and leaves out a draft with none", () => {
+    const dir = mkdtempSync(join(tmpdir(), "draft-readable-"))
+    try {
+      const ADDRESS = "0x6fF5693b99212Da76ad316178A184AB56D299b43"
+      const SWAP = "swap(address tokenIn,uint256 amountIn)"
+      const write = (name: string, formats: Record<string, unknown>) => {
+        const entity = join(dir, name)
+        mkdirSync(join(entity, "testsv2"), { recursive: true })
+        const descriptor = join(entity, "calldata-Router.json")
+        const tests = join(entity, "testsv2", "calldata-Router.tests.json")
+        writeFileSync(
+          descriptor,
+          JSON.stringify({
+            context: {
+              contract: {
+                deployments: [
+                  {
+                    chainId: name === "both" ? 8453 : 10,
+                    address: ADDRESS,
+                  },
+                ],
+              },
+            },
+            metadata: { owner: "Acme" },
+            display: { formats },
+          })
+        )
+        const cases = Object.keys(formats).map((key, i) => ({
+          description: `${key.split("(")[0]} ${toFunctionSelector(`function ${key}`)} 0x${String(i).repeat(8)}`,
+          rawTx: "0x",
+          txHash: `0x${String(i + 1).repeat(64)}`,
+          expected: {
+            intent: key.split("(")[0],
+            fields: [{ label: "Field", value: "1" }],
+          },
+        }))
+        writeFileSync(
+          tests,
+          JSON.stringify({
+            descriptor: "../calldata-Router.json",
+            tests: cases,
+          })
+        )
+        writeFileSync(
+          join(entity, "calldata-Router.validation.json"),
+          JSON.stringify({
+            descriptor: "calldata-Router.json",
+            tests: "testsv2/calldata-Router.tests.json",
+            descriptorSha256: sha256File(descriptor),
+            testsSha256: sha256File(tests),
+            passed: true,
+            checks: {
+              lint: { status: "pass" },
+              tests: { status: "pass", passed: cases.length },
+            },
+          })
+        )
+      }
+      const swap = {
+        intent: "Swap",
+        fields: [
+          {
+            path: "amountIn",
+            label: "Amount to send",
+            format: "tokenAmount",
+            params: { tokenPath: "tokenIn" },
+          },
+        ],
+      }
+      write("both", {
+        [EXECUTE]: { intent: "Execute", fields: execute },
+        [SWAP]: swap,
+      })
+      write("opaque", { [EXECUTE]: { intent: "Execute", fields: execute } })
+      const summary = writeSummary(dir)
+      expect(Object.keys(summary)).toEqual([`8453:${ADDRESS.toLowerCase()}`])
+      const only = summary[`8453:${ADDRESS.toLowerCase()}`]
+      expect(only?.functions).toBe(1)
+      expect(only?.selectors).toEqual([toFunctionSelector(`function ${SWAP}`)])
+      expect(only?.testedTxs).toBe(1)
+      expect(only?.preview?.intent).toBe("swap")
+    } finally {
+      rmSync(dir, { recursive: true, force: true })
+    }
   })
 })
 
