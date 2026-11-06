@@ -1,0 +1,1630 @@
+{
+  "protocols": [
+    {
+      "protocol": "aave-v3",
+      "name": "Aave v3",
+      "category": "lending",
+      "website": "https://aave.com",
+      "defillama": "aave-v3",
+      "notes": "Core market per chain plus the Ethereum Prime (formerly Lido) market. Aave v4 and Aave staking are listed as separate entries.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+          "name": "Pool",
+          "label": "Aave v3 Pool (Ethereum Core market)",
+          "role": "Supply, borrow, repay and withdraw ERC-20s; set collateral and e-mode",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3Ethereum.ts",
+          "sourceKind": "raw",
+          "sourceNote": "POOL"
+        },
+        {
+          "chainId": 1,
+          "address": "0xd01607c3C5eCABa394D8be377a08590149325722",
+          "name": "WrappedTokenGatewayV3",
+          "label": "WrappedTokenGatewayV3 (Ethereum Core market)",
+          "role": "Supply, withdraw, borrow and repay native ETH",
+          "version": "v3",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3Ethereum.ts",
+          "sourceKind": "raw",
+          "sourceNote": "WETH_GATEWAY"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4e033931ad43597d96D6bcc25c280717730B58B1",
+          "name": "Pool",
+          "label": "Aave v3 Pool (Ethereum Prime market, formerly Lido)",
+          "role": "Supply, borrow, repay and withdraw in the Prime (Lido) market",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3EthereumLido.ts",
+          "sourceKind": "raw",
+          "sourceNote": "POOL in AaveV3EthereumLido"
+        },
+        {
+          "chainId": 1,
+          "address": "0x3167C452fA3fa1e5C16bB83Bc0fde4519C464299",
+          "name": "WrappedTokenGatewayV3",
+          "label": "WrappedTokenGatewayV3 (Ethereum Prime market)",
+          "role": "Native ETH supply/withdraw/borrow/repay in the Prime (Lido) market",
+          "version": "v3",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3EthereumLido.ts",
+          "sourceKind": "raw",
+          "sourceNote": "WETH_GATEWAY in AaveV3EthereumLido"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
+          "name": "Pool",
+          "label": "Aave v3 Pool (Base)",
+          "role": "Supply, borrow, repay and withdraw ERC-20s; set collateral and e-mode",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3Base.ts",
+          "sourceKind": "raw",
+          "sourceNote": "POOL"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xa0d9C1E9E48Ca30c8d8C3B5D69FF5dc1f6DFfC24",
+          "name": "WrappedTokenGatewayV3",
+          "label": "WrappedTokenGatewayV3 (Base)",
+          "role": "Supply, withdraw, borrow and repay native ETH",
+          "version": "v3",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3Base.ts",
+          "sourceKind": "raw",
+          "sourceNote": "WETH_GATEWAY"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "name": "Pool",
+          "label": "Aave v3 Pool (Arbitrum)",
+          "role": "Supply, borrow, repay and withdraw ERC-20s; set collateral and e-mode",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3Arbitrum.ts",
+          "sourceKind": "raw",
+          "sourceNote": "POOL"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x5283BEcEd7ADF6D003225C13896E536f2D4264FF",
+          "name": "WrappedTokenGatewayV3",
+          "label": "WrappedTokenGatewayV3 (Arbitrum)",
+          "role": "Supply, withdraw, borrow and repay native ETH",
+          "version": "v3",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3Arbitrum.ts",
+          "sourceKind": "raw",
+          "sourceNote": "WETH_GATEWAY"
+        },
+        {
+          "chainId": 10,
+          "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          "name": "Pool",
+          "label": "Aave v3 Pool (OP Mainnet)",
+          "role": "Supply, borrow, repay and withdraw ERC-20s; set collateral and e-mode",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3Optimism.ts",
+          "sourceKind": "raw",
+          "sourceNote": "POOL"
+        },
+        {
+          "chainId": 10,
+          "address": "0x5f2508cAE9923b02316254026CD43d7902866725",
+          "name": "WrappedTokenGatewayV3",
+          "label": "WrappedTokenGatewayV3 (OP Mainnet)",
+          "role": "Supply, withdraw, borrow and repay native ETH",
+          "version": "v3",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV3Optimism.ts",
+          "sourceKind": "raw",
+          "sourceNote": "WETH_GATEWAY"
+        }
+      ]
+    },
+    {
+      "protocol": "aave-v4",
+      "name": "Aave v4",
+      "category": "lending",
+      "website": "https://aave.com",
+      "notes": "Live on Ethereum since 2026-03-30 (hub-and-spoke). Only the Main Spoke and the native-token gateway are listed; v4 also has many specialised spokes. Aave v4 on Base is only an equities hub, left out.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x94e7A5dCbE816e498b89aB752661904E2F56c485",
+          "name": "Spoke",
+          "label": "Aave v4 Main Spoke (Ethereum)",
+          "role": "Supply, borrow, repay and withdraw in the v4 Main Spoke",
+          "version": "v4",
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV4Ethereum.ts",
+          "sourceKind": "raw",
+          "sourceNote": "SPOKES.MAIN_SPOKE; usage relative to v3 not measured"
+        },
+        {
+          "chainId": 1,
+          "address": "0xe68ab4F90Fe026B9873F5F276eD2d7efBbbE42Be",
+          "name": "NativeTokenGateway",
+          "label": "Aave v4 NativeTokenGateway (Ethereum)",
+          "role": "Supply, withdraw, borrow and repay native ETH on v4 spokes",
+          "version": "v4",
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV4Ethereum.ts",
+          "sourceKind": "raw",
+          "sourceNote": "POSITION_MANAGERS.NATIVE_TOKEN_GATEWAY"
+        }
+      ]
+    },
+    {
+      "protocol": "aave-staking",
+      "name": "Aave Safety Module and Umbrella",
+      "category": "lending",
+      "website": "https://aave.com",
+      "notes": "AAVE staking in the Safety Module (stkAAVE) and the Umbrella staking helper. Legacy stkGHO and stkABPT left out.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x4da27a545c0c5B758a6BA100e3a049001de870f5",
+          "name": "StakedAaveV3",
+          "label": "stkAAVE (Safety Module)",
+          "role": "Stake AAVE, start cooldown, redeem, claim staking rewards",
+          "version": "safety-module",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveSafetyModule.ts",
+          "sourceKind": "raw",
+          "sourceNote": "STK_AAVE"
+        },
+        {
+          "chainId": 1,
+          "address": "0xCe6Ced23118EDEb23054E06118a702797b13fc2F",
+          "name": "UmbrellaBatchHelper",
+          "label": "Umbrella batch helper",
+          "role": "Stake into Umbrella stake tokens (stkwaUSDC, stkwaUSDT, stkwaWETH, stkGHO), start cooldown, redeem and claim rewards, with permits",
+          "version": "umbrella",
+          "source": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/UmbrellaEthereum.ts",
+          "sourceKind": "raw",
+          "sourceNote": "UMBRELLA_BATCH_HELPER. Its deposit, redeem, cooldownPermit and claimRewardsPermit functions are in bgd-labs/aave-umbrella UmbrellaBatchHelper.sol; the stake tokens themselves are not listed"
+        }
+      ]
+    },
+    {
+      "protocol": "spark",
+      "name": "Spark",
+      "category": "lending",
+      "website": "https://spark.fi",
+      "defillama": "sparklend",
+      "notes": "SparkLend on Ethereum, Spark Savings vaults (v1 sUSDC, v2 spUSDC/spUSDT/spETH) and the PSM3 swap contract on L2s. sDAI and stSPK left out.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xC13e21B648A5Ee794902342038FF3aDAB66BE987",
+          "name": "Pool",
+          "label": "SparkLend Pool",
+          "role": "Supply, borrow, repay and withdraw on SparkLend",
+          "version": "sparklend",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/SparkLend.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SparkLend.POOL"
+        },
+        {
+          "chainId": 1,
+          "address": "0xBD7D6a9ad7865463DE44B05F04559f65e3B11704",
+          "name": "WrappedTokenGatewayV3",
+          "label": "SparkLend WETH gateway",
+          "role": "Supply, withdraw, borrow and repay native ETH on SparkLend",
+          "version": "sparklend",
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/SparkLend.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SparkLend.WETH_GATEWAY"
+        },
+        {
+          "chainId": 1,
+          "address": "0x28B3a8fb53B741A8Fd78c0fb9A6B2393d896a43d",
+          "name": "SparkVault",
+          "label": "Spark Savings USDC (spUSDC)",
+          "role": "Deposit/withdraw USDC in the Spark Savings v2 vault",
+          "version": "savings-v2",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Ethereum.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SPARK_VAULT_V2_SPUSDC (ERC1967Proxy)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xe2e7a17dFf93280dec073C995595155283e3C372",
+          "name": "SparkVault",
+          "label": "Spark Savings USDT (spUSDT)",
+          "role": "Deposit/withdraw USDT in the Spark Savings v2 vault",
+          "version": "savings-v2",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Ethereum.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SPARK_VAULT_V2_SPUSDT (ERC1967Proxy)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xfE6eb3b609a7C8352A241f7F3A21CEA4e9209B8f",
+          "name": "SparkVault",
+          "label": "Spark Savings ETH (spETH)",
+          "role": "Deposit/withdraw ETH (WETH) in the Spark Savings v2 vault",
+          "version": "savings-v2",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Ethereum.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SPARK_VAULT_V2_SPETH (ERC1967Proxy)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xBc65ad17c5C0a2A4D159fa5a503f4992c7B545FE",
+          "name": "UsdcVault",
+          "label": "Spark Savings USDC v1 (sUSDC)",
+          "role": "Deposit USDC, earn the Sky Savings Rate (ERC-4626)",
+          "version": "savings-v1",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Ethereum.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SUSDC (ERC1967Proxy, impl spark-vaults/UsdcVault.sol)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x1601843c5E9bC251A3272907010AFa41Fa18347E",
+          "name": "PSM3",
+          "label": "Spark PSM3 (Base)",
+          "role": "Swap USDC, USDS and sUSDS at the oracle rate",
+          "version": "psm3",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Base.sol",
+          "sourceKind": "raw",
+          "sourceNote": "PSM3; same address as Spark's Ethereum ALM_PROXY, a different contract on another chain"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x3128a0F7f0ea68E7B7c9B00AFa7E41045828e858",
+          "name": "UsdcVaultL2",
+          "label": "Spark Savings USDC (sUSDC, Base)",
+          "role": "Deposit USDC, earn the Sky Savings Rate (ERC-4626)",
+          "version": "savings-v1",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Base.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SUSDC"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x2B05F8e1cACC6974fD79A673a341Fe1f58d27266",
+          "name": "PSM3",
+          "label": "Spark PSM3 (Arbitrum)",
+          "role": "Swap USDC, USDS and sUSDS at the oracle rate",
+          "version": "psm3",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Arbitrum.sol",
+          "sourceKind": "raw",
+          "sourceNote": "PSM3"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x940098b108fB7D0a7E374f6eDED7760787464609",
+          "name": "UsdcVaultL2",
+          "label": "Spark Savings USDC (sUSDC, Arbitrum)",
+          "role": "Deposit USDC, earn the Sky Savings Rate (ERC-4626)",
+          "version": "savings-v1",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Arbitrum.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SUSDC"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x45d91340B3B7B96985A72b5c678F7D9e8D664b62",
+          "name": "SparkVault",
+          "label": "Spark Savings USDT (spUSDT, Arbitrum)",
+          "role": "Deposit/withdraw USDT in the Spark Savings v2 vault",
+          "version": "savings-v2",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Arbitrum.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SPARK_VAULT_V2_SPUSDT (ERC1967Proxy)"
+        },
+        {
+          "chainId": 10,
+          "address": "0xe0F9978b907853F354d79188A3dEfbD41978af62",
+          "name": "PSM3",
+          "label": "Spark PSM3 (OP Mainnet)",
+          "role": "Swap USDC, USDS and sUSDS at the oracle rate",
+          "version": "psm3",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Optimism.sol",
+          "sourceKind": "raw",
+          "sourceNote": "PSM3"
+        },
+        {
+          "chainId": 10,
+          "address": "0xCF9326e24EBfFBEF22ce1050007A43A3c0B6DB55",
+          "name": "UsdcVaultL2",
+          "label": "Spark Savings USDC (sUSDC, OP Mainnet)",
+          "role": "Deposit USDC, earn the Sky Savings Rate (ERC-4626)",
+          "version": "savings-v1",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sparkdotfi/spark-address-registry/a26016637516fd4475cd846800835e30cc1027a2/src/Optimism.sol",
+          "sourceKind": "raw",
+          "sourceNote": "SUSDC"
+        }
+      ]
+    },
+    {
+      "protocol": "sky",
+      "name": "Sky (formerly Maker)",
+      "category": "stablecoin",
+      "website": "https://sky.money",
+      "notes": "Addresses from the chainlog keys in Sky's spells-mainnet test address list. USDS itself is a plain ERC-20 (transfer/approve only) and is left out; on L2s users reach sUSDS through Spark PSM3.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
+          "name": "SUsds",
+          "label": "sUSDS (Sky Savings Rate)",
+          "role": "Deposit USDS to earn the Sky Savings Rate (ERC-4626), redeem",
+          "version": "ssr",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/sky-ecosystem/spells-mainnet/528230d804b77e0048230247b31a276ccb91726e/src/test/addresses_mainnet.sol",
+          "sourceKind": "raw",
+          "sourceNote": "chainlog SUSDS"
+        },
+        {
+          "chainId": 1,
+          "address": "0x3225737a9Bbb6473CB4a45b7244ACa2BeFdB276A",
+          "name": "DaiUsds",
+          "label": "DAI-USDS converter",
+          "role": "Convert DAI to USDS and back 1:1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/sky-ecosystem/spells-mainnet/528230d804b77e0048230247b31a276ccb91726e/src/test/addresses_mainnet.sol",
+          "sourceKind": "raw",
+          "sourceNote": "chainlog DAI_USDS"
+        },
+        {
+          "chainId": 1,
+          "address": "0xA188EEC8F81263234dA3622A406892F3D630f98c",
+          "name": "UsdsPsmWrapper",
+          "label": "USDS-USDC PSM wrapper",
+          "role": "Swap USDC to USDS and back through the Lite PSM",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/sky-ecosystem/spells-mainnet/528230d804b77e0048230247b31a276ccb91726e/src/test/addresses_mainnet.sol",
+          "sourceKind": "raw",
+          "sourceNote": "chainlog WRAPPER_USDS_LITE_PSM_USDC_A"
+        },
+        {
+          "chainId": 1,
+          "address": "0xCe01C90dE7FD1bcFa39e237FE6D8D9F569e8A6a3",
+          "name": "LockstakeEngine",
+          "label": "Sky Staking Engine (LockstakeEngine)",
+          "role": "Stake SKY into urns, choose a reward farm, borrow USDS, claim rewards",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/sky-ecosystem/spells-mainnet/528230d804b77e0048230247b31a276ccb91726e/src/test/addresses_mainnet.sol",
+          "sourceKind": "raw",
+          "sourceNote": "chainlog LOCKSTAKE_ENGINE (the SKY engine; LOCKSTAKE_MIGRATOR also listed)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0650CAF159C5A49f711e8169D4336ECB9b950275",
+          "name": "StakingRewards",
+          "label": "Sky Token Rewards: USDS to SKY",
+          "role": "Supply USDS to earn SKY, withdraw, claim",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/sky-ecosystem/spells-mainnet/528230d804b77e0048230247b31a276ccb91726e/src/test/addresses_mainnet.sol",
+          "sourceKind": "raw",
+          "sourceNote": "chainlog REWARDS_USDS_SKY"
+        },
+        {
+          "chainId": 1,
+          "address": "0xA1Ea1bA18E88C381C724a75F23a130420C403f9a",
+          "name": "MkrSky",
+          "label": "MKR to SKY converter",
+          "role": "Upgrade MKR to SKY",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/sky-ecosystem/spells-mainnet/528230d804b77e0048230247b31a276ccb91726e/src/test/addresses_mainnet.sol",
+          "sourceKind": "raw",
+          "sourceNote": "chainlog MKR_SKY (current converter)"
+        }
+      ]
+    },
+    {
+      "protocol": "compound-v3",
+      "name": "Compound v3",
+      "category": "lending",
+      "website": "https://compound.finance",
+      "defillama": "compound-v3",
+      "notes": "The USDC, WETH and USDT Comet markets per chain (where deployed), the Bulker for multi-step and native-ETH actions, and CometRewards for COMP claims. Other Comet markets are not listed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xc3d688B66703497DAA19211EEdff47f25384cdc3",
+          "name": "Comet",
+          "label": "cUSDCv3 (USDC market)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 1,
+          "address": "0xA17581A9E3356d9A858b789D68B4d866e593aE94",
+          "name": "Comet",
+          "label": "cWETHv3 (WETH market)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/weth/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 1,
+          "address": "0x3Afdc9BCA9213A35503b077a6072F3D0d5AB0840",
+          "name": "Comet",
+          "label": "cUSDTv3 (USDT market)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/usdt/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 1,
+          "address": "0xa397a8C2086C554B531c02E29f3291c9704B00c7",
+          "name": "MainnetBulker",
+          "label": "Compound Bulker (Ethereum)",
+          "role": "Batch supply/borrow/withdraw actions, including native ETH and stETH wrapping",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json bulker (shared by the usdc, usdt, usds, wbtc and weth markets; deployed from bulkers/MainnetBulker.sol)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x1B0e765F6224C21223AeA2af16c1C46E38885a40",
+          "name": "CometRewards",
+          "label": "CometRewards (Ethereum)",
+          "role": "Claim COMP rewards",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/mainnet/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json rewards"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xb125E6687d4313864e53df431d5425969c15Eb2F",
+          "name": "Comet",
+          "label": "cUSDCv3 (Base)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x46e6b214b524310239732D51387075E0e70970bf",
+          "name": "Comet",
+          "label": "cWETHv3 (Base)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/weth/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x78D0677032A35c63D142a48A2037048871212a8C",
+          "name": "BaseBulker",
+          "label": "Compound Bulker (Base)",
+          "role": "Batch supply/borrow/withdraw actions, including native ETH",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json bulker"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x123964802e6ABabBE1Bc9547D72Ef1B69B00A6b1",
+          "name": "CometRewards",
+          "label": "CometRewards (Base)",
+          "role": "Claim COMP rewards",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/base/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json rewards"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x9c4ec768c28520B50860ea7a15bd7213a9fF58bf",
+          "name": "Comet",
+          "label": "cUSDCv3 (Arbitrum, native USDC)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/arbitrum/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x6f7D514bbD4aFf3BcD1140B7344b32f063dEe486",
+          "name": "Comet",
+          "label": "cWETHv3 (Arbitrum)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/arbitrum/weth/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xd98Be00b5D27fc98112BdE293e487f8D4cA57d07",
+          "name": "Comet",
+          "label": "cUSDTv3 (Arbitrum)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/arbitrum/usdt/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d",
+          "name": "BaseBulker",
+          "label": "Compound Bulker (Arbitrum)",
+          "role": "Batch supply/borrow/withdraw actions, including native ETH",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/arbitrum/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json bulker"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x88730d254A2f7e6AC8388c3198aFd694bA9f7fae",
+          "name": "CometRewards",
+          "label": "CometRewards (Arbitrum)",
+          "role": "Claim COMP rewards",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/arbitrum/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json rewards"
+        },
+        {
+          "chainId": 10,
+          "address": "0x2e44e174f7D53F0212823acC11C01A11d58c5bCB",
+          "name": "Comet",
+          "label": "cUSDCv3 (OP Mainnet)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/optimism/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 10,
+          "address": "0xE36A30D249f7761327fd973001A32010b521b6Fd",
+          "name": "Comet",
+          "label": "cWETHv3 (OP Mainnet)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/optimism/weth/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 10,
+          "address": "0x995E394b8B2437aC8Ce61Ee0bC610D617962B214",
+          "name": "Comet",
+          "label": "cUSDTv3 (OP Mainnet)",
+          "role": "Supply, borrow, repay, withdraw; supply/withdraw collateral",
+          "version": "v3",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/optimism/usdt/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json comet"
+        },
+        {
+          "chainId": 10,
+          "address": "0xcb3643CC8294B23171272845473dEc49739d4Ba3",
+          "name": "BaseBulker",
+          "label": "Compound Bulker (OP Mainnet)",
+          "role": "Batch supply/borrow/withdraw actions, including native ETH",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/optimism/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json bulker"
+        },
+        {
+          "chainId": 10,
+          "address": "0x443EA0340cb75a160F31A440722dec7b5bc3C2E9",
+          "name": "CometRewards",
+          "label": "CometRewards (OP Mainnet)",
+          "role": "Claim COMP rewards",
+          "version": "v3",
+          "source": "https://raw.githubusercontent.com/compound-finance/comet/f766f51583c23acc33b2a7824654ef2029a96804/deployments/optimism/usdc/roots.json",
+          "sourceKind": "raw",
+          "sourceNote": "roots.json rewards"
+        }
+      ]
+    },
+    {
+      "protocol": "morpho",
+      "name": "Morpho",
+      "category": "lending",
+      "website": "https://morpho.org",
+      "defillama": "morpho-blue",
+      "notes": "Morpho core and the Bundles contracts the Morpho app sends vault and market actions through, plus a few of the largest vaults where name and address are tied together by two sources (vault sizes from Steakhouse's blog and third-party trackers, not measured here). Left out: Bundler3, which Morpho's docs call deprecated (its deployments stay live for existing integrators); VaultExitBundlesV1, used only for force-withdraw and in-kind exits; vaults on Arbitrum and OP Mainnet.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+          "name": "Morpho",
+          "label": "Morpho (Blue) core",
+          "role": "Supply, borrow, repay, withdraw and supply collateral in isolated markets; setAuthorization",
+          "version": "blue",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts blue (EthMainnet)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x02912516d49dE997db75B9D7858faAE59209650B",
+          "name": "VaultBundlesV1",
+          "label": "VaultBundlesV1",
+          "role": "App entry point to deposit into, withdraw from and migrate between vaults",
+          "version": "bundles-v1",
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts bundles.vaultBundlesV1. Morpho docs (docs.morpho.org/developers/contracts/bundles): the Morpho interface and SDK route every operation through Bundles"
+        },
+        {
+          "chainId": 1,
+          "address": "0x38B0C12AB81976e9417D4ebfe2A34DB6DF22e6AD",
+          "name": "BlueBundlesV1",
+          "label": "BlueBundlesV1",
+          "role": "App entry point to supply collateral and borrow, repay and withdraw, and migrate borrow positions",
+          "version": "bundles-v1",
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts bundles.blueBundlesV1. Morpho docs (docs.morpho.org/developers/contracts/bundles): the Morpho interface and SDK route every operation through Bundles"
+        },
+        {
+          "chainId": 1,
+          "address": "0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55",
+          "name": "MetaMorpho",
+          "label": "Sentora PYUSD (vault)",
+          "role": "Deposit/withdraw PYUSD (ERC-4626)",
+          "version": "vault-v1",
+          "source": "https://campaigns.morpho.org/opportunities/ethereum/MORPHOVAULT/0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55WHITELIST_PER_PROTOCOL",
+          "sourceKind": "webfetch",
+          "sourceNote": "Morpho Vault V1 (MetaMorpho); address taken from the URL of Morpho's official campaigns page titled 'Sentora PYUSD on Morpho' (TVL shown $232.7M); morpho-terminal.vercel.app lists Sentora PYUSD as the largest Ethereum vault it tracks ($289.81M, 2026-06-09)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xb576765fB15505433aF24FEe2c0325895C559FB2",
+          "name": "VaultV2",
+          "label": "Sentora PYUSD Main (Vault V2)",
+          "role": "Deposit/withdraw PYUSD (ERC-4626)",
+          "version": "vault-v2",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/morpho/calldata-sentora-senPYUSDmain-v2-1.json",
+          "sourceKind": "registry",
+          "sourceNote": "Also in the URL of Morpho's campaigns page 'Supply to Sentora PYUSD Main V2 vault on Morpho on Ethereum'; size not established"
+        },
+        {
+          "chainId": 1,
+          "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+          "name": "MetaMorpho",
+          "label": "Steakhouse USDC (vault)",
+          "role": "Deposit/withdraw USDC (ERC-4626)",
+          "version": "vault-v1",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/morpho/calldata-steakhouse_financial-steakUSDC-1.json",
+          "sourceKind": "registry",
+          "sourceNote": "Morpho Vault V1 (MetaMorpho); name and address matched by tradingstrategy.ai; morpho-terminal.vercel.app shows Steakhouse USDC at $96.85M (2026-06-09)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+          "name": "MetaMorpho",
+          "label": "Steakhouse USDT (vault)",
+          "role": "Deposit/withdraw USDT (ERC-4626)",
+          "version": "vault-v1",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/morpho/calldata-steakhouse_financial-steakUSDT.json",
+          "sourceKind": "registry",
+          "sourceNote": "Morpho Vault V1 (MetaMorpho); name and address matched by tradingstrategy.ai; morpho-terminal.vercel.app shows Steakhouse USDT at $93.6M (2026-06-09)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+          "name": "Morpho",
+          "label": "Morpho (Blue) core",
+          "role": "Supply, borrow, repay, withdraw and supply collateral in isolated markets; setAuthorization",
+          "version": "blue",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts blue (BaseMainnet)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x2B08A911f48dE25A7e305D910Afb5597aBE8ea7B",
+          "name": "VaultBundlesV1",
+          "label": "VaultBundlesV1",
+          "role": "App entry point to deposit into, withdraw from and migrate between vaults",
+          "version": "bundles-v1",
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts bundles.vaultBundlesV1. Morpho docs (docs.morpho.org/developers/contracts/bundles): the Morpho interface and SDK route every operation through Bundles"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x4D28D900e381eCE4B351302f1Abe588496793A2b",
+          "name": "BlueBundlesV1",
+          "label": "BlueBundlesV1",
+          "role": "App entry point to supply collateral and borrow, repay and withdraw, and migrate borrow positions",
+          "version": "bundles-v1",
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts bundles.blueBundlesV1. Morpho docs (docs.morpho.org/developers/contracts/bundles): the Morpho interface and SDK route every operation through Bundles"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xbeef0e0834849aCC03f0089F01f4F1Eeb06873C9",
+          "name": "VaultV2",
+          "label": "Steakhouse Prime USDC (Vault V2)",
+          "role": "Deposit/withdraw USDC (ERC-4626)",
+          "version": "vault-v2",
+          "source": "https://kitchen.steakhouse.financial/p/defi-markets-update-2026-08-04",
+          "sourceKind": "webfetch",
+          "sourceNote": "Steakhouse's blog: 'Steakhouse Prime USDC V2 on Base', over $580M, 'the largest individual vault on Morpho' (Aug 2026), printed mixed-case with its app.morpho.org link. The same address is the deposit target of a Base transaction in the registry's VaultBundlesV1 tests"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xBEEFE94c8aD530842bfE7d8B397938fFc1cb83b2",
+          "name": "MetaMorpho",
+          "label": "Steakhouse Prime USDC (vault V1)",
+          "role": "Deposit/withdraw USDC (ERC-4626)",
+          "version": "vault-v1",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/morpho/calldata-steakhouse_financial-steakUSDC-8453.json",
+          "sourceKind": "registry",
+          "sourceNote": "Morpho Vault V1 (MetaMorpho); Steakhouse's blog prints the same address as Steakhouse Prime USDC V1 on Base, with users migrating from it to V2 (over $200M in one day, Aug 2026)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xeE8F4eC5672F09119b96Ab6fB59C27E1b7e44b61",
+          "name": "MetaMorpho",
+          "label": "Gauntlet USDC Prime (gtUSDCp, vault V1)",
+          "role": "Deposit/withdraw USDC (ERC-4626)",
+          "version": "vault-v1",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/morpho/calldata-gauntlet-gtUSDCp.json",
+          "sourceKind": "registry",
+          "sourceNote": "Morpho Vault V1 (MetaMorpho); registry descriptor by Gauntlet with vault ticker gtUSDCp on Base; size not established"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x6c247b1F6182318877311737BaC0844bAa518F5e",
+          "name": "Morpho",
+          "label": "Morpho (Blue) core",
+          "role": "Supply, borrow, repay, withdraw and supply collateral in isolated markets; setAuthorization",
+          "version": "blue",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts blue (ArbitrumMainnet)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x5afAb0B2414E30c92a708234ea1b383Ce6317ED5",
+          "name": "VaultBundlesV1",
+          "label": "VaultBundlesV1",
+          "role": "App entry point to deposit into, withdraw from and migrate between vaults",
+          "version": "bundles-v1",
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts bundles.vaultBundlesV1. Morpho docs (docs.morpho.org/developers/contracts/bundles): the Morpho interface and SDK route every operation through Bundles"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x30a388A64b99192702a83D2CA9B95D79702afbf2",
+          "name": "BlueBundlesV1",
+          "label": "BlueBundlesV1",
+          "role": "App entry point to supply collateral and borrow, repay and withdraw, and migrate borrow positions",
+          "version": "bundles-v1",
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts bundles.blueBundlesV1. Morpho docs (docs.morpho.org/developers/contracts/bundles): the Morpho interface and SDK route every operation through Bundles"
+        },
+        {
+          "chainId": 10,
+          "address": "0xce95AfbB8EA029495c66020883F87aaE8864AF92",
+          "name": "Morpho",
+          "label": "Morpho (Blue) core",
+          "role": "Supply, borrow, repay, withdraw and supply collateral in isolated markets; setAuthorization",
+          "version": "blue",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts blue (OptimismMainnet)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x112088363eE4CcF3F37EaBD98FDDeEd98F0Be485",
+          "name": "VaultBundlesV1",
+          "label": "VaultBundlesV1",
+          "role": "App entry point to deposit into, withdraw from and migrate between vaults",
+          "version": "bundles-v1",
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts bundles.vaultBundlesV1. Morpho docs (docs.morpho.org/developers/contracts/bundles): the Morpho interface and SDK route every operation through Bundles"
+        },
+        {
+          "chainId": 10,
+          "address": "0x317ca3534f8Cf92Accb4b4366F48017E596bc34a",
+          "name": "BlueBundlesV1",
+          "label": "BlueBundlesV1",
+          "role": "App entry point to supply collateral and borrow, repay and withdraw, and migrate borrow positions",
+          "version": "bundles-v1",
+          "source": "https://raw.githubusercontent.com/morpho-org/sdks/4be8c002c8beb99d18f37fe2c9f3d361cf0b76d0/packages/morpho-ts/src/addresses.ts",
+          "sourceKind": "raw",
+          "sourceNote": "addresses.ts bundles.blueBundlesV1. Morpho docs (docs.morpho.org/developers/contracts/bundles): the Morpho interface and SDK route every operation through Bundles"
+        }
+      ]
+    },
+    {
+      "protocol": "euler-v2",
+      "name": "Euler v2",
+      "category": "lending",
+      "website": "https://euler.finance",
+      "defillama": "euler-v2",
+      "notes": "Euler v2 actions are usually sent as Ethereum Vault Connector batches; individual EVK vaults, which users can also call directly, are too many to list. No OP Mainnet deployment in euler-interfaces.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x0C9a3dd6b8F28529d72d7f9cE918D493519EE383",
+          "name": "EthereumVaultConnector",
+          "label": "Ethereum Vault Connector (EVC)",
+          "role": "Batch entry point for deposits, borrows, collateral and controller changes across Euler vaults",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/euler-xyz/euler-interfaces/8e67fe7b9ff2a766966d1887cabbbde3dd7e5b69/addresses/1/CoreAddresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "CoreAddresses.json evc"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x5301c7dD20bD945D2013b48ed0DEE3A284ca8989",
+          "name": "EthereumVaultConnector",
+          "label": "Ethereum Vault Connector (EVC)",
+          "role": "Batch entry point for deposits, borrows, collateral and controller changes across Euler vaults",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/euler-xyz/euler-interfaces/8e67fe7b9ff2a766966d1887cabbbde3dd7e5b69/addresses/8453/CoreAddresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "CoreAddresses.json evc"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x6302ef0F34100CDDFb5489fbcB6eE1AA95CD1066",
+          "name": "EthereumVaultConnector",
+          "label": "Ethereum Vault Connector (EVC)",
+          "role": "Batch entry point for deposits, borrows, collateral and controller changes across Euler vaults",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/euler-xyz/euler-interfaces/8e67fe7b9ff2a766966d1887cabbbde3dd7e5b69/addresses/42161/CoreAddresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "CoreAddresses.json evc"
+        }
+      ]
+    },
+    {
+      "protocol": "fluid",
+      "name": "Fluid",
+      "category": "lending",
+      "website": "https://fluid.io",
+      "defillama": "fluid-lending",
+      "notes": "Lending fTokens and two v1.1.0 borrow vaults per chain (each Fluid vault is its own contract; users call operate on it). Vault usage not measured; newer smart-collateral and smart-debt vaults are not listed. No OP Mainnet deployment in Fluid's deployments.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x9Fb7b4477576Fe5B32be4C1843aFB1e55F251B33",
+          "name": "fToken",
+          "label": "Fluid fUSDC",
+          "role": "Lend USDC (ERC-4626 deposit/withdraw)",
+          "version": "lending",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "fToken_fUSDC (mainnet)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x5C20B550819128074FD538Edf79791733ccEdd18",
+          "name": "fToken",
+          "label": "Fluid fUSDT",
+          "role": "Lend USDT (ERC-4626 deposit/withdraw)",
+          "version": "lending",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "fToken_fUSDT (mainnet)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x90551c1795392094FE6D29B758EcCD233cFAa260",
+          "name": "fToken",
+          "label": "Fluid fWETH",
+          "role": "Lend ETH/WETH (ERC-4626, plus depositNative for ETH)",
+          "version": "lending",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "fToken_fWETH (mainnet); ABI has depositNative"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0C8C77B7FF4c2aF7F6CEBbe67350A490E3DD6cB3",
+          "name": "FluidVaultT1",
+          "label": "Fluid Vault ETH/USDC",
+          "role": "Deposit ETH collateral, borrow USDC (operate)",
+          "version": "vaults-v1.1.0",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "Vaults v1.1.0 Vault_ETH_USDC (mainnet); also in deployments/mainnet/Vault_ETH_USDC.json"
+        },
+        {
+          "chainId": 1,
+          "address": "0x82B27fA821419F5689381b565a8B0786aA2548De",
+          "name": "FluidVaultT1",
+          "label": "Fluid Vault wstETH/ETH",
+          "role": "Deposit wstETH collateral, borrow ETH (operate)",
+          "version": "vaults-v1.1.0",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "Vaults v1.1.0 Vault_wstETH_ETH (mainnet)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xf42f5795D9ac7e9D757dB633D693cD548Cfd9169",
+          "name": "fToken",
+          "label": "Fluid fUSDC (Base)",
+          "role": "Lend USDC (ERC-4626 deposit/withdraw)",
+          "version": "lending",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "fToken_fUSDC (base)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x9272D6153133175175Bc276512B2336BE3931CE9",
+          "name": "fToken",
+          "label": "Fluid fWETH (Base)",
+          "role": "Lend ETH/WETH (ERC-4626, plus depositNative for ETH)",
+          "version": "lending",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "fToken_fWETH (base)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xeAbBfca72F8a8bf14C4ac59e69ECB2eB69F0811C",
+          "name": "FluidVaultT1",
+          "label": "Fluid Vault ETH/USDC (Base)",
+          "role": "Deposit ETH collateral, borrow USDC (operate)",
+          "version": "vaults-v1.1.0",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "Vaults v1.1.0 Vault_ETH_USDC (base). The same address is a deprecated v1.0.0 vault on Ethereum, not listed"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x4045720a33193b4Fe66c94DFbc8D37B0b4D9B469",
+          "name": "FluidVaultT1",
+          "label": "Fluid Vault cbBTC/USDC (Base)",
+          "role": "Deposit cbBTC collateral, borrow USDC (operate)",
+          "version": "vaults-v1.1.0",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "Vaults v1.1.0 Vault_cbBTC_USDC (base)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x1A996cb54bb95462040408C06122D45D6Cdb6096",
+          "name": "fToken",
+          "label": "Fluid fUSDC (Arbitrum)",
+          "role": "Lend USDC (ERC-4626 deposit/withdraw)",
+          "version": "lending",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "fToken_fUSDC (arbitrum)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x4A03F37e7d3fC243e3f99341d36f4b829BEe5E03",
+          "name": "fToken",
+          "label": "Fluid fUSDT (Arbitrum)",
+          "role": "Lend USDT (ERC-4626 deposit/withdraw)",
+          "version": "lending",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "fToken_fUSDT (arbitrum)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x45Df0656F8aDf017590009d2f1898eeca4F0a205",
+          "name": "fToken",
+          "label": "Fluid fWETH (Arbitrum)",
+          "role": "Lend ETH/WETH (ERC-4626, plus depositNative for ETH)",
+          "version": "lending",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "fToken_fWETH (arbitrum)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xeAbBfca72F8a8bf14C4ac59e69ECB2eB69F0811C",
+          "name": "FluidVaultT1",
+          "label": "Fluid Vault ETH/USDC (Arbitrum)",
+          "role": "Deposit ETH collateral, borrow USDC (operate)",
+          "version": "vaults-v1.1.0",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "Vaults v1.1.0 Vault_ETH_USDC (arbitrum)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x1c2bB46f36561bc4F05A94BD50916496aa501078",
+          "name": "FluidVaultT1",
+          "label": "Fluid Vault wstETH/ETH (Arbitrum)",
+          "role": "Deposit wstETH collateral, borrow ETH (operate)",
+          "version": "vaults-v1.1.0",
+          "source": "https://raw.githubusercontent.com/Instadapp/fluid-contracts-public/404d73f91e6806f881f8dabeb30494f93f9e99b7/deployments/deployments.md",
+          "sourceKind": "raw",
+          "sourceNote": "Vaults v1.1.0 Vault_wstETH_ETH (arbitrum)"
+        }
+      ]
+    },
+    {
+      "protocol": "moonwell",
+      "name": "Moonwell",
+      "category": "lending",
+      "website": "https://moonwell.fi",
+      "defillama": "moonwell",
+      "notes": "Compound-v2-style markets on Base and OP Mainnet: Comptroller (enter markets, claim rewards), the WETH router for native ETH, and the USDC, WETH and cbBTC mToken markets. Other markets and Moonwell's Morpho vaults are not listed.",
+      "contracts": [
+        {
+          "chainId": 8453,
+          "address": "0x73D8A3bF62aACa6690791E57EBaEE4e1d875d8Fe",
+          "name": "Unitroller",
+          "label": "Moonwell Comptroller (Base)",
+          "role": "Enter/exit markets (collateral), claim WELL/USDC rewards",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "COMPTROLLER"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x70778cfcFC475c7eA0f24cC625Baf6EaE475D0c9",
+          "name": "WETHRouter",
+          "label": "Moonwell WETH Router (Base)",
+          "role": "Supply native ETH into mWETH in one step",
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "WETH_ROUTER"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xEdc817A28E8B93B03976FBd4a3dDBc9f7D176c22",
+          "name": "MErc20Delegator",
+          "label": "Moonwell mUSDC (Base)",
+          "role": "Supply, redeem, borrow, repay USDC",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "MOONWELL_USDC"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x628ff693426583D9a7FB391E54366292F509D457",
+          "name": "MErc20Delegator",
+          "label": "Moonwell mWETH (Base)",
+          "role": "Supply, redeem, borrow, repay WETH",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "MOONWELL_WETH"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xF877ACaFA28c19b96727966690b2f44d35aD5976",
+          "name": "MErc20Delegator",
+          "label": "Moonwell mcbBTC (Base)",
+          "role": "Supply, redeem, borrow, repay cbBTC",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "MOONWELL_cbBTC"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xe66E3A37C3274Ac24FE8590f7D84A2427194DC17",
+          "name": "StakedWell",
+          "label": "Moonwell stkWELL (Base)",
+          "role": "Stake WELL, cooldown, redeem, claim staking rewards",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "STK_GOVTOKEN_PROXY"
+        },
+        {
+          "chainId": 10,
+          "address": "0x8dFBb21dbD61af533092d54B293660CF77A30Ce2",
+          "name": "Unitroller",
+          "label": "Moonwell Comptroller (OP Mainnet)",
+          "role": "Enter/exit markets (collateral), claim rewards",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/10.json",
+          "sourceKind": "raw",
+          "sourceNote": "COMPTROLLER"
+        },
+        {
+          "chainId": 10,
+          "address": "0xc4Ab8C031717d7ecCCD653BE898e0f92410E11dC",
+          "name": "WETHRouter",
+          "label": "Moonwell WETH Router (OP Mainnet)",
+          "role": "Supply native ETH into mWETH in one step",
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/10.json",
+          "sourceKind": "raw",
+          "sourceNote": "WETH_ROUTER"
+        },
+        {
+          "chainId": 10,
+          "address": "0x8E08617b0d66359D73Aa11E11017834C29155525",
+          "name": "MErc20Delegator",
+          "label": "Moonwell mUSDC (OP Mainnet)",
+          "role": "Supply, redeem, borrow, repay USDC",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/10.json",
+          "sourceKind": "raw",
+          "sourceNote": "MOONWELL_USDC"
+        },
+        {
+          "chainId": 10,
+          "address": "0xb4104C02BBf4E9be85AAa41a62974E4e28D59A33",
+          "name": "MErc20Delegator",
+          "label": "Moonwell mWETH (OP Mainnet)",
+          "role": "Supply, redeem, borrow, repay WETH",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/moonwell-fi/moonwell-contracts-v2/c106698a4ed9c8f757cca96265d2d818f99fc4e1/chains/10.json",
+          "sourceKind": "raw",
+          "sourceNote": "MOONWELL_WETH"
+        }
+      ]
+    },
+    {
+      "protocol": "seamless",
+      "name": "Seamless",
+      "category": "lending",
+      "website": "https://seamlessprotocol.com",
+      "defillama": "seamless-protocol",
+      "notes": "Leverage Tokens on Base (built on Morpho markets). Seamless's older lending market and its curated Morpho vaults are not listed. The README also lists an Ethereum deployment, left out (no evidence of use).",
+      "contracts": [
+        {
+          "chainId": 8453,
+          "address": "0x00c66934EBCa0F2A845812bC368B230F6da11A5C",
+          "name": "LeverageRouter",
+          "label": "Seamless LeverageRouter (Base)",
+          "role": "Mint and redeem Leverage Tokens from a single asset (swaps + flash loan)",
+          "source": "https://raw.githubusercontent.com/seamless-protocol/leverage-tokens/b0020744a2b58ed5a7d9ab4511fe4d7ec3cddc2d/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Deployed Contracts - Base Mainnet' LeverageRouter. The same address is a different contract (MorphoLendingAdapter implementation) in the README's Ethereum section"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x38Ba21C6Bf31dF1b1798FCEd07B4e9b07C5ec3a8",
+          "name": "LeverageManager",
+          "label": "Seamless LeverageManager (Base)",
+          "role": "Deposit and redeem Leverage Tokens directly",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/seamless-protocol/leverage-tokens/b0020744a2b58ed5a7d9ab4511fe4d7ec3cddc2d/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README LeverageManager proxy"
+        }
+      ]
+    },
+    {
+      "protocol": "liquity-v2",
+      "name": "Liquity v2 (BOLD)",
+      "category": "cdp",
+      "website": "https://www.liquity.org",
+      "defillama": "liquity-v2",
+      "notes": "The official app (frontend/app/src/tx-flows) sends trove opens, adjustments and closes to each branch's leverage zapper, interest-rate changes and batch delegation to BorrowerOperations, and Earn deposits to the Stability Pool. Listed for the WETH and wstETH branches; the rETH branch has the same three contracts (leverage zapper, BorrowerOperations, Stability Pool) and is left out to keep to six entries. The plain WETHZapper/GasCompZapper are not used by the official app.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xdCcBD7A365aeE086aa3b4EDe8afe895B20770AE3",
+          "name": "LeverageWETHZapper",
+          "label": "Leverage zapper (WETH branch)",
+          "role": "Open, adjust, close and lever ETH-collateral troves with native ETH",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/liquity/bold/d262669ef3c4d37bf0544df3bb2624c07b8a5ee0/contracts/addresses/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "branches[WETH].leverageZapper. The official app's mainnet config (frontend/app/.env at the same commit) has the same address as NEXT_PUBLIC_COLL_0_CONTRACT_LEVERAGE_ZAPPER. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0x372ABD1810eAF23Cb9D941BbE7596DFb2c46BC65",
+          "name": "BorrowerOperations",
+          "label": "BorrowerOperations (WETH branch)",
+          "role": "Change a trove's interest rate or delegate it to a batch manager",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/liquity/bold/d262669ef3c4d37bf0544df3bb2624c07b8a5ee0/contracts/addresses/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "branches[WETH].borrowerOperations. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0x5721cbbd64fc7Ae3Ef44A0A3F9a790A9264Cf9BF",
+          "name": "StabilityPool",
+          "label": "Stability Pool (WETH branch)",
+          "role": "Deposit/withdraw BOLD, claim yield and collateral gains",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/liquity/bold/d262669ef3c4d37bf0544df3bb2624c07b8a5ee0/contracts/addresses/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "branches[WETH].stabilityPool. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0xe85230dE04147C4Ea363B21cdb801c1C19DF0A56",
+          "name": "LeverageLSTZapper",
+          "label": "Leverage zapper (wstETH branch)",
+          "role": "Open, adjust, close and lever wstETH-collateral troves",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/liquity/bold/d262669ef3c4d37bf0544df3bb2624c07b8a5ee0/contracts/addresses/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "branches[wstETH].leverageZapper. The official app's mainnet config (frontend/app/.env at the same commit) has the same address as NEXT_PUBLIC_COLL_1_CONTRACT_LEVERAGE_ZAPPER. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0xa741A32f9dcFe6aDBa088fD0f97e90742d7d5DA3",
+          "name": "BorrowerOperations",
+          "label": "BorrowerOperations (wstETH branch)",
+          "role": "Change a trove's interest rate or delegate it to a batch manager",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/liquity/bold/d262669ef3c4d37bf0544df3bb2624c07b8a5ee0/contracts/addresses/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "branches[wstETH].borrowerOperations. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0x9502b7c397E9aa22FE9dB7EF7DAF21cD2AEBe56B",
+          "name": "StabilityPool",
+          "label": "Stability Pool (wstETH branch)",
+          "role": "Deposit/withdraw BOLD, claim yield and collateral gains",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/liquity/bold/d262669ef3c4d37bf0544df3bb2624c07b8a5ee0/contracts/addresses/1.json",
+          "sourceKind": "raw",
+          "sourceNote": "branches[wstETH].stabilityPool. Source printed it lowercase; checksummed here."
+        }
+      ]
+    },
+    {
+      "protocol": "crvusd",
+      "name": "Curve crvUSD",
+      "category": "cdp",
+      "website": "https://curve.finance",
+      "defillama": "crvusd",
+      "notes": "crvUSD mint-market Controllers (create_loan, borrow_more, repay, add_collateral) and Savings crvUSD. LlamaLend markets left out.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xA920De414eA4Ab66b97dA1bFE9e6EcA7d4219635",
+          "name": "Controller",
+          "label": "crvUSD Controller (ETH/WETH market)",
+          "role": "Create loan, borrow more, repay, add/remove WETH collateral",
+          "source": "https://raw.githubusercontent.com/CurveDocs/curve-docs/dbe555e1baba1cc78645c24d860c16e87d0dab58/docs/deployments/crvusd.md",
+          "sourceKind": "raw",
+          "sourceNote": "Markets: ETH Controller. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0x100dAa78fC509Db39Ef7D04DE0c1ABD299f4C6CE",
+          "name": "Controller",
+          "label": "crvUSD Controller (wstETH market)",
+          "role": "Create loan, borrow more, repay, add/remove collateral",
+          "source": "https://raw.githubusercontent.com/CurveDocs/curve-docs/dbe555e1baba1cc78645c24d860c16e87d0dab58/docs/deployments/crvusd.md",
+          "sourceKind": "raw",
+          "sourceNote": "Markets: wstETH Controller. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0x4e59541306910aD6dC1daC0AC9dFB29bD9F15c67",
+          "name": "Controller",
+          "label": "crvUSD Controller (WBTC market)",
+          "role": "Create loan, borrow more, repay, add/remove collateral",
+          "source": "https://raw.githubusercontent.com/CurveDocs/curve-docs/dbe555e1baba1cc78645c24d860c16e87d0dab58/docs/deployments/crvusd.md",
+          "sourceKind": "raw",
+          "sourceNote": "Markets: wBTC Controller. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0x1C91da0223c763d2e0173243eAdaA0A2ea47E704",
+          "name": "Controller",
+          "label": "crvUSD Controller (tBTC market)",
+          "role": "Create loan, borrow more, repay, add/remove collateral",
+          "source": "https://raw.githubusercontent.com/CurveDocs/curve-docs/dbe555e1baba1cc78645c24d860c16e87d0dab58/docs/deployments/crvusd.md",
+          "sourceKind": "raw",
+          "sourceNote": "Markets: tBTC Controller. Source printed it lowercase; checksummed here."
+        },
+        {
+          "chainId": 1,
+          "address": "0xf8C786b1064889fFd3c8A08B48D5e0c159F4cBe3",
+          "name": "Controller",
+          "label": "crvUSD Controller (cbBTC market)",
+          "role": "Create loan, borrow more, repay, add/remove collateral",
+          "source": "https://raw.githubusercontent.com/CurveDocs/curve-docs/dbe555e1baba1cc78645c24d860c16e87d0dab58/docs/deployments/crvusd.md",
+          "sourceKind": "raw",
+          "sourceNote": "Markets: cbBTC Controller"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0655977FEb2f289A4aB78af67BAB0d17aAb84367",
+          "name": "Vault",
+          "label": "Savings crvUSD (scrvUSD)",
+          "role": "Deposit crvUSD to earn the savings rate (ERC-4626), withdraw",
+          "source": "https://raw.githubusercontent.com/CurveDocs/curve-docs/dbe555e1baba1cc78645c24d860c16e87d0dab58/docs/deployments/crvusd.md",
+          "sourceKind": "raw",
+          "sourceNote": "Savings crvUSD: scrvUSD / Vault"
+        }
+      ]
+    },
+    {
+      "protocol": "dolomite",
+      "name": "Dolomite",
+      "category": "lending",
+      "website": "https://dolomite.io",
+      "defillama": "dolomite",
+      "notes": "Router proxies for deposits and withdrawals, borrow positions and swaps (same addresses on Ethereum and Arbitrum). The Base deployment in the file is left out (no evidence of use).",
+      "contracts": [
+        {
+          "chainId": 42161,
+          "address": "0xf8b2c637A68cF6A17b1DF9F8992EeBeFf63d2dFf",
+          "name": "DepositWithdrawalRouter",
+          "label": "Dolomite DepositWithdrawalRouter (Arbitrum)",
+          "role": "Deposit to and withdraw from Dolomite balances (incl. native ETH)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/dolomite-exchange/dolomite-margin-modules/ef5655d32f6e2018965036927bf4ecb933021bf5/packages/deployment/src/deploy/deployments.json",
+          "sourceKind": "raw",
+          "sourceNote": "DepositWithdrawalRouterProxy"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xF579b345cdA0860668b857De10ABD62442133D0F",
+          "name": "BorrowPositionRouter",
+          "label": "Dolomite BorrowPositionRouter (Arbitrum)",
+          "role": "Open/close borrow positions and transfer collateral",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/dolomite-exchange/dolomite-margin-modules/ef5655d32f6e2018965036927bf4ecb933021bf5/packages/deployment/src/deploy/deployments.json",
+          "sourceKind": "raw",
+          "sourceNote": "BorrowPositionRouterProxy"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x7b61CbA306CfdB02493b94757143132B1b72Bc6b",
+          "name": "GenericTraderRouter",
+          "label": "Dolomite GenericTraderRouter (Arbitrum)",
+          "role": "Swap and leverage within Dolomite positions",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/dolomite-exchange/dolomite-margin-modules/ef5655d32f6e2018965036927bf4ecb933021bf5/packages/deployment/src/deploy/deployments.json",
+          "sourceKind": "raw",
+          "sourceNote": "GenericTraderRouterProxy"
+        },
+        {
+          "chainId": 1,
+          "address": "0xf8b2c637A68cF6A17b1DF9F8992EeBeFf63d2dFf",
+          "name": "DepositWithdrawalRouter",
+          "label": "Dolomite DepositWithdrawalRouter (Ethereum)",
+          "role": "Deposit to and withdraw from Dolomite balances (incl. native ETH)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/dolomite-exchange/dolomite-margin-modules/ef5655d32f6e2018965036927bf4ecb933021bf5/packages/deployment/src/deploy/deployments.json",
+          "sourceKind": "raw",
+          "sourceNote": "DepositWithdrawalRouterProxy"
+        },
+        {
+          "chainId": 1,
+          "address": "0xF579b345cdA0860668b857De10ABD62442133D0F",
+          "name": "BorrowPositionRouter",
+          "label": "Dolomite BorrowPositionRouter (Ethereum)",
+          "role": "Open/close borrow positions and transfer collateral",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/dolomite-exchange/dolomite-margin-modules/ef5655d32f6e2018965036927bf4ecb933021bf5/packages/deployment/src/deploy/deployments.json",
+          "sourceKind": "raw",
+          "sourceNote": "BorrowPositionRouterProxy"
+        },
+        {
+          "chainId": 1,
+          "address": "0x7b61CbA306CfdB02493b94757143132B1b72Bc6b",
+          "name": "GenericTraderRouter",
+          "label": "Dolomite GenericTraderRouter (Ethereum)",
+          "role": "Swap and leverage within Dolomite positions",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/dolomite-exchange/dolomite-margin-modules/ef5655d32f6e2018965036927bf4ecb933021bf5/packages/deployment/src/deploy/deployments.json",
+          "sourceKind": "raw",
+          "sourceNote": "GenericTraderRouterProxy"
+        }
+      ]
+    },
+    {
+      "protocol": "maple",
+      "name": "Maple (Syrup)",
+      "category": "lending",
+      "website": "https://maple.finance",
+      "defillama": "maple",
+      "notes": "syrupUSDC/syrupUSDT: deposits go through each pool's SyrupRouter, redemptions are requested on the pool. syrup tokens on L2s are bridged OFTs (no deposits), left out.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x80ac24aA929eaF5013f6436cdA2a7ba190f5Cc0b",
+          "name": "Pool",
+          "label": "syrupUSDC pool",
+          "role": "Request redemption of syrupUSDC; ERC-4626 share token",
+          "source": "https://raw.githubusercontent.com/maple-labs/address-registry/1bfdc138ed2009a53841bf8a3e350b48d5e2d70e/MapleAddressRegistryETH.md",
+          "sourceKind": "raw",
+          "sourceNote": "Pools / syrupUSDC / syrupUSDCPool"
+        },
+        {
+          "chainId": 1,
+          "address": "0x134cCaaA4F1e4552eC8aEcb9E4A2360dDcF8df76",
+          "name": "SyrupRouter",
+          "label": "SyrupRouter (syrupUSDC)",
+          "role": "Deposit USDC into syrupUSDC (with permit/authorization)",
+          "source": "https://raw.githubusercontent.com/maple-labs/address-registry/1bfdc138ed2009a53841bf8a3e350b48d5e2d70e/MapleAddressRegistryETH.md",
+          "sourceKind": "raw",
+          "sourceNote": "Pools / syrupUSDC / SyrupRouter"
+        },
+        {
+          "chainId": 1,
+          "address": "0x356B8d89c1e1239Cbbb9dE4815c39A1474d5BA7D",
+          "name": "Pool",
+          "label": "syrupUSDT pool",
+          "role": "Request redemption of syrupUSDT; ERC-4626 share token",
+          "source": "https://raw.githubusercontent.com/maple-labs/address-registry/1bfdc138ed2009a53841bf8a3e350b48d5e2d70e/MapleAddressRegistryETH.md",
+          "sourceKind": "raw",
+          "sourceNote": "Pools / syrupUSDT / syrupUSDTPool"
+        },
+        {
+          "chainId": 1,
+          "address": "0xF007476Bb27430795138C511F18F821e8D1e5Ee2",
+          "name": "SyrupRouter",
+          "label": "SyrupRouter (syrupUSDT)",
+          "role": "Deposit USDT into syrupUSDT",
+          "source": "https://raw.githubusercontent.com/maple-labs/address-registry/1bfdc138ed2009a53841bf8a3e350b48d5e2d70e/MapleAddressRegistryETH.md",
+          "sourceKind": "raw",
+          "sourceNote": "Pools / syrupUSDT / SyrupRouter"
+        },
+        {
+          "chainId": 1,
+          "address": "0xc7E8b36E0766D9B04c93De68A9D47dD11f260B45",
+          "name": "StSyrup",
+          "label": "stSYRUP (staked SYRUP)",
+          "role": "Stake SYRUP, request and complete unstaking",
+          "source": "https://raw.githubusercontent.com/maple-labs/address-registry/1bfdc138ed2009a53841bf8a3e350b48d5e2d70e/MapleAddressRegistryETH.md",
+          "sourceKind": "raw",
+          "sourceNote": "SyrupToken / StSyrup"
+        }
+      ]
+    },
+    {
+      "protocol": "ethena",
+      "name": "Ethena",
+      "category": "stablecoin",
+      "website": "https://ethena.fi",
+      "defillama": "ethena-usde",
+      "notes": "USDe minting/redeeming is permissioned (whitelisted), so only staking contracts are listed. sUSDe on L2s is a bridged token without staking.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+          "name": "StakedUSDeV2",
+          "label": "sUSDe (Staked USDe)",
+          "role": "Stake USDe, start cooldown, unstake after cooldown",
+          "source": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/master/registry/ethena/calldata-ethena.json",
+          "sourceKind": "registry",
+          "sourceNote": "Ethena docs (docs.ethena.fi/solution-design/key-addresses) list the same address lowercase as 'Staking Contract'"
+        },
+        {
+          "chainId": 1,
+          "address": "0x8bE3460A480c80728a8C4D7a5D5303c85ba7B3b9",
+          "name": "StakedENA",
+          "label": "sENA (Staked ENA)",
+          "role": "Stake ENA, cooldown, unstake",
+          "source": "https://docs.ethena.fi/solution-design/key-addresses",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs label 'sENA Token Contract'; printed mixed-case"
+        }
+      ]
+    },
+    {
+      "protocol": "frax",
+      "name": "Frax (frxUSD)",
+      "category": "stablecoin",
+      "website": "https://frax.com",
+      "defillama": "frax",
+      "notes": "sfrxUSD staking vault and the USDC mint/redeem custodian on Ethereum. sfrxUSD on L2s is a bridged token, left out.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xcf62F905562626CfcDD2261162a51fd02Fc9c5b6",
+          "name": "StakedFrxUSD",
+          "label": "sfrxUSD (Staked frxUSD)",
+          "role": "Stake frxUSD (ERC-4626 deposit), unstake",
+          "source": "https://raw.githubusercontent.com/FraxFinance/docs/3f2055f23873740a051d5236cc0b7696853231e3/pages/frxusd/stake-and-unstake-quickstart-ethereum.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "ETHEREUM_MAINNET_SFRXUSD_ADDRESS in the stake/unstake quickstart"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4F95C5bA0C7c69FB2f9340E190cCeE890B3bd87c",
+          "name": "FrxUSDCustodian",
+          "label": "frxUSD-USDC Custodian",
+          "role": "Mint frxUSD with USDC and redeem frxUSD for USDC",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/FraxFinance/docs/3f2055f23873740a051d5236cc0b7696853231e3/pages/fraxnet/addresses/fraxnet-custodians.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "frxUSD-USDC Custodian Proxy"
+        }
+      ]
+    },
+    {
+      "protocol": "usual",
+      "name": "Usual",
+      "category": "stablecoin",
+      "website": "https://usual.money",
+      "defillama": "usual",
+      "notes": "Staking and savings contracts users deposit into. USD0++ was renamed bUSD0.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x35D8949372D46B7a3D5A56006AE77B215fc69bC0",
+          "name": "Usd0PP",
+          "label": "bUSD0 (formerly USD0++)",
+          "role": "Stake USD0 into bUSD0, unwrap/redeem, claim",
+          "source": "https://tech.usual.money/smart-contracts/contract-deployments.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Usual tech docs, 'bUSD0 (formerly USD0++)'; printed mixed-case"
+        },
+        {
+          "chainId": 1,
+          "address": "0xd861bE82dEe3223CFBEd160791f6550b0704D406",
+          "name": "SUsd0",
+          "label": "sUSD0 (savings USD0)",
+          "role": "Deposit USD0 to earn yield, withdraw",
+          "source": "https://tech.usual.money/smart-contracts/contract-deployments.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Usual tech docs, sUSD0; printed mixed-case"
+        },
+        {
+          "chainId": 1,
+          "address": "0x06B964d96f5dCF7Eae9d7C559B09EDCe244d4B8E",
+          "name": "UsualX",
+          "label": "USUALx (staked USUAL)",
+          "role": "Stake USUAL, withdraw, claim",
+          "source": "https://tech.usual.money/smart-contracts/contract-deployments.md",
+          "sourceKind": "webfetch",
+          "sourceNote": "Usual tech docs, USUALx (token); printed mixed-case"
+        }
+      ]
+    }
+  ]
+}
