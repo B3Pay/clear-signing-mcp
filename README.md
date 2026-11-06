@@ -123,7 +123,10 @@ taking a context from `createContext(loadConfig(process.env))`.
 ABI and real transactions to it: one format per function people call, with
 amounts paired with the tokens they are counted in, recipients and spenders
 named, deadlines as dates and a payable function's value as a native amount,
-plus an intent and a sentence where one can be filled in. Each function with
+plus an intent and a sentence where one can be filled in. A token amount
+whose samples pass the native currency as its token (the zero address or
+0xEeee…EEeE) names that address as `nativeCurrencyAddress`, so it shows in
+ETH. Each function with
 a sample transaction gets a test in the registry's `testsv2` form: the
 transaction rebuilt unsigned, its expected text rendered by
 `@ethereum-sourcify/clear-signing`. Given `registry`, a local clone's index

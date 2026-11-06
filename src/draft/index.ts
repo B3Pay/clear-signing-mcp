@@ -7,6 +7,7 @@ import {
   type DescribedFunction,
 } from "./abi.js"
 import { draftFormat } from "./heuristics.js"
+import { markNativeTokens } from "./native.js"
 import { unsignedRawTx } from "./rawtx.js"
 import {
   inspect,
@@ -67,9 +68,23 @@ export async function draftDescriptor(input: DraftInput): Promise<DraftResult> {
     vault: isVault(input.abi),
     ...(nativeSymbols.size === 1 && nativeSymbol ? { nativeSymbol } : {}),
   }
+  const deployed = new Set(
+    deployments.map((d) => `${d.chainId}:${d.address.toLowerCase()}`)
+  )
+  const ownSamples = (input.samples ?? []).filter((s) =>
+    deployed.has(`${s.chainId}:${s.to.toLowerCase()}`)
+  )
   const formats = new Map<string, DescriptorFormat>()
   for (const described of functions)
-    formats.set(described.key, draftFormat(described, traits, review))
+    formats.set(
+      described.key,
+      markNativeTokens(
+        described,
+        draftFormat(described, traits, review),
+        ownSamples,
+        review
+      )
+    )
 
   if (input.legalName)
     review.push(

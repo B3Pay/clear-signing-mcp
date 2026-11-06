@@ -402,6 +402,73 @@ describe("draftDescriptor: an array inside an array of structs", () => {
   })
 })
 
+describe("draftDescriptor: a token that stands for the native currency", () => {
+  // MetaMask Swaps' MetaSwap: tokenFrom is the zero address for ETH.
+  const META = "0x881D40237659C251811CEC9c364ef91dC08D300C"
+  const USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+  const swap = parseAbiItem(
+    "function swap(string aggregatorId, address tokenFrom, uint256 amount, bytes data) payable"
+  ) as AbiFunction
+  const ETHEREUM: Record<string, DraftChain> = {
+    "1": {
+      name: "Ethereum",
+      nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+    },
+  }
+  const callWith = (tokenFrom: string, amount: bigint) =>
+    encodeFunctionData({
+      abi: [swap],
+      functionName: "swap",
+      args: ["uniswapV3", tokenFrom as `0x${string}`, amount, "0x"],
+    })
+  const draftWith = (tokenFrom: string, value: string) =>
+    draftDescriptor({
+      chainId: 1,
+      address: META,
+      abi: [swap],
+      contractName: "MetaSwap",
+      owner: "MetaMask",
+      samples: [
+        {
+          ...sampleOf(1, META, callWith(tokenFrom, 500_000_000_000_000_000n)),
+          value,
+        },
+      ],
+      tokens: { [USDC.toLowerCase()]: { symbol: "USDC", decimals: 6 } },
+      chains: ETHEREUM,
+    })
+
+  it("shows the amount in ETH when the sample passes the zero address as its token", async () => {
+    const result = await draftWith(
+      "0x0000000000000000000000000000000000000000",
+      "500000000000000000"
+    )
+    const fields = Object.values(result.descriptor.display.formats)[0]?.fields
+    expect(fields?.find((f) => f.path === "amount")?.params).toEqual({
+      tokenPath: "tokenFrom",
+      nativeCurrencyAddress: "0x0000000000000000000000000000000000000000",
+    })
+    expect(result.review.join("\n")).toContain(
+      "amount is counted in the native currency when tokenFrom is 0x0000000000000000000000000000000000000000"
+    )
+    expect(result.tests.tests[0]?.expected.interpolatedIntent).toBe(
+      "Swap 0.5 ETH"
+    )
+    const [model] = await asRunner(result, ETHEREUM)
+    expect(model?.warnings ?? []).toEqual([])
+    expect(model && toRendered(model)).toEqual(result.tests.tests[0]?.expected)
+  })
+
+  it("names no native currency when the samples send a token", async () => {
+    const result = await draftWith(USDC, "0")
+    const fields = Object.values(result.descriptor.display.formats)[0]?.fields
+    expect(fields?.find((f) => f.path === "amount")?.params).toEqual({
+      tokenPath: "tokenFrom",
+    })
+    expect(result.review.join("\n")).not.toContain("native currency when")
+  })
+})
+
 describe("draftDescriptor: a call that a calldata field carries", () => {
   // A contract that makes the calls it is given, here one to Disperse on
   // Ethereum, which the registry describes (test/fixtures/registry).
