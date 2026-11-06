@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-06T23:33:22.039Z",
+  "fetchedAt": "2026-11-06T23:57:58.804Z",
   "protocols": [
     {
       "category": "CEX",
@@ -79,7 +79,7 @@
       "parent": null,
       "slug": "binance-staked-eth",
       "tvl": {
-        "1": 8178719191.516646
+        "1": 8218113709.759782
       },
       "url": "https://www.binance.com/en/wbeth"
     },
@@ -107,6 +107,19 @@
       "url": "https://www.eigencloud.xyz"
     },
     {
+      "category": "CEX",
+      "name": "Bybit",
+      "parent": null,
+      "slug": "bybit",
+      "tvl": {
+        "1": 4798070562.4611635,
+        "10": 53042059.3885338,
+        "8453": 88991508.61288902,
+        "42161": 88494725.59518273
+      },
+      "url": "https://www.bybit.com"
+    },
+    {
       "category": "Lending",
       "name": "SparkLend",
       "parent": "parent#spark",
@@ -117,25 +130,12 @@
       "url": "https://spark.finance/"
     },
     {
-      "category": "CEX",
-      "name": "Bybit",
-      "parent": null,
-      "slug": "bybit",
-      "tvl": {
-        "1": 4772405825.438041,
-        "10": 53095967.531173244,
-        "8453": 87666506.23863927,
-        "42161": 88331756.97605833
-      },
-      "url": "https://www.bybit.com"
-    },
-    {
       "category": "Basis Trading",
       "name": "Ethena USDe",
       "parent": "parent#ethena",
       "slug": "ethena-usde",
       "tvl": {
-        "1": 4901206253.537946
+        "1": 4920924070.164106
       },
       "url": "https://www.app.ethena.fi/join/3y20d"
     },
@@ -157,7 +157,7 @@
       "parent": "parent#maker",
       "slug": "sky-lending",
       "tvl": {
-        "1": 4087654052.684557
+        "1": 4210916599.423085
       },
       "url": "https://app.sky.money/"
     },
@@ -334,10 +334,10 @@
       "parent": "parent#compound-finance",
       "slug": "compound-v3",
       "tvl": {
-        "1": 1155815602.989731,
-        "10": 7568612.073572685,
-        "8453": 22507478.184985403,
-        "42161": 60591070.221950985
+        "1": 1159176540.722372,
+        "10": 7587227.414666769,
+        "8453": 22514424.065160517,
+        "42161": 60758034.18062148
       },
       "url": "https://www.compound.xyz/"
     },
@@ -347,10 +347,10 @@
       "parent": null,
       "slug": "portal",
       "tvl": {
-        "1": 1175364891.225709,
-        "10": 165809.93070982062,
-        "8453": 1675887.2470218027,
-        "42161": 646945.3191283551
+        "1": 1167327373.4192703,
+        "10": 165639.3061897537,
+        "8453": 1671465.9295348085,
+        "42161": 647629.8746748725
       },
       "url": "https://portalbridge.com"
     },
@@ -443,10 +443,10 @@
       "parent": null,
       "slug": "gauntlet",
       "tvl": {
-        "1": 328620358.90308857,
-        "10": 513913.703946057,
-        "8453": 506561494.34299374,
-        "42161": 86736138.02610016
+        "1": 329050223.544376,
+        "10": 513936.37135977676,
+        "8453": 506757923.2687593,
+        "42161": 86754392.69815312
       },
       "url": "https://www.gauntlet.xyz"
     },
@@ -513,9 +513,9 @@
       "parent": "parent#pendle",
       "slug": "pendle-v2",
       "tvl": {
-        "1": 768110218.9561625,
-        "8453": 2464326.0233961265,
-        "42161": 36045318.11992667
+        "1": 768636283.2246854,
+        "8453": 2465290.243954425,
+        "42161": 36057865.368094705
       },
       "url": "https://pendle.finance/"
     },
@@ -616,8 +616,8 @@
       "parent": "parent#lighter",
       "slug": "lighter-bridge",
       "tvl": {
-        "1": 573143768.9818773,
-        "42161": 2029.5519450751856
+        "1": 573076561.6440774,
+        "42161": 2029.6230230389856
       },
       "url": "https://app.lighter.xyz"
     },
@@ -658,8 +658,8 @@
       "parent": "parent#aave",
       "slug": "aave-v4",
       "tvl": {
-        "1": 489518961.6881034,
-        "8453": 16123606.533669116
+        "1": 490665571.377604,
+        "8453": 15928258.357570503
       },
       "url": "https://aave.com"
     },
@@ -680,7 +680,7 @@
       "parent": "parent#optimism-foundation",
       "slug": "optimism-bridge",
       "tvl": {
-        "1": 486724860.5306879
+        "1": 485492130.15263665
       },
       "url": "https://app.optimism.io/bridge/deposit"
     },
@@ -734,7 +734,7 @@
       "parent": "parent#ether-fi",
       "slug": "ether.fi-liquid",
       "tvl": {
-        "1": 371862851.18668705
+        "1": 373176364.244659
       },
       "url": "https://www.ether.fi"
     },
@@ -786,7 +786,7 @@
       "parent": null,
       "slug": "symbiotic",
       "tvl": {
-        "1": 287874147.55890584
+        "1": 288653643.18856066
       },
       "url": "https://symbiotic.fi"
     },
@@ -807,10 +807,10 @@
       "parent": null,
       "slug": "bitkub",
       "tvl": {
-        "1": 231841207.19459286,
-        "10": 19612948.744724717,
-        "8453": 1526628.992786432,
-        "42161": 7378173.338545513
+        "1": 232475629.2054807,
+        "10": 19624424.09775066,
+        "8453": 1525941.517397056,
+        "42161": 7379346.175208947
       },
       "url": "https://www.bitkub.com/"
     },
@@ -820,7 +820,7 @@
       "parent": "parent#mellow-protocol",
       "slug": "mellow-core",
       "tvl": {
-        "1": 250821174.36951438
+        "1": 251982810.87703487
       },
       "url": "https://app.mellow.finance/vaults"
     },
@@ -850,8 +850,8 @@
       "parent": "parent#astherus",
       "slug": "aster-bridge",
       "tvl": {
-        "1": 188805774.1859538,
-        "42161": 51027301.440838866
+        "1": 188859225.7336561,
+        "42161": 51054142.09356624
       },
       "url": "https://www.asterdex.com"
     },
@@ -861,7 +861,7 @@
       "parent": null,
       "slug": "starknet-bridge",
       "tvl": {
-        "1": 237528827.5471511
+        "1": 237942954.04278016
       },
       "url": "https://starkgate.starknet.io"
     },
@@ -881,7 +881,7 @@
       "parent": "parent#aave",
       "slug": "aave-horizon-rwa",
       "tvl": {
-        "1": 219056992.08912542
+        "1": 219057588.6837994
       },
       "url": "https://app.aave.com/markets/?marketName=proto_horizon_v3"
     },
@@ -901,9 +901,9 @@
       "parent": "parent#fluid",
       "slug": "fluid-dex",
       "tvl": {
-        "1": 178732226.56655052,
-        "8453": 3843377.459874442,
-        "42161": 28672588.813688222
+        "1": 179100394.1112705,
+        "8453": 3857484.107451755,
+        "42161": 28676322.291375946
       },
       "url": "https://www.fluid.io/"
     },
@@ -1023,7 +1023,7 @@
       "parent": null,
       "slug": "fraxtal",
       "tvl": {
-        "1": 165242808.87278163
+        "1": 165258280.41799724
       },
       "url": "https://frax.com/"
     },
@@ -1033,8 +1033,8 @@
       "parent": "parent#morpho",
       "slug": "morpho-midnight",
       "tvl": {
-        "1": 152093174.02460322,
-        "8453": 8830782.82945271
+        "1": 152494743.78048092,
+        "8453": 8844048.776938427
       },
       "url": "https://app.morpho.org"
     },
@@ -1064,7 +1064,7 @@
       "parent": "parent#liquity",
       "slug": "liquity-v1",
       "tvl": {
-        "1": 156112415.3513353
+        "1": 156850786.60450605
       },
       "url": "https://www.liquity.org/"
     },
@@ -1093,17 +1093,6 @@
       "url": "https://rockawayx.com/"
     },
     {
-      "category": "Lending",
-      "name": "Dolomite",
-      "parent": null,
-      "slug": "dolomite",
-      "tvl": {
-        "1": 123640123.32065576,
-        "42161": 23008927.486562625
-      },
-      "url": "https://dolomite.io"
-    },
-    {
       "category": "Stablecoin Wrapper",
       "name": "Saturn",
       "parent": null,
@@ -1119,10 +1108,10 @@
       "parent": null,
       "slug": "bitunix",
       "tvl": {
-        "1": 139135634.09763455,
-        "10": 920501.275255094,
-        "8453": 479018.84171579627,
-        "42161": 1246407.3981916285
+        "1": 139270738.18398067,
+        "10": 923976.4926284461,
+        "8453": 474411.0775056214,
+        "42161": 1264195.5670586887
       },
       "url": "https://www.bitunix.com"
     },
@@ -1138,12 +1127,23 @@
       "url": "https://www.osl.com/en"
     },
     {
+      "category": "Lending",
+      "name": "Dolomite",
+      "parent": null,
+      "slug": "dolomite",
+      "tvl": {
+        "1": 115923210.15988787,
+        "42161": 23045591.916134227
+      },
+      "url": "https://dolomite.io"
+    },
+    {
       "category": "RWA",
       "name": "Theo Network thUSD",
       "parent": "parent#theo",
       "slug": "theo-network-thusd",
       "tvl": {
-        "1": 138580339.07629737
+        "1": 138583914.583089
       },
       "url": "https://app.theo.xyz/"
     },
@@ -1224,6 +1224,17 @@
     },
     {
       "category": "Bridge",
+      "name": "Unit",
+      "parent": null,
+      "slug": "unit",
+      "tvl": {
+        "1": 117714947.55222544,
+        "8453": 1264016.3094465418
+      },
+      "url": "https://hyperunit.xyz/deposit"
+    },
+    {
+      "category": "Bridge",
       "name": "Axelar",
       "parent": "parent#axelar-network",
       "slug": "axelar",
@@ -1234,17 +1245,6 @@
         "42161": 293060.1332632853
       },
       "url": "https://axelar.network"
-    },
-    {
-      "category": "Bridge",
-      "name": "Unit",
-      "parent": null,
-      "slug": "unit",
-      "tvl": {
-        "1": 116598433.05798821,
-        "8453": 1271263.039569925
-      },
-      "url": "https://hyperunit.xyz/deposit"
     },
     {
       "category": "RWA",
@@ -1272,7 +1272,7 @@
       "parent": "parent#avalon-labs",
       "slug": "avalon-superearn",
       "tvl": {
-        "1": 111497371.6040101
+        "1": 111501276.40977864
       },
       "url": "https://app.avalonfinance.xyz/earn"
     },
@@ -1380,9 +1380,9 @@
       "parent": null,
       "slug": "clearstar",
       "tvl": {
-        "1": 38315556.36250394,
-        "8453": 63249166.802036785,
-        "42161": 2514.230495458372
+        "1": 38277485.298292816,
+        "8453": 63119315.42029998,
+        "42161": 2514.328103308089
       },
       "url": "https://clearstar.xyz"
     },
@@ -1412,7 +1412,7 @@
       "parent": "parent#frax-finance",
       "slug": "frax-usd",
       "tvl": {
-        "1": 95915599.96695624
+        "1": 95915600.22858043
       },
       "url": "https://frax.com/"
     },
@@ -1432,9 +1432,9 @@
       "parent": "parent#curve-finance",
       "slug": "curve-llamalend",
       "tvl": {
-        "1": 94555741.79170392,
-        "10": 2124.6517707355056,
-        "42161": 866607.881591449
+        "1": 94610080.07097693,
+        "10": 2125.3745942303976,
+        "42161": 868746.1644586868
       },
       "url": "https://www.curve.finance/lend/ethereum/markets/"
     },
@@ -1510,7 +1510,7 @@
       "parent": "parent#liquity",
       "slug": "liquity-v2",
       "tvl": {
-        "1": 86825046.90516517
+        "1": 87139038.74817908
       },
       "url": "https://www.liquity.org/"
     },
@@ -1562,9 +1562,9 @@
       "parent": "parent#vesper",
       "slug": "vesper-v1",
       "tvl": {
-        "1": 70741750.42998673,
-        "10": 2409385.7303059166,
-        "8453": 6782661.6592406435
+        "1": 71064092.41962007,
+        "10": 2417166.175774579,
+        "8453": 6828312.635029377
       },
       "url": "https://vesper.finance/"
     },
@@ -1574,9 +1574,9 @@
       "parent": "parent#ipor",
       "slug": "ipor-fusion",
       "tvl": {
-        "1": 31446956.057345018,
-        "8453": 46859234.91817325,
-        "42161": 449770.7650704429
+        "1": 31541651.867030058,
+        "8453": 46921130.06851527,
+        "42161": 450219.140964598
       },
       "url": "https://app.ipor.io/fusion"
     },
@@ -1596,10 +1596,10 @@
       "parent": null,
       "slug": "renzo",
       "tvl": {
-        "1": 72501188.49607049,
-        "10": 445575.20703721844,
-        "8453": 643792.1633173154,
-        "42161": 3771997.2250500903
+        "1": 72807566.5962298,
+        "10": 447433.2780495688,
+        "8453": 646476.8090016932,
+        "42161": 3787726.6430963376
       },
       "url": "https://app.renzoprotocol.com/restake"
     },
@@ -1609,7 +1609,7 @@
       "parent": null,
       "slug": "ao-bridge",
       "tvl": {
-        "1": 75136720.59056383
+        "1": 75393342.31666088
       },
       "url": "https://ao.arweave.net/"
     },
@@ -1639,7 +1639,7 @@
       "parent": "parent#aave",
       "slug": "aave-v2",
       "tvl": {
-        "1": 74689597.62169784
+        "1": 74807748.34416838
       },
       "url": "https://aave.com"
     },
@@ -1659,10 +1659,10 @@
       "parent": null,
       "slug": "indodax",
       "tvl": {
-        "1": 60708494.20808934,
-        "10": 8242886.912667947,
-        "8453": 1925788.2107781684,
-        "42161": 2235626.8312205984
+        "1": 60563171.445710346,
+        "10": 8275252.052393012,
+        "8453": 1926364.0182219225,
+        "42161": 2232179.509727128
       },
       "url": "https://indodax.com/"
     },
@@ -1683,10 +1683,10 @@
       "parent": null,
       "slug": "beefy",
       "tvl": {
-        "1": 45465362.12606444,
-        "10": 2159178.596565114,
-        "8453": 16124776.709279178,
-        "42161": 7220692.437877832
+        "1": 45563315.179318614,
+        "10": 2161339.8480212195,
+        "8453": 16165991.776089864,
+        "42161": 7235904.638756273
       },
       "url": "https://beefy.com"
     },
@@ -1696,8 +1696,8 @@
       "parent": "parent#lombard-finance",
       "slug": "lombard-vaults",
       "tvl": {
-        "1": 64963740.59276257,
-        "8453": 4168602.3193964455
+        "1": 65165432.29869066,
+        "8453": 4176382.7268120246
       },
       "url": "https://www.lombard.finance/app/stake/?referrer=ssybnl"
     },
@@ -1730,8 +1730,8 @@
       "parent": null,
       "slug": "infinifi",
       "tvl": {
-        "1": 67998960.74635945,
-        "8453": 346798.2660939324
+        "1": 68003324.7895882,
+        "8453": 346816.76514708094
       },
       "url": "https://infinifi.xyz"
     },
@@ -1784,9 +1784,9 @@
       "parent": "parent#euler",
       "slug": "euler-v2",
       "tvl": {
-        "1": 50949824.51345377,
-        "8453": 12430780.062114257,
-        "42161": 779188.4236363069
+        "1": 50989118.63009913,
+        "8453": 12451098.72753625,
+        "42161": 780215.4354230607
       },
       "url": "https://www.euler.finance"
     },
@@ -1796,7 +1796,7 @@
       "parent": null,
       "slug": "wise-token",
       "tvl": {
-        "1": 63326715.01928115
+        "1": 63634470.91256382
       },
       "url": "https://app.wisetoken.com/"
     },
@@ -1806,9 +1806,9 @@
       "parent": "parent#sosovalue",
       "slug": "sodex-bridge",
       "tvl": {
-        "1": 804660.2294591737,
-        "8453": 59788167.01202745,
-        "42161": 956260.5829064423
+        "1": 805662.4696462417,
+        "8453": 60123643.54235923,
+        "42161": 956350.3942780822
       },
       "url": "https://ssi.sosovalue.com"
     },
@@ -1840,7 +1840,7 @@
       "parent": null,
       "slug": "frankencoin",
       "tvl": {
-        "1": 59336158.603200875
+        "1": 59465004.71971465
       },
       "url": "https://frankencoin.com"
     },
@@ -1915,8 +1915,8 @@
       "parent": "parent#edgex",
       "slug": "edgex-bridge",
       "tvl": {
-        "1": 7745559.871643339,
-        "42161": 46142332.92616192
+        "1": 7766342.385010737,
+        "42161": 46143666.80869668
       },
       "url": "https://pro.edgex.exchange"
     },
@@ -1962,18 +1962,6 @@
       "url": "https://aerodrome.finance/"
     },
     {
-      "category": "Dexs",
-      "name": "PancakeSwap AMM V3",
-      "parent": "parent#pancakeswap",
-      "slug": "pancakeswap-amm-v3",
-      "tvl": {
-        "1": 26189814.309455637,
-        "8453": 18977895.611943174,
-        "42161": 6483705.860422532
-      },
-      "url": "https://pancakeswap.finance/swap"
-    },
-    {
       "category": "Canonical Bridge",
       "name": "Ink Bridge",
       "parent": null,
@@ -1982,6 +1970,18 @@
         "1": 51614630.35389849
       },
       "url": "https://inkonchain.com/bridge"
+    },
+    {
+      "category": "Dexs",
+      "name": "PancakeSwap AMM V3",
+      "parent": "parent#pancakeswap",
+      "slug": "pancakeswap-amm-v3",
+      "tvl": {
+        "1": 26191859.002575368,
+        "8453": 18938940.55232655,
+        "42161": 6481475.951103621
+      },
+      "url": "https://pancakeswap.finance/swap"
     },
     {
       "category": "Derivatives",
@@ -1995,24 +1995,36 @@
       "url": ""
     },
     {
-      "category": "Lending",
-      "name": "Resupply",
-      "parent": null,
-      "slug": "resupply",
-      "tvl": {
-        "1": 48083857.08432066
-      },
-      "url": "https://resupply.fi/"
-    },
-    {
       "category": "Farm",
       "name": "Zircuit Staking",
       "parent": null,
       "slug": "zircuit-staking",
       "tvl": {
-        "1": 47888287.60011204
+        "1": 48142180.308430076
       },
       "url": "https://app.zircuit.com/liquidity-hub"
+    },
+    {
+      "category": "Lending",
+      "name": "Resupply",
+      "parent": null,
+      "slug": "resupply",
+      "tvl": {
+        "1": 48082296.834158465
+      },
+      "url": "https://resupply.fi/"
+    },
+    {
+      "category": "Onchain Capital Allocator",
+      "name": "Aera V2",
+      "parent": "parent#aera",
+      "slug": "aera-v2",
+      "tvl": {
+        "1": 44356525.893765345,
+        "8453": 11642.984816401236,
+        "42161": 76.52798625692841
+      },
+      "url": "https://www.aera.finance"
     },
     {
       "category": "CEX",
@@ -2023,18 +2035,6 @@
         "1": 44349411.17360938
       },
       "url": "https://valr.com/"
-    },
-    {
-      "category": "Onchain Capital Allocator",
-      "name": "Aera V2",
-      "parent": "parent#aera",
-      "slug": "aera-v2",
-      "tvl": {
-        "1": 44328395.3024004,
-        "8453": 11586.273186734192,
-        "42161": 77.1553972663381
-      },
-      "url": "https://www.aera.finance"
     },
     {
       "category": "Liquidity Manager",
@@ -2054,7 +2054,7 @@
       "parent": null,
       "slug": "flux-finance",
       "tvl": {
-        "1": 43634640.486776665
+        "1": 43639313.182125725
       },
       "url": "https://fluxfinance.com"
     },
@@ -2096,7 +2096,7 @@
       "parent": null,
       "slug": "polygon-zkevm-bridge",
       "tvl": {
-        "1": 41979816.868571885
+        "1": 41945749.882686235
       },
       "url": "https://portal.polygon.technology/bridge"
     },
@@ -2153,7 +2153,7 @@
       "parent": null,
       "slug": "origami-finance",
       "tvl": {
-        "1": 39549085.11604276
+        "1": 39764692.94090265
       },
       "url": ""
     },
@@ -2207,8 +2207,8 @@
       "parent": "parent#curve-finance",
       "slug": "curve-llamalend-v2",
       "tvl": {
-        "1": 37074202.79918534,
-        "10": 223239.83694002905
+        "1": 37074400.315265454,
+        "10": 224154.6818545553
       },
       "url": "https://www.curve.finance/lend/ethereum/markets/"
     },
@@ -2230,8 +2230,8 @@
       "parent": null,
       "slug": "galaxy-curation",
       "tvl": {
-        "1": 34224227.79631802,
-        "8453": 2138976.2268522107
+        "1": 34243911.90354579,
+        "8453": 2140920.277738453
       },
       "url": "https://www.galaxy.com/"
     },
@@ -2253,7 +2253,7 @@
       "parent": null,
       "slug": "mantle-restaking",
       "tvl": {
-        "1": 35865482.43335853
+        "1": 35883093.04570302
       },
       "url": "https://www.methprotocol.xyz/"
     },
@@ -2295,10 +2295,10 @@
       "parent": null,
       "slug": "gate-us",
       "tvl": {
-        "1": 33276546.690163106,
-        "10": 108980.38346923646,
-        "8453": 336989.7415906195,
-        "42161": 255604.10425358257
+        "1": 33258514.639657684,
+        "10": 108364.98369078132,
+        "8453": 336426.2698669177,
+        "42161": 255750.9830493079
       },
       "url": "https://www.gate.com/en-us"
     },
@@ -2383,7 +2383,7 @@
       "parent": null,
       "slug": "suibridge",
       "tvl": {
-        "1": 29028342.683859766
+        "1": 29089710.71233699
       },
       "url": "https://bridge.sui.io"
     },
@@ -2393,7 +2393,7 @@
       "parent": "parent#frax-finance",
       "slug": "frax",
       "tvl": {
-        "1": 28436194.596317396
+        "1": 28442422.409091588
       },
       "url": "https://frax.com/"
     },
@@ -2403,9 +2403,9 @@
       "parent": "parent#ring-protocol",
       "slug": "ring-few",
       "tvl": {
-        "1": 27757758.093697168,
-        "8453": 10121.526328201408,
-        "42161": 371.33074353149846
+        "1": 27828806.301064245,
+        "8453": 10169.075342111812,
+        "42161": 372.1658668959982
       },
       "url": "https://ring.exchange/#/earn"
     },
@@ -2438,10 +2438,10 @@
       "parent": "parent#everclear",
       "slug": "connext",
       "tvl": {
-        "1": 25917732.093252033,
+        "1": 26025797.171252042,
         "10": 5.929560341453836e-15,
-        "8453": 62.87329008729939,
-        "42161": 303.69804986992335
+        "8453": 62.89246987725398,
+        "42161": 304.9554567596365
       },
       "url": "https://connext.network/"
     },
@@ -2487,7 +2487,7 @@
       "parent": "parent#swell",
       "slug": "swell-liquid-staking",
       "tvl": {
-        "1": 24632923.730872706
+        "1": 24749431.07414512
       },
       "url": "https://app.swellnetwork.io/"
     },
@@ -2508,7 +2508,7 @@
       "parent": null,
       "slug": "metis-bridge",
       "tvl": {
-        "1": 24115568.01454155
+        "1": 24094081.533900667
       },
       "url": "https://bridge.metis.io/home"
     },
@@ -2518,10 +2518,10 @@
       "parent": "parent#vfat",
       "slug": "vfat.io",
       "tvl": {
-        "1": 3777309.746335174,
-        "10": 727843.9157690621,
-        "8453": 17671443.84275674,
-        "42161": 1426990.763239786
+        "1": 3786923.9628109974,
+        "10": 729778.861933005,
+        "8453": 17884191.136326917,
+        "42161": 1433075.861313867
       },
       "url": "https://vfat.io/yield"
     },
@@ -2553,8 +2553,8 @@
       "parent": null,
       "slug": "jusd-finance",
       "tvl": {
-        "1": 11634894.542307334,
-        "42161": 11614179.805861631
+        "1": 11635515.695638303,
+        "42161": 11614586.551918961
       },
       "url": ""
     },
@@ -2569,6 +2569,16 @@
       "url": "https://kelpdao.xyz/restake/?utm_source=0x798fF1e6D7AFd28c333eE6eBe03125d30ec6eF10"
     },
     {
+      "category": "Liquid Restaking",
+      "name": "Bedrock uniETH",
+      "parent": "parent#bedrock",
+      "slug": "bedrock-unieth",
+      "tvl": {
+        "1": 23028417.552614138
+      },
+      "url": "https://bedrock.rockx.com/unieth"
+    },
+    {
       "category": "RWA",
       "name": "T RIZE",
       "parent": null,
@@ -2579,22 +2589,12 @@
       "url": "https://www.t-rize.io"
     },
     {
-      "category": "Liquid Restaking",
-      "name": "Bedrock uniETH",
-      "parent": "parent#bedrock",
-      "slug": "bedrock-unieth",
-      "tvl": {
-        "1": 22917045.474613342
-      },
-      "url": "https://bedrock.rockx.com/unieth"
-    },
-    {
       "category": "Chain",
       "name": "Immutable zkEVM",
       "parent": null,
       "slug": "immutable-zkevm",
       "tvl": {
-        "1": 22808540.128160384
+        "1": 22797977.199696768
       },
       "url": "https://www.immutable.com/"
     },
@@ -2614,7 +2614,7 @@
       "parent": null,
       "slug": "yieldnest",
       "tvl": {
-        "1": 22587961.714397736
+        "1": 22646896.308190208
       },
       "url": "https://yieldnest.finance/"
     },
@@ -2697,7 +2697,7 @@
       "parent": null,
       "slug": "rocksolid-network",
       "tvl": {
-        "1": 21164667.16309695
+        "1": 21238668.936195843
       },
       "url": "https://rocksolid.network/"
     },
@@ -2707,7 +2707,7 @@
       "parent": "parent#ultrayield",
       "slug": "ultrayield-vaults",
       "tvl": {
-        "1": 20548572.145060733
+        "1": 20607397.385366462
       },
       "url": "https://ultrayield.app/"
     },
@@ -2729,9 +2729,22 @@
       "parent": null,
       "slug": "nemo-trading",
       "tvl": {
-        "1": 20236139.39691051
+        "1": 20297459.342403565
       },
       "url": "https://nemo.trading/"
+    },
+    {
+      "category": "Indexes",
+      "name": "Chamber Vaults",
+      "parent": "parent#dhedge",
+      "slug": "chamber-vaults",
+      "tvl": {
+        "1": 72626.80228553232,
+        "10": 2236780.297664799,
+        "8453": 15994924.294144817,
+        "42161": 1901323.4667233343
+      },
+      "url": "https://chamberfi.com/"
     },
     {
       "category": "Lending",
@@ -2743,19 +2756,6 @@
         "42161": 172729.34621613892
       },
       "url": "https://frax.com/lend"
-    },
-    {
-      "category": "Indexes",
-      "name": "Chamber Vaults",
-      "parent": "parent#dhedge",
-      "slug": "chamber-vaults",
-      "tvl": {
-        "1": 72518.55877151595,
-        "10": 2231870.9744462245,
-        "8453": 15963502.298646996,
-        "42161": 1899351.2846931852
-      },
-      "url": "https://chamberfi.com/"
     },
     {
       "category": "Bridge",
@@ -2773,7 +2773,7 @@
       "parent": null,
       "slug": "korbit",
       "tvl": {
-        "1": 18810314.229724027
+        "1": 18754608.413800538
       },
       "url": "https://korbit.co.kr"
     },
@@ -2843,9 +2843,9 @@
       "parent": null,
       "slug": "multichain",
       "tvl": {
-        "1": 15490466.642460354,
-        "10": 1012707.7450701114,
-        "42161": 1379216.515193757
+        "1": 15484316.191874238,
+        "10": 1013489.663876743,
+        "42161": 1381702.5050758594
       },
       "url": ""
     },
@@ -2920,10 +2920,10 @@
       "parent": "parent#uncx-network",
       "slug": "uncx-network-v3",
       "tvl": {
-        "1": 9419610.462645577,
-        "10": 2.8133773441833263,
-        "8453": 7227358.119791715,
-        "42161": 78002.75662436709
+        "1": 9454649.317397168,
+        "10": 2.786262646356539,
+        "8453": 7260876.817025469,
+        "42161": 78273.5737193273
       },
       "url": "https://uncx.network/"
     },
@@ -2943,7 +2943,7 @@
       "parent": null,
       "slug": "telos-consilium",
       "tvl": {
-        "1": 16226989.045810875
+        "1": 16228005.438863082
       },
       "url": "https://telosc.com/"
     },
@@ -2953,10 +2953,10 @@
       "parent": "parent#contango",
       "slug": "contango-v2",
       "tvl": {
-        "1": 4675986.304728065,
-        "10": 388794.1879492127,
-        "8453": 795701.0320844259,
-        "42161": 9949882.261719637
+        "1": 4702287.311804731,
+        "10": 394083.33143133606,
+        "8453": 790324.0276665349,
+        "42161": 9995043.747538714
       },
       "url": "https://contango.xyz"
     },
@@ -3019,7 +3019,7 @@
       "parent": null,
       "slug": "okcoin",
       "tvl": {
-        "1": 15007634.471443215
+        "1": 15036320.491956355
       },
       "url": "https://www.okcoin.com"
     },
@@ -3047,16 +3047,6 @@
       "url": ""
     },
     {
-      "category": "Lending",
-      "name": "Lista Lending",
-      "parent": "parent#lista-dao",
-      "slug": "lista-lending",
-      "tvl": {
-        "1": 14361427.267731281
-      },
-      "url": "https://lista.org/lending"
-    },
-    {
       "category": "Collateral Management",
       "name": "Anvil",
       "parent": null,
@@ -3067,12 +3057,22 @@
       "url": "https://anvil.xyz/"
     },
     {
+      "category": "Lending",
+      "name": "Lista Lending",
+      "parent": "parent#lista-dao",
+      "slug": "lista-lending",
+      "tvl": {
+        "1": 14332724.323290162
+      },
+      "url": "https://lista.org/lending"
+    },
+    {
       "category": "Dexs",
       "name": "Bancor V3",
       "parent": "parent#bancor",
       "slug": "bancor-v3",
       "tvl": {
-        "1": 14165773.182502747
+        "1": 14172725.053045755
       },
       "url": "https://app.bancor.network/"
     },
@@ -3092,9 +3092,9 @@
       "parent": "parent#balancer",
       "slug": "balancer-v2",
       "tvl": {
-        "1": 12476990.091448044,
-        "8453": 234871.6226360727,
-        "42161": 1100466.3177785915
+        "1": 12477984.502234694,
+        "8453": 234907.62706078953,
+        "42161": 1102807.336665656
       },
       "url": "https://balancer.fi/"
     },
@@ -3246,9 +3246,9 @@
       "parent": null,
       "slug": "exactly",
       "tvl": {
-        "1": 47.0047021986869,
-        "10": 2653818.4705797243,
-        "8453": 9495793.137238959
+        "1": 47.07863412718947,
+        "10": 2658870.8984376667,
+        "8453": 9518651.970704557
       },
       "url": "https://exact.ly"
     },
@@ -3363,7 +3363,7 @@
       "parent": null,
       "slug": "abstract",
       "tvl": {
-        "1": 11133891.42838796
+        "1": 11183547.47683503
       },
       "url": "https://www.abs.xyz/"
     },
@@ -3414,16 +3414,6 @@
       "url": "https://www.pinksale.finance"
     },
     {
-      "category": "Derivatives",
-      "name": "Veranta",
-      "parent": null,
-      "slug": "veranta",
-      "tvl": {
-        "8453": 10841894.936303247
-      },
-      "url": "https://www.veranta.xyz/"
-    },
-    {
       "category": "Lending",
       "name": "Templar Lending",
       "parent": "parent#templar-protocol",
@@ -3445,6 +3435,16 @@
         "42161": 937673.7910430013
       },
       "url": "https://www.hyperlane.xyz/"
+    },
+    {
+      "category": "Derivatives",
+      "name": "Veranta",
+      "parent": null,
+      "slug": "veranta",
+      "tvl": {
+        "8453": 10646232.852717232
+      },
+      "url": "https://www.veranta.xyz/"
     },
     {
       "category": "Prediction Market",
@@ -3505,7 +3505,7 @@
       "parent": "parent#flying-tulip",
       "slug": "flying-tulip-lend",
       "tvl": {
-        "1": 9804996.64134053
+        "1": 9821752.230214713
       },
       "url": "https://flyingtulip.com/lend/"
     },
@@ -3515,7 +3515,7 @@
       "parent": null,
       "slug": "mezo-bridge",
       "tvl": {
-        "1": 9673701.534703836
+        "1": 9691334.026430653
       },
       "url": "https://mezo.org"
     },
@@ -3558,8 +3558,8 @@
       "parent": "parent#extra-finance",
       "slug": "extra-finance-leverage-farming",
       "tvl": {
-        "10": 505259.3444742258,
-        "8453": 8750944.364185587
+        "10": 505335.2591454411,
+        "8453": 8784041.759951402
       },
       "url": "https://app.extrafi.io/"
     },
@@ -3569,7 +3569,7 @@
       "parent": "parent#rysk-finance",
       "slug": "rysk-v12",
       "tvl": {
-        "1": 9236457.82032132
+        "1": 9261146.325795079
       },
       "url": "https://app.rysk.finance"
     },
@@ -3646,10 +3646,10 @@
       "parent": null,
       "slug": "flipster",
       "tvl": {
-        "1": 8831868.63706529,
-        "10": 2.347533173849887,
-        "8453": 233.88618008019316,
-        "42161": 3529.773934770298
+        "1": 8835731.968124714,
+        "10": 2.3569352383521274,
+        "8453": 234.8097166259352,
+        "42161": 3505.7455898847675
       },
       "url": "https://flipster.io"
     },
@@ -3679,7 +3679,7 @@
       "parent": "parent#bancor",
       "slug": "bancor-v2.1",
       "tvl": {
-        "1": 8675521.48852989
+        "1": 8678103.48515397
       },
       "url": "https://app.bancor.network/"
     },
@@ -3733,25 +3733,25 @@
     },
     {
       "category": "Risk Curators",
-      "name": "Keyrock",
-      "parent": null,
-      "slug": "keyrock",
-      "tvl": {
-        "1": 8389186.635856703
-      },
-      "url": "https://keyrock.com/"
-    },
-    {
-      "category": "Risk Curators",
       "name": "MEV Capital",
       "parent": null,
       "slug": "mev-capital",
       "tvl": {
-        "1": 8325653.961500357,
-        "8453": 52894.496581182146,
-        "42161": 115.83210061907215
+        "1": 8350962.392535246,
+        "8453": 52898.5721826331,
+        "42161": 116.28042286115686
       },
       "url": "https://mevcapital.com"
+    },
+    {
+      "category": "Risk Curators",
+      "name": "Keyrock",
+      "parent": null,
+      "slug": "keyrock",
+      "tvl": {
+        "1": 8389603.272094032
+      },
+      "url": "https://keyrock.com/"
     },
     {
       "category": "CEX",
@@ -3929,7 +3929,7 @@
       "parent": null,
       "slug": "yuzu-money",
       "tvl": {
-        "1": 6694535.806614044
+        "1": 6694809.3446766855
       },
       "url": "https://app.yuzu.money"
     },
@@ -3972,8 +3972,8 @@
       "parent": null,
       "slug": "damm-capital",
       "tvl": {
-        "1": 4943791.867890799,
-        "42161": 1540411.9275974866
+        "1": 4962704.347915719,
+        "42161": 1540565.890581978
       },
       "url": "https://dammcap.finance/"
     },
@@ -3983,7 +3983,7 @@
       "parent": "parent#inception",
       "slug": "inceptionlrt-(isolated-restaking)",
       "tvl": {
-        "1": 6212681.999209709
+        "1": 6247580.628535212
       },
       "url": ""
     },
@@ -4003,8 +4003,8 @@
       "parent": "parent#seamless-protocol",
       "slug": "seamless-v2",
       "tvl": {
-        "1": 6026658.269764312,
-        "8453": 50404.186767445775
+        "1": 6060481.061097386,
+        "8453": 50582.80576777763
       },
       "url": ""
     },
@@ -4025,7 +4025,7 @@
       "parent": null,
       "slug": "nuva",
       "tvl": {
-        "1": 6056495.800464471
+        "1": 6057418.006076589
       },
       "url": "https://nuva.finance"
     },
@@ -4035,7 +4035,7 @@
       "parent": null,
       "slug": "the-idols",
       "tvl": {
-        "1": 6022778.73855843
+        "1": 6055460.613122149
       },
       "url": "https://www.theidols.io"
     },
@@ -4081,17 +4081,6 @@
     },
     {
       "category": "Liquidity Manager",
-      "name": "Snuggle",
-      "parent": null,
-      "slug": "snuggle",
-      "tvl": {
-        "8453": 5580802.2819937905,
-        "42161": 48712.61946368866
-      },
-      "url": "https://snuggle.fi/"
-    },
-    {
-      "category": "Liquidity Manager",
       "name": "Arcadia V2",
       "parent": "parent#arcadia-finance",
       "slug": "arcadia-v2",
@@ -4117,9 +4106,9 @@
       "parent": null,
       "slug": "pionex",
       "tvl": {
-        "1": 3300510.4652483454,
-        "10": 485691.46157474944,
-        "42161": 1530481.6901172597
+        "1": 3281091.132075594,
+        "10": 486025.95386005385,
+        "42161": 1539242.8920274423
       },
       "url": "https://www.pionex.com/en"
     },
@@ -4139,7 +4128,7 @@
       "parent": "parent#balancer",
       "slug": "balancer-v1",
       "tvl": {
-        "1": 5205912.271616492
+        "1": 5209796.315111376
       },
       "url": "https://balancer.fi/"
     },
@@ -4149,9 +4138,20 @@
       "parent": "parent#dhedge",
       "slug": "mstable-v2",
       "tvl": {
-        "1": 5172800.642988973
+        "1": 5172814.926593192
       },
       "url": "https://mstable.org/"
+    },
+    {
+      "category": "Liquidity Manager",
+      "name": "Snuggle",
+      "parent": null,
+      "slug": "snuggle",
+      "tvl": {
+        "8453": 5109640.064146956,
+        "42161": 48852.212965933
+      },
+      "url": "https://snuggle.fi/"
     },
     {
       "category": "Decentralized BTC",
@@ -4211,7 +4211,7 @@
       "parent": "parent#inverse-finance",
       "slug": "inverse-finance-frontier",
       "tvl": {
-        "1": 5024747.016544111
+        "1": 4982926.036738229
       },
       "url": "https://inverse.finance/"
     },
@@ -4282,9 +4282,22 @@
       "parent": null,
       "slug": "arkis",
       "tvl": {
-        "1": 4794575.536277076
+        "1": 4803247.269899959
       },
       "url": "https://www.arkis.xyz/"
+    },
+    {
+      "category": "Yield",
+      "name": "Penpie",
+      "parent": "parent#magpie-ecosystem",
+      "slug": "penpie",
+      "tvl": {
+        "1": 881468.8138919896,
+        "10": 133.9136569086654,
+        "8453": 78.72691291215786,
+        "42161": 3880825.7240272677
+      },
+      "url": "https://www.pendle.magpiexyz.io/stake"
     },
     {
       "category": "Yield Aggregator",
@@ -4297,25 +4310,12 @@
       "url": "https://flyingtulip.com/"
     },
     {
-      "category": "Yield",
-      "name": "Penpie",
-      "parent": "parent#magpie-ecosystem",
-      "slug": "penpie",
-      "tvl": {
-        "1": 877154.2702773367,
-        "10": 133.10398386267948,
-        "8453": 78.89178139247706,
-        "42161": 3857996.3635000754
-      },
-      "url": "https://www.pendle.magpiexyz.io/stake"
-    },
-    {
       "category": "Bridge",
       "name": "Injective Bridge",
       "parent": null,
       "slug": "injective-bridge",
       "tvl": {
-        "1": 4734711.459435773
+        "1": 4736241.195932338
       },
       "url": "https://injective.com"
     },
@@ -4335,7 +4335,7 @@
       "parent": null,
       "slug": "k2",
       "tvl": {
-        "1": 4674162.712813554
+        "1": 4696103.036013314
       },
       "url": "https://opengdp.network/"
     },
@@ -4345,7 +4345,7 @@
       "parent": "parent#aero-protocol",
       "slug": "velodrome-v2",
       "tvl": {
-        "10": 4614748.215833628
+        "10": 4629001.096024494
       },
       "url": "https://velodrome.finance/"
     },
@@ -4408,7 +4408,7 @@
       "parent": null,
       "slug": "kamui-finance",
       "tvl": {
-        "1": 4461976.355106544
+        "1": 4461909.228779113
       },
       "url": "https://kamui.finance"
     },
@@ -4438,10 +4438,10 @@
       "parent": "parent#dhedge",
       "slug": "toros",
       "tvl": {
-        "1": 237514.64128726698,
-        "10": 552950.3882550735,
-        "8453": 712083.8397150431,
-        "42161": 2878455.1357369106
+        "1": 238431.04437866493,
+        "10": 553127.1879337392,
+        "8453": 712651.9737265359,
+        "42161": 2884212.5086701177
       },
       "url": "https://toros.finance"
     },
@@ -4466,6 +4466,19 @@
       "url": "https://www.megaeth.com/"
     },
     {
+      "category": "Cross Chain Bridge",
+      "name": "Stargate V1",
+      "parent": "parent#stargate-finance",
+      "slug": "stargate-v1",
+      "tvl": {
+        "1": 2136470.2248538393,
+        "10": 506757.15566061455,
+        "8453": 310774.9007178246,
+        "42161": 1387438.6426328032
+      },
+      "url": "https://stargate.finance/"
+    },
+    {
       "category": "RWA",
       "name": "NaraUSD",
       "parent": null,
@@ -4474,19 +4487,6 @@
         "1": 4333807.688987486
       },
       "url": "https://www.nara.io"
-    },
-    {
-      "category": "Cross Chain Bridge",
-      "name": "Stargate V1",
-      "parent": "parent#stargate-finance",
-      "slug": "stargate-v1",
-      "tvl": {
-        "1": 2128475.704164266,
-        "10": 506058.9915558881,
-        "8453": 310117.1421799207,
-        "42161": 1385885.1352379385
-      },
-      "url": "https://stargate.finance/"
     },
     {
       "category": "CDP",
@@ -4545,10 +4545,10 @@
       "parent": "parent#dodo",
       "slug": "dodo-amm",
       "tvl": {
-        "1": 2563425.7501213,
-        "10": 3823.02431981987,
-        "8453": 268632.2032164572,
-        "42161": 1223088.7678930778
+        "1": 2568388.4930209285,
+        "10": 3834.286214897462,
+        "8453": 269194.7771626714,
+        "42161": 1223283.872020124
       },
       "url": "https://dodoex.io/"
     },
@@ -4558,8 +4558,8 @@
       "parent": "parent#sun",
       "slug": "sunx-bridge",
       "tvl": {
-        "1": 3249738.9732422302,
-        "42161": 772549.6473361645
+        "1": 3249901.4972681925,
+        "42161": 772591.7303265444
       },
       "url": "https://www.sunx.io/"
     },
@@ -4582,9 +4582,19 @@
       "parent": null,
       "slug": "legion",
       "tvl": {
-        "1": 4008832.869726916
+        "1": 4005975.384317795
       },
       "url": "https://legion.cc"
+    },
+    {
+      "category": "Liquid Restaking",
+      "name": "Eigenpie",
+      "parent": "parent#magpie-ecosystem",
+      "slug": "eigenpie",
+      "tvl": {
+        "1": 3928950.841928209
+      },
+      "url": "https://www.eigenlayer.magpiexyz.io"
     },
     {
       "category": "Canonical Bridge",
@@ -4595,16 +4605,6 @@
         "1": 3926945.5315614482
       },
       "url": "https://sorare.com/"
-    },
-    {
-      "category": "Liquid Restaking",
-      "name": "Eigenpie",
-      "parent": "parent#magpie-ecosystem",
-      "slug": "eigenpie",
-      "tvl": {
-        "1": 3914011.815845905
-      },
-      "url": "https://www.eigenlayer.magpiexyz.io"
     },
     {
       "category": "Onchain Capital Allocator",
@@ -4658,9 +4658,19 @@
       "parent": "parent#camelot",
       "slug": "camelot-v2",
       "tvl": {
-        "42161": 3715166.2181887296
+        "42161": 3730253.5392018077
       },
       "url": "https://camelot.exchange/"
+    },
+    {
+      "category": "Yield",
+      "name": "Mezzanine",
+      "parent": null,
+      "slug": "mezzanine",
+      "tvl": {
+        "1": 3687098.4045543163
+      },
+      "url": "https://mezz.finance/"
     },
     {
       "category": "Lending",
@@ -4683,16 +4693,6 @@
       "url": "https://stakingverse.io"
     },
     {
-      "category": "Yield",
-      "name": "Mezzanine",
-      "parent": null,
-      "slug": "mezzanine",
-      "tvl": {
-        "1": 3685600.9378240663
-      },
-      "url": "https://mezz.finance/"
-    },
-    {
       "category": "Derivatives",
       "name": "Evedex",
       "parent": null,
@@ -4713,25 +4713,15 @@
       "url": "https://www.bydfi.com/en"
     },
     {
-      "category": "Launchpad",
-      "name": "Umia",
-      "parent": null,
-      "slug": "umia",
-      "tvl": {
-        "8453": 3464935.0998171926
-      },
-      "url": "https://www.umia.finance"
-    },
-    {
       "category": "Canonical Bridge",
       "name": "Reya Bridge",
       "parent": "parent#reya",
       "slug": "reya-bridge",
       "tvl": {
-        "1": 1979048.8410064764,
-        "10": 11791.944722561871,
-        "8453": 255.2773086355065,
-        "42161": 1470083.8199875692
+        "1": 1980096.8317153885,
+        "10": 11792.418404765756,
+        "8453": 256.43877086855963,
+        "42161": 1470341.69272362
       },
       "url": "https://app.reya.xyz"
     },
@@ -4744,6 +4734,16 @@
         "1": 3456624.707631899
       },
       "url": "https://app.uniswap.org/"
+    },
+    {
+      "category": "Launchpad",
+      "name": "Umia",
+      "parent": null,
+      "slug": "umia",
+      "tvl": {
+        "8453": 3452314.683486838
+      },
+      "url": "https://www.umia.finance"
     },
     {
       "category": "Token Locker",
@@ -4763,7 +4763,7 @@
       "parent": null,
       "slug": "1212-capital",
       "tvl": {
-        "1": 3411334.942878712
+        "1": 3411454.41296282
       },
       "url": "https://1212.capital/"
     },
@@ -4808,8 +4808,8 @@
       "parent": null,
       "slug": "goose",
       "tvl": {
-        "1": 1815.515835508287,
-        "42161": 3318886.6326072733
+        "1": 1815.6067294622026,
+        "42161": 3319074.7267316077
       },
       "url": ""
     },
@@ -4842,7 +4842,7 @@
       "parent": "parent#ribbon-finance",
       "slug": "ribbon",
       "tvl": {
-        "1": 3233589.293204893
+        "1": 3241255.2086765314
       },
       "url": "https://www.ribbon.finance/"
     },
@@ -4864,10 +4864,10 @@
       "parent": null,
       "slug": "levex",
       "tvl": {
-        "1": 3081072.934941063,
-        "10": 4379.62502411725,
-        "8453": 7775.501727355397,
-        "42161": 133247.3247960495
+        "1": 3082247.2364248475,
+        "10": 4366.135592182468,
+        "8453": 7789.966614950931,
+        "42161": 133431.60664825002
       },
       "url": "https://levex.com/en/assets/proof-of-reserve"
     },
@@ -4881,16 +4881,6 @@
         "42161": 73328.59972991806
       },
       "url": "https://pirex.io/"
-    },
-    {
-      "category": "Dexs",
-      "name": "Hydrex Integral",
-      "parent": "parent#hydrex",
-      "slug": "hydrex-integral",
-      "tvl": {
-        "8453": 3162542.2680035797
-      },
-      "url": "https://www.hydrex.fi?anchorRef=0x798fF1e6D7AFd28c333eE6eBe03125d30ec6eF10"
     },
     {
       "category": "Onchain Capital Allocator",
@@ -4928,7 +4918,7 @@
       "parent": null,
       "slug": "kuma-protocol",
       "tvl": {
-        "1": 3033124.622568817
+        "1": 3031089.414646148
       },
       "url": "https://kuma.bond"
     },
@@ -4938,9 +4928,19 @@
       "parent": null,
       "slug": "iaero-protocol",
       "tvl": {
-        "8453": 2979576.302746312
+        "8453": 3010089.6846402036
       },
       "url": "https://app.iaero.finance/"
+    },
+    {
+      "category": "Lending",
+      "name": "Compound V1",
+      "parent": "parent#compound-finance",
+      "slug": "compound-v1",
+      "tvl": {
+        "1": 2935328.726151405
+      },
+      "url": "https://www.compound.xyz/"
     },
     {
       "category": "NFT Lending",
@@ -4961,16 +4961,6 @@
         "8453": 2929083.780599085
       },
       "url": "https://ssi.sosovalue.com/share/MAG7.ssi/0TC050BY?tid=ssi-invite-share-0TC050BY"
-    },
-    {
-      "category": "Lending",
-      "name": "Compound V1",
-      "parent": "parent#compound-finance",
-      "slug": "compound-v1",
-      "tvl": {
-        "1": 2924969.7234060033
-      },
-      "url": "https://www.compound.xyz/"
     },
     {
       "category": "Dexs",
@@ -5053,7 +5043,7 @@
       "parent": null,
       "slug": "boba-bridge",
       "tvl": {
-        "1": 2753001.548400517
+        "1": 2756548.920099201
       },
       "url": "https://gateway.boba.network"
     },
@@ -5113,7 +5103,7 @@
       "parent": null,
       "slug": "wildcat-protocol",
       "tvl": {
-        "1": 2519805.8089648965
+        "1": 2519977.0865836763
       },
       "url": "https://wildcat.finance"
     },
@@ -5128,6 +5118,16 @@
         "42161": 1540822.7312710474
       },
       "url": "https://woofi.com/en/trade/"
+    },
+    {
+      "category": "Dexs",
+      "name": "Hydrex Integral",
+      "parent": "parent#hydrex",
+      "slug": "hydrex-integral",
+      "tvl": {
+        "8453": 2499108.615697795
+      },
+      "url": "https://www.hydrex.fi?anchorRef=0x798fF1e6D7AFd28c333eE6eBe03125d30ec6eF10"
     },
     {
       "category": "Yield",
@@ -5228,9 +5228,9 @@
       "parent": null,
       "slug": "ichi",
       "tvl": {
-        "1": 579584.2678249128,
-        "8453": 1631012.2053885623,
-        "42161": 8918.595556317558
+        "1": 580043.4336007438,
+        "8453": 1633756.0608487937,
+        "42161": 8924.899324307988
       },
       "url": "https://www.ichi.org"
     },
@@ -5284,7 +5284,7 @@
       "parent": "parent#synfutures",
       "slug": "synfutures-v3",
       "tvl": {
-        "8453": 2090194.4283410406
+        "8453": 2090284.0145055552
       },
       "url": "https://trade.synfutures.com/#/trade"
     },
@@ -5306,7 +5306,7 @@
       "parent": null,
       "slug": "goldfinch",
       "tvl": {
-        "1": 2069375.3375488287
+        "1": 2069447.8101877712
       },
       "url": "https://goldfinch.finance"
     },
@@ -5378,7 +5378,7 @@
       "parent": "parent#friend-tech",
       "slug": "friend.tech-v1",
       "tvl": {
-        "8453": 2005537.726590812
+        "8453": 2013580.043063925
       },
       "url": "https://www.friend.tech"
     },
@@ -5388,7 +5388,7 @@
       "parent": "parent#blast-l2",
       "slug": "blast-pre-launch-farm",
       "tvl": {
-        "1": 1988658.8376504958
+        "1": 1998434.7818927811
       },
       "url": "https://blast.io/"
     },
@@ -5423,6 +5423,16 @@
       "url": "https://p2pb2b.com/"
     },
     {
+      "category": "Dexs",
+      "name": "Quickswap V4",
+      "parent": "parent#quickswap",
+      "slug": "quickswap-v4",
+      "tvl": {
+        "8453": 1925784.5603533646
+      },
+      "url": "https://dapp.quickswap.exchange/"
+    },
+    {
       "category": "Yield",
       "name": "Sushi BentoBox",
       "parent": "parent#sushi",
@@ -5436,13 +5446,13 @@
     },
     {
       "category": "Dexs",
-      "name": "Quickswap V4",
-      "parent": "parent#quickswap",
-      "slug": "quickswap-v4",
+      "name": "Velodrome V3",
+      "parent": "parent#aero-protocol",
+      "slug": "velodrome-v3",
       "tvl": {
-        "8453": 1919402.6281110428
+        "10": 1909375.3833151155
       },
-      "url": "https://dapp.quickswap.exchange/"
+      "url": "https://velodrome.finance/"
     },
     {
       "category": "Prediction Market",
@@ -5450,19 +5460,9 @@
       "parent": null,
       "slug": "sport.fun",
       "tvl": {
-        "8453": 1909466.4146993079
+        "8453": 1909175.7261601917
       },
       "url": "https://pro.sport.fun"
-    },
-    {
-      "category": "Dexs",
-      "name": "Velodrome V3",
-      "parent": "parent#aero-protocol",
-      "slug": "velodrome-v3",
-      "tvl": {
-        "10": 1907752.4449169994
-      },
-      "url": "https://velodrome.finance/"
     },
     {
       "category": "Dexs",
@@ -5480,7 +5480,7 @@
       "parent": null,
       "slug": "alphaping",
       "tvl": {
-        "1": 1860026.3390596863
+        "1": 1860953.5152760309
       },
       "url": "https://alphaping.ch/"
     },
@@ -5506,6 +5506,16 @@
       "url": "https://nftx.io"
     },
     {
+      "category": "Canonical Bridge",
+      "name": "Blast Bridge",
+      "parent": "parent#blast-l2",
+      "slug": "blast-bridge",
+      "tvl": {
+        "1": 1843915.0410439004
+      },
+      "url": ""
+    },
+    {
       "category": "Risk Curators",
       "name": "ZeroLend Vaults",
       "parent": "parent#zerolend",
@@ -5514,16 +5524,6 @@
         "1": 1837386.6540273903
       },
       "url": "https://zerolend.xyz/"
-    },
-    {
-      "category": "Canonical Bridge",
-      "name": "Blast Bridge",
-      "parent": "parent#blast-l2",
-      "slug": "blast-bridge",
-      "tvl": {
-        "1": 1833963.5492599674
-      },
-      "url": ""
     },
     {
       "category": "RWA",
@@ -5624,6 +5624,16 @@
       "url": "https://trueo.com/"
     },
     {
+      "category": "Farm",
+      "name": "Swell L2 Farm",
+      "parent": "parent#swell",
+      "slug": "swell-l2-farm",
+      "tvl": {
+        "1": 1692626.9264181245
+      },
+      "url": "https://www.swellnetwork.io/"
+    },
+    {
       "category": "Luck Games",
       "name": "EtherFlip",
       "parent": null,
@@ -5632,16 +5642,6 @@
         "1": 1686819.0003768913
       },
       "url": ""
-    },
-    {
-      "category": "Farm",
-      "name": "Swell L2 Farm",
-      "parent": "parent#swell",
-      "slug": "swell-l2-farm",
-      "tvl": {
-        "1": 1685474.7145089018
-      },
-      "url": "https://www.swellnetwork.io/"
     },
     {
       "category": "CeDeFi",
@@ -5734,10 +5734,10 @@
       "parent": null,
       "slug": "flokifi-locker",
       "tvl": {
-        "1": 1360959.4369337528,
-        "10": 3763.128038387457,
-        "8453": 195238.0857419871,
-        "42161": 5802.938205159993
+        "1": 1366139.108818221,
+        "10": 3776.51636515981,
+        "8453": 196186.72017995548,
+        "42161": 5808.835415751236
       },
       "url": "https://flokifi.com"
     },
@@ -5757,7 +5757,7 @@
       "parent": null,
       "slug": "flaunch",
       "tvl": {
-        "8453": 1543636.3270735887
+        "8453": 1551097.5555031071
       },
       "url": "https://flaunch.gg"
     },
@@ -5797,7 +5797,7 @@
       "parent": null,
       "slug": "probit-global",
       "tvl": {
-        "1": 1519930.2224236634
+        "1": 1520777.8216088354
       },
       "url": "https://www.probit.com"
     },
@@ -5807,7 +5807,7 @@
       "parent": null,
       "slug": "deltaprime",
       "tvl": {
-        "42161": 1513689.7340670712
+        "42161": 1514523.2930712781
       },
       "url": "https://deltaprime.io"
     },
@@ -5817,10 +5817,10 @@
       "parent": "parent#pooltogether",
       "slug": "pooltogether-v5",
       "tvl": {
-        "1": 294993.7576889175,
-        "10": 923462.1113347624,
-        "8453": 284651.65207847336,
-        "42161": 9556.773055518828
+        "1": 296181.5877838294,
+        "10": 924306.3184345353,
+        "8453": 284395.8999226145,
+        "42161": 9575.78646975868
       },
       "url": "https://pooltogether.com/"
     },
@@ -5851,8 +5851,8 @@
       "parent": null,
       "slug": "privacy-boost",
       "tvl": {
-        "10": 221570.81888960823,
-        "8453": 1262532.2748830575
+        "10": 221572.6394483013,
+        "8453": 1266154.2218770194
       },
       "url": "https://www.privacyboost.io/"
     },
@@ -5862,7 +5862,7 @@
       "parent": "parent#rezerve",
       "slug": "rezerve-lending",
       "tvl": {
-        "1": 1479928.702242595
+        "1": 1480036.290758617
       },
       "url": "https://app.euler.finance/market/rezerve-vaults?network=ethereum"
     },
@@ -5885,7 +5885,7 @@
       "parent": null,
       "slug": "twyne",
       "tvl": {
-        "1": 1464427.8081290964
+        "1": 1469440.7506232986
       },
       "url": "https://twyne.xyz/"
     },
@@ -5918,7 +5918,7 @@
       "slug": "interest-protocol",
       "tvl": {
         "1": 1433217.6391460446,
-        "10": 339.9289405402286
+        "10": 341.09586520535703
       },
       "url": ""
     },
@@ -5941,7 +5941,7 @@
       "parent": null,
       "slug": "tokenstore",
       "tvl": {
-        "1": 1409105.9500013518
+        "1": 1415952.0065482287
       },
       "url": ""
     },
@@ -6033,6 +6033,16 @@
       "url": "https://savings.latch.io/"
     },
     {
+      "category": "Risk Curators",
+      "name": "Mt Pelerin",
+      "parent": null,
+      "slug": "mt-pelerin",
+      "tvl": {
+        "1": 1330950.329075608
+      },
+      "url": "https://www.mtpelerin.com/"
+    },
+    {
       "category": "Liquidity Manager",
       "name": "Gamma",
       "parent": null,
@@ -6044,16 +6054,6 @@
         "42161": 305693.1251751592
       },
       "url": "https://www.gamma.xyz"
-    },
-    {
-      "category": "Risk Curators",
-      "name": "Mt Pelerin",
-      "parent": null,
-      "slug": "mt-pelerin",
-      "tvl": {
-        "1": 1327466.6299302406
-      },
-      "url": "https://www.mtpelerin.com/"
     },
     {
       "category": "Yield",
@@ -6073,8 +6073,8 @@
       "parent": null,
       "slug": "debridge",
       "tvl": {
-        "1": 1257373.474229028,
-        "42161": 39665.16926936056
+        "1": 1264055.1074280892,
+        "42161": 39768.85863430124
       },
       "url": "https://app.debridge.com"
     },
@@ -6156,6 +6156,16 @@
       "url": "https://app.spectra.finance/fixed-rate"
     },
     {
+      "category": "Dexs",
+      "name": "IDEX Classic",
+      "parent": "parent#idex",
+      "slug": "idex-classic",
+      "tvl": {
+        "1": 1267185.8407654942
+      },
+      "url": ""
+    },
+    {
       "category": "Risk Curators",
       "name": "Architect",
       "parent": null,
@@ -6164,16 +6174,6 @@
         "8453": 1263212.5458045392
       },
       "url": "https://architect.systems/"
-    },
-    {
-      "category": "Dexs",
-      "name": "IDEX Classic",
-      "parent": "parent#idex",
-      "slug": "idex-classic",
-      "tvl": {
-        "1": 1261932.6978328377
-      },
-      "url": ""
     },
     {
       "category": "Yield Aggregator",
@@ -6192,7 +6192,7 @@
       "parent": "parent#gmx",
       "slug": "gmx-v1-evm",
       "tvl": {
-        "42161": 1257516.188648144
+        "42161": 1258504.0701926334
       },
       "url": "https://gmx.io/"
     },
@@ -6246,8 +6246,8 @@
       "parent": null,
       "slug": "symmio",
       "tvl": {
-        "8453": 906806.2211439244,
-        "42161": 317798.3931924825
+        "8453": 906837.978862625,
+        "42161": 317806.3484942045
       },
       "url": "https://www.symm.io/"
     },
@@ -6289,7 +6289,7 @@
       "parent": null,
       "slug": "switcheo-finance",
       "tvl": {
-        "1": 1162402.1699532082
+        "1": 1168113.112087171
       },
       "url": ""
     },
@@ -6299,8 +6299,8 @@
       "parent": "parent#axelar-network",
       "slug": "axelar-cross-chain",
       "tvl": {
-        "1": 266510.6433395797,
-        "42161": 882344.0598189932
+        "1": 267075.2484149484,
+        "42161": 884213.3132497481
       },
       "url": "https://axelar.network"
     },
@@ -6396,7 +6396,7 @@
       "parent": null,
       "slug": "outcome-finance",
       "tvl": {
-        "1": 1060164.8930433402
+        "1": 1064267.8452409676
       },
       "url": ""
     },
@@ -6582,8 +6582,8 @@
       "parent": null,
       "slug": "maya-protocol",
       "tvl": {
-        "1": 855551.2840006596,
-        "42161": 71750.79478044403
+        "1": 856998.2022477946,
+        "42161": 71734.19912996984
       },
       "url": "https://www.mayaprotocol.com"
     },
@@ -6672,8 +6672,8 @@
       "parent": null,
       "slug": "travessia-credit",
       "tvl": {
-        "1": 893513.8785933182,
-        "8453": 57.61438122541913
+        "1": 893749.4841481752,
+        "8453": 57.616398967765186
       },
       "url": "https://www.travessiacredit.com/"
     },
@@ -6713,10 +6713,10 @@
       "parent": null,
       "slug": "nonkyc",
       "tvl": {
-        "1": 154832.99629843174,
-        "10": 58931.1949919423,
-        "8453": 43527.78706193992,
-        "42161": 594555.5299492957
+        "1": 154339.43148724278,
+        "10": 58944.03185870281,
+        "8453": 43548.15954181146,
+        "42161": 594649.92918651
       },
       "url": "https://nonkyc.io"
     },
@@ -6753,6 +6753,16 @@
       "url": "https://vetro.org"
     },
     {
+      "category": "Yield",
+      "name": "Cyclone",
+      "parent": null,
+      "slug": "cyclone",
+      "tvl": {
+        "1": 838302.6093892556
+      },
+      "url": "https://cyclone.xyz"
+    },
+    {
       "category": "CDP",
       "name": "Lets Get HAI",
       "parent": null,
@@ -6771,16 +6781,6 @@
         "1": 835912.8642717629
       },
       "url": "https://rootstock.io/"
-    },
-    {
-      "category": "Yield",
-      "name": "Cyclone",
-      "parent": null,
-      "slug": "cyclone",
-      "tvl": {
-        "1": 835708.9083538367
-      },
-      "url": "https://cyclone.xyz"
     },
     {
       "category": "Liquidations",
@@ -6804,24 +6804,24 @@
       "url": "https://gnosis.io/"
     },
     {
-      "category": "CDP",
-      "name": "JPY DeFi",
-      "parent": null,
-      "slug": "jpy-defi",
-      "tvl": {
-        "1": 824637.9667467396
-      },
-      "url": "https://app.jpydf.com"
-    },
-    {
       "category": "Cross Chain Bridge",
       "name": "KEEP Network",
       "parent": null,
       "slug": "keep-network",
       "tvl": {
-        "1": 824613.0135707268
+        "1": 827513.6724457311
       },
       "url": "https://app.threshold.network/"
+    },
+    {
+      "category": "CDP",
+      "name": "JPY DeFi",
+      "parent": null,
+      "slug": "jpy-defi",
+      "tvl": {
+        "1": 825878.8649432772
+      },
+      "url": "https://app.jpydf.com"
     },
     {
       "category": "Dexs",
@@ -6873,7 +6873,7 @@
       "parent": null,
       "slug": "convergence-fi",
       "tvl": {
-        "1": 797930.7432370882
+        "1": 797930.7497518677
       },
       "url": ""
     },
@@ -6893,7 +6893,7 @@
       "parent": null,
       "slug": "orai-quant-terminal",
       "tvl": {
-        "42161": 780550.4798491508
+        "42161": 780570.0190120589
       },
       "url": "https://quant.orai.io/vault"
     },
@@ -6938,8 +6938,8 @@
       "parent": null,
       "slug": "40-acres",
       "tvl": {
-        "10": 10120.50766124104,
-        "8453": 729321.8641951054
+        "10": 10108.984055064202,
+        "8453": 741492.8463600727
       },
       "url": "https://www.40acres.finance/"
     },
@@ -6949,10 +6949,10 @@
       "parent": null,
       "slug": "clipper",
       "tvl": {
-        "1": 497836.9792865885,
-        "10": 98894.80434288207,
-        "8453": 100259.04034902056,
-        "42161": 31126.613721897003
+        "1": 498773.7597053028,
+        "10": 99042.45763553654,
+        "8453": 100447.35369602469,
+        "42161": 31172.316951079487
       },
       "url": "https://clipper.exchange"
     },
@@ -7078,27 +7078,27 @@
       "url": "https://keeta.com/"
     },
     {
-      "category": "Cross Chain Bridge",
-      "name": "Butter Network",
-      "parent": null,
-      "slug": "butter-network",
-      "tvl": {
-        "1": 385481.25906228024,
-        "10": 25.2685750930491,
-        "8453": 143805.78794092493,
-        "42161": 87993.46771318729
-      },
-      "url": "https://www.butterswap.io/swap"
-    },
-    {
       "category": "Prediction Market",
       "name": "Zethr",
       "parent": null,
       "slug": "zethr",
       "tvl": {
-        "1": 615429.9609781997
+        "1": 618394.3086049376
       },
       "url": ""
+    },
+    {
+      "category": "Cross Chain Bridge",
+      "name": "Butter Network",
+      "parent": null,
+      "slug": "butter-network",
+      "tvl": {
+        "1": 385797.9002802254,
+        "10": 25.353380275275153,
+        "8453": 144042.95095440227,
+        "42161": 88188.4089100211
+      },
+      "url": "https://www.butterswap.io/swap"
     },
     {
       "category": "Derivatives",
@@ -7132,36 +7132,24 @@
       "url": "https://idle.finance"
     },
     {
-      "category": "Bridge",
-      "name": "XO Bridge",
-      "parent": "parent#xo-protocol",
-      "slug": "xo-bridge",
-      "tvl": {
-        "8453": 595039.1129102354
-      },
-      "url": "https://xo.market"
-    },
-    {
       "category": "Dexs",
       "name": "Carbon Defi",
       "parent": null,
       "slug": "carbon-defi",
       "tvl": {
-        "1": 592555.2464327053
+        "1": 595488.8272690428
       },
       "url": "https://app.carbondefi.xyz/"
     },
     {
-      "category": "Lending",
-      "name": "WePiggy",
-      "parent": null,
-      "slug": "wepiggy",
+      "category": "Bridge",
+      "name": "XO Bridge",
+      "parent": "parent#xo-protocol",
+      "slug": "xo-bridge",
       "tvl": {
-        "1": 450982.6046443689,
-        "10": 70933.53771500534,
-        "42161": 70448.39411458223
+        "8453": 595059.9520755643
       },
-      "url": "https://www.wepiggy.com/"
+      "url": "https://xo.market"
     },
     {
       "category": "Farm",
@@ -7169,10 +7157,22 @@
       "parent": null,
       "slug": "blackwing",
       "tvl": {
-        "1": 166683.42469721477,
-        "42161": 425236.40507965133
+        "1": 167225.30478394838,
+        "42161": 426477.11111878115
       },
       "url": "https://blackwing.fi/"
+    },
+    {
+      "category": "Lending",
+      "name": "WePiggy",
+      "parent": null,
+      "slug": "wepiggy",
+      "tvl": {
+        "1": 451724.7247076895,
+        "10": 71046.48623372064,
+        "42161": 70582.74370986858
+      },
+      "url": "https://www.wepiggy.com/"
     },
     {
       "category": "Interest Rate Derivatives",
@@ -7264,7 +7264,7 @@
       "parent": null,
       "slug": "arbitrove",
       "tvl": {
-        "42161": 569531.1304838129
+        "42161": 570602.5027854523
       },
       "url": "https://nitrocartel.finance"
     },
@@ -7274,9 +7274,9 @@
       "parent": null,
       "slug": "accountable",
       "tvl": {
-        "1": 117591.68103898302,
-        "8453": 59.61403928724766,
-        "42161": 446710.47539223183
+        "1": 117596.29776854493,
+        "8453": 59.61612706062873,
+        "42161": 446497.4876793446
       },
       "url": "https://accountable.capital/"
     },
@@ -7296,7 +7296,7 @@
       "parent": null,
       "slug": "nawa-protocol",
       "tvl": {
-        "1": 560583.2199482211
+        "1": 560611.2855945588
       },
       "url": "https://nawa.finance/"
     },
@@ -7374,6 +7374,17 @@
       "url": ""
     },
     {
+      "category": "Dexs",
+      "name": "OTSea",
+      "parent": null,
+      "slug": "otsea",
+      "tvl": {
+        "1": 420161.8360096884,
+        "8453": 111299.16640597698
+      },
+      "url": ""
+    },
+    {
       "category": "Yield",
       "name": "VaultCraft",
       "parent": null,
@@ -7407,17 +7418,6 @@
         "42161": 134.7351318576127
       },
       "url": "https://sudoswap.xyz"
-    },
-    {
-      "category": "Dexs",
-      "name": "OTSea",
-      "parent": null,
-      "slug": "otsea",
-      "tvl": {
-        "1": 418183.93441222154,
-        "8453": 110852.23219250675
-      },
-      "url": ""
     },
     {
       "category": "Liquid Staking",
@@ -7540,7 +7540,7 @@
       "parent": "parent#sperax",
       "slug": "sperax-usd",
       "tvl": {
-        "42161": 514128.3953415978
+        "42161": 514166.11408239574
       },
       "url": "http://sperax.io"
     },
@@ -7560,7 +7560,17 @@
       "parent": null,
       "slug": "mooniswap",
       "tvl": {
-        "1": 508572.7186259332
+        "1": 509009.3248209063
+      },
+      "url": ""
+    },
+    {
+      "category": "NFT Lending",
+      "name": "JPEG'd",
+      "parent": null,
+      "slug": "jpegd",
+      "tvl": {
+        "1": 505473.80898569355
       },
       "url": ""
     },
@@ -7573,16 +7583,6 @@
         "8453": 503285.92713814037
       },
       "url": "https://722.capital/"
-    },
-    {
-      "category": "NFT Lending",
-      "name": "JPEG'd",
-      "parent": null,
-      "slug": "jpegd",
-      "tvl": {
-        "1": 503170.6890843732
-      },
-      "url": ""
     },
     {
       "category": "Yield",
@@ -7622,7 +7622,7 @@
       "parent": null,
       "slug": "ryze-protocol",
       "tvl": {
-        "8453": 482272.8068230026
+        "8453": 482855.2528506707
       },
       "url": "https://www.ryze.pro/"
     },
@@ -7660,6 +7660,16 @@
       "url": "https://app.sablier.com/payments/"
     },
     {
+      "category": "Insurance",
+      "name": "iTrust Finance",
+      "parent": null,
+      "slug": "itrust-finance",
+      "tvl": {
+        "1": 472154.13620802306
+      },
+      "url": ""
+    },
+    {
       "category": "Bridge",
       "name": "SODAX",
       "parent": null,
@@ -7671,16 +7681,6 @@
         "42161": 213074.39604892928
       },
       "url": "https://www.sodax.com/"
-    },
-    {
-      "category": "Insurance",
-      "name": "iTrust Finance",
-      "parent": null,
-      "slug": "itrust-finance",
-      "tvl": {
-        "1": 470010.63375669916
-      },
-      "url": ""
     },
     {
       "category": "Onchain Capital Allocator",
@@ -7716,6 +7716,16 @@
       "url": "https://app.riverai.inc/"
     },
     {
+      "category": "Onchain Capital Allocator",
+      "name": "Turtle Club",
+      "parent": null,
+      "slug": "turtle-club",
+      "tvl": {
+        "1": 466669.0268363541
+      },
+      "url": "https://app.turtle.xyz/"
+    },
+    {
       "category": "Yield Aggregator",
       "name": "Swell Earn",
       "parent": "parent#swell",
@@ -7726,24 +7736,14 @@
       "url": "https://app.swellnetwork.io/earn/vaults"
     },
     {
-      "category": "Onchain Capital Allocator",
-      "name": "Turtle Club",
-      "parent": null,
-      "slug": "turtle-club",
-      "tvl": {
-        "1": 466390.24614451843
-      },
-      "url": "https://app.turtle.xyz/"
-    },
-    {
       "category": "Payments",
       "name": "Sablier Legacy",
       "parent": "parent#sablier-finance",
       "slug": "sablier-legacy",
       "tvl": {
-        "1": 455788.04663057684,
-        "10": 2638.9939322101445,
-        "42161": 4182.406827219662
+        "1": 456823.8604311403,
+        "10": 2642.96802252394,
+        "42161": 4186.814111758487
       },
       "url": "https://legacy-recipient.sablier.com/"
     },
@@ -7754,7 +7754,7 @@
       "slug": "harmonix-finance",
       "tvl": {
         "1": 12688.510127,
-        "42161": 449453.866598
+        "42161": 449464.355545
       },
       "url": "https://app.harmonix.fi"
     },
@@ -7825,9 +7825,21 @@
       "parent": null,
       "slug": "dacm",
       "tvl": {
-        "42161": 450182.071957616
+        "42161": 450193.3411593773
       },
       "url": "https://dacm.io"
+    },
+    {
+      "category": "Token Locker",
+      "name": "GoPlus Locker V3",
+      "parent": "parent#goplus-security",
+      "slug": "goplus-locker-v3",
+      "tvl": {
+        "1": 12164.918263636753,
+        "8453": 436129.20702797465,
+        "42161": 473.1184481727198
+      },
+      "url": "https://gopluslabs.io"
     },
     {
       "category": "Lending",
@@ -7847,21 +7859,9 @@
       "parent": null,
       "slug": "the-interfold",
       "tvl": {
-        "1": 448454.6410360594
+        "1": 448475.9446423027
       },
       "url": "https://www.theinterfold.com/"
-    },
-    {
-      "category": "Token Locker",
-      "name": "GoPlus Locker V3",
-      "parent": "parent#goplus-security",
-      "slug": "goplus-locker-v3",
-      "tvl": {
-        "1": 12107.652207549389,
-        "8453": 434203.6445747371,
-        "42161": 470.89125461483013
-      },
-      "url": "https://gopluslabs.io"
     },
     {
       "category": "Dexs",
@@ -7951,7 +7951,7 @@
       "parent": null,
       "slug": "sanko-bridge",
       "tvl": {
-        "42161": 427860.3045080045
+        "42161": 427943.5379096562
       },
       "url": "https://sanko.xyz/"
     },
@@ -7961,7 +7961,7 @@
       "parent": null,
       "slug": "moremarkets.xyz",
       "tvl": {
-        "1": 427041.3414343714
+        "1": 427350.8620658513
       },
       "url": ""
     },
@@ -8011,8 +8011,8 @@
       "parent": null,
       "slug": "siren",
       "tvl": {
-        "1": 411463.5580603444,
-        "42161": 4077.401033785001
+        "1": 411530.06269051856,
+        "42161": 4077.503101498874
       },
       "url": ""
     },
@@ -8117,7 +8117,7 @@
       "parent": null,
       "slug": "88mph",
       "tvl": {
-        "1": 399003.6541526918
+        "1": 399142.3164354562
       },
       "url": ""
     },
@@ -8179,8 +8179,8 @@
       "parent": null,
       "slug": "shprd",
       "tvl": {
-        "1": 41089.76737052933,
-        "42161": 344538.79693718435
+        "1": 41157.56849366744,
+        "42161": 344551.5144204119
       },
       "url": ""
     },
@@ -8200,7 +8200,7 @@
       "parent": null,
       "slug": "convergence",
       "tvl": {
-        "1": 379427.42724242643
+        "1": 380344.14739874046
       },
       "url": ""
     },
@@ -8223,9 +8223,19 @@
       "parent": null,
       "slug": "bob-fusion",
       "tvl": {
-        "1": 364290.2374521934
+        "1": 365419.50323507347
       },
       "url": "https://gobob.xyz"
+    },
+    {
+      "category": "Bridge",
+      "name": "Enosys Bridge",
+      "parent": "parent#enosys",
+      "slug": "enosys-bridge",
+      "tvl": {
+        "1": 364739.2605554763
+      },
+      "url": ""
     },
     {
       "category": "CDP",
@@ -8240,22 +8250,12 @@
       "url": ""
     },
     {
-      "category": "Bridge",
-      "name": "Enosys Bridge",
-      "parent": "parent#enosys",
-      "slug": "enosys-bridge",
-      "tvl": {
-        "1": 363870.20069187967
-      },
-      "url": ""
-    },
-    {
       "category": "Liquid Staking",
       "name": "wstDIEM",
       "parent": "parent#liquid-protocol",
       "slug": "wstdiem",
       "tvl": {
-        "8453": 360170.72560964024
+        "8453": 363526.69779720105
       },
       "url": "https://app.liquidprotocol.org/vault"
     },
@@ -8310,6 +8310,16 @@
       "url": ""
     },
     {
+      "category": "Lending",
+      "name": "Ammalgam DLEX",
+      "parent": "parent#ammalgam",
+      "slug": "ammalgam-dlex",
+      "tvl": {
+        "1": 341136.62484266714
+      },
+      "url": "https://ammalgam.xyz/"
+    },
+    {
       "category": "Risk Curators",
       "name": "Birch Hill",
       "parent": null,
@@ -8318,16 +8328,6 @@
         "8453": 340856.96528955386
       },
       "url": "https://www.birchhill.io/"
-    },
-    {
-      "category": "Lending",
-      "name": "Ammalgam DLEX",
-      "parent": "parent#ammalgam",
-      "slug": "ammalgam-dlex",
-      "tvl": {
-        "1": 340493.4262766897
-      },
-      "url": "https://ammalgam.xyz/"
     },
     {
       "category": "Dexs",
@@ -8346,7 +8346,7 @@
       "parent": null,
       "slug": "mochifi",
       "tvl": {
-        "1": 336374.14276162226
+        "1": 336425.78414206696
       },
       "url": ""
     },
@@ -8381,16 +8381,6 @@
         "42161": 14568.364059641868
       },
       "url": "https://prdt.finance"
-    },
-    {
-      "category": "Prediction Market",
-      "name": "Limitless Exchange",
-      "parent": null,
-      "slug": "limitless-exchange",
-      "tvl": {
-        "8453": 323172.3018850917
-      },
-      "url": "https://limitless.exchange"
     },
     {
       "category": "NFT Marketplace",
@@ -8428,9 +8418,29 @@
       "parent": null,
       "slug": "corn-kernels",
       "tvl": {
-        "1": 317740.14494442893
+        "1": 318161.8880029529
       },
       "url": "https://usecorn.com/"
+    },
+    {
+      "category": "Prediction Market",
+      "name": "Limitless Exchange",
+      "parent": null,
+      "slug": "limitless-exchange",
+      "tvl": {
+        "8453": 317910.24602373614
+      },
+      "url": "https://limitless.exchange"
+    },
+    {
+      "category": "CDP",
+      "name": "Lybra V1",
+      "parent": "parent#lybra-finance",
+      "slug": "lybra-v1",
+      "tvl": {
+        "1": 317509.38584809157
+      },
+      "url": ""
     },
     {
       "category": "Liquidity Manager",
@@ -8456,16 +8466,6 @@
       "url": ""
     },
     {
-      "category": "CDP",
-      "name": "Lybra V1",
-      "parent": "parent#lybra-finance",
-      "slug": "lybra-v1",
-      "tvl": {
-        "1": 315795.7586636286
-      },
-      "url": ""
-    },
-    {
       "category": "Canonical Bridge",
       "name": "Swellchain Bridge",
       "parent": null,
@@ -8486,6 +8486,16 @@
       "url": "https://www.hydrex.fi?anchorRef=0x798fF1e6D7AFd28c333eE6eBe03125d30ec6eF10"
     },
     {
+      "category": "Liquid Staking",
+      "name": "Goldsand by InshAllah",
+      "parent": null,
+      "slug": "goldsand-by-inshallah",
+      "tvl": {
+        "1": 311710.44601263764
+      },
+      "url": "https://goldsand.fi/"
+    },
+    {
       "category": "Yield",
       "name": "Sprinter",
       "parent": null,
@@ -8496,22 +8506,12 @@
       "url": "https://sprinter.tech/"
     },
     {
-      "category": "Liquid Staking",
-      "name": "Goldsand by InshAllah",
-      "parent": null,
-      "slug": "goldsand-by-inshallah",
-      "tvl": {
-        "1": 310216.22443263716
-      },
-      "url": "https://goldsand.fi/"
-    },
-    {
       "category": "CDP",
       "name": "PrismaLST",
       "parent": "parent#prisma",
       "slug": "prismalst",
       "tvl": {
-        "1": 306529.6276368851
+        "1": 307965.52220059355
       },
       "url": ""
     },
@@ -8521,10 +8521,10 @@
       "parent": null,
       "slug": "zklink-nova",
       "tvl": {
-        "1": 1388.2177001944337,
-        "10": 0.02227487714351695,
-        "8453": 0.1891406447893091,
-        "42161": 304007.09234576253
+        "1": 1394.9641471488094,
+        "10": 0.022279273377757387,
+        "8453": 0.18913414182334481,
+        "42161": 304403.219159375
       },
       "url": "https://zklink.io"
     },
@@ -8554,7 +8554,7 @@
       "parent": "parent#pika-protocol",
       "slug": "pika",
       "tvl": {
-        "10": 297978.5859626598
+        "10": 297989.625383695
       },
       "url": ""
     },
@@ -8908,27 +8908,27 @@
       "url": "https://www.lucidlabs.fi"
     },
     {
-      "category": "Yield",
-      "name": "BTCD",
-      "parent": null,
-      "slug": "btcd",
-      "tvl": {
-        "1": 242001.62782457256,
-        "42161": 2072.8834643307277
-      },
-      "url": "https://btcd.fi/"
-    },
-    {
       "category": "Dexs",
       "name": "DeltaSwap",
       "parent": "parent#gammaswaplabs",
       "slug": "deltaswap",
       "tvl": {
-        "1": 919.1214734046986,
-        "8453": 110197.63409831164,
-        "42161": 132785.06881705057
+        "1": 923.326197244346,
+        "8453": 110464.95737708262,
+        "42161": 133273.40460650946
       },
       "url": "https://gammaswap.com"
+    },
+    {
+      "category": "Yield",
+      "name": "BTCD",
+      "parent": null,
+      "slug": "btcd",
+      "tvl": {
+        "1": 242032.42813922255,
+        "42161": 2074.186105411765
+      },
+      "url": "https://btcd.fi/"
     },
     {
       "category": "Lending",
@@ -8947,7 +8947,7 @@
       "parent": null,
       "slug": "orderly-chain",
       "tvl": {
-        "1": 241440.9013702731
+        "1": 242603.852161182
       },
       "url": "https://orderly.network/"
     },
@@ -8993,6 +8993,26 @@
       "url": ""
     },
     {
+      "category": "Yield",
+      "name": "Steroids",
+      "parent": null,
+      "slug": "steroids",
+      "tvl": {
+        "1": 239527.31803436816
+      },
+      "url": ""
+    },
+    {
+      "category": "Yield",
+      "name": "UniPower",
+      "parent": null,
+      "slug": "unipower",
+      "tvl": {
+        "1": 239390.62286776447
+      },
+      "url": "https://unipower.network"
+    },
+    {
       "category": "Prediction Market",
       "name": "PredictEX",
       "parent": null,
@@ -9001,16 +9021,6 @@
         "8453": 239363.8983036486
       },
       "url": "https://predictex.com"
-    },
-    {
-      "category": "Yield",
-      "name": "Steroids",
-      "parent": null,
-      "slug": "steroids",
-      "tvl": {
-        "1": 238985.5360239015
-      },
-      "url": ""
     },
     {
       "category": "Yield",
@@ -9023,14 +9033,14 @@
       "url": "https://alcum.com/"
     },
     {
-      "category": "Yield",
-      "name": "UniPower",
+      "category": "CDP",
+      "name": "Unit Protocol",
       "parent": null,
-      "slug": "unipower",
+      "slug": "unit-protocol",
       "tvl": {
-        "1": 238263.69734809917
+        "1": 238598.93596611524
       },
-      "url": "https://unipower.network"
+      "url": ""
     },
     {
       "category": "Yield Lottery",
@@ -9043,16 +9053,6 @@
         "42161": 56228.28545250524
       },
       "url": "https://ample.money/"
-    },
-    {
-      "category": "CDP",
-      "name": "Unit Protocol",
-      "parent": null,
-      "slug": "unit-protocol",
-      "tvl": {
-        "1": 237487.45481484768
-      },
-      "url": ""
     },
     {
       "category": "Lending",
@@ -9105,6 +9105,16 @@
       "url": "https://radiant.capital/#/markets"
     },
     {
+      "category": "Yield",
+      "name": "Button Tranche",
+      "parent": "parent#buttonwood",
+      "slug": "button-tranche",
+      "tvl": {
+        "1": 229286.85014846257
+      },
+      "url": "https://app.button.finance/"
+    },
+    {
       "category": "Dexs",
       "name": "Dexalot DEX",
       "parent": "parent#dexalot",
@@ -9124,16 +9134,6 @@
         "1": 227657.36491029672
       },
       "url": "https://usual.money"
-    },
-    {
-      "category": "Yield",
-      "name": "Button Tranche",
-      "parent": "parent#buttonwood",
-      "slug": "button-tranche",
-      "tvl": {
-        "1": 227526.14787829152
-      },
-      "url": "https://app.button.finance/"
     },
     {
       "category": "Insurance",
@@ -9176,6 +9176,16 @@
       "url": "https://ancient8.gg/"
     },
     {
+      "category": "Staking Pool",
+      "name": "TokenPocket",
+      "parent": null,
+      "slug": "tokenpocket",
+      "tvl": {
+        "1": 223744.02414000002
+      },
+      "url": "https://dapp.tokenpocket.pro/StakeVault/#/"
+    },
+    {
       "category": "Derivatives",
       "name": "Voltz",
       "parent": null,
@@ -9185,16 +9195,6 @@
         "42161": 55430.80796001197
       },
       "url": ""
-    },
-    {
-      "category": "Staking Pool",
-      "name": "TokenPocket",
-      "parent": null,
-      "slug": "tokenpocket",
-      "tvl": {
-        "1": 222856.9089
-      },
-      "url": "https://dapp.tokenpocket.pro/StakeVault/#/"
     },
     {
       "category": "CDP",
@@ -9283,6 +9283,16 @@
       "url": "https://www.neutral.trade/"
     },
     {
+      "category": "Liquid Staking",
+      "name": "Lido Impact Staking",
+      "parent": null,
+      "slug": "lido-impact-staking",
+      "tvl": {
+        "1": 207686.9245260423
+      },
+      "url": "https://impactstake.com"
+    },
+    {
       "category": "Yield",
       "name": "Dexalot OmniVaults",
       "parent": "parent#dexalot",
@@ -9316,16 +9326,6 @@
       "url": "https://www.aarna.ai"
     },
     {
-      "category": "Liquid Staking",
-      "name": "Lido Impact Staking",
-      "parent": null,
-      "slug": "lido-impact-staking",
-      "tvl": {
-        "1": 206525.71188339542
-      },
-      "url": "https://impactstake.com"
-    },
-    {
       "category": "Lending",
       "name": "Wing Finance",
       "parent": null,
@@ -9336,16 +9336,6 @@
       "url": "https://wing.finance"
     },
     {
-      "category": "Yield",
-      "name": "UniFarm",
-      "parent": null,
-      "slug": "unifarm",
-      "tvl": {
-        "1": 206205.31132662273
-      },
-      "url": ""
-    },
-    {
       "category": "Algo-Stables",
       "name": "Basis Cash",
       "parent": null,
@@ -9354,6 +9344,16 @@
         "1": 205625.29317614977
       },
       "url": "https://basis.cash/"
+    },
+    {
+      "category": "Yield",
+      "name": "UniFarm",
+      "parent": null,
+      "slug": "unifarm",
+      "tvl": {
+        "1": 205124.15354139428
+      },
+      "url": ""
     },
     {
       "category": "Liquidity Manager",
@@ -9372,12 +9372,22 @@
       "parent": null,
       "slug": "core-bridge",
       "tvl": {
-        "1": 77024.071035765,
-        "10": 92580.25724566515,
-        "8453": 32558.575393373165,
-        "42161": 891.0039504816622
+        "1": 77363.7953625169,
+        "10": 92715.2031729822,
+        "8453": 32587.999821696223,
+        "42161": 891.4966369342211
       },
       "url": "https://bridge.coredao.org/bridge"
+    },
+    {
+      "category": "Lending",
+      "name": "Altitude.Fi",
+      "parent": null,
+      "slug": "altitude.fi",
+      "tvl": {
+        "1": 203413.69114921376
+      },
+      "url": ""
     },
     {
       "category": "Canonical Bridge",
@@ -9400,22 +9410,12 @@
       "url": "https://scale.farm"
     },
     {
-      "category": "Lending",
-      "name": "Altitude.Fi",
-      "parent": null,
-      "slug": "altitude.fi",
-      "tvl": {
-        "1": 202327.60997745983
-      },
-      "url": ""
-    },
-    {
       "category": "CDP",
       "name": "DeFi Franc",
       "parent": null,
       "slug": "defi-franc",
       "tvl": {
-        "1": 201825.0449014312
+        "1": 202311.0931425939
       },
       "url": ""
     },
@@ -9489,6 +9489,18 @@
       "url": ""
     },
     {
+      "category": "DEX Aggregator",
+      "name": "Hashflow",
+      "parent": null,
+      "slug": "hashflow",
+      "tvl": {
+        "1": 130790.71783494693,
+        "10": 4058.718306854331,
+        "42161": 56995.22597201473
+      },
+      "url": "https://www.hashflow.com"
+    },
+    {
       "category": "Risk Curators",
       "name": "Apostro",
       "parent": null,
@@ -9509,18 +9521,6 @@
         "8453": 148315.58990830244
       },
       "url": "https://dapp.velvet.capital/Referred/6956901b440d4fc522b2eb7b"
-    },
-    {
-      "category": "DEX Aggregator",
-      "name": "Hashflow",
-      "parent": null,
-      "slug": "hashflow",
-      "tvl": {
-        "1": 130343.72723647674,
-        "10": 4054.671880167295,
-        "42161": 56981.450524093576
-      },
-      "url": "https://www.hashflow.com"
     },
     {
       "category": "NFT Lending",
@@ -9585,6 +9585,17 @@
       "url": "https://smartcredit.io"
     },
     {
+      "category": "Lending",
+      "name": "Venus Isolated Pools",
+      "parent": "parent#venus-finance",
+      "slug": "venus-isolated-pools",
+      "tvl": {
+        "1": 134664.3834366964,
+        "42161": 50042.39750269319
+      },
+      "url": "https://app.venus.io/#/isolated-pools/"
+    },
+    {
       "category": "Yield Aggregator",
       "name": "StratEx",
       "parent": null,
@@ -9593,17 +9604,6 @@
         "8453": 184527.45296632938
       },
       "url": "https://www.stratex.finance/"
-    },
-    {
-      "category": "Lending",
-      "name": "Venus Isolated Pools",
-      "parent": "parent#venus-finance",
-      "slug": "venus-isolated-pools",
-      "tvl": {
-        "1": 134138.21587055156,
-        "42161": 49802.20595549015
-      },
-      "url": "https://app.venus.io/#/isolated-pools/"
     },
     {
       "category": "Dexs",
@@ -9673,7 +9673,7 @@
       "parent": "parent#camelot",
       "slug": "camelot-v4",
       "tvl": {
-        "42161": 177869.5951006344
+        "42161": 178569.11893297324
       },
       "url": "https://camelot.exchange/"
     },
@@ -9756,6 +9756,16 @@
       "url": ""
     },
     {
+      "category": "Bridge",
+      "name": "RISE Bridge",
+      "parent": null,
+      "slug": "rise-bridge",
+      "tvl": {
+        "1": 170660.96935823662
+      },
+      "url": "https://risechain.com/"
+    },
+    {
       "category": "Yield",
       "name": "Jaypeggers",
       "parent": null,
@@ -9774,16 +9784,6 @@
         "1": 170210.54865119868
       },
       "url": ""
-    },
-    {
-      "category": "Bridge",
-      "name": "RISE Bridge",
-      "parent": null,
-      "slug": "rise-bridge",
-      "tvl": {
-        "1": 169502.64901362994
-      },
-      "url": "https://risechain.com/"
     },
     {
       "category": "Onchain Capital Allocator",
@@ -9876,17 +9876,6 @@
       "url": ""
     },
     {
-      "category": "CEX",
-      "name": "Coinstore",
-      "parent": null,
-      "slug": "coinstore",
-      "tvl": {
-        "1": 149229.59547674606,
-        "42161": 9103.182102651816
-      },
-      "url": "https://www.coinstore.com/"
-    },
-    {
       "category": "Derivatives",
       "name": "Mycelium Perpetual Pools",
       "parent": "parent#mycelium",
@@ -9895,6 +9884,17 @@
         "42161": 157679.20882926756
       },
       "url": ""
+    },
+    {
+      "category": "CEX",
+      "name": "Coinstore",
+      "parent": null,
+      "slug": "coinstore",
+      "tvl": {
+        "1": 148408.25629345715,
+        "42161": 9104.249652453616
+      },
+      "url": "https://www.coinstore.com/"
     },
     {
       "category": "Dexs",
@@ -9933,10 +9933,10 @@
       "parent": "parent#timeswap",
       "slug": "timeswap-v2",
       "tvl": {
-        "1": 430.83800634022697,
-        "10": 25590.05905209305,
-        "8453": 62340.161894538745,
-        "42161": 64225.3588032928
+        "1": 432.16879280815635,
+        "10": 25600.53402516914,
+        "8453": 62348.10116734291,
+        "42161": 64345.48535329741
       },
       "url": ""
     },
@@ -10211,7 +10211,7 @@
       "parent": null,
       "slug": "sharkswap-dex",
       "tvl": {
-        "8453": 137420.27491952767
+        "8453": 137939.7009245891
       },
       "url": ""
     },
@@ -10341,7 +10341,7 @@
       "parent": null,
       "slug": "soneium-bridge",
       "tvl": {
-        "1": 127975.28932088493
+        "1": 127844.31788612236
       },
       "url": "https://superbridge.app/soneium"
     },
@@ -10392,8 +10392,8 @@
       "parent": "parent#secured-finance",
       "slug": "secured-finance-lending",
       "tvl": {
-        "1": 115878.71298256572,
-        "42161": 8797.616619701932
+        "1": 116039.12002349333,
+        "42161": 8803.814377794515
       },
       "url": "https://secured.finance"
     },
@@ -10408,6 +10408,16 @@
       "url": "https://basedollar.org"
     },
     {
+      "category": "Launchpad",
+      "name": "Juicebox V3",
+      "parent": "parent#juicebox",
+      "slug": "juicebox-v3",
+      "tvl": {
+        "1": 124360.60853765551
+      },
+      "url": "https://juicebox.money/"
+    },
+    {
       "category": "Risk Curators",
       "name": "B.Protocol Curator",
       "parent": null,
@@ -10416,16 +10426,6 @@
         "1": 123956.32358027471
       },
       "url": "https://dashboard.bprotocol.org"
-    },
-    {
-      "category": "Launchpad",
-      "name": "Juicebox V3",
-      "parent": "parent#juicebox",
-      "slug": "juicebox-v3",
-      "tvl": {
-        "1": 123516.54077221986
-      },
-      "url": "https://juicebox.money/"
     },
     {
       "category": "Insurance",
@@ -10455,7 +10455,7 @@
       "parent": null,
       "slug": "zebradao",
       "tvl": {
-        "8453": 122213.95638489377
+        "8453": 122382.87483465498
       },
       "url": ""
     },
@@ -10621,6 +10621,16 @@
       "url": "https://lockon.finance"
     },
     {
+      "category": "Derivatives",
+      "name": "InfinityPools",
+      "parent": null,
+      "slug": "infinitypools",
+      "tvl": {
+        "8453": 115196.59890617925
+      },
+      "url": "https://infinitypools.finance/"
+    },
+    {
       "category": "Yield Aggregator",
       "name": "Trevee Earn",
       "parent": null,
@@ -10629,16 +10639,6 @@
         "1": 115081.60955220174
       },
       "url": "https://rings.money/"
-    },
-    {
-      "category": "Derivatives",
-      "name": "InfinityPools",
-      "parent": null,
-      "slug": "infinitypools",
-      "tvl": {
-        "8453": 115063.88621836336
-      },
-      "url": "https://infinitypools.finance/"
     },
     {
       "category": "Bridge",
@@ -10661,16 +10661,6 @@
       "url": ""
     },
     {
-      "category": "RWA",
-      "name": "wstGBP",
-      "parent": null,
-      "slug": "wstgbp",
-      "tvl": {
-        "1": 112142.1523874214
-      },
-      "url": "https://wstgbp.com"
-    },
-    {
       "category": "Yield",
       "name": "Elixir",
       "parent": null,
@@ -10679,6 +10669,16 @@
         "1": 112117.00717980521
       },
       "url": ""
+    },
+    {
+      "category": "RWA",
+      "name": "wstGBP",
+      "parent": null,
+      "slug": "wstgbp",
+      "tvl": {
+        "1": 112052.54068878606
+      },
+      "url": "https://wstgbp.com"
     },
     {
       "category": "Dexs",
@@ -10774,6 +10774,18 @@
       "url": "https://umbrae.io"
     },
     {
+      "category": "Dexs",
+      "name": "iZiSwap",
+      "parent": "parent#izumi-finance",
+      "slug": "iziswap",
+      "tvl": {
+        "1": 9.998635599379122e-7,
+        "8453": 106494.54618570878,
+        "42161": 898.9752887157384
+      },
+      "url": "https://izumi.finance/trade/swap"
+    },
+    {
       "category": "Indexes",
       "name": "Babylon Finance",
       "parent": null,
@@ -10782,18 +10794,6 @@
         "1": 107196.07935215576
       },
       "url": ""
-    },
-    {
-      "category": "Dexs",
-      "name": "iZiSwap",
-      "parent": "parent#izumi-finance",
-      "slug": "iziswap",
-      "tvl": {
-        "1": 9.998285443746534e-7,
-        "8453": 106042.31667630991,
-        "42161": 897.9940969027695
-      },
-      "url": "https://izumi.finance/trade/swap"
     },
     {
       "category": "Onchain Capital Allocator",
@@ -10884,17 +10884,6 @@
       "url": "https://gremlix.xyz"
     },
     {
-      "category": "Privacy",
-      "name": "Nullmask",
-      "parent": null,
-      "slug": "nullmask",
-      "tvl": {
-        "1": 70290.01497835085,
-        "8453": 31920.616128126436
-      },
-      "url": "https://nullmask.io"
-    },
-    {
       "category": "Lending",
       "name": "Granary Finance",
       "parent": null,
@@ -10940,6 +10929,18 @@
       "url": "https://www.tristero.com/"
     },
     {
+      "category": "Yield",
+      "name": "Napier",
+      "parent": null,
+      "slug": "napier",
+      "tvl": {
+        "1": 96519.12320640749,
+        "8453": 1816.3770798273729,
+        "42161": 377.1629185357367
+      },
+      "url": "https://app.napier.finance/"
+    },
+    {
       "category": "Dexs",
       "name": "Gyroscope Protocol",
       "parent": null,
@@ -10973,16 +10974,15 @@
       "url": "https://www.peer.xyz/"
     },
     {
-      "category": "Yield",
-      "name": "Napier",
+      "category": "Privacy",
+      "name": "Nullmask",
       "parent": null,
-      "slug": "napier",
+      "slug": "nullmask",
       "tvl": {
-        "1": 96122.28003756703,
-        "8453": 1816.4851146142641,
-        "42161": 377.198104443388
+        "1": 71830.21403090967,
+        "8453": 26138.17083897059
       },
-      "url": "https://app.napier.finance/"
+      "url": "https://nullmask.io"
     },
     {
       "category": "Bridge",
@@ -11082,7 +11082,7 @@
       "parent": null,
       "slug": "unagii",
       "tvl": {
-        "1": 91227.79910019733
+        "1": 91656.93739206955
       },
       "url": ""
     },
@@ -11112,8 +11112,8 @@
       "parent": null,
       "slug": "privacy-cash",
       "tvl": {
-        "1": 28196.871544704794,
-        "8453": 61306.99352960226
+        "1": 28231.538446383725,
+        "8453": 61494.27810946766
       },
       "url": "https://privacycash.org/"
     },
@@ -11288,6 +11288,16 @@
       "url": ""
     },
     {
+      "category": "Yield",
+      "name": "Liquis",
+      "parent": null,
+      "slug": "liquis",
+      "tvl": {
+        "1": 85192.75350993001
+      },
+      "url": ""
+    },
+    {
       "category": "Privacy",
       "name": "zkBob",
       "parent": "parent#zkbob_",
@@ -11296,16 +11306,6 @@
         "10": 84975.43346891968
       },
       "url": "https://app.zkbob.com"
-    },
-    {
-      "category": "Yield",
-      "name": "Liquis",
-      "parent": null,
-      "slug": "liquis",
-      "tvl": {
-        "1": 84789.32364080961
-      },
-      "url": ""
     },
     {
       "category": "Derivatives",
@@ -11323,7 +11323,7 @@
       "parent": null,
       "slug": "infusion",
       "tvl": {
-        "8453": 83472.90500759562
+        "8453": 83745.772237016
       },
       "url": ""
     },
@@ -11409,6 +11409,16 @@
       "url": ""
     },
     {
+      "category": "Farm",
+      "name": "Gudchain",
+      "parent": null,
+      "slug": "gudchain",
+      "tvl": {
+        "1": 79336.37826080748
+      },
+      "url": "https://gudchain.com/"
+    },
+    {
       "category": "Yield",
       "name": "GammaSwap Yield Tokens",
       "parent": "parent#gammaswaplabs",
@@ -11417,16 +11427,6 @@
         "8453": 79170.9687425697
       },
       "url": "https://app.gammaswap.com/yield-tokens"
-    },
-    {
-      "category": "Farm",
-      "name": "Gudchain",
-      "parent": null,
-      "slug": "gudchain",
-      "tvl": {
-        "1": 79154.97492566326
-      },
-      "url": "https://gudchain.com/"
     },
     {
       "category": "Synthetics",
@@ -11550,7 +11550,7 @@
       "parent": "parent#tprotocol",
       "slug": "tprotocol-v1",
       "tvl": {
-        "1": 72975.4809254545
+        "1": 72975.45336543128
       },
       "url": "https://legacy.tprotocol.io/"
     },
@@ -11593,9 +11593,19 @@
       "parent": "parent#arbswap",
       "slug": "arbswap-amm",
       "tvl": {
-        "42161": 71905.0128171794
+        "42161": 71986.66355195947
       },
       "url": ""
+    },
+    {
+      "category": "Dexs",
+      "name": "CreamSwap",
+      "parent": "parent#cream-finance",
+      "slug": "creamswap",
+      "tvl": {
+        "1": 71704.83928029504
+      },
+      "url": "https://app.cream.finance/swap"
     },
     {
       "category": "Privacy",
@@ -11627,16 +11637,6 @@
         "42161": 52939.0532477544
       },
       "url": "https://vendor.finance"
-    },
-    {
-      "category": "Dexs",
-      "name": "CreamSwap",
-      "parent": "parent#cream-finance",
-      "slug": "creamswap",
-      "tvl": {
-        "1": 71187.77601669432
-      },
-      "url": "https://app.cream.finance/swap"
     },
     {
       "category": "Lending",
@@ -11689,7 +11689,7 @@
       "parent": "parent#navi-protocol",
       "slug": "navi-curator",
       "tvl": {
-        "1": 69217.3462692565
+        "1": 69219.07895540523
       },
       "url": "https://www.naviprotocol.io/"
     },
@@ -11888,9 +11888,9 @@
       "parent": null,
       "slug": "gridex",
       "tvl": {
-        "10": 267.4567168873538,
-        "8453": 296.06070749522223,
-        "42161": 62396.50104059011
+        "10": 269.44171519246794,
+        "8453": 295.3078710135506,
+        "42161": 62648.62374669006
       },
       "url": ""
     },
@@ -12002,7 +12002,7 @@
       "parent": "parent#shibaswap",
       "slug": "shibaswap-v2",
       "tvl": {
-        "1": 60595.00945642444
+        "1": 60681.61179935499
       },
       "url": "https://shibaswap.com"
     },
@@ -12150,6 +12150,18 @@
       "url": "https://spreads.fi/"
     },
     {
+      "category": "Liquidity Manager",
+      "name": "Skate Fi",
+      "parent": null,
+      "slug": "skate-fi",
+      "tvl": {
+        "1": 52394.95471980202,
+        "8453": 85.52217152171511,
+        "42161": 4289.522980870224
+      },
+      "url": ""
+    },
+    {
       "category": "NFT Marketplace",
       "name": "Caviar V1",
       "parent": "parent#caviar",
@@ -12170,18 +12182,6 @@
       "url": ""
     },
     {
-      "category": "Liquidity Manager",
-      "name": "Skate Fi",
-      "parent": null,
-      "slug": "skate-fi",
-      "tvl": {
-        "1": 52198.392153626475,
-        "8453": 85.28190477869707,
-        "42161": 4278.526626288827
-      },
-      "url": ""
-    },
-    {
       "category": "Yield",
       "name": "Rift Finance",
       "parent": null,
@@ -12197,8 +12197,8 @@
       "parent": null,
       "slug": "domination-finance",
       "tvl": {
-        "1": 13973.680895981779,
-        "8453": 41816.66102262556
+        "1": 13974.236049351635,
+        "8453": 41818.32233580822
       },
       "url": "https://domination.finance"
     },
@@ -12393,7 +12393,7 @@
       "parent": null,
       "slug": "bridge-mutual",
       "tvl": {
-        "1": 50970.23541790703
+        "1": 50967.17356017125
       },
       "url": ""
     },
@@ -12448,6 +12448,16 @@
       "url": "https://virtus-protocol.com"
     },
     {
+      "category": "CDP",
+      "name": "Lybra V2",
+      "parent": "parent#lybra-finance",
+      "slug": "lybra-v2",
+      "tvl": {
+        "1": 45388.45380310063
+      },
+      "url": ""
+    },
+    {
       "category": "CEX",
       "name": "CoinEx",
       "parent": null,
@@ -12456,16 +12466,6 @@
         "1": 45298.18441236613
       },
       "url": "https://www.coinex.com/en"
-    },
-    {
-      "category": "CDP",
-      "name": "Lybra V2",
-      "parent": "parent#lybra-finance",
-      "slug": "lybra-v2",
-      "tvl": {
-        "1": 45067.76767063588
-      },
-      "url": ""
     },
     {
       "category": "Liquid Restaking",
@@ -12580,6 +12580,17 @@
       "url": ""
     },
     {
+      "category": "Yield Aggregator",
+      "name": "EXIT10",
+      "parent": null,
+      "slug": "exit10",
+      "tvl": {
+        "1": 27924.53025996537,
+        "42161": 14225.265820757602
+      },
+      "url": ""
+    },
+    {
       "category": "Liquid Restaking",
       "name": "Prime Staked ETH",
       "parent": "parent#origin-defi",
@@ -12588,17 +12599,6 @@
         "1": 42052.48590245303
       },
       "url": "https://app.primestaked.com/#/restake"
-    },
-    {
-      "category": "Yield Aggregator",
-      "name": "EXIT10",
-      "parent": null,
-      "slug": "exit10",
-      "tvl": {
-        "1": 27828.978785450905,
-        "42161": 14176.623899364215
-      },
-      "url": ""
     },
     {
       "category": "Lending",
@@ -12669,7 +12669,7 @@
       "parent": null,
       "slug": "time.fun",
       "tvl": {
-        "8453": 40521.71760124397
+        "8453": 40604.39687836951
       },
       "url": ""
     },
@@ -12711,7 +12711,7 @@
       "parent": null,
       "slug": "warp-protocol",
       "tvl": {
-        "1": 39248.61016721281
+        "1": 39248.576120431855
       },
       "url": ""
     },
@@ -12986,15 +12986,25 @@
       "url": ""
     },
     {
+      "category": "Lending",
+      "name": "The Gavel Protocol",
+      "parent": null,
+      "slug": "the-gavel-protocol",
+      "tvl": {
+        "42161": 33776.76259114152
+      },
+      "url": ""
+    },
+    {
       "category": "Dexs",
       "name": "KyberSwap Elastic",
       "parent": "parent#kyberswap",
       "slug": "kyberswap-elastic",
       "tvl": {
-        "1": 2949.84288097983,
-        "10": 10281.45233876464,
-        "8453": 416.3912572822882,
-        "42161": 20085.98102209295
+        "1": 2949.8731939776853,
+        "10": 10251.326916758719,
+        "8453": 417.9191871305599,
+        "42161": 20100.168677087648
       },
       "url": "https://kyberswap.com/#/swap"
     },
@@ -13008,16 +13018,6 @@
         "42161": 0.004502579456628245
       },
       "url": "https://stabil.finance"
-    },
-    {
-      "category": "Lending",
-      "name": "The Gavel Protocol",
-      "parent": null,
-      "slug": "the-gavel-protocol",
-      "tvl": {
-        "42161": 33651.751978572596
-      },
-      "url": ""
     },
     {
       "category": "Yield",
@@ -13078,7 +13078,7 @@
       "parent": null,
       "slug": "tranche-finance",
       "tvl": {
-        "1": 31815.33263558945
+        "1": 31815.221843128522
       },
       "url": ""
     },
@@ -13088,7 +13088,7 @@
       "parent": null,
       "slug": "orbit-bridge",
       "tvl": {
-        "1": 31788.071487848327
+        "1": 31741.92316865076
       },
       "url": "https://bridge.orbitchain.io"
     },
@@ -13150,7 +13150,7 @@
       "parent": null,
       "slug": "complifi",
       "tvl": {
-        "1": 30845.750310963867
+        "1": 30846.667607811887
       },
       "url": ""
     },
@@ -13166,24 +13166,24 @@
       "url": ""
     },
     {
-      "category": "Prediction Market",
-      "name": "Seer",
-      "parent": null,
-      "slug": "seer",
-      "tvl": {
-        "1": 30507.947021499866
-      },
-      "url": "https://seer.pm/"
-    },
-    {
       "category": "CDP",
       "name": "DYAD",
       "parent": null,
       "slug": "dyad",
       "tvl": {
-        "1": 30490.89027700539
+        "1": 30658.118346942218
       },
       "url": ""
+    },
+    {
+      "category": "Prediction Market",
+      "name": "Seer",
+      "parent": null,
+      "slug": "seer",
+      "tvl": {
+        "1": 30516.00021180666
+      },
+      "url": "https://seer.pm/"
     },
     {
       "category": "Dexs",
@@ -13469,7 +13469,7 @@
       "parent": "parent#morpho",
       "slug": "morpho-optimizer-aavev3",
       "tvl": {
-        "1": 26185.135057088213
+        "1": 26315.902714366228
       },
       "url": ""
     },
@@ -13658,9 +13658,9 @@
       "parent": "parent#balancer",
       "slug": "balancer-cow-amm",
       "tvl": {
-        "1": 13316.417992426137,
-        "8453": 4873.355220494589,
-        "42161": 6317.555756758294
+        "1": 13351.179826145064,
+        "8453": 4894.391859188618,
+        "42161": 6276.647645440069
       },
       "url": "https://balancer.fi"
     },
@@ -13773,7 +13773,7 @@
       "parent": "parent#value-finance",
       "slug": "value-liquid",
       "tvl": {
-        "1": 23705.756126380613
+        "1": 23709.07386917979
       },
       "url": ""
     },
@@ -13814,8 +13814,8 @@
       "parent": "parent#ufarm-digital",
       "slug": "ufarm-digital-v2",
       "tvl": {
-        "1": 23394.294115891156,
-        "42161": 1.7453562795633193
+        "1": 23392.23312847219,
+        "42161": 1.7456624870456576
       },
       "url": "https://ufarm.digital"
     },
@@ -13866,8 +13866,8 @@
       "parent": null,
       "slug": "pulsar-swap",
       "tvl": {
-        "1": 22806.72631774241,
-        "42161": 0.0034465818814254957
+        "1": 22807.29460633528,
+        "42161": 0.003427938126481581
       },
       "url": ""
     },
@@ -13926,6 +13926,16 @@
       "url": "https://arcadia.finance"
     },
     {
+      "category": "Uncollateralized Lending",
+      "name": "dAMM Finance",
+      "parent": null,
+      "slug": "damm-finance",
+      "tvl": {
+        "1": 22349.56979856781
+      },
+      "url": ""
+    },
+    {
       "category": "Yield",
       "name": "Brahma Vaults (Sunset)",
       "parent": null,
@@ -13934,16 +13944,6 @@
         "1": 22348.100746700362
       },
       "url": "https://www.brahma.fi/blog/withdrawal-mode-brahma-vaults"
-    },
-    {
-      "category": "Uncollateralized Lending",
-      "name": "dAMM Finance",
-      "parent": null,
-      "slug": "damm-finance",
-      "tvl": {
-        "1": 22298.871019366463
-      },
-      "url": ""
     },
     {
       "category": "Launchpad",
@@ -13972,7 +13972,7 @@
       "parent": null,
       "slug": "justmoney",
       "tvl": {
-        "1": 21890.37277167011
+        "1": 21963.216273012924
       },
       "url": "https://about.just.money"
     },
@@ -14095,16 +14095,6 @@
       "url": "https://stakestone.io/#/home"
     },
     {
-      "category": "Yield",
-      "name": "Bent Finance",
-      "parent": null,
-      "slug": "bent-finance",
-      "tvl": {
-        "1": 20273.678187217753
-      },
-      "url": ""
-    },
-    {
       "category": "Charity Fundraising",
       "name": "Stablecoin for Impact",
       "parent": null,
@@ -14157,6 +14147,16 @@
       "url": ""
     },
     {
+      "category": "Yield",
+      "name": "Bent Finance",
+      "parent": null,
+      "slug": "bent-finance",
+      "tvl": {
+        "1": 19359.459635998628
+      },
+      "url": ""
+    },
+    {
       "category": "Dexs",
       "name": "OpenXswap",
       "parent": null,
@@ -14182,7 +14182,7 @@
       "parent": null,
       "slug": "bella-protocol",
       "tvl": {
-        "1": 19008.66519467942
+        "1": 18983.395481029038
       },
       "url": ""
     },
@@ -14219,6 +14219,16 @@
       "url": "https://zomma.pro"
     },
     {
+      "category": "Lending",
+      "name": "Coupon Finance",
+      "parent": null,
+      "slug": "coupon-finance",
+      "tvl": {
+        "42161": 18549.381297206663
+      },
+      "url": "https://www.coupon.finance"
+    },
+    {
       "category": "Governance Incentives",
       "name": "Gardens",
       "parent": null,
@@ -14240,16 +14250,6 @@
         "1": 18475.152296237702
       },
       "url": ""
-    },
-    {
-      "category": "Lending",
-      "name": "Coupon Finance",
-      "parent": null,
-      "slug": "coupon-finance",
-      "tvl": {
-        "42161": 18467.2495482694
-      },
-      "url": "https://www.coupon.finance"
     },
     {
       "category": "Lending",
@@ -14328,7 +14328,7 @@
       "parent": null,
       "slug": "copra-finance",
       "tvl": {
-        "42161": 17203.09706047842
+        "42161": 17242.041468040377
       },
       "url": "https://www.copra.finance/"
     },
@@ -14379,9 +14379,9 @@
       "parent": "parent#unidex",
       "slug": "unidex-perp",
       "tvl": {
-        "10": 14682.326513754599,
-        "8453": 202.3997091996537,
-        "42161": 2008.3381972350578
+        "10": 14700.848761887277,
+        "8453": 203.16189370007476,
+        "42161": 2008.2979695761644
       },
       "url": ""
     },
@@ -14462,7 +14462,7 @@
       "parent": "parent#quickswap",
       "slug": "quickswap-dex",
       "tvl": {
-        "8453": 16245.542775145223
+        "8453": 16331.753882725363
       },
       "url": "https://quickswap.exchange/"
     },
@@ -14472,7 +14472,7 @@
       "parent": null,
       "slug": "vanilla",
       "tvl": {
-        "1": 16212.473802951423
+        "1": 16178.983578103973
       },
       "url": ""
     },
@@ -14675,6 +14675,17 @@
       "url": "https://solv.finance/"
     },
     {
+      "category": "Lending",
+      "name": "Rheo",
+      "parent": null,
+      "slug": "rheo",
+      "tvl": {
+        "1": 13574.054294383279,
+        "8453": 1052.6043152583272
+      },
+      "url": ""
+    },
+    {
       "category": "Oracle",
       "name": "openOracle",
       "parent": null,
@@ -14706,17 +14717,6 @@
       "url": "https://app.de1.exchange/swap/eth/ETH/USDT"
     },
     {
-      "category": "Lending",
-      "name": "Rheo",
-      "parent": null,
-      "slug": "rheo",
-      "tvl": {
-        "1": 13480.92681055686,
-        "8453": 1052.550309119459
-      },
-      "url": ""
-    },
-    {
       "category": "Dexs",
       "name": "Throne V3",
       "parent": "parent#throne",
@@ -14727,6 +14727,16 @@
       "url": ""
     },
     {
+      "category": "Lending",
+      "name": "Ajna V1",
+      "parent": "parent#ajna",
+      "slug": "ajna-v1",
+      "tvl": {
+        "1": 14384.230666855956
+      },
+      "url": "https://www.ajna.finance/"
+    },
+    {
       "category": "Options",
       "name": "Ithaca Protocol",
       "parent": null,
@@ -14735,16 +14745,6 @@
         "42161": 14362.990195745524
       },
       "url": "https://app.ithacaprotocol.io"
-    },
-    {
-      "category": "Lending",
-      "name": "Ajna V1",
-      "parent": "parent#ajna",
-      "slug": "ajna-v1",
-      "tvl": {
-        "1": 14357.92140949812
-      },
-      "url": "https://www.ajna.finance/"
     },
     {
       "category": "Insurance",
@@ -14874,6 +14874,16 @@
       "url": "https://www.generic.money/"
     },
     {
+      "category": "Liquidity Manager",
+      "name": "Hedgehog",
+      "parent": null,
+      "slug": "hedgehog",
+      "tvl": {
+        "1": 13601.6275310556
+      },
+      "url": ""
+    },
+    {
       "category": "Dexs",
       "name": "Blueprint",
       "parent": null,
@@ -14894,16 +14904,6 @@
       "url": "https://app.moneyfi.fund/"
     },
     {
-      "category": "Liquidity Manager",
-      "name": "Hedgehog",
-      "parent": null,
-      "slug": "hedgehog",
-      "tvl": {
-        "1": 13508.71979372392
-      },
-      "url": ""
-    },
-    {
       "category": "CEX",
       "name": "CoinW",
       "parent": null,
@@ -14919,8 +14919,8 @@
       "parent": null,
       "slug": "relend-network",
       "tvl": {
-        "1": 12604.671130507602,
-        "8453": 556.1541158685477
+        "1": 12606.531901860122,
+        "8453": 559.9786821800168
       },
       "url": ""
     },
@@ -14930,7 +14930,7 @@
       "parent": "parent#secured-finance",
       "slug": "secured-finance-vaults",
       "tvl": {
-        "1": 13001.734537199403
+        "1": 12993.269466669331
       },
       "url": "https://vaults.secured.finance/"
     },
@@ -15056,7 +15056,7 @@
       "parent": null,
       "slug": "dam-finance",
       "tvl": {
-        "1": 12315.673259095765
+        "1": 12316.039504952907
       },
       "url": ""
     },
@@ -15102,6 +15102,16 @@
       "url": ""
     },
     {
+      "category": "Indexes",
+      "name": "LSDx ETHx",
+      "parent": "parent#lsdx-finance",
+      "slug": "lsdx-ethx",
+      "tvl": {
+        "1": 12189.974435942477
+      },
+      "url": ""
+    },
+    {
       "category": "Privacy",
       "name": "Veil Cash",
       "parent": null,
@@ -15112,14 +15122,16 @@
       "url": "https://www.veil.cash/"
     },
     {
-      "category": "Indexes",
-      "name": "LSDx ETHx",
-      "parent": "parent#lsdx-finance",
-      "slug": "lsdx-ethx",
+      "category": "Bridge",
+      "name": "1sec",
+      "parent": null,
+      "slug": "1sec",
       "tvl": {
-        "1": 12105.029719697628
+        "1": 6686.855160307094,
+        "8453": 4604.095165886083,
+        "42161": 770.6658815917101
       },
-      "url": ""
+      "url": "https://1sec.to/"
     },
     {
       "category": "Liquidity Manager",
@@ -15132,18 +15144,6 @@
         "42161": 7047.112435577152
       },
       "url": "https://levva.fi"
-    },
-    {
-      "category": "Bridge",
-      "name": "1sec",
-      "parent": null,
-      "slug": "1sec",
-      "tvl": {
-        "1": 6686.601963638284,
-        "8453": 4601.148144661378,
-        "42161": 770.6388926577989
-      },
-      "url": "https://1sec.to/"
     },
     {
       "category": "Liquidity Manager",
@@ -15162,16 +15162,6 @@
       "slug": "predy-v5",
       "tvl": {
         "42161": 11941.79771755759
-      },
-      "url": ""
-    },
-    {
-      "category": "Yield",
-      "name": "Key Finance",
-      "parent": null,
-      "slug": "key-finance",
-      "tvl": {
-        "42161": 11853.233472700871
       },
       "url": ""
     },
@@ -15195,6 +15185,16 @@
         "1": 11693.453962941625
       },
       "url": "https://www.polkamarkets.com"
+    },
+    {
+      "category": "Yield",
+      "name": "Key Finance",
+      "parent": null,
+      "slug": "key-finance",
+      "tvl": {
+        "42161": 11676.739761266963
+      },
+      "url": ""
     },
     {
       "category": "Services",
@@ -15227,6 +15227,16 @@
       "url": ""
     },
     {
+      "category": "Chain",
+      "name": "Deri Chain",
+      "parent": null,
+      "slug": "deri-chain",
+      "tvl": {
+        "42161": 11379.858540581195
+      },
+      "url": "https://deri.io/"
+    },
+    {
       "category": "Lending",
       "name": "Minterest",
       "parent": null,
@@ -15235,16 +15245,6 @@
         "1": 11373.675357401991
       },
       "url": ""
-    },
-    {
-      "category": "Chain",
-      "name": "Deri Chain",
-      "parent": null,
-      "slug": "deri-chain",
-      "tvl": {
-        "42161": 11315.82527769649
-      },
-      "url": "https://deri.io/"
     },
     {
       "category": "Dexs",
@@ -15356,7 +15356,7 @@
       "parent": null,
       "slug": "norekt",
       "tvl": {
-        "42161": 10736.082380901686
+        "42161": 10751.308966443292
       },
       "url": "https://norekt.xyz/"
     },
@@ -15674,6 +15674,18 @@
       "url": ""
     },
     {
+      "category": "Yield",
+      "name": "dexVAULTS",
+      "parent": "parent#dexfinance",
+      "slug": "dexvaults",
+      "tvl": {
+        "10": 20.154951772044015,
+        "8453": 9364.903080618325,
+        "42161": 45.44712744485631
+      },
+      "url": "https://dexfi.com/"
+    },
+    {
       "category": "Dexs",
       "name": "Yellow",
       "parent": null,
@@ -15702,18 +15714,6 @@
         "1": 9377.40704916024
       },
       "url": "https://timelessfi.com"
-    },
-    {
-      "category": "Yield",
-      "name": "dexVAULTS",
-      "parent": "parent#dexfinance",
-      "slug": "dexvaults",
-      "tvl": {
-        "10": 20.085047692462986,
-        "8453": 9248.128969129879,
-        "42161": 45.198055717103955
-      },
-      "url": "https://dexfi.com/"
     },
     {
       "category": "Yield",
@@ -15825,9 +15825,19 @@
       "parent": null,
       "slug": "myx-finance",
       "tvl": {
-        "42161": 8571.069319463779
+        "42161": 8599.587857318158
       },
       "url": "https://app.myx.finance"
+    },
+    {
+      "category": "Lending",
+      "name": "Unlockd V1",
+      "parent": "parent#unlockd",
+      "slug": "unlockd-v1",
+      "tvl": {
+        "1": 8481.192388135982
+      },
+      "url": ""
     },
     {
       "category": "Dexs",
@@ -15838,16 +15848,6 @@
         "1": 8428.011863744494
       },
       "url": "https://defiplaza.net/"
-    },
-    {
-      "category": "Lending",
-      "name": "Unlockd V1",
-      "parent": "parent#unlockd",
-      "slug": "unlockd-v1",
-      "tvl": {
-        "1": 8423.628331547145
-      },
-      "url": ""
     },
     {
       "category": "Cross Chain Bridge",
@@ -15877,9 +15877,9 @@
       "parent": null,
       "slug": "yldr",
       "tvl": {
-        "1": 4872.77263971606,
-        "8453": 1461.6480476243084,
-        "42161": 1900.2754445139294
+        "1": 4903.589532957677,
+        "8453": 1462.227159257251,
+        "42161": 1901.2437049817074
       },
       "url": "https://yldr.com"
     },
@@ -15932,7 +15932,7 @@
       "parent": null,
       "slug": "mushrooms-finance",
       "tvl": {
-        "1": 8011.292448121579
+        "1": 8025.034997308842
       },
       "url": ""
     },
@@ -16023,7 +16023,7 @@
       "parent": null,
       "slug": "swipe",
       "tvl": {
-        "1": 7593.262141041656
+        "1": 7604.828935610867
       },
       "url": ""
     },
@@ -16082,19 +16082,6 @@
       "url": ""
     },
     {
-      "category": "Onchain Capital Allocator",
-      "name": "Rigoblock",
-      "parent": null,
-      "slug": "rigoblock",
-      "tvl": {
-        "1": 1227.4696212956558,
-        "10": 2321.100423068929,
-        "8453": 602.8750191840351,
-        "42161": 3272.2996757215788
-      },
-      "url": "https://rigoblock.com"
-    },
-    {
       "category": "Anchor BTC",
       "name": "Bitlayer YBTC Family",
       "parent": null,
@@ -16123,6 +16110,19 @@
         "1": 7290.551347826163
       },
       "url": ""
+    },
+    {
+      "category": "Onchain Capital Allocator",
+      "name": "Rigoblock",
+      "parent": null,
+      "slug": "rigoblock",
+      "tvl": {
+        "1": 1233.3993297124723,
+        "10": 2325.478511624852,
+        "8453": 605.7701805542497,
+        "42161": 3120.5895126965197
+      },
+      "url": "https://rigoblock.com"
     },
     {
       "category": "Dexs",
@@ -16178,6 +16178,16 @@
     },
     {
       "category": "CDP",
+      "name": "H2Odata",
+      "parent": null,
+      "slug": "h2odata",
+      "tvl": {
+        "1": 7017.986197921488
+      },
+      "url": ""
+    },
+    {
+      "category": "CDP",
       "name": "Davos Protocol",
       "parent": null,
       "slug": "davos-protocol",
@@ -16199,16 +16209,6 @@
       "url": "https://asymetrix.io"
     },
     {
-      "category": "CDP",
-      "name": "H2Odata",
-      "parent": null,
-      "slug": "h2odata",
-      "tvl": {
-        "1": 6882.3926690315575
-      },
-      "url": ""
-    },
-    {
       "category": "Liquid Staking",
       "name": "Tranchess Ether",
       "parent": "parent#tranchess",
@@ -16224,7 +16224,7 @@
       "parent": null,
       "slug": "amphora",
       "tvl": {
-        "1": 6718.484911787629
+        "1": 6758.058689980371
       },
       "url": "https://amphorafinance.com/"
     },
@@ -16286,10 +16286,10 @@
       "parent": "parent#swaap",
       "slug": "swaap-maker-v2",
       "tvl": {
-        "1": 1087.8755628888118,
-        "10": 49.755579921429494,
-        "8453": 96.39862226479889,
-        "42161": 5356.794748550243
+        "1": 1089.2631839806709,
+        "10": 49.845857858165544,
+        "8453": 96.63515393616625,
+        "42161": 5359.091043209324
       },
       "url": "https://www.swaap.finance"
     },
@@ -16306,24 +16306,24 @@
       "url": "https://matrix.farm"
     },
     {
-      "category": "Yield Aggregator",
-      "name": "Phoenix Protocol",
-      "parent": null,
-      "slug": "phoenix-protocol",
-      "tvl": {
-        "1": 6501.861171098256
-      },
-      "url": "https://phusd.behodler.io"
-    },
-    {
       "category": "Dexs",
       "name": "Clober V2",
       "parent": "parent#clober",
       "slug": "clober-v2",
       "tvl": {
-        "8453": 6489.464560880665
+        "8453": 6517.705680669924
       },
       "url": "https://app.clober.io/"
+    },
+    {
+      "category": "Yield Aggregator",
+      "name": "Phoenix Protocol",
+      "parent": null,
+      "slug": "phoenix-protocol",
+      "tvl": {
+        "1": 6503.187194406169
+      },
+      "url": "https://phusd.behodler.io"
     },
     {
       "category": "Dexs",
@@ -16383,9 +16383,9 @@
       "parent": "parent#cream-finance",
       "slug": "cream-lending",
       "tvl": {
-        "1": 1892.3671213811378,
-        "8453": 411.3395242538272,
-        "42161": 4018.472024152893
+        "1": 1894.2131093130538,
+        "8453": 411.3459772284908,
+        "42161": 4034.825136402537
       },
       "url": "https://cream.finance/"
     },
@@ -16396,16 +16396,6 @@
       "slug": "diamond-protocol-v2",
       "tvl": {
         "42161": 6283.657604668837
-      },
-      "url": ""
-    },
-    {
-      "category": "Gaming",
-      "name": "PepeDex",
-      "parent": null,
-      "slug": "pepedex",
-      "tvl": {
-        "1": 6264.890693036212
       },
       "url": ""
     },
@@ -16451,6 +16441,16 @@
         "42161": 6214.065560740027
       },
       "url": "https://www.vaultka.com"
+    },
+    {
+      "category": "Gaming",
+      "name": "PepeDex",
+      "parent": null,
+      "slug": "pepedex",
+      "tvl": {
+        "1": 6195.341291875227
+      },
+      "url": ""
     },
     {
       "category": "Lending",
@@ -16508,7 +16508,7 @@
       "parent": "parent#tranchess",
       "slug": "tranchess-yield",
       "tvl": {
-        "1": 6012.187336434402
+        "1": 6045.991412786313
       },
       "url": "https://tranchess.com"
     },
@@ -16528,7 +16528,7 @@
       "parent": "parent#rho",
       "slug": "rho-vaults-v1",
       "tvl": {
-        "42161": 5849.542612024316
+        "42161": 5849.35954621756
       },
       "url": "https://www.rho.trading/"
     },
@@ -16619,8 +16619,8 @@
       "parent": null,
       "slug": "antimatter",
       "tvl": {
-        "1": 3807.7301185648325,
-        "42161": 1645.4070414558287
+        "1": 3823.0845194766334,
+        "42161": 1652.0420283353965
       },
       "url": "https://antimatter.finance"
     },
@@ -16662,7 +16662,7 @@
       "parent": null,
       "slug": "feefree",
       "tvl": {
-        "8453": 5329.223243495145
+        "8453": 5345.2506877671885
       },
       "url": ""
     },
@@ -16693,7 +16693,7 @@
       "parent": null,
       "slug": "swaprum",
       "tvl": {
-        "42161": 5242.253601091022
+        "42161": 5259.710653359646
       },
       "url": ""
     },
@@ -17104,8 +17104,8 @@
       "parent": null,
       "slug": "defilords",
       "tvl": {
-        "1": 2.538640172701215,
-        "42161": 3874.101808440708
+        "1": 2.5387045376043718,
+        "42161": 3886.536822072277
       },
       "url": "https://defilords.finance"
     },
@@ -17125,7 +17125,7 @@
       "parent": "parent#magicfox",
       "slug": "magicfox-vaults",
       "tvl": {
-        "42161": 3840.402978506236
+        "42161": 3853.5185963752488
       },
       "url": ""
     },
@@ -17412,7 +17412,7 @@
       "parent": null,
       "slug": "solid-yield",
       "tvl": {
-        "1": 3114.293413856448
+        "1": 3114.6100082036187
       },
       "url": "https://solid.xyz"
     },
@@ -17444,7 +17444,7 @@
       "parent": null,
       "slug": "zivoe",
       "tvl": {
-        "1": 3044.420765469606
+        "1": 3044.510359172374
       },
       "url": "https://zivoe.com/"
     },
@@ -17525,7 +17525,7 @@
       "parent": "parent#tangible",
       "slug": "tangible-ustb",
       "tvl": {
-        "1": 2898.7119582560354
+        "1": 2898.4893054238014
       },
       "url": "https://www.tangible.store"
     },
@@ -17560,22 +17560,22 @@
       "url": ""
     },
     {
+      "category": "Leveraged Farming",
+      "name": "Zenith",
+      "parent": null,
+      "slug": "zenith",
+      "tvl": {
+        "1": 2813.4511510059074
+      },
+      "url": ""
+    },
+    {
       "category": "Dexs",
       "name": "ZigZag",
       "parent": null,
       "slug": "zigzag",
       "tvl": {
         "42161": 2804.407238622883
-      },
-      "url": ""
-    },
-    {
-      "category": "Leveraged Farming",
-      "name": "Zenith",
-      "parent": null,
-      "slug": "zenith",
-      "tvl": {
-        "1": 2801.555428365769
       },
       "url": ""
     },
@@ -17691,7 +17691,7 @@
       "parent": null,
       "slug": "single-finance",
       "tvl": {
-        "42161": 2590.1177350478056
+        "42161": 2589.838508187913
       },
       "url": "https://singlefinance.io"
     },
@@ -17889,8 +17889,8 @@
       "parent": "parent#deri",
       "slug": "deri-v4",
       "tvl": {
-        "8453": 990.4609062047815,
-        "42161": 1214.880455947821
+        "8453": 990.7590608747415,
+        "42161": 1221.2068954421236
       },
       "url": "https://deri.io/#/trade/options"
     },
@@ -18021,7 +18021,7 @@
       "parent": null,
       "slug": "stochastic-finance",
       "tvl": {
-        "8453": 2079.056971597656
+        "8453": 2079.149568046288
       },
       "url": ""
     },
@@ -18122,7 +18122,7 @@
       "parent": null,
       "slug": "derpdex",
       "tvl": {
-        "8453": 1952.7099337884404
+        "8453": 1959.5188529929865
       },
       "url": ""
     },
@@ -18152,10 +18152,10 @@
       "parent": null,
       "slug": "gluehook",
       "tvl": {
-        "1": 1873.3669920241225,
-        "10": 0.5145803176137459,
-        "8453": 42.73110612351861,
-        "42161": 1.151674149082283
+        "1": 1886.2256276327391,
+        "10": 0.513364887287769,
+        "8453": 42.903328962024226,
+        "42161": 1.1484621175014045
       },
       "url": "https://gluehook.trade"
     },
@@ -18165,7 +18165,7 @@
       "parent": "parent#alien-base",
       "slug": "alien-base-stableswap",
       "tvl": {
-        "8453": 1915.4400668203089
+        "8453": 1915.4235837084416
       },
       "url": "https://alienbase.xyz"
     },
@@ -18256,7 +18256,7 @@
       "parent": null,
       "slug": "mufex",
       "tvl": {
-        "42161": 1764.6177345325211
+        "42161": 1764.7177422351951
       },
       "url": ""
     },
@@ -18311,22 +18311,22 @@
       "url": ""
     },
     {
+      "category": "Lending",
+      "name": "Dough Finance",
+      "parent": null,
+      "slug": "dough-finance",
+      "tvl": {
+        "1": 1704.5747616932788
+      },
+      "url": ""
+    },
+    {
       "category": "NFT Lending",
       "name": "Pawnfi Lending",
       "parent": "parent#pawnfi",
       "slug": "pawnfi-lending",
       "tvl": {
         "1": 1703.3377176779763
-      },
-      "url": ""
-    },
-    {
-      "category": "Lending",
-      "name": "Dough Finance",
-      "parent": null,
-      "slug": "dough-finance",
-      "tvl": {
-        "1": 1697.7265297118572
       },
       "url": ""
     },
@@ -18408,7 +18408,7 @@
       "parent": null,
       "slug": "marquee",
       "tvl": {
-        "42161": 1618.3079226003133
+        "42161": 1618.2790953582466
       },
       "url": ""
     },
@@ -18630,6 +18630,16 @@
       "url": " "
     },
     {
+      "category": "Derivatives",
+      "name": "Pegasus Finance",
+      "parent": null,
+      "slug": "pegasus-finance",
+      "tvl": {
+        "10": 1373.9154070491852
+      },
+      "url": "https://www.pegasusfinance.xyz"
+    },
+    {
       "category": "Yield Aggregator",
       "name": "Lazy Summer Protocol",
       "parent": "parent#summer.fi",
@@ -18639,16 +18649,6 @@
         "42161": 1296.781350063326
       },
       "url": ""
-    },
-    {
-      "category": "Derivatives",
-      "name": "Pegasus Finance",
-      "parent": null,
-      "slug": "pegasus-finance",
-      "tvl": {
-        "10": 1361.7004238417478
-      },
-      "url": "https://www.pegasusfinance.xyz"
     },
     {
       "category": "Dexs",
@@ -18707,7 +18707,7 @@
       "parent": null,
       "slug": "keyring",
       "tvl": {
-        "1": 1255.2365549308477
+        "1": 1255.2805152042608
       },
       "url": "https://app.euler.finance/governor/keyring?network=avalanche"
     },
@@ -18902,9 +18902,9 @@
       "parent": "parent#dexfinance",
       "slug": "dexfinance-etf",
       "tvl": {
-        "10": 13.630323909523275,
-        "8453": 579.1369476611765,
-        "42161": 511.38768587252014
+        "10": 13.661154924484112,
+        "8453": 580.73357674631,
+        "42161": 513.1349306741627
       },
       "url": "https://dexfi.com/"
     },
@@ -18924,7 +18924,7 @@
       "parent": null,
       "slug": "naos-finance",
       "tvl": {
-        "1": 1074.3555073270338
+        "1": 1074.4373157543023
       },
       "url": ""
     },
@@ -19467,7 +19467,7 @@
       "parent": null,
       "slug": "bas3d",
       "tvl": {
-        "8453": 670.2497797076817
+        "8453": 672.7263617076692
       },
       "url": "https://bas3d.io"
     },
@@ -19493,22 +19493,22 @@
       "url": ""
     },
     {
+      "category": "Dexs",
+      "name": "Arbitrum Exchange V3",
+      "parent": "parent#arbitrum-exchange",
+      "slug": "arbitrum-exchange-v3",
+      "tvl": {
+        "42161": 657.0696027051457
+      },
+      "url": ""
+    },
+    {
       "category": "Leveraged Farming",
       "name": "OpenWorld Farm",
       "parent": "parent#openworld",
       "slug": "openworld-farm",
       "tvl": {
         "42161": 654.9894222540969
-      },
-      "url": ""
-    },
-    {
-      "category": "Dexs",
-      "name": "Arbitrum Exchange V3",
-      "parent": "parent#arbitrum-exchange",
-      "slug": "arbitrum-exchange-v3",
-      "tvl": {
-        "42161": 653.9673354731625
       },
       "url": ""
     },
@@ -19588,7 +19588,7 @@
       "parent": null,
       "slug": "yieldoor",
       "tvl": {
-        "8453": 580.158258617824
+        "8453": 581.2568345376839
       },
       "url": "https://app.yieldoor.com/"
     },
@@ -19658,10 +19658,10 @@
       "parent": null,
       "slug": "interport-finance",
       "tvl": {
-        "1": 518.337551572968,
-        "10": 12.686455534022251,
-        "8453": 10.473556594016884,
-        "42161": 1.13885303329753
+        "1": 518.3458847578726,
+        "10": 12.685456406332442,
+        "8453": 10.473299023729679,
+        "42161": 1.1388265200834107
       },
       "url": "https://interport.fi"
     },
@@ -19802,7 +19802,7 @@
       "parent": "parent#satori-finance",
       "slug": "satori-spots",
       "tvl": {
-        "8453": 477.77574975849683
+        "8453": 479.42719778127235
       },
       "url": ""
     },
@@ -20045,7 +20045,7 @@
       "parent": null,
       "slug": "spacewhale",
       "tvl": {
-        "42161": 323.1247636253591
+        "42161": 324.8390473494268
       },
       "url": "https://spacewhale.ai"
     },
@@ -20100,7 +20100,7 @@
       "parent": null,
       "slug": "lila-finance",
       "tvl": {
-        "42161": 314.5795963141614
+        "42161": 314.59046212752867
       },
       "url": ""
     },
@@ -20150,9 +20150,9 @@
       "parent": "parent#archly-finance",
       "slug": "archly-v1",
       "tvl": {
-        "10": 65.64338038362308,
-        "8453": 156.137793353003,
-        "42161": 77.06562858958077
+        "10": 65.74633404916926,
+        "8453": 157.16421093050832,
+        "42161": 77.24598021349017
       },
       "url": "https://archly.fi"
     },
@@ -20313,7 +20313,7 @@
       "parent": null,
       "slug": "henjin-dex",
       "tvl": {
-        "8453": 260.0191665935589
+        "8453": 260.86043526473526
       },
       "url": "https://henjin.xyz/"
     },
@@ -20326,6 +20326,16 @@
         "1": 258.9491224625122
       },
       "url": ""
+    },
+    {
+      "category": "Bridge",
+      "name": "ioTube",
+      "parent": null,
+      "slug": "iotube",
+      "tvl": {
+        "1": 257.9618545890858
+      },
+      "url": "https://iotube.org"
     },
     {
       "category": "Liquidity Manager",
@@ -20346,16 +20356,6 @@
         "8453": 256.8293421372711
       },
       "url": ""
-    },
-    {
-      "category": "Bridge",
-      "name": "ioTube",
-      "parent": null,
-      "slug": "iotube",
-      "tvl": {
-        "1": 256.79904327486753
-      },
-      "url": "https://iotube.org"
     },
     {
       "category": "Synthetics",
@@ -20388,16 +20388,6 @@
       "url": ""
     },
     {
-      "category": "Indexes",
-      "name": "Factor V1",
-      "parent": "parent#factor",
-      "slug": "factor-v1",
-      "tvl": {
-        "42161": 244.25793591656216
-      },
-      "url": "https://factor.fi"
-    },
-    {
       "category": "Dexs",
       "name": "SquadSwap V3",
       "parent": "parent#squadswap",
@@ -20418,6 +20408,16 @@
         "1": 242.71816847426444
       },
       "url": "https://stakeease.com"
+    },
+    {
+      "category": "Indexes",
+      "name": "Factor V1",
+      "parent": "parent#factor",
+      "slug": "factor-v1",
+      "tvl": {
+        "42161": 240.29751029491842
+      },
+      "url": "https://factor.fi"
     },
     {
       "category": "Synthetics",
@@ -20622,7 +20622,7 @@
       "parent": null,
       "slug": "perfect-pool",
       "tvl": {
-        "8453": 193.5022687308961
+        "8453": 193.50995628561844
       },
       "url": ""
     },
@@ -20951,7 +20951,7 @@
       "parent": "parent#lorenzo-protocol",
       "slug": "lorenzo-susd1+",
       "tvl": {
-        "1": 136.25775919376215
+        "1": 136.29321529743873
       },
       "url": "https://lorenzo-protocol.xyz/home"
     },
@@ -21058,6 +21058,16 @@
       "url": ""
     },
     {
+      "category": "Farm",
+      "name": "SuperSweth Vault",
+      "parent": "parent#swell",
+      "slug": "supersweth-vault",
+      "tvl": {
+        "1": 114.1264781865067
+      },
+      "url": "https://www.swellnetwork.io/vault"
+    },
+    {
       "category": "Derivatives",
       "name": "Aboard Exchange",
       "parent": null,
@@ -21079,16 +21089,6 @@
       "url": ""
     },
     {
-      "category": "Farm",
-      "name": "SuperSweth Vault",
-      "parent": "parent#swell",
-      "slug": "supersweth-vault",
-      "tvl": {
-        "1": 113.32764376614297
-      },
-      "url": "https://www.swellnetwork.io/vault"
-    },
-    {
       "category": "Dexs",
       "name": "CroSwap",
       "parent": null,
@@ -21104,8 +21104,8 @@
       "parent": null,
       "slug": "envelop",
       "tvl": {
-        "1": 66.81023879271663,
-        "42161": 35.83122184875293
+        "1": 67.18866141748859,
+        "42161": 36.03398125797107
       },
       "url": "https://envelop.is/"
     },
@@ -21136,7 +21136,17 @@
       "parent": null,
       "slug": "basafish",
       "tvl": {
-        "8453": 99.98238249999999
+        "8453": 99.98635465
+      },
+      "url": ""
+    },
+    {
+      "category": "Options",
+      "name": "PancakeSwap Options",
+      "parent": "parent#pancakeswap",
+      "slug": "pancakeswap-options",
+      "tvl": {
+        "42161": 99.0104569146321
       },
       "url": ""
     },
@@ -21147,16 +21157,6 @@
       "slug": "buffer-finance",
       "tvl": {
         "42161": 98.71202535656975
-      },
-      "url": ""
-    },
-    {
-      "category": "Options",
-      "name": "PancakeSwap Options",
-      "parent": "parent#pancakeswap",
-      "slug": "pancakeswap-options",
-      "tvl": {
-        "42161": 98.68915645705863
       },
       "url": ""
     },
@@ -21217,7 +21217,7 @@
       "parent": null,
       "slug": "kal-mydas",
       "tvl": {
-        "8453": 87.16870092658297
+        "8453": 87.18491017287421
       },
       "url": "https://kalmydas.com"
     },
@@ -21247,7 +21247,7 @@
       "parent": null,
       "slug": "shinjo",
       "tvl": {
-        "8453": 83.49977560281985
+        "8453": 83.95021035051712
       },
       "url": "https://shinjo.app/"
     },
@@ -21257,9 +21257,9 @@
       "parent": "parent#swapsicle",
       "slug": "swapsicle-v1",
       "tvl": {
-        "1": 0.34218866652002555,
-        "10": 7.418400012392644,
-        "42161": 75.57423582850804
+        "1": 0.3428432551871265,
+        "10": 7.444880252562863,
+        "42161": 75.7220850299521
       },
       "url": ""
     },
@@ -21299,7 +21299,7 @@
       "parent": null,
       "slug": "qiro-finance",
       "tvl": {
-        "1": 81.01099076678626
+        "1": 81.07101794997328
       },
       "url": "https://qiro.fi"
     },
@@ -21452,7 +21452,7 @@
       "parent": null,
       "slug": "doora-inu",
       "tvl": {
-        "42161": 61.51792922740977
+        "42161": 61.5701218956915
       },
       "url": ""
     },
@@ -21472,7 +21472,7 @@
       "parent": null,
       "slug": "ref-market",
       "tvl": {
-        "8453": 60.28937664749999
+        "8453": 60.291771853949996
       },
       "url": ""
     },
@@ -21557,6 +21557,16 @@
       "url": "https://invariant.group/"
     },
     {
+      "category": "NftFi",
+      "name": "StonkBrokers Desks",
+      "parent": "parent#stonkbrokers",
+      "slug": "stonkbrokers-desks",
+      "tvl": {
+        "1": 52.52282008967287
+      },
+      "url": "https://stonkbrokers.io/home"
+    },
+    {
       "category": "Dexs",
       "name": "VoltSwap V2",
       "parent": "parent#volt-finance",
@@ -21565,16 +21575,6 @@
         "8453": 52.20018057004051
       },
       "url": "https://voltswap.finance"
-    },
-    {
-      "category": "NftFi",
-      "name": "StonkBrokers Desks",
-      "parent": "parent#stonkbrokers",
-      "slug": "stonkbrokers-desks",
-      "tvl": {
-        "1": 52.16633406159071
-      },
-      "url": "https://stonkbrokers.io/home"
     },
     {
       "category": "Canonical Bridge",
@@ -21592,10 +21592,10 @@
       "parent": null,
       "slug": "everstrike",
       "tvl": {
-        "1": 23.2119099212,
-        "10": 0.009991149540967869,
-        "8453": 17.316948648999997,
-        "42161": 9.780276656149999
+        "1": 23.212832095544,
+        "10": 0.009990324562072106,
+        "8453": 17.31763662538,
+        "42161": 9.780665211862999
       },
       "url": ""
     },
@@ -21727,7 +21727,7 @@
       "parent": null,
       "slug": "airdao-bridge",
       "tvl": {
-        "1": 43.26378369756243
+        "1": 43.33833884662657
       },
       "url": ""
     },
@@ -21828,7 +21828,7 @@
       "parent": null,
       "slug": "bits",
       "tvl": {
-        "8453": 39.776871673852284
+        "8453": 39.90427846565117
       },
       "url": "https://www.bits.financial/"
     },
@@ -21996,8 +21996,8 @@
       "parent": null,
       "slug": "dexilla",
       "tvl": {
-        "10": 26.282357547480455,
-        "42161": 2.6495822468693526
+        "10": 26.28626024929145,
+        "42161": 2.667673026768375
       },
       "url": ""
     },
@@ -22140,9 +22140,9 @@
       "parent": null,
       "slug": "element-nft-marketplace",
       "tvl": {
-        "1": 22.244509182392385,
-        "8453": 0.6198043895415674,
-        "42161": 0.28734169510915314
+        "1": 22.3974804506195,
+        "8453": 0.6239486398351263,
+        "42161": 0.28926297208685997
       },
       "url": "https://element.market"
     },
@@ -22233,7 +22233,7 @@
       "parent": "parent#equation",
       "slug": "equation-v1",
       "tvl": {
-        "42161": 18.928728885495588
+        "42161": 18.92839170426946
       },
       "url": ""
     },
@@ -22366,7 +22366,7 @@
       "parent": null,
       "slug": "betmode",
       "tvl": {
-        "8453": 13.907868982507498
+        "8453": 13.908351897701625
       },
       "url": "https://www.betmode.io/"
     },
@@ -22535,7 +22535,7 @@
       "parent": null,
       "slug": "kimberlite",
       "tvl": {
-        "42161": 10.500625567726633
+        "42161": 10.492081903403887
       },
       "url": ""
     },
@@ -22585,7 +22585,7 @@
       "parent": "parent#dhedge",
       "slug": "flat-money-v1",
       "tvl": {
-        "8453": 9.860665859606934
+        "8453": 9.941919734968891
       },
       "url": "https://flat.money"
     },
@@ -22622,6 +22622,16 @@
       "url": ""
     },
     {
+      "category": "Yield",
+      "name": "Radiate Protocol",
+      "parent": null,
+      "slug": "radiate-protocol",
+      "tvl": {
+        "42161": 9.063072169728716
+      },
+      "url": ""
+    },
+    {
       "category": "Liquid Staking",
       "name": "TruFin Legacy Vaults",
       "parent": "parent#trufin-protocol",
@@ -22643,16 +22653,6 @@
     },
     {
       "category": "Yield",
-      "name": "Radiate Protocol",
-      "parent": null,
-      "slug": "radiate-protocol",
-      "tvl": {
-        "42161": 8.911258222206566
-      },
-      "url": ""
-    },
-    {
-      "category": "Yield",
       "name": "CougarSwap",
       "parent": null,
       "slug": "cougarswap",
@@ -22667,7 +22667,7 @@
       "parent": null,
       "slug": "flooring-protocol",
       "tvl": {
-        "1": 8.462310683862068
+        "1": 8.407439215256893
       },
       "url": ""
     },
@@ -22688,7 +22688,7 @@
       "parent": null,
       "slug": "leech-protocol",
       "tvl": {
-        "10": 8.192874695134616
+        "10": 8.191735152101636
       },
       "url": "https://www.leechprotocol.com/"
     },
@@ -22943,7 +22943,7 @@
       "parent": "parent#clutch-markets",
       "slug": "clutch-markets-predictions",
       "tvl": {
-        "42161": 4.499252159625
+        "42161": 4.49938595925
       },
       "url": ""
     },
@@ -22953,7 +22953,7 @@
       "parent": null,
       "slug": "tradingstrategy",
       "tvl": {
-        "42161": 4.478251904951824
+        "42161": 4.478429819178906
       },
       "url": "https://tradingstrategy.ai/"
     },
@@ -23035,7 +23035,7 @@
       "parent": null,
       "slug": "wikicious",
       "tvl": {
-        "42161": 3.1994834889600003
+        "42161": 3.1995633488
       },
       "url": "https://wikicious.io"
     },
@@ -23088,7 +23088,7 @@
       "parent": null,
       "slug": "sagebet",
       "tvl": {
-        "42161": 2.9197134952345256
+        "42161": 2.9196416923625232
       },
       "url": "https://sage.bet"
     },
@@ -23507,7 +23507,7 @@
       "parent": null,
       "slug": "bridge-lz",
       "tvl": {
-        "8453": 0.21791321076699996
+        "8453": 0.219261644511
       },
       "url": ""
     },
@@ -23562,6 +23562,16 @@
       "url": ""
     },
     {
+      "category": "Bridge",
+      "name": "jBTC",
+      "parent": null,
+      "slug": "jbtc",
+      "tvl": {
+        "1": 0.1340167568504879
+      },
+      "url": ""
+    },
+    {
       "category": "CDP",
       "name": "BAO Ballast",
       "parent": "parent#bao-finance",
@@ -23570,16 +23580,6 @@
         "1": 0.1337837592652632
       },
       "url": "https://app.baofinance.io/ballast"
-    },
-    {
-      "category": "Bridge",
-      "name": "jBTC",
-      "parent": null,
-      "slug": "jbtc",
-      "tvl": {
-        "1": 0.13310144348279446
-      },
-      "url": ""
     },
     {
       "category": "Bridge",
@@ -23617,7 +23617,7 @@
       "parent": null,
       "slug": "bouncebit-pre-launch-farm",
       "tvl": {
-        "1": 0.08878521971
+        "1": 0.08877988625
       },
       "url": "https://bouncebit.io"
     },
@@ -23627,7 +23627,7 @@
       "parent": null,
       "slug": "aavegotchi",
       "tvl": {
-        "1": 0.07949327259567036
+        "1": 0.0783045909653031
       },
       "url": "https://aavegotchi.com"
     },
@@ -23829,7 +23829,7 @@
       "parent": null,
       "slug": "eventum-bridge",
       "tvl": {
-        "42161": 0.0022689390752912656
+        "42161": 0.002277464063903167
       },
       "url": "https://evedex.com/en-US/"
     },
@@ -23839,7 +23839,7 @@
       "parent": null,
       "slug": "bsx-exchange",
       "tvl": {
-        "8453": 0.00222897
+        "8453": 0.002237183949
       },
       "url": ""
     },
@@ -23980,7 +23980,7 @@
       "parent": null,
       "slug": "onionswap",
       "tvl": {
-        "8453": 0.000001033790133907327
+        "8453": 0.0000010340619689872593
       },
       "url": ""
     },

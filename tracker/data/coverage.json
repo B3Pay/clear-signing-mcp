@@ -4,7 +4,7 @@
       "contracts": 59,
       "covered": 21,
       "describedElsewhere": 2,
-      "drafts": 0,
+      "drafts": 10,
       "label": "Aggregators",
       "partial": 0,
       "perDay": 167455.4,
@@ -16,7 +16,7 @@
       "contracts": 90,
       "covered": 10,
       "describedElsewhere": 6,
-      "drafts": 0,
+      "drafts": 14,
       "label": "Bridges",
       "partial": 1,
       "perDay": 91262.6,
@@ -40,7 +40,7 @@
       "contracts": 15,
       "covered": 0,
       "describedElsewhere": 0,
-      "drafts": 0,
+      "drafts": 1,
       "label": "Derivatives",
       "partial": 0,
       "perDay": 23058.7,
@@ -52,7 +52,7 @@
       "contracts": 100,
       "covered": 2,
       "describedElsewhere": 5,
-      "drafts": 0,
+      "drafts": 21,
       "label": "DEXs",
       "partial": 3,
       "perDay": 376793.8,
@@ -76,7 +76,7 @@
       "contracts": 30,
       "covered": 7,
       "describedElsewhere": 4,
-      "drafts": 0,
+      "drafts": 6,
       "label": "Infrastructure",
       "partial": 10,
       "perDay": 41008.2,
@@ -100,7 +100,7 @@
       "contracts": 110,
       "covered": 14,
       "describedElsewhere": 3,
-      "drafts": 0,
+      "drafts": 1,
       "label": "Lending",
       "partial": 9,
       "perDay": 13903.6,
@@ -186,7 +186,7 @@
       "contracts": 232,
       "covered": 33,
       "describedElsewhere": 3,
-      "drafts": 0,
+      "drafts": 14,
       "name": "Ethereum",
       "partial": 20,
       "perDay": 146220.4,
@@ -198,7 +198,7 @@
       "contracts": 93,
       "covered": 12,
       "describedElsewhere": 6,
-      "drafts": 0,
+      "drafts": 10,
       "name": "OP Mainnet",
       "partial": 2,
       "perDay": 75852.5,
@@ -210,7 +210,7 @@
       "contracts": 126,
       "covered": 12,
       "describedElsewhere": 8,
-      "drafts": 0,
+      "drafts": 17,
       "name": "Base",
       "partial": 6,
       "perDay": 496445.3,
@@ -222,7 +222,7 @@
       "contracts": 113,
       "covered": 11,
       "describedElsewhere": 8,
-      "drafts": 0,
+      "drafts": 12,
       "name": "Arbitrum One",
       "partial": 2,
       "perDay": 63165.2,
@@ -231,7 +231,7 @@
       "uncovered": 100
     }
   },
-  "generatedAt": "2026-11-06T23:33:28.026Z",
+  "generatedAt": "2026-11-06T23:58:04.244Z",
   "protocols": [
     {
       "category": "dex",
@@ -321,7 +321,43 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v3/deployments/v3-base-deployments.mdx",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.75519791 CLANKER"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "0.00523111 WETH"
+                },
+                {
+                  "label": "Fee",
+                  "value": "3000"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0xF9b6a1EB0190bf76274B0876957Ee9F4f508Af41"
+                },
+                {
+                  "label": "Sqrt price limit X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Swap 0.75519791 CLANKER for at least 0.00523111 WETH",
+              "txHash": "0x205de03dc24ee2fb60cc0ef7c9e70b6f5f9fda63773f80925c9f96ec7b56b6e2"
+            },
+            "signerShareCovered": 0.9677,
+            "testedTxs": 3,
+            "txShareCovered": 0.9036
+          },
           "elsewhere": {
             "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
             "chainId": 1,
@@ -757,7 +793,31 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "From",
+                  "value": "0x226B9deC7Ee0B71c955Ad25bBb2C32BE8Fb96b7a"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0882607c027abEbD51c06265959e85Ec09F67437"
+                },
+                {
+                  "label": "ID",
+                  "value": "3204280"
+                }
+              ],
+              "intent": "Transfer",
+              "txHash": "0x038c6dca8d8e05f58d5ba67c3b3b327a11f18d4f6544df289e451187613a9fb3"
+            },
+            "signerShareCovered": 0.3686,
+            "testedTxs": 2,
+            "txShareCovered": 0.192
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x7C5f5A4bBd8fD63184577525326123B519429bDc",
           "functions": {
@@ -895,7 +955,31 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "From",
+                  "value": "0x226B9deC7Ee0B71c955Ad25bBb2C32BE8Fb96b7a"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0882607c027abEbD51c06265959e85Ec09F67437"
+                },
+                {
+                  "label": "ID",
+                  "value": "3204280"
+                }
+              ],
+              "intent": "Transfer",
+              "txHash": "0x038c6dca8d8e05f58d5ba67c3b3b327a11f18d4f6544df289e451187613a9fb3"
+            },
+            "signerShareCovered": 0.3033,
+            "testedTxs": 2,
+            "txShareCovered": 0.204
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0xbD216513d74C8cf14cf4747E6AaA6420FF64ee9e",
           "functions": {
@@ -1283,7 +1367,31 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "From",
+                  "value": "0x226B9deC7Ee0B71c955Ad25bBb2C32BE8Fb96b7a"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0882607c027abEbD51c06265959e85Ec09F67437"
+                },
+                {
+                  "label": "ID",
+                  "value": "3204280"
+                }
+              ],
+              "intent": "Transfer",
+              "txHash": "0x038c6dca8d8e05f58d5ba67c3b3b327a11f18d4f6544df289e451187613a9fb3"
+            },
+            "signerShareCovered": 0.1841,
+            "testedTxs": 2,
+            "txShareCovered": 0.469
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0xd88F38F930b7952f2DB2432Cb002E7abbF3dD869",
           "functions": {
@@ -1581,7 +1689,31 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "From",
+                  "value": "0x226B9deC7Ee0B71c955Ad25bBb2C32BE8Fb96b7a"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0882607c027abEbD51c06265959e85Ec09F67437"
+                },
+                {
+                  "label": "ID",
+                  "value": "3204280"
+                }
+              ],
+              "intent": "Transfer",
+              "txHash": "0x038c6dca8d8e05f58d5ba67c3b3b327a11f18d4f6544df289e451187613a9fb3"
+            },
+            "signerShareCovered": 0.2025,
+            "testedTxs": 2,
+            "txShareCovered": 0.1399
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x3C3Ea4B57a46241e54610e5f022E5c45859A1017",
           "functions": {
@@ -1823,7 +1955,7 @@
         "contracts": 26,
         "covered": 2,
         "describedElsewhere": 5,
-        "drafts": 0,
+        "drafts": 5,
         "partial": 2,
         "perDay": 262879.8,
         "signerShareCovered": 0.043,
@@ -1842,7 +1974,63 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-slipstream-public/f99f2095918cab69eafeffa2c3d0a8762de737b7/deployment-addresses/cl-base.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 8,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Maximum to mint",
+                  "value": "4800.560691 USDC"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Maximum to mint",
+                  "value": "8.01484749 AMZNc"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "1359.867055 USDC"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 AMZNc"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "10"
+                },
+                {
+                  "label": "Tick lower",
+                  "value": "-9550"
+                },
+                {
+                  "label": "Tick upper",
+                  "value": "-9540"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:03:29Z"
+                },
+                {
+                  "label": "Sqrt price X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Mint 4800.560691 USDC",
+              "txHash": "0xed9143c2b0d4ce57b70c06d41e895941457c46df6d25e0940224f359d1602b07"
+            },
+            "signerShareCovered": 0.9855,
+            "testedTxs": 8,
+            "txShareCovered": 0.998
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x4857DB576eE0e45F10525eC59527BfD10beeC60b",
           "functions": {
@@ -1905,7 +2093,47 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-slipstream-public/f99f2095918cab69eafeffa2c3d0a8762de737b7/deployment-addresses/cl-base.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "18.51025642 AMZNc"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "4805.249561 USDC"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "10"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:03:24Z"
+                },
+                {
+                  "label": "Sqrt price limit X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Swap 18.51025642 AMZNc for at least 4805.249561 USDC",
+              "txHash": "0x71377f7790158d03afe99828d1d16e7cda59ff556f79dbd2f9c047e657278627"
+            },
+            "signerShareCovered": 0.9,
+            "testedTxs": 3,
+            "txShareCovered": 0.989
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418",
           "functions": {
@@ -1996,7 +2224,47 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-slipstream-public/f99f2095918cab69eafeffa2c3d0a8762de737b7/deployment-addresses/cl-optimism.json",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "18.51025642 AMZNc"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "4805.249561 USDC"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "10"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:03:24Z"
+                },
+                {
+                  "label": "Sqrt price limit X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Swap 18.51025642 AMZNc for at least 4805.249561 USDC",
+              "txHash": "0x71377f7790158d03afe99828d1d16e7cda59ff556f79dbd2f9c047e657278627"
+            },
+            "signerShareCovered": 0.75,
+            "testedTxs": 3,
+            "txShareCovered": 0.996
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418",
           "functions": {
@@ -2038,7 +2306,47 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-public/2ce1816b20948c26a2eec52419c9eccac3857136/deployment-addresses/root-base.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Token ID",
+                  "value": "1409"
+                },
+                {
+                  "label": "Chain",
+                  "value": "Base"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0bf7Fb51211b4842bAd8E831ba2F42fcB836C7e1"
+                },
+                {
+                  "label": "Refund recipient",
+                  "value": "0x0bf7Fb51211b4842bAd8E831ba2F42fcB836C7e1"
+                }
+              ],
+              "intent": "Claim rewards",
+              "txHash": "0x62dbc5f172a2d0afa2ea26ffec6251c01d1b5ca7dcf500973741452f93934e0e"
+            },
+            "signerShareCovered": 0.9855,
+            "testedTxs": 2,
+            "txShareCovered": 0.984
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x49d7d4f17Ec56Ef8fA04E464AF5D1A4942CC31e6",
           "functions": {
@@ -2094,7 +2402,63 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-slipstream-public/f99f2095918cab69eafeffa2c3d0a8762de737b7/deployment-addresses/cl-arbitrum.json",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 8,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Maximum to mint",
+                  "value": "4800.560691 USDC"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Maximum to mint",
+                  "value": "8.01484749 AMZNc"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "1359.867055 USDC"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 AMZNc"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "10"
+                },
+                {
+                  "label": "Tick lower",
+                  "value": "-9550"
+                },
+                {
+                  "label": "Tick upper",
+                  "value": "-9540"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:03:29Z"
+                },
+                {
+                  "label": "Sqrt price X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Mint 4800.560691 USDC",
+              "txHash": "0xed9143c2b0d4ce57b70c06d41e895941457c46df6d25e0940224f359d1602b07"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 8,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x4857DB576eE0e45F10525eC59527BfD10beeC60b",
           "functions": {
@@ -2157,7 +2521,63 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-slipstream-public/f99f2095918cab69eafeffa2c3d0a8762de737b7/deployment-addresses/cl-ethereum.json",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 8,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Maximum to mint",
+                  "value": "4800.560691 USDC"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Maximum to mint",
+                  "value": "8.01484749 AMZNc"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "1359.867055 USDC"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 AMZNc"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "10"
+                },
+                {
+                  "label": "Tick lower",
+                  "value": "-9550"
+                },
+                {
+                  "label": "Tick upper",
+                  "value": "-9540"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:03:29Z"
+                },
+                {
+                  "label": "Sqrt price X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Mint 4800.560691 USDC",
+              "txHash": "0xed9143c2b0d4ce57b70c06d41e895941457c46df6d25e0940224f359d1602b07"
+            },
+            "signerShareCovered": 0.9643,
+            "testedTxs": 8,
+            "txShareCovered": 0.999
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x4857DB576eE0e45F10525eC59527BfD10beeC60b",
           "functions": {
@@ -2290,7 +2710,47 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-slipstream-public/f99f2095918cab69eafeffa2c3d0a8762de737b7/deployment-addresses/cl-arbitrum.json",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "18.51025642 AMZNc"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "4805.249561 USDC"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "10"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:03:24Z"
+                },
+                {
+                  "label": "Sqrt price limit X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Swap 18.51025642 AMZNc for at least 4805.249561 USDC",
+              "txHash": "0x71377f7790158d03afe99828d1d16e7cda59ff556f79dbd2f9c047e657278627"
+            },
+            "signerShareCovered": 0.8,
+            "testedTxs": 3,
+            "txShareCovered": 0.997
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418",
           "functions": {
@@ -2339,7 +2799,47 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-slipstream-public/f99f2095918cab69eafeffa2c3d0a8762de737b7/deployment-addresses/cl-ethereum.json",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "18.51025642 AMZNc"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "4805.249561 USDC"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "10"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:03:24Z"
+                },
+                {
+                  "label": "Sqrt price limit X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Swap 18.51025642 AMZNc for at least 4805.249561 USDC",
+              "txHash": "0x71377f7790158d03afe99828d1d16e7cda59ff556f79dbd2f9c047e657278627"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 3,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418",
           "functions": {
@@ -2514,7 +3014,63 @@
           "addressSource": "https://raw.githubusercontent.com/Dromos-Labs/metadex-slipstream-public/f99f2095918cab69eafeffa2c3d0a8762de737b7/deployment-addresses/cl-optimism.json",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 8,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Maximum to mint",
+                  "value": "4800.560691 USDC"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Maximum to mint",
+                  "value": "8.01484749 AMZNc"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "1359.867055 USDC"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 AMZNc"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "10"
+                },
+                {
+                  "label": "Tick lower",
+                  "value": "-9550"
+                },
+                {
+                  "label": "Tick upper",
+                  "value": "-9540"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:03:29Z"
+                },
+                {
+                  "label": "Sqrt price X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Mint 4800.560691 USDC",
+              "txHash": "0xed9143c2b0d4ce57b70c06d41e895941457c46df6d25e0940224f359d1602b07"
+            },
+            "signerShareCovered": 0.9643,
+            "testedTxs": 8,
+            "txShareCovered": 0.995
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x4857DB576eE0e45F10525eC59527BfD10beeC60b",
           "functions": {
@@ -2692,7 +3248,7 @@
         "contracts": 18,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 9,
         "partial": 0,
         "perDay": 73658,
         "signerShareCovered": 0,
@@ -2711,7 +3267,47 @@
           "addressSource": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "From token amount",
+                  "value": "394628751974723538700"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "49.921804 USDC"
+                },
+                {
+                  "label": "Order ID",
+                  "value": "1002475560"
+                },
+                {
+                  "label": "From token",
+                  "value": "524677840931985408431554984255696976458223670762"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 20:46:42Z"
+                },
+                {
+                  "label": "From token",
+                  "value": "524677840931985408431554984255696976458223670762"
+                }
+              ],
+              "intent": "Swap for at least 49.921804 USDC",
+              "txHash": "0xbf4d62d5f41af1f7ca740c28852426c8c8c660c15237150204369c0c4712445c"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 3,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x67d03631FE51B741C0C00c4E16eb662AC84381df",
           "functions": {
@@ -2760,7 +3356,47 @@
           "addressSource": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "From token amount",
+                  "value": "394628751974723538700"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "49.921804 USDC"
+                },
+                {
+                  "label": "Order ID",
+                  "value": "1002475560"
+                },
+                {
+                  "label": "From token",
+                  "value": "524677840931985408431554984255696976458223670762"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 20:46:42Z"
+                },
+                {
+                  "label": "From token",
+                  "value": "524677840931985408431554984255696976458223670762"
+                }
+              ],
+              "intent": "Swap for at least 49.921804 USDC",
+              "txHash": "0xbf4d62d5f41af1f7ca740c28852426c8c8c660c15237150204369c0c4712445c"
+            },
+            "signerShareCovered": 0.7583,
+            "testedTxs": 3,
+            "txShareCovered": 0.885
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6",
           "functions": {
@@ -2823,7 +3459,47 @@
           "addressSource": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "From token amount",
+                  "value": "394628751974723538700"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "49.921804 USDC"
+                },
+                {
+                  "label": "Order ID",
+                  "value": "1002475560"
+                },
+                {
+                  "label": "From token",
+                  "value": "524677840931985408431554984255696976458223670762"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 20:46:42Z"
+                },
+                {
+                  "label": "From token",
+                  "value": "524677840931985408431554984255696976458223670762"
+                }
+              ],
+              "intent": "Swap for at least 49.921804 USDC",
+              "txHash": "0xbf4d62d5f41af1f7ca740c28852426c8c8c660c15237150204369c0c4712445c"
+            },
+            "signerShareCovered": 0.8632,
+            "testedTxs": 3,
+            "txShareCovered": 0.885
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x09f94b5Fc68e227C323A6FbaE3Bd98C97fD8c849",
           "functions": {
@@ -2886,7 +3562,47 @@
           "addressSource": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "From token amount",
+                  "value": "394628751974723538700"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "49.921804 USDC"
+                },
+                {
+                  "label": "Order ID",
+                  "value": "1002475560"
+                },
+                {
+                  "label": "From token",
+                  "value": "524677840931985408431554984255696976458223670762"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 20:46:42Z"
+                },
+                {
+                  "label": "From token",
+                  "value": "524677840931985408431554984255696976458223670762"
+                }
+              ],
+              "intent": "Swap for at least 49.921804 USDC",
+              "txHash": "0xbf4d62d5f41af1f7ca740c28852426c8c8c660c15237150204369c0c4712445c"
+            },
+            "signerShareCovered": 0.9123,
+            "testedTxs": 3,
+            "txShareCovered": 0.972
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x1f5B43127414E36c31eCb5Ff5567262997CD24D0",
           "functions": {
@@ -2938,7 +3654,7 @@
         "contracts": 4,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 4,
         "partial": 0,
         "perDay": 67632.9,
         "signerShareCovered": 0,
@@ -3624,7 +4340,99 @@
           "addressSource": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Amount",
+                  "value": "99.319861 USDC"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "User",
+                  "value": "0xf70da97812CB96acDF810712Aa562db8dfA3dbEF"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "84045690149017"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 20:45:36Z"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Action",
+                  "value": "0x095ea7b30000000000000000000000006131b5fae19ea4f9d964eac0408e4408b66337b50000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Action",
+                  "value": "Swap 99.319861 USDC for at least 73518625 to recipient 0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+                },
+                {
+                  "label": "Action",
+                  "value": "0x9bb4371800000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Refund to",
+                  "value": "0xffe6a865440967AD098A14EfF7007aEe8a947F32"
+                },
+                {
+                  "label": "NFT recipient",
+                  "value": "0xffe6a865440967AD098A14EfF7007aEe8a947F32"
+                },
+                {
+                  "label": "Metadata",
+                  "value": "0x8c1e3b36cfbf6e820cfdb9bb69e06cff6bbb875d9945359ebd3373133499397100"
+                }
+              ],
+              "intent": "Permit 2 transfer and multicall",
+              "txHash": "0x2ab4145c06f6cc314beca766a88ee278c9ea70beeb61012072ce6b30c6ef1c0c"
+            },
+            "signerShareCovered": 0.9981,
+            "testedTxs": 2,
+            "txShareCovered": 0.993
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x5567954cD026CEbFE486062cb75848e0f1c12E58",
           "functions": {
@@ -3717,7 +4525,99 @@
           "addressSource": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Amount",
+                  "value": "99.319861 USDC"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "User",
+                  "value": "0xf70da97812CB96acDF810712Aa562db8dfA3dbEF"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "84045690149017"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 20:45:36Z"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Action",
+                  "value": "0x095ea7b30000000000000000000000006131b5fae19ea4f9d964eac0408e4408b66337b50000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Action",
+                  "value": "Swap 99.319861 USDC for at least 73518625 to recipient 0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+                },
+                {
+                  "label": "Action",
+                  "value": "0x9bb4371800000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Refund to",
+                  "value": "0xffe6a865440967AD098A14EfF7007aEe8a947F32"
+                },
+                {
+                  "label": "NFT recipient",
+                  "value": "0xffe6a865440967AD098A14EfF7007aEe8a947F32"
+                },
+                {
+                  "label": "Metadata",
+                  "value": "0x8c1e3b36cfbf6e820cfdb9bb69e06cff6bbb875d9945359ebd3373133499397100"
+                }
+              ],
+              "intent": "Permit 2 transfer and multicall",
+              "txHash": "0x2ab4145c06f6cc314beca766a88ee278c9ea70beeb61012072ce6b30c6ef1c0c"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 2,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x5567954cD026CEbFE486062cb75848e0f1c12E58",
           "functions": {
@@ -3796,7 +4696,99 @@
           "addressSource": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Amount",
+                  "value": "99.319861 USDC"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "User",
+                  "value": "0xf70da97812CB96acDF810712Aa562db8dfA3dbEF"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "84045690149017"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 20:45:36Z"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Action",
+                  "value": "0x095ea7b30000000000000000000000006131b5fae19ea4f9d964eac0408e4408b66337b50000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Action",
+                  "value": "Swap 99.319861 USDC for at least 73518625 to recipient 0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+                },
+                {
+                  "label": "Action",
+                  "value": "0x9bb4371800000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Refund to",
+                  "value": "0xffe6a865440967AD098A14EfF7007aEe8a947F32"
+                },
+                {
+                  "label": "NFT recipient",
+                  "value": "0xffe6a865440967AD098A14EfF7007aEe8a947F32"
+                },
+                {
+                  "label": "Metadata",
+                  "value": "0x8c1e3b36cfbf6e820cfdb9bb69e06cff6bbb875d9945359ebd3373133499397100"
+                }
+              ],
+              "intent": "Permit 2 transfer and multicall",
+              "txHash": "0x2ab4145c06f6cc314beca766a88ee278c9ea70beeb61012072ce6b30c6ef1c0c"
+            },
+            "signerShareCovered": 0.9975,
+            "testedTxs": 2,
+            "txShareCovered": 0.995
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x5567954cD026CEbFE486062cb75848e0f1c12E58",
           "functions": {
@@ -3941,7 +4933,99 @@
           "addressSource": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Amount",
+                  "value": "99.319861 USDC"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "User",
+                  "value": "0xf70da97812CB96acDF810712Aa562db8dfA3dbEF"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "84045690149017"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 20:45:36Z"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5"
+                },
+                {
+                  "label": "Target",
+                  "value": "0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Allow failure",
+                  "value": "false"
+                },
+                {
+                  "label": "Action",
+                  "value": "0x095ea7b30000000000000000000000006131b5fae19ea4f9d964eac0408e4408b66337b50000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Action",
+                  "value": "Swap 99.319861 USDC for at least 73518625 to recipient 0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+                },
+                {
+                  "label": "Action",
+                  "value": "0x9bb4371800000000000000000000000000000000000000000000000000000000000000800000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Refund to",
+                  "value": "0xffe6a865440967AD098A14EfF7007aEe8a947F32"
+                },
+                {
+                  "label": "NFT recipient",
+                  "value": "0xffe6a865440967AD098A14EfF7007aEe8a947F32"
+                },
+                {
+                  "label": "Metadata",
+                  "value": "0x8c1e3b36cfbf6e820cfdb9bb69e06cff6bbb875d9945359ebd3373133499397100"
+                }
+              ],
+              "intent": "Permit 2 transfer and multicall",
+              "txHash": "0x2ab4145c06f6cc314beca766a88ee278c9ea70beeb61012072ce6b30c6ef1c0c"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 2,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x5567954cD026CEbFE486062cb75848e0f1c12E58",
           "functions": {
@@ -4023,7 +5107,7 @@
         "contracts": 12,
         "covered": 1,
         "describedElsewhere": 2,
-        "drafts": 0,
+        "drafts": 4,
         "partial": 0,
         "perDay": 43080.1,
         "signerShareCovered": 0.2123,
@@ -4204,7 +5288,27 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v3/deployments/v3-base-deployments.mdx",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.00000449 WETH"
+                },
+                {
+                  "label": "Dst",
+                  "value": "0xa846fD296C82ceeA627f9eDA4329A161f39629a1"
+                }
+              ],
+              "intent": "Transfer 0.00000449 WETH",
+              "txHash": "0xfa76a00d3c68a2981667e1822440fcc8cf311017dd8eea5c26d7554579549092"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 4,
+            "txShareCovered": 1
+          },
           "elsewhere": {
             "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
             "chainId": 1,
@@ -4270,7 +5374,23 @@
           "addressSource": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/cbb96c6f7f84d71bdef65d0fd9d3d7275a236711/packages/sdk/src/lib/dataEntities/networks.ts",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to deposit",
+                  "value": "0.115928 ETH"
+                }
+              ],
+              "intent": "Deposit 0.115928 ETH",
+              "txHash": "0x71b16b4e348e15dada346e4521624edbecc8a07b0dafebc6360722b6cc7a0be4"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 4,
+            "txShareCovered": 1
+          },
           "elsewhere": {
             "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
             "chainId": 1,
@@ -4467,7 +5587,7 @@
         "contracts": 4,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 2,
         "partial": 1,
         "perDay": 29198,
         "signerShareCovered": 0.1258,
@@ -4486,7 +5606,43 @@
           "addressSource": "https://raw.githubusercontent.com/pancakeswap/pancake-developer/e4778927f6e69ae6c1d90de08265c1d405f93703/docs/pages/contracts/v3/addresses.md",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "1295.999999999 ELSA"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Fee",
+                  "value": "100"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x1c8bb90b62A8F4ee9397FD3082cB7dA01c65e72E"
+                },
+                {
+                  "label": "Sqrt price limit X96",
+                  "value": "22212772021071907913728"
+                }
+              ],
+              "intent": "Swap 1295.999999999 ELSA for at least 0 USDC",
+              "txHash": "0xc5000e071317def0d2995dc95079d0e0731efbefdfe5fb75e5813cba5d1f4dac"
+            },
+            "signerShareCovered": 0.9474,
+            "testedTxs": 4,
+            "txShareCovered": 0.998
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86",
           "functions": {
@@ -4746,7 +5902,43 @@
           "addressSource": "https://raw.githubusercontent.com/pancakeswap/pancake-developer/e4778927f6e69ae6c1d90de08265c1d405f93703/docs/pages/contracts/v3/addresses.md",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "1295.999999999 ELSA"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Fee",
+                  "value": "100"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x1c8bb90b62A8F4ee9397FD3082cB7dA01c65e72E"
+                },
+                {
+                  "label": "Sqrt price limit X96",
+                  "value": "22212772021071907913728"
+                }
+              ],
+              "intent": "Swap 1295.999999999 ELSA for at least 0 USDC",
+              "txHash": "0xc5000e071317def0d2995dc95079d0e0731efbefdfe5fb75e5813cba5d1f4dac"
+            },
+            "signerShareCovered": 0.6462,
+            "testedTxs": 4,
+            "txShareCovered": 0.446
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x32226588378236Fd0c7c4053999F88aC0e5cAc77",
           "functions": {
@@ -4971,7 +6163,43 @@
           "addressSource": "https://raw.githubusercontent.com/pancakeswap/pancake-developer/e4778927f6e69ae6c1d90de08265c1d405f93703/docs/pages/contracts/v3/addresses.md",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "1295.999999999 ELSA"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Fee",
+                  "value": "100"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x1c8bb90b62A8F4ee9397FD3082cB7dA01c65e72E"
+                },
+                {
+                  "label": "Sqrt price limit X96",
+                  "value": "22212772021071907913728"
+                }
+              ],
+              "intent": "Swap 1295.999999999 ELSA for at least 0 USDC",
+              "txHash": "0xc5000e071317def0d2995dc95079d0e0731efbefdfe5fb75e5813cba5d1f4dac"
+            },
+            "signerShareCovered": 0.7857,
+            "testedTxs": 4,
+            "txShareCovered": 0.8303
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
           "functions": {
@@ -5037,14 +6265,14 @@
         "contracts": 10,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 3,
         "partial": 0,
         "perDay": 23028.5,
         "signerShareCovered": 0,
         "txShareCovered": 0,
         "uncovered": 10
       },
-      "tvlUsd": 55225852,
+      "tvlUsd": 55186712,
       "website": "https://pancakeswap.finance"
     },
     {
@@ -5436,7 +6664,95 @@
           "addressSource": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "0"
+                },
+                {
+                  "label": "Input amount",
+                  "value": "472500000"
+                },
+                {
+                  "label": "Amount to bridge",
+                  "value": "472.5 USDT"
+                },
+                {
+                  "label": "Amount to receive",
+                  "value": "472500000"
+                },
+                {
+                  "label": "Signature owner",
+                  "value": "0x60C426Ef999Db8AA62F6224A260721656225a10D"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Input token",
+                  "value": "USDT"
+                },
+                {
+                  "label": "Depositor",
+                  "value": "0x60C426Ef999Db8AA62F6224A260721656225a10D"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x000000000000000000000000133243d447026345c2b368d7ffe435dbe3c566eb"
+                },
+                {
+                  "label": "Destination chain",
+                  "value": "Base"
+                },
+                {
+                  "label": "Exclusive relayer",
+                  "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Quote timestamp",
+                  "value": "2026-11-06 21:56:47Z"
+                },
+                {
+                  "label": "Fill deadline",
+                  "value": "2026-11-06 23:56:47Z"
+                },
+                {
+                  "label": "Exclusivity param",
+                  "value": "0"
+                },
+                {
+                  "label": "Message",
+                  "value": "0x"
+                },
+                {
+                  "label": "Spoke pool",
+                  "value": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "111203299446763437336978308334871842949622258946179763508582458084084110577000"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "111203299446763437336978308334871842949622258946179763508582458084084110577000"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-07 21:58:04Z"
+                }
+              ],
+              "intent": "Bridge 472.5 USDT to Base",
+              "txHash": "0xf96852caf948ce53b77ce8ac839ddd000de3019995d29380e16ee15c7d5cbd24"
+            },
+            "signerShareCovered": 0.9925,
+            "testedTxs": 4,
+            "txShareCovered": 0.994
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
           "functions": {
@@ -5572,7 +6888,95 @@
           "addressSource": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "0"
+                },
+                {
+                  "label": "Input amount",
+                  "value": "472500000"
+                },
+                {
+                  "label": "Amount to bridge",
+                  "value": "472.5 USDT"
+                },
+                {
+                  "label": "Amount to receive",
+                  "value": "472500000"
+                },
+                {
+                  "label": "Signature owner",
+                  "value": "0x60C426Ef999Db8AA62F6224A260721656225a10D"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Input token",
+                  "value": "USDT"
+                },
+                {
+                  "label": "Depositor",
+                  "value": "0x60C426Ef999Db8AA62F6224A260721656225a10D"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x000000000000000000000000133243d447026345c2b368d7ffe435dbe3c566eb"
+                },
+                {
+                  "label": "Destination chain",
+                  "value": "Base"
+                },
+                {
+                  "label": "Exclusive relayer",
+                  "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Quote timestamp",
+                  "value": "2026-11-06 21:56:47Z"
+                },
+                {
+                  "label": "Fill deadline",
+                  "value": "2026-11-06 23:56:47Z"
+                },
+                {
+                  "label": "Exclusivity param",
+                  "value": "0"
+                },
+                {
+                  "label": "Message",
+                  "value": "0x"
+                },
+                {
+                  "label": "Spoke pool",
+                  "value": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "111203299446763437336978308334871842949622258946179763508582458084084110577000"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "111203299446763437336978308334871842949622258946179763508582458084084110577000"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-07 21:58:04Z"
+                }
+              ],
+              "intent": "Bridge 472.5 USDT to Base",
+              "txHash": "0xf96852caf948ce53b77ce8ac839ddd000de3019995d29380e16ee15c7d5cbd24"
+            },
+            "signerShareCovered": 0.9978,
+            "testedTxs": 4,
+            "txShareCovered": 0.999
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
           "functions": {
@@ -5628,7 +7032,95 @@
           "addressSource": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "0"
+                },
+                {
+                  "label": "Input amount",
+                  "value": "472500000"
+                },
+                {
+                  "label": "Amount to bridge",
+                  "value": "472.5 USDT"
+                },
+                {
+                  "label": "Amount to receive",
+                  "value": "472500000"
+                },
+                {
+                  "label": "Signature owner",
+                  "value": "0x60C426Ef999Db8AA62F6224A260721656225a10D"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Input token",
+                  "value": "USDT"
+                },
+                {
+                  "label": "Depositor",
+                  "value": "0x60C426Ef999Db8AA62F6224A260721656225a10D"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x000000000000000000000000133243d447026345c2b368d7ffe435dbe3c566eb"
+                },
+                {
+                  "label": "Destination chain",
+                  "value": "Base"
+                },
+                {
+                  "label": "Exclusive relayer",
+                  "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Quote timestamp",
+                  "value": "2026-11-06 21:56:47Z"
+                },
+                {
+                  "label": "Fill deadline",
+                  "value": "2026-11-06 23:56:47Z"
+                },
+                {
+                  "label": "Exclusivity param",
+                  "value": "0"
+                },
+                {
+                  "label": "Message",
+                  "value": "0x"
+                },
+                {
+                  "label": "Spoke pool",
+                  "value": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "111203299446763437336978308334871842949622258946179763508582458084084110577000"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "111203299446763437336978308334871842949622258946179763508582458084084110577000"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-07 21:58:04Z"
+                }
+              ],
+              "intent": "Bridge 472.5 USDT to Base",
+              "txHash": "0xf96852caf948ce53b77ce8ac839ddd000de3019995d29380e16ee15c7d5cbd24"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 4,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
           "functions": {
@@ -5677,7 +7169,95 @@
           "addressSource": "https://raw.githubusercontent.com/across-protocol/contracts/d0725ea001ca119a529065c22134298ec353941c/broadcast/deployed-addresses.json",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 4,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "0"
+                },
+                {
+                  "label": "Input amount",
+                  "value": "472500000"
+                },
+                {
+                  "label": "Amount to bridge",
+                  "value": "472.5 USDT"
+                },
+                {
+                  "label": "Amount to receive",
+                  "value": "472500000"
+                },
+                {
+                  "label": "Signature owner",
+                  "value": "0x60C426Ef999Db8AA62F6224A260721656225a10D"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Input token",
+                  "value": "USDT"
+                },
+                {
+                  "label": "Depositor",
+                  "value": "0x60C426Ef999Db8AA62F6224A260721656225a10D"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x000000000000000000000000133243d447026345c2b368d7ffe435dbe3c566eb"
+                },
+                {
+                  "label": "Destination chain",
+                  "value": "Base"
+                },
+                {
+                  "label": "Exclusive relayer",
+                  "value": "0x0000000000000000000000000000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Quote timestamp",
+                  "value": "2026-11-06 21:56:47Z"
+                },
+                {
+                  "label": "Fill deadline",
+                  "value": "2026-11-06 23:56:47Z"
+                },
+                {
+                  "label": "Exclusivity param",
+                  "value": "0"
+                },
+                {
+                  "label": "Message",
+                  "value": "0x"
+                },
+                {
+                  "label": "Spoke pool",
+                  "value": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "111203299446763437336978308334871842949622258946179763508582458084084110577000"
+                },
+                {
+                  "label": "Nonce",
+                  "value": "111203299446763437336978308334871842949622258946179763508582458084084110577000"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-07 21:58:04Z"
+                }
+              ],
+              "intent": "Bridge 472.5 USDT to Base",
+              "txHash": "0xf96852caf948ce53b77ce8ac839ddd000de3019995d29380e16ee15c7d5cbd24"
+            },
+            "signerShareCovered": 0.9976,
+            "testedTxs": 4,
+            "txShareCovered": 0.998
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
           "functions": {
@@ -5736,7 +7316,7 @@
         "contracts": 8,
         "covered": 1,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 4,
         "partial": 0,
         "perDay": 17667,
         "signerShareCovered": 0.221,
@@ -5840,7 +7420,51 @@
           "addressSource": "https://raw.githubusercontent.com/aerodrome-finance/contracts/1ba30815bba620f7e9faa34769ffd00c214c9b82/script/constants/output/DeployCore-Base.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 6,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.00052191 ETH"
+                },
+                {
+                  "label": "Amount out min",
+                  "value": "259094420769080964871"
+                },
+                {
+                  "label": "From",
+                  "value": "0x4200000000000000000000000000000000000006"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0xCd8b83E5A3f27d6bB9C0EA51B25896B8266eFA25"
+                },
+                {
+                  "label": "Stable",
+                  "value": "false"
+                },
+                {
+                  "label": "Factory",
+                  "value": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x1ffd80657B36813ba731285C049926076C3D09f7"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:04:57Z"
+                }
+              ],
+              "intent": "Swap 0.00052191 ETH",
+              "txHash": "0xc45e789726c0f67a179bad98847aa9074003277c69b7b496af4ab24c5eb89f73"
+            },
+            "signerShareCovered": 0.9925,
+            "testedTxs": 6,
+            "txShareCovered": 0.997
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
           "functions": {
@@ -5903,7 +7527,63 @@
           "addressSource": "https://raw.githubusercontent.com/aerodrome-finance/slipstream/f8717faaae6e6717db3c8e3850149c01a79c0603/script/constants/output/DeployCL-Base-MinUnstake.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 7,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Maximum to mint",
+                  "value": "50000 FLOCK"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Maximum to mint",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 FLOCK"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "100"
+                },
+                {
+                  "label": "Tick lower",
+                  "value": "-308300"
+                },
+                {
+                  "label": "Tick upper",
+                  "value": "-307300"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x6372C949864fBe8375eE7a5E55F4e2cfEED21150"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:06:00Z"
+                },
+                {
+                  "label": "Sqrt price X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Mint 50000 FLOCK",
+              "txHash": "0x61b2e48f473c64c42668fbe5258252179206a9b00159ec0f4c6a70a6a89226db"
+            },
+            "signerShareCovered": 0.7161,
+            "testedTxs": 7,
+            "txShareCovered": 0.783
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0xe1f8cd9AC4e4A65F54f38a5CdAfCA44f6dD68b53",
           "functions": {
@@ -5966,7 +7646,63 @@
           "addressSource": "https://raw.githubusercontent.com/aerodrome-finance/slipstream/f8717faaae6e6717db3c8e3850149c01a79c0603/script/constants/output/DeployCL-Base.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 7,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Maximum to mint",
+                  "value": "50000 FLOCK"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Maximum to mint",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 FLOCK"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "100"
+                },
+                {
+                  "label": "Tick lower",
+                  "value": "-308300"
+                },
+                {
+                  "label": "Tick upper",
+                  "value": "-307300"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x6372C949864fBe8375eE7a5E55F4e2cfEED21150"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:06:00Z"
+                },
+                {
+                  "label": "Sqrt price X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Mint 50000 FLOCK",
+              "txHash": "0x61b2e48f473c64c42668fbe5258252179206a9b00159ec0f4c6a70a6a89226db"
+            },
+            "signerShareCovered": 0.8125,
+            "testedTxs": 7,
+            "txShareCovered": 0.8615
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x827922686190790b37229fd06084350E74485b72",
           "functions": {
@@ -6141,7 +7877,63 @@
           "addressSource": "https://raw.githubusercontent.com/aerodrome-finance/slipstream/f8717faaae6e6717db3c8e3850149c01a79c0603/script/constants/output/DeployCL-Base-Gauge-Caps.json",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 7,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Maximum to mint",
+                  "value": "50000 FLOCK"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Maximum to mint",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 FLOCK"
+                },
+                {
+                  "label": "Minimum to mint",
+                  "value": "0 USDC"
+                },
+                {
+                  "label": "Tick spacing",
+                  "value": "100"
+                },
+                {
+                  "label": "Tick lower",
+                  "value": "-308300"
+                },
+                {
+                  "label": "Tick upper",
+                  "value": "-307300"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x6372C949864fBe8375eE7a5E55F4e2cfEED21150"
+                },
+                {
+                  "label": "Deadline",
+                  "value": "2026-11-06 22:06:00Z"
+                },
+                {
+                  "label": "Sqrt price X96",
+                  "value": "0"
+                }
+              ],
+              "intent": "Mint 50000 FLOCK",
+              "txHash": "0x61b2e48f473c64c42668fbe5258252179206a9b00159ec0f4c6a70a6a89226db"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 7,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0xa990C6a764b73BF43cee5Bb40339c3322FB9D55F",
           "functions": {
@@ -6207,7 +7999,7 @@
         "contracts": 6,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 4,
         "partial": 0,
         "perDay": 13439.1,
         "signerShareCovered": 0,
@@ -6976,7 +8768,35 @@
           "addressSource": "https://raw.githubusercontent.com/MetaMask/core/8d460cecac3426fec6cbef6339b09609ada40504/packages/bridge-controller/src/constants/swaps.ts",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 1,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.00003214584428902 ETH"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0.00003214584428902 ETH"
+                },
+                {
+                  "label": "Aggregator ID",
+                  "value": "uniswapPermit212FeeDynamic"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a12cc123ba206d4031d1c7f6223d1c…"
+                }
+              ],
+              "intent": "Swap 0.00003214584428902 ETH",
+              "txHash": "0x5491fc7a47c6a937137a195206cf8b950b40238304177b5aeb4088097907ef49"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 1,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x881D40237659C251811CEC9c364ef91dC08D300C",
           "functions": {
@@ -7011,7 +8831,35 @@
           "addressSource": "https://raw.githubusercontent.com/MetaMask/core/8d460cecac3426fec6cbef6339b09609ada40504/packages/bridge-controller/src/constants/bridge.ts",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 1,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to bridge",
+                  "value": "0.0044 ETH"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0.0044 ETH"
+                },
+                {
+                  "label": "Adapter ID",
+                  "value": "lifiAdapterV2"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x0000000000000000000000008cd89ea14345f24d0299c2180aec97a417ca34e30000000000000000000000008cd89ea14345f24d0299c2180aec97…"
+                }
+              ],
+              "intent": "Bridge 0.0044 ETH",
+              "txHash": "0xb1b544029c0770dd6602b3f9e43bf8dd42ab51e4011dd7b63bede19f3c130349"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 1,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x0439e60F02a8900a951603950d8D4527f400C3f1",
           "functions": {
@@ -7145,7 +8993,7 @@
         "contracts": 5,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 2,
         "partial": 0,
         "perDay": 9793.9,
         "signerShareCovered": 0,
@@ -8623,7 +10471,31 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 7,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "260 USDC"
+                },
+                {
+                  "label": "From",
+                  "value": "0x863a3cce3a58C73E475B29A04EFFabEB19deA7E0"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0xe3b205DA6D47989538f03553BC394d941677ffd3"
+                }
+              ],
+              "intent": "Transfer 260 USDC to 0xe3b205DA6D47989538f03553BC394d941677ffd3",
+              "txHash": "0x34973982ff053c5f80d40b337239412a0c9f60e67bcedfcb886538c2eb8e5c82"
+            },
+            "signerShareCovered": 0.9883,
+            "testedTxs": 7,
+            "txShareCovered": 0.994
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x000000000022D473030F116dDEE9F6B43aC78BA3",
           "functions": {
@@ -8686,7 +10558,31 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 7,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "260 USDC"
+                },
+                {
+                  "label": "From",
+                  "value": "0x863a3cce3a58C73E475B29A04EFFabEB19deA7E0"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0xe3b205DA6D47989538f03553BC394d941677ffd3"
+                }
+              ],
+              "intent": "Transfer 260 USDC to 0xe3b205DA6D47989538f03553BC394d941677ffd3",
+              "txHash": "0x34973982ff053c5f80d40b337239412a0c9f60e67bcedfcb886538c2eb8e5c82"
+            },
+            "signerShareCovered": 0.8978,
+            "testedTxs": 7,
+            "txShareCovered": 0.84
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x000000000022D473030F116dDEE9F6B43aC78BA3",
           "functions": {
@@ -8749,7 +10645,31 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 7,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "260 USDC"
+                },
+                {
+                  "label": "From",
+                  "value": "0x863a3cce3a58C73E475B29A04EFFabEB19deA7E0"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0xe3b205DA6D47989538f03553BC394d941677ffd3"
+                }
+              ],
+              "intent": "Transfer 260 USDC to 0xe3b205DA6D47989538f03553BC394d941677ffd3",
+              "txHash": "0x34973982ff053c5f80d40b337239412a0c9f60e67bcedfcb886538c2eb8e5c82"
+            },
+            "signerShareCovered": 0.9911,
+            "testedTxs": 7,
+            "txShareCovered": 0.764
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x000000000022D473030F116dDEE9F6B43aC78BA3",
           "functions": {
@@ -8812,7 +10732,31 @@
           "addressSource": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 7,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "260 USDC"
+                },
+                {
+                  "label": "From",
+                  "value": "0x863a3cce3a58C73E475B29A04EFFabEB19deA7E0"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0xe3b205DA6D47989538f03553BC394d941677ffd3"
+                }
+              ],
+              "intent": "Transfer 260 USDC to 0xe3b205DA6D47989538f03553BC394d941677ffd3",
+              "txHash": "0x34973982ff053c5f80d40b337239412a0c9f60e67bcedfcb886538c2eb8e5c82"
+            },
+            "signerShareCovered": 0.8974,
+            "testedTxs": 7,
+            "txShareCovered": 0.6723
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x000000000022D473030F116dDEE9F6B43aC78BA3",
           "functions": {
@@ -8878,7 +10822,7 @@
         "contracts": 4,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 4,
         "partial": 0,
         "perDay": 6662.3,
         "signerShareCovered": 0,
@@ -10529,7 +12473,47 @@
           "addressSource": "https://raw.githubusercontent.com/mayan-finance/swap-sdk/cf99924161d1e7fee181dd715d2a76f2aa05147d/src/addresses.ts",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.115 WETH"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0.115 ETH"
+                },
+                {
+                  "label": "Minimum to send",
+                  "value": "0.114425 WETH"
+                },
+                {
+                  "label": "Swap protocol",
+                  "value": "0x529863940BF6065d8C122a550c2ff37c1cfeFa16"
+                },
+                {
+                  "label": "Swap data",
+                  "value": "0xd46eb119"
+                },
+                {
+                  "label": "Mayan protocol",
+                  "value": "0x40fFE85A28DC9993541449464d7529a922142960"
+                },
+                {
+                  "label": "Mayan data",
+                  "value": "0xa3a3083400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000…"
+                }
+              ],
+              "intent": "Swap 0.115 WETH",
+              "txHash": "0x09cce4d13560901507893645f600bb94eda621192aae0247ea80eb2a2942b842"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 3,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
           "functions": {
@@ -10578,7 +12562,47 @@
           "addressSource": "https://raw.githubusercontent.com/mayan-finance/swap-sdk/cf99924161d1e7fee181dd715d2a76f2aa05147d/src/addresses.ts",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.115 WETH"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0.115 ETH"
+                },
+                {
+                  "label": "Minimum to send",
+                  "value": "0.114425 WETH"
+                },
+                {
+                  "label": "Swap protocol",
+                  "value": "0x529863940BF6065d8C122a550c2ff37c1cfeFa16"
+                },
+                {
+                  "label": "Swap data",
+                  "value": "0xd46eb119"
+                },
+                {
+                  "label": "Mayan protocol",
+                  "value": "0x40fFE85A28DC9993541449464d7529a922142960"
+                },
+                {
+                  "label": "Mayan data",
+                  "value": "0xa3a3083400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000…"
+                }
+              ],
+              "intent": "Swap 0.115 WETH",
+              "txHash": "0x09cce4d13560901507893645f600bb94eda621192aae0247ea80eb2a2942b842"
+            },
+            "signerShareCovered": 0.9987,
+            "testedTxs": 3,
+            "txShareCovered": 0.998
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
           "functions": {
@@ -10634,7 +12658,47 @@
           "addressSource": "https://raw.githubusercontent.com/mayan-finance/swap-sdk/cf99924161d1e7fee181dd715d2a76f2aa05147d/src/addresses.ts",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.115 WETH"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0.115 ETH"
+                },
+                {
+                  "label": "Minimum to send",
+                  "value": "0.114425 WETH"
+                },
+                {
+                  "label": "Swap protocol",
+                  "value": "0x529863940BF6065d8C122a550c2ff37c1cfeFa16"
+                },
+                {
+                  "label": "Swap data",
+                  "value": "0xd46eb119"
+                },
+                {
+                  "label": "Mayan protocol",
+                  "value": "0x40fFE85A28DC9993541449464d7529a922142960"
+                },
+                {
+                  "label": "Mayan data",
+                  "value": "0xa3a3083400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000…"
+                }
+              ],
+              "intent": "Swap 0.115 WETH",
+              "txHash": "0x09cce4d13560901507893645f600bb94eda621192aae0247ea80eb2a2942b842"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 3,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
           "functions": {
@@ -10683,7 +12747,47 @@
           "addressSource": "https://raw.githubusercontent.com/mayan-finance/swap-sdk/cf99924161d1e7fee181dd715d2a76f2aa05147d/src/addresses.ts",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.115 WETH"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0.115 ETH"
+                },
+                {
+                  "label": "Minimum to send",
+                  "value": "0.114425 WETH"
+                },
+                {
+                  "label": "Swap protocol",
+                  "value": "0x529863940BF6065d8C122a550c2ff37c1cfeFa16"
+                },
+                {
+                  "label": "Swap data",
+                  "value": "0xd46eb119"
+                },
+                {
+                  "label": "Mayan protocol",
+                  "value": "0x40fFE85A28DC9993541449464d7529a922142960"
+                },
+                {
+                  "label": "Mayan data",
+                  "value": "0xa3a3083400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000…"
+                }
+              ],
+              "intent": "Swap 0.115 WETH",
+              "txHash": "0x09cce4d13560901507893645f600bb94eda621192aae0247ea80eb2a2942b842"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 3,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
           "functions": {
@@ -10735,7 +12839,7 @@
         "contracts": 4,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 4,
         "partial": 0,
         "perDay": 2982.4,
         "signerShareCovered": 0,
@@ -13316,7 +15420,7 @@
         "txShareCovered": 0,
         "uncovered": 19
       },
-      "tvlUsd": 1246482763,
+      "tvlUsd": 1250036226,
       "website": "https://compound.finance"
     },
     {
@@ -13328,7 +15432,91 @@
           "addressSource": "https://raw.githubusercontent.com/gmx-io/gmx-interface/1673062f3d4647cce6d311d7bc4585450c4b5db3/sdk/src/configs/contracts.ts",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 3,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Markets",
+                  "value": "0x70d95587d40A2caf56bd97485aB3Eec10Bee6336"
+                },
+                {
+                  "label": "Markets",
+                  "value": "0x70d95587d40A2caf56bd97485aB3Eec10Bee6336"
+                },
+                {
+                  "label": "Markets",
+                  "value": "0x872b5D567a2469Ed92D252eaCB0EB3BB0769e05b"
+                },
+                {
+                  "label": "Markets",
+                  "value": "0xa8A455Ed94b315460CfF7d96966d91330f6A3bA0"
+                },
+                {
+                  "label": "Markets",
+                  "value": "0xa8A455Ed94b315460CfF7d96966d91330f6A3bA0"
+                },
+                {
+                  "label": "Markets",
+                  "value": "0x0Df2BE76F517BCF0000AbfFcB6344B3b2aC4Cc4f"
+                },
+                {
+                  "label": "Markets",
+                  "value": "0x0Df2BE76F517BCF0000AbfFcB6344B3b2aC4Cc4f"
+                },
+                {
+                  "label": "Markets",
+                  "value": "0xcBd4c1b0c89D50793c5A3e8d96d98FcB4f1B1c47"
+                },
+                {
+                  "label": "Tokens",
+                  "value": "WETH"
+                },
+                {
+                  "label": "Tokens",
+                  "value": "USDC"
+                },
+                {
+                  "label": "Tokens",
+                  "value": "USDC"
+                },
+                {
+                  "label": "Tokens",
+                  "value": "WETH"
+                },
+                {
+                  "label": "Tokens",
+                  "value": "USDC"
+                },
+                {
+                  "label": "Tokens",
+                  "value": "WETH"
+                },
+                {
+                  "label": "Tokens",
+                  "value": "USDC"
+                },
+                {
+                  "label": "Tokens",
+                  "value": "USDC"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0xE76D313C5092C47F114Fd2282bda1802c9825fAc"
+                }
+              ],
+              "intent": "Claim funding fees",
+              "txHash": "0x898cd3b9503e4b349ef60180738eb7ee138098fd99122f5305e8005340de5d0a"
+            },
+            "signerShareCovered": 0.9918,
+            "testedTxs": 3,
+            "txShareCovered": 0.998
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x7dE39FF2e232A2203196788d37e234cF8F1b83f1",
           "functions": {
@@ -13544,7 +15732,7 @@
         "contracts": 4,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 1,
         "partial": 0,
         "perDay": 1332.2,
         "signerShareCovered": 0,
@@ -15045,7 +17233,7 @@
         "txShareCovered": 0.7355,
         "uncovered": 4
       },
-      "tvlUsd": 814245153,
+      "tvlUsd": 814784729,
       "website": "https://www.pendle.finance"
     },
     {
@@ -15057,7 +17245,63 @@
           "addressSource": "https://registry.npmjs.org/@debridge-finance/dln-client/-/dln-client-17.6.2.tgz",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 1,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.8 ETH"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0.8 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "1786.253218 USDT"
+                },
+                {
+                  "label": "Token in permit envelope",
+                  "value": "0x"
+                },
+                {
+                  "label": "Allowance aggregator",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Swap router",
+                  "value": "0xBc1D9760bd6ca468CA9fB5Ff2CFbEAC35d86c973"
+                },
+                {
+                  "label": "Swap calldata",
+                  "value": "0xd984396a00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Surplus share bps",
+                  "value": "10000"
+                },
+                {
+                  "label": "Affiliate fee envelope",
+                  "value": "0x"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x33A58b7a1F46aa945993302F0A7a812888c35DD4"
+                },
+                {
+                  "label": "Referral code",
+                  "value": "4850"
+                }
+              ],
+              "intent": "Swap 0.8 ETH for at least 1786.253218 USDT",
+              "txHash": "0xdada87f17bccfc14d451021295d1ba550423156ccc2f80fcb340ddee8e80c791"
+            },
+            "signerShareCovered": 0.1603,
+            "testedTxs": 1,
+            "txShareCovered": 0.079
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251",
           "functions": {
@@ -15246,7 +17490,63 @@
           "addressSource": "https://registry.npmjs.org/@debridge-finance/dln-client/-/dln-client-17.6.2.tgz",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 1,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount to send",
+                  "value": "0.8 ETH"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0.8 ETH"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "1786.253218 USDT"
+                },
+                {
+                  "label": "Token in permit envelope",
+                  "value": "0x"
+                },
+                {
+                  "label": "Allowance aggregator",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Swap router",
+                  "value": "0xBc1D9760bd6ca468CA9fB5Ff2CFbEAC35d86c973"
+                },
+                {
+                  "label": "Swap calldata",
+                  "value": "0xd984396a00000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Surplus share bps",
+                  "value": "10000"
+                },
+                {
+                  "label": "Affiliate fee envelope",
+                  "value": "0x"
+                },
+                {
+                  "label": "Recipient",
+                  "value": "0x33A58b7a1F46aa945993302F0A7a812888c35DD4"
+                },
+                {
+                  "label": "Referral code",
+                  "value": "4850"
+                }
+              ],
+              "intent": "Swap 0.8 ETH for at least 1786.253218 USDT",
+              "txHash": "0xdada87f17bccfc14d451021295d1ba550423156ccc2f80fcb340ddee8e80c791"
+            },
+            "signerShareCovered": 0.3714,
+            "testedTxs": 1,
+            "txShareCovered": 0.841
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251",
           "functions": {
@@ -15431,7 +17731,7 @@
         "contracts": 8,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 2,
         "partial": 0,
         "perDay": 860.6,
         "signerShareCovered": 0,
@@ -15450,7 +17750,31 @@
           "addressSource": "https://raw.githubusercontent.com/bgd-labs/aave-address-book/506b86708cc2993a8c0e22fa117f557d4269dc90/src/ts/AaveV4Ethereum.ts",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 7,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "2300000000"
+                },
+                {
+                  "label": "Reserve ID",
+                  "value": "7"
+                },
+                {
+                  "label": "On behalf of",
+                  "value": "0xeeb9afb4ED985AdDd7615d59E4AA1F3377C6A56A"
+                }
+              ],
+              "intent": "Borrow",
+              "txHash": "0x25ce48097d662371c6289d16a967913719b97b60f55455886a755c1cad7c34da"
+            },
+            "signerShareCovered": 0.9927,
+            "testedTxs": 7,
+            "txShareCovered": 0.995
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x94e7A5dCbE816e498b89aB752661904E2F56c485",
           "functions": {
@@ -15581,7 +17905,7 @@
         "contracts": 2,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 1,
         "partial": 0,
         "perDay": 458.4,
         "signerShareCovered": 0,
@@ -15600,7 +17924,143 @@
           "addressSource": "https://raw.githubusercontent.com/openocean-finance/OpenOceanExchangeV2/76c0a5a1a5b93a08c0c9ac8d6643c6b3a7b9e77e/README.md",
           "chainId": 8453,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "495570"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Guaranteed amount",
+                  "value": "168208174830583912"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "0.167955610003510963 WETH"
+                },
+                {
+                  "label": "Caller",
+                  "value": "0x9caFCa2507a6128931F88CCC3d83D8BCF74b09f0"
+                },
+                {
+                  "label": "Src token",
+                  "value": "cbBTC"
+                },
+                {
+                  "label": "Src receiver",
+                  "value": "0x9caFCa2507a6128931F88CCC3d83D8BCF74b09f0"
+                },
+                {
+                  "label": "Dst receiver",
+                  "value": "0x6935b868Ed35B95E38dAb32043362dFdfc18a427"
+                },
+                {
+                  "label": "Flags",
+                  "value": "2"
+                },
+                {
+                  "label": "Referrer",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Permit",
+                  "value": "0x"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Data",
+                  "value": "0xe5b07cdb0000000000000000000000005e3c5083f27654fac92126cb3fbd8773306cd90d0000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0xe5b07cdb0000000000000000000000008bb9eaf3c5a906d20c4cc10ea2f73a3ac2d5d41a0000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x9f8654220000000000000000000000002ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec220000000000000000000000000000000100000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x8a6a1e8500000000000000000000000042000000000000000000000000000000000000060000000000000000000000003692dea4346c95eb3957d8…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x9f86542200000000000000000000000042000000000000000000000000000000000000060000000000000000000000000000000100000000000000…"
+                }
+              ],
+              "intent": "Swap for at least 0.167955610003510963 WETH",
+              "txHash": "0x8102c653df40d3b303eebeb6b4a819996ee80a9317866afeb245a116872ed4fa"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 2,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
           "functions": {
@@ -15643,7 +18103,143 @@
           "addressSource": "https://raw.githubusercontent.com/openocean-finance/OpenOceanExchangeV2/76c0a5a1a5b93a08c0c9ac8d6643c6b3a7b9e77e/README.md",
           "chainId": 1,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "495570"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Guaranteed amount",
+                  "value": "168208174830583912"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "0.167955610003510963 WETH"
+                },
+                {
+                  "label": "Caller",
+                  "value": "0x9caFCa2507a6128931F88CCC3d83D8BCF74b09f0"
+                },
+                {
+                  "label": "Src token",
+                  "value": "cbBTC"
+                },
+                {
+                  "label": "Src receiver",
+                  "value": "0x9caFCa2507a6128931F88CCC3d83D8BCF74b09f0"
+                },
+                {
+                  "label": "Dst receiver",
+                  "value": "0x6935b868Ed35B95E38dAb32043362dFdfc18a427"
+                },
+                {
+                  "label": "Flags",
+                  "value": "2"
+                },
+                {
+                  "label": "Referrer",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Permit",
+                  "value": "0x"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Data",
+                  "value": "0xe5b07cdb0000000000000000000000005e3c5083f27654fac92126cb3fbd8773306cd90d0000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0xe5b07cdb0000000000000000000000008bb9eaf3c5a906d20c4cc10ea2f73a3ac2d5d41a0000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x9f8654220000000000000000000000002ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec220000000000000000000000000000000100000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x8a6a1e8500000000000000000000000042000000000000000000000000000000000000060000000000000000000000003692dea4346c95eb3957d8…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x9f86542200000000000000000000000042000000000000000000000000000000000000060000000000000000000000000000000100000000000000…"
+                }
+              ],
+              "intent": "Swap for at least 0.167955610003510963 WETH",
+              "txHash": "0x8102c653df40d3b303eebeb6b4a819996ee80a9317866afeb245a116872ed4fa"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 2,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
           "functions": {
@@ -15686,7 +18282,143 @@
           "addressSource": "https://raw.githubusercontent.com/openocean-finance/OpenOceanExchangeV2/76c0a5a1a5b93a08c0c9ac8d6643c6b3a7b9e77e/README.md",
           "chainId": 42161,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "495570"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Guaranteed amount",
+                  "value": "168208174830583912"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "0.167955610003510963 WETH"
+                },
+                {
+                  "label": "Caller",
+                  "value": "0x9caFCa2507a6128931F88CCC3d83D8BCF74b09f0"
+                },
+                {
+                  "label": "Src token",
+                  "value": "cbBTC"
+                },
+                {
+                  "label": "Src receiver",
+                  "value": "0x9caFCa2507a6128931F88CCC3d83D8BCF74b09f0"
+                },
+                {
+                  "label": "Dst receiver",
+                  "value": "0x6935b868Ed35B95E38dAb32043362dFdfc18a427"
+                },
+                {
+                  "label": "Flags",
+                  "value": "2"
+                },
+                {
+                  "label": "Referrer",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Permit",
+                  "value": "0x"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Data",
+                  "value": "0xe5b07cdb0000000000000000000000005e3c5083f27654fac92126cb3fbd8773306cd90d0000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0xe5b07cdb0000000000000000000000008bb9eaf3c5a906d20c4cc10ea2f73a3ac2d5d41a0000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x9f8654220000000000000000000000002ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec220000000000000000000000000000000100000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x8a6a1e8500000000000000000000000042000000000000000000000000000000000000060000000000000000000000003692dea4346c95eb3957d8…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x9f86542200000000000000000000000042000000000000000000000000000000000000060000000000000000000000000000000100000000000000…"
+                }
+              ],
+              "intent": "Swap for at least 0.167955610003510963 WETH",
+              "txHash": "0x8102c653df40d3b303eebeb6b4a819996ee80a9317866afeb245a116872ed4fa"
+            },
+            "signerShareCovered": 0.9396,
+            "testedTxs": 2,
+            "txShareCovered": 0.951
+          },
           "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
           "functions": {
@@ -15736,7 +18468,143 @@
           "addressSource": "https://raw.githubusercontent.com/openocean-finance/OpenOceanExchangeV2/76c0a5a1a5b93a08c0c9ac8d6643c6b3a7b9e77e/README.md",
           "chainId": 10,
           "descriptor": null,
-          "draft": null,
+          "draft": {
+            "functions": 2,
+            "lint": "warnings",
+            "preview": {
+              "fields": [
+                {
+                  "label": "Amount",
+                  "value": "495570"
+                },
+                {
+                  "label": "Value sent",
+                  "value": "0 ETH"
+                },
+                {
+                  "label": "Guaranteed amount",
+                  "value": "168208174830583912"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Value",
+                  "value": "0"
+                },
+                {
+                  "label": "Minimum to receive",
+                  "value": "0.167955610003510963 WETH"
+                },
+                {
+                  "label": "Caller",
+                  "value": "0x9caFCa2507a6128931F88CCC3d83D8BCF74b09f0"
+                },
+                {
+                  "label": "Src token",
+                  "value": "cbBTC"
+                },
+                {
+                  "label": "Src receiver",
+                  "value": "0x9caFCa2507a6128931F88CCC3d83D8BCF74b09f0"
+                },
+                {
+                  "label": "Dst receiver",
+                  "value": "0x6935b868Ed35B95E38dAb32043362dFdfc18a427"
+                },
+                {
+                  "label": "Flags",
+                  "value": "2"
+                },
+                {
+                  "label": "Referrer",
+                  "value": "0x0000000000000000000000000000000000000000"
+                },
+                {
+                  "label": "Permit",
+                  "value": "0x"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Target",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Gas limit",
+                  "value": "0"
+                },
+                {
+                  "label": "Data",
+                  "value": "0xe5b07cdb0000000000000000000000005e3c5083f27654fac92126cb3fbd8773306cd90d0000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0xe5b07cdb0000000000000000000000008bb9eaf3c5a906d20c4cc10ea2f73a3ac2d5d41a0000000000000000000000000000000000000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x9f8654220000000000000000000000002ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec220000000000000000000000000000000100000000000000…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x8a6a1e8500000000000000000000000042000000000000000000000000000000000000060000000000000000000000003692dea4346c95eb3957d8…"
+                },
+                {
+                  "label": "Data",
+                  "value": "0x9f86542200000000000000000000000042000000000000000000000000000000000000060000000000000000000000000000000100000000000000…"
+                }
+              ],
+              "intent": "Swap for at least 0.167955610003510963 WETH",
+              "txHash": "0x8102c653df40d3b303eebeb6b4a819996ee80a9317866afeb245a116872ed4fa"
+            },
+            "signerShareCovered": 1,
+            "testedTxs": 2,
+            "txShareCovered": 1
+          },
           "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
           "functions": {
@@ -15782,7 +18650,7 @@
         "contracts": 4,
         "covered": 0,
         "describedElsewhere": 0,
-        "drafts": 0,
+        "drafts": 4,
         "partial": 0,
         "perDay": 442.9,
         "signerShareCovered": 0,
@@ -18294,7 +21162,7 @@
         "txShareCovered": 0,
         "uncovered": 4
       },
-      "tvlUsd": 70970010,
+      "tvlUsd": 71126551,
       "website": "https://beefy.com"
     },
     {
@@ -21092,7 +23960,7 @@
         "txShareCovered": 0.196,
         "uncovered": 1
       },
-      "tvlUsd": 4901206254,
+      "tvlUsd": 4920924070,
       "website": "https://ethena.fi"
     },
     {
@@ -21962,7 +24830,7 @@
         "txShareCovered": 0,
         "uncovered": 3
       },
-      "tvlUsd": 64159793,
+      "tvlUsd": 64220433,
       "website": "https://euler.finance"
     },
     {
@@ -23118,7 +25986,7 @@
         "txShareCovered": 0,
         "uncovered": 16
       },
-      "tvlUsd": 28954420,
+      "tvlUsd": 28961690,
       "website": "https://balancer.fi"
     },
     {
@@ -23342,7 +26210,7 @@
         "txShareCovered": 0,
         "uncovered": 4
       },
-      "tvlUsd": 486724861,
+      "tvlUsd": 485492130,
       "website": "https://www.optimism.io"
     },
     {
@@ -24186,7 +27054,7 @@
         "txShareCovered": 0,
         "uncovered": 6
       },
-      "tvlUsd": 146649051,
+      "tvlUsd": 138968802,
       "website": "https://dolomite.io"
     },
     {
@@ -25940,7 +28808,7 @@
         "txShareCovered": 0,
         "uncovered": 4
       },
-      "tvlUsd": 6782319,
+      "tvlUsd": 6798105,
       "website": "https://app.camelot.exchange"
     },
     {
@@ -27192,7 +30060,7 @@
         "txShareCovered": 0,
         "uncovered": 4
       },
-      "tvlUsd": 77362553,
+      "tvlUsd": 77689203,
       "website": "https://www.renzoprotocol.com"
     },
     {
@@ -27542,7 +30410,7 @@
         "txShareCovered": 0,
         "uncovered": 6
       },
-      "tvlUsd": 86825047,
+      "tvlUsd": 87139039,
       "website": "https://www.liquity.org"
     },
     {
@@ -29046,7 +31914,7 @@
         "txShareCovered": 0.9902,
         "uncovered": 0
       },
-      "tvlUsd": 287874148,
+      "tvlUsd": 288653643,
       "website": "https://symbiotic.fi"
     },
     {
@@ -29541,7 +32409,7 @@
         "txShareCovered": 0,
         "uncovered": 2
       },
-      "tvlUsd": 28436195,
+      "tvlUsd": 28442422,
       "website": "https://frax.com"
     },
     {
@@ -30576,7 +33444,7 @@
         "txShareCovered": null,
         "uncovered": 2
       },
-      "tvlUsd": 6590827,
+      "tvlUsd": 6624829,
       "website": "https://seamlessprotocol.com"
     }
   ],
@@ -30587,7 +33455,7 @@
     "repo": "ethereum/clear-signing-erc7730-registry"
   },
   "sources": {
-    "defillama": "2026-11-06T23:33:22.039Z",
+    "defillama": "2026-11-06T23:57:58.804Z",
     "onchain": {
       "newest": "2026-11-06T23:32:29.331Z",
       "oldest": "2026-11-06T20:02:09.107Z"
@@ -30597,7 +33465,7 @@
     "contracts": 564,
     "covered": 68,
     "describedElsewhere": 25,
-    "drafts": 0,
+    "drafts": 53,
     "partial": 30,
     "perDay": 781683.5,
     "protocols": 96,
