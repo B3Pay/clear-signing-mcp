@@ -127,8 +127,9 @@ export interface FetchOptions {
 
 const limits = {
   sourcify: new Limiter(4),
+  // Two at a time: three drew HTTP 429 on a third of Ethereum's contracts.
   blockscout: Object.fromEntries(
-    Object.keys(TRACKED_CHAINS).map((id) => [id, new Limiter(3)])
+    Object.keys(TRACKED_CHAINS).map((id) => [id, new Limiter(2)])
   ) as Record<string, Limiter>,
   defillama: new Limiter(1),
 }
@@ -210,7 +211,7 @@ export async function fetchAll(
   // start before it, each with what the scan read.
   const portalScans = new Map<
     TrackedChainId,
-    Promise<Map<string, PortalSample> | Error>
+    Promise<Map<string, PortalSample | Error> | Error>
   >()
   for (const id of Object.keys(SQD_DATASETS).map(Number) as TrackedChainId[]) {
     const addresses = jobs
@@ -227,8 +228,11 @@ export async function fetchAll(
           : { deadline: options.deadline - PORTAL_MARGIN_MS }),
       }).then(
         (samples) => {
+          const failed = [...samples.values()].filter(
+            (sample) => sample instanceof Error
+          ).length
           log(
-            `${TRACKED_CHAINS[id]}: sampled ${samples.size} contracts through the SQD portal in ${Math.round((Date.now() - started) / 1000)} s`
+            `${TRACKED_CHAINS[id]}: sampled ${samples.size - failed} of ${samples.size} contracts through the SQD portal in ${Math.round((Date.now() - started) / 1000)} s`
           )
           return samples
         },

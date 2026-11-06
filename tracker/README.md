@@ -48,9 +48,11 @@ contract, scanned back from the finalized head for at most 30 days. One scan
 per chain asks about 50 contracts per request, in windows each three times
 longer than the last; a contract leaves the scan once it has its 1,000, so a
 busy one costs one short window and the quiet ones share the long ones. The
-scan stops reading 10 minutes before a run's time limit and drops the window
-it was in; a contract still short of 1,000 then keeps every transaction of
-the span the whole windows read, and that span is recorded (`covered`).
+scan stops reading 10 minutes before a run's time limit. A request the
+portal still refuses after eight tries (it answers 529 "overloaded" at
+times), or one the time limit cuts short, stops only its own 50 contracts,
+and keeps nothing of that window: each keeps every transaction of the whole
+windows read before, and that span is recorded (`covered`).
 
 `report` resolves each deployment's descriptor from a local clone of the
 registry with Sourcify's `@ethereum-sourcify/clear-signing` library,

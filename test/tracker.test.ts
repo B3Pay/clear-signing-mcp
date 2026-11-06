@@ -124,6 +124,13 @@ describe("statusOf", () => {
   })
 })
 
+function sampleIn<T>(samples: Map<string, T | Error>, address: string): T {
+  const found = samples.get(address)
+  if (found instanceof Error) throw found
+  if (found === undefined) throw new Error(`no sample for ${address}`)
+  return found
+}
+
 describe("the SQD portal source", () => {
   // A chain of 2-second blocks with one transaction to the contract every
   // 1,000 blocks, whose portal answers at most 25 blocks at a time.
@@ -274,12 +281,12 @@ describe("the SQD portal source", () => {
     })
     const { latestPortalSamples } = await import("../tracker/sqd.js")
     const samples = await latestPortalSamples(8453, [BUSY, CONTRACT], 200)
-    const busy = samples.get(BUSY)!
+    const busy = sampleIn(samples, BUSY)
     expect(busy.txs).toHaveLength(200)
     expect(busy.txs[0]!.blockNumber).toBe(HEAD)
     expect(busy.txs[199]!.blockNumber).toBe(HEAD - 199)
     expect(busy.complete30Days).toBe(false)
-    const quiet = samples.get(CONTRACT)!
+    const quiet = sampleIn(samples, CONTRACT)
     expect(quiet.txs).toHaveLength(200)
     expect(quiet.txs[0]!.blockNumber).toBe(HEAD)
     // Once BUSY had its sample, the scans asked for CONTRACT alone.
@@ -303,7 +310,7 @@ describe("the SQD portal source", () => {
     })
     // It stopped within a request or two of the limit, not 30 days back.
     expect(now - deadline).toBeLessThanOrEqual(2 * 60_000)
-    const sample = samples.get(CONTRACT)!
+    const sample = sampleIn(samples, CONTRACT)
     expect(sample.complete30Days).toBe(false)
     expect(sample.covered).not.toBeNull()
     const { since, until } = sample.covered!
@@ -321,7 +328,63 @@ describe("the SQD portal source", () => {
     const late = await latestPortalSamples(8453, [CONTRACT], 5_000, {
       deadline: now - 1,
     })
-    expect(late.size).toBe(0)
+    expect(late.get(CONTRACT)).toBeInstanceOf(Error)
+  })
+
+  it("stops only the contracts of a batch the portal fails", async () => {
+    // 60 quiet contracts: one request of 50 and one of 10 per window. The
+    // portal answers each with the last block it read, and fails the batch
+    // of 50 from the second window on, and a lone contract always.
+    const quiet = Array.from(
+      { length: 60 },
+      (_, i) => `0x${(0xd000 + i).toString(16).padStart(40, "0")}`
+    )
+    const LONE = "0x00000000000000000000000000000000000000e0"
+    const logged: string[] = []
+    vi.stubGlobal("fetch", (input: string, init?: { body?: string }) => {
+      if (input.endsWith("/finalized-head"))
+        return Promise.resolve(Response.json({ number: HEAD, hash: "0xhead" }))
+      const body = JSON.parse(init?.body ?? "{}") as {
+        fromBlock: number
+        toBlock: number
+        includeAllBlocks?: boolean
+        transactions?: { to: string[] }[]
+      }
+      const marker = (block: number) =>
+        new Response(
+          `${JSON.stringify({ header: { number: block, timestamp: timeOf(block) } })}\n`
+        )
+      if (body.includeAllBlocks) return Promise.resolve(marker(body.fromBlock))
+      const wanted = body.transactions?.[0]?.to ?? []
+      if (
+        wanted.includes(LONE) ||
+        (wanted.length === 50 && body.fromBlock < HEAD - 1_000)
+      )
+        return Promise.resolve(new Response("broken", { status: 500 }))
+      return Promise.resolve(marker(body.toBlock))
+    })
+    const { latestPortalSamples } = await import("../tracker/sqd.js")
+    const samples = await latestPortalSamples(8453, quiet, 100, {
+      log: (line) => logged.push(line),
+    })
+    const firstWindow = HEAD - 299
+    const cut = quiet.filter((a) => {
+      const sample = sampleIn(samples, a)
+      return !sample.complete30Days
+    })
+    expect(cut).toHaveLength(50)
+    for (const address of cut)
+      expect(sampleIn(samples, address).covered).toEqual({
+        since: timeOf(firstWindow),
+        until: timeOf(HEAD),
+      })
+    expect(logged.some((line) => line.includes("50 contracts stop here"))).toBe(
+      true
+    )
+    // A contract no whole window read gets the portal's error.
+    const lone = await latestPortalSamples(8453, [LONE], 100)
+    expect(lone.get(LONE)).toBeInstanceOf(Error)
+    expect((lone.get(LONE) as Error).message).toContain("HTTP 500")
   })
 
   it("takes an empty answer as no transactions in the range", async () => {

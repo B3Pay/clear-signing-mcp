@@ -38,15 +38,18 @@ export interface GetJsonOptions {
 
 /**
  * A bounded JSON read that retries a 429, a 5xx or a network failure, with
- * exponential backoff from 2 seconds. A 4xx other than 404 and 429 fails at
- * once; a 404 is `null` when `allowNotFound` is set.
+ * exponential backoff: from 2 seconds after a 5xx or a network failure, and
+ * from 5 seconds to a minute after a 429 (Blockscout's keyless limit), each
+ * wait shifted by up to a quarter so that parallel reads spread out. A 4xx
+ * other than 404 and 429 fails at once; a 404 is `null` when
+ * `allowNotFound` is set.
  */
 export async function getJson(
   url: string,
   limiter: Limiter,
   options: GetJsonOptions = {}
 ): Promise<unknown> {
-  const attempts = options.attempts ?? 4
+  const attempts = options.attempts ?? 6
   let last: unknown
   for (let attempt = 0; attempt < attempts; attempt += 1) {
     try {
@@ -67,7 +70,10 @@ export async function getJson(
         status === 429 ||
         (status >= 500 && status < 600)
       if (!retry || attempt === attempts - 1) break
-      await sleep(2_000 * 2 ** attempt)
+      const base = status === 429 ? 5_000 : 2_000
+      await sleep(
+        Math.min(60_000, base * 2 ** attempt) * (0.75 + Math.random() / 2)
+      )
     }
   }
   throw last instanceof Error ? last : new Error(String(last))

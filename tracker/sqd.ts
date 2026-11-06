@@ -84,9 +84,14 @@ function limiterFor(dataset: string): Limiter {
   return found
 }
 
+/** Tries per portal request. The public portal answers 529 "overloaded"
+ *  for minutes at a time, so the waits grow to a minute. */
+const ATTEMPTS = 8
+
 /**
  * One portal request, retried on a rate limit (honouring Retry-After), an
- * overload, a 5xx or a network failure.
+ * overload, a 5xx or a network failure: waits of 5 seconds doubling to a
+ * minute, each shifted by up to a quarter so that parallel scans spread out.
  */
 async function request(
   dataset: string,
@@ -95,8 +100,9 @@ async function request(
 ): Promise<string | null> {
   const url = `${SQD_PORTAL}/${dataset}/${path}`
   let last: unknown
-  for (let attempt = 0; attempt < 6; attempt += 1) {
-    let wait = 2_000 * 2 ** attempt
+  for (let attempt = 0; attempt < ATTEMPTS; attempt += 1) {
+    let wait =
+      Math.min(60_000, 5_000 * 2 ** attempt) * (0.75 + Math.random() / 2)
     try {
       const response = await limiterFor(dataset).run(() =>
         fetch(url, {
@@ -128,7 +134,7 @@ async function request(
     } catch (error) {
       last = error
     }
-    if (attempt < 5) await sleep(wait)
+    if (attempt < ATTEMPTS - 1) await sleep(wait)
   }
   throw last instanceof Error ? last : new Error(String(last))
 }
@@ -215,6 +221,11 @@ class TimeLimitReached extends Error {
   }
 }
 
+/** Parts one scan may take. The portal ends a response after a few hundred
+ *  blocks of Base (each part also names the last block it read), so 30
+ *  days there is about 1,500 parts; this only stops a runaway loop. */
+const MAX_PARTS = 20_000
+
 /** Every transaction to one of `addresses` in blocks `from..to`, following
  *  the portal's continuation: a response that stops short of `to` is
  *  continued from the block after its last one, and an empty one ends the
@@ -230,9 +241,9 @@ async function scan(
   const out: PortalTx[] = []
   let next = from
   for (let part = 0; next <= to; part += 1) {
-    if (part >= 500)
+    if (part >= MAX_PARTS)
       throw new Error(
-        `the portal returned ${dataset} blocks ${from}..${to} in more than 500 parts`
+        `the portal returned ${dataset} blocks ${from}..${to} in more than ${MAX_PARTS} parts`
       )
     if (part > 0 && deadline !== undefined && Date.now() > deadline)
       throw new TimeLimitReached()
@@ -284,6 +295,10 @@ async function scan(
         })
       }
     const last = blocks[blocks.length - 1]!.header.number
+    if (last < next)
+      throw new Error(
+        `the portal answered ${dataset} block ${last} when asked from ${next}`
+      )
     if (last >= to) break
     next = last + 1
   }
@@ -300,7 +315,7 @@ export interface PortalScanOptions {
   /** Read no more after this time (epoch ms): no new window, and a window
    *  in progress is dropped at its next part. Contracts still short of the
    *  size asked for keep what the windows before read, with the span those
-   *  covered; if no window was read, the result is empty. */
+   *  covered; a contract no whole window read gets an Error. */
   readonly deadline?: number
 }
 
@@ -316,7 +331,7 @@ export async function latestPortalSamples(
   addresses: readonly string[],
   size: number,
   options: PortalScanOptions = {}
-): Promise<Map<string, PortalSample>> {
+): Promise<Map<string, PortalSample | Error>> {
   const { log, deadline } = options
   const dataset = SQD_DATASETS[chainId]
   if (!dataset) throw new Error(`no SQD portal dataset for chain ${chainId}`)
@@ -325,8 +340,10 @@ export async function latestPortalSamples(
     addresses.map((a) => [a.toLowerCase(), []])
   )
   const pending = new Set(found.keys())
-  /** The oldest block every window so far has read. */
-  let scannedFrom: number | null = null
+  /** Per contract, the oldest block of the whole windows read for it. */
+  const scannedFrom = new Map<string, number>()
+  /** Contracts whose scan failed before any whole window. */
+  const failed = new Map<string, Error>()
   let to = clock.head
   let span = Math.max(
     1,
@@ -335,7 +352,7 @@ export async function latestPortalSamples(
   for (let window = 0; window < 24 && pending.size > 0; window += 1) {
     if (deadline !== undefined && Date.now() > deadline) {
       log?.(
-        `${dataset}: time limit reached, ${pending.size} contracts keep what blocks ${scannedFrom ?? "-"}..${clock.head} hold`
+        `${dataset}: time limit reached, ${pending.size} contracts keep what the windows before read`
       )
       break
     }
@@ -345,55 +362,83 @@ export async function latestPortalSamples(
     const batches: string[][] = []
     for (let i = 0; i < list.length; i += ADDRESSES_PER_REQUEST)
       batches.push(list.slice(i, i + ADDRESSES_PER_REQUEST))
-    // The dataset's limiter decides how many of these run at once. A window
-    // the deadline cuts short is dropped whole: what it read of some
-    // contracts would not say what it missed of the others.
-    let answers: PortalTx[][]
-    try {
-      answers = await Promise.all(
-        batches.map((batch) => scan(dataset, from, to, batch, deadline))
-      )
-    } catch (error) {
-      if (!(error instanceof TimeLimitReached)) throw error
-      log?.(
-        `${dataset}: time limit reached in blocks ${from}..${to}, ${pending.size} contracts keep what blocks ${scannedFrom ?? "-"}..${clock.head} hold`
-      )
-      break
-    }
+    // The dataset's limiter decides how many of these run at once. A batch
+    // that fails, or that the deadline cuts short, keeps nothing of this
+    // window, so its contracts stop with what the windows before read: what
+    // it read of some blocks would not say what it missed of the others.
+    const answers = await Promise.allSettled(
+      batches.map((batch) => scan(dataset, from, to, batch, deadline))
+    )
     let count = 0
-    for (const txs of answers) {
-      count += txs.length
-      for (const tx of txs) found.get(tx.to)?.push(tx)
-    }
-    scannedFrom = from
+    let timeLimit = false
+    answers.forEach((answer, i) => {
+      const batch = batches[i]!
+      if (answer.status === "fulfilled") {
+        count += answer.value.length
+        for (const tx of answer.value) found.get(tx.to)?.push(tx)
+        for (const address of batch) scannedFrom.set(address, from)
+        return
+      }
+      const error =
+        answer.reason instanceof Error
+          ? answer.reason
+          : new Error(String(answer.reason))
+      if (error instanceof TimeLimitReached) timeLimit = true
+      else
+        log?.(
+          `${dataset} blocks ${from}..${to}: ${batch.length} contracts stop here: ${error.message}`
+        )
+      for (const address of batch) {
+        pending.delete(address)
+        if (!scannedFrom.has(address)) failed.set(address, error)
+      }
+    })
     for (const address of list)
       if ((found.get(address)?.length ?? 0) >= size) pending.delete(address)
     log?.(
       `${dataset} blocks ${from}..${to}: ${count} transactions to ${list.length} contracts in ${Math.round((Date.now() - started) / 1000)} s, ${pending.size} still short of ${size}`
     )
+    if (timeLimit) {
+      log?.(
+        `${dataset}: time limit reached in blocks ${from}..${to}; contracts keep what the windows before read`
+      )
+      break
+    }
     if (from <= clock.boundary) break
     to = from - 1
     span *= GROWTH
   }
-  const since =
-    scannedFrom === null || pending.size === 0
-      ? null
-      : await blockTime(dataset, scannedFrom)
-  const out = new Map<string, PortalSample>()
+  // Each contract still short of `size` holds every transaction of the
+  // blocks its whole windows read; their first blocks' times bound that span.
+  const times = new Map<number, number>()
+  for (const [address, txs] of found) {
+    const first = scannedFrom.get(address)
+    if (first === undefined || txs.length >= size || times.has(first)) continue
+    times.set(first, await blockTime(dataset, first))
+  }
+  const out = new Map<string, PortalSample | Error>()
   for (const [address, txs] of found) {
     txs.sort((a, b) => b.blockNumber - a.blockNumber || b.index - a.index)
-    if (!pending.has(address)) {
+    const first = scannedFrom.get(address)
+    if (txs.length >= size) {
       out.set(address, {
         txs: txs.slice(0, size),
         covered: null,
         complete30Days: false,
       })
-    } else if (since !== null) {
+    } else if (first !== undefined) {
+      const since = times.get(first)!
       out.set(address, {
         txs,
         covered: { since, until: clock.headTime },
         complete30Days: clock.headTime - since >= MONTH,
       })
+    } else {
+      out.set(
+        address,
+        failed.get(address) ??
+          new Error("the portal scan stopped before it read any block")
+      )
     }
   }
   return out
@@ -407,6 +452,7 @@ export async function latestPortalTransactions(
 ): Promise<PortalSample> {
   const samples = await latestPortalSamples(chainId, [address], size)
   const sample = samples.get(address.toLowerCase())
-  if (!sample) throw new Error(`the portal scan read no blocks for ${address}`)
+  if (sample === undefined || sample instanceof Error)
+    throw sample ?? new Error(`the portal scan read no blocks for ${address}`)
   return sample
 }
