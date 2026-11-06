@@ -81,6 +81,13 @@ adds the revocation check on Ethereum mainnet).
   ABI's state-changing functions when there were no recent calls);
   `partial` when it formats less, or its reach cannot be measured;
   `uncovered` when the registry has no descriptor for the deployment.
+- **Described elsewhere**: for a deployment the registry does not list, its
+  descriptor for another deployment (the same address on another chain, or
+  another contract of the same protocol) whose every formatted function is
+  in this contract's ABI, with the share of this contract's recent calls it
+  formats, measured as above. The descriptor does not list this deployment,
+  and whether it fits it is for the protocol to check; the totals count the
+  contracts it would make `covered` if it did.
 - **Totals** weight each contract's share by its transactions per day.
 - **Attestation**: `verified` only when an ERC-8176 attestation by a trusted
   auditor verifies and is not revoked; never claimed otherwise.
@@ -123,7 +130,9 @@ node tracker/dist/tracker/cli.js check-drafts --registry <clone> \
 ```
 
 - `draft-top` drafts the contracts with no registry descriptor, busiest
-  first by distinct senders a day. A protocol's contract deployed under one
+  first by distinct senders a day, leaving out those whose calls a
+  descriptor elsewhere already mostly formats (half or more): adding the
+  deployment to it is the better change. A protocol's contract deployed under one
   name on several chains is drafted once, from its busiest deployment's
   transactions, with the others in its `deployments` when their ABI has
   every function it describes.

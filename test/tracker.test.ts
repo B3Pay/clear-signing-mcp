@@ -1,8 +1,14 @@
-import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs"
+import { copyFileSync, mkdirSync, mkdtempSync, writeFileSync } from "node:fs"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { afterEach, describe, expect, it, vi } from "vitest"
-import { encodeFunctionData, getAddress, parseAbi, type Hex } from "viem"
+import {
+  encodeFunctionData,
+  getAddress,
+  parseAbi,
+  toFunctionSelector,
+  type Hex,
+} from "viem"
 import {
   addressesInCall,
   latestTransactions,
@@ -10,12 +16,19 @@ import {
   type ListedTx,
 } from "../tracker/fetch.js"
 import { choosePreview, draftCandidates } from "../tracker/draft.js"
-import type { DescriptorFacts } from "../tracker/registry.js"
+import type {
+  DescribedFunctions,
+  DescriptorFacts,
+  RegistrySnapshot,
+} from "../tracker/registry.js"
 import {
+  bestElsewhere,
+  buildReport,
   readDraftSummaries,
   statusOf,
   withoutChain,
 } from "../tracker/report.js"
+import type { UniverseProtocol } from "../tracker/universe.js"
 
 const NOW = 1_800_000_000
 const DAY = 86_400
@@ -580,6 +593,7 @@ describe("draftCandidates", () => {
   const B = "0x00000000000000000000000000000000000000b2"
   const C = "0x00000000000000000000000000000000000000c3"
   const D = "0x00000000000000000000000000000000000000d4"
+  const E = "0x00000000000000000000000000000000000000e5"
   const record = (
     chainId: number,
     address: string,
@@ -603,8 +617,12 @@ describe("draftCandidates", () => {
     chainId: number,
     address: string,
     name: string,
-    status: string
-  ) => ({ chainId, address, name, status, sample: { count: 1 } })
+    status: string,
+    elsewhere: {
+      signerShareCovered: number | null
+      txShareCovered: number | null
+    } | null = null
+  ) => ({ chainId, address, name, status, sample: { count: 1 }, elsewhere })
   mkdirSync(join(dir, "data"), { recursive: true })
   writeFileSync(
     join(dir, "data", "coverage.json"),
@@ -622,7 +640,18 @@ describe("draftCandidates", () => {
         {
           id: "lend",
           name: "Lend",
-          contracts: [contract(10, D, "Market", "uncovered")],
+          contracts: [
+            // A descriptor elsewhere formats 30% of D's calls: still drafted.
+            contract(10, D, "Market", "uncovered", {
+              signerShareCovered: null,
+              txShareCovered: 0.3,
+            }),
+            // ...and 60% of E's senders' calls: extending it is the change.
+            contract(42161, E, "Market", "uncovered", {
+              signerShareCovered: 0.6,
+              txShareCovered: 0.1,
+            }),
+          ],
         },
       ],
     })
@@ -633,8 +662,9 @@ describe("draftCandidates", () => {
   record(8453, B, 1000, 500, 1000)
   record(1, C, 1000, 900, 5000)
   record(10, D, 100, 50, 400)
+  record(42161, E, 100, 100, 1000)
 
-  it("groups a contract's deployments and ranks by senders a day", () => {
+  it("groups a contract's deployments and ranks by senders a day, leaving out one described elsewhere", () => {
     const candidates = draftCandidates(dir)
     expect(candidates.map((c) => `${c.protocol}/${c.name}`)).toEqual([
       "swap/Router",
@@ -646,5 +676,224 @@ describe("draftCandidates", () => {
     expect(router.sendersPerDay).toBeCloseTo(600)
     expect(router.owner).toBe("Swap")
     expect(candidates[1]!.sendersPerDay).toBeCloseTo(200)
+  })
+})
+
+describe("bestElsewhere", () => {
+  const X = "0x00000000000000000000000000000000000000e5"
+  const Y = "0x00000000000000000000000000000000000000f6"
+  const described = (
+    chainId: number,
+    address: string,
+    selectors: string[]
+  ): DescribedFunctions => ({
+    chainId,
+    address,
+    path: `registry/p/calldata-${chainId}.json`,
+    url: `https://github.com/ethereum/clear-signing-erc7730-registry/blob/c/registry/p/calldata-${chainId}.json`,
+    selectors: new Set(selectors),
+  })
+  // 90 calls of a by 2 senders, 10 of b by 8; plain transfers left out.
+  const sample = {
+    selectors: { "0xaaaaaaaa": 90, "0xbbbbbbbb": 10, "0x": 5 },
+    sendersBySelector: { "0xaaaaaaaa": 2, "0xbbbbbbbb": 8, "0x": 50 },
+  }
+  const abi = new Set(["0xaaaaaaaa", "0xbbbbbbbb", "0xcccccccc"])
+
+  it("picks the descriptor that formats the most senders' calls", () => {
+    const best = bestElsewhere(X, abi, sample, [
+      { described: described(1, Y, ["0xaaaaaaaa"]), label: "Router" },
+      {
+        described: described(137, X, ["0xbbbbbbbb", "0xcccccccc"]),
+        label: "Router",
+      },
+    ])
+    expect(best).toMatchObject({
+      chainId: 137,
+      chainName: "Polygon",
+      address: getAddress(X),
+      sameAddress: true,
+      signerShareCovered: 0.8,
+      txShareCovered: 0.1,
+    })
+  })
+
+  it("passes over a descriptor that formats a function the ABI lacks", () => {
+    const candidates = [
+      {
+        described: described(1, Y, ["0xbbbbbbbb", "0xdddddddd"]),
+        label: "Router",
+      },
+    ]
+    expect(bestElsewhere(X, abi, sample, candidates)).toBeNull()
+  })
+
+  it("takes only the same address on another chain when there is no ABI", () => {
+    const best = bestElsewhere(X, null, sample, [
+      { described: described(1, Y, ["0xbbbbbbbb"]), label: "Router" },
+      { described: described(1, X, ["0xaaaaaaaa"]), label: "Router" },
+    ])
+    expect(best).toMatchObject({
+      address: getAddress(X),
+      sameAddress: true,
+      signerShareCovered: 0.2,
+    })
+  })
+
+  it("offers no chain it cannot name, and no descriptor that formats no recent call", () => {
+    const sepolia = [
+      { described: described(11155111, X, ["0xbbbbbbbb"]), label: "Router" },
+    ]
+    expect(bestElsewhere(X, abi, sample, sepolia)).toBeNull()
+    const idle = [
+      { described: described(1, X, ["0xcccccccc"]), label: "Router" },
+    ]
+    expect(bestElsewhere(X, abi, sample, idle)).toBeNull()
+  })
+
+  it("measures by transactions when the sample has no senders", () => {
+    const best = bestElsewhere(X, abi, { selectors: sample.selectors }, [
+      { described: described(1, X, ["0xaaaaaaaa"]), label: "Router" },
+    ])
+    expect(best).toMatchObject({
+      txShareCovered: 0.9,
+      signerShareCovered: null,
+    })
+  })
+})
+
+describe("the report's descriptor elsewhere", () => {
+  // The registry's Disperse descriptor lists Ethereum only; the tracker
+  // follows the same address on Arbitrum One, and a lookalike on Base whose
+  // ABI lacks one of the functions the descriptor formats.
+  const DISPERSE = getAddress("0xD152f549545093347A162Dce210e7293f1452150")
+  const LOOKALIKE = getAddress("0x00000000000000000000000000000000000000b7")
+  const root = mkdtempSync(join(tmpdir(), "tracker-elsewhere-"))
+  const registryDir = join(root, "registry-clone")
+  const dataDir = join(root, "data")
+  const path = "registry/disperse/calldata-Disperse.json"
+  mkdirSync(join(registryDir, "registry", "disperse"), { recursive: true })
+  copyFileSync(
+    join(
+      import.meta.dirname,
+      "fixtures",
+      "registry",
+      "disperse",
+      "calldata-Disperse.json"
+    ),
+    join(registryDir, path)
+  )
+  const registry: RegistrySnapshot = {
+    dir: registryDir,
+    commit: "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    committedAt: "2026-11-04T12:20:57+00:00",
+    index: {
+      calldataIndex: { [`eip155:1:${DISPERSE.toLowerCase()}`]: path },
+      typedDataIndex: {},
+    },
+  }
+  const full = parseAbi([
+    "function disperseEther(address[] recipients, uint256[] values) payable",
+    "function disperseToken(address token, address[] recipients, uint256[] values)",
+    "function disperseTokenSimple(address token, address[] recipients, uint256[] values)",
+  ])
+  const ether = toFunctionSelector(full[0])
+  const token = toFunctionSelector(full[1])
+  const write = (chainId: number, address: string, abi: typeof full) => {
+    const at = (kind: string) =>
+      join(dataDir, kind, String(chainId), `${address.toLowerCase()}.json`)
+    mkdirSync(join(dataDir, "onchain", String(chainId)), { recursive: true })
+    mkdirSync(join(dataDir, "abis", String(chainId)), { recursive: true })
+    writeFileSync(
+      at("abis"),
+      JSON.stringify({ source: "sourcify", address, abi })
+    )
+    writeFileSync(
+      at("onchain"),
+      JSON.stringify({
+        format: 2,
+        chainId,
+        address,
+        fetchedAt: "2026-11-06T12:00:00.000Z",
+        codeBytes: 1000,
+        sourcify: { status: "verified", match: "exact_match" },
+        blockscout: { status: "skipped", reason: "test" },
+        abi: { source: "sourcify", address, functions: abi.length },
+        sample: {
+          source: "sqd-portal",
+          requested: 1000,
+          count: 40,
+          failed: 0,
+          oldest: NOW - 10 * DAY,
+          newest: NOW,
+          last30Days: 40,
+          perDay: 4,
+          selectors: { [ether]: 30, [token]: 10 },
+          senders: 12,
+          sendersBySelector: { [ether]: 9, [token]: 3 },
+        },
+      })
+    )
+  }
+  write(1, DISPERSE, full)
+  write(42161, DISPERSE, full)
+  write(8453, LOOKALIKE, full.slice(0, 2) as unknown as typeof full)
+  const contract = (chainId: 1 | 8453 | 42161, address: `0x${string}`) => ({
+    chainId,
+    address,
+    name: "Disperse",
+    label: "Disperse",
+    role: "Sends ETH or a token to many addresses in one call",
+    source: "https://disperse.app/",
+    sourceKind: "raw" as const,
+  })
+  const universe: UniverseProtocol[] = [
+    {
+      protocol: "disperse",
+      name: "Disperse",
+      category: "payments",
+      website: "https://disperse.app/",
+      group: "payments.json",
+      contracts: [
+        contract(1, DISPERSE),
+        contract(42161, DISPERSE),
+        contract(8453, LOOKALIKE),
+      ],
+    },
+  ]
+
+  it("offers the same address's descriptor on another chain, and counts it", async () => {
+    const report = await buildReport({
+      universe,
+      dataDir,
+      registry,
+      previews: false,
+      now: new Date(NOW * 1000),
+    })
+    const byChain = new Map(
+      report.protocols[0]!.contracts.map((c) => [c.chainId, c])
+    )
+    expect(byChain.get(1)).toMatchObject({ status: "covered", elsewhere: null })
+    expect(byChain.get(42161)).toMatchObject({
+      status: "uncovered",
+      elsewhere: {
+        chainId: 1,
+        chainName: "Ethereum",
+        address: DISPERSE,
+        label: "Disperse",
+        sameAddress: true,
+        path,
+        signerShareCovered: 1,
+        txShareCovered: 1,
+      },
+    })
+    // The lookalike's ABI lacks disperseTokenSimple, which the descriptor formats.
+    expect(byChain.get(8453)).toMatchObject({
+      status: "uncovered",
+      elsewhere: null,
+    })
+    expect(report.totals.describedElsewhere).toBe(1)
+    expect(report.chains["42161"].describedElsewhere).toBe(1)
+    expect(report.chains["8453"].describedElsewhere).toBe(0)
   })
 })

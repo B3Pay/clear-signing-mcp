@@ -54,6 +54,10 @@ export interface Totals {
   readonly uncovered: number
   /** Contracts with a B3Pay draft descriptor tested on real transactions. */
   readonly drafts: number
+  /** Uncovered contracts whose recent calls the registry's descriptor for
+   *  another deployment (Contract.elsewhere) formats as fully as "covered"
+   *  asks: they would count as covered if that descriptor listed them. */
+  readonly describedElsewhere: number
   /** Share (0..1) of recent transactions, weighted by each contract's
    *  transactions per day, whose function the registry formats. Plain
    *  transfers with no calldata are left out. Null when no sample. */
@@ -123,6 +127,27 @@ export interface Contract {
     readonly senders: number | null // distinct senders of this function in the sample
     readonly formatted: boolean // the registry descriptor formats it
   }[]
+  /** For a deployment the registry does not list: the registry's descriptor
+   *  for another deployment (the same address on another chain, or another
+   *  contract of the same protocol) that formats the most of this contract's
+   *  recent calls. Every function it formats is in this contract's ABI (with
+   *  no ABI, it is the same address). It does not list this deployment, and
+   *  whether it fits this one is for the protocol to check. Null when none
+   *  formats any recent call. */
+  readonly elsewhere: null | {
+    readonly chainId: number
+    readonly chainName: string
+    readonly address: string // EIP-55
+    /** The described deployment's label when it is tracked, else this contract's. */
+    readonly label: string
+    readonly sameAddress: boolean
+    readonly path: string
+    readonly url: string
+    /** 0..1 of this contract's recent calls with calldata it formats. */
+    readonly txShareCovered: number | null
+    /** 0..1 of this contract's distinct senders per function it formats. */
+    readonly signerShareCovered: number | null
+  }
   readonly draft: null | {
     /** Functions the draft formats; each has a test built from a real transaction. */
     readonly functions: number

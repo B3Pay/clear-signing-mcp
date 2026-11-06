@@ -78,17 +78,17 @@ export interface CheckOptions {
   readonly mainnet?: ChainClient
 }
 
-/**
- * The registry's descriptor for a deployment, with what it formats and
- * whether a trusted auditor's attestation verifies; null when the index
- * lists nothing for (chainId, address).
- */
-export async function descriptorFacts(
+interface Resolved {
+  readonly path: string
+  readonly descriptor: Descriptor
+}
+
+/** The descriptor the calldata index lists for (chainId, address), includes resolved. */
+async function resolveDescriptor(
   snapshot: RegistrySnapshot,
   chainId: number,
-  address: string,
-  options: CheckOptions = {}
-): Promise<DescriptorFacts | null> {
+  address: string
+): Promise<Resolved | null> {
   const path = snapshot.index.calldataIndex[caip10(chainId, address)]
   if (!path) return null
   const resolver = createFilesystemResolver({
@@ -101,20 +101,45 @@ export async function descriptorFacts(
   })
   if ("warning" in result)
     throw new Error(`${path} did not resolve: ${result.warning.message}`)
-  const descriptor: Descriptor = result.descriptor
+  return { path, descriptor: result.descriptor }
+}
+
+function formatsOf(descriptor: Descriptor): Map<string, string> {
   const formats = new Map<string, string>()
   for (const fn of functionsOf(descriptor))
     if (fn.selector) formats.set(fn.selector.toLowerCase(), fn.format)
+  return formats
+}
+
+function urlOf(snapshot: RegistrySnapshot, path: string): string {
+  return `https://github.com/${REGISTRY_REPO}/blob/${snapshot.commit}/${path
+    .split("/")
+    .map(encodeURIComponent)
+    .join("/")}`
+}
+
+/**
+ * The registry's descriptor for a deployment, with what it formats and
+ * whether a trusted auditor's attestation verifies; null when the index
+ * lists nothing for (chainId, address).
+ */
+export async function descriptorFacts(
+  snapshot: RegistrySnapshot,
+  chainId: number,
+  address: string,
+  options: CheckOptions = {}
+): Promise<DescriptorFacts | null> {
+  const resolved = await resolveDescriptor(snapshot, chainId, address)
+  if (!resolved) return null
+  const { path, descriptor } = resolved
+  const formats = formatsOf(descriptor)
   const owner =
     typeof descriptor.metadata?.owner === "string"
       ? descriptor.metadata.owner
       : null
   return {
     path,
-    url: `https://github.com/${REGISTRY_REPO}/blob/${snapshot.commit}/${path
-      .split("/")
-      .map(encodeURIComponent)
-      .join("/")}`,
+    url: urlOf(snapshot, path),
     owner,
     selectors: new Set(formats.keys()),
     formats,
@@ -127,6 +152,54 @@ export async function descriptorFacts(
       options
     ),
   }
+}
+
+/** What a deployment's descriptor formats, without the attestation check. */
+export interface DescribedFunctions {
+  readonly chainId: number
+  /** Lowercase, as the calldata index keys it. */
+  readonly address: string
+  readonly path: string
+  readonly url: string
+  /** Lowercase 4-byte selectors of the functions the descriptor formats. */
+  readonly selectors: ReadonlySet<string>
+}
+
+/**
+ * The functions the registry's descriptor for (chainId, address) formats;
+ * null when the index lists nothing for it. No network: this is the cheap
+ * lookup for comparing one deployment's calls with another's descriptor.
+ */
+export async function describedFunctions(
+  snapshot: RegistrySnapshot,
+  chainId: number,
+  address: string
+): Promise<DescribedFunctions | null> {
+  const resolved = await resolveDescriptor(snapshot, chainId, address)
+  if (!resolved) return null
+  return {
+    chainId,
+    address: address.toLowerCase(),
+    path: resolved.path,
+    url: urlOf(snapshot, resolved.path),
+    selectors: new Set(formatsOf(resolved.descriptor).keys()),
+  }
+}
+
+/** The chains the calldata index lists each address on, by lowercase address. */
+export function chainsByAddress(
+  snapshot: RegistrySnapshot
+): ReadonlyMap<string, readonly number[]> {
+  const out = new Map<string, number[]>()
+  for (const key of Object.keys(snapshot.index.calldataIndex)) {
+    const match = /^eip155:(\d+):(0x[0-9a-f]{40})$/.exec(key)
+    if (!match) continue
+    const chains = out.get(match[2]!) ?? []
+    chains.push(Number(match[1]))
+    out.set(match[2]!, chains)
+  }
+  for (const chains of out.values()) chains.sort((a, b) => a - b)
+  return out
 }
 
 async function attestationOf(

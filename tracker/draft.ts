@@ -31,7 +31,7 @@ import {
   type TokensFile,
 } from "./data.js"
 import { cleanText } from "../src/text.js"
-import type { DraftSummary } from "./report.js"
+import { elsewhereShare, type DraftSummary } from "./report.js"
 import type { CoverageReport } from "./report-schema.js"
 import { deploymentKey, loadUniverse } from "./universe.js"
 
@@ -612,8 +612,17 @@ export interface DraftCandidate {
 }
 
 /**
+ * A contract whose recent calls the registry's descriptor for another
+ * deployment already formats at least this share of is not drafted: adding
+ * the deployment to that descriptor, and any function it lacks, is the
+ * better change.
+ */
+export const ELSEWHERE_SKIP_SHARE = 0.5
+
+/**
  * The contracts most worth a draft, from the report (data/coverage.json):
- * those the registry has no descriptor for, ranked by an estimate of how
+ * those the registry has no descriptor for, and no descriptor elsewhere that
+ * formats most of their calls (ELSEWHERE_SKIP_SHARE), ranked by an estimate of how
  * many distinct senders call them a day (each deployment's senders per
  * sampled transaction, times its transactions a day). Deployments of one
  * protocol's contract under the same name on several chains are one
@@ -631,6 +640,7 @@ export function draftCandidates(trackerDir: string): DraftCandidate[] {
   for (const protocol of report.protocols)
     for (const contract of protocol.contracts) {
       if (contract.status !== "uncovered" || !contract.sample) continue
+      if (elsewhereShare(contract.elsewhere) >= ELSEWHERE_SKIP_SHARE) continue
       const onchain = readJson<OnchainRecord>(
         paths.onchain(contract.chainId, contract.address)
       )

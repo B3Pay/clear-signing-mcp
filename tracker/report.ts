@@ -1,4 +1,9 @@
-import { toFunctionSelector, type Abi, type AbiFunction } from "viem"
+import {
+  getAddress,
+  toFunctionSelector,
+  type Abi,
+  type AbiFunction,
+} from "viem"
 import type { ChainClient } from "@ethereum-sourcify/clear-signing"
 import { isRecord } from "./net.js"
 import {
@@ -7,10 +12,14 @@ import {
   type AbiFile,
   type OnchainRecord,
 } from "./data.js"
+import { caip10 } from "../src/registry.js"
 import {
+  chainsByAddress,
   deploymentsOn,
+  describedFunctions,
   descriptorFacts,
   REGISTRY_REPO,
+  type DescribedFunctions,
   type DescriptorFacts,
   type RegistrySnapshot,
 } from "./registry.js"
@@ -232,12 +241,199 @@ export function statusOf(
   return share >= COVERED_SHARE ? "covered" : "partial"
 }
 
+/**
+ * The share of `counts` (calls, or senders, by selector) whose selector is in
+ * `formatted`; null when there is nothing to count. Plain transfers ("0x")
+ * are left out.
+ */
+export function shareOf(
+  counts: Readonly<Record<string, number>> | undefined,
+  formatted: ReadonlySet<string>
+): number | null {
+  if (!counts) return null
+  let total = 0
+  let covered = 0
+  for (const [selector, n] of Object.entries(counts)) {
+    if (selector === "0x") continue
+    total += n
+    if (formatted.has(selector)) covered += n
+  }
+  return total > 0 ? round(covered / total, 4) : null
+}
+
+/**
+ * Chains a descriptor elsewhere may be named on: the tracked four and other
+ * mainnets the registry lists deployments on. A deployment on a chain not
+ * named here (a testnet, say) is not offered as "described elsewhere".
+ */
+export const CHAIN_NAMES: Readonly<Record<number, string>> = {
+  ...TRACKED_CHAINS,
+  56: "BNB Smart Chain",
+  100: "Gnosis",
+  130: "Unichain",
+  137: "Polygon",
+  146: "Sonic",
+  324: "ZKsync Era",
+  480: "World Chain",
+  1868: "Soneium",
+  5000: "Mantle",
+  34443: "Mode",
+  42220: "Celo",
+  43114: "Avalanche C-Chain",
+  57073: "Ink",
+  59144: "Linea",
+  81457: "Blast",
+  534352: "Scroll",
+}
+
+/** A deployment the registry describes, offered for an uncovered contract. */
+export interface ElsewhereCandidate {
+  readonly described: DescribedFunctions
+  /** The described deployment's label, when it is tracked; else this contract's. */
+  readonly label: string
+}
+
+export type Elsewhere = NonNullable<Contract["elsewhere"]>
+
+/** How much of a contract's recent calls a descriptor elsewhere formats: by senders, else by transactions; 0 when none. */
+export function elsewhereShare(
+  elsewhere: Elsewhere | null | undefined
+): number {
+  return elsewhere
+    ? (elsewhere.signerShareCovered ?? elsewhere.txShareCovered ?? 0)
+    : 0
+}
+
+/**
+ * For a contract the registry has no descriptor for: of the descriptors it
+ * has for other deployments (the same address on another chain, or another
+ * contract of the same protocol), the one that formats the most of this
+ * contract's recent calls. A descriptor qualifies only when every function
+ * it formats is in this contract's ABI; without an ABI, only the same
+ * address on another chain qualifies. Measured like the contract's own
+ * share: by senders, else by transactions. Null when none formats any
+ * recent call.
+ */
+export function bestElsewhere(
+  address: string,
+  abiSelectors: ReadonlySet<string> | null,
+  sample: {
+    readonly selectors: Readonly<Record<string, number>>
+    readonly sendersBySelector?: Readonly<Record<string, number>>
+  },
+  candidates: readonly ElsewhereCandidate[]
+): Elsewhere | null {
+  const own = address.toLowerCase()
+  let best: { elsewhere: Elsewhere; score: number } | null = null
+  for (const { described, label } of candidates) {
+    const chainName = CHAIN_NAMES[described.chainId]
+    if (!chainName) continue
+    const sameAddress = described.address === own
+    if (abiSelectors) {
+      if (![...described.selectors].every((s) => abiSelectors.has(s))) continue
+    } else if (!sameAddress) continue
+    const txShareCovered = shareOf(sample.selectors, described.selectors)
+    const signerShareCovered = shareOf(
+      sample.sendersBySelector,
+      described.selectors
+    )
+    const score = signerShareCovered ?? txShareCovered ?? 0
+    if (score <= 0) continue
+    const better =
+      !best ||
+      score > best.score ||
+      (score === best.score &&
+        (Number(sameAddress) - Number(best.elsewhere.sameAddress) ||
+          Number(described.chainId in TRACKED_CHAINS) -
+            Number(best.elsewhere.chainId in TRACKED_CHAINS) ||
+          best.elsewhere.chainId - described.chainId) > 0)
+    if (!better) continue
+    best = {
+      score,
+      elsewhere: {
+        chainId: described.chainId,
+        chainName,
+        address: getAddress(described.address),
+        label,
+        sameAddress,
+        path: described.path,
+        url: described.url,
+        txShareCovered,
+        signerShareCovered,
+      },
+    }
+  }
+  return best?.elsewhere ?? null
+}
+
+/** The registry's descriptors for deployments other than `entry`'s that may describe it. */
+async function elsewhereCandidates(
+  protocol: UniverseProtocol,
+  entry: UniverseContract,
+  context: ReportContext
+): Promise<ElsewhereCandidate[]> {
+  const address = entry.address.toLowerCase()
+  const wanted = new Map<
+    string,
+    { chainId: number; address: string; label: string }
+  >()
+  for (const chainId of context.chainsByAddress.get(address) ?? [])
+    if (chainId !== entry.chainId)
+      wanted.set(`${chainId}:${address}`, {
+        chainId,
+        address,
+        label: withoutChain(entry.label, entry.chainId),
+      })
+  for (const sibling of protocol.contracts) {
+    const siblingAddress = sibling.address.toLowerCase()
+    if (sibling.chainId === entry.chainId && siblingAddress === address)
+      continue
+    if (
+      !context.registry.index.calldataIndex[
+        caip10(sibling.chainId, siblingAddress)
+      ]
+    )
+      continue
+    wanted.set(`${sibling.chainId}:${siblingAddress}`, {
+      chainId: sibling.chainId,
+      address: siblingAddress,
+      label: withoutChain(sibling.label, sibling.chainId),
+    })
+  }
+  const out: ElsewhereCandidate[] = []
+  for (const [key, want] of wanted) {
+    let pending = context.described.get(key)
+    if (!pending) {
+      pending = describedFunctions(context.registry, want.chainId, want.address)
+      context.described.set(key, pending)
+    }
+    try {
+      const described = await pending
+      if (described) out.push({ described, label: want.label })
+    } catch (error) {
+      context.log?.(
+        `${protocol.protocol} ${key}: ${error instanceof Error ? error.message : String(error)}`
+      )
+    }
+  }
+  return out
+}
+
+/** What every contract of one report shares: the registry's lookups, done once. */
+interface ReportContext {
+  readonly registry: RegistrySnapshot
+  readonly chainsByAddress: ReadonlyMap<string, readonly number[]>
+  readonly described: Map<string, Promise<DescribedFunctions | null>>
+  readonly log?: (line: string) => void
+}
+
 function emptyTotals(): {
   contracts: number
   covered: number
   partial: number
   uncovered: number
   drafts: number
+  describedElsewhere: number
   weighted: number
   weight: number
   signerWeighted: number
@@ -250,6 +446,7 @@ function emptyTotals(): {
     partial: 0,
     uncovered: 0,
     drafts: 0,
+    describedElsewhere: 0,
     weighted: 0,
     weight: 0,
     signerWeighted: 0,
@@ -264,6 +461,8 @@ function add(acc: Accumulator, contract: Contract): void {
   acc.contracts += 1
   acc[contract.status] += 1
   if (contract.draft) acc.drafts += 1
+  if (elsewhereShare(contract.elsewhere) >= COVERED_SHARE)
+    acc.describedElsewhere += 1
   const perDay = contract.sample?.perDay ?? null
   const share = contract.sample?.txShareCovered ?? null
   const signerShare = contract.sample?.signerShareCovered ?? null
@@ -285,6 +484,7 @@ function finish(acc: Accumulator): Totals {
     partial: acc.partial,
     uncovered: acc.uncovered,
     drafts: acc.drafts,
+    describedElsewhere: acc.describedElsewhere,
     txShareCovered: acc.weight > 0 ? round(acc.weighted / acc.weight, 4) : null,
     signerShareCovered:
       acc.signerWeight > 0
@@ -313,12 +513,24 @@ export async function buildReport(input: ReportInput): Promise<CoverageReport> {
     ])
   )
   const categories = new Map<string, Accumulator>()
+  const context: ReportContext = {
+    registry: input.registry,
+    chainsByAddress: chainsByAddress(input.registry),
+    described: new Map(),
+    ...(input.log ? { log: input.log } : {}),
+  }
 
   for (const protocol of input.universe) {
     const acc = emptyTotals()
     const contracts: Contract[] = []
     for (const entry of protocol.contracts) {
-      const contract = await buildContract(protocol, entry, input, fetchedAt)
+      const contract = await buildContract(
+        protocol,
+        entry,
+        input,
+        context,
+        fetchedAt
+      )
       contracts.push(contract)
       add(acc, contract)
       add(overall, contract)
@@ -402,6 +614,7 @@ async function buildContract(
   protocol: UniverseProtocol,
   entry: UniverseContract,
   input: ReportInput,
+  context: ReportContext,
   fetchedAt: number[]
 ): Promise<Contract> {
   const paths = dataPaths(input.dataDir)
@@ -435,28 +648,24 @@ async function buildContract(
     ? Object.entries(sample.selectors).filter(([selector]) => selector !== "0x")
     : []
   const calldataTotal = calldataCounts.reduce((acc, [, n]) => acc + n, 0)
-  const coveredCount = calldataCounts
-    .filter(([selector]) => formatted.has(selector))
-    .reduce((acc, [, n]) => acc + n, 0)
-  const share =
-    calldataTotal > 0 ? round(coveredCount / calldataTotal, 4) : null
+  const share = shareOf(sample?.selectors, formatted)
   // Each sender counted once per function it called, so a bot that sends
   // hundreds of the same call weighs as much as one person.
-  const senderCounts = sample?.sendersBySelector
-    ? Object.entries(sample.sendersBySelector).filter(
-        ([selector]) => selector !== "0x"
-      )
-    : []
-  const senderTotal = senderCounts.reduce((acc, [, n]) => acc + n, 0)
-  const signerShare =
-    senderTotal > 0
-      ? round(
-          senderCounts
-            .filter(([selector]) => formatted.has(selector))
-            .reduce((acc, [, n]) => acc + n, 0) / senderTotal,
-          4
+  const signerShare = shareOf(sample?.sendersBySelector, formatted)
+  // Only for a deployment the index does not list: one whose descriptor
+  // failed to resolve is logged above, not offered a stand-in.
+  const listed = Boolean(
+    input.registry.index.calldataIndex[caip10(chainId, entry.address)]
+  )
+  const elsewhere =
+    listed || !sample
+      ? null
+      : bestElsewhere(
+          entry.address,
+          abiFile ? new Set(bySelector.keys()) : null,
+          sample,
+          await elsewhereCandidates(protocol, entry, context)
         )
-      : null
 
   const sourcify =
     onchain?.sourcify.status === "verified"
@@ -534,6 +743,7 @@ async function buildContract(
           formatted: formatted.has(selector),
         }
       }),
+    elsewhere,
     draft: draft
       ? {
           functions: draft.functions,
