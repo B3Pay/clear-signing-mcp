@@ -1,0 +1,112 @@
+{
+  "0x07cc0d07748adfbb8d5fee46bf07f78e1e387485": {
+    "decimals": 18,
+    "name": "Quantum Frog Federation",
+    "symbol": "QFF"
+  },
+  "0x0c3f4aa4626b62a00b3136154b28be5403018ec5": {
+    "decimals": 18,
+    "name": "DEGEN",
+    "symbol": "DEGEN"
+  },
+  "0x153598c4e34a2b0469ebe95e24ca92b527686697": {
+    "decimals": 18,
+    "name": "State of Leonida",
+    "symbol": "Leonida"
+  },
+  "0x32b86b99441480a7e5bd3a26c124ec2373e3f015": {
+    "decimals": 18,
+    "name": "BAD IDEA AI",
+    "symbol": "BAD"
+  },
+  "0x466bd2b1817fd3d2d7e977a1fa4e6c3b90d3d867": {
+    "decimals": 18,
+    "name": "Stealth Growth",
+    "symbol": "SG"
+  },
+  "0x54d2252757e1672eead234d27b1270728ff90581": {
+    "decimals": 18,
+    "name": "BitgetToken",
+    "symbol": "BGB"
+  },
+  "0x5832fbf930dacbdd9a1697dca7b3c518277ff0b0": {
+    "decimals": 8,
+    "name": "Didi Bam Bam",
+    "symbol": "DDBAM"
+  },
+  "0x5e7f6e008c6d9d7ad4c7eb75bd4ce62864cc7454": {
+    "decimals": 18,
+    "name": "tap",
+    "symbol": "tap"
+  },
+  "0x6982508145454ce325ddbe47a25d4ec3d2311933": {
+    "decimals": 18,
+    "name": "Pepe",
+    "symbol": "PEPE"
+  },
+  "0x777777780838c00038ecd48f63f3c37669322bc8": {
+    "decimals": 9,
+    "name": "Ethereumcat",
+    "symbol": "ETHCAT"
+  },
+  "0x7ed9b50b23eb5c2251b6ba7abd80fa94c7417145": {
+    "decimals": 18,
+    "name": "Drumvault",
+    "symbol": "DRMV"
+  },
+  "0x80122c6a83c8202ea365233363d3f4837d13e888": {
+    "decimals": 18,
+    "name": "Messier",
+    "symbol": "M87"
+  },
+  "0x85db10cc1c781192970b4185cc6cf914d7403ff2": {
+    "decimals": 18,
+    "name": "XAUUSS",
+    "symbol": "XAUUSS"
+  },
+  "0x9810f7e92079e8fc074170d7bbdcce323965c9d8": {
+    "decimals": 18,
+    "name": "Mossbottom Bancorp",
+    "symbol": "MSBT"
+  },
+  "0x9a5c709c442922a90c85bd2baf98f733acfa2fe0": {
+    "decimals": 18,
+    "name": "Bell of Graduation",
+    "symbol": "BELL58"
+  },
+  "0xb96793c1cc0005d9033796c012b775c10e959e34": {
+    "decimals": 18,
+    "name": "Golden Goose Gang",
+    "symbol": "GGG"
+  },
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
+    "decimals": 18,
+    "name": "Wrapped Ether",
+    "symbol": "WETH"
+  },
+  "0xcfa29281970d2258bbf47833707dd30de3c4a914": {
+    "decimals": 18,
+    "name": "Wealth Coin",
+    "symbol": "WEALTH"
+  },
+  "0xd4f4d0a10bcae123bb6655e8fe93a30d01eebd04": {
+    "decimals": 18,
+    "name": "LinqAI",
+    "symbol": "LNQ"
+  },
+  "0xdac17f958d2ee523a2206206994597c13d831ec7": {
+    "decimals": 6,
+    "name": "Tether USD",
+    "symbol": "USDT"
+  },
+  "0xeef9f339514298c6a857efcfc1a762af84438dee": {
+    "decimals": 18,
+    "name": "Hermez Network Token",
+    "symbol": "HEZ"
+  },
+  "0xf3b9569f82b18aef890de263b84189bd33ebe452": {
+    "decimals": 18,
+    "name": "A Hunters Dream",
+    "symbol": "CAW"
+  }
+}

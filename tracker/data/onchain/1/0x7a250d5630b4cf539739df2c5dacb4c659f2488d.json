@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+    "functions": 24,
+    "name": "UniswapV2Router02",
+    "source": "sourcify"
+  },
+  "address": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "UniswapV2Router02",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 21943,
+  "fetchedAt": "2026-11-06T19:40:36.523Z",
+  "sample": {
+    "count": 1000,
+    "failed": 39,
+    "newest": 1793993687,
+    "oldest": 1793969255,
+    "perDay": 3536.345776031434,
+    "requested": 1000,
+    "selectors": {
+      "0x02751cec": 12,
+      "0x18cbafe5": 35,
+      "0x38ed1739": 258,
+      "0x5c11d795": 143,
+      "0x791ac947": 170,
+      "0x7ff36ab5": 290,
+      "0x8803dbee": 25,
+      "0xaf2979eb": 8,
+      "0xb6f9de95": 32,
+      "0xbaa2abde": 2,
+      "0xded9382a": 2,
+      "0xe8e33700": 2,
+      "0xf305d719": 18,
+      "0xfb3bdb41": 3
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "UniswapV2Router02",
+    "status": "verified"
+  }
+}

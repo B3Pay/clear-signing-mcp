@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84",
+    "functions": 65,
+    "name": "Ethereum_SpokePool",
+    "source": "sourcify"
+  },
+  "address": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84",
+        "name": "Ethereum_SpokePool"
+      }
+    ],
+    "isContract": true,
+    "name": "ERC1967Proxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 680,
+  "fetchedAt": "2026-11-06T19:38:18.651Z",
+  "sample": {
+    "count": 1000,
+    "failed": 285,
+    "newest": 1793993579,
+    "oldest": 1793975411,
+    "perDay": 4755.6142668428,
+    "requested": 1000,
+    "selectors": {
+      "0x7b939232": 192,
+      "0xad5425c6": 65,
+      "0xb46d639e": 5,
+      "0xdeff4b24": 738
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84",
+          "name": "Ethereum_SpokePool"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}
