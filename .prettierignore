@@ -8,3 +8,5 @@ test/contracts/TestToken.json
 tracker/dist
 # Written by the tracker fetch step: kept byte for byte.
 tracker/data
+# Drafts keep the key order of the descriptors they are compared with.
+tracker/drafts

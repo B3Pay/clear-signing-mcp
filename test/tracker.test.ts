@@ -4,6 +4,7 @@ import { join } from "node:path"
 import { afterEach, describe, expect, it, vi } from "vitest"
 import { encodeFunctionData, getAddress, parseAbi, type Hex } from "viem"
 import { addressesInCall, summarize, type ListedTx } from "../tracker/fetch.js"
+import { choosePreview } from "../tracker/draft.js"
 import type { DescriptorFacts } from "../tracker/registry.js"
 import {
   readDraftSummaries,
@@ -300,5 +301,36 @@ describe("addressesInCall", () => {
     expect(addressesInCall(abi, input).sort()).toEqual(
       [usdc, recipient, weth].sort()
     )
+  })
+})
+
+describe("choosePreview", () => {
+  const test = (
+    intent: string,
+    fields: [string, string][],
+    sentence = true
+  ) => ({
+    expected: {
+      intent,
+      ...(sentence ? { interpolatedIntent: intent } : {}),
+      fields: fields.map(([label, value]) => ({ label, value })),
+    },
+  })
+
+  it("prefers a clean render with a sentence, then the most-called function", () => {
+    const raw = test("Swap", [["Send", "123456789012345678901"]])
+    const clean = test("Swap 1.5 ETH for USDC", [["Send", "1.5 ETH"]])
+    const plain = test("Swap", [["Send", "2 ETH"]], false)
+    expect(choosePreview([raw, plain, clean])).toBe(clean)
+    const first = test("Bridge 1 ETH", [["Amount", "1 ETH"]])
+    expect(choosePreview([first, clean])).toBe(first)
+  })
+
+  it("never shows text a token wrote that reads like a link or a message", () => {
+    const scam = test("Swap 1 ETH", [["Receive", "1000 Claim at x.com"]])
+    const link = test("Swap", [["Receive", "5 visit-https://x.io"]])
+    expect(choosePreview([scam, link])).toBeUndefined()
+    const ok = test("Swap 2 ETH", [["Send", "2 ETH"]], false)
+    expect(choosePreview([scam, ok])).toBe(ok)
   })
 })

@@ -6,19 +6,23 @@ import { parseArgs } from "node:util"
 import { ChainAccess } from "../src/chains.js"
 import { dataPaths, stableJson } from "./data.js"
 import { diagnose } from "./diag.js"
+import { draftContract } from "./draft.js"
 import { fetchAll, fetchDefiLlama } from "./fetch.js"
 import { loadRegistrySnapshot } from "./registry.js"
 import { buildReport, readDraftSummaries } from "./report.js"
 import { loadUniverse } from "./universe.js"
+import { validateDrafts } from "./validate.js"
 
 /**
  * The coverage tracker's command line. Built by `pnpm tracker:build` into
  * tracker/dist/; run as `node tracker/dist/tracker/cli.js <command>`.
  *
- *   validate   check tracker/contracts/*.json
- *   diag       print which public data sources answer (network)
- *   fetch      read on-chain facts and real transactions (network)
- *   report     score each contract against a registry clone: coverage.json
+ *   validate      check tracker/contracts/*.json
+ *   diag          print which public data sources answer (network)
+ *   fetch         read on-chain facts and real transactions (network)
+ *   report        score each contract against a registry clone: coverage.json
+ *   draft         draft one contract's descriptor and tests: tracker/drafts/
+ *   check-drafts  check drafts as the registry's CI does: drafts/summary.json
  */
 
 const here = dirname(fileURLToPath(import.meta.url))
@@ -156,6 +160,84 @@ const commands: Readonly<Record<string, Command>> = {
       for (const problem of problems) console.log(`PROBLEM ${problem}`)
       console.log(`wrote ${values.out}`)
       return 0
+    },
+  },
+
+  draft: {
+    usage:
+      'draft --chain <id> --address 0x… --owner "<name>" [--protocol <id>] [--url https://…] [--legal-name <name>] [--name <contract>] [--selectors 0x…,0x…] [--chains chains_mini.json]',
+    run: async (args) => {
+      const { values } = parseArgs({
+        args,
+        options: {
+          chain: { type: "string" },
+          address: { type: "string" },
+          owner: { type: "string" },
+          protocol: { type: "string" },
+          url: { type: "string" },
+          "legal-name": { type: "string" },
+          name: { type: "string" },
+          selectors: { type: "string" },
+          chains: { type: "string" },
+        },
+      })
+      const chainId = Number(values.chain)
+      if (!Number.isInteger(chainId) || !values.address || !values.owner) {
+        console.error("draft needs --chain, --address and --owner")
+        return 2
+      }
+      await draftContract({
+        trackerDir,
+        chainId,
+        address: values.address,
+        owner: values.owner,
+        ...(values.protocol ? { protocol: values.protocol } : {}),
+        ...(values.url ? { url: values.url } : {}),
+        ...(values["legal-name"] ? { legalName: values["legal-name"] } : {}),
+        ...(values.name ? { contractName: values.name } : {}),
+        ...(values.selectors
+          ? { selectors: values.selectors.split(",").map((s) => s.trim()) }
+          : {}),
+        ...(values.chains ? { chainsFile: values.chains } : {}),
+        log: (line) => console.log(line),
+      })
+      return 0
+    },
+  },
+
+  "check-drafts": {
+    usage:
+      "check-drafts --registry <clone of the registry> [--protocol <id>] [--draft calldata-X.json] [--runner dir] [--python venv/bin/python] [--chains chains_mini.json]",
+    run: async (args) => {
+      const { values } = parseArgs({
+        args,
+        options: {
+          registry: { type: "string" },
+          protocol: { type: "string" },
+          draft: { type: "string" },
+          runner: { type: "string" },
+          python: { type: "string" },
+          chains: { type: "string" },
+        },
+      })
+      const registryDir = values.registry ?? process.env.REGISTRY_DIR
+      if (!registryDir) {
+        console.error(
+          "check-drafts needs --registry: a git clone of ethereum/clear-signing-erc7730-registry"
+        )
+        return 2
+      }
+      const results = await validateDrafts({
+        trackerDir,
+        registryDir,
+        ...(values.protocol ? { protocol: values.protocol } : {}),
+        ...(values.draft ? { draft: values.draft } : {}),
+        ...(values.runner ? { runnerDir: values.runner } : {}),
+        ...(values.python ? { python: values.python } : {}),
+        ...(values.chains ? { chainsFile: values.chains } : {}),
+        log: (line) => console.log(line),
+      })
+      return results.every((r) => r.validation.passed) ? 0 : 1
     },
   },
 }
