@@ -129,6 +129,9 @@ export interface Contract {
     readonly share: number // 0..1 of the sample's calls with calldata
     readonly senders: number | null // distinct senders of this function in the sample
     readonly formatted: boolean // the registry descriptor formats it
+    /** A real call to it: the newest successful transaction in the kept
+     *  sample that sent it to this contract. Null when the sample kept none. */
+    readonly exampleTx: string | null // 0x + 64 hex, lowercase
   }[]
   /** For a deployment the registry does not list: the registry's descriptor
    *  for another deployment (the same address on another chain, or another

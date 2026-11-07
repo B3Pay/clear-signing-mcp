@@ -33,11 +33,13 @@ import {
 import {
   bestElsewhere,
   buildReport,
+  exampleTx,
   namedDeployment,
   readDraftSummaries,
   statusOf,
   withoutChain,
 } from "../tracker/report.js"
+import type { SampleTx } from "../tracker/data.js"
 import { parseGroup, type UniverseProtocol } from "../tracker/universe.js"
 
 const NOW = 1_800_000_000
@@ -115,6 +117,58 @@ describe("summarize", () => {
     })
     expect(summary.senders).toBe(3)
     expect(summary.failed).toBe(1)
+  })
+})
+
+describe("exampleTx", () => {
+  const CONTRACT = getAddress("0x00000000000000000000000000000000000000c1")
+  const OTHER = getAddress("0x00000000000000000000000000000000000000c2")
+  const sent = (
+    n: number,
+    input: string,
+    extra: Partial<SampleTx> = {}
+  ): SampleTx => ({
+    hash: `0x${n.toString(16).padStart(64, "0")}`,
+    chainId: 1,
+    blockNumber: 100 + n,
+    timestamp: NOW - 1000 + n,
+    from: getAddress("0x00000000000000000000000000000000000000aa"),
+    to: CONTRACT,
+    value: "0",
+    input: input as Hex,
+    nonce: n,
+    gas: "100000",
+    type: "eip1559",
+    status: "success",
+    ...extra,
+  })
+  const SWAP = "0x12345678"
+
+  it("names the newest call to the function that succeeded", () => {
+    const txs = [
+      sent(1, `${SWAP}00`),
+      sent(3, `${SWAP}01`),
+      sent(2, "0xabcdef0100"),
+    ]
+    expect(exampleTx(txs, CONTRACT, SWAP)).toBe(`0x${"3".padStart(64, "0")}`)
+    expect(exampleTx(txs, CONTRACT.toLowerCase(), "0xABCDEF01")).toBe(
+      `0x${"2".padStart(64, "0")}`
+    )
+  })
+
+  it("passes over calls that reverted, went to another contract or called another function", () => {
+    const txs = [
+      sent(1, `${SWAP}00`),
+      sent(5, `${SWAP}00`, { status: "reverted" }),
+      sent(6, `${SWAP}00`, { to: OTHER }),
+      sent(7, "0x1234567900"),
+    ]
+    expect(exampleTx(txs, CONTRACT, SWAP)).toBe(`0x${"1".padStart(64, "0")}`)
+  })
+
+  it("is null when the sample kept no call to the function", () => {
+    expect(exampleTx([], CONTRACT, SWAP)).toBeNull()
+    expect(exampleTx([sent(1, "0xabcdef01")], CONTRACT, SWAP)).toBeNull()
   })
 })
 
@@ -1089,6 +1143,35 @@ describe("the report's descriptor elsewhere", () => {
     )
   }
   write(1, DISPERSE, full)
+  // What fetch keeps of Ethereum's sample: two disperseEther calls, the newer
+  // one reverted, and no disperseToken call.
+  mkdirSync(join(dataDir, "samples", "1"), { recursive: true })
+  const kept = (n: number, status: "success" | "reverted") => ({
+    hash: `0x${n.toString(16).padStart(64, "0")}`,
+    chainId: 1,
+    blockNumber: 1000 + n,
+    timestamp: NOW - 100 + n,
+    from: getAddress("0x00000000000000000000000000000000000000aa"),
+    to: DISPERSE,
+    value: "1",
+    input: encodeFunctionData({
+      abi: full,
+      functionName: "disperseEther",
+      args: [[DISPERSE], [1n]],
+    }),
+    nonce: n,
+    gas: "100000",
+    type: "eip1559",
+    status,
+  })
+  writeFileSync(
+    join(dataDir, "samples", "1", `${DISPERSE.toLowerCase()}.json`),
+    JSON.stringify({
+      chainId: 1,
+      address: DISPERSE,
+      txs: [kept(1, "success"), kept(2, "reverted")],
+    })
+  )
   write(42161, DISPERSE, full)
   write(8453, LOOKALIKE, full.slice(0, 2) as unknown as typeof full)
   // OP Mainnet: a complete 30-day scan that found nothing; Base: a failed read.
@@ -1149,6 +1232,16 @@ describe("the report's descriptor elsewhere", () => {
       ).map((c) => [c.chainId, c])
     )
     expect(byChain.get(1)).toMatchObject({ status: "covered", elsewhere: null })
+    // A real call for each function the sample kept one of, and null for the rest.
+    expect(
+      byChain.get(1)!.topFunctions.map((fn) => [fn.selector, fn.exampleTx])
+    ).toEqual([
+      [ether, `0x${"1".padStart(64, "0")}`],
+      [token, null],
+    ])
+    expect(
+      byChain.get(42161)!.topFunctions.every((fn) => fn.exampleTx === null)
+    ).toBe(true)
     expect(byChain.get(42161)).toMatchObject({
       status: "uncovered",
       elsewhere: {

@@ -3,6 +3,7 @@ import {
   toFunctionSelector,
   type Abi,
   type AbiFunction,
+  type Hex,
 } from "viem"
 import type { ChainClient } from "@ethereum-sourcify/clear-signing"
 import { isRecord } from "./net.js"
@@ -12,6 +13,8 @@ import {
   type AbiFile,
   type OnchainRecord,
   type SampleSummary,
+  type SamplesFile,
+  type SampleTx,
 } from "./data.js"
 import { caip10 } from "../src/registry.js"
 import {
@@ -260,6 +263,32 @@ export function withoutChain(label: string, chainId: ChainId): string {
  * else by transactions, else (no recent calls) by the ABI's state-changing
  * functions. A descriptor whose reach cannot be measured at all is "partial".
  */
+/**
+ * A real call to a function, for a reader to look at: the newest transaction
+ * in the contract's kept sample that went to the contract itself, called
+ * that function and succeeded. Null when the sample kept none.
+ */
+export function exampleTx(
+  txs: readonly SampleTx[],
+  address: string,
+  selector: string
+): Hex | null {
+  const own = address.toLowerCase()
+  let best: SampleTx | null = null
+  for (const tx of txs) {
+    if (tx.status !== "success" || tx.to?.toLowerCase() !== own) continue
+    if (tx.input.slice(0, 10).toLowerCase() !== selector.toLowerCase()) continue
+    if (
+      !best ||
+      tx.blockNumber > best.blockNumber ||
+      (tx.blockNumber === best.blockNumber &&
+        tx.hash.toLowerCase() < best.hash.toLowerCase())
+    )
+      best = tx
+  }
+  return best ? (best.hash.toLowerCase() as Hex) : null
+}
+
 export function statusOf(
   descriptor: DescriptorFacts | null,
   measures: {
@@ -728,6 +757,7 @@ async function buildContract(
   const chainId = entry.chainId
   const onchain = readJson<OnchainRecord>(paths.onchain(chainId, entry.address))
   const abiFile = readJson<AbiFile>(paths.abi(chainId, entry.address))
+  const samples = readJson<SamplesFile>(paths.samples(chainId, entry.address))
   if (onchain) fetchedAt.push(Date.parse(onchain.fetchedAt))
 
   let descriptor: DescriptorFacts | null = null
@@ -849,6 +879,7 @@ async function buildContract(
           share: round(count / calldataTotal, 4),
           senders: sample?.sendersBySelector?.[selector] ?? null,
           formatted: formatted.has(selector),
+          exampleTx: exampleTx(samples?.txs ?? [], entry.address, selector),
         }
       }),
     elsewhere,

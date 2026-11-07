@@ -103,6 +103,11 @@ adds the revocation check on Ethereum mainnet).
   deployment on the contract's chain when it has one. The descriptor does
   not list this deployment, and whether it fits it is for the protocol to
   check; the totals count the contracts it would make `covered` if it did.
+- **Most-called functions**: up to five per contract, by their share of
+  the sample's transactions with calldata, each with its distinct senders,
+  whether the descriptor formats it, and a real call to it (`exampleTx`):
+  the newest transaction in `samples/` that sent it to the contract and
+  succeeded, so a reader can open it in b3pay.net's playground.
 - **Totals** weight each contract's share by its transactions per day.
 - **Attestation**: `verified` only when an ERC-8176 attestation by a trusted
   auditor verifies and is not revoked; never claimed otherwise.

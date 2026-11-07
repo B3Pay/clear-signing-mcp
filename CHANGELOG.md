@@ -20,6 +20,11 @@
   format. Contracts found shut down, sunset or not signed to on review are
   left out, and their protocol's notes say why.
 
+- The tracker's report names a real call for each of a contract's
+  most-called functions (`exampleTx`): the newest transaction in its kept
+  sample that sent that function to the contract and succeeded, so the
+  coverage pages can open it in the playground.
+
 ### Fixed
 
 - The tracker's draft previews: a draft that lists the same contract on
