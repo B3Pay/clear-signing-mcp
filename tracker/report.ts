@@ -324,6 +324,11 @@ export interface ElsewhereCandidate {
   readonly described: DescribedFunctions
   /** The described deployment's label, when it is tracked; else this contract's. */
   readonly label: string
+  /**
+   * Named in the protocol's registryDescriptors: a person matched the
+   * descriptor to this contract, so it is offered without the ABI check.
+   */
+  readonly named?: boolean
 }
 
 export type Elsewhere = NonNullable<Contract["elsewhere"]>
@@ -339,13 +344,15 @@ export function elsewhereShare(
 
 /**
  * For a contract the registry has no descriptor for: of the descriptors it
- * has for other deployments (the same address on another chain, or another
- * contract of the same protocol), the one that formats the most of this
- * contract's recent calls. A descriptor qualifies only when every function
- * it formats is in this contract's ABI; without an ABI, only the same
- * address on another chain qualifies. Measured like the contract's own
- * share: by senders, else by transactions. Null when none formats any
- * recent call.
+ * has for other deployments (the same address on another chain, another
+ * contract of the same protocol, or one the protocol's entry names), the one
+ * that formats the most of this contract's recent calls. A descriptor
+ * qualifies only when every function it formats is in this contract's ABI;
+ * without an ABI, only the same address on another chain qualifies. A named
+ * descriptor qualifies either way: the person who named it matched it to
+ * this contract, which may lack a function it formats (a router's newer
+ * version that dropped one, say). Measured like the contract's own share: by
+ * senders, else by transactions. Null when none formats any recent call.
  */
 export function bestElsewhere(
   address: string,
@@ -358,15 +365,19 @@ export function bestElsewhere(
 ): Elsewhere | null {
   const own = address.toLowerCase()
   let best: { elsewhere: Elsewhere; score: number } | null = null
-  for (const { described, label } of candidates) {
+  for (const { described, label, named } of candidates) {
     const chainName = CHAIN_NAMES[described.chainId]
     if (!chainName) continue
     const sameAddress = described.address === own
     // An ABI with no functions (a contract that dispatches in its fallback)
-    // says nothing about what it can be called with: like no ABI.
-    if (abiSelectors && abiSelectors.size > 0) {
-      if (![...described.selectors].every((s) => abiSelectors.has(s))) continue
-    } else if (!sameAddress) continue
+    // says nothing about what it can be called with: like no ABI. A named
+    // descriptor skips the check, as above.
+    if (!named) {
+      if (abiSelectors && abiSelectors.size > 0) {
+        if (![...described.selectors].every((s) => abiSelectors.has(s)))
+          continue
+      } else if (!sameAddress) continue
+    }
     const txShareCovered = shareOf(sample.selectors, described.selectors)
     const signerShareCovered = shareOf(
       sample.sendersBySelector,
@@ -410,7 +421,7 @@ async function elsewhereCandidates(
   const address = entry.address.toLowerCase()
   const wanted = new Map<
     string,
-    { chainId: number; address: string; label: string }
+    { chainId: number; address: string; label: string; named?: boolean }
   >()
   for (const chainId of context.chainsByAddress.get(address) ?? [])
     if (chainId !== entry.chainId)
@@ -435,6 +446,31 @@ async function elsewhereCandidates(
       label: withoutChain(sibling.label, sibling.chainId),
     })
   }
+  for (const path of protocol.registryDescriptors ?? []) {
+    const deployment = namedDeployment(
+      context.registry.index.calldataIndex,
+      path,
+      entry.chainId
+    )
+    if (!deployment) {
+      context.log?.(
+        `${protocol.protocol}: the registry lists no deployment for ${path} on a chain it can name`
+      )
+      continue
+    }
+    const key = `${deployment.chainId}:${deployment.address}`
+    const listed = wanted.get(key)
+    wanted.set(
+      key,
+      listed
+        ? { ...listed, named: true }
+        : {
+            ...deployment,
+            label: withoutChain(entry.label, entry.chainId),
+            named: true,
+          }
+    )
+  }
   const out: ElsewhereCandidate[] = []
   for (const [key, want] of wanted) {
     let pending = context.described.get(key)
@@ -444,7 +480,12 @@ async function elsewhereCandidates(
     }
     try {
       const described = await pending
-      if (described) out.push({ described, label: want.label })
+      if (described)
+        out.push({
+          described,
+          label: want.label,
+          ...(want.named ? { named: true } : {}),
+        })
     } catch (error) {
       context.log?.(
         `${protocol.protocol} ${key}: ${error instanceof Error ? error.message : String(error)}`
@@ -452,6 +493,37 @@ async function elsewhereCandidates(
     }
   }
   return out
+}
+
+/**
+ * The deployment of a named descriptor that a near miss shows: the one on
+ * `chainId` when the calldata index lists one, else the first on a tracked
+ * chain, else the first on a chain {@link CHAIN_NAMES} names, each by chain
+ * id then address. Every deployment of one file shares its formats, so one
+ * stands for all. Null when the index lists none of them.
+ */
+export function namedDeployment(
+  calldataIndex: Readonly<Record<string, string>>,
+  path: string,
+  chainId: number
+): { chainId: number; address: string } | null {
+  const deployments: { chainId: number; address: string }[] = []
+  for (const [key, value] of Object.entries(calldataIndex)) {
+    if (value !== path) continue
+    const match = /^eip155:(\d+):(0x[0-9a-f]{40})$/.exec(key)
+    if (!match) continue
+    const id = Number(match[1])
+    if (CHAIN_NAMES[id]) deployments.push({ chainId: id, address: match[2]! })
+  }
+  const rank = (d: { chainId: number }): number =>
+    d.chainId === chainId ? 0 : d.chainId in TRACKED_CHAINS ? 1 : 2
+  deployments.sort(
+    (a, b) =>
+      rank(a) - rank(b) ||
+      a.chainId - b.chainId ||
+      a.address.localeCompare(b.address)
+  )
+  return deployments[0] ?? null
 }
 
 /** What every contract of one report shares: the registry's lookups, done once. */

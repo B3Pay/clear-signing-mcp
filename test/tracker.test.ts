@@ -25,11 +25,12 @@ import {
 import {
   bestElsewhere,
   buildReport,
+  namedDeployment,
   readDraftSummaries,
   statusOf,
   withoutChain,
 } from "../tracker/report.js"
-import type { UniverseProtocol } from "../tracker/universe.js"
+import { parseGroup, type UniverseProtocol } from "../tracker/universe.js"
 
 const NOW = 1_800_000_000
 const DAY = 86_400
@@ -768,6 +769,26 @@ describe("bestElsewhere", () => {
     expect(bestElsewhere(X, abi, sample, idle)).toBeNull()
   })
 
+  it("offers a named descriptor although the ABI lacks a function it formats", () => {
+    // A router's older version: the descriptor formats d, which this one dropped.
+    const candidate = {
+      described: described(1, Y, ["0xaaaaaaaa", "0xbbbbbbbb", "0xdddddddd"]),
+      label: "Router",
+    }
+    expect(bestElsewhere(X, abi, sample, [candidate])).toBeNull()
+    expect(bestElsewhere(X, null, sample, [candidate])).toBeNull()
+    for (const abiSelectors of [abi, null])
+      expect(
+        bestElsewhere(X, abiSelectors, sample, [{ ...candidate, named: true }])
+      ).toMatchObject({
+        chainId: 1,
+        address: getAddress(Y),
+        sameAddress: false,
+        signerShareCovered: 1,
+        txShareCovered: 1,
+      })
+  })
+
   it("measures by transactions when the sample has no senders", () => {
     const best = bestElsewhere(X, abi, { selectors: sample.selectors }, [
       { described: described(1, X, ["0xaaaaaaaa"]), label: "Router" },
@@ -776,6 +797,92 @@ describe("bestElsewhere", () => {
       txShareCovered: 0.9,
       signerShareCovered: null,
     })
+  })
+})
+
+describe("namedDeployment", () => {
+  const path = "registry/okx/calldata-Router.json"
+  const at = (n: string) => `0x${n.padStart(40, "0")}`
+  const index = {
+    [`eip155:56:${at("a1")}`]: path,
+    [`eip155:8453:${at("b2")}`]: path,
+    [`eip155:1:${at("c3")}`]: path,
+    [`eip155:11155111:${at("d4")}`]: path,
+    [`eip155:10:${at("e5")}`]: "registry/okx/calldata-Other.json",
+  }
+
+  it("shows the deployment on the contract's chain, else on a tracked chain, else on a chain it names", () => {
+    expect(namedDeployment(index, path, 8453)).toEqual({
+      chainId: 8453,
+      address: at("b2"),
+    })
+    expect(namedDeployment(index, path, 10)).toEqual({
+      chainId: 1,
+      address: at("c3"),
+    })
+    const untracked = {
+      [`eip155:11155111:${at("d4")}`]: path,
+      [`eip155:56:${at("a1")}`]: path,
+    }
+    expect(namedDeployment(untracked, path, 10)).toEqual({
+      chainId: 56,
+      address: at("a1"),
+    })
+    expect(
+      namedDeployment({ [`eip155:11155111:${at("d4")}`]: path }, path, 1)
+    ).toBeNull()
+  })
+})
+
+describe("parseGroup: registryDescriptors", () => {
+  const okx = {
+    protocol: "okx-dex",
+    name: "OKX DEX",
+    category: "aggregator",
+    website: "https://web3.okx.com",
+    contracts: [
+      {
+        chainId: 8453,
+        address: getAddress("0x67d03631fe51b741c0c00c4e16eb662ac84381df"),
+        name: "DexRouter",
+        label: "OKX DEX router",
+        role: "Swap router",
+        source: "https://web3.okx.com/",
+        sourceKind: "webfetch",
+      },
+    ],
+  }
+
+  it("reads the registry descriptors a protocol names", () => {
+    const named = [
+      "registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json",
+      "registry/okx/calldata-OkxDexRouterV1.0.7-multi-commission.json",
+    ]
+    const { protocols, problems } = parseGroup("aggregator", {
+      protocols: [{ ...okx, registryDescriptors: named }],
+    })
+    expect(problems).toEqual([])
+    expect(protocols[0]?.registryDescriptors).toEqual(named)
+    const without = parseGroup("aggregator", { protocols: [okx] })
+    expect(without.protocols[0]).not.toHaveProperty("registryDescriptors")
+  })
+
+  it("refuses anything but a list of registry paths", () => {
+    for (const bad of [
+      [],
+      "registry/okx/calldata-Router.json",
+      ["registry/../calldata-Router.json"],
+      ["https://github.com/ethereum/registry/okx/calldata-Router.json"],
+      ["registry/okx/calldata-Router.yaml"],
+    ]) {
+      const { protocols, problems } = parseGroup("aggregator", {
+        protocols: [{ ...okx, registryDescriptors: bad }],
+      })
+      expect(protocols).toEqual([])
+      expect(problems).toEqual([
+        "aggregator:okx-dex: registryDescriptors is not a list of registry paths",
+      ])
+    }
   })
 })
 
@@ -940,6 +1047,45 @@ describe("the report's descriptor elsewhere", () => {
     expect(report.totals.describedElsewhere).toBe(1)
     expect(report.chains["42161"].describedElsewhere).toBe(1)
     expect(report.chains["8453"].describedElsewhere).toBe(0)
+  })
+
+  it("offers a descriptor the protocol names, though the list has no deployment of it", async () => {
+    // Only the lookalike is listed, and its ABI lacks disperseTokenSimple:
+    // unnamed, the Disperse descriptor is no candidate; named, it is.
+    const only = (registryDescriptors?: string[]): UniverseProtocol[] => [
+      {
+        ...universe[0]!,
+        ...(registryDescriptors ? { registryDescriptors } : {}),
+        contracts: [contract(8453, LOOKALIKE)],
+      },
+    ]
+    const build = (protocols: UniverseProtocol[]) =>
+      buildReport({
+        universe: protocols,
+        dataDir,
+        registry,
+        previews: false,
+        now: new Date(NOW * 1000),
+      })
+    const unnamed = await build(only())
+    expect(unnamed.protocols[0]!.contracts[0]).toMatchObject({
+      elsewhere: null,
+    })
+    const named = await build(only([path]))
+    expect(named.protocols[0]!.contracts[0]).toMatchObject({
+      status: "uncovered",
+      elsewhere: {
+        chainId: 1,
+        chainName: "Ethereum",
+        address: DISPERSE,
+        label: "Disperse",
+        sameAddress: false,
+        path,
+        signerShareCovered: 1,
+        txShareCovered: 1,
+      },
+    })
+    expect(named.totals.describedElsewhere).toBe(1)
   })
 
   it("measures what a draft would format of the contract's recent calls", async () => {

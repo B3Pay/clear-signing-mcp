@@ -20,6 +20,14 @@ source (`source`, `sourceKind`, `sourceNote`). `cli.js validate` checks the
 list: EIP-55 addresses, known chains, https sources, no protocol or
 deployment listed twice.
 
+A protocol may name, in `registryDescriptors`, the registry's descriptors
+for deployments of its contracts that the list does not track, such as a
+router it has since replaced; the report measures the contracts the
+registry does not describe against them (below). Whoever names one checks
+that it is the same contract, and says so in `notes`: OKX's two OKX Labs
+descriptors describe its older v1.0.7 and v1.0.8 routers, and format every
+function its current routers' recent calls use.
+
 A contract taken out after review is named in its protocol's `notes`, with
 the reason. Odos is out entirely: its app went read-only on 2026-07-27 and
 its API was retired on 2026-07-30 (the team's announcement, reported by
@@ -90,9 +98,11 @@ adds the revocation check on Ethereum mainnet).
   descriptor for another deployment (the same address on another chain, or
   another contract of the same protocol) whose every formatted function is
   in this contract's ABI, with the share of this contract's recent calls it
-  formats, measured as above. The descriptor does not list this deployment,
-  and whether it fits it is for the protocol to check; the totals count the
-  contracts it would make `covered` if it did.
+  formats, measured as above. A descriptor the protocol names in
+  `registryDescriptors` is offered without the ABI check, shown for its
+  deployment on the contract's chain when it has one. The descriptor does
+  not list this deployment, and whether it fits it is for the protocol to
+  check; the totals count the contracts it would make `covered` if it did.
 - **Totals** weight each contract's share by its transactions per day.
 - **Attestation**: `verified` only when an ERC-8176 attestation by a trusted
   auditor verifies and is not revoked; never claimed otherwise.

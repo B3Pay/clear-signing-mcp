@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs"
 import { join } from "node:path"
 import { getAddress, isAddress, type Address } from "viem"
+import { isRegistryPath } from "../src/registry.js"
 
 /**
  * The contracts the tracker follows: one file per research group under
@@ -60,6 +61,17 @@ export interface UniverseProtocol {
   readonly website: string
   readonly defillama?: string
   readonly notes?: string
+  /**
+   * The registry's descriptors (paths in the registry, such as
+   * "registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json") for
+   * deployments of this protocol's contracts that the list does not track,
+   * such as a router it has since replaced. A contract the registry does not
+   * describe is measured against them as against a listed sibling's
+   * descriptor (Contract.elsewhere in the report). Named by a person who
+   * checked that the descriptor is for the same contract, so it is offered
+   * even where the contract lacks some of the functions it formats.
+   */
+  readonly registryDescriptors?: readonly string[]
   readonly contracts: readonly UniverseContract[]
   /** The file under tracker/contracts/ the protocol is listed in. */
   readonly group: string
@@ -118,6 +130,18 @@ export function parseGroup(
       problems.push(`${where}: unknown category ${String(item.category)}`)
     if (typeof item.website !== "string" || !HTTPS.test(item.website))
       problems.push(`${where}: website is not an https URL`)
+    const named = item.registryDescriptors
+    if (
+      named !== undefined &&
+      (!Array.isArray(named) ||
+        named.length === 0 ||
+        !named.every(
+          (path) => typeof path === "string" && isRegistryPath(path)
+        ))
+    )
+      problems.push(
+        `${where}: registryDescriptors is not a list of registry paths`
+      )
     if (!Array.isArray(item.contracts) || item.contracts.length === 0) {
       problems.push(`${where}: no contracts`)
       continue
@@ -172,6 +196,9 @@ export function parseGroup(
       website: item.website as string,
       ...(text(item.defillama) ? { defillama: item.defillama } : {}),
       ...(text(item.notes) ? { notes: item.notes } : {}),
+      ...(Array.isArray(named)
+        ? { registryDescriptors: named as readonly string[] }
+        : {}),
       contracts,
       group,
     })
