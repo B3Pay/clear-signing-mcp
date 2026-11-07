@@ -1,0 +1,202 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 1,
+          "address": "0x94e7A5dCbE816e498b89aB752661904E2F56c485"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Aave v4",
+    "contractName": "Spoke",
+    "info": {
+      "url": "https://aave.com"
+    }
+  },
+  "display": {
+    "formats": {
+      "multicall(bytes[] data)": {
+        "intent": "Multicall",
+        "fields": [
+          {
+            "path": "data.[]",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "@.to"
+            }
+          }
+        ]
+      },
+      "borrow(uint256 reserveId,uint256 amount,address onBehalfOf)": {
+        "intent": "Borrow",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "reserveId",
+            "label": "Reserve ID",
+            "format": "raw"
+          },
+          {
+            "path": "onBehalfOf",
+            "label": "On behalf of",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      },
+      "withdraw(uint256 reserveId,uint256 amount,address onBehalfOf)": {
+        "intent": "Withdraw",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "reserveId",
+            "label": "Reserve ID",
+            "format": "raw"
+          },
+          {
+            "path": "onBehalfOf",
+            "label": "On behalf of",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      },
+      "setUserPositionManager(address positionManager,bool approve)": {
+        "intent": "Set user position manager",
+        "fields": [
+          {
+            "path": "positionManager",
+            "label": "Position manager",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "approve",
+            "label": "Approve",
+            "format": "raw"
+          }
+        ]
+      },
+      "supply(uint256 reserveId,uint256 amount,address onBehalfOf)": {
+        "intent": "Supply",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "reserveId",
+            "label": "Reserve ID",
+            "format": "raw"
+          },
+          {
+            "path": "onBehalfOf",
+            "label": "On behalf of",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      },
+      "repay(uint256 reserveId,uint256 amount,address onBehalfOf)": {
+        "intent": "Repay",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "reserveId",
+            "label": "Reserve ID",
+            "format": "raw"
+          },
+          {
+            "path": "onBehalfOf",
+            "label": "On behalf of",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      },
+      "updateUserDynamicConfig(address onBehalfOf)": {
+        "intent": "Update user dynamic config",
+        "fields": [
+          {
+            "path": "onBehalfOf",
+            "label": "On behalf of",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

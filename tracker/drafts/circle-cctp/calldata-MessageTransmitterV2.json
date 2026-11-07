@@ -1,0 +1,47 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 1,
+          "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64"
+        },
+        {
+          "chainId": 10,
+          "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Circle CCTP",
+    "contractName": "MessageTransmitterV2",
+    "info": {
+      "url": "https://www.circle.com"
+    }
+  },
+  "display": {
+    "formats": {
+      "receiveMessage(bytes message,bytes attestation)": {
+        "intent": "Receive message",
+        "fields": [
+          {
+            "path": "message",
+            "label": "Message",
+            "format": "raw"
+          },
+          {
+            "path": "attestation",
+            "label": "Attestation",
+            "format": "raw"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "abi": {
+    "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+    "functions": 17,
+    "name": "RelayDepository",
+    "source": "sourcify"
+  },
+  "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "RelayDepository",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 8628,
+  "fetchedAt": "2026-11-06T21:48:46.508Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1794001391,
+    "oldest": 1793992115,
+    "perDay": 9314.359637774902,
+    "requested": 1000,
+    "selectors": {
+      "0x2d9fb478": 256,
+      "0x49290c1c": 569,
+      "0xe8017952": 175
+    },
+    "senders": 610,
+    "sendersBySelector": {
+      "0x2d9fb478": 11,
+      "0x49290c1c": 461,
+      "0xe8017952": 143
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RelayDepository",
+    "status": "verified"
+  }
+}

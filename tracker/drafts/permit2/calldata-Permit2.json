@@ -1,0 +1,423 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+        },
+        {
+          "chainId": 1,
+          "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+        },
+        {
+          "chainId": 10,
+          "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Permit2 (Uniswap)",
+    "contractName": "Permit2",
+    "info": {
+      "url": "https://github.com/Uniswap/permit2"
+    }
+  },
+  "display": {
+    "formats": {
+      "approve(address token,address spender,uint160 amount,uint48 expiration)": {
+        "intent": "Approve",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount to approve",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "token"
+            }
+          },
+          {
+            "path": "spender",
+            "label": "Spender",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "expiration",
+            "label": "Expiration",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "token",
+            "label": "Token",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Approve {spender} to spend {amount}"
+      },
+      "transferFrom((address from,address to,uint160 amount,address token)[] transferDetails)": {
+        "intent": "Transfer",
+        "fields": [
+          {
+            "path": "transferDetails.[].amount",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "transferDetails.[].token"
+            }
+          },
+          {
+            "path": "transferDetails.[].from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "transferDetails.[].to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "transferDetails.[].token",
+            "label": "Token",
+            "visible": "never"
+          }
+        ]
+      },
+      "lockdown((address token,address spender)[] approvals)": {
+        "intent": "Lockdown",
+        "fields": [
+          {
+            "path": "approvals.[].token",
+            "label": "Token",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "approvals.[].spender",
+            "label": "Spender",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      },
+      "permitTransferFrom(((address token,uint256 amount) permitted,uint256 nonce,uint256 deadline) permit,(address to,uint256 requestedAmount) transferDetails,address owner,bytes signature)": {
+        "intent": "Permit transfer from",
+        "fields": [
+          {
+            "path": "permit.permitted.amount",
+            "label": "Amount",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "permit.permitted.token"
+            }
+          },
+          {
+            "path": "transferDetails.requestedAmount",
+            "label": "Requested amount",
+            "format": "raw"
+          },
+          {
+            "path": "permit.nonce",
+            "label": "Nonce",
+            "format": "raw"
+          },
+          {
+            "path": "permit.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "transferDetails.to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "owner",
+            "label": "Owner",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "permit.permitted.token",
+            "label": "Token",
+            "visible": "never"
+          },
+          {
+            "path": "signature",
+            "label": "Signature",
+            "visible": "never"
+          }
+        ]
+      },
+      "transferFrom(address from,address to,uint160 amount,address token)": {
+        "intent": "Transfer",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "token"
+            }
+          },
+          {
+            "path": "from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "token",
+            "label": "Token",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Transfer {amount} to {to}"
+      },
+      "permitWitnessTransferFrom(((address token,uint256 amount) permitted,uint256 nonce,uint256 deadline) permit,(address to,uint256 requestedAmount) transferDetails,address owner,bytes32 witness,string witnessTypeString,bytes signature)": {
+        "intent": "Permit witness transfer from",
+        "fields": [
+          {
+            "path": "permit.permitted.amount",
+            "label": "Amount",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "permit.permitted.token"
+            }
+          },
+          {
+            "path": "transferDetails.requestedAmount",
+            "label": "Requested amount",
+            "format": "raw"
+          },
+          {
+            "path": "permit.nonce",
+            "label": "Nonce",
+            "format": "raw"
+          },
+          {
+            "path": "permit.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "transferDetails.to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "owner",
+            "label": "Owner",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "witness",
+            "label": "Witness",
+            "format": "raw"
+          },
+          {
+            "path": "witnessTypeString",
+            "label": "Witness type string",
+            "format": "raw"
+          },
+          {
+            "path": "permit.permitted.token",
+            "label": "Token",
+            "visible": "never"
+          },
+          {
+            "path": "signature",
+            "label": "Signature",
+            "visible": "never"
+          }
+        ]
+      },
+      "permitTransferFrom(((address token,uint256 amount)[] permitted,uint256 nonce,uint256 deadline) permit,(address to,uint256 requestedAmount)[] transferDetails,address owner,bytes signature)": {
+        "intent": "Permit transfer from",
+        "fields": [
+          {
+            "path": "permit.permitted.[].amount",
+            "label": "Amount",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "permit.permitted.[].token"
+            }
+          },
+          {
+            "path": "transferDetails.[].requestedAmount",
+            "label": "Requested amount",
+            "format": "raw"
+          },
+          {
+            "path": "permit.nonce",
+            "label": "Nonce",
+            "format": "raw"
+          },
+          {
+            "path": "permit.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "transferDetails.[].to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "owner",
+            "label": "Owner",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "permit.permitted.[].token",
+            "label": "Token",
+            "visible": "never"
+          },
+          {
+            "path": "signature",
+            "label": "Signature",
+            "visible": "never"
+          }
+        ]
+      }
+    }
+  }
+}

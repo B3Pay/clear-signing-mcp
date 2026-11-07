@@ -1,0 +1,60 @@
+{
+  "abi": {
+    "address": "0x7C058ad1D0Ee415f7e7f30e62DB1BCf568470a10",
+    "functions": 33,
+    "name": "Inbox",
+    "source": "sourcify"
+  },
+  "address": "0x4Dbd4fc535Ac27206064B68FfCf827b0A60BAB3f",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2092,
+  "fetchedAt": "2026-11-06T22:50:05.123Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 4,
+    "last30Days": 1000,
+    "newest": 1794001139,
+    "oldest": 1793137031,
+    "perDay": 99.9875015623047,
+    "requested": 1000,
+    "selectors": {
+      "0x": 1,
+      "0x0f4d14e9": 2,
+      "0x439370b1": 511,
+      "0x5075788b": 1,
+      "0x5e916758": 2,
+      "0x679b6ded": 480,
+      "0x6e6e8a6a": 3
+    },
+    "senders": 858,
+    "sendersBySelector": {
+      "0x": 1,
+      "0x0f4d14e9": 2,
+      "0x439370b1": 467,
+      "0x5075788b": 1,
+      "0x5e916758": 1,
+      "0x679b6ded": 391,
+      "0x6e6e8a6a": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x7C058ad1D0Ee415f7e7f30e62DB1BCf568470a10",
+          "name": "Inbox"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

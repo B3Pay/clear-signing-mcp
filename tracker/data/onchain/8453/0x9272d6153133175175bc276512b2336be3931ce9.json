@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0x9272D6153133175175Bc276512B2336BE3931CE9",
+    "functions": 59,
+    "name": "fTokenNativeUnderlying",
+    "source": "sourcify"
+  },
+  "address": "0x9272D6153133175175Bc276512B2336BE3931CE9",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 21098,
+  "fetchedAt": "2026-11-06T23:32:15.959Z",
+  "format": 2,
+  "sample": {
+    "count": 20,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 20,
+    "newest": 1794002024,
+    "oldest": 1793921788,
+    "perDay": 20.42601479940424,
+    "requested": 1000,
+    "selectors": {
+      "0x2126e91e": 2,
+      "0x33bb7f91": 4,
+      "0x3badef91": 3,
+      "0x6e553f65": 10,
+      "0xba087652": 1
+    },
+    "senders": 16,
+    "sendersBySelector": {
+      "0x2126e91e": 2,
+      "0x33bb7f91": 2,
+      "0x3badef91": 3,
+      "0x6e553f65": 10,
+      "0xba087652": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "fTokenNativeUnderlying",
+    "status": "verified"
+  }
+}

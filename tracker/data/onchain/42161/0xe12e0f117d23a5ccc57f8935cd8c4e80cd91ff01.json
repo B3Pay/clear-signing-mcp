@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+    "functions": 6,
+    "name": "NativeOrderFactory",
+    "source": "sourcify"
+  },
+  "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2675,
+  "fetchedAt": "2026-11-06T21:55:47.300Z",
+  "format": 2,
+  "sample": {
+    "count": 864,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 2,
+    "last30Days": 740,
+    "newest": 1793998592,
+    "oldest": 1791094517,
+    "perDay": 24.666666666666668,
+    "requested": 1000,
+    "selectors": {
+      "0x8c72b608": 864
+    },
+    "senders": 469,
+    "sendersBySelector": {
+      "0x8c72b608": 469
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "NativeOrderFactory",
+    "status": "verified"
+  }
+}

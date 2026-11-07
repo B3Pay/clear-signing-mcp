@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x0650CAF159C5A49f711e8169D4336ECB9b950275",
+    "functions": 32,
+    "name": "StakingRewards",
+    "source": "sourcify"
+  },
+  "address": "0x0650CAF159C5A49f711e8169D4336ECB9b950275",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 5705,
+  "fetchedAt": "2026-11-06T22:50:07.678Z",
+  "format": 2,
+  "sample": {
+    "count": 16,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 16,
+    "newest": 1793637515,
+    "oldest": 1791612983,
+    "perDay": 0.5333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x2e1a7d4d": 6,
+      "0x3d18b912": 10
+    },
+    "senders": 10,
+    "sendersBySelector": {
+      "0x2e1a7d4d": 6,
+      "0x3d18b912": 8
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "StakingRewards",
+    "status": "verified"
+  }
+}

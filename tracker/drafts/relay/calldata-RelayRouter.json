@@ -1,0 +1,114 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+        },
+        {
+          "chainId": 10,
+          "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Relay",
+    "contractName": "RelayRouter",
+    "info": {
+      "url": "https://relay.link"
+    }
+  },
+  "display": {
+    "formats": {
+      "multicall((address target,bool allowFailure,uint256 value,bytes callData)[] calls,address refundTo,address nftRecipient,bytes metadata)": {
+        "intent": "Multicall",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "calls.[].value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].target",
+            "label": "Target",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "calls.[].allowFailure",
+            "label": "Allow failure",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].callData",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "calls.[].target"
+            }
+          },
+          {
+            "path": "refundTo",
+            "label": "Refund to",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "nftRecipient",
+            "label": "NFT recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "metadata",
+            "label": "Metadata",
+            "format": "raw"
+          }
+        ]
+      }
+    }
+  }
+}

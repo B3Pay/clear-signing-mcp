@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x7777777C783bAD88daCaf9A19E04238341E4497B",
+    "functions": 20,
+    "name": "ZoraLimitOrderBook",
+    "source": "sourcify"
+  },
+  "address": "0x7777777C783bAD88daCaf9A19E04238341E4497B",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 23051,
+  "fetchedAt": "2026-11-06T23:32:18.576Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ZoraLimitOrderBook",
+    "status": "verified"
+  }
+}

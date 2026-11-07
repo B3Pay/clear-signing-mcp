@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+    "functions": 30,
+    "name": "SafeL2",
+    "source": "sourcify"
+  },
+  "address": "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 24421,
+  "fetchedAt": "2026-11-06T23:32:18.835Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SafeL2",
+    "status": "verified"
+  }
+}

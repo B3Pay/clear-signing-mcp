@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0x4D28D900e381eCE4B351302f1Abe588496793A2b",
+    "functions": 9,
+    "name": "BlueBundlesV1",
+    "source": "sourcify"
+  },
+  "address": "0x4D28D900e381eCE4B351302f1Abe588496793A2b",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 18095,
+  "fetchedAt": "2026-11-06T23:32:14.920Z",
+  "format": 2,
+  "sample": {
+    "count": 288,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 1,
+    "last30Days": 288,
+    "newest": 1794002455,
+    "oldest": 1793918712,
+    "perDay": 294.13461311142106,
+    "requested": 1000,
+    "selectors": {
+      "0x827d6bd8": 83,
+      "0xa4d5ece4": 15,
+      "0xb1268765": 166,
+      "0xc0229fe8": 24
+    },
+    "senders": 163,
+    "sendersBySelector": {
+      "0x827d6bd8": 51,
+      "0xa4d5ece4": 13,
+      "0xb1268765": 104,
+      "0xc0229fe8": 16
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "BlueBundlesV1",
+    "status": "verified"
+  }
+}

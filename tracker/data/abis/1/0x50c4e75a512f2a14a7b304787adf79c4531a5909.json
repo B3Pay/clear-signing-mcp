@@ -1,0 +1,21 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "ConfusedDeputy",
+      "type": "error"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    }
+  ],
+  "address": "0x50c4E75a512F2A14A7b304787Adf79C4531A5909",
+  "name": "AllowanceHolder",
+  "source": "sourcify"
+}

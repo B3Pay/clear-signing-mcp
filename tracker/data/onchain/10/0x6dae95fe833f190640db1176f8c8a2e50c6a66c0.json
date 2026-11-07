@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x6daE95FE833f190640dB1176F8C8a2e50C6a66c0",
+    "functions": 42,
+    "name": "VelodromeMigration",
+    "source": "sourcify"
+  },
+  "address": "0x6daE95FE833f190640dB1176F8C8a2e50C6a66c0",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 14254,
+  "fetchedAt": "2026-11-06T23:30:53.102Z",
+  "format": 2,
+  "sample": {
+    "count": 491,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 3,
+    "last30Days": 491,
+    "newest": 1794000005,
+    "oldest": 1793348193,
+    "perDay": 64.68821191891405,
+    "requested": 1000,
+    "selectors": {
+      "0x781ba9b8": 207,
+      "0xc0ddab40": 284
+    },
+    "senders": 306,
+    "sendersBySelector": {
+      "0x781ba9b8": 143,
+      "0xc0ddab40": 222
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "VelodromeMigration",
+    "status": "verified"
+  }
+}

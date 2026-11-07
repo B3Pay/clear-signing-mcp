@@ -1,0 +1,59 @@
+{
+  "abi": {
+    "address": "0x0000000000000068F116a894984e2DB1123eB395",
+    "functions": 18,
+    "name": "Seaport",
+    "source": "sourcify"
+  },
+  "address": "0x0000000000000068F116a894984e2DB1123eB395",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 23981,
+  "fetchedAt": "2026-11-06T23:32:17.583Z",
+  "format": 2,
+  "sample": {
+    "count": 514,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 35,
+    "last30Days": 514,
+    "newest": 1794002268,
+    "oldest": 1793918540,
+    "perDay": 524.9485803446889,
+    "requested": 1000,
+    "selectors": {
+      "0x": 35,
+      "0x00000000": 85,
+      "0x5b34b966": 1,
+      "0x87201b41": 38,
+      "0x88147732": 1,
+      "0xb3a34c4c": 9,
+      "0xe7acab24": 113,
+      "0xf2d12b12": 42,
+      "0xfd9f1e10": 190
+    },
+    "senders": 288,
+    "sendersBySelector": {
+      "0x": 1,
+      "0x00000000": 68,
+      "0x5b34b966": 1,
+      "0x87201b41": 20,
+      "0x88147732": 1,
+      "0xb3a34c4c": 6,
+      "0xe7acab24": 68,
+      "0xf2d12b12": 28,
+      "0xfd9f1e10": 111
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Seaport",
+    "status": "verified"
+  }
+}

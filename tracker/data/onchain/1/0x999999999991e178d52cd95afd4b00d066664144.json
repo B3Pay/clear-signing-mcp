@@ -1,0 +1,66 @@
+{
+  "abi": {
+    "address": "0xA98D1483781C08e60D944a63721B93fE40749032",
+    "functions": 29,
+    "name": "StakedPendle",
+    "source": "sourcify"
+  },
+  "address": "0x999999999991E178D52Cd95AFd4b00d066664144",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2999,
+  "fetchedAt": "2026-11-06T22:51:22.144Z",
+  "format": 2,
+  "sample": {
+    "count": 958,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 3,
+    "last30Days": 956,
+    "newest": 1793997467,
+    "oldest": 1791408623,
+    "perDay": 31.866666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 89,
+      "0x60fc8466": 27,
+      "0x716907a7": 167,
+      "0x7674e44e": 12,
+      "0x7c0696e8": 61,
+      "0xa694fc3a": 367,
+      "0xa9059cbb": 39,
+      "0xda276040": 196
+    },
+    "senders": 607,
+    "sendersBySelector": {
+      "0x095ea7b3": 70,
+      "0x60fc8466": 24,
+      "0x716907a7": 157,
+      "0x7674e44e": 11,
+      "0x7c0696e8": 55,
+      "0xa694fc3a": 253,
+      "0xa9059cbb": 32,
+      "0xda276040": 173
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xA98D1483781C08e60D944a63721B93fE40749032",
+          "name": "StakedPendle"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

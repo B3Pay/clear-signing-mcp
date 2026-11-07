@@ -1,0 +1,364 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x827922686190790b37229fd06084350E74485b72"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xe1f8cd9AC4e4A65F54f38a5CdAfCA44f6dD68b53"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xa990C6a764b73BF43cee5Bb40339c3322FB9D55F"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Aerodrome (legacy, now Aero)",
+    "contractName": "NonfungiblePositionManager",
+    "info": {
+      "url": "https://aerodrome.finance"
+    }
+  },
+  "display": {
+    "formats": {
+      "multicall(bytes[] data)": {
+        "intent": "Multicall",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "data.[]",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "@.to",
+              "amountPath": "@.value"
+            }
+          }
+        ]
+      },
+      "safeTransferFrom(address from,address to,uint256 tokenId,bytes _data)": {
+        "intent": "Safe transfer from",
+        "fields": [
+          {
+            "path": "from",
+            "label": "From",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          },
+          {
+            "path": "_data",
+            "label": "Data",
+            "format": "raw"
+          }
+        ]
+      },
+      "mint((address token0,address token1,int24 tickSpacing,int24 tickLower,int24 tickUpper,uint256 amount0Desired,uint256 amount1Desired,uint256 amount0Min,uint256 amount1Min,address recipient,uint256 deadline,uint160 sqrtPriceX96) params)": {
+        "intent": "Mint",
+        "fields": [
+          {
+            "path": "params.amount0Desired",
+            "label": "Maximum to mint",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.token0"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "params.amount1Desired",
+            "label": "Maximum to mint",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.token1"
+            }
+          },
+          {
+            "path": "params.amount0Min",
+            "label": "Minimum to mint",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.token0"
+            }
+          },
+          {
+            "path": "params.amount1Min",
+            "label": "Minimum to mint",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.token1"
+            }
+          },
+          {
+            "path": "params.tickSpacing",
+            "label": "Tick spacing",
+            "format": "raw"
+          },
+          {
+            "path": "params.tickLower",
+            "label": "Tick lower",
+            "format": "raw"
+          },
+          {
+            "path": "params.tickUpper",
+            "label": "Tick upper",
+            "format": "raw"
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "params.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "params.sqrtPriceX96",
+            "label": "Sqrt price X96",
+            "format": "raw"
+          },
+          {
+            "path": "params.token0",
+            "label": "Token 0",
+            "visible": "never"
+          },
+          {
+            "path": "params.token1",
+            "label": "Token 1",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Mint {params.amount0Desired}"
+      },
+      "approve(address to,uint256 tokenId)": {
+        "intent": "Approve",
+        "fields": [
+          {
+            "path": "to",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          }
+        ]
+      },
+      "collect((uint256 tokenId,address recipient,uint128 amount0Max,uint128 amount1Max) params)": {
+        "intent": "Collect",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "params.amount0Max",
+            "label": "Amount 0 max",
+            "format": "raw"
+          },
+          {
+            "path": "params.amount1Max",
+            "label": "Amount 1 max",
+            "format": "raw"
+          },
+          {
+            "path": "params.tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      },
+      "increaseLiquidity((uint256 tokenId,uint256 amount0Desired,uint256 amount1Desired,uint256 amount0Min,uint256 amount1Min,uint256 deadline) params)": {
+        "intent": "Add liquidity",
+        "fields": [
+          {
+            "path": "params.amount0Desired",
+            "label": "Amount 0 desired",
+            "format": "raw"
+          },
+          {
+            "path": "@.value",
+            "label": "Maximum to add",
+            "format": "amount"
+          },
+          {
+            "path": "params.amount1Desired",
+            "label": "Amount 1 desired",
+            "format": "raw"
+          },
+          {
+            "path": "params.amount0Min",
+            "label": "Amount 0 min",
+            "format": "raw"
+          },
+          {
+            "path": "params.amount1Min",
+            "label": "Amount 1 min",
+            "format": "raw"
+          },
+          {
+            "path": "params.tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          },
+          {
+            "path": "params.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ],
+        "interpolatedIntent": "Add up to {@.value} as liquidity"
+      },
+      "setApprovalForAll(address operator,bool approved)": {
+        "intent": "Set approval for all",
+        "fields": [
+          {
+            "path": "operator",
+            "label": "Operator",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "approved",
+            "label": "Approved",
+            "format": "raw"
+          }
+        ]
+      },
+      "decreaseLiquidity((uint256 tokenId,uint128 liquidity,uint256 amount0Min,uint256 amount1Min,uint256 deadline) params)": {
+        "intent": "Remove liquidity",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "params.liquidity",
+            "label": "Liquidity",
+            "format": "raw"
+          },
+          {
+            "path": "params.amount0Min",
+            "label": "Amount 0 min",
+            "format": "raw"
+          },
+          {
+            "path": "params.amount1Min",
+            "label": "Amount 1 min",
+            "format": "raw"
+          },
+          {
+            "path": "params.tokenId",
+            "label": "Token ID",
+            "format": "raw"
+          },
+          {
+            "path": "params.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

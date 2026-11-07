@@ -1,0 +1,65 @@
+{
+  "descriptor": "calldata-MetaBridge.json",
+  "tests": "testsv2/calldata-MetaBridge.tests.json",
+  "descriptorSha256": "ae53fbd84ad2b74a0ed3f73d523a91e4d340f3ea3b8eb94f0c2bcac681b1d470",
+  "testsSha256": "af3292b92269941ece65e4e1369774bd44cadfd3bc24591c23cf46cd7c1dae46",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Missing display format: Function pauseBridge() (selector: 0x7dd0480f) exists in reference ABI (see https://repo.sourcify.dev/1/0x0439e60f02a8900a951603950d8d4527f400c3f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function removeAdapter(string) (selector: 0x3ef11fd7) exists in reference ABI (see https://repo.sourcify.dev/1/0x0439e60f02a8900a951603950d8d4527f400c3f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function renounceOwnership() (selector: 0x715018a6) exists in reference ABI (see https://repo.sourcify.dev/1/0x0439e60f02a8900a951603950d8d4527f400c3f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setAdapter(string,address) (selector: 0x39122461) exists in reference ABI (see https://repo.sourcify.dev/1/0x0439e60f02a8900a951603950d8d4527f400c3f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferOwnership(address) (selector: 0xf2fde38b) exists in reference ABI (see https://repo.sourcify.dev/1/0x0439e60f02a8900a951603950d8d4527f400c3f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function unpauseBridge() (selector: 0xa82f143c) exists in reference ABI (see https://repo.sourcify.dev/1/0x0439e60f02a8900a951603950d8d4527f400c3f1) but has no display format defined in the descriptor.",
+        "warning: Owner too long: Owner `MetaMask Swaps & Bridge` exceeds 22 characters and may be truncated on Ledger devices."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/metamask-swaps/calldata-MetaBridge.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "pass",
+      "messages": []
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 1,
+      "cases": [
+        {
+          "description": "bridge 0x3ce33bff 0xb1b54402",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] bridge 0x3ce33bff 0xb1b54402",
+        "done: 1 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

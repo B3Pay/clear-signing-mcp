@@ -1,0 +1,41 @@
+{
+  "abi": {
+    "address": "0xA188EEC8F81263234dA3622A406892F3D630f98c",
+    "functions": 19,
+    "name": "UsdsPsmWrapper",
+    "source": "sourcify"
+  },
+  "address": "0xA188EEC8F81263234dA3622A406892F3D630f98c",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2972,
+  "fetchedAt": "2026-11-06T22:50:07.824Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1793997311,
+    "oldest": 1793359415,
+    "perDay": 135.44527634598742,
+    "requested": 1000,
+    "selectors": {
+      "0x8d7ef9bb": 550,
+      "0x95991276": 450
+    },
+    "senders": 308,
+    "sendersBySelector": {
+      "0x8d7ef9bb": 200,
+      "0x95991276": 163
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UsdsPsmWrapper",
+    "status": "verified"
+  }
+}

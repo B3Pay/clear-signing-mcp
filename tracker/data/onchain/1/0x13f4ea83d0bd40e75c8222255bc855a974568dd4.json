@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
+    "functions": 47,
+    "name": "SmartRouter",
+    "source": "sourcify"
+  },
+  "address": "0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 24316,
+  "fetchedAt": "2026-11-06T22:50:06.686Z",
+  "format": 2,
+  "sample": {
+    "count": 442,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 83,
+    "last30Days": 442,
+    "newest": 1793983067,
+    "oldest": 1791438503,
+    "perDay": 14.733333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x04e45aaf": 296,
+      "0x414bf389": 2,
+      "0x5023b4df": 2,
+      "0x5ae401dc": 48,
+      "0xac9650d8": 21,
+      "0xb858183f": 73
+    },
+    "senders": 37,
+    "sendersBySelector": {
+      "0x04e45aaf": 16,
+      "0x414bf389": 2,
+      "0x5023b4df": 1,
+      "0x5ae401dc": 9,
+      "0xac9650d8": 7,
+      "0xb858183f": 7
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SmartRouter",
+    "status": "verified"
+  }
+}

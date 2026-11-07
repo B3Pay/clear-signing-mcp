@@ -1,0 +1,50 @@
+{
+  "abi": {
+    "address": "0x79b6eAbfFAa958FDF2Aa2Bf632878bD323DCbF69",
+    "functions": 22,
+    "name": "L1ScrollMessenger",
+    "source": "sourcify"
+  },
+  "address": "0x6774Bcbd5ceCeF1336b5300fb5186a12DDD8b367",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2206,
+  "fetchedAt": "2026-11-06T22:50:06.361Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1794001307,
+    "oldest": 1792822355,
+    "perDay": 73.28542637868208,
+    "requested": 1000,
+    "selectors": {
+      "0xb2267a7b": 25,
+      "0xc311b6fc": 975
+    },
+    "senders": 191,
+    "sendersBySelector": {
+      "0xb2267a7b": 18,
+      "0xc311b6fc": 181
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x79b6eAbfFAa958FDF2Aa2Bf632878bD323DCbF69",
+          "name": "L1ScrollMessenger"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

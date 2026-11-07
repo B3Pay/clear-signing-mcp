@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x9c05880A2AaD7530c69e18e342eDC9E06cc757db",
+    "functions": 19,
+    "name": "SubaccountRouter",
+    "source": "sourcify"
+  },
+  "address": "0x9c05880A2AaD7530c69e18e342eDC9E06cc757db",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x9c05880A2AaD7530c69e18e342eDC9E06cc757db",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 15375,
+  "fetchedAt": "2026-11-06T21:55:50.710Z",
+  "format": 2,
+  "sample": {
+    "count": 949,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 6,
+    "last30Days": 877,
+    "newest": 1793989132,
+    "oldest": 1791112211,
+    "perDay": 29.233333333333334,
+    "requested": 1000,
+    "selectors": {
+      "0x712182eb": 31,
+      "0x7489ec23": 5,
+      "0xac9650d8": 913
+    },
+    "senders": 33,
+    "sendersBySelector": {
+      "0x712182eb": 24,
+      "0x7489ec23": 1,
+      "0xac9650d8": 9
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SubaccountRouter",
+    "status": "verified"
+  }
+}

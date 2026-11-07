@@ -1,0 +1,251 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58"
+        },
+        {
+          "chainId": 1,
+          "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58"
+        },
+        {
+          "chainId": 10,
+          "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Relay",
+    "contractName": "RelayApprovalProxy",
+    "info": {
+      "url": "https://relay.link"
+    }
+  },
+  "display": {
+    "formats": {
+      "transferAndMulticall(address[] tokens,uint256[] amounts,(address target,bool allowFailure,uint256 value,bytes callData)[] calls,address refundTo,address nftRecipient,bytes metadata)": {
+        "intent": "Transfer and multicall",
+        "fields": [
+          {
+            "path": "amounts.[]",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "tokens.[]"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "calls.[].value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].target",
+            "label": "Target",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "calls.[].allowFailure",
+            "label": "Allow failure",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].callData",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "calls.[].target"
+            }
+          },
+          {
+            "path": "refundTo",
+            "label": "Refund to",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "nftRecipient",
+            "label": "NFT recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "metadata",
+            "label": "Metadata",
+            "format": "raw"
+          },
+          {
+            "path": "tokens.[]",
+            "label": "Tokens",
+            "visible": "never"
+          }
+        ]
+      },
+      "permit2TransferAndMulticall(address user,((address token,uint256 amount)[] permitted,uint256 nonce,uint256 deadline) permit,(address target,bool allowFailure,uint256 value,bytes callData)[] calls,address refundTo,address nftRecipient,bytes metadata,bytes permitSignature)": {
+        "intent": "Permit 2 transfer and multicall",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "permit.permitted.[].amount",
+            "label": "Amount",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "permit.permitted.[].token"
+            }
+          },
+          {
+            "path": "calls.[].value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "user",
+            "label": "User",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "permit.nonce",
+            "label": "Nonce",
+            "format": "raw"
+          },
+          {
+            "path": "permit.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "calls.[].target",
+            "label": "Target",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "calls.[].allowFailure",
+            "label": "Allow failure",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].callData",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "calls.[].target"
+            }
+          },
+          {
+            "path": "refundTo",
+            "label": "Refund to",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "nftRecipient",
+            "label": "NFT recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "metadata",
+            "label": "Metadata",
+            "format": "raw"
+          },
+          {
+            "path": "permit.permitted.[].token",
+            "label": "Token",
+            "visible": "never"
+          },
+          {
+            "path": "permitSignature",
+            "label": "Permit signature",
+            "visible": "never"
+          }
+        ]
+      }
+    }
+  }
+}

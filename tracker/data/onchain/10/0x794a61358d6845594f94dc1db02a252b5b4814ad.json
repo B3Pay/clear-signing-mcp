@@ -1,0 +1,74 @@
+{
+  "abi": {
+    "address": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+    "functions": 83,
+    "name": "L2PoolInstance",
+    "source": "sourcify"
+  },
+  "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 2400,
+  "fetchedAt": "2026-11-06T23:30:54.040Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 8,
+    "last30Days": 1000,
+    "newest": 1794002165,
+    "oldest": 1793551875,
+    "perDay": 191.8763463545715,
+    "requested": 1000,
+    "selectors": {
+      "0x02c205f0": 2,
+      "0x28530a47": 6,
+      "0x42b0b77c": 21,
+      "0x4d013f03": 24,
+      "0x563dd613": 135,
+      "0x573ade81": 12,
+      "0x617ba037": 315,
+      "0x69328dec": 90,
+      "0x8e19899e": 201,
+      "0x9cd19996": 6,
+      "0xa415bcad": 154,
+      "0xac9650d8": 4,
+      "0xdc7c0bff": 2,
+      "0xe8eda9df": 28
+    },
+    "senders": 331,
+    "sendersBySelector": {
+      "0x02c205f0": 1,
+      "0x28530a47": 3,
+      "0x42b0b77c": 12,
+      "0x4d013f03": 14,
+      "0x563dd613": 75,
+      "0x573ade81": 5,
+      "0x617ba037": 148,
+      "0x69328dec": 48,
+      "0x8e19899e": 122,
+      "0x9cd19996": 1,
+      "0xa415bcad": 68,
+      "0xac9650d8": 4,
+      "0xdc7c0bff": 2,
+      "0xe8eda9df": 9
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "InitializableImmutableAdminUpgradeabilityProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x66185E53343336d4FaeA5317d1Fcca103Dd4088D",
+          "name": "L2PoolInstance"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

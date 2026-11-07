@@ -1,0 +1,77 @@
+{
+  "abi": {
+    "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+    "functions": 0,
+    "name": "PendleRouterV4",
+    "source": "sourcify"
+  },
+  "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x888888888889758F76e7103c6CbF23ABbF58F946",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 287,
+  "fetchedAt": "2026-11-06T21:55:52.399Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 7,
+    "last30Days": 1000,
+    "newest": 1794000430,
+    "oldest": 1793127506,
+    "perDay": 98.977688779321,
+    "requested": 1000,
+    "selectors": {
+      "0x05eb5327": 2,
+      "0x12599ac6": 18,
+      "0x2756ce06": 1,
+      "0x2e071dc6": 1,
+      "0x339748cb": 2,
+      "0x339a5572": 5,
+      "0x3dbe1c55": 14,
+      "0x47f1de22": 17,
+      "0x594a88cc": 27,
+      "0x60da0860": 11,
+      "0x60fc8466": 308,
+      "0x7036e052": 2,
+      "0x9fa02c86": 35,
+      "0xa373cf1a": 336,
+      "0xb00f09d7": 7,
+      "0xb7d75b8b": 21,
+      "0xc81f847a": 46,
+      "0xd0f42385": 11,
+      "0xed48907e": 20,
+      "0xf06a07a0": 116
+    },
+    "senders": 555,
+    "sendersBySelector": {
+      "0x05eb5327": 2,
+      "0x12599ac6": 11,
+      "0x2756ce06": 1,
+      "0x2e071dc6": 1,
+      "0x339748cb": 2,
+      "0x339a5572": 5,
+      "0x3dbe1c55": 6,
+      "0x47f1de22": 6,
+      "0x594a88cc": 27,
+      "0x60da0860": 5,
+      "0x60fc8466": 276,
+      "0x7036e052": 1,
+      "0x9fa02c86": 35,
+      "0xa373cf1a": 103,
+      "0xb00f09d7": 1,
+      "0xb7d75b8b": 16,
+      "0xc81f847a": 38,
+      "0xd0f42385": 4,
+      "0xed48907e": 10,
+      "0xf06a07a0": 110
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PendleRouterV4",
+    "status": "verified"
+  }
+}

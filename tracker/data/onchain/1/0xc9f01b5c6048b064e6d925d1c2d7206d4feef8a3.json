@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+    "functions": 103,
+    "name": "TokenizedStrategy",
+    "source": "sourcify"
+  },
+  "address": "0xc9f01b5c6048B064E6d925d1c2d7206d4fEeF8a3",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 9085,
+  "fetchedAt": "2026-11-06T22:50:22.403Z",
+  "format": 2,
+  "sample": {
+    "count": 1,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 1,
+    "newest": 1792089887,
+    "oldest": 1792089887,
+    "perDay": 0.03333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0xba087652": 1
+    },
+    "senders": 1,
+    "sendersBySelector": {
+      "0xba087652": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SparkCompounder",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+          "name": "TokenizedStrategy"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

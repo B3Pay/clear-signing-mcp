@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0xb21A277466e7dB6934556a1Ce12eb3F032815c8A",
+    "functions": 15,
+    "name": "CompositeLiquidityRouter",
+    "source": "sourcify"
+  },
+  "address": "0xb21A277466e7dB6934556a1Ce12eb3F032815c8A",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 14632,
+  "fetchedAt": "2026-11-06T22:50:06.720Z",
+  "format": 2,
+  "sample": {
+    "count": 58,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 2,
+    "last30Days": 58,
+    "newest": 1793966687,
+    "oldest": 1791430799,
+    "perDay": 1.9333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x19c6989f": 30,
+      "0xc1da024c": 3,
+      "0xd8a7f9fe": 25
+    },
+    "senders": 35,
+    "sendersBySelector": {
+      "0x19c6989f": 23,
+      "0xc1da024c": 1,
+      "0xd8a7f9fe": 12
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CompositeLiquidityRouter",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "abi": {
+    "address": "0xCe56012E880851baa234cD092aF516A0fcA9CFe3",
+    "functions": 30,
+    "name": "DeBridgeRouter",
+    "source": "sourcify"
+  },
+  "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 2733,
+  "fetchedAt": "2026-11-06T23:30:52.818Z",
+  "format": 2,
+  "sample": {
+    "count": 434,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 434,
+    "newest": 1794001935,
+    "oldest": 1793348523,
+    "perDay": 57.17858242934562,
+    "requested": 1000,
+    "selectors": {
+      "0x258c16ee": 365,
+      "0x4d8160ba": 33,
+      "0xc7a76969": 36
+    },
+    "senders": 35,
+    "sendersBySelector": {
+      "0x258c16ee": 13,
+      "0x4d8160ba": 20,
+      "0xc7a76969": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CrosschainForwarderProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xCe56012E880851baa234cD092aF516A0fcA9CFe3",
+          "name": "DeBridgeRouter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

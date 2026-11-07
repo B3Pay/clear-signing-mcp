@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+    "functions": 14,
+    "name": "MayanForwarder2",
+    "source": "sourcify"
+  },
+  "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 8840,
+  "fetchedAt": "2026-11-06T22:50:03.993Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 33,
+    "last30Days": 1000,
+    "newest": 1794002039,
+    "oldest": 1793828459,
+    "perDay": 497.7531973729692,
+    "requested": 1000,
+    "selectors": {
+      "0x30dedc57": 241,
+      "0xb0f584ff": 2,
+      "0xe4269fc4": 204,
+      "0xfa74fd43": 553
+    },
+    "senders": 744,
+    "sendersBySelector": {
+      "0x30dedc57": 194,
+      "0xb0f584ff": 1,
+      "0xe4269fc4": 128,
+      "0xfa74fd43": 443
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MayanForwarder2",
+    "status": "verified"
+  }
+}

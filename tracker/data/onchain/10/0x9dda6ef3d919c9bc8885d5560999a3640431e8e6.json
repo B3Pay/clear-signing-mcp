@@ -1,0 +1,34 @@
+{
+  "abi": null,
+  "address": "0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "status": "ok",
+    "verified": false
+  },
+  "chainId": 10,
+  "codeBytes": 7707,
+  "fetchedAt": "2026-11-06T21:48:50.413Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 7,
+    "last30Days": 1000,
+    "newest": 1793996689,
+    "oldest": 1792669089,
+    "perDay": 65.0798433263031,
+    "requested": 1000,
+    "selectors": {
+      "0x5f575529": 1000
+    },
+    "senders": 695,
+    "sendersBySelector": {
+      "0x5f575529": 695
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

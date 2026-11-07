@@ -1,0 +1,941 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "poolManager_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "zoraCoinVersionLookup_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "zoraHookRegistry_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "owner_",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "weth_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "AddressZero",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ArrayLengthMismatch",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CallerNotPermitted",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "orderId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "expectedCoin",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "actualCoin",
+          "type": "address"
+        }
+      ],
+      "name": "CoinMismatch",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InsufficientForwardedFunds",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InsufficientTransferFunds",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int24",
+          "name": "startTick",
+          "type": "int24"
+        },
+        {
+          "internalType": "int24",
+          "name": "endTick",
+          "type": "int24"
+        },
+        {
+          "internalType": "bool",
+          "name": "isCurrency0",
+          "type": "bool"
+        }
+      ],
+      "name": "InvalidFillWindow",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidOrder",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidPoolKey",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MaxFillCountCannotBeZero",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "withdrawn",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut",
+          "type": "uint256"
+        }
+      ],
+      "name": "MinAmountNotReached",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NativeValueMismatch",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotPoolManager",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyZoraHook",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OrderClosed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OrderFillable",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OrderNotMaker",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PathMustHaveAtLeastOneStep",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PermittedCallersLengthMismatch",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "RouterMsgSenderInvalid",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "UnknownCallback",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "UnlockedFillNotAllowed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "WethTransferFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroMaker",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroOrderSize",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroRealizedOrder",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "maker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "coin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "poolKeyHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isCurrency0",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "int24",
+          "name": "orderTick",
+          "type": "int24"
+        },
+        {
+          "indexed": false,
+          "internalType": "int24",
+          "name": "currentTick",
+          "type": "int24"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "orderSize",
+          "type": "uint128"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "orderId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "LimitOrderCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "maker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "coinIn",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "coinOut",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "amountIn",
+          "type": "uint128"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "amountOut",
+          "type": "uint128"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "fillReferral",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "fillReferralAmount",
+          "type": "uint128"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "poolKeyHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "int24",
+          "name": "tick",
+          "type": "int24"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "orderId",
+          "type": "bytes32"
+        }
+      ],
+      "name": "LimitOrderFilled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "maker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "coin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "poolKeyHash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isCurrency0",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "int24",
+          "name": "tick",
+          "type": "int24"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "orderSize",
+          "type": "uint128"
+        },
+        {
+          "indexed": false,
+          "internalType": "bytes32",
+          "name": "orderId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isCancelled",
+          "type": "bool"
+        }
+      ],
+      "name": "LimitOrderUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "maker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "coin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "newBalance",
+          "type": "uint256"
+        }
+      ],
+      "name": "MakerBalanceUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "permitted",
+          "type": "bool"
+        }
+      ],
+      "name": "PermittedCallerUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "acceptOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "maker",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "coin",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "contractVersion",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "Currency",
+              "name": "currency0",
+              "type": "address"
+            },
+            {
+              "internalType": "Currency",
+              "name": "currency1",
+              "type": "address"
+            },
+            {
+              "internalType": "uint24",
+              "name": "fee",
+              "type": "uint24"
+            },
+            {
+              "internalType": "int24",
+              "name": "tickSpacing",
+              "type": "int24"
+            },
+            {
+              "internalType": "contract IHooks",
+              "name": "hooks",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct PoolKey",
+          "name": "key",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bool",
+          "name": "isCurrency0",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "orderSizes",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "int24[]",
+          "name": "orderTicks",
+          "type": "int24[]"
+        },
+        {
+          "internalType": "address",
+          "name": "maker",
+          "type": "address"
+        }
+      ],
+      "name": "create",
+      "outputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "",
+          "type": "bytes32[]"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "Currency",
+              "name": "currency0",
+              "type": "address"
+            },
+            {
+              "internalType": "Currency",
+              "name": "currency1",
+              "type": "address"
+            },
+            {
+              "internalType": "uint24",
+              "name": "fee",
+              "type": "uint24"
+            },
+            {
+              "internalType": "int24",
+              "name": "tickSpacing",
+              "type": "int24"
+            },
+            {
+              "internalType": "contract IHooks",
+              "name": "hooks",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct PoolKey",
+          "name": "key",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bool",
+          "name": "isCurrency0",
+          "type": "bool"
+        },
+        {
+          "internalType": "int24",
+          "name": "startTick",
+          "type": "int24"
+        },
+        {
+          "internalType": "int24",
+          "name": "endTick",
+          "type": "int24"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxFillCount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "fillReferral",
+          "type": "address"
+        }
+      ],
+      "name": "fill",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "Currency",
+                  "name": "currency0",
+                  "type": "address"
+                },
+                {
+                  "internalType": "Currency",
+                  "name": "currency1",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint24",
+                  "name": "fee",
+                  "type": "uint24"
+                },
+                {
+                  "internalType": "int24",
+                  "name": "tickSpacing",
+                  "type": "int24"
+                },
+                {
+                  "internalType": "contract IHooks",
+                  "name": "hooks",
+                  "type": "address"
+                }
+              ],
+              "internalType": "struct PoolKey",
+              "name": "key",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bool",
+              "name": "isCurrency0",
+              "type": "bool"
+            },
+            {
+              "internalType": "bytes32[]",
+              "name": "orderIds",
+              "type": "bytes32[]"
+            }
+          ],
+          "internalType": "struct IZoraLimitOrderBook.OrderBatch[]",
+          "name": "batches",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "address",
+          "name": "fillReferral",
+          "type": "address"
+        }
+      ],
+      "name": "fill",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getMaxFillCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "caller",
+          "type": "address"
+        }
+      ],
+      "name": "isPermittedCaller",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pendingOwner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "poolManager",
+      "outputs": [
+        {
+          "internalType": "contract IPoolManager",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "maxFillCount",
+          "type": "uint256"
+        }
+      ],
+      "name": "setMaxFillCount",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "callers",
+          "type": "address[]"
+        },
+        {
+          "internalType": "bool[]",
+          "name": "permitted",
+          "type": "bool[]"
+        }
+      ],
+      "name": "setPermittedCallers",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "unlockCallback",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "weth",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "orderIds",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "address",
+          "name": "coin",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minAmountOut",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "recipient",
+          "type": "address"
+        }
+      ],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "zoraCoinVersionLookup",
+      "outputs": [
+        {
+          "internalType": "contract IDeployedCoinVersionLookup",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "zoraHookRegistry",
+      "outputs": [
+        {
+          "internalType": "contract IZoraHookRegistry",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "address": "0x7777777C783bAD88daCaf9A19E04238341E4497B",
+  "name": "ZoraLimitOrderBook",
+  "source": "sourcify"
+}

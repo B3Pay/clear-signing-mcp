@@ -1,0 +1,56 @@
+{
+  "abi": {
+    "address": "0xcfCDA84333431BCC9155f2368B8362F0d1dfF8c9",
+    "functions": 70,
+    "name": "Arbitrum_SpokePool",
+    "source": "sourcify"
+  },
+  "address": "0xe35e9842fceaCA96570B734083f4a58e8F7C5f2A",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xe35e9842fceaCA96570B734083f4a58e8F7C5f2A",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 680,
+  "fetchedAt": "2026-11-06T20:56:41.833Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 205,
+    "last30Days": 1000,
+    "newest": 1793994254,
+    "oldest": 1793964505,
+    "perDay": 2904.2993041782915,
+    "requested": 1000,
+    "selectors": {
+      "0x493a4f84": 16,
+      "0x7b939232": 271,
+      "0xac9650d8": 16,
+      "0xad5425c6": 74,
+      "0xdeff4b24": 623
+    },
+    "senders": 233,
+    "sendersBySelector": {
+      "0x493a4f84": 1,
+      "0x7b939232": 180,
+      "0xac9650d8": 1,
+      "0xad5425c6": 42,
+      "0xdeff4b24": 11
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xcfCDA84333431BCC9155f2368B8362F0d1dfF8c9",
+          "name": "Arbitrum_SpokePool"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

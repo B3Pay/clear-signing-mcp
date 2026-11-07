@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xF3622742b1E446D92e45E22923Ef11C2fcD55D68",
+    "functions": 10,
+    "name": "CornersFeeLocker",
+    "source": "sourcify"
+  },
+  "address": "0xF3622742b1E446D92e45E22923Ef11C2fcD55D68",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 2663,
+  "fetchedAt": "2026-11-06T23:32:18.388Z",
+  "format": 2,
+  "sample": {
+    "count": 57,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 57,
+    "newest": 1794000226,
+    "oldest": 1793918372,
+    "perDay": 58.21414217830208,
+    "requested": 1000,
+    "selectors": {
+      "0x21c0b342": 57
+    },
+    "senders": 24,
+    "sendersBySelector": {
+      "0x21c0b342": 24
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CornersFeeLocker",
+    "status": "verified"
+  }
+}

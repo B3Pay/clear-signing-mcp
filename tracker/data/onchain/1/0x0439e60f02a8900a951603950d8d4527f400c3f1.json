@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x0439e60F02a8900a951603950d8D4527f400C3f1",
+    "functions": 12,
+    "name": "MetaBridge",
+    "source": "sourcify"
+  },
+  "address": "0x0439e60F02a8900a951603950d8D4527f400C3f1",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "MetaBridge",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 6000,
+  "fetchedAt": "2026-11-06T21:48:42.453Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 2,
+    "last30Days": 1000,
+    "newest": 1794001283,
+    "oldest": 1793978243,
+    "perDay": 3750,
+    "requested": 1000,
+    "selectors": {
+      "0x3ce33bff": 1000
+    },
+    "senders": 799,
+    "sendersBySelector": {
+      "0x3ce33bff": 799
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MetaBridge",
+    "status": "verified"
+  }
+}

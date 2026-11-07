@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x6F19Da51d488926C007B9eBaa5968291a2eC6a63",
+    "functions": 10,
+    "name": "BeefyZapRouter",
+    "source": "sourcify"
+  },
+  "address": "0x6F19Da51d488926C007B9eBaa5968291a2eC6a63",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 10660,
+  "fetchedAt": "2026-11-06T23:32:19.317Z",
+  "format": 2,
+  "sample": {
+    "count": 180,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 31,
+    "last30Days": 180,
+    "newest": 1794001879,
+    "oldest": 1793918196,
+    "perDay": 183.83413319463816,
+    "requested": 1000,
+    "selectors": {
+      "0xf41b2db6": 180
+    },
+    "senders": 74,
+    "sendersBySelector": {
+      "0xf41b2db6": 74
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BeefyZapRouter",
+    "status": "verified"
+  }
+}

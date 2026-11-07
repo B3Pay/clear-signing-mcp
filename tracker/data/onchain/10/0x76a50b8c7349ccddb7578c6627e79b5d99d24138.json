@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0xe9b65dA5DcBe92f1b397991C464FF568Dc98D761",
+    "functions": 38,
+    "name": "ERC20RebasableBridgedPermit",
+    "source": "sourcify"
+  },
+  "address": "0x76A50b8c7349cCDDb7578c6627e79b5d99D24138",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 3296,
+  "fetchedAt": "2026-11-06T23:30:55.699Z",
+  "format": 2,
+  "sample": {
+    "count": 2,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 2,
+    "newest": 1793883287,
+    "oldest": 1793878499,
+    "perDay": 0.2634957715638047,
+    "requested": 1000,
+    "selectors": {
+      "0xde0e9a3e": 1,
+      "0xea598cb0": 1
+    },
+    "senders": 1,
+    "sendersBySelector": {
+      "0xde0e9a3e": 1,
+      "0xea598cb0": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "OssifiableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xe9b65dA5DcBe92f1b397991C464FF568Dc98D761",
+          "name": "ERC20RebasableBridgedPermit"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

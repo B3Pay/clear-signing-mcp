@@ -1,5 +1,25 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- `draftDescriptor`: an ERC-7730 v2 calldata descriptor drafted from an ABI
+  and real transactions, with a `testsv2` file whose expected text
+  `@ethereum-sourcify/clear-signing` renders, and the points a person must
+  review. Deterministic; no network.
+- The coverage tracker (`tracker/`): a curated list of 564 contracts of 96
+  protocols on Ethereum, Base, Arbitrum One and OP Mainnet, read by the
+  `Tracker fetch` workflow (Sourcify, Blockscout, the SQD portal, public
+  RPCs, DefiLlama; read-only), scored against the registry by the share of
+  recent senders whose calls it formats, with the registry's descriptor for
+  another deployment that already formats a contract's calls (one the
+  protocol's entry names counts, such as OKX's for its older routers), and drafts
+  for the biggest gaps, checked with the registry's schema, pinned linter
+  and test runner, with the share of each contract's calls they would
+  format. Contracts found shut down, sunset or not signed to on review are
+  left out, and their protocol's notes say why.
+
 ## 0.1.0 (unreleased)
 
 First version: an MCP server over stdio with four read-only tools.

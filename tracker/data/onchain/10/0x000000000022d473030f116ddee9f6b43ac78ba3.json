@@ -1,0 +1,57 @@
+{
+  "abi": {
+    "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "functions": 14,
+    "name": "Permit2",
+    "source": "sourcify"
+  },
+  "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 9152,
+  "fetchedAt": "2026-11-06T23:30:55.029Z",
+  "format": 2,
+  "sample": {
+    "count": 119,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 119,
+    "newest": 1793994379,
+    "oldest": 1793349087,
+    "perDay": 15.67799840804638,
+    "requested": 1000,
+    "selectors": {
+      "0x0d58b1db": 19,
+      "0x2a2d80d1": 2,
+      "0x2b67b570": 37,
+      "0x30f28b7a": 9,
+      "0x36c78516": 8,
+      "0x87517c45": 27,
+      "0xcc53287f": 14,
+      "0xedd9444b": 3
+    },
+    "senders": 32,
+    "sendersBySelector": {
+      "0x0d58b1db": 3,
+      "0x2a2d80d1": 1,
+      "0x2b67b570": 3,
+      "0x30f28b7a": 1,
+      "0x36c78516": 3,
+      "0x87517c45": 18,
+      "0xcc53287f": 9,
+      "0xedd9444b": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Permit2",
+    "status": "verified"
+  }
+}

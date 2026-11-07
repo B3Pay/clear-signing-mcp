@@ -1,0 +1,63 @@
+{
+  "abi": {
+    "address": "0xdCcBD7A365aeE086aa3b4EDe8afe895B20770AE3",
+    "functions": 28,
+    "name": "LeverageWETHZapper",
+    "source": "sourcify"
+  },
+  "address": "0xdCcBD7A365aeE086aa3b4EDe8afe895B20770AE3",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 17199,
+  "fetchedAt": "2026-11-06T22:50:08.381Z",
+  "format": 2,
+  "sample": {
+    "count": 140,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 10,
+    "last30Days": 140,
+    "newest": 1793995775,
+    "oldest": 1791427163,
+    "perDay": 4.666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x2e59d86b": 9,
+      "0x5cd067cf": 11,
+      "0x90de348a": 37,
+      "0x96658147": 17,
+      "0xa89efd8c": 5,
+      "0xade8971a": 17,
+      "0xc20b7949": 1,
+      "0xebfaa4e6": 4,
+      "0xedb66227": 26,
+      "0xf926c2d2": 2,
+      "0xfacb886f": 11
+    },
+    "senders": 28,
+    "sendersBySelector": {
+      "0x2e59d86b": 4,
+      "0x5cd067cf": 6,
+      "0x90de348a": 10,
+      "0x96658147": 6,
+      "0xa89efd8c": 2,
+      "0xade8971a": 7,
+      "0xc20b7949": 1,
+      "0xebfaa4e6": 2,
+      "0xedb66227": 6,
+      "0xf926c2d2": 2,
+      "0xfacb886f": 6
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "LeverageWETHZapper",
+    "status": "verified"
+  }
+}

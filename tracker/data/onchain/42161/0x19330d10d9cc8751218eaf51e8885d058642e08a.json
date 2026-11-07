@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x19330d10D9Cc8751218eaf51E8885D058642E08A",
+    "functions": 19,
+    "name": "TokenMessenger",
+    "source": "sourcify"
+  },
+  "address": "0x19330d10D9Cc8751218eaf51E8885D058642E08A",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x19330d10D9Cc8751218eaf51E8885D058642E08A",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 13497,
+  "fetchedAt": "2026-11-06T21:55:47.380Z",
+  "format": 2,
+  "sample": {
+    "count": 968,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 1,
+    "last30Days": 866,
+    "newest": 1793997631,
+    "oldest": 1791094486,
+    "perDay": 28.866666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x6fd3504e": 968
+    },
+    "senders": 347,
+    "sendersBySelector": {
+      "0x6fd3504e": 347
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TokenMessenger",
+    "status": "verified"
+  }
+}

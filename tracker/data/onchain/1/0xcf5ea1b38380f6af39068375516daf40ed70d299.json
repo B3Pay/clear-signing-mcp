@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0x716DF97EBC05CCb2745Bf04CD67df75cf2d11ee9",
+    "functions": 34,
+    "name": "StaderStakePoolsManager",
+    "source": "sourcify"
+  },
+  "address": "0xcf5EA1b38380f6aF39068375516Daf40Ed70D299",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T22:50:22.491Z",
+  "format": 2,
+  "sample": {
+    "count": 65,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 64,
+    "newest": 1793923907,
+    "oldest": 1791410351,
+    "perDay": 2.1333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0xb7482509": 64,
+      "0xf340fa01": 1
+    },
+    "senders": 51,
+    "sendersBySelector": {
+      "0xb7482509": 50,
+      "0xf340fa01": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x716DF97EBC05CCb2745Bf04CD67df75cf2d11ee9",
+          "name": "StaderStakePoolsManager"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

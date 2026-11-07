@@ -1,0 +1,55 @@
+{
+  "abi": {
+    "address": "0x1D8595e194Eaaff37496a9A5F3F509f5EEA9C70b",
+    "functions": 24,
+    "name": "SolvBTCRouterV2",
+    "source": "blockscout"
+  },
+  "address": "0x3d93B9e8F0886358570646dAd9421564C5fE6334",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T22:51:23.456Z",
+  "format": 2,
+  "sample": {
+    "count": 24,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 24,
+    "newest": 1793543999,
+    "oldest": 1791563795,
+    "perDay": 0.8,
+    "requested": 1000,
+    "selectors": {
+      "0x42c7774b": 2,
+      "0x672262e5": 8,
+      "0xd2cfd97d": 14
+    },
+    "senders": 18,
+    "sendersBySelector": {
+      "0x42c7774b": 2,
+      "0x672262e5": 7,
+      "0xd2cfd97d": 11
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x1D8595e194Eaaff37496a9A5F3F509f5EEA9C70b"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

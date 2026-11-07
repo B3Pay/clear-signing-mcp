@@ -1,0 +1,58 @@
+{
+  "abi": {
+    "address": "0x555E272506C06e7E559d57418563742AFE363ec8",
+    "functions": 33,
+    "name": "TokenMessengerV2",
+    "source": "sourcify"
+  },
+  "address": "0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x555E272506C06e7E559d57418563742AFE363ec8",
+        "name": "TokenMessengerV2"
+      }
+    ],
+    "isContract": true,
+    "name": "AdminUpgradableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2175,
+  "fetchedAt": "2026-11-06T21:21:32.973Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1793999711,
+    "oldest": 1793879999,
+    "perDay": 721.7321571772253,
+    "requested": 1000,
+    "selectors": {
+      "0x779b432d": 265,
+      "0x8e0250ee": 735
+    },
+    "senders": 425,
+    "sendersBySelector": {
+      "0x779b432d": 185,
+      "0x8e0250ee": 242
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AdminUpgradableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x555E272506C06e7E559d57418563742AFE363ec8",
+          "name": "TokenMessengerV2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

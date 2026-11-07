@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x8E08617b0d66359D73Aa11E11017834C29155525",
+    "functions": 54,
+    "name": "MErc20Delegator",
+    "source": "sourcify"
+  },
+  "address": "0x8E08617b0d66359D73Aa11E11017834C29155525",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 7261,
+  "fetchedAt": "2026-11-06T23:30:54.441Z",
+  "format": 2,
+  "sample": {
+    "count": 20,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 20,
+    "newest": 1793960819,
+    "oldest": 1793425275,
+    "perDay": 2.634957715638047,
+    "requested": 1000,
+    "selectors": {
+      "0x0e752702": 8,
+      "0xc5ebeaec": 5,
+      "0xdb006a75": 7
+    },
+    "senders": 8,
+    "sendersBySelector": {
+      "0x0e752702": 3,
+      "0xc5ebeaec": 1,
+      "0xdb006a75": 5
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MErc20Delegator",
+    "status": "verified"
+  }
+}

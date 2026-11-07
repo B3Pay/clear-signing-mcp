@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+    "functions": 5,
+    "name": "EnsoRouter",
+    "source": "sourcify"
+  },
+  "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 3313,
+  "fetchedAt": "2026-11-06T23:31:02.314Z",
+  "format": 2,
+  "sample": {
+    "count": 106,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 1,
+    "last30Days": 106,
+    "newest": 1794002280,
+    "oldest": 1793918134,
+    "perDay": 108.25787843684247,
+    "requested": 1000,
+    "selectors": {
+      "0x21025a06": 1,
+      "0xb94c3609": 104,
+      "0xf52e33f5": 1
+    },
+    "senders": 19,
+    "sendersBySelector": {
+      "0x21025a06": 1,
+      "0xb94c3609": 17,
+      "0xf52e33f5": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "EnsoRouter",
+    "status": "verified"
+  }
+}

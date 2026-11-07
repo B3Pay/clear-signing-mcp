@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x4f37A9d177470499A2dD084621020b023fcffc1F",
+    "functions": 9,
+    "name": "CurveRouterSidechainv1.1",
+    "source": "sourcify"
+  },
+  "address": "0x4f37A9d177470499A2dD084621020b023fcffc1F",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 12586,
+  "fetchedAt": "2026-11-06T23:32:29.331Z",
+  "format": 2,
+  "sample": {
+    "count": 22,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 22,
+    "newest": 1793962672,
+    "oldest": 1793923969,
+    "perDay": 22.468616279344666,
+    "requested": 1000,
+    "selectors": {
+      "0x5c9c18e2": 22
+    },
+    "senders": 8,
+    "sendersBySelector": {
+      "0x5c9c18e2": 8
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CurveRouterSidechainv1.1",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0xA6Ca0607190d03CF16fe6F2865Cf40c3D160ccf3",
+    "functions": 44,
+    "name": "WeETH",
+    "source": "sourcify"
+  },
+  "address": "0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 845,
+  "fetchedAt": "2026-11-06T22:50:09.714Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 1000,
+    "newest": 1794002351,
+    "oldest": 1793196671,
+    "perDay": 107.23860589812334,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 595,
+      "0xa9059cbb": 333,
+      "0xde0e9a3e": 68,
+      "0xea598cb0": 4
+    },
+    "senders": 593,
+    "sendersBySelector": {
+      "0x095ea7b3": 367,
+      "0xa9059cbb": 178,
+      "0xde0e9a3e": 64,
+      "0xea598cb0": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xA6Ca0607190d03CF16fe6F2865Cf40c3D160ccf3",
+          "name": "WeETH"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

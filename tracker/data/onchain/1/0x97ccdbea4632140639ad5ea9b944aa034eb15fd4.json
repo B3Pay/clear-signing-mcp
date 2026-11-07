@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+    "functions": 26,
+    "name": "SpokePoolPeriphery",
+    "source": "sourcify"
+  },
+  "address": "0x97CCDBea4632140639aD5eA9b944aa034eb15fD4",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 16914,
+  "fetchedAt": "2026-11-06T22:50:03.641Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 13,
+    "last30Days": 1000,
+    "newest": 1794002435,
+    "oldest": 1793954747,
+    "perDay": 1811.7765475591343,
+    "requested": 1000,
+    "selectors": {
+      "0x110560ad": 106,
+      "0x609ea081": 343,
+      "0x711bc67b": 334,
+      "0x74663367": 6,
+      "0xd2aca1a4": 211
+    },
+    "senders": 387,
+    "sendersBySelector": {
+      "0x110560ad": 93,
+      "0x609ea081": 300,
+      "0x711bc67b": 3,
+      "0x74663367": 3,
+      "0xd2aca1a4": 3
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SpokePoolPeriphery",
+    "status": "verified"
+  }
+}

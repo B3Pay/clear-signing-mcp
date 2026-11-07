@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+    "functions": 39,
+    "name": "SwapRouter02",
+    "source": "sourcify"
+  },
+  "address": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 24497,
+  "fetchedAt": "2026-11-06T23:30:52.560Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 65,
+    "last30Days": 1000,
+    "newest": 1794002193,
+    "oldest": 1793975679,
+    "perDay": 3258.6558044806516,
+    "requested": 1000,
+    "selectors": {
+      "0x04e45aaf": 509,
+      "0x5023b4df": 485,
+      "0x5ae401dc": 3,
+      "0xac9650d8": 1,
+      "0xb858183f": 2
+    },
+    "senders": 10,
+    "sendersBySelector": {
+      "0x04e45aaf": 6,
+      "0x5023b4df": 1,
+      "0x5ae401dc": 2,
+      "0xac9650d8": 1,
+      "0xb858183f": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SwapRouter02",
+    "status": "verified"
+  }
+}

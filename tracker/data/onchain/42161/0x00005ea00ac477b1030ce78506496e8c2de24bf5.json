@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+    "functions": 24,
+    "name": "SeaDrop",
+    "source": "sourcify"
+  },
+  "address": "0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 21081,
+  "fetchedAt": "2026-11-06T21:55:51.432Z",
+  "format": 2,
+  "sample": {
+    "count": 235,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 3,
+    "last30Days": 120,
+    "newest": 1793277059,
+    "oldest": 1791097634,
+    "perDay": 4,
+    "requested": 1000,
+    "selectors": {
+      "0x161ac21f": 153,
+      "0x4b61cd6f": 82
+    },
+    "senders": 203,
+    "sendersBySelector": {
+      "0x161ac21f": 136,
+      "0x4b61cd6f": 67
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SeaDrop",
+    "status": "verified"
+  }
+}

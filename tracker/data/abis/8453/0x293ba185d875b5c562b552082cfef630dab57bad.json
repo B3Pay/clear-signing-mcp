@@ -1,0 +1,198 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "fromTokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "toTokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "MigratedSlipstreamToSliptream",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "nft",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount0Min",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount1Min",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount0Extra",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount1Extra",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ILpMigrator.FromParams",
+          "name": "fromParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "nft",
+              "type": "address"
+            },
+            {
+              "internalType": "int24",
+              "name": "tickSpacing",
+              "type": "int24"
+            },
+            {
+              "internalType": "int24",
+              "name": "tickLower",
+              "type": "int24"
+            },
+            {
+              "internalType": "int24",
+              "name": "tickUpper",
+              "type": "int24"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount0Desired",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount1Desired",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount0Min",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount1Min",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "pool",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct ILpMigrator.ToParams",
+          "name": "toParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "migrateSlipstreamToSlipstream",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint128",
+          "name": "liquidity",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount0",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount1",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC721Received",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "address": "0x293Ba185d875B5c562B552082cfef630dab57baD",
+  "name": "LpMigrator",
+  "source": "sourcify"
+}

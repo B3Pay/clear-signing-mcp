@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0x201263Cea08e8F1D6E2fdd1FD2cA44bf6145e2AF",
+    "functions": 19,
+    "name": "OpenOceanExchange",
+    "source": "sourcify"
+  },
+  "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 2161,
+  "fetchedAt": "2026-11-06T23:31:02.751Z",
+  "format": 2,
+  "sample": {
+    "count": 281,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 281,
+    "newest": 1794002088,
+    "oldest": 1793918175,
+    "perDay": 286.98550793162957,
+    "requested": 1000,
+    "selectors": {
+      "0x0a9704d5": 13,
+      "0x90411a32": 268
+    },
+    "senders": 92,
+    "sendersBySelector": {
+      "0x0a9704d5": 12,
+      "0x90411a32": 82
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "OpenOceanExchangeProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x201263Cea08e8F1D6E2fdd1FD2cA44bf6145e2AF",
+          "name": "OpenOceanExchange"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

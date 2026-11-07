@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+    "functions": 5,
+    "name": "EnsoRouter",
+    "source": "sourcify"
+  },
+  "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 3313,
+  "fetchedAt": "2026-11-06T20:54:33.899Z",
+  "format": 2,
+  "sample": {
+    "count": 229,
+    "failed": 11,
+    "last30Days": 214,
+    "newest": 1793992815,
+    "oldest": 1791087298,
+    "perDay": 7.133333333333334,
+    "requested": 1000,
+    "selectors": {
+      "0x21025a06": 2,
+      "0xb94c3609": 199,
+      "0xf52e33f5": 28
+    },
+    "senders": 105,
+    "sendersBySelector": {
+      "0x21025a06": 1,
+      "0xb94c3609": 87,
+      "0xf52e33f5": 20
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "EnsoRouter",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xf652B3610D75D81871bf96DB50825d9af28391E0",
+    "functions": 12,
+    "name": "ClankerAirdropV2",
+    "source": "sourcify"
+  },
+  "address": "0xf652B3610D75D81871bf96DB50825d9af28391E0",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 4749,
+  "fetchedAt": "2026-11-06T23:32:18.509Z",
+  "format": 2,
+  "sample": {
+    "count": 62,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 62,
+    "newest": 1794001146,
+    "oldest": 1793927012,
+    "perDay": 63.320645878153144,
+    "requested": 1000,
+    "selectors": {
+      "0xfabed412": 62
+    },
+    "senders": 48,
+    "sendersBySelector": {
+      "0xfabed412": 48
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ClankerAirdropV2",
+    "status": "verified"
+  }
+}

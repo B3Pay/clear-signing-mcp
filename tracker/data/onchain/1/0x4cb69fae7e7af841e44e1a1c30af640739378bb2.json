@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
+    "functions": 33,
+    "name": "CircleRelayer",
+    "source": "sourcify"
+  },
+  "address": "0x4cb69FaE7e7Af841e44E1A1c30Af640739378bb2",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 9915,
+  "fetchedAt": "2026-11-06T22:50:03.688Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CircleRelayer",
+    "status": "verified"
+  }
+}

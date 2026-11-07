@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "functions": 14,
+    "name": "Permit2",
+    "source": "sourcify"
+  },
+  "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 9152,
+  "fetchedAt": "2026-11-06T23:32:18.731Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794002496,
+    "oldest": 1793985093,
+    "perDay": 4964.661265299086,
+    "requested": 1000,
+    "selectors": {
+      "0x0d58b1db": 12,
+      "0x137c29fe": 1,
+      "0x2b67b570": 6,
+      "0x30f28b7a": 14,
+      "0x36c78516": 6,
+      "0x87517c45": 958,
+      "0xcc53287f": 2,
+      "0xedd9444b": 1
+    },
+    "senders": 169,
+    "sendersBySelector": {
+      "0x0d58b1db": 2,
+      "0x137c29fe": 1,
+      "0x2b67b570": 2,
+      "0x30f28b7a": 1,
+      "0x36c78516": 1,
+      "0x87517c45": 161,
+      "0xcc53287f": 2,
+      "0xedd9444b": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Permit2",
+    "status": "verified"
+  }
+}

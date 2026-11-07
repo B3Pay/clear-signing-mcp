@@ -1,0 +1,56 @@
+{
+  "abi": {
+    "address": "0x028271E30a695c0527A0C50cA30603feD004cDb0",
+    "functions": 89,
+    "name": "Lido",
+    "source": "sourcify"
+  },
+  "address": "0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 1035,
+  "fetchedAt": "2026-11-06T22:50:09.754Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 2,
+    "last30Days": 1000,
+    "newest": 1794002483,
+    "oldest": 1793868923,
+    "perDay": 646.9002695417789,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 219,
+      "0x23b872dd": 9,
+      "0x5c60da1b": 1,
+      "0xa1903eab": 528,
+      "0xa9059cbb": 243
+    },
+    "senders": 597,
+    "sendersBySelector": {
+      "0x095ea7b3": 182,
+      "0x23b872dd": 1,
+      "0x5c60da1b": 1,
+      "0xa1903eab": 300,
+      "0xa9059cbb": 159
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AppProxyUpgradeable",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x028271E30a695c0527A0C50cA30603feD004cDb0",
+          "name": "Lido"
+        }
+      ],
+      "type": "AragonAppProxy"
+    },
+    "status": "verified"
+  }
+}

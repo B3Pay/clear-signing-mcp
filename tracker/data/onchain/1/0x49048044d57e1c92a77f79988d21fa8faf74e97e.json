@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0x03863Ab7F64B733cFF85C8fF44a86601C568Ca70",
+    "functions": 34,
+    "name": "OptimismPortal2",
+    "source": "sourcify"
+  },
+  "address": "0x49048044D57e1C92A77f79988d21Fa8fAF74E97e",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2096,
+  "fetchedAt": "2026-11-06T22:50:05.421Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794002507,
+    "oldest": 1793987927,
+    "perDay": 5925.925925925925,
+    "requested": 1000,
+    "selectors": {
+      "0x43ca1c50": 5,
+      "0x4870496f": 4,
+      "0x8c3152e9": 1,
+      "0xe9e05c42": 990
+    },
+    "senders": 14,
+    "sendersBySelector": {
+      "0x43ca1c50": 5,
+      "0x4870496f": 4,
+      "0x8c3152e9": 1,
+      "0xe9e05c42": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x03863Ab7F64B733cFF85C8fF44a86601C568Ca70",
+          "name": "OptimismPortal2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "descriptor": "calldata-ExchangeRouter.json",
+  "tests": "testsv2/calldata-ExchangeRouter.tests.json",
+  "descriptorSha256": "32eda7e7d976331a12e399898d31f7a3f19866e81fc13ac4e025be6ce39fdd95",
+  "testsSha256": "9ba287f56670b2700e1af00faa6111432f92bac0446061800e9b223c401359cc",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Missing display format: Function cancelDeposit(bytes32) (selector: 0x31404484) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelShift(bytes32) (selector: 0x96be2898) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function cancelWithdrawal(bytes32) (selector: 0x7213c5a0) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function claimAffiliateRewards(address[],address[],address) (selector: 0x49287a22) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function claimCollateral(address[],address[],uint256[],address) (selector: 0xe9249b57) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function claimUiFees(address[],address[],address) (selector: 0x01a9cbb2) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function createDeposit(((address,address,address,address,address,address,address[],address[]),uint256,bool,uint256,uint256,bytes32[])) (selector: 0xc82aa41b) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function createOrder(((address,address,address,address,address,address,address[]),(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256),uint8,uint8,bool,bool,bool,bytes32,bytes32[])) (selector: 0xf59c48eb) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function createShift(((address,address,address,address,address),uint256,uint256,uint256,bytes32[])) (selector: 0xbd434e0c) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function createTwapOrder(((address,address,address,address,address,address,address[]),(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256),uint8,uint8,bool,bool,bool,bytes32,bytes32[]),uint256,uint256) (selector: 0xae99b046) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function createWithdrawal(((address,address,address,address,address[],address[]),uint256,uint256,bool,uint256,uint256,bytes32[])) (selector: 0xe78dc235) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function executeAtomicWithdrawal(((address,address,address,address,address[],address[]),uint256,uint256,bool,uint256,uint256,bytes32[]),(address[],address[],bytes[])) (selector: 0xcfcfb552) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function makeExternalCalls(address[],bytes[],address[],address[]) (selector: 0xd59922b0) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function sendNativeToken(address,uint256) (selector: 0x53ead2d3) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function sendTokens(address,address,uint256) (selector: 0xe6d66ac8) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function sendWnt(address,uint256) (selector: 0x7d39aaf1) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setSavedCallbackContract(address,address) (selector: 0x073fb09e) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setUiFeeFactor(uint256) (selector: 0x5a03cd94) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function updateOrder(bytes32,uint256,uint256,uint256,uint256,uint256,bool) (selector: 0xdd5baad2) exists in reference ABI (see https://repo.sourcify.dev/42161/0x7de39ff2e232a2203196788d37e234cf8f1b83f1) but has no display format defined in the descriptor."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/gmx/calldata-ExchangeRouter.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "suggestions",
+      "messages": [
+        "no-interpolated-intent: multicall(bytes[] data): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: claimFundingFees(address[] markets,address[] tokens,address receiver): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: cancelOrder(bytes32 key): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads."
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 3,
+      "cases": [
+        {
+          "description": "multicall 0xac9650d8 0x84d7b4b8",
+          "status": "pass"
+        },
+        {
+          "description": "claimFundingFees 0xc41b1ab3 0x898cd3b9",
+          "status": "pass"
+        },
+        {
+          "description": "cancelOrder 0x7489ec23 0xf3579942",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] multicall 0xac9650d8 0x84d7b4b8",
+        "[pass] claimFundingFees 0xc41b1ab3 0x898cd3b9",
+        "[pass] cancelOrder 0x7489ec23 0xf3579942",
+        "done: 3 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

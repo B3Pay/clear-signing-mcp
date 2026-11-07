@@ -1,0 +1,62 @@
+{
+  "abi": {
+    "address": "0x1b992302652A92611DCd5090D1Cb388C6377f455",
+    "functions": 66,
+    "name": "SparkVault",
+    "source": "sourcify"
+  },
+  "address": "0x28B3a8fb53B741A8Fd78c0fb9A6B2393d896a43d",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 163,
+  "fetchedAt": "2026-11-06T22:50:07.459Z",
+  "format": 2,
+  "sample": {
+    "count": 850,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 2,
+    "last30Days": 846,
+    "newest": 1794000143,
+    "oldest": 1791408347,
+    "perDay": 28.2,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 24,
+      "0x6e553f65": 13,
+      "0x9b8d6d38": 291,
+      "0xa9059cbb": 22,
+      "0xb460af94": 254,
+      "0xba087652": 246
+    },
+    "senders": 408,
+    "sendersBySelector": {
+      "0x095ea7b3": 17,
+      "0x6e553f65": 9,
+      "0x9b8d6d38": 204,
+      "0xa9059cbb": 16,
+      "0xb460af94": 123,
+      "0xba087652": 208
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x1b992302652A92611DCd5090D1Cb388C6377f455",
+          "name": "SparkVault"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

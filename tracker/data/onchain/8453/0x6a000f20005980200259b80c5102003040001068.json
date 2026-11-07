@@ -1,0 +1,76 @@
+{
+  "abi": {
+    "address": "0x35Db9Ac2ff3C5A86fde165Bd26D43d303417942E",
+    "functions": 51,
+    "name": "DiamondCutFacet",
+    "source": "sourcify"
+  },
+  "address": "0x6A000F20005980200259B80c5102003040001068",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x6A000F20005980200259B80c5102003040001068",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 24562,
+  "fetchedAt": "2026-11-06T20:07:48.115Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 45,
+    "last30Days": 1000,
+    "newest": 1793994426,
+    "oldest": 1793971265,
+    "perDay": 3730.4088769914943,
+    "requested": 1000,
+    "selectors": {
+      "0x0d893d62": 4,
+      "0x7f457675": 6,
+      "0xe3ead59e": 990
+    },
+    "senders": 602,
+    "sendersBySelector": {
+      "0x0d893d62": 4,
+      "0x7f457675": 2,
+      "0xe3ead59e": 596
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AugustusV6",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x35Db9Ac2ff3C5A86fde165Bd26D43d303417942E",
+          "name": "DiamondCutFacet"
+        },
+        {
+          "address": "0x61Ab356a686958fb878B0dee6e87b1b4Fc36d553",
+          "name": "DiamondLoupeFacet"
+        },
+        {
+          "address": "0xcd8875014ac31Fcbea5890d79834c90033518192",
+          "name": "OwnershipFacet"
+        },
+        {
+          "address": "0x49C46f7f88110ccA234ef27Cd664510f7bbF5998",
+          "name": "AdminFacet"
+        },
+        {
+          "address": "0xa1686Ee049A745211D64ef2B305495D9425e7BD3",
+          "name": "BackwardCompatibilityFacet"
+        },
+        {
+          "address": "0x77Af2076b0d2615207ff6e5A5631873349E0E37c",
+          "name": "VersionFacet"
+        },
+        {
+          "address": "0xB00300C01C00A230b0DC106140047040a20b0c00",
+          "name": "ProPartnerFacet"
+        }
+      ],
+      "type": "DiamondProxy"
+    },
+    "status": "verified"
+  }
+}

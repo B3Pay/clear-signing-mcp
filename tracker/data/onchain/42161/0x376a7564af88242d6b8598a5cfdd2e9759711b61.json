@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0xA5E725D4A62E04DcAe7Fcb3Bf8c888fd54d68fC1",
+    "functions": 77,
+    "name": "RSETHPool",
+    "source": "sourcify"
+  },
+  "address": "0x376A7564AF88242D6B8598A5cfdD2E9759711B61",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x376A7564AF88242D6B8598A5cfdD2E9759711B61",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2837,
+  "fetchedAt": "2026-11-06T21:55:52.571Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xA5E725D4A62E04DcAe7Fcb3Bf8c888fd54d68fC1",
+          "name": "RSETHPool"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

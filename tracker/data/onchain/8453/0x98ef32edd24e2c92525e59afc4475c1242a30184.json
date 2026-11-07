@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x98Ef32edd24e2c92525E59afc4475C1242a30184",
+    "functions": 41,
+    "name": "BoosterLite",
+    "source": "sourcify"
+  },
+  "address": "0x98Ef32edd24e2c92525E59afc4475C1242a30184",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 14097,
+  "fetchedAt": "2026-11-06T23:32:19.253Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BoosterLite",
+    "status": "verified"
+  }
+}

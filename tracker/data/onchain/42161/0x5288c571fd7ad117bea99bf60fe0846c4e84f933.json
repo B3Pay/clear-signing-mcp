@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0xe80eb0238029333e368e0bDDB7acDf1b9cb28278",
+    "functions": 19,
+    "name": "L2GatewayRouter",
+    "source": "sourcify"
+  },
+  "address": "0x5288c571Fd7aD117beA99bF60FE0846C4E84F933",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x5288c571Fd7aD117beA99bF60FE0846C4E84F933",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2092,
+  "fetchedAt": "2026-11-06T21:55:48.623Z",
+  "format": 2,
+  "sample": {
+    "count": 732,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 1,
+    "last30Days": 614,
+    "newest": 1794000097,
+    "oldest": 1791105921,
+    "perDay": 20.466666666666665,
+    "requested": 1000,
+    "selectors": {
+      "0x7b3a3c8b": 732
+    },
+    "senders": 272,
+    "sendersBySelector": {
+      "0x7b3a3c8b": 272
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xe80eb0238029333e368e0bDDB7acDf1b9cb28278",
+          "name": "L2GatewayRouter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

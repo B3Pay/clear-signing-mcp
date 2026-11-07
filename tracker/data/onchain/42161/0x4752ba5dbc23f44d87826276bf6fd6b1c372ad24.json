@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24",
+    "functions": 24,
+    "name": "UniswapV2Router02",
+    "source": "sourcify"
+  },
+  "address": "0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 17891,
+  "fetchedAt": "2026-11-06T21:55:48.624Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794000195,
+    "oldest": 1793833062,
+    "perDay": 516.953563928129,
+    "requested": 1000,
+    "selectors": {
+      "0x18cbafe5": 83,
+      "0x38ed1739": 139,
+      "0x791ac947": 43,
+      "0x7ff36ab5": 639,
+      "0xaf2979eb": 2,
+      "0xb6f9de95": 90,
+      "0xbaa2abde": 3,
+      "0xe8e33700": 1
+    },
+    "senders": 101,
+    "sendersBySelector": {
+      "0x18cbafe5": 8,
+      "0x38ed1739": 82,
+      "0x791ac947": 2,
+      "0x7ff36ab5": 12,
+      "0xaf2979eb": 2,
+      "0xb6f9de95": 1,
+      "0xbaa2abde": 2,
+      "0xe8e33700": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UniswapV2Router02",
+    "status": "verified"
+  }
+}

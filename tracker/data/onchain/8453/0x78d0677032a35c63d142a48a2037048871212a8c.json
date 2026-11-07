@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x78D0677032A35c63D142a48A2037048871212a8C",
+    "functions": 12,
+    "name": "BaseBulker",
+    "source": "sourcify"
+  },
+  "address": "0x78D0677032A35c63D142a48A2037048871212a8C",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 4154,
+  "fetchedAt": "2026-11-06T23:32:14.536Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 5,
+    "last30Days": 1000,
+    "newest": 1794002459,
+    "oldest": 1793925131,
+    "perDay": 1117.31843575419,
+    "requested": 1000,
+    "selectors": {
+      "0x555029a6": 1000
+    },
+    "senders": 113,
+    "sendersBySelector": {
+      "0x555029a6": 113
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BaseBulker",
+    "status": "verified"
+  }
+}

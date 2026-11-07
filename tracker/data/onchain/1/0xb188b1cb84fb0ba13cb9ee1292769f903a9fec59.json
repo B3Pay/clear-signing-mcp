@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0xB188b1CB84Fb0bA13cb9ee1292769F903A9feC59",
+    "functions": 2,
+    "name": "RewardPoolDepositWrapper",
+    "source": "sourcify"
+  },
+  "address": "0xB188b1CB84Fb0bA13cb9ee1292769F903A9feC59",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 3250,
+  "fetchedAt": "2026-11-06T22:50:22.738Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RewardPoolDepositWrapper",
+    "status": "verified"
+  }
+}

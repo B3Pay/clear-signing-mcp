@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x45A62B090DF48243F12A21897e7ed91863E2c86b",
+    "functions": 13,
+    "name": "Router",
+    "source": "sourcify"
+  },
+  "address": "0x45A62B090DF48243F12A21897e7ed91863E2c86b",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x45A62B090DF48243F12A21897e7ed91863E2c86b",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 5980,
+  "fetchedAt": "2026-11-06T21:55:49.404Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Router",
+    "status": "verified"
+  }
+}

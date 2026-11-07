@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0x3167C452fA3fa1e5C16bB83Bc0fde4519C464299",
+    "functions": 13,
+    "name": "WrappedTokenGatewayV3",
+    "source": "sourcify"
+  },
+  "address": "0x3167C452fA3fa1e5C16bB83Bc0fde4519C464299",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 5428,
+  "fetchedAt": "2026-11-06T22:50:07.120Z",
+  "format": 2,
+  "sample": {
+    "count": 138,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 1,
+    "last30Days": 138,
+    "newest": 1793936627,
+    "oldest": 1791416891,
+    "perDay": 4.6,
+    "requested": 1000,
+    "selectors": {
+      "0x474cf53d": 73,
+      "0x80500d20": 40,
+      "0xbcc3c255": 11,
+      "0xe74f7b85": 14
+    },
+    "senders": 32,
+    "sendersBySelector": {
+      "0x474cf53d": 16,
+      "0x80500d20": 18,
+      "0xbcc3c255": 5,
+      "0xe74f7b85": 5
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "WrappedTokenGatewayV3",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x7C5f5A4bBd8fD63184577525326123B519429bDc",
+    "functions": 39,
+    "name": "PositionManager",
+    "source": "sourcify"
+  },
+  "address": "0x7C5f5A4bBd8fD63184577525326123B519429bDc",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 23877,
+  "fetchedAt": "2026-11-06T23:31:03.291Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 5,
+    "last30Days": 1000,
+    "newest": 1794002464,
+    "oldest": 1793977047,
+    "perDay": 3399.299681315655,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 1,
+      "0x23b872dd": 3,
+      "0x2b9261de": 2,
+      "0xa22cb465": 1,
+      "0xac9650d8": 189,
+      "0xb88d4fde": 16,
+      "0xdd46508f": 787,
+      "0xf7020405": 1
+    },
+    "senders": 260,
+    "sendersBySelector": {
+      "0x095ea7b3": 1,
+      "0x23b872dd": 3,
+      "0x2b9261de": 2,
+      "0xa22cb465": 1,
+      "0xac9650d8": 140,
+      "0xb88d4fde": 6,
+      "0xdd46508f": 234,
+      "0xf7020405": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "PositionManager",
+    "status": "verified"
+  }
+}

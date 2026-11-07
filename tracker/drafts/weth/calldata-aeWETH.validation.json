@@ -1,0 +1,89 @@
+{
+  "descriptor": "calldata-aeWETH.json",
+  "tests": "testsv2/calldata-aeWETH.tests.json",
+  "descriptorSha256": "0df6557bcabf48d1023db0b1342155176b729e093f0003878debea3cb6e63cb4",
+  "testsSha256": "5bba79d73c04fb57b4bfd897c904dd7e4bbed071d8414b26120c0fa8d2a017e8",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Display intent too long: Display intent(s) `Approve {spender} to spend {amount}, Transfer {amount} to {recipient}` exceed 30 characters and may be truncated on Ledger devices.",
+        "warning: Missing display format: Function admin() (selector: 0xf851a440) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function bridgeBurn(address,uint256) (selector: 0x74f4f547) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function bridgeMint(address,uint256) (selector: 0x8c2a993e) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function changeAdmin(address) (selector: 0x8f283970) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function decreaseAllowance(address,uint256) (selector: 0xa457c2d7) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function depositTo(address) (selector: 0xb760faf9) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function implementation() (selector: 0x5c60da1b) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function increaseAllowance(address,uint256) (selector: 0x39509351) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function initialize(string,string,uint8,address,address) (selector: 0xc820f146) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function permit(address,address,uint256,uint256,uint8,bytes32,bytes32) (selector: 0xd505accf) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferAndCall(address,uint256,bytes) (selector: 0x4000aea0) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferFrom(address,address,uint256) (selector: 0x23b872dd) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function upgradeTo(address) (selector: 0x3659cfe6) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function upgradeToAndCall(address,bytes) (selector: 0x4f1ef286) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function withdrawTo(address,uint256) (selector: 0x205c2878) exists in reference ABI (see https://repo.sourcify.dev/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1) but has no display format defined in the descriptor."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/weth/calldata-aeWETH.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "pass",
+      "messages": []
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 4,
+      "cases": [
+        {
+          "description": "approve 0x095ea7b3 0x635fcf5f",
+          "status": "pass"
+        },
+        {
+          "description": "transfer 0xa9059cbb 0xc449d8ea",
+          "status": "pass"
+        },
+        {
+          "description": "withdraw 0x2e1a7d4d 0x7186a91a",
+          "status": "pass"
+        },
+        {
+          "description": "deposit 0xd0e30db0 0x71b16b4e",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] approve 0x095ea7b3 0x635fcf5f",
+        "[pass] transfer 0xa9059cbb 0xc449d8ea",
+        "[pass] withdraw 0x2e1a7d4d 0x7186a91a",
+        "[pass] deposit 0xd0e30db0 0x71b16b4e",
+        "done: 4 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

@@ -1,0 +1,44 @@
+{
+  "abi": {
+    "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+    "functions": 19,
+    "name": "RelayApprovalProxy",
+    "source": "sourcify"
+  },
+  "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "RelayApprovalProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 13884,
+  "fetchedAt": "2026-11-06T21:48:45.794Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 40,
+    "last30Days": 1000,
+    "newest": 1794001391,
+    "oldest": 1793493397,
+    "perDay": 170.08074898522423,
+    "requested": 1000,
+    "selectors": {
+      "0x0a2b8f36": 417,
+      "0xf9e4bab4": 583
+    },
+    "senders": 392,
+    "sendersBySelector": {
+      "0x0a2b8f36": 2,
+      "0xf9e4bab4": 390
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RelayApprovalProxy",
+    "status": "verified"
+  }
+}

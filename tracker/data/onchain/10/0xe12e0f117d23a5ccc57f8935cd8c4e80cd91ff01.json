@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+    "functions": 6,
+    "name": "NativeOrderFactory",
+    "source": "sourcify"
+  },
+  "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "NativeOrderFactory",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 2675,
+  "fetchedAt": "2026-11-06T20:02:11.601Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 199,
+    "newest": 1793992957,
+    "oldest": 1780398045,
+    "perDay": 6.633333333333334,
+    "requested": 1000,
+    "selectors": {
+      "0x8c72b608": 1000
+    },
+    "senders": 488,
+    "sendersBySelector": {
+      "0x8c72b608": 488
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "NativeOrderFactory",
+    "status": "verified"
+  }
+}

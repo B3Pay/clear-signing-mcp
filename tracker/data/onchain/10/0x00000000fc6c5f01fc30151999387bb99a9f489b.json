@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x00000000Fc6c5F01Fc30151999387Bb99A9f489b",
+    "functions": 49,
+    "name": "IdRegistry",
+    "source": "sourcify"
+  },
+  "address": "0x00000000Fc6c5F01Fc30151999387Bb99A9f489b",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 13600,
+  "fetchedAt": "2026-11-06T23:30:54.909Z",
+  "format": 2,
+  "sample": {
+    "count": 9,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 9,
+    "newest": 1793880195,
+    "oldest": 1793453593,
+    "perDay": 1.1857309720371212,
+    "requested": 1000,
+    "selectors": {
+      "0x16f72842": 1,
+      "0x9cbef8dc": 6,
+      "0xbe45fd62": 2
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0x16f72842": 1,
+      "0x9cbef8dc": 1,
+      "0xbe45fd62": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "IdRegistry",
+    "status": "verified"
+  }
+}

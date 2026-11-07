@@ -1,0 +1,243 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418"
+        },
+        {
+          "chainId": 10,
+          "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418"
+        },
+        {
+          "chainId": 1,
+          "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Aero (Aerodrome + Velodrome)",
+    "contractName": "SwapRouter",
+    "info": {
+      "url": "https://aero.xyz"
+    }
+  },
+  "display": {
+    "formats": {
+      "exactInputSingle((address tokenIn,address tokenOut,int24 tickSpacing,address recipient,uint256 deadline,uint256 amountIn,uint256 amountOutMinimum,uint160 sqrtPriceLimitX96) params)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "params.amountIn",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.tokenIn"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "params.amountOutMinimum",
+            "label": "Minimum to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.tokenOut"
+            }
+          },
+          {
+            "path": "params.tickSpacing",
+            "label": "Tick spacing",
+            "format": "raw"
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "params.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "params.sqrtPriceLimitX96",
+            "label": "Sqrt price limit X96",
+            "format": "raw"
+          },
+          {
+            "path": "params.tokenIn",
+            "label": "Token in",
+            "visible": "never"
+          },
+          {
+            "path": "params.tokenOut",
+            "label": "Token out",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap {params.amountIn} for at least {params.amountOutMinimum}"
+      },
+      "exactOutputSingle((address tokenIn,address tokenOut,int24 tickSpacing,address recipient,uint256 deadline,uint256 amountOut,uint256 amountInMaximum,uint160 sqrtPriceLimitX96) params)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "params.amountInMaximum",
+            "label": "Maximum to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.tokenIn"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "params.amountOut",
+            "label": "Amount to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.tokenOut"
+            }
+          },
+          {
+            "path": "params.tickSpacing",
+            "label": "Tick spacing",
+            "format": "raw"
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "params.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "params.sqrtPriceLimitX96",
+            "label": "Sqrt price limit X96",
+            "format": "raw"
+          },
+          {
+            "path": "params.tokenIn",
+            "label": "Token in",
+            "visible": "never"
+          },
+          {
+            "path": "params.tokenOut",
+            "label": "Token out",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap at most {params.amountInMaximum} for {params.amountOut}"
+      },
+      "exactInput((bytes path,address recipient,uint256 deadline,uint256 amountIn,uint256 amountOutMinimum) params)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "params.amountIn",
+            "label": "Amount in",
+            "format": "raw"
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "params.amountOutMinimum",
+            "label": "Amount out minimum",
+            "format": "raw"
+          },
+          {
+            "path": "params.path",
+            "label": "Path",
+            "format": "raw"
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "params.deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ]
+      },
+      "multicall(bytes[] data)": {
+        "intent": "Multicall",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "data.[]",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "@.to",
+              "amountPath": "@.value"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

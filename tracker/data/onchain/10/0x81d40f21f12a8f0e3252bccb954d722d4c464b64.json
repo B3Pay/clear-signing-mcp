@@ -1,0 +1,56 @@
+{
+  "abi": {
+    "address": "0x1f33335414Afb7305367452d00A0D024B0184eA8",
+    "functions": 36,
+    "name": "MessageTransmitterV2",
+    "source": "sourcify"
+  },
+  "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x1f33335414Afb7305367452d00A0D024B0184eA8",
+        "name": "MessageTransmitterV2"
+      }
+    ],
+    "isContract": true,
+    "name": "AdminUpgradableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 2175,
+  "fetchedAt": "2026-11-06T21:22:06.685Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 5,
+    "last30Days": 1000,
+    "newest": 1793999825,
+    "oldest": 1793817667,
+    "perDay": 474.31350805344806,
+    "requested": 1000,
+    "selectors": {
+      "0x57ecfd28": 1000
+    },
+    "senders": 46,
+    "sendersBySelector": {
+      "0x57ecfd28": 46
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AdminUpgradableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x1f33335414Afb7305367452d00A0D024B0184eA8",
+          "name": "MessageTransmitterV2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

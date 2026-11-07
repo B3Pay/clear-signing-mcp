@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x16613524e02ad97eDfeF371bC883F2F5d6C480A5",
+    "functions": 54,
+    "name": "Voter",
+    "source": "sourcify"
+  },
+  "address": "0x16613524e02ad97eDfeF371bC883F2F5d6C480A5",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 16912,
+  "fetchedAt": "2026-11-06T23:32:26.470Z",
+  "format": 2,
+  "sample": {
+    "count": 109,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 1,
+    "last30Days": 109,
+    "newest": 1794002469,
+    "oldest": 1793917971,
+    "perDay": 111.3217806567531,
+    "requested": 1000,
+    "selectors": {
+      "0x310bd74b": 46,
+      "0x370fb5fa": 16,
+      "0x7715ee75": 47
+    },
+    "senders": 52,
+    "sendersBySelector": {
+      "0x310bd74b": 38,
+      "0x370fb5fa": 13,
+      "0x7715ee75": 37
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Voter",
+    "status": "verified"
+  }
+}

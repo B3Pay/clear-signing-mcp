@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x0000000000D8e504002cC26E3Ec46D81971C1664",
+    "functions": 7,
+    "name": "L2ReverseRegistrar",
+    "source": "sourcify"
+  },
+  "address": "0x0000000000D8e504002cC26E3Ec46D81971C1664",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x0000000000D8e504002cC26E3Ec46D81971C1664",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 5629,
+  "fetchedAt": "2026-11-06T21:55:51.620Z",
+  "format": 2,
+  "sample": {
+    "count": 10,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 8,
+    "newest": 1793098120,
+    "oldest": 1791319638,
+    "perDay": 0.26666666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0xc47f0027": 10
+    },
+    "senders": 8,
+    "sendersBySelector": {
+      "0xc47f0027": 8
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "L2ReverseRegistrar",
+    "status": "verified"
+  }
+}

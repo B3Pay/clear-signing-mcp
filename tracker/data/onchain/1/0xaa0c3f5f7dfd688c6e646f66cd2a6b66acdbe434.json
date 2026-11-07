@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0xaa0C3f5F7DFD688C6E646F66CD2a6B66ACdbE434",
+    "functions": 48,
+    "name": "CvxCrvStakingWrapper",
+    "source": "sourcify"
+  },
+  "address": "0xaa0C3f5F7DFD688C6E646F66CD2a6B66ACdbE434",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 13301,
+  "fetchedAt": "2026-11-06T22:50:22.405Z",
+  "format": 2,
+  "sample": {
+    "count": 827,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 14,
+    "last30Days": 825,
+    "newest": 1794000719,
+    "oldest": 1791403259,
+    "perDay": 27.5,
+    "requested": 1000,
+    "selectors": {
+      "0x2e1a7d4d": 90,
+      "0x6b091695": 1,
+      "0x7acb7757": 208,
+      "0xa9059cbb": 2,
+      "0xc00007b0": 440,
+      "0xc15f5f8d": 86
+    },
+    "senders": 321,
+    "sendersBySelector": {
+      "0x2e1a7d4d": 59,
+      "0x6b091695": 1,
+      "0x7acb7757": 108,
+      "0xa9059cbb": 2,
+      "0xc00007b0": 253,
+      "0xc15f5f8d": 48
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CvxCrvStakingWrapper",
+    "status": "verified"
+  }
+}

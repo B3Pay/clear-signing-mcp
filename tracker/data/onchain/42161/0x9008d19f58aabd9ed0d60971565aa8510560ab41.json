@@ -1,0 +1,41 @@
+{
+  "abi": {
+    "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+    "functions": 15,
+    "name": "GPv2Settlement",
+    "source": "sourcify"
+  },
+  "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 16165,
+  "fetchedAt": "2026-11-06T20:12:42.236Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 5,
+    "last30Days": 1000,
+    "newest": 1793993860,
+    "oldest": 1793901083,
+    "perDay": 931.2652920443644,
+    "requested": 1000,
+    "selectors": {
+      "0x13d79a0b": 999,
+      "0x15337bc0": 1
+    },
+    "senders": 16,
+    "sendersBySelector": {
+      "0x13d79a0b": 15,
+      "0x15337bc0": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "GPv2Settlement",
+    "status": "verified"
+  }
+}

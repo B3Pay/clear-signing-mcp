@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xfAA2eD111B4F580fCb85C48E6DC6782Dc5FCD7a6",
+    "functions": 51,
+    "name": "AuraBalVault",
+    "source": "sourcify"
+  },
+  "address": "0xfAA2eD111B4F580fCb85C48E6DC6782Dc5FCD7a6",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 11266,
+  "fetchedAt": "2026-11-06T22:50:22.959Z",
+  "format": 2,
+  "sample": {
+    "count": 4,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 4,
+    "newest": 1793807387,
+    "oldest": 1792144283,
+    "perDay": 0.13333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0xba087652": 4
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0xba087652": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AuraBalVault",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0x134cCaaA4F1e4552eC8aEcb9E4A2360dDcF8df76",
+    "functions": 9,
+    "name": "SyrupRouter",
+    "source": "sourcify"
+  },
+  "address": "0x134cCaaA4F1e4552eC8aEcb9E4A2360dDcF8df76",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 3861,
+  "fetchedAt": "2026-11-06T22:50:08.757Z",
+  "format": 2,
+  "sample": {
+    "count": 391,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 2,
+    "last30Days": 389,
+    "newest": 1793999423,
+    "oldest": 1791408683,
+    "perDay": 12.966666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x6807c8dc": 266,
+      "0xa6d061fb": 69,
+      "0xc9630cb0": 37,
+      "0xd5db8c67": 19
+    },
+    "senders": 200,
+    "sendersBySelector": {
+      "0x6807c8dc": 107,
+      "0xa6d061fb": 65,
+      "0xc9630cb0": 29,
+      "0xd5db8c67": 19
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SyrupRouter",
+    "status": "verified"
+  }
+}

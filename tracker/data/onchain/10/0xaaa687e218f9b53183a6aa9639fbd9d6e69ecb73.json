@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0x8A1B70D89eb1659aC6437f4A79Dddd70FE933fa9",
+    "functions": 58,
+    "name": "RSETHPoolV2ExternalBridge",
+    "source": "sourcify"
+  },
+  "address": "0xaAA687e218F9B53183A6AA9639FBD9D6e69EcB73",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 2837,
+  "fetchedAt": "2026-11-06T23:30:55.777Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x8A1B70D89eb1659aC6437f4A79Dddd70FE933fa9",
+          "name": "RSETHPoolV2ExternalBridge"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

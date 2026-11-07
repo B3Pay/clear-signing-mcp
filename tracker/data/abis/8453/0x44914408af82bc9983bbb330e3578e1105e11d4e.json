@@ -1,0 +1,2310 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "ExecutionFeeNotSent",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidAmount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyGov",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyOperator",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "OnlyPauser",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAddress",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "aggregator",
+          "type": "address"
+        }
+      ],
+      "name": "AggregatorUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "ExecFeesClaimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "version",
+          "type": "uint8"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "isOperator",
+          "type": "bool"
+        }
+      ],
+      "name": "OperatorUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "pairStorage",
+          "type": "address"
+        }
+      ],
+      "name": "PairStorageUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Paused",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "Unpaused",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "_MAX_SLIPPAGE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "__deprecated_delegations",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_pairIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelOpenLimitOrder",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelPendingMarketOrder",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "rfqId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelRfqByOperator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "rfqIds",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "cancelRfqsByOperator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_trader",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_pairIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelRollLimitOrders",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_twapId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelTwap",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_twapId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelTwapByOperator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_twapIds",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "cancelTwapsByOperator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimExecFees",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pairIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "coinSizeToClose",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "wantedPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxSlippageP",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.RfqCloseOrder",
+          "name": "req",
+          "type": "tuple"
+        }
+      ],
+      "name": "closeRfq",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "rfqId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_pairIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_wantedPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "closeTradeMarket",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_pairIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_coinExposure",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_wantedPrice",
+          "type": "uint256"
+        }
+      ],
+      "name": "closeTradeMarketWithCoinExposure",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pairIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "coinSizeToClose",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "runTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "__reserved1",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.TwapCloseOrder",
+          "name": "req",
+          "type": "tuple"
+        }
+      ],
+      "name": "closeTwap",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "twapId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "delegateModule",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "trader",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "call_data",
+          "type": "bytes"
+        }
+      ],
+      "name": "delegatedAction",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rfqId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sliceId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "coinSize",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.RfqCloseSlice",
+          "name": "_slice",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executeCloseRfqSlice",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "twapId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sliceId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "coinSize",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.TwapCloseSlice",
+          "name": "_slice",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executeCloseTwapSlice",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum ITradingStorage.LimitOrder",
+          "name": "_orderType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "_trader",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_pairIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executeLimitOrder",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "orderId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executeMarketOrder",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum IPriceAggregator.OrderType",
+          "name": "_orderType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userSignature",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userIntent",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "_priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executeMarketOrderBatched",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "rfqId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sliceId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collateral",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "leverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "coinExposure",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.RfqOpenSlice",
+          "name": "_slice",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executeOpenRfqSlice",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "twapId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sliceId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collateral",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "leverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "coinExposure",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.TwapOpenSlice",
+          "name": "_slice",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executeOpenTwapSlice",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_userIntent",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_signature",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executePartialTpSl",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum IPriceAggregator.OrderType",
+          "name": "_orderType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userSignature",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userIntent",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "_priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        },
+        {
+          "components": [
+            {
+              "internalType": "int256",
+              "name": "spreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "bookDepth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "int256",
+              "name": "impactParam",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "byPass",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "maxSpreadP",
+              "type": "int256"
+            },
+            {
+              "internalType": "bool",
+              "name": "slot_1",
+              "type": "bool"
+            },
+            {
+              "internalType": "int256",
+              "name": "slot_3",
+              "type": "int256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.offChainSpreadParams",
+          "name": "_spreadParams",
+          "type": "tuple"
+        }
+      ],
+      "name": "executePositionUpdateBatched",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum IPriceAggregator.OrderType",
+          "name": "_orderType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userSignature",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userIntent",
+          "type": "bytes"
+        }
+      ],
+      "name": "executeRfqBatched",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "intentId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "enum IPriceAggregator.OrderType",
+          "name": "_orderType",
+          "type": "uint8"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userSignature",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userIntent",
+          "type": "bytes"
+        }
+      ],
+      "name": "executeTwapBatched",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "intentId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pairIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "openPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "initialPosToken",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "leverage",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.UpdatePositionSize",
+          "name": "_updateInfo",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_slippageP",
+          "type": "uint256"
+        }
+      ],
+      "name": "increasePositionSize",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pairIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "openPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "initialPosToken",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "leverage",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.UpdatePositionSize",
+          "name": "_updateInfo",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_coinExposure",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minLeverage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxLeverage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_slippageP",
+          "type": "uint256"
+        }
+      ],
+      "name": "increasePositionSizeWithCoinExposure",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_storageT",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_pairInfos",
+          "type": "address"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "isOperator",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "limitModule",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "limitOrdersTimelock",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "marketModule",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "multipleDelegations",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isEnabled",
+          "type": "bool"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "nonceBitmap",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pairIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collateral",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "buy",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "isCoin",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "coinSize",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "defaultLeverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxLeverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "wantedPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxSlippageP",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.RfqOpenOrder",
+          "name": "req",
+          "type": "tuple"
+        }
+      ],
+      "name": "openRfq",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "rfqId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pairIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "initialPosToken",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "positionSizeUSDC",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "openPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "buy",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "leverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sl",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.Trade",
+          "name": "_trade",
+          "type": "tuple"
+        },
+        {
+          "internalType": "enum IExecute.OpenLimitOrderType",
+          "name": "_type",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_slippageP",
+          "type": "uint256"
+        }
+      ],
+      "name": "openTrade",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pairIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "index",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "initialPosToken",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "positionSizeUSDC",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "openPrice",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "buy",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "leverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "sl",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "timestamp",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.Trade",
+          "name": "_trade",
+          "type": "tuple"
+        },
+        {
+          "internalType": "enum IExecute.OpenLimitOrderType",
+          "name": "_type",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_coinExposure",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "minLeverage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxLeverage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_slippageP",
+          "type": "uint256"
+        }
+      ],
+      "name": "openTradeWithCoinExposure",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "trader",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pairIndex",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "collateral",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "buy",
+              "type": "bool"
+            },
+            {
+              "internalType": "bool",
+              "name": "isCoin",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint256",
+              "name": "coinSize",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "defaultLeverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "maxLeverage",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "runTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "__reserved1",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct ITradingStorage.TwapOpenOrder",
+          "name": "req",
+          "type": "tuple"
+        }
+      ],
+      "name": "openTwap",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "twapId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "operator",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pairInfos",
+      "outputs": [
+        {
+          "internalType": "contract IPairInfos",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pairStorage",
+      "outputs": [
+        {
+          "internalType": "contract IPairStorage",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "pause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "paused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "positionUpdatesModule",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "delegate",
+          "type": "address"
+        }
+      ],
+      "name": "removeDelegate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "rfqModule",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_expiry",
+          "type": "uint256"
+        }
+      ],
+      "name": "setDelegate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_signature",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_userIntent",
+          "type": "bytes"
+        }
+      ],
+      "name": "setDelegateWithSig",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_receiver",
+          "type": "address"
+        }
+      ],
+      "name": "setMarketExecFeeReceiver",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_marketTrading",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_limitTrading",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_updatesTrading",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_twapTrading",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_delegate",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_rfq",
+          "type": "address"
+        }
+      ],
+      "name": "setTradingModules",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "storageT",
+      "outputs": [
+        {
+          "internalType": "contract ITradingStorage",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "twapModule",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unpause",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_pairIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum ITradingStorage.updateType",
+          "name": "_type",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes[]",
+          "name": "priceUpdateData",
+          "type": "bytes[]"
+        },
+        {
+          "internalType": "enum IPriceAggregator.PriceSourcing",
+          "name": "_priceSourcing",
+          "type": "uint8"
+        }
+      ],
+      "name": "updateMargin",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "orderId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_pairIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_slippageP",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_tp",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_sl",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateOpenLimitOrder",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_operator",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_isOperator",
+          "type": "bool"
+        }
+      ],
+      "name": "updateOperator",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_aggregator",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_pairStorage",
+          "type": "address"
+        }
+      ],
+      "name": "wireSuite",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "previousAdmin",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newAdmin",
+          "type": "address"
+        }
+      ],
+      "name": "AdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "beacon",
+          "type": "address"
+        }
+      ],
+      "name": "BeaconUpgraded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        }
+      ],
+      "name": "Upgraded",
+      "type": "event"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "address": "0x4a0d70ec00B708879530eEEaef2bb161551fDADc",
+  "merged": [
+    "0x4a0d70ec00B708879530eEEaef2bb161551fDADc",
+    "0x44914408af82bC9983bbb330e3578E1105e11d4e"
+  ],
+  "name": "TradingRouter",
+  "source": "sourcify"
+}

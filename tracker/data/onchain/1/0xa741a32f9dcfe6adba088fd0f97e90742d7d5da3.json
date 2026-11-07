@@ -1,0 +1,57 @@
+{
+  "abi": {
+    "address": "0xa741A32f9dcFe6aDBa088fD0f97e90742d7d5DA3",
+    "functions": 41,
+    "name": "BorrowerOperations",
+    "source": "sourcify"
+  },
+  "address": "0xa741A32f9dcFe6aDBa088fD0f97e90742d7d5DA3",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 24559,
+  "fetchedAt": "2026-11-06T22:50:08.315Z",
+  "format": 2,
+  "sample": {
+    "count": 24,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 24,
+    "newest": 1793901875,
+    "oldest": 1791473819,
+    "perDay": 0.8,
+    "requested": 1000,
+    "selectors": {
+      "0x26f4e252": 10,
+      "0x570fb750": 7,
+      "0x59f54f40": 1,
+      "0x5aa6d461": 1,
+      "0x5cd067cf": 1,
+      "0x90de348a": 1,
+      "0xd5479cd4": 2,
+      "0xf9ef19ca": 1
+    },
+    "senders": 16,
+    "sendersBySelector": {
+      "0x26f4e252": 8,
+      "0x570fb750": 3,
+      "0x59f54f40": 1,
+      "0x5aa6d461": 1,
+      "0x5cd067cf": 1,
+      "0x90de348a": 1,
+      "0xd5479cd4": 1,
+      "0xf9ef19ca": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BorrowerOperations",
+    "status": "verified"
+  }
+}

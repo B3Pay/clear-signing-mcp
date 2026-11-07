@@ -1,0 +1,44 @@
+{
+  "abi": {
+    "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+    "functions": 9,
+    "name": "RelayRouter",
+    "source": "sourcify"
+  },
+  "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "RelayRouter",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 7185,
+  "fetchedAt": "2026-11-06T21:48:43.318Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794001403,
+    "oldest": 1793971211,
+    "perDay": 2861.685214626391,
+    "requested": 1000,
+    "selectors": {
+      "0x": 1,
+      "0xcd6e13f7": 999
+    },
+    "senders": 110,
+    "sendersBySelector": {
+      "0x": 1,
+      "0xcd6e13f7": 109
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RelayRouter",
+    "status": "verified"
+  }
+}

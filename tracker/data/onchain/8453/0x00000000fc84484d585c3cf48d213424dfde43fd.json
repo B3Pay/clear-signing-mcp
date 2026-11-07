@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x00000000fc84484d585C3cF48d213424DFDE43FD",
+    "functions": 27,
+    "name": "TierRegistry",
+    "source": "sourcify"
+  },
+  "address": "0x00000000fc84484d585C3cF48d213424DFDE43FD",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 9236,
+  "fetchedAt": "2026-11-06T23:32:18.164Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TierRegistry",
+    "status": "verified"
+  }
+}

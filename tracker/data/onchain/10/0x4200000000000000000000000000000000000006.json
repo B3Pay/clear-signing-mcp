@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x4200000000000000000000000000000000000006",
+    "functions": 11,
+    "name": "WETH9",
+    "source": "sourcify"
+  },
+  "address": "0x4200000000000000000000000000000000000006",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 2041,
+  "fetchedAt": "2026-11-06T23:30:55.080Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794002361,
+    "oldest": 1793946787,
+    "perDay": 1554.6838449634722,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 779,
+      "0x2e1a7d4d": 153,
+      "0xa9059cbb": 13,
+      "0xd0e30db0": 55
+    },
+    "senders": 149,
+    "sendersBySelector": {
+      "0x095ea7b3": 53,
+      "0x2e1a7d4d": 84,
+      "0xa9059cbb": 12,
+      "0xd0e30db0": 17
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "WETH9",
+    "status": "verified"
+  }
+}

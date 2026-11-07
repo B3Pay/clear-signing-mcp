@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x99D4e80DB0C023EFF8D25d8155E0dCFb5aDDeC5E",
+    "functions": 39,
+    "name": "CamelotYakRouter",
+    "source": "sourcify"
+  },
+  "address": "0x99D4e80DB0C023EFF8D25d8155E0dCFb5aDDeC5E",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x99D4e80DB0C023EFF8D25d8155E0dCFb5aDDeC5E",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 16930,
+  "fetchedAt": "2026-11-06T21:55:49.381Z",
+  "format": 2,
+  "sample": {
+    "count": 12,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 11,
+    "newest": 1793558271,
+    "oldest": 1791199044,
+    "perDay": 0.36666666666666664,
+    "requested": 1000,
+    "selectors": {
+      "0xce6e28f2": 12
+    },
+    "senders": 9,
+    "sendersBySelector": {
+      "0xce6e28f2": 9
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CamelotYakRouter",
+    "status": "verified"
+  }
+}

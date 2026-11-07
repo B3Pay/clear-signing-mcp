@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x5afAb0B2414E30c92a708234ea1b383Ce6317ED5",
+    "functions": 4,
+    "name": "VaultBundlesV1",
+    "source": "sourcify"
+  },
+  "address": "0x5afAb0B2414E30c92a708234ea1b383Ce6317ED5",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x5afAb0B2414E30c92a708234ea1b383Ce6317ED5",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 6781,
+  "fetchedAt": "2026-11-06T21:55:50.096Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 2,
+    "last30Days": 1000,
+    "newest": 1793996235,
+    "oldest": 1792259520,
+    "perDay": 49.74909527469965,
+    "requested": 1000,
+    "selectors": {
+      "0x6bbba4e0": 663,
+      "0x8355f776": 1,
+      "0x932084a8": 336
+    },
+    "senders": 355,
+    "sendersBySelector": {
+      "0x6bbba4e0": 288,
+      "0x8355f776": 1,
+      "0x932084a8": 170
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "VaultBundlesV1",
+    "status": "verified"
+  }
+}

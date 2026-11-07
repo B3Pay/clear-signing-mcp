@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x38FC1BA73b7ED289955a07d9F11A85b6E388064A",
+    "functions": 24,
+    "name": "BoringOnChainQueue",
+    "source": "sourcify"
+  },
+  "address": "0x38FC1BA73b7ED289955a07d9F11A85b6E388064A",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 10778,
+  "fetchedAt": "2026-11-06T22:50:10.285Z",
+  "format": 2,
+  "sample": {
+    "count": 94,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 6,
+    "last30Days": 94,
+    "newest": 1794001679,
+    "oldest": 1791430823,
+    "perDay": 3.1333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x4a2dc5e4": 3,
+      "0x581b4920": 73,
+      "0x6bb3b476": 18
+    },
+    "senders": 77,
+    "sendersBySelector": {
+      "0x4a2dc5e4": 3,
+      "0x581b4920": 62,
+      "0x6bb3b476": 17
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BoringOnChainQueue",
+    "status": "verified"
+  }
+}

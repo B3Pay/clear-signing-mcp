@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+    "functions": 50,
+    "name": "AggregationRouterV6",
+    "source": "sourcify"
+  },
+  "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x111111125421cA6dc452d289314280a0f8842A65",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 24151,
+  "fetchedAt": "2026-11-06T20:17:24.079Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 8,
+    "last30Days": 1000,
+    "newest": 1793994380,
+    "oldest": 1793963717,
+    "perDay": 2817.7282066334014,
+    "requested": 1000,
+    "selectors": {
+      "0x07ed2379": 962,
+      "0x5816d723": 1,
+      "0x89e7c650": 3,
+      "0xa76dfc3b": 5,
+      "0xb68fb020": 21,
+      "0xc3cf8043": 8
+    },
+    "senders": 717,
+    "sendersBySelector": {
+      "0x07ed2379": 695,
+      "0x5816d723": 1,
+      "0x89e7c650": 3,
+      "0xa76dfc3b": 1,
+      "0xb68fb020": 13,
+      "0xc3cf8043": 8
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AggregationRouterV6",
+    "status": "verified"
+  }
+}

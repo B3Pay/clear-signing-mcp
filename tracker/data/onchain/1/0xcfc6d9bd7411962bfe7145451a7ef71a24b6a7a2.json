@@ -1,0 +1,58 @@
+{
+  "abi": {
+    "address": "0xE774E19f087523EA316fCCb4B156169153f18b9d",
+    "functions": 18,
+    "name": "DepositAdapter",
+    "source": "sourcify"
+  },
+  "address": "0xcfC6d9Bd7411962Bfe7145451A7EF71A24b6A7A2",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 190,
+  "fetchedAt": "2026-11-06T22:50:10.733Z",
+  "format": 2,
+  "sample": {
+    "count": 146,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 3,
+    "last30Days": 145,
+    "newest": 1793998967,
+    "oldest": 1791412427,
+    "perDay": 4.833333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0xa0d43d8d": 22,
+      "0xc951ccf0": 14,
+      "0xe5ce314c": 12,
+      "0xef54591d": 98
+    },
+    "senders": 90,
+    "sendersBySelector": {
+      "0xa0d43d8d": 8,
+      "0xc951ccf0": 10,
+      "0xe5ce314c": 5,
+      "0xef54591d": 72
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xE774E19f087523EA316fCCb4B156169153f18b9d",
+          "name": "DepositAdapter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

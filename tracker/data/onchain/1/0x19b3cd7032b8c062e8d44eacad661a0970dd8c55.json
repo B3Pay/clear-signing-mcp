@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55",
+    "functions": 76,
+    "name": "MetaMorphoV1_1",
+    "source": "sourcify"
+  },
+  "address": "0x19b3cD7032B8C062E8d44EaCad661a0970DD8c55",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 19730,
+  "fetchedAt": "2026-11-06T22:50:07.967Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MetaMorphoV1_1",
+    "status": "verified"
+  }
+}

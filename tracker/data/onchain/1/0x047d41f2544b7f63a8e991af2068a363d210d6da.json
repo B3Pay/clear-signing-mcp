@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0x01E9161d1621466eB086651fD514d3eFB8C3752e",
+    "functions": 38,
+    "name": "VaultWithoutNative",
+    "source": "sourcify"
+  },
+  "address": "0x047D41F2544B7F63A8e991aF2068a363d210d6Da",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T22:51:02.294Z",
+  "format": 2,
+  "sample": {
+    "count": 1,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 1,
+    "newest": 1792772747,
+    "oldest": 1792772747,
+    "perDay": 0.03333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x40c10f19": 1
+    },
+    "senders": 1,
+    "sendersBySelector": {
+      "0x40c10f19": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x01E9161d1621466eB086651fD514d3eFB8C3752e",
+          "name": "VaultWithoutNative"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

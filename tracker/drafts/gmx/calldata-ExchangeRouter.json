@@ -1,0 +1,103 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 42161,
+          "address": "0x7dE39FF2e232A2203196788d37e234cF8F1b83f1"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "GMX",
+    "contractName": "ExchangeRouter",
+    "info": {
+      "url": "https://gmx.io"
+    }
+  },
+  "display": {
+    "formats": {
+      "multicall(bytes[] data)": {
+        "intent": "Multicall",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "data.[]",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "@.to",
+              "amountPath": "@.value"
+            }
+          }
+        ]
+      },
+      "claimFundingFees(address[] markets,address[] tokens,address receiver)": {
+        "intent": "Claim funding fees",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "markets.[]",
+            "label": "Markets",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "tokens.[]",
+            "label": "Tokens",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "receiver",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      },
+      "cancelOrder(bytes32 key)": {
+        "intent": "Cancel order",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "key",
+            "label": "Key",
+            "format": "raw"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0xe5a90E1a154D9444356A9DfA27bb164Feee847BF",
+    "functions": 39,
+    "name": "SUsd0",
+    "source": "sourcify"
+  },
+  "address": "0xd861bE82dEe3223CFBEd160791f6550b0704D406",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xe5a90E1a154D9444356A9DfA27bb164Feee847BF",
+        "name": "SUsd0"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 1129,
+  "fetchedAt": "2026-11-06T22:50:10.030Z",
+  "format": 2,
+  "sample": {
+    "count": 2,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 2,
+    "newest": 1791929567,
+    "oldest": 1791663479,
+    "perDay": 0.06666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 1,
+      "0xba087652": 1
+    },
+    "senders": 2,
+    "sendersBySelector": {
+      "0x095ea7b3": 1,
+      "0xba087652": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

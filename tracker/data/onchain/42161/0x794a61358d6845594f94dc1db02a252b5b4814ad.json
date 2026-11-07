@@ -1,0 +1,68 @@
+{
+  "abi": {
+    "address": "0xF05Fd3cC911b4c5E36e53c00354F645E22922C9A",
+    "functions": 83,
+    "name": "L2PoolInstance",
+    "source": "sourcify"
+  },
+  "address": "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2400,
+  "fetchedAt": "2026-11-06T21:55:49.985Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 1000,
+    "newest": 1794000410,
+    "oldest": 1793950405,
+    "perDay": 1727.8272172782724,
+    "requested": 1000,
+    "selectors": {
+      "0x02c205f0": 2,
+      "0x28530a47": 11,
+      "0x4d013f03": 13,
+      "0x563dd613": 104,
+      "0x573ade81": 68,
+      "0x617ba037": 284,
+      "0x69328dec": 33,
+      "0x8e19899e": 130,
+      "0xa415bcad": 348,
+      "0xac9650d8": 4,
+      "0xdc7c0bff": 3
+    },
+    "senders": 471,
+    "sendersBySelector": {
+      "0x02c205f0": 2,
+      "0x28530a47": 7,
+      "0x4d013f03": 12,
+      "0x563dd613": 82,
+      "0x573ade81": 10,
+      "0x617ba037": 213,
+      "0x69328dec": 13,
+      "0x8e19899e": 106,
+      "0xa415bcad": 229,
+      "0xac9650d8": 4,
+      "0xdc7c0bff": 3
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "InitializableImmutableAdminUpgradeabilityProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xF05Fd3cC911b4c5E36e53c00354F645E22922C9A",
+          "name": "L2PoolInstance"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x5eDEd0d7E76C563FF081Ca01D9d12D6B404Df527",
+    "functions": 19,
+    "name": "MaverickV2Router",
+    "source": "sourcify"
+  },
+  "address": "0x5eDEd0d7E76C563FF081Ca01D9d12D6B404Df527",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 9985,
+  "fetchedAt": "2026-11-06T23:32:12.850Z",
+  "format": 2,
+  "sample": {
+    "count": 20,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 20,
+    "newest": 1793993416,
+    "oldest": 1793945022,
+    "perDay": 20.42601479940424,
+    "requested": 1000,
+    "selectors": {
+      "0xa4af5a7f": 20
+    },
+    "senders": 12,
+    "sendersBySelector": {
+      "0xa4af5a7f": 12
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MaverickV2Router",
+    "status": "verified"
+  }
+}

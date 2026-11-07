@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x4857DB576eE0e45F10525eC59527BfD10beeC60b",
+    "functions": 41,
+    "name": "NonfungiblePositionManager",
+    "source": "sourcify"
+  },
+  "address": "0x4857DB576eE0e45F10525eC59527BfD10beeC60b",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x4857DB576eE0e45F10525eC59527BfD10beeC60b",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 24516,
+  "fetchedAt": "2026-11-06T21:55:48.972Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 5,
+    "last30Days": 1000,
+    "newest": 1794000427,
+    "oldest": 1793960755,
+    "perDay": 2177.858439201452,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 3,
+      "0x0c49ccbe": 1,
+      "0x219f5d17": 43,
+      "0x42966c68": 1,
+      "0xa22cb465": 3,
+      "0xac9650d8": 467,
+      "0xb5007d1f": 481,
+      "0xfc6f7865": 1
+    },
+    "senders": 13,
+    "sendersBySelector": {
+      "0x095ea7b3": 2,
+      "0x0c49ccbe": 1,
+      "0x219f5d17": 4,
+      "0x42966c68": 1,
+      "0xa22cb465": 3,
+      "0xac9650d8": 9,
+      "0xb5007d1f": 12,
+      "0xfc6f7865": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "NonfungiblePositionManager",
+    "status": "verified"
+  }
+}

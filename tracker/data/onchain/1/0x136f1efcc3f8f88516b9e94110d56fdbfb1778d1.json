@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x136f1EFcC3f8f88516B9E94110D56FDBfB1778d1",
+    "functions": 12,
+    "name": "BatchRouter",
+    "source": "sourcify"
+  },
+  "address": "0x136f1EFcC3f8f88516B9E94110D56FDBfB1778d1",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 17569,
+  "fetchedAt": "2026-11-06T22:50:06.806Z",
+  "format": 2,
+  "sample": {
+    "count": 5,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 5,
+    "newest": 1793698823,
+    "oldest": 1791468767,
+    "perDay": 0.16666666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x19c6989f": 2,
+      "0x286f580d": 3
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0x19c6989f": 2,
+      "0x286f580d": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BatchRouter",
+    "status": "verified"
+  }
+}

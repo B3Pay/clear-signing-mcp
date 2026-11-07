@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0x236ce5Ed9e077AE63460148f860ED39D1b8808e9",
+    "functions": 40,
+    "name": "UsualX",
+    "source": "sourcify"
+  },
+  "address": "0x06B964d96f5dCF7Eae9d7C559B09EDCe244d4B8E",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 1129,
+  "fetchedAt": "2026-11-06T22:50:09.025Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 994,
+    "newest": 1794001835,
+    "oldest": 1791403331,
+    "perDay": 33.13333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 650,
+      "0x50921b23": 40,
+      "0xa9059cbb": 306,
+      "0xba087652": 4
+    },
+    "senders": 651,
+    "sendersBySelector": {
+      "0x095ea7b3": 363,
+      "0x50921b23": 10,
+      "0xa9059cbb": 301,
+      "0xba087652": 3
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x236ce5Ed9e077AE63460148f860ED39D1b8808e9",
+          "name": "UsualX"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

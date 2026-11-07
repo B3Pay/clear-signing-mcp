@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x14F2982D601c9458F93bd70B218933A6f8165e7b",
+    "functions": 6,
+    "name": "SafeProxyFactory",
+    "source": "sourcify"
+  },
+  "address": "0x14F2982D601c9458F93bd70B218933A6f8165e7b",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 3321,
+  "fetchedAt": "2026-11-06T22:50:09.450Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794002435,
+    "oldest": 1793853659,
+    "perDay": 580.7388288433618,
+    "requested": 1000,
+    "selectors": {
+      "0x1688f0b9": 1000
+    },
+    "senders": 102,
+    "sendersBySelector": {
+      "0x1688f0b9": 102
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SafeProxyFactory",
+    "status": "verified"
+  }
+}

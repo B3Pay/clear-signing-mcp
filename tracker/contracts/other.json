@@ -1,0 +1,1023 @@
+{
+  "protocols": [
+    {
+      "protocol": "gmx",
+      "name": "GMX",
+      "category": "derivatives",
+      "website": "https://gmx.io",
+      "notes": "GMX v2 (synthetics) on Arbitrum. ExchangeRouter, GlvRouter and SubaccountRouter are redeployed on upgrades; these are the 2.2.1 deployment the live app uses (the gmx-synthetics main branch still records the older 2.2c set). Express/gasless trading goes through GelatoRelayRouter 0x5503b99308dB6923758F9A22d118207D633c4e87 as EIP-712 signatures a relayer submits, so it is not listed as a transaction target. The Router users approve collateral to (0x7452c558d45f8afC8c83dAe62C3f8A5BE19c71f6) is left out: users sign their orders to the routers above, which pull tokens through it.",
+      "contracts": [
+        {
+          "chainId": 42161,
+          "address": "0x7dE39FF2e232A2203196788d37e234cF8F1b83f1",
+          "name": "ExchangeRouter",
+          "label": "GMX v2 ExchangeRouter",
+          "role": "multicall entry point: send collateral and create/update/cancel orders, GM deposits and withdrawals, claim funding fees",
+          "version": "2.2.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/gmx-io/gmx-interface/1673062f3d4647cce6d311d7bc4585450c4b5db3/sdk/src/configs/contracts.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ARBITRUM block of the gmx-interface release branch (the live app config); same address in gmx-synthetics release_2.2.1 deployments/arbitrum"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x167540D2DFF14120365CfDDF2F86e3045D4fa712",
+          "name": "GlvRouter",
+          "label": "GMX v2 GlvRouter",
+          "role": "GLV vault deposits and withdrawals (multicall)",
+          "version": "2.2.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/gmx-io/gmx-interface/1673062f3d4647cce6d311d7bc4585450c4b5db3/sdk/src/configs/contracts.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ARBITRUM block of the gmx-interface release branch (the live app config); same address in gmx-synthetics release_2.2.1 deployments/arbitrum"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x9c05880A2AaD7530c69e18e342eDC9E06cc757db",
+          "name": "SubaccountRouter",
+          "label": "GMX v2 SubaccountRouter",
+          "role": "one-click trading: add/remove a subaccount, set its limits, top-up",
+          "version": "2.2.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/gmx-io/gmx-interface/1673062f3d4647cce6d311d7bc4585450c4b5db3/sdk/src/configs/contracts.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ARBITRUM block of the gmx-interface release branch (the live app config); same address in gmx-synthetics release_2.2.1 deployments/arbitrum"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xF6Ba2B1a33c5bdA5D7Cd5FD971E859430F465719",
+          "name": "RewardRouterV3",
+          "label": "GMX staking RewardRouterV3",
+          "role": "stake GMX, signal/cancel unstake, claim and compound staking rewards",
+          "source": "https://raw.githubusercontent.com/gmx-io/gmx-interface/1673062f3d4647cce6d311d7bc4585450c4b5db3/sdk/src/configs/contracts.ts",
+          "sourceKind": "raw",
+          "sourceNote": "RewardRouterV3 in the gmx-interface config; the app's StakeModal/ClaimModal call it (src/domain/stake/rewardRouter.ts)"
+        }
+      ]
+    },
+    {
+      "protocol": "gains-network",
+      "name": "gTrade (Gains Network)",
+      "category": "derivatives",
+      "website": "https://gains.trade",
+      "defillama": "gains-network",
+      "contracts": [
+        {
+          "chainId": 42161,
+          "address": "0xFF162c694eAA571f685030649814282eA457f169",
+          "name": "GNSMultiCollatDiamond",
+          "label": "gTrade trading diamond",
+          "role": "open/close/update trades and orders, all collaterals (EIP-2535 diamond)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/GainsNetwork-org/sdk/aa7a05a4919ba6667513c128e6bf5806af0be181/src/contracts/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "42161.global.gnsMultiCollatDiamond; docs.gains.trade Arbitrum page lists the same address"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xd3443ee1e91aF28e5FB858Fbd0D72A63bA8046E0",
+          "name": "GToken",
+          "label": "gUSDC vault",
+          "role": "deposit USDC, request withdrawal, redeem (ERC-4626 vault)",
+          "source": "https://raw.githubusercontent.com/GainsNetwork-org/sdk/aa7a05a4919ba6667513c128e6bf5806af0be181/src/contracts/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "42161.USDC.gToken"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x5977A9682D7AF81D347CFc338c61692163a2784C",
+          "name": "GToken",
+          "label": "gETH vault",
+          "role": "deposit WETH, request withdrawal, redeem (ERC-4626 vault)",
+          "source": "https://raw.githubusercontent.com/GainsNetwork-org/sdk/aa7a05a4919ba6667513c128e6bf5806af0be181/src/contracts/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "42161.ETH.gToken"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xd85E038593d7A098614721EaE955EC2022B9B91B",
+          "name": "GToken",
+          "label": "gDAI vault",
+          "role": "deposit DAI, request withdrawal, redeem (ERC-4626 vault)",
+          "source": "https://raw.githubusercontent.com/GainsNetwork-org/sdk/aa7a05a4919ba6667513c128e6bf5806af0be181/src/contracts/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "42161.DAI.gToken"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x4BeeF1113F968326905224D2Ca272f3032A9a9F4",
+          "name": "GToken",
+          "label": "gGNS vault",
+          "role": "deposit GNS, request withdrawal, redeem (ERC-4626 vault)",
+          "source": "https://raw.githubusercontent.com/GainsNetwork-org/sdk/aa7a05a4919ba6667513c128e6bf5806af0be181/src/contracts/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "42161.GNS.gToken"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x7edDE7e5900633F698EaB0Dbc97DE640fC5dC015",
+          "name": "GNSStaking",
+          "label": "GNS staking",
+          "role": "stake/unstake GNS and claim staking rewards",
+          "source": "https://docs.gains.trade/what-is-gains-network/contract-addresses/arbitrum-mainnet",
+          "sourceKind": "webfetch",
+          "sourceNote": "Quoted verbatim from the docs page via WebFetch; not in the SDK file, no second source"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x6cD5aC19a07518A8092eEFfDA4f1174C72704eeb",
+          "name": "GNSMultiCollatDiamond",
+          "label": "gTrade trading diamond",
+          "role": "open/close/update trades and orders (EIP-2535 diamond)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/GainsNetwork-org/sdk/aa7a05a4919ba6667513c128e6bf5806af0be181/src/contracts/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "8453.global.gnsMultiCollatDiamond; docs.gains.trade Base page lists the same address"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xad20523A7dC37bAbc1CC74897E4977232b3D02e5",
+          "name": "GToken",
+          "label": "gUSDC vault",
+          "role": "deposit USDC, request withdrawal, redeem (ERC-4626 vault)",
+          "source": "https://raw.githubusercontent.com/GainsNetwork-org/sdk/aa7a05a4919ba6667513c128e6bf5806af0be181/src/contracts/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "8453.USDC.gToken; docs.gains.trade Base page lists the same address"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x28efAa11199DAF45AA8fBf95f920e5bc090DCbF3",
+          "name": "GNSStaking",
+          "label": "GNS staking",
+          "role": "stake/unstake GNS and claim staking rewards",
+          "source": "https://docs.gains.trade/what-is-gains-network/contract-addresses/base-mainnet",
+          "sourceKind": "webfetch",
+          "sourceNote": "Quoted verbatim from the docs page via WebFetch; not in the SDK file, no second source"
+        }
+      ]
+    },
+    {
+      "protocol": "avantis",
+      "name": "Veranta (formerly Avantis)",
+      "category": "derivatives",
+      "website": "https://www.veranta.xyz",
+      "defillama": "avantis",
+      "notes": "Avantis renamed to Veranta on 2026-09-14; v2 (2026-08-12) upgraded implementations behind the same proxies. v2's main write path is EIP-712 intents (domain AvantisTrading) that a relayer submits; direct calldata to the trading proxy remains for most actions. Users approve USDC to TradingStorage 0x8a311D7048c35985aa31C131B9A13e03a5f7422d (a spender, not listed). The LP tranche address is not in any official file found.",
+      "contracts": [
+        {
+          "chainId": 8453,
+          "address": "0x44914408af82bC9983bbb330e3578E1105e11d4e",
+          "name": "Trading",
+          "label": "Veranta/Avantis Trading",
+          "role": "open/close trades, limit orders, margin updates (direct calldata)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/Avantis-Labs/avantis_trader_sdk/5a055aeb8009c12c3d3adda40db7393913b4cd7a/avantis_trader_sdk/config.py",
+          "sourceKind": "raw",
+          "sourceNote": "MAINNET_ADDRESSES['Trading'] in the last v1 SDK config (2026-03-30); the v2 SDK fetches addresses from an API and its docs say every proxy address, Trading included, is unchanged. The v2 docs call the intents' verifying contract 'TradingRouter'; that it is this proxy is not confirmed by a file"
+        }
+      ]
+    },
+    {
+      "protocol": "ostium",
+      "name": "Ostium",
+      "category": "derivatives",
+      "website": "https://docs.ostium.com",
+      "defillama": "ostium",
+      "notes": "Users approve USDC to OstiumTradingStorage 0xcCd5891083A8acD2074690F65d3024E7D13d66E7 (a spender, not listed). The OLP vault address is not in the SDK or docs.ostium.com.",
+      "contracts": [
+        {
+          "chainId": 42161,
+          "address": "0x6D0bA1f9996DBD8885827e1b2e8f6593e7702411",
+          "name": "OstiumTrading",
+          "label": "Ostium Trading",
+          "role": "open/close trades, limit orders, TP/SL and collateral updates",
+          "source": "https://raw.githubusercontent.com/0xOstium/ostium-python-sdk/3727a19d8a74d5c08e968a250c3f1d34a4fba9e9/ostium_python_sdk/config.py",
+          "sourceKind": "raw",
+          "sourceNote": "NetworkConfig.mainnet() contracts['trading'] in the official Python SDK"
+        }
+      ]
+    },
+    {
+      "protocol": "opensea",
+      "name": "OpenSea",
+      "category": "nft",
+      "website": "https://opensea.io",
+      "notes": "Seaport 1.6 and SeaDrop share one address on every chain.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x0000000000000068F116a894984e2DB1123eB395",
+          "name": "Seaport",
+          "label": "Seaport 1.6",
+          "role": "fulfill/cancel NFT listings and offers (OpenSea marketplace)",
+          "version": "1.6",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ProjectOpenSea/seaport/7f966fe7bd75932beb0366f6485aa720512b1259/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Seaport 1.6 column of the README deployments table, row Ethereum"
+        },
+        {
+          "chainId": 10,
+          "address": "0x0000000000000068F116a894984e2DB1123eB395",
+          "name": "Seaport",
+          "label": "Seaport 1.6",
+          "role": "fulfill/cancel NFT listings and offers (OpenSea marketplace)",
+          "version": "1.6",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ProjectOpenSea/seaport/7f966fe7bd75932beb0366f6485aa720512b1259/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Seaport 1.6 column of the README deployments table, row Optimism"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0000000000000068F116a894984e2DB1123eB395",
+          "name": "Seaport",
+          "label": "Seaport 1.6",
+          "role": "fulfill/cancel NFT listings and offers (OpenSea marketplace)",
+          "version": "1.6",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ProjectOpenSea/seaport/7f966fe7bd75932beb0366f6485aa720512b1259/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Seaport 1.6 column of the README deployments table, row Arbitrum"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x0000000000000068F116a894984e2DB1123eB395",
+          "name": "Seaport",
+          "label": "Seaport 1.6",
+          "role": "fulfill/cancel NFT listings and offers (OpenSea marketplace)",
+          "version": "1.6",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ProjectOpenSea/seaport/7f966fe7bd75932beb0366f6485aa720512b1259/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Seaport 1.6 column of the README deployments table, row Base"
+        },
+        {
+          "chainId": 1,
+          "address": "0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+          "name": "SeaDrop",
+          "label": "SeaDrop",
+          "role": "mint public/allowlist drops (mintPublic, mintAllowList, mintSigned)",
+          "version": "1.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ProjectOpenSea/seadrop/757590f11babfd81f4608f736e79e388469377f2/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README Deployments table: one address for all listed networks, including Ethereum"
+        },
+        {
+          "chainId": 10,
+          "address": "0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+          "name": "SeaDrop",
+          "label": "SeaDrop",
+          "role": "mint public/allowlist drops (mintPublic, mintAllowList, mintSigned)",
+          "version": "1.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ProjectOpenSea/seadrop/757590f11babfd81f4608f736e79e388469377f2/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README Deployments table: one address for all listed networks, including Optimism"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+          "name": "SeaDrop",
+          "label": "SeaDrop",
+          "role": "mint public/allowlist drops (mintPublic, mintAllowList, mintSigned)",
+          "version": "1.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ProjectOpenSea/seadrop/757590f11babfd81f4608f736e79e388469377f2/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README Deployments table: one address for all listed networks, including Arbitrum One"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+          "name": "SeaDrop",
+          "label": "SeaDrop",
+          "role": "mint public/allowlist drops (mintPublic, mintAllowList, mintSigned)",
+          "version": "1.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ProjectOpenSea/seadrop/757590f11babfd81f4608f736e79e388469377f2/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README Deployments table: one address for all listed networks, including Base"
+        }
+      ]
+    },
+    {
+      "protocol": "ens",
+      "name": "ENS",
+      "category": "identity",
+      "website": "https://ens.domains",
+      "defillama": "ens",
+      "notes": "ENSv1 contracts. ENS docs (2026-11-02): ENSv2 is deployed on mainnet ahead of launch, and until the launch completes registrations continue through ENSv1; ENSv2 addresses (e.g. ETHRegistrar 0xD6D8369e55c94Ae8AFA714E6cF7AB5bE54D5CC81, still being redeployed in Oct 2026) are left out. The ENS app (ensjs 4.3.x) uses the controller and resolver below.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x59E16fcCd424Cc24e280Be16E11Bcd56fb0CE547",
+          "name": "ETHRegistrarController",
+          "label": "ETHRegistrarController (2025)",
+          "role": "commit, register and renew .eth names",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/ebe0b84852134c6236727defc0704471215c23c0/deployments/mainnet/ETHRegistrarController.json",
+          "sourceKind": "raw",
+          "sourceNote": "ens-contracts staging (default branch); ensjs 4.3.1 ensEthRegistrarController is the same address"
+        },
+        {
+          "chainId": 1,
+          "address": "0xD4416b13d2b3a9aBae7AcD5D6C2BbDBE25686401",
+          "name": "NameWrapper",
+          "label": "NameWrapper",
+          "role": "wrap/unwrap names, create subnames, burn fuses, transfer wrapped names",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/ebe0b84852134c6236727defc0704471215c23c0/deployments/mainnet/NameWrapper.json",
+          "sourceKind": "raw"
+        },
+        {
+          "chainId": 1,
+          "address": "0xF29100983E058B709F3D539b0c765937B804AC15",
+          "name": "PublicResolver",
+          "label": "PublicResolver (2025)",
+          "role": "set records (addresses, text, contenthash) via multicall; default resolver for new names",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/ebe0b84852134c6236727defc0704471215c23c0/deployments/mainnet/PublicResolver.json",
+          "sourceKind": "raw",
+          "sourceNote": "ens-contracts staging; ensjs 4.3.1 ensPublicResolver is the same address"
+        },
+        {
+          "chainId": 1,
+          "address": "0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63",
+          "name": "PublicResolver",
+          "label": "PublicResolver (2023)",
+          "role": "set records on names that use the 2023 default resolver",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/0b6f79ece082234c56a532b4c6fe983ea8e9e24b/deployments/mainnet/PublicResolver.json",
+          "sourceKind": "raw",
+          "sourceNote": "ens-contracts master branch (superseded on staging by the 2025 resolver); default resolver of the ENS app for names registered March 2023 to June 2025 (deployed block 16925619; successor deployed block 22764828)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xa58E81fe9b61B5c3fE2AFD33CF304c454AbFc7Cb",
+          "name": "ReverseRegistrar",
+          "label": "ReverseRegistrar",
+          "role": "set the primary (reverse) name of an address on Ethereum",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/ebe0b84852134c6236727defc0704471215c23c0/deployments/mainnet/ReverseRegistrar.json",
+          "sourceKind": "raw"
+        },
+        {
+          "chainId": 1,
+          "address": "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
+          "name": "ENSRegistryWithFallback",
+          "label": "ENS Registry",
+          "role": "set resolver, owner and subnode records of unwrapped names",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/ebe0b84852134c6236727defc0704471215c23c0/deployments/mainnet/ENSRegistry.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments/mainnet/ENSRegistry.json; the ABI has old(), i.e. ENSRegistryWithFallback"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x0000000000D8e504002cC26E3Ec46D81971C1664",
+          "name": "L2ReverseRegistrar",
+          "label": "ENS L2ReverseRegistrar (Base)",
+          "role": "set the primary name for Base (ENSIP-19); the Basenames app calls setName here",
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/ebe0b84852134c6236727defc0704471215c23c0/deployments/base/L2ReverseRegistrar.json",
+          "sourceKind": "raw",
+          "sourceNote": "also USERNAME_L2_REVERSE_REGISTRAR_ADDRESSES[base] in base/web apps/web/src/addresses/usernames.ts"
+        },
+        {
+          "chainId": 10,
+          "address": "0x0000000000D8e504002cC26E3Ec46D81971C1664",
+          "name": "L2ReverseRegistrar",
+          "label": "ENS L2ReverseRegistrar (OP Mainnet)",
+          "role": "set the primary name for OP Mainnet (ENSIP-19)",
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/ebe0b84852134c6236727defc0704471215c23c0/deployments/optimism/L2ReverseRegistrar.json",
+          "sourceKind": "raw"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0000000000D8e504002cC26E3Ec46D81971C1664",
+          "name": "L2ReverseRegistrar",
+          "label": "ENS L2ReverseRegistrar (Arbitrum)",
+          "role": "set the primary name for Arbitrum One (ENSIP-19)",
+          "source": "https://raw.githubusercontent.com/ensdomains/ens-contracts/ebe0b84852134c6236727defc0704471215c23c0/deployments/arbitrum/L2ReverseRegistrar.json",
+          "sourceKind": "raw"
+        }
+      ]
+    },
+    {
+      "protocol": "basenames",
+      "name": "Basenames",
+      "category": "identity",
+      "website": "https://www.base.org/names",
+      "notes": "The base.org app registers and renews through UpgradeableRegistrarController and points new names at UpgradeableL2Resolver; the original RegistrarController 0x4cCb0BB02FCABA27e82a56646E81d8c5bC4119a5 is no longer referenced by the app and is left out. Primary names also write to ENS's L2ReverseRegistrar on Base (listed under ens).",
+      "contracts": [
+        {
+          "chainId": 8453,
+          "address": "0xa7d2607c6BD39Ae9521e514026CBB078405Ab322",
+          "name": "UpgradeableRegistrarController",
+          "label": "Basenames UpgradeableRegistrarController",
+          "role": "register and renew basenames, set reverse record with signature",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/base/basenames/1809bbc998672880aaa27488eb38321af8552874/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'UpgradeableRegistrarController (Proxy)'; UPGRADEABLE_REGISTRAR_CONTROLLER_ADDRESSES[base] in base/web usernames.ts"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x426fA03fB86E510d0Dd9F70335Cf102a98b10875",
+          "name": "UpgradeableL2Resolver",
+          "label": "Basenames UpgradeableL2Resolver",
+          "role": "set records (text, addresses, contenthash) on names registered through the upgradeable controller",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/base/basenames/1809bbc998672880aaa27488eb38321af8552874/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'UpgradeableL2Resolver (Proxy)'; UPGRADEABLE_L2_RESOLVER_ADDRESSES[base] in base/web usernames.ts"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xC6d566A56A1aFf6508b41f6c90ff131615583BCD",
+          "name": "L2Resolver",
+          "label": "Basenames L2Resolver (original)",
+          "role": "set records on names that use the original resolver",
+          "source": "https://raw.githubusercontent.com/base/basenames/1809bbc998672880aaa27488eb38321af8552874/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README L2Resolver; USERNAME_L2_RESOLVER_ADDRESSES[base] in base/web usernames.ts"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x79EA96012eEa67A83431F1701B3dFf7e37F9E282",
+          "name": "ReverseRegistrar",
+          "label": "Basenames ReverseRegistrar",
+          "role": "set the legacy basename reverse record (setName/setNameForAddr)",
+          "source": "https://raw.githubusercontent.com/base/basenames/1809bbc998672880aaa27488eb38321af8552874/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Source prints lowercase 0x79ea96012eea67a83431f1701b3dff7e37f9e282 (README and base/web); checksummed here"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x03c4738Ee98aE44591e1A4A4F3CaB6641d95DD9a",
+          "name": "BaseRegistrar",
+          "label": "Basenames BaseRegistrar (name NFT)",
+          "role": "transfer or reclaim a basename NFT",
+          "source": "https://raw.githubusercontent.com/base/basenames/1809bbc998672880aaa27488eb38321af8552874/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Source prints lowercase 0x03c4738ee98ae44591e1a4a4f3cab6641d95dd9a (README and base/web); checksummed here"
+        }
+      ]
+    },
+    {
+      "protocol": "farcaster",
+      "name": "Farcaster",
+      "category": "social",
+      "website": "https://farcaster.xyz",
+      "notes": "Farcaster v3.1 contracts on OP Mainnet; Farcaster Pro subscriptions on Base. Most signups are relayed by apps (registerFor/addFor with the user's EIP-712 signature).",
+      "contracts": [
+        {
+          "chainId": 10,
+          "address": "0x00000000Fc25870C6eD6b6c7E41Fb078b7656f69",
+          "name": "IdGateway",
+          "label": "Farcaster IdGateway",
+          "role": "register a Farcaster ID (register/registerFor)",
+          "source": "https://raw.githubusercontent.com/farcasterxyz/hub-monorepo/69000a30e690216985a373a089a8be33110f2de2/packages/core/src/eth/contracts/idGateway.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ID_GATEWAY_ADDRESS in @farcaster/core (hub-monorepo); the farcasterxyz/contracts README lists it (lowercase) under OP Mainnet"
+        },
+        {
+          "chainId": 10,
+          "address": "0x00000000fC56947c7E7183f8Ca4B62398CaAdf0B",
+          "name": "KeyGateway",
+          "label": "Farcaster KeyGateway",
+          "role": "add an app signer key to an FID (add/addFor)",
+          "source": "https://raw.githubusercontent.com/farcasterxyz/hub-monorepo/69000a30e690216985a373a089a8be33110f2de2/packages/core/src/eth/contracts/keyGateway.ts",
+          "sourceKind": "raw",
+          "sourceNote": "KEY_GATEWAY_ADDRESS in @farcaster/core (hub-monorepo); the farcasterxyz/contracts README lists it (lowercase) under OP Mainnet"
+        },
+        {
+          "chainId": 10,
+          "address": "0x00000000fcCe7f938e7aE6D3c335bD6a1a7c593D",
+          "name": "StorageRegistry",
+          "label": "Farcaster StorageRegistry",
+          "role": "rent storage units for an FID",
+          "source": "https://raw.githubusercontent.com/farcasterxyz/hub-monorepo/69000a30e690216985a373a089a8be33110f2de2/packages/core/src/eth/contracts/storageRegistry.ts",
+          "sourceKind": "raw",
+          "sourceNote": "STORAGE_REGISTRY_ADDRESS in @farcaster/core (hub-monorepo); the farcasterxyz/contracts README lists it (lowercase) under OP Mainnet"
+        },
+        {
+          "chainId": 10,
+          "address": "0x00000000FC04c910A0b5feA33b03E0447AD0B0aA",
+          "name": "Bundler",
+          "label": "Farcaster Bundler",
+          "role": "register an FID, add signer keys and rent storage in one transaction",
+          "source": "https://raw.githubusercontent.com/farcasterxyz/hub-monorepo/69000a30e690216985a373a089a8be33110f2de2/packages/core/src/eth/contracts/bundler.ts",
+          "sourceKind": "raw",
+          "sourceNote": "BUNDLER_ADDRESS in @farcaster/core (hub-monorepo); the farcasterxyz/contracts README lists it (lowercase) under OP Mainnet"
+        },
+        {
+          "chainId": 10,
+          "address": "0x00000000Fc6c5F01Fc30151999387Bb99A9f489b",
+          "name": "IdRegistry",
+          "label": "Farcaster IdRegistry",
+          "role": "transfer an FID, change its recovery address, recover",
+          "source": "https://raw.githubusercontent.com/farcasterxyz/hub-monorepo/69000a30e690216985a373a089a8be33110f2de2/packages/core/src/eth/contracts/idRegistry.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ID_REGISTRY_ADDRESS in @farcaster/core (hub-monorepo); the farcasterxyz/contracts README lists it (lowercase) under OP Mainnet"
+        },
+        {
+          "chainId": 10,
+          "address": "0x00000000Fc1237824fb747aBDE0FF18990E59b7e",
+          "name": "KeyRegistry",
+          "label": "Farcaster KeyRegistry",
+          "role": "remove an app signer key (remove/removeFor)",
+          "source": "https://raw.githubusercontent.com/farcasterxyz/hub-monorepo/69000a30e690216985a373a089a8be33110f2de2/packages/core/src/eth/contracts/keyRegistry.ts",
+          "sourceKind": "raw",
+          "sourceNote": "Source prints lowercase 0x00000000fc1237824fb747abde0ff18990e59b7e (hub-monorepo KEY_REGISTRY_ADDRESS and the contracts README); checksummed here"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x00000000fc84484d585C3cF48d213424DFDE43FD",
+          "name": "TierRegistry",
+          "label": "Farcaster TierRegistry (Pro)",
+          "role": "buy or extend a Farcaster Pro subscription",
+          "source": "https://raw.githubusercontent.com/farcasterxyz/contracts/98945092577e4bce9dcdfd0b961b12c41db326ce/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Base Mainnet' table; source prints lowercase 0x00000000fc84484d585c3cf48d213424dfde43fd, checksummed here"
+        }
+      ]
+    },
+    {
+      "protocol": "clanker",
+      "name": "Clanker",
+      "category": "launchpad",
+      "website": "https://www.clanker.world",
+      "notes": "Clanker v4 on Base. Trading of launched tokens goes through Uniswap v4 (DEX group). v4 factories also exist on Ethereum (0x6C8599779B03B00AAaE63C6378830919Abb75473) and Arbitrum (0xEb9D2A726Edffc887a574dC7f46b3a3638E8E44f) per the SDK, with little use; left out.",
+      "contracts": [
+        {
+          "chainId": 8453,
+          "address": "0xE85A59c628F7d27878ACeB4bf3b35733630083a9",
+          "name": "Clanker",
+          "label": "Clanker v4 factory",
+          "role": "deploy a token with its pool, locker and extensions (deployToken)",
+          "version": "4",
+          "source": "https://raw.githubusercontent.com/clanker-devco/v4-contracts/b004c2edda29fa282a16d5d1441a26484f70b37f/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Base Mainnet v4.0/v4.1 list of the v4-contracts README; same address in clanker-sdk src/utils/clankers.ts (clanker_v4) at 2d61381"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xF3622742b1E446D92e45E22923Ef11C2fcD55D68",
+          "name": "ClankerFeeLocker",
+          "label": "Clanker fee locker",
+          "role": "creators and reward recipients claim accrued LP fees",
+          "version": "4",
+          "source": "https://raw.githubusercontent.com/clanker-devco/v4-contracts/b004c2edda29fa282a16d5d1441a26484f70b37f/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Base Mainnet v4.0/v4.1 list of the v4-contracts README; same address in clanker-sdk src/utils/clankers.ts (clanker_v4) at 2d61381"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x8E845EAd15737bF71904A30BdDD3aEE76d6ADF6C",
+          "name": "ClankerVault",
+          "label": "Clanker vault",
+          "role": "claim vested creator token allocations",
+          "version": "4",
+          "source": "https://raw.githubusercontent.com/clanker-devco/v4-contracts/b004c2edda29fa282a16d5d1441a26484f70b37f/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "Base Mainnet v4.0/v4.1 list of the v4-contracts README; same address in clanker-sdk src/utils/clankers.ts (clanker_v4) at 2d61381"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xf652B3610D75D81871bf96DB50825d9af28391E0",
+          "name": "ClankerAirdropV2",
+          "label": "Clanker airdrop (v4.1)",
+          "role": "claim token airdrops (merkle)",
+          "version": "4.1",
+          "source": "https://raw.githubusercontent.com/clanker-devco/v4-contracts/b004c2edda29fa282a16d5d1441a26484f70b37f/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README Base Mainnet v4.1 list; the SDK's clanker_v4.related.airdrop is the same address"
+        }
+      ]
+    },
+    {
+      "protocol": "zora",
+      "name": "Zora",
+      "category": "launchpad",
+      "website": "https://zora.co",
+      "notes": "Zora coins on Base (coins-deployments 8453.json, COIN_VERSION 2.6.0). The Creator 1155 / timed-sale minting contracts now sit under legacy/ in the repo and are left out. Whether the Zora app routes all coin trades through ZORA_ROUTER is not stated in the file.",
+      "contracts": [
+        {
+          "chainId": 8453,
+          "address": "0x777777751622c0d3258f214F9DF38E35BF45baF3",
+          "name": "ZoraFactory",
+          "label": "Zora coins factory",
+          "role": "create content and creator coins (deploy, deployCreatorCoin)",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/ourzora/zora-protocol/32c2931a444b4405b107a49016dff0059b05b06f/packages/coins-deployments/addresses/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "ZORA_FACTORY (proxy; ZORA_FACTORY_IMPL is listed separately)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x77777777Eb762Cf86F634763e79d17dE44330887",
+          "name": "SwapWithLimitOrders",
+          "label": "Zora router",
+          "role": "buy/sell coins with automatic limit-order placement and fills (swapWithLimitOrders)",
+          "source": "https://raw.githubusercontent.com/ourzora/zora-protocol/32c2931a444b4405b107a49016dff0059b05b06f/packages/coins-deployments/addresses/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "ZORA_ROUTER; deterministicConfig/zoraRouter.json names the contract SwapWithLimitOrders"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x7777777C783bAD88daCaf9A19E04238341E4497B",
+          "name": "ZoraLimitOrderBook",
+          "label": "Zora limit order book",
+          "role": "create, cancel and withdraw coin limit orders",
+          "source": "https://raw.githubusercontent.com/ourzora/zora-protocol/32c2931a444b4405b107a49016dff0059b05b06f/packages/coins-deployments/addresses/8453.json",
+          "sourceKind": "raw",
+          "sourceNote": "ZORA_LIMIT_ORDER_BOOK; deterministicConfig/zoraLimitOrderBook.json names the contract ZoraLimitOrderBook"
+        }
+      ]
+    },
+    {
+      "protocol": "permit2",
+      "name": "Permit2 (Uniswap)",
+      "category": "infrastructure",
+      "website": "https://github.com/Uniswap/permit2",
+      "notes": "One address on every chain. Users send approve/lockdown/invalidateNonces to it and sign EIP-712 permits it verifies.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+          "name": "Permit2",
+          "label": "Permit2",
+          "role": "set/revoke allowances (approve, lockdown, invalidateNonces); verifies signed permits for routers",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Uniswap docs v4 deployments, 'Ethereum: 1' section"
+        },
+        {
+          "chainId": 10,
+          "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+          "name": "Permit2",
+          "label": "Permit2",
+          "role": "set/revoke allowances (approve, lockdown, invalidateNonces); verifies signed permits for routers",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Uniswap docs v4 deployments, 'Optimism: 10' section"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+          "name": "Permit2",
+          "label": "Permit2",
+          "role": "set/revoke allowances (approve, lockdown, invalidateNonces); verifies signed permits for routers",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Uniswap docs v4 deployments, 'Base: 8453' section"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+          "name": "Permit2",
+          "label": "Permit2",
+          "role": "set/revoke allowances (approve, lockdown, invalidateNonces); verifies signed permits for routers",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v4/deployments.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Uniswap docs v4 deployments, 'Arbitrum One: 42161' section"
+        }
+      ]
+    },
+    {
+      "protocol": "weth",
+      "name": "Wrapped Ether (WETH)",
+      "category": "infrastructure",
+      "website": "https://weth.io",
+      "notes": "Kept as a token because deposit/withdraw (wrap/unwrap) is itself the action users sign.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+          "name": "WETH9",
+          "label": "WETH (Ethereum)",
+          "role": "wrap ETH (deposit) and unwrap (withdraw)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v3/deployments/v3-ethereum-deployments.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Uniswap docs v3 Ethereum deployments, WETH9 table"
+        },
+        {
+          "chainId": 10,
+          "address": "0x4200000000000000000000000000000000000006",
+          "name": "WETH9",
+          "label": "WETH predeploy (OP Mainnet)",
+          "role": "wrap ETH (deposit) and unwrap (withdraw)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/ethereum-optimism/optimism/446b187d3f12499a149d2533601caa1e9b2b296d/packages/contracts-bedrock/src/libraries/Predeploys.sol",
+          "sourceKind": "raw",
+          "sourceNote": "Predeploys.WETH (OP Stack canonical WETH, not upgradeable per isUpgradeable); Uniswap docs v3 Optimism deployments list the same"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x4200000000000000000000000000000000000006",
+          "name": "WETH9",
+          "label": "WETH predeploy (Base)",
+          "role": "wrap ETH (deposit) and unwrap (withdraw)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/Uniswap/docs/1c7597d73be0e9a3a4e44aa75b8fb212b40ea136/content/protocols/v3/deployments/v3-base-deployments.mdx",
+          "sourceKind": "raw",
+          "sourceNote": "Uniswap docs v3 Base deployments, WETH table; OP Stack predeploy (Predeploys.WETH)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+          "name": "aeWETH",
+          "label": "WETH (Arbitrum One)",
+          "role": "wrap ETH (deposit) and unwrap (withdraw)",
+          "source": "https://raw.githubusercontent.com/OffchainLabs/arbitrum-sdk/cbb96c6f7f84d71bdef65d0fd9d3d7275a236711/packages/sdk/src/lib/dataEntities/networks.ts",
+          "sourceKind": "raw",
+          "sourceNote": "mainnetTokenBridge.childWeth in arbitrum-sdk; Uniswap docs v3 Arbitrum deployments list the same"
+        }
+      ]
+    },
+    {
+      "protocol": "safe",
+      "name": "Safe",
+      "category": "infrastructure",
+      "website": "https://safe.global",
+      "notes": "Only the 1.4.1 and 1.5.0 factories and singletons (the registry already has 1.3.0). Non-L2 singletons are listed on Ethereum only, where they are used.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+          "name": "SafeProxyFactory",
+          "label": "SafeProxyFactory 1.4.1",
+          "role": "create a new Safe account (createProxyWithNonce)",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe_proxy_factory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"1\"] = \"canonical\""
+        },
+        {
+          "chainId": 1,
+          "address": "0x14F2982D601c9458F93bd70B218933A6f8165e7b",
+          "name": "SafeProxyFactory",
+          "label": "SafeProxyFactory 1.5.0",
+          "role": "create a new Safe account (createProxyWithNonce)",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe_proxy_factory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"1\"] = \"canonical\""
+        },
+        {
+          "chainId": 1,
+          "address": "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+          "name": "SafeL2",
+          "label": "SafeL2 1.4.1",
+          "role": "singleton (event-emitting L2 variant) behind Safe proxies: owners sign execTransaction to their Safe",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe_l2.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"1\"] = \"canonical\""
+        },
+        {
+          "chainId": 1,
+          "address": "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+          "name": "SafeL2",
+          "label": "SafeL2 1.5.0",
+          "role": "singleton (event-emitting L2 variant) behind Safe proxies: owners sign execTransaction to their Safe",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe_l2.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"1\"] = \"canonical\""
+        },
+        {
+          "chainId": 1,
+          "address": "0x41675C099F32341bf84BFc5382aF534df5C7461a",
+          "name": "Safe",
+          "label": "Safe 1.4.1",
+          "role": "singleton behind Safe proxies: owners sign execTransaction to their Safe, which delegatecalls this",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"1\"] = \"canonical\""
+        },
+        {
+          "chainId": 1,
+          "address": "0xFf51A5898e281Db6DfC7855790607438dF2ca44b",
+          "name": "Safe",
+          "label": "Safe 1.5.0",
+          "role": "singleton behind Safe proxies: owners sign execTransaction to their Safe, which delegatecalls this",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"1\"] = \"canonical\""
+        },
+        {
+          "chainId": 10,
+          "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+          "name": "SafeProxyFactory",
+          "label": "SafeProxyFactory 1.4.1",
+          "role": "create a new Safe account (createProxyWithNonce)",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe_proxy_factory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"10\"] = \"canonical\""
+        },
+        {
+          "chainId": 10,
+          "address": "0x14F2982D601c9458F93bd70B218933A6f8165e7b",
+          "name": "SafeProxyFactory",
+          "label": "SafeProxyFactory 1.5.0",
+          "role": "create a new Safe account (createProxyWithNonce)",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe_proxy_factory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"10\"] = \"canonical\""
+        },
+        {
+          "chainId": 10,
+          "address": "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+          "name": "SafeL2",
+          "label": "SafeL2 1.4.1",
+          "role": "singleton (event-emitting L2 variant) behind Safe proxies: owners sign execTransaction to their Safe",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe_l2.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"10\"] = \"canonical\""
+        },
+        {
+          "chainId": 10,
+          "address": "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+          "name": "SafeL2",
+          "label": "SafeL2 1.5.0",
+          "role": "singleton (event-emitting L2 variant) behind Safe proxies: owners sign execTransaction to their Safe",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe_l2.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"10\"] = \"canonical\""
+        },
+        {
+          "chainId": 8453,
+          "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+          "name": "SafeProxyFactory",
+          "label": "SafeProxyFactory 1.4.1",
+          "role": "create a new Safe account (createProxyWithNonce)",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe_proxy_factory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"8453\"] = \"canonical\""
+        },
+        {
+          "chainId": 8453,
+          "address": "0x14F2982D601c9458F93bd70B218933A6f8165e7b",
+          "name": "SafeProxyFactory",
+          "label": "SafeProxyFactory 1.5.0",
+          "role": "create a new Safe account (createProxyWithNonce)",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe_proxy_factory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"8453\"] = \"canonical\""
+        },
+        {
+          "chainId": 8453,
+          "address": "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+          "name": "SafeL2",
+          "label": "SafeL2 1.4.1",
+          "role": "singleton (event-emitting L2 variant) behind Safe proxies: owners sign execTransaction to their Safe",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe_l2.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"8453\"] = \"canonical\""
+        },
+        {
+          "chainId": 8453,
+          "address": "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+          "name": "SafeL2",
+          "label": "SafeL2 1.5.0",
+          "role": "singleton (event-emitting L2 variant) behind Safe proxies: owners sign execTransaction to their Safe",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe_l2.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"8453\"] = \"canonical\""
+        },
+        {
+          "chainId": 42161,
+          "address": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67",
+          "name": "SafeProxyFactory",
+          "label": "SafeProxyFactory 1.4.1",
+          "role": "create a new Safe account (createProxyWithNonce)",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe_proxy_factory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"42161\"] = \"canonical\""
+        },
+        {
+          "chainId": 42161,
+          "address": "0x14F2982D601c9458F93bd70B218933A6f8165e7b",
+          "name": "SafeProxyFactory",
+          "label": "SafeProxyFactory 1.5.0",
+          "role": "create a new Safe account (createProxyWithNonce)",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe_proxy_factory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"42161\"] = \"canonical\""
+        },
+        {
+          "chainId": 42161,
+          "address": "0x29fcB43b46531BcA003ddC8FCB67FFE91900C762",
+          "name": "SafeL2",
+          "label": "SafeL2 1.4.1",
+          "role": "singleton (event-emitting L2 variant) behind Safe proxies: owners sign execTransaction to their Safe",
+          "version": "1.4.1",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.4.1/safe_l2.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"42161\"] = \"canonical\""
+        },
+        {
+          "chainId": 42161,
+          "address": "0xEdd160fEBBD92E350D4D398fb636302fccd67C7e",
+          "name": "SafeL2",
+          "label": "SafeL2 1.5.0",
+          "role": "singleton (event-emitting L2 variant) behind Safe proxies: owners sign execTransaction to their Safe",
+          "version": "1.5.0",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/safe-global/safe-deployments/ca9cb0d2d5f5175fc8e41d579f356748d2bc1c62/src/assets/v1.5.0/safe_l2.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployments.canonical; networkAddresses[\"42161\"] = \"canonical\""
+        }
+      ]
+    },
+    {
+      "protocol": "disperse",
+      "name": "Disperse",
+      "category": "infrastructure",
+      "website": "https://disperse.app",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xD152f549545093347A162Dce210e7293f1452150",
+          "name": "Disperse",
+          "label": "Disperse",
+          "role": "send ETH or a token to many addresses in one transaction (disperseEther, disperseToken)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/banteg/disperse/15fa895bf05478a95f8fe1af11746fae2551292e/wagmi-disperse/src/contracts.ts",
+          "sourceKind": "raw",
+          "sourceNote": "disperse.address[1] in the disperse.app source (wagmi-disperse)"
+        },
+        {
+          "chainId": 10,
+          "address": "0xD152f549545093347A162Dce210e7293f1452150",
+          "name": "Disperse",
+          "label": "Disperse",
+          "role": "send ETH or a token to many addresses in one transaction (disperseEther, disperseToken)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/banteg/disperse/15fa895bf05478a95f8fe1af11746fae2551292e/wagmi-disperse/src/contracts.ts",
+          "sourceKind": "raw",
+          "sourceNote": "disperse.address[10] in the disperse.app source (wagmi-disperse)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xD152f549545093347A162Dce210e7293f1452150",
+          "name": "Disperse",
+          "label": "Disperse",
+          "role": "send ETH or a token to many addresses in one transaction (disperseEther, disperseToken)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/banteg/disperse/15fa895bf05478a95f8fe1af11746fae2551292e/wagmi-disperse/src/contracts.ts",
+          "sourceKind": "raw",
+          "sourceNote": "disperse.address[8453] in the disperse.app source (wagmi-disperse)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xD152f549545093347A162Dce210e7293f1452150",
+          "name": "Disperse",
+          "label": "Disperse",
+          "role": "send ETH or a token to many addresses in one transaction (disperseEther, disperseToken)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/banteg/disperse/15fa895bf05478a95f8fe1af11746fae2551292e/wagmi-disperse/src/contracts.ts",
+          "sourceKind": "raw",
+          "sourceNote": "disperse.address[42161] in the disperse.app source (wagmi-disperse)"
+        }
+      ]
+    }
+  ]
+}

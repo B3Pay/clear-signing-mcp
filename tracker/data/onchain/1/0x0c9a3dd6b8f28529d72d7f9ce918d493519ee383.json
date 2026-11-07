@@ -1,0 +1,61 @@
+{
+  "abi": {
+    "address": "0x0C9a3dd6b8F28529d72d7f9cE918D493519EE383",
+    "functions": 44,
+    "name": "EthereumVaultConnector",
+    "source": "sourcify"
+  },
+  "address": "0x0C9a3dd6b8F28529d72d7f9cE918D493519EE383",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 21989,
+  "fetchedAt": "2026-11-06T22:50:08.162Z",
+  "format": 2,
+  "sample": {
+    "count": 884,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 25,
+    "last30Days": 882,
+    "newest": 1794002123,
+    "oldest": 1791407435,
+    "perDay": 29.4,
+    "requested": 1000,
+    "selectors": {
+      "0x1f8b5215": 13,
+      "0x9f5c462a": 1,
+      "0xa829aaf5": 1,
+      "0xb780c362": 4,
+      "0xc14c11bf": 18,
+      "0xc16ae7a4": 824,
+      "0xc368516c": 8,
+      "0xd44fee5a": 13,
+      "0xe920e8e0": 1,
+      "0xf4fc3570": 1
+    },
+    "senders": 227,
+    "sendersBySelector": {
+      "0x1f8b5215": 4,
+      "0x9f5c462a": 1,
+      "0xa829aaf5": 1,
+      "0xb780c362": 1,
+      "0xc14c11bf": 3,
+      "0xc16ae7a4": 220,
+      "0xc368516c": 6,
+      "0xd44fee5a": 6,
+      "0xe920e8e0": 1,
+      "0xf4fc3570": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "EthereumVaultConnector",
+    "status": "verified"
+  }
+}

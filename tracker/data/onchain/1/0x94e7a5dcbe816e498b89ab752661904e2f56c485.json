@@ -1,0 +1,62 @@
+{
+  "abi": {
+    "address": "0xABd0E26FE17BDe4F1f1187Ed8aA80C274E03D8b5",
+    "functions": 57,
+    "name": "SpokeInstance",
+    "source": "sourcify"
+  },
+  "address": "0x94e7A5dCbE816e498b89aB752661904E2F56c485",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 1419,
+  "fetchedAt": "2026-11-06T22:50:07.357Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1794002039,
+    "oldest": 1793764367,
+    "perDay": 363.5262041805513,
+    "requested": 1000,
+    "selectors": {
+      "0x0ad58d2f": 187,
+      "0x826002e2": 12,
+      "0x852a56a5": 41,
+      "0x8874e104": 32,
+      "0x9e35c533": 5,
+      "0xac9650d8": 403,
+      "0xb1e8f8ef": 33,
+      "0xd6bda0c0": 287
+    },
+    "senders": 478,
+    "sendersBySelector": {
+      "0x0ad58d2f": 143,
+      "0x826002e2": 12,
+      "0x852a56a5": 30,
+      "0x8874e104": 31,
+      "0x9e35c533": 5,
+      "0xac9650d8": 258,
+      "0xb1e8f8ef": 27,
+      "0xd6bda0c0": 180
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xABd0E26FE17BDe4F1f1187Ed8aA80C274E03D8b5",
+          "name": "SpokeInstance"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

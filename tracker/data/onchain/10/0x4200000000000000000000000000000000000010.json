@@ -1,0 +1,58 @@
+{
+  "abi": {
+    "address": "0xAE9ed42f43a3ee45c3A9dEf8ae6B48cBb58Ed1a1",
+    "functions": 24,
+    "name": "L2StandardBridge",
+    "source": "sourcify"
+  },
+  "address": "0x4200000000000000000000000000000000000010",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 2055,
+  "fetchedAt": "2026-11-06T23:30:53.037Z",
+  "format": 2,
+  "sample": {
+    "count": 70,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 70,
+    "newest": 1793998191,
+    "oldest": 1793368343,
+    "perDay": 9.222352004733164,
+    "requested": 1000,
+    "selectors": {
+      "0x32b7006d": 9,
+      "0x540abf73": 14,
+      "0xa3a79548": 42,
+      "0xe11013dd": 5
+    },
+    "senders": 29,
+    "sendersBySelector": {
+      "0x32b7006d": 6,
+      "0x540abf73": 2,
+      "0xa3a79548": 18,
+      "0xe11013dd": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xAE9ed42f43a3ee45c3A9dEf8ae6B48cBb58Ed1a1",
+          "name": "L2StandardBridge"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

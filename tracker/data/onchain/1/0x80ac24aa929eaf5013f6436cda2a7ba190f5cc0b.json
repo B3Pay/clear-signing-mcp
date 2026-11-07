@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0x80ac24aA929eaF5013f6436cdA2a7ba190f5Cc0b",
+    "functions": 42,
+    "name": "MaplePool",
+    "source": "sourcify"
+  },
+  "address": "0x80ac24aA929eaF5013f6436cdA2a7ba190f5Cc0b",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 11660,
+  "fetchedAt": "2026-11-06T22:50:08.595Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 11,
+    "last30Days": 1000,
+    "newest": 1793999867,
+    "oldest": 1792138235,
+    "perDay": 46.41089108910891,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 239,
+      "0x107703ab": 664,
+      "0x1b8f1830": 44,
+      "0x23b872dd": 2,
+      "0x6e553f65": 8,
+      "0xa9059cbb": 43
+    },
+    "senders": 420,
+    "sendersBySelector": {
+      "0x095ea7b3": 167,
+      "0x107703ab": 288,
+      "0x1b8f1830": 31,
+      "0x23b872dd": 2,
+      "0x6e553f65": 1,
+      "0xa9059cbb": 32
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "MaplePool",
+    "status": "verified"
+  }
+}

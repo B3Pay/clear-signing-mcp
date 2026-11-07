@@ -1,0 +1,58 @@
+{
+  "abi": {
+    "address": "0x20Cfe11d61A51328Abd07C87b0eB14431E28F2dA",
+    "functions": 27,
+    "name": "DepositWithdrawalRouter",
+    "source": "sourcify"
+  },
+  "address": "0xf8b2c637A68cF6A17b1DF9F8992EeBeFf63d2dFf",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2976,
+  "fetchedAt": "2026-11-06T22:50:08.923Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 7,
+    "last30Days": 1000,
+    "newest": 1793999399,
+    "oldest": 1791618827,
+    "perDay": 36.293798297215965,
+    "requested": 1000,
+    "selectors": {
+      "0x3c55a029": 24,
+      "0x8c9732c4": 32,
+      "0xaec8de39": 7,
+      "0xb6f32e03": 435,
+      "0xcc8832d9": 477,
+      "0xd7d5b6a1": 25
+    },
+    "senders": 260,
+    "sendersBySelector": {
+      "0x3c55a029": 17,
+      "0x8c9732c4": 21,
+      "0xaec8de39": 7,
+      "0xb6f32e03": 154,
+      "0xcc8832d9": 191,
+      "0xd7d5b6a1": 24
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RouterProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x20Cfe11d61A51328Abd07C87b0eB14431E28F2dA",
+          "name": "DepositWithdrawalRouter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

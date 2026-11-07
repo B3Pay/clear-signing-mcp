@@ -1,0 +1,2332 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "orchestrator",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "votingEscrow",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "minter",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "governor",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "configAdmin",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "adapterAuthority",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "voterConfigurer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "chainConfigurer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "chainStatusAuthority",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "relayDeployer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "nativeWithdrawer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "splitterConfigurer",
+                  "type": "address"
+                }
+              ],
+              "internalType": "struct IVoter.RoleHolders",
+              "name": "roles",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint48",
+              "name": "allocationLifetime",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint48",
+              "name": "messageLifetime",
+              "type": "uint48"
+            }
+          ],
+          "internalType": "struct IVoter.ConstructorParams",
+          "name": "_params",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "AccessControlBadConfirmation",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "neededRole",
+          "type": "bytes32"
+        }
+      ],
+      "name": "AccessControlUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AllocationLifetimeTooHigh",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AllocationLifetimeTooLow",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "AllocationsNotStrictlyAscending",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CeilingExceeded",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Chain0NotConfigurable",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChainAllocationMismatch",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChainAlreadyRegistered",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChainNotActive",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChainNotActiveOrSunset",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChainNotRegistered",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChainNotSuspended",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChainPaused",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ChainStatusUnchanged",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ClaimRewardsParamsNotStrictlyAscending",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DstShapeStale",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "EmergencyDeallocationNotAllowed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EmptyClaimRewardsParams",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "GaugeDispatchesNotStrictlyAscending",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "GaugesNotStrictlyAscending",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InsufficientChain0Allocation",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InsufficientCommitted",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_spendable",
+          "type": "uint256"
+        }
+      ],
+      "name": "InsufficientSurplus",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidChainStatusTransition",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidStatus",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "name": "LastRoleHolder",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MessageLifetimeTooHigh",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "MessageLifetimeTooLow",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "MissingDestinationGasLimit",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotAuthorized",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotVoterPaymentsModule",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NotVotingEscrow",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NothingToDeallocate",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ReentrancyGuardReentrantCall",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "RouteSuspended",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "token",
+          "type": "address"
+        }
+      ],
+      "name": "SafeERC20FailedOperation",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "StakeExpired",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "StakeWithdrawn",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "StaleShape",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "SunsetDeallocOnly",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "Token0NotClearable",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "UnexpectedValue",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAddress",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAllocation",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroAmount",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "ZeroReduction",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint48",
+          "name": "_allocationLifetime",
+          "type": "uint48"
+        }
+      ],
+      "name": "AllocationLifetimeSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "BufferDrawn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_caller",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "_amount",
+          "type": "uint128"
+        }
+      ],
+      "name": "Burned",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint128",
+              "name": "amount",
+              "type": "uint128"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct IVotingEscrow.SourceDelta[]",
+          "name": "_sources",
+          "type": "tuple[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint128",
+              "name": "amount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct IVotingEscrow.DestinationDelta[]",
+          "name": "_destinations",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "Chain0Rebalanced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ChainRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum IVoterCommon.ChainStatus",
+          "name": "_status",
+          "type": "uint8"
+        }
+      ],
+      "name": "ChainStatusSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint128",
+              "name": "delta",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct IVoter.ChainAllocationDispatch[]",
+          "name": "_allocations",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "ChainsAllocated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint48",
+          "name": "_reduction",
+          "type": "uint48"
+        }
+      ],
+      "name": "CooldownReductionDispatched",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "_amount",
+          "type": "uint128"
+        }
+      ],
+      "name": "DeallocationProcessed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_donor",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Donated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "_amount",
+          "type": "uint128"
+        }
+      ],
+      "name": "EmergencyDeallocated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "_allowed",
+          "type": "bool"
+        }
+      ],
+      "name": "EmergencyDeallocationAllowedSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "gauge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint128",
+              "name": "allocated",
+              "type": "uint128"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct IVoterCommon.GaugeAllocation[]",
+          "name": "_gauges",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "GaugesAllocated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint48",
+          "name": "_messageLifetime",
+          "type": "uint48"
+        }
+      ],
+      "name": "MessageLifetimeSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_operator",
+          "type": "address"
+        }
+      ],
+      "name": "OperatorSet",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint128",
+          "name": "_amount",
+          "type": "uint128"
+        }
+      ],
+      "name": "ParkedOnChain0",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_surplusReported",
+          "type": "uint256"
+        }
+      ],
+      "name": "RedeemProcessed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "RewardsClaimDispatched",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "previousAdminRole",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "newAdminRole",
+          "type": "bytes32"
+        }
+      ],
+      "name": "RoleAdminChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleGranted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleRevoked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "_recipient",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "SurplusSpent",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256[]",
+          "name": "_clearedChains",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "TokenCleared",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "CHAIN0",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DEFAULT_ADMIN_ROLE",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "MINTER",
+      "outputs": [
+        {
+          "internalType": "contract IMinter",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ORCHESTRATOR",
+      "outputs": [
+        {
+          "internalType": "contract IRootMessageOrchestrator",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TOKEN",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TOKEN0",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "VOTING_ESCROW",
+      "outputs": [
+        {
+          "internalType": "contract IVotingEscrow",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint128",
+              "name": "delta",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IVoter.ChainAllocationDispatch[]",
+          "name": "_chainDispatches",
+          "type": "tuple[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "gauge",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint128",
+                  "name": "allocated",
+                  "type": "uint128"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "data",
+                  "type": "bytes"
+                }
+              ],
+              "internalType": "struct IVoterCommon.GaugeAllocation[]",
+              "name": "gauges",
+              "type": "tuple[]"
+            }
+          ],
+          "internalType": "struct IVoter.GaugeAllocationDispatch[]",
+          "name": "_gaugeDispatches",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "address",
+          "name": "_refundRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "allocate",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint128",
+              "name": "delta",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IVoter.ChainAllocationDispatch[]",
+          "name": "_chainDispatches",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "address",
+          "name": "_refundRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "allocateChains",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "gauge",
+              "type": "address"
+            },
+            {
+              "internalType": "uint128",
+              "name": "allocated",
+              "type": "uint128"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IVoterCommon.GaugeAllocation[]",
+          "name": "_gauges",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_gasLimit",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_refundRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "allocateGauges",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "allocating",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "_isAllocating",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "allocationChainAmounts",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "_allocated",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "allocationChainIds",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_chainIds",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "allocationLifetime",
+      "outputs": [
+        {
+          "internalType": "uint48",
+          "name": "_allocationLifetime",
+          "type": "uint48"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint128",
+          "name": "_amount",
+          "type": "uint128"
+        }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint48",
+          "name": "_expiry",
+          "type": "uint48"
+        }
+      ],
+      "name": "chainSlopeChanges",
+      "outputs": [
+        {
+          "internalType": "int128",
+          "name": "_slopeChange",
+          "type": "int128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "chainStates",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "int128",
+              "name": "bias",
+              "type": "int128"
+            },
+            {
+              "internalType": "int128",
+              "name": "slope",
+              "type": "int128"
+            },
+            {
+              "internalType": "uint48",
+              "name": "ts",
+              "type": "uint48"
+            },
+            {
+              "internalType": "uint128",
+              "name": "permanentStakeBalance",
+              "type": "uint128"
+            }
+          ],
+          "internalType": "struct IVoterCommon.Point",
+          "name": "_point",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_ceiling",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_totalRedeemed",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_reportedSurplus",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_cumulativeSuspendedSurplus",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_surplusSpent",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_lastIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_lastTimeIndex",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_donatedBuffer",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum IVoterCommon.ChainStatus",
+          "name": "_status",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "chains",
+      "outputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "_chainIds",
+          "type": "uint256[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "gasLimit",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "votingRewardsManager",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxCheckpoints",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct ILeafVoter.FeeClaim[]",
+              "name": "feeClaims",
+              "type": "tuple[]"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "votingRewardsManager",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "programId",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "maxCheckpoints",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct ILeafVoter.IncentiveClaim[]",
+              "name": "incentiveClaims",
+              "type": "tuple[]"
+            }
+          ],
+          "internalType": "struct IVoter.ClaimRewardsParams[]",
+          "name": "_claimRewardsParams",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "address",
+          "name": "_refundRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "claimRewards",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "clearToken",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "donate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "donatedBuffer",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_gasLimit",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_refundRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "emergencyDeallocate",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "emergencyDeallocationAllowed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "_allowed",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "emissionsPerVP",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_emissionsPerVP",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getRoleAdmin",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getRoleMember",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getRoleMemberCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getRoleMembers",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "grantRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "hasRole",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "index",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint48",
+          "name": "_boundary",
+          "type": "uint48"
+        }
+      ],
+      "name": "indexAtBoundary",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "isSuspended",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "_isSuspended",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lastGlobalSettlement",
+      "outputs": [
+        {
+          "internalType": "uint48",
+          "name": "_lastGlobalSettlement",
+          "type": "uint48"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "messageLifetime",
+      "outputs": [
+        {
+          "internalType": "uint48",
+          "name": "_messageLifetime",
+          "type": "uint48"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "parkOnChain0",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_originChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint128",
+          "name": "_amount",
+          "type": "uint128"
+        }
+      ],
+      "name": "processDeallocation",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_originChainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_surplusAccrued",
+          "type": "uint256"
+        }
+      ],
+      "name": "processRedeem",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint128",
+              "name": "amount",
+              "type": "uint128"
+            }
+          ],
+          "internalType": "struct IVotingEscrow.SourceDelta[]",
+          "name": "_sources",
+          "type": "tuple[]"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint128",
+              "name": "amount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "address",
+              "name": "recipient",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct IVotingEscrow.DestinationDelta[]",
+          "name": "_destinations",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "rebalanceChain0",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint48",
+          "name": "_reduction",
+          "type": "uint48"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_gasLimit",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_refundRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "reduceCooldown",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "registerChain",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "callerConfirmation",
+          "type": "address"
+        }
+      ],
+      "name": "renounceRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "revokeRole",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint48",
+          "name": "_allocationLifetime",
+          "type": "uint48"
+        }
+      ],
+      "name": "setAllocationLifetime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum IVoterCommon.ChainStatus",
+          "name": "_status",
+          "type": "uint8"
+        }
+      ],
+      "name": "setChainStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "_allowed",
+          "type": "bool"
+        }
+      ],
+      "name": "setEmergencyDeallocationAllowed",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint48",
+          "name": "_messageLifetime",
+          "type": "uint48"
+        }
+      ],
+      "name": "setMessageLifetime",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_operator",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_gasLimit",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_refundRecipient",
+          "type": "address"
+        }
+      ],
+      "name": "setOperator",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_recipient",
+          "type": "address"
+        }
+      ],
+      "name": "spendSurplus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_chainId",
+          "type": "uint256"
+        }
+      ],
+      "name": "spendableSurplus",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_spendable",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "timeIndex",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_timeIndex",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint48",
+          "name": "_boundary",
+          "type": "uint48"
+        }
+      ],
+      "name": "timeIndexAtBoundary",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "_timeIndex",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenStates",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "_committed",
+          "type": "uint128"
+        },
+        {
+          "internalType": "uint48",
+          "name": "_lastStakeEnd",
+          "type": "uint48"
+        },
+        {
+          "internalType": "uint48",
+          "name": "_lastAllocated",
+          "type": "uint48"
+        },
+        {
+          "internalType": "bool",
+          "name": "_isPermanent",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalPoint",
+      "outputs": [
+        {
+          "internalType": "int128",
+          "name": "_bias",
+          "type": "int128"
+        },
+        {
+          "internalType": "int128",
+          "name": "_slope",
+          "type": "int128"
+        },
+        {
+          "internalType": "uint48",
+          "name": "_ts",
+          "type": "uint48"
+        },
+        {
+          "internalType": "uint128",
+          "name": "_permanentStakeBalance",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint48",
+          "name": "_expiry",
+          "type": "uint48"
+        }
+      ],
+      "name": "totalSlopeChanges",
+      "outputs": [
+        {
+          "internalType": "int128",
+          "name": "_slopeChange",
+          "type": "int128"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "address": "0x49d7d4f17Ec56Ef8fA04E464AF5D1A4942CC31e6",
+  "name": "Voter",
+  "source": "sourcify"
+}

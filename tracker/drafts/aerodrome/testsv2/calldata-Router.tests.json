@@ -1,0 +1,268 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-Router.json",
+  "tests": [
+    {
+      "description": "swapExactTokensForTokens 0xcac88ea9 0xa93bb494",
+      "rawTx": "0x02f90173822105831f71b884030a32c084030a32c08307a12094cf77a3ba9a5ca399b7c97c74d54e5b1beb874e4380b90144cac88ea90000000000000000000000000000000000000000000000e73a475e5d788a50000000000000000000000000000000000000000000000000000008ec26851f040000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000f9b6a1eb0190bf76274b0876957ee9f4f508af41000000000000000000000000000000000000000000000000000000006aee5c4c0000000000000000000000000000000000000000000000000000000000000001000000000000000000000000b1e1f3cc2b6fe4420c1ac82022b457018eb628ff00000000000000000000000042000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000420dd381b31aef6683db6b902084cb0ffece40dac0",
+      "txHash": "0xa93bb494deb8d988ec2fa52eb5ab1cbe5b49bd8ab042699397468689029e10e3",
+      "expected": {
+        "intent": "Swap",
+        "owner": "Aerodrome (legacy, now Aero)",
+        "fields": [
+          {
+            "label": "Amount in",
+            "value": "4265397309960000000000"
+          },
+          {
+            "label": "Amount out min",
+            "value": "2511450000000000"
+          },
+          {
+            "label": "From",
+            "value": "0xB1E1f3Cc2B6fE4420C1Ac82022b457018Eb628ff"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x4200000000000000000000000000000000000006"
+          },
+          {
+            "label": "Stable",
+            "value": "false"
+          },
+          {
+            "label": "Factory",
+            "value": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+          },
+          {
+            "label": "Recipient",
+            "value": "0xF9b6a1EB0190bf76274B0876957Ee9F4f508Af41"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-06 23:01:32Z"
+          }
+        ]
+      }
+    },
+    {
+      "description": "swapExactTokensForETHSupportingFeeOnTransferTokens 0x12bc3aca 0xebb4f2ab",
+      "rawTx": "0x02f901708221058218ef837270e0837270e0830aae6094cf77a3ba9a5ca399b7c97c74d54e5b1beb874e4380b9014412bc3aca00000000000000000000000000000000000000000000067c60af4b273cee50200000000000000000000000000000000000000000000000000012afecb640ac1f00000000000000000000000000000000000000000000000000000000000000a00000000000000000000000009253cc95f9a49ec4035154f9a24642b4ed956e7f000000000000000000000000000000000000000000000000000000006aef9f8e000000000000000000000000000000000000000000000000000000000000000100000000000000000000000007848a7b542a9cd856122c6c4ab9ec87c44f8b6300000000000000000000000042000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000420dd381b31aef6683db6b902084cb0ffece40dac0",
+      "txHash": "0xebb4f2abac6bea0362cc62a37a7d080559458d051bce1a03dfc9c41c24dc9b27",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap for at least 0.005259980785626143 ETH",
+        "owner": "Aerodrome (legacy, now Aero)",
+        "fields": [
+          {
+            "label": "Amount in",
+            "value": "30628562032138319188000"
+          },
+          {
+            "label": "Minimum to receive",
+            "value": "0.005259980785626143 ETH"
+          },
+          {
+            "label": "From",
+            "value": "0x07848a7b542a9cd856122C6c4Ab9ec87c44F8b63"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x4200000000000000000000000000000000000006"
+          },
+          {
+            "label": "Stable",
+            "value": "false"
+          },
+          {
+            "label": "Factory",
+            "value": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x9253cC95F9a49EC4035154f9a24642b4Ed956e7f"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-07 22:00:46Z"
+          }
+        ]
+      }
+    },
+    {
+      "description": "swapExactETHForTokensSupportingFeeOnTransferTokens 0x3da5acba 0x5ee29a92",
+      "rawTx": "0x02f9015782210582137a837270e0837270e0830aae6094cf77a3ba9a5ca399b7c97c74d54e5b1beb874e438725df3530a38823b901243da5acba000000000000000000000000000000000000000000000ccdaf787190bc0002610000000000000000000000000000000000000000000000000000000000000080000000000000000000000000b1ba639cc04b946e4a594de76ffe06de995ec68f000000000000000000000000000000000000000000000000000000006aef9f430000000000000000000000000000000000000000000000000000000000000001000000000000000000000000420000000000000000000000000000000000000600000000000000000000000007848a7b542a9cd856122c6c4ab9ec87c44f8b630000000000000000000000000000000000000000000000000000000000000000000000000000000000000000420dd381b31aef6683db6b902084cb0ffece40dac0",
+      "txHash": "0x5ee29a9209908dbac6b8731c6ad948687c271936e8b38a7207b37ff171ee2d59",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap 0.010659993680578595 ETH",
+        "owner": "Aerodrome (legacy, now Aero)",
+        "fields": [
+          {
+            "label": "Amount to send",
+            "value": "0.010659993680578595 ETH"
+          },
+          {
+            "label": "Amount out min",
+            "value": "60462624310366486659681"
+          },
+          {
+            "label": "From",
+            "value": "0x4200000000000000000000000000000000000006"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x07848a7b542a9cd856122C6c4Ab9ec87c44F8b63"
+          },
+          {
+            "label": "Stable",
+            "value": "false"
+          },
+          {
+            "label": "Factory",
+            "value": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+          },
+          {
+            "label": "Recipient",
+            "value": "0xB1Ba639Cc04B946e4A594DE76fFE06DE995EC68F"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-07 21:59:31Z"
+          }
+        ]
+      }
+    },
+    {
+      "description": "swapExactETHForTokens 0x903638a4 0xc45e7897",
+      "rawTx": "0x02f90157822105820673830f424083a7d8c083032c0794cf77a3ba9a5ca399b7c97c74d54e5b1beb874e438701daaca4279c00b90124903638a400000000000000000000000000000000000000000000000e0ba84af2caa9770700000000000000000000000000000000000000000000000000000000000000800000000000000000000000001ffd80657b36813ba731285c049926076c3d09f7000000000000000000000000000000000000000000000000000000006aee4f0900000000000000000000000000000000000000000000000000000000000000010000000000000000000000004200000000000000000000000000000000000006000000000000000000000000cd8b83e5a3f27d6bb9c0ea51b25896b8266efa250000000000000000000000000000000000000000000000000000000000000000000000000000000000000000420dd381b31aef6683db6b902084cb0ffece40dac0",
+      "txHash": "0xc45e789726c0f67a179bad98847aa9074003277c69b7b496af4ab24c5eb89f73",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap 0.00052191 ETH",
+        "owner": "Aerodrome (legacy, now Aero)",
+        "fields": [
+          {
+            "label": "Amount to send",
+            "value": "0.00052191 ETH"
+          },
+          {
+            "label": "Amount out min",
+            "value": "259094420769080964871"
+          },
+          {
+            "label": "From",
+            "value": "0x4200000000000000000000000000000000000006"
+          },
+          {
+            "label": "Recipient",
+            "value": "0xCd8b83E5A3f27d6bB9C0EA51B25896B8266eFA25"
+          },
+          {
+            "label": "Stable",
+            "value": "false"
+          },
+          {
+            "label": "Factory",
+            "value": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x1ffd80657B36813ba731285C049926076C3D09f7"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-06 22:04:57Z"
+          }
+        ]
+      }
+    },
+    {
+      "description": "swapExactTokensForETH 0xc6b7f1b6 0xe0dd90ff",
+      "rawTx": "0x02f901708221058206c9830f424083a7d8c083034da794cf77a3ba9a5ca399b7c97c74d54e5b1beb874e4380b90144c6b7f1b6000000000000000000000000000000000000000000000017ad0d4c9dfc8f57d20000000000000000000000000000000000000000000000000002cd144594e82900000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000d71799f60343643d2d9c8d884093da39b1d92335000000000000000000000000000000000000000000000000000000006aee4f500000000000000000000000000000000000000000000000000000000000000001000000000000000000000000cd8b83e5a3f27d6bb9c0ea51b25896b8266efa2500000000000000000000000042000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000000000000000000000000000420dd381b31aef6683db6b902084cb0ffece40dac0",
+      "txHash": "0xe0dd90ffb31d36c5d76044eb410a9d0908a3b2123422c52e50752e10e90645c2",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap for at least 0.000788436903847977 ETH",
+        "owner": "Aerodrome (legacy, now Aero)",
+        "fields": [
+          {
+            "label": "Amount in",
+            "value": "436744820880009287634"
+          },
+          {
+            "label": "Minimum to receive",
+            "value": "0.000788436903847977 ETH"
+          },
+          {
+            "label": "From",
+            "value": "0xCd8b83E5A3f27d6bB9C0EA51B25896B8266eFA25"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x4200000000000000000000000000000000000006"
+          },
+          {
+            "label": "Stable",
+            "value": "false"
+          },
+          {
+            "label": "Factory",
+            "value": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+          },
+          {
+            "label": "Recipient",
+            "value": "0xd71799F60343643d2D9C8d884093da39b1d92335"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-06 22:06:08Z"
+          }
+        ]
+      }
+    },
+    {
+      "description": "swapExactTokensForTokensSupportingFeeOnTransferTokens 0x88cd821e 0xde66b379",
+      "rawTx": "0x02f90171822105822fea83c6ea7984015f80f9830dbba094cf77a3ba9a5ca399b7c97c74d54e5b1beb874e4380b9014488cd821e0000000000000000000000000000000000000000000000000019c4d595aa01bf0000000000000000000000000000000000000000000000000000005d9be3afb000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000003d63c340fa1735637e962e3b0b7d0f7cf1f722a1000000000000000000000000000000000000000000000000000000006aee4b0100000000000000000000000000000000000000000000000000000000000000010000000000000000000000004200000000000000000000000000000000000006000000000000000000000000ecff4d80f54cf55c626e52f304a8891645961e720000000000000000000000000000000000000000000000000000000000000000000000000000000000000000420dd381b31aef6683db6b902084cb0ffece40dac0",
+      "txHash": "0xde66b3796cd37a197ae3929fb00deaa97133b5119f467ea106b4532412f8dee2",
+      "expected": {
+        "intent": "Swap",
+        "owner": "Aerodrome (legacy, now Aero)",
+        "fields": [
+          {
+            "label": "Amount in",
+            "value": "7253296035791295"
+          },
+          {
+            "label": "Amount out min",
+            "value": "402047348656"
+          },
+          {
+            "label": "From",
+            "value": "0x4200000000000000000000000000000000000006"
+          },
+          {
+            "label": "Recipient",
+            "value": "0xEcFf4D80f54CF55c626E52F304a8891645961e72"
+          },
+          {
+            "label": "Stable",
+            "value": "false"
+          },
+          {
+            "label": "Factory",
+            "value": "0x420DD381b31aEf6683db6B902084cB0FFECe40Da"
+          },
+          {
+            "label": "Recipient",
+            "value": "0x3D63c340fA1735637e962e3b0B7D0F7cF1F722a1"
+          },
+          {
+            "label": "Deadline",
+            "value": "2026-11-06 21:47:45Z"
+          }
+        ]
+      }
+    }
+  ]
+}

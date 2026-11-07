@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x00000000FC04c910A0b5feA33b03E0447AD0B0aA",
+    "functions": 5,
+    "name": "Bundler",
+    "source": "sourcify"
+  },
+  "address": "0x00000000FC04c910A0b5feA33b03E0447AD0B0aA",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 2328,
+  "fetchedAt": "2026-11-06T23:30:54.878Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1794001591,
+    "oldest": 1793390581,
+    "perDay": 141.40521431727794,
+    "requested": 1000,
+    "selectors": {
+      "0xa44c9ce7": 1000
+    },
+    "senders": 1,
+    "sendersBySelector": {
+      "0xa44c9ce7": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Bundler",
+    "status": "verified"
+  }
+}

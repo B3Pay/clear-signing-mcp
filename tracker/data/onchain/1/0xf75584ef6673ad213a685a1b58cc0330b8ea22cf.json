@@ -1,0 +1,46 @@
+{
+  "abi": {
+    "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+    "functions": 5,
+    "name": "EnsoRouter",
+    "source": "sourcify"
+  },
+  "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "EnsoRouter",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 3313,
+  "fetchedAt": "2026-11-06T21:48:44.143Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 57,
+    "last30Days": 1000,
+    "newest": 1793996531,
+    "oldest": 1792904615,
+    "perDay": 79.12696581055685,
+    "requested": 1000,
+    "selectors": {
+      "0x21025a06": 33,
+      "0xb94c3609": 935,
+      "0xf52e33f5": 32
+    },
+    "senders": 498,
+    "sendersBySelector": {
+      "0x21025a06": 7,
+      "0xb94c3609": 472,
+      "0xf52e33f5": 26
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "EnsoRouter",
+    "status": "verified"
+  }
+}

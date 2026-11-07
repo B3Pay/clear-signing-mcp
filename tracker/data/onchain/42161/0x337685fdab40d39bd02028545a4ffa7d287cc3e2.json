@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+    "functions": 14,
+    "name": "MayanForwarder2",
+    "source": "sourcify"
+  },
+  "address": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 8840,
+  "fetchedAt": "2026-11-06T21:55:48.250Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 43,
+    "last30Days": 1000,
+    "newest": 1793997203,
+    "oldest": 1793515744,
+    "perDay": 179.45453299242513,
+    "requested": 1000,
+    "selectors": {
+      "0x30dedc57": 157,
+      "0xe4269fc4": 543,
+      "0xfa74fd43": 300
+    },
+    "senders": 629,
+    "sendersBySelector": {
+      "0x30dedc57": 80,
+      "0xe4269fc4": 315,
+      "0xfa74fd43": 266
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MayanForwarder2",
+    "status": "verified"
+  }
+}

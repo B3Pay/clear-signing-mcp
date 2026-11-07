@@ -1,0 +1,60 @@
+{
+  "abi": {
+    "address": "0x41617D01362770ebAAC10311aB899FBc8a4E4A7E",
+    "functions": 53,
+    "name": "WithdrawRequestNFT",
+    "source": "sourcify"
+  },
+  "address": "0x7d5706f6ef3F89B3951E23e557CDFBC3239D4E2c",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 845,
+  "fetchedAt": "2026-11-06T22:50:09.966Z",
+  "format": 2,
+  "sample": {
+    "count": 159,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 6,
+    "last30Days": 157,
+    "newest": 1793997647,
+    "oldest": 1791402647,
+    "perDay": 5.233333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x": 1,
+      "0x24fccdcf": 101,
+      "0x42842e0e": 1,
+      "0x7e3db158": 3,
+      "0xb13acedd": 53
+    },
+    "senders": 23,
+    "sendersBySelector": {
+      "0x": 1,
+      "0x24fccdcf": 1,
+      "0x42842e0e": 1,
+      "0x7e3db158": 1,
+      "0xb13acedd": 19
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x41617D01362770ebAAC10311aB899FBc8a4E4A7E",
+          "name": "WithdrawRequestNFT"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "abi": {
+    "address": "0xCD979B10A55FCdAC23ec785CE3066c6ef8a479A4",
+    "functions": 39,
+    "name": "OAdapterUpgradeable",
+    "source": "sourcify"
+  },
+  "address": "0x6C96dE32CEa08842dcc4058c14d3aaAD7Fa41dee",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2739,
+  "fetchedAt": "2026-11-06T22:50:04.907Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 17,
+    "last30Days": 1000,
+    "newest": 1794001415,
+    "oldest": 1793277347,
+    "perDay": 119.32580917814349,
+    "requested": 1000,
+    "selectors": {
+      "0x779b432d": 1,
+      "0xc7c7f5b3": 999
+    },
+    "senders": 291,
+    "sendersBySelector": {
+      "0x779b432d": 1,
+      "0xc7c7f5b3": 291
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xCD979B10A55FCdAC23ec785CE3066c6ef8a479A4",
+          "name": "OAdapterUpgradeable"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

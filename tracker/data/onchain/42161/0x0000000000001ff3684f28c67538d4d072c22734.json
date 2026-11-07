@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+    "functions": 0,
+    "name": "AllowanceHolder",
+    "source": "sourcify"
+  },
+  "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x0000000000001fF3684f28c67538d4D072C22734",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 1009,
+  "fetchedAt": "2026-11-06T20:03:55.244Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 65,
+    "last30Days": 1000,
+    "newest": 1793994129,
+    "oldest": 1793892285,
+    "perDay": 848.356309650053,
+    "requested": 1000,
+    "selectors": {
+      "0x2213bc0b": 1000
+    },
+    "senders": 539,
+    "sendersBySelector": {
+      "0x2213bc0b": 539
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AllowanceHolder",
+    "status": "verified"
+  }
+}

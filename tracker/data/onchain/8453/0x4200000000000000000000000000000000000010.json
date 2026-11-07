@@ -1,0 +1,57 @@
+{
+  "abi": {
+    "address": "0x4200000000000000000000000000000000000010",
+    "functions": 5,
+    "name": "Proxy",
+    "source": "sourcify"
+  },
+  "address": "0x4200000000000000000000000000000000000010",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 2055,
+  "fetchedAt": "2026-11-06T23:31:03.441Z",
+  "format": 2,
+  "sample": {
+    "count": 37,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 37,
+    "newest": 1793987851,
+    "oldest": 1793918181,
+    "perDay": 37.78812737889785,
+    "requested": 1000,
+    "selectors": {
+      "0x32b7006d": 14,
+      "0x540abf73": 10,
+      "0xa3a79548": 12,
+      "0xe11013dd": 1
+    },
+    "senders": 28,
+    "sendersBySelector": {
+      "0x32b7006d": 14,
+      "0x540abf73": 3,
+      "0xa3a79548": 10,
+      "0xe11013dd": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xff312C3496f0848CD94d71dC06C434D487A46a10"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

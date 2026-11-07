@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x16D5A408e807db8eF7c578279BEeEe6b228f1c1C",
+    "functions": 12,
+    "name": "RocketSwapRouter",
+    "source": "sourcify"
+  },
+  "address": "0x16D5A408e807db8eF7c578279BEeEe6b228f1c1C",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 15016,
+  "fetchedAt": "2026-11-06T22:50:09.634Z",
+  "format": 2,
+  "sample": {
+    "count": 20,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 20,
+    "newest": 1793696399,
+    "oldest": 1792049243,
+    "perDay": 0.6666666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x55362f4d": 18,
+      "0xa824ae8b": 2
+    },
+    "senders": 8,
+    "sendersBySelector": {
+      "0x55362f4d": 6,
+      "0xa824ae8b": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RocketSwapRouter",
+    "status": "verified"
+  }
+}

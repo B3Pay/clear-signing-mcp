@@ -1,0 +1,66 @@
+{
+  "descriptor": "calldata-MetaSwap.json",
+  "tests": "testsv2/calldata-MetaSwap.tests.json",
+  "descriptorSha256": "490bc1ab6f914c2c6f8f881d0d0dc8a25ff4cbd114db1372488f1ed0836097ed",
+  "testsSha256": "9eb102c21a8256241a1c745364863f9abe2127d265120eb5222cf94420815632",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Missing display format: Function pauseSwaps() (selector: 0x558b7dd1) exists in reference ABI (see https://repo.sourcify.dev/1/0x881d40237659c251811cec9c364ef91dc08d300c) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function removeAdapter(string) (selector: 0x3ef11fd7) exists in reference ABI (see https://repo.sourcify.dev/1/0x881d40237659c251811cec9c364ef91dc08d300c) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function renounceOwnership() (selector: 0x715018a6) exists in reference ABI (see https://repo.sourcify.dev/1/0x881d40237659c251811cec9c364ef91dc08d300c) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function setAdapter(string,address,bytes4,bytes) (selector: 0x459a39fb) exists in reference ABI (see https://repo.sourcify.dev/1/0x881d40237659c251811cec9c364ef91dc08d300c) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function swapUsingGasToken(string,address,uint256,bytes) (selector: 0x6b68764c) exists in reference ABI (see https://repo.sourcify.dev/1/0x881d40237659c251811cec9c364ef91dc08d300c) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function transferOwnership(address) (selector: 0xf2fde38b) exists in reference ABI (see https://repo.sourcify.dev/1/0x881d40237659c251811cec9c364ef91dc08d300c) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function unpauseSwaps() (selector: 0x9804a380) exists in reference ABI (see https://repo.sourcify.dev/1/0x881d40237659c251811cec9c364ef91dc08d300c) but has no display format defined in the descriptor.",
+        "warning: Owner too long: Owner `MetaMask Swaps & Bridge` exceeds 22 characters and may be truncated on Ledger devices."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/metamask-swaps/calldata-MetaSwap.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "pass",
+      "messages": []
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 1,
+      "cases": [
+        {
+          "description": "swap 0x5f575529 0x5491fc7a",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] swap 0x5f575529 0x5491fc7a",
+        "done: 1 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

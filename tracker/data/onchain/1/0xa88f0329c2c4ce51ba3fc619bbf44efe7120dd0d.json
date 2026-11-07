@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d",
+    "functions": 3,
+    "name": "WstETHReferralStaker",
+    "source": "sourcify"
+  },
+  "address": "0xa88f0329C2c4ce51ba3fc619BBf44efE7120Dd0d",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 1269,
+  "fetchedAt": "2026-11-06T22:50:09.527Z",
+  "format": 2,
+  "sample": {
+    "count": 171,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 170,
+    "newest": 1793993447,
+    "oldest": 1791398987,
+    "perDay": 5.666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x946fe3e8": 171
+    },
+    "senders": 120,
+    "sendersBySelector": {
+      "0x946fe3e8": 120
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "WstETHReferralStaker",
+    "status": "verified"
+  }
+}

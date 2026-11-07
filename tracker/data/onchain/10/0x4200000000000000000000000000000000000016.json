@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0x27E51B2254433A3284D9ba73Ea551C397DB2a124",
+    "functions": 11,
+    "name": "L2ToL1MessagePasser",
+    "source": "sourcify"
+  },
+  "address": "0x4200000000000000000000000000000000000016",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 2055,
+  "fetchedAt": "2026-11-06T23:30:52.971Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x27E51B2254433A3284D9ba73Ea551C397DB2a124",
+          "name": "L2ToL1MessagePasser"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "abi": {
+    "address": "0x45Df0656F8aDf017590009d2f1898eeca4F0a205",
+    "functions": 59,
+    "name": "fTokenNativeUnderlying",
+    "source": "sourcify"
+  },
+  "address": "0x45Df0656F8aDf017590009d2f1898eeca4F0a205",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x45Df0656F8aDf017590009d2f1898eeca4F0a205",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 21098,
+  "fetchedAt": "2026-11-06T21:55:50.445Z",
+  "format": 2,
+  "sample": {
+    "count": 116,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 99,
+    "newest": 1793923659,
+    "oldest": 1791099775,
+    "perDay": 3.3,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 3,
+      "0x2126e91e": 8,
+      "0x33bb7f91": 46,
+      "0x3badef91": 28,
+      "0x6e553f65": 7,
+      "0xa9059cbb": 1,
+      "0xb460af94": 4,
+      "0xba087652": 19
+    },
+    "senders": 71,
+    "sendersBySelector": {
+      "0x095ea7b3": 2,
+      "0x2126e91e": 6,
+      "0x33bb7f91": 35,
+      "0x3badef91": 25,
+      "0x6e553f65": 5,
+      "0xa9059cbb": 1,
+      "0xb460af94": 1,
+      "0xba087652": 17
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "fTokenNativeUnderlying",
+    "status": "verified"
+  }
+}

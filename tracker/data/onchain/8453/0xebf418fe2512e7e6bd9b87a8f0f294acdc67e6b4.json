@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4",
+    "functions": 80,
+    "name": "VotingEscrow",
+    "source": "sourcify"
+  },
+  "address": "0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 24448,
+  "fetchedAt": "2026-11-06T23:32:14.241Z",
+  "format": 2,
+  "sample": {
+    "count": 69,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 1,
+    "last30Days": 69,
+    "newest": 1794002478,
+    "oldest": 1793918123,
+    "perDay": 70.46975105794463,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 63,
+      "0x2e1a7d4d": 2,
+      "0xa22cb465": 1,
+      "0xb2383e55": 2,
+      "0xb52c05fe": 1
+    },
+    "senders": 56,
+    "sendersBySelector": {
+      "0x095ea7b3": 53,
+      "0x2e1a7d4d": 2,
+      "0xa22cb465": 1,
+      "0xb2383e55": 2,
+      "0xb52c05fe": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "VotingEscrow",
+    "status": "verified"
+  }
+}

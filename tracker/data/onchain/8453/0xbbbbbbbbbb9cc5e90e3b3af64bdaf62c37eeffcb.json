@@ -1,0 +1,57 @@
+{
+  "abi": {
+    "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+    "functions": 28,
+    "name": "Morpho",
+    "source": "sourcify"
+  },
+  "address": "0xBBBBBbbBBb9cC5e90e3b3Af64bdAF62C37EEFFCb",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 15623,
+  "fetchedAt": "2026-11-06T23:32:14.929Z",
+  "format": 2,
+  "sample": {
+    "count": 252,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 3,
+    "last30Days": 252,
+    "newest": 1794001293,
+    "oldest": 1793918735,
+    "perDay": 257.36778647249344,
+    "requested": 1000,
+    "selectors": {
+      "0x151c1ade": 17,
+      "0x20b76e81": 24,
+      "0x238d6579": 63,
+      "0x50d8cd4b": 64,
+      "0x5c2bea49": 20,
+      "0x8720316d": 25,
+      "0xa99aad89": 37,
+      "0xeecea000": 2
+    },
+    "senders": 30,
+    "sendersBySelector": {
+      "0x151c1ade": 3,
+      "0x20b76e81": 4,
+      "0x238d6579": 10,
+      "0x50d8cd4b": 10,
+      "0x5c2bea49": 9,
+      "0x8720316d": 5,
+      "0xa99aad89": 4,
+      "0xeecea000": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Morpho",
+    "status": "verified"
+  }
+}

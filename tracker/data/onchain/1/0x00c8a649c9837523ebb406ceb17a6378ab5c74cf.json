@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+    "functions": 107,
+    "name": "TokenizedStrategy",
+    "source": "sourcify"
+  },
+  "address": "0x00C8a649C9837523ebb406Ceb17a6378Ab5C74cF",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 10095,
+  "fetchedAt": "2026-11-06T22:50:21.557Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "FluidLenderMainnet",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xD377919FA87120584B21279a491F82D5265A139c",
+          "name": "TokenizedStrategy"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

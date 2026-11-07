@@ -1,0 +1,67 @@
+{
+  "abi": {
+    "address": "0x6c247b1F6182318877311737BaC0844bAa518F5e",
+    "functions": 28,
+    "name": "Morpho",
+    "source": "sourcify"
+  },
+  "address": "0x6c247b1F6182318877311737BaC0844bAa518F5e",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x6c247b1F6182318877311737BaC0844bAa518F5e",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 15582,
+  "fetchedAt": "2026-11-06T21:55:50.102Z",
+  "format": 2,
+  "sample": {
+    "count": 676,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 5,
+    "last30Days": 624,
+    "newest": 1793994533,
+    "oldest": 1791128179,
+    "perDay": 20.8,
+    "requested": 1000,
+    "selectors": {
+      "0x13af4035": 1,
+      "0x20b76e81": 33,
+      "0x238d6579": 66,
+      "0x2b4f013c": 1,
+      "0x50d8cd4b": 78,
+      "0x5c2bea49": 142,
+      "0x6e553f65": 1,
+      "0x8720316d": 56,
+      "0x8c1358a2": 7,
+      "0x93c52062": 2,
+      "0xa99aad89": 79,
+      "0xd8eabcb8": 43,
+      "0xeecea000": 167
+    },
+    "senders": 199,
+    "sendersBySelector": {
+      "0x13af4035": 1,
+      "0x20b76e81": 8,
+      "0x238d6579": 10,
+      "0x2b4f013c": 1,
+      "0x50d8cd4b": 9,
+      "0x5c2bea49": 33,
+      "0x6e553f65": 1,
+      "0x8720316d": 19,
+      "0x8c1358a2": 2,
+      "0x93c52062": 2,
+      "0xa99aad89": 15,
+      "0xd8eabcb8": 9,
+      "0xeecea000": 134
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Morpho",
+    "status": "verified"
+  }
+}

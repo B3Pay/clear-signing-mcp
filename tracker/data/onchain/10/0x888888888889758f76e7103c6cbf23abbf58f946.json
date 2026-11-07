@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+    "functions": 0,
+    "name": "PendleRouterV4",
+    "source": "sourcify"
+  },
+  "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 287,
+  "fetchedAt": "2026-11-06T23:30:55.409Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PendleRouterV4",
+    "status": "verified"
+  }
+}

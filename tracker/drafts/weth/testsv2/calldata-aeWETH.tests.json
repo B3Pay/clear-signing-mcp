@@ -1,0 +1,87 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-aeWETH.json",
+  "dataProvider": {
+    "tokens": {
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": {
+        "name": "Wrapped Ether",
+        "symbol": "WETH",
+        "decimals": 18
+      }
+    }
+  },
+  "tests": [
+    {
+      "description": "approve 0x095ea7b3 0x635fcf5f",
+      "rawTx": "0x02f86a82a4b101808402dcdc8082d5149482af49447d8a07e3bd95bd0d56f35241523fbab180b844095ea7b300000000000000000000000068b3465833fb72a70ecdf485e0e4c7bd8665fc45ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0",
+      "txHash": "0x635fcf5feb33bc7209f5e1ed13597aa1758bf0b85a87a6f9d0527d57fe80b496",
+      "expected": {
+        "intent": "Approve",
+        "interpolatedIntent": "Approve 0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45 to spend 115792089237316195423570985008687907853269984665640564039457.584007913129639935 WETH",
+        "owner": "Wrapped Ether (WETH)",
+        "fields": [
+          {
+            "label": "Amount to approve",
+            "value": "115792089237316195423570985008687907853269984665640564039457.584007913129639935 WETH"
+          },
+          {
+            "label": "Spender",
+            "value": "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45"
+          }
+        ]
+      }
+    },
+    {
+      "description": "transfer 0xa9059cbb 0xc449d8ea",
+      "rawTx": "0x02f86c82a4b181b2808403983250830118b49482af49447d8a07e3bd95bd0d56f35241523fbab180b844a9059cbb000000000000000000000000d7406e189dc6e3c00f7c7dafb728e6eaa132cb31000000000000000000000000000000000000000000000000001cd1a5b6033ea1c0",
+      "txHash": "0xc449d8ea9ddd12ec3432622796fe6f393bef49462f3ab7fcf29c4cbe65842200",
+      "expected": {
+        "intent": "Transfer",
+        "interpolatedIntent": "Transfer 0.008111809001373345 WETH to 0xd7406E189dC6E3C00f7c7DAfB728e6eAa132cB31",
+        "owner": "Wrapped Ether (WETH)",
+        "fields": [
+          {
+            "label": "Amount to send",
+            "value": "0.008111809001373345 WETH"
+          },
+          {
+            "label": "Recipient",
+            "value": "0xd7406E189dC6E3C00f7c7DAfB728e6eAa132cB31"
+          }
+        ]
+      }
+    },
+    {
+      "description": "withdraw 0x2e1a7d4d 0x7186a91a",
+      "rawTx": "0x02f84982a4b115808402dee98082c6849482af49447d8a07e3bd95bd0d56f35241523fbab180a42e1a7d4d000000000000000000000000000000000000000000000000019b6291dbdea7d4c0",
+      "txHash": "0x7186a91afd69d2fbe0976cd214c449fc34c76b3135984a9e3c2234758348dd1c",
+      "expected": {
+        "intent": "Withdraw",
+        "interpolatedIntent": "Withdraw 0.115794594026661844 WETH",
+        "owner": "Wrapped Ether (WETH)",
+        "fields": [
+          {
+            "label": "Amount to withdraw",
+            "value": "0.115794594026661844 WETH"
+          }
+        ]
+      }
+    },
+    {
+      "description": "deposit 0xd0e30db0 0x71b16b4e",
+      "rawTx": "0x02f182a4b112808402dc6c0082e5a49482af49447d8a07e3bd95bd0d56f35241523fbab188019bdbe6db85800084d0e30db0c0",
+      "txHash": "0x71b16b4e348e15dada346e4521624edbecc8a07b0dafebc6360722b6cc7a0be4",
+      "expected": {
+        "intent": "Deposit",
+        "interpolatedIntent": "Deposit 0.115928 ETH",
+        "owner": "Wrapped Ether (WETH)",
+        "fields": [
+          {
+            "label": "Amount to deposit",
+            "value": "0.115928 ETH"
+          }
+        ]
+      }
+    }
+  ]
+}

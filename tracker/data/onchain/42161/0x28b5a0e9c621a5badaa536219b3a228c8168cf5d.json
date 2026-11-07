@@ -1,0 +1,50 @@
+{
+  "abi": {
+    "address": "0x555E272506C06e7E559d57418563742AFE363ec8",
+    "functions": 33,
+    "name": "TokenMessengerV2",
+    "source": "sourcify"
+  },
+  "address": "0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2175,
+  "fetchedAt": "2026-11-06T21:55:48.420Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 2,
+    "last30Days": 1000,
+    "newest": 1794000382,
+    "oldest": 1793936148,
+    "perDay": 1345.0820437774387,
+    "requested": 1000,
+    "selectors": {
+      "0x779b432d": 716,
+      "0x8e0250ee": 284
+    },
+    "senders": 627,
+    "sendersBySelector": {
+      "0x779b432d": 517,
+      "0x8e0250ee": 111
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AdminUpgradableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x555E272506C06e7E559d57418563742AFE363ec8",
+          "name": "TokenMessengerV2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

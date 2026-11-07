@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x1601843c5E9bC251A3272907010AFa41Fa18347E",
+    "functions": 24,
+    "name": "PSM3",
+    "source": "sourcify"
+  },
+  "address": "0x1601843c5E9bC251A3272907010AFa41Fa18347E",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 8240,
+  "fetchedAt": "2026-11-06T23:32:13.548Z",
+  "format": 2,
+  "sample": {
+    "count": 13,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 13,
+    "newest": 1794000381,
+    "oldest": 1793935548,
+    "perDay": 13.276909619612756,
+    "requested": 1000,
+    "selectors": {
+      "0x051f86b5": 1,
+      "0x1a019e37": 12
+    },
+    "senders": 11,
+    "sendersBySelector": {
+      "0x051f86b5": 1,
+      "0x1a019e37": 11
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PSM3",
+    "status": "verified"
+  }
+}

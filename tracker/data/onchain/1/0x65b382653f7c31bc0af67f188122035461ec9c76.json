@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x65b382653f7C31bC0Af67f188122035461ec9C76",
+    "functions": 17,
+    "name": "UniversalRouter",
+    "source": "sourcify"
+  },
+  "address": "0x65b382653f7C31bC0Af67f188122035461ec9C76",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 16684,
+  "fetchedAt": "2026-11-06T22:50:06.807Z",
+  "format": 2,
+  "sample": {
+    "count": 865,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 15,
+    "last30Days": 863,
+    "newest": 1793999843,
+    "oldest": 1791400619,
+    "perDay": 28.766666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x24856bc3": 20,
+      "0x3593564c": 845
+    },
+    "senders": 399,
+    "sendersBySelector": {
+      "0x24856bc3": 2,
+      "0x3593564c": 397
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UniversalRouter",
+    "status": "verified"
+  }
+}

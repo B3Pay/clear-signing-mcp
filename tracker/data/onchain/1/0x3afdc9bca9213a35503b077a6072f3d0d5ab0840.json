@@ -1,0 +1,60 @@
+{
+  "abi": {
+    "address": "0xAbc1195C5d34DDeBc36885a980A3009BB6f6Db9E",
+    "functions": 73,
+    "name": "CometWithExtendedAssetList",
+    "source": "sourcify"
+  },
+  "address": "0x3Afdc9BCA9213A35503b077a6072F3D0d5AB0840",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 1878,
+  "fetchedAt": "2026-11-06T22:50:08.052Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 62,
+    "last30Days": 1000,
+    "newest": 1793998619,
+    "oldest": 1792070999,
+    "perDay": 44.82211224203941,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 103,
+      "0x110496e5": 7,
+      "0x48657921": 1,
+      "0xa9059cbb": 6,
+      "0xbb24d994": 1,
+      "0xf2b9fdb8": 418,
+      "0xf3fef3a3": 464
+    },
+    "senders": 312,
+    "sendersBySelector": {
+      "0x095ea7b3": 47,
+      "0x110496e5": 7,
+      "0x48657921": 1,
+      "0xa9059cbb": 4,
+      "0xbb24d994": 1,
+      "0xf2b9fdb8": 185,
+      "0xf3fef3a3": 214
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xAbc1195C5d34DDeBc36885a980A3009BB6f6Db9E",
+          "name": "CometWithExtendedAssetList"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

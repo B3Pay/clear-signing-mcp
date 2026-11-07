@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0xd22dd829779ADBf3869fb224F703452f7F95E9dB",
+    "functions": 38,
+    "name": "EigenPodManager",
+    "source": "sourcify"
+  },
+  "address": "0x91E677b07F7AF907ec9a428aafA9fc14a0d3A338",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2151,
+  "fetchedAt": "2026-11-06T22:50:10.522Z",
+  "format": 2,
+  "sample": {
+    "count": 6,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 6,
+    "newest": 1793584475,
+    "oldest": 1791879071,
+    "perDay": 0.2,
+    "requested": 1000,
+    "selectors": {
+      "0x84d81062": 6
+    },
+    "senders": 6,
+    "sendersBySelector": {
+      "0x84d81062": 6
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xd22dd829779ADBf3869fb224F703452f7F95E9dB",
+          "name": "EigenPodManager"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

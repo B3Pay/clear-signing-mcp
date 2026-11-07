@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0x555E272506C06e7E559d57418563742AFE363ec8",
+    "functions": 33,
+    "name": "TokenMessengerV2",
+    "source": "sourcify"
+  },
+  "address": "0x28b5a0e9C621a5BadaA536219b3a228C8168cf5d",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 2175,
+  "fetchedAt": "2026-11-06T23:31:02.853Z",
+  "format": 2,
+  "sample": {
+    "count": 891,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 2,
+    "last30Days": 891,
+    "newest": 1794002432,
+    "oldest": 1793917949,
+    "perDay": 909.978959313459,
+    "requested": 1000,
+    "selectors": {
+      "0x779b432d": 449,
+      "0x8e0250ee": 442
+    },
+    "senders": 212,
+    "sendersBySelector": {
+      "0x779b432d": 74,
+      "0x8e0250ee": 140
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AdminUpgradableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x555E272506C06e7E559d57418563742AFE363ec8",
+          "name": "TokenMessengerV2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0xE85A59c628F7d27878ACeB4bf3b35733630083a9",
+    "functions": 23,
+    "name": "Clanker",
+    "source": "sourcify"
+  },
+  "address": "0xE85A59c628F7d27878ACeB4bf3b35733630083a9",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 12375,
+  "fetchedAt": "2026-11-06T23:32:18.331Z",
+  "format": 2,
+  "sample": {
+    "count": 162,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 2,
+    "last30Days": 162,
+    "newest": 1794001520,
+    "oldest": 1793918412,
+    "perDay": 165.45071987517434,
+    "requested": 1000,
+    "selectors": {
+      "0x7955526b": 2,
+      "0xdf40224a": 160
+    },
+    "senders": 12,
+    "sendersBySelector": {
+      "0x7955526b": 1,
+      "0xdf40224a": 11
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Clanker",
+    "status": "verified"
+  }
+}

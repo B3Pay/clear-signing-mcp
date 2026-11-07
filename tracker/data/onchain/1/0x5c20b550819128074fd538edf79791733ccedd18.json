@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0x5C20B550819128074FD538Edf79791733ccEdd18",
+    "functions": 48,
+    "name": "fToken",
+    "source": "sourcify"
+  },
+  "address": "0x5C20B550819128074FD538Edf79791733ccEdd18",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 19617,
+  "fetchedAt": "2026-11-06T22:50:08.166Z",
+  "format": 2,
+  "sample": {
+    "count": 893,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 3,
+    "last30Days": 889,
+    "newest": 1794000131,
+    "oldest": 1791399803,
+    "perDay": 29.633333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 73,
+      "0x6e553f65": 291,
+      "0xa9059cbb": 8,
+      "0xb460af94": 235,
+      "0xba087652": 286
+    },
+    "senders": 425,
+    "sendersBySelector": {
+      "0x095ea7b3": 60,
+      "0x6e553f65": 192,
+      "0xa9059cbb": 7,
+      "0xb460af94": 118,
+      "0xba087652": 226
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "fToken",
+    "status": "verified"
+  }
+}

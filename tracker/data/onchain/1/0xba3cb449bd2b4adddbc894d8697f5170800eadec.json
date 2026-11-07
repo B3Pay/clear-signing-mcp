@@ -1,0 +1,46 @@
+{
+  "abi": {
+    "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+    "functions": 10,
+    "name": "CoWSwapEthFlow",
+    "source": "sourcify"
+  },
+  "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "CoWSwapEthFlow",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 6177,
+  "fetchedAt": "2026-11-06T20:12:45.797Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1793994167,
+    "oldest": 1793745695,
+    "perDay": 347.72529701535785,
+    "requested": 1000,
+    "selectors": {
+      "0x322bba21": 981,
+      "0x4cb76498": 10,
+      "0x7bc41b96": 9
+    },
+    "senders": 674,
+    "sendersBySelector": {
+      "0x322bba21": 672,
+      "0x4cb76498": 1,
+      "0x7bc41b96": 7
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CoWSwapEthFlow",
+    "status": "verified"
+  }
+}

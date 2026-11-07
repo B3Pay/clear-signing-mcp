@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0xF821A5Cff2cDd014C6e6BbB8E05B81c3D7e98003",
+    "functions": 45,
+    "name": "WithdrawQueue",
+    "source": "sourcify"
+  },
+  "address": "0x5efc9D10E42FB517456f4ac41EB5e2eBe42C8918",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2739,
+  "fetchedAt": "2026-11-06T22:50:10.742Z",
+  "format": 2,
+  "sample": {
+    "count": 704,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 704,
+    "newest": 1794001955,
+    "oldest": 1791441731,
+    "perDay": 23.466666666666665,
+    "requested": 1000,
+    "selectors": {
+      "0x00f714ce": 353,
+      "0xddd5e1b2": 351
+    },
+    "senders": 104,
+    "sendersBySelector": {
+      "0x00f714ce": 56,
+      "0xddd5e1b2": 62
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xF821A5Cff2cDd014C6e6BbB8E05B81c3D7e98003",
+          "name": "WithdrawQueue"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

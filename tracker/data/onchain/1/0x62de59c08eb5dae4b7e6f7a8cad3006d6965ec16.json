@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0x0eCde3F414D1A245246D121e37191d9a63684E19",
+    "functions": 53,
+    "name": "LRTWithdrawalManager",
+    "source": "sourcify"
+  },
+  "address": "0x62De59c08eB5dAE4b7E6F7a8cAd3006d6965ec16",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2837,
+  "fetchedAt": "2026-11-06T22:50:10.890Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1793988119,
+    "oldest": 1793088599,
+    "perDay": 96.05122732123799,
+    "requested": 1000,
+    "selectors": {
+      "0x2a25f7a9": 2,
+      "0xc5a67b01": 36,
+      "0xd3a86833": 962
+    },
+    "senders": 990,
+    "sendersBySelector": {
+      "0x2a25f7a9": 1,
+      "0xc5a67b01": 34,
+      "0xd3a86833": 959
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x0eCde3F414D1A245246D121e37191d9a63684E19",
+          "name": "LRTWithdrawalManager"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

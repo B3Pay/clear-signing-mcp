@@ -1,0 +1,642 @@
+{
+  "0x004b506865409877c9fa29bfb1eba929984b9bbc": {
+    "decimals": 6,
+    "name": "Global Dollar",
+    "symbol": "USDG"
+  },
+  "0x01d1e02ee618ba3e6eb5d145ad3c9a90f34155f3": {
+    "decimals": 18,
+    "name": "DEVRAL",
+    "symbol": "DEVRAL"
+  },
+  "0x04419d3509f13054f60d253e0c79491d9e683399": {
+    "decimals": 18,
+    "name": "Main WETH v3",
+    "symbol": "dWETHV3"
+  },
+  "0x044e874f23f9a7e5dad696554a116c4bb62fecb7": {
+    "decimals": 18,
+    "name": "GonnaMakeIt",
+    "symbol": "GMI"
+  },
+  "0x064f8b858c2a603e1b106a2039f5446d32dc81c1": {
+    "decimals": 18,
+    "name": "Autonolas",
+    "symbol": "OLAS"
+  },
+  "0x092baadb7def4c3981454dd9c0a0d7ff07bcfc86": {
+    "decimals": 18,
+    "name": "MOR",
+    "symbol": "MOR"
+  },
+  "0x0a4f9962e24893a4a7567e52c1ce37d5482365de": {
+    "decimals": 18,
+    "name": "SushiSwap LP Token",
+    "symbol": "SLP"
+  },
+  "0x0b2b2b2076d95dda7817e785989fe353fe955ef9": {
+    "decimals": 18,
+    "name": "Staked USDai",
+    "symbol": "sUSDai"
+  },
+  "0x0c06ccf38114ddfc35e07427b9424adcca9f44f8": {
+    "decimals": 18,
+    "name": "Monerium EURe",
+    "symbol": "EURe"
+  },
+  "0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8": {
+    "decimals": 18,
+    "name": "Pendle",
+    "symbol": "PENDLE"
+  },
+  "0x0de59c86c306b9fead9fb67e65551e2b6897c3f6": {
+    "decimals": 18,
+    "name": "Kuma World",
+    "symbol": "KUMA"
+  },
+  "0x0df2be76f517bcf0000abffcb6344b3b2ac4cc4f": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0x11cdb42b0eb46d95f990bedd4695a6e3fa034978": {
+    "decimals": 18,
+    "name": "Curve DAO Token",
+    "symbol": "CRV"
+  },
+  "0x11e969e9b3f89cb16d686a03cd8508c9fc0361af": {
+    "decimals": 6,
+    "name": "Axelar Wrapped LAVA",
+    "symbol": "LAVA"
+  },
+  "0x1622bf67e6e5747b81866fe0b85178a93c7f86e3": {
+    "decimals": 9,
+    "name": "Umami",
+    "symbol": "UMAMI"
+  },
+  "0x162c091263fbb3dfaf1d55dcc979533eb341da5f": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0x19b001e6bc2d89154c18e2216eec5c8c6047b6d8": {
+    "decimals": 18,
+    "name": "Balancer Aave GHO/USDT/USDC",
+    "symbol": "Aave GHO/USDT/USDC"
+  },
+  "0x1a996cb54bb95462040408c06122d45d6cdb6096": {
+    "decimals": 6,
+    "name": "Fluid USD Coin",
+    "symbol": "fUSDC"
+  },
+  "0x1ef58a7af39883cc95c59a2c106b726c64c2ecc6": {
+    "decimals": 6,
+    "name": "PT Syrup USDC 29JAN2026",
+    "symbol": "PT-syrupUSDC-29JAN2026"
+  },
+  "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2": {
+    "decimals": 18,
+    "name": "Staked USDe",
+    "symbol": "sUSDe"
+  },
+  "0x21f132ade35684b230af974b80b5bfd2678ebd80": {
+    "decimals": 18,
+    "name": "Balancer Surge yUSD-Aave USDC",
+    "symbol": "Surge yUSD-Aave USDC"
+  },
+  "0x221866774f8d08df45da02ed8c628985d38d6145": {
+    "decimals": 18,
+    "name": "Unified Stable Gold",
+    "symbol": "USG"
+  },
+  "0x23ee2343b892b1bb63503a4fabc840e0e2c6810f": {
+    "decimals": 6,
+    "name": "Axelar",
+    "symbol": "AXL"
+  },
+  "0x2eadce7ebdedf3c7291f1f658208a2720ff4b74d": {
+    "decimals": 18,
+    "name": "Aquarius",
+    "symbol": "ARS"
+  },
+  "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f": {
+    "decimals": 8,
+    "name": "Wrapped BTC",
+    "symbol": "WBTC"
+  },
+  "0x31b2f5dd7c16f0d0f1dcb44064e6270ae7806600": {
+    "decimals": 18,
+    "name": "EVK Vault erAAPL-1",
+    "symbol": "erAAPL-1"
+  },
+  "0x32df62dc3aed2cd6224193052ce665dc18165841": {
+    "decimals": 18,
+    "name": "RDNT-WETH",
+    "symbol": "RDNT-WETH"
+  },
+  "0x33b49f2264e85bb124d2730dc180182717d436ae": {
+    "decimals": 18,
+    "name": "Dory",
+    "symbol": "Dory"
+  },
+  "0x3647c54c4c2c65bc7a2d63c0da2809b399dbbdc0": {
+    "decimals": 18,
+    "name": "Solv BTC",
+    "symbol": "SolvBTC"
+  },
+  "0x376a7564af88242d6b8598a5cfdd2e9759711b61": {
+    "decimals": 18,
+    "name": "rsETH",
+    "symbol": "rsETH"
+  },
+  "0x390c1bb01f3f627144a40617e287d4ce3d5abcfa": {
+    "decimals": 18,
+    "name": "Gauntlet USDG Premium",
+    "symbol": "gtusdgp"
+  },
+  "0x3c842f18c8385f06114ac9a71a35453a9262a0a4": {
+    "decimals": 18,
+    "name": "Balancer plsRDNT-RDNT-WETH",
+    "symbol": "plsRDNT-RDNT-WETH"
+  },
+  "0x3d9907f9a368ad0a51be60f7da3b97cf940982d8": {
+    "decimals": 18,
+    "name": "Camelot token",
+    "symbol": "GRAIL"
+  },
+  "0x3eabe18eae267d1b57f917aba085bb5906114600": {
+    "decimals": 18,
+    "name": "Equilibria Pendle",
+    "symbol": "ePendle"
+  },
+  "0x40461291347e1ecbb09499f3371d3f17f10d7159": {
+    "decimals": 6,
+    "name": "XAUt0",
+    "symbol": "XAUt0"
+  },
+  "0x410c879c62f22794bd5ee98e2ee01490f6d47a6b": {
+    "decimals": 18,
+    "name": "Camelot LP",
+    "symbol": "CMLT-LP"
+  },
+  "0x41ca7586cc1311807b4605fbb748a3b8862b42b5": {
+    "decimals": 6,
+    "name": "Syrup USDC",
+    "symbol": "syrupUSDC"
+  },
+  "0x45d91340b3b7b96985a72b5c678f7d9e8d664b62": {
+    "decimals": 6,
+    "name": "Spark Savings USDT",
+    "symbol": "spUSDT"
+  },
+  "0x45df0656f8adf017590009d2f1898eeca4f0a205": {
+    "decimals": 18,
+    "name": "Fluid Wrapped Ether",
+    "symbol": "fWETH"
+  },
+  "0x47f1d08e559739415c29d7b7432f5eb6da568b91": {
+    "decimals": 18,
+    "name": "Balancer AutoRange WETH-USDC",
+    "symbol": "AutoRange-WETH-USDC"
+  },
+  "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5": {
+    "decimals": 18,
+    "name": "Curve.Fi USD Stablecoin",
+    "symbol": "crvUSD"
+  },
+  "0x4a03f37e7d3fc243e3f99341d36f4b829bee5e03": {
+    "decimals": 6,
+    "name": "Fluid Tether USD",
+    "symbol": "fUSDT"
+  },
+  "0x4beef1113f968326905224d2ca272f3032a9a9f4": {
+    "decimals": 18,
+    "name": "Vault Staked GNS",
+    "symbol": "gGNS"
+  },
+  "0x4bf7340fe73ac8676626c98cca74b7dc6ccfa88b": {
+    "decimals": 18,
+    "name": "SushiSwap LP Token",
+    "symbol": "SLP"
+  },
+  "0x4ca70811e831db42072cba1f0d03496ef126faad": {
+    "decimals": 18,
+    "name": "BTC+",
+    "symbol": "BTC+"
+  },
+  "0x4cd5a94a30876320ac65f2e192493ee476f13866": {
+    "decimals": 18,
+    "name": "GMX Liquidity Vault [USDG-USDG]",
+    "symbol": "GLV [USDG-USDG]"
+  },
+  "0x4d9ba415649c4b3c703562770c8ff3033478cea1": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0x513e300932ffb76f12b33d07e2711b8e0c59fc7c": {
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  "0x527e8d368298dea5a53be257e5300f4dbafb7a97": {
+    "decimals": 18,
+    "name": "Loaded Lions",
+    "symbol": "LION"
+  },
+  "0x528a5bac7e746c9a509a1f4f6df58a03d44279f9": {
+    "decimals": 18,
+    "name": "GMX Liquidity Vault [WETH-USDC]",
+    "symbol": "GLV [WETH-USDC]"
+  },
+  "0x539bde0d7dbd336b79148aa742883198bbf60342": {
+    "decimals": 18,
+    "name": "MAGIC",
+    "symbol": "MAGIC"
+  },
+  "0x5418a64e0cdb20548acb394f5d00a089baf02161": {
+    "decimals": 18,
+    "name": "Balancer rETH-Aave wETH",
+    "symbol": "Balancer rETH-Aave wETH"
+  },
+  "0x55279f3c138521b0395bc8b76d123e94f1d935b2": {
+    "decimals": 18,
+    "name": "BarkX Token",
+    "symbol": "BARKX"
+  },
+  "0x5542f81425d0662bfc6163324337d0890067ffb6": {
+    "decimals": 6,
+    "name": "DEV USD Coin",
+    "symbol": "DEV-USDC"
+  },
+  "0x5575552988a3a80504bbaeb1311674fcfd40ad4b": {
+    "decimals": 18,
+    "name": "Sperax",
+    "symbol": "SPA"
+  },
+  "0x55a2b207b0074e13adcb858950a81b7a04775e0f": {
+    "decimals": 18,
+    "name": "Gauntlet USDC Balanced",
+    "symbol": "gtusdcb"
+  },
+  "0x56637ef065dc19ed71b7bd8b60dbda9a1ba12a7e": {
+    "decimals": 18,
+    "name": "Cow Uniswap Arb ETH-USDC",
+    "symbol": "cowUniswapArbETH-USDC"
+  },
+  "0x56ef273754fa5ead63e0ba26c40431d35d09b56b": {
+    "decimals": 18,
+    "name": "TestMachine",
+    "symbol": "TEMCN"
+  },
+  "0x58871cf545f8f0df790443492a80edc414df4504": {
+    "decimals": 18,
+    "name": "BIRIBI",
+    "symbol": "BRB"
+  },
+  "0x58bfc95a864e18e8f3041d2fcd3418f48393fe6a": {
+    "decimals": 6,
+    "name": "Plutus Hedge Token",
+    "symbol": "plvHedge"
+  },
+  "0x5977a9682d7af81d347cfc338c61692163a2784c": {
+    "decimals": 18,
+    "name": "Gains Network ETH",
+    "symbol": "gETH"
+  },
+  "0x5979d7b546e38e414f7e9822514be443a4800529": {
+    "decimals": 18,
+    "name": "Wrapped liquid staked Ether 2.0",
+    "symbol": "wstETH"
+  },
+  "0x5f05c6b6370ec22916e619dfc6bd60b98ce26b64": {
+    "decimals": 18,
+    "name": "Plutus RDNT/WETH",
+    "symbol": "plsRDNT"
+  },
+  "0x6491c05a82219b8d1479057361ff1654749b876b": {
+    "decimals": 18,
+    "name": "USDS Stablecoin",
+    "symbol": "USDS"
+  },
+  "0x657e8c867d8b37dcc18fa4caead9c45eb088c642": {
+    "decimals": 8,
+    "name": "ether.fi BTC",
+    "symbol": "eBTC"
+  },
+  "0x66a69c8eb98a7efe22a22611d1967dfec786a708": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0x6985884c4392d348587b19cb9eaaf157f13271cd": {
+    "decimals": 18,
+    "name": "LayerZero",
+    "symbol": "ZRO"
+  },
+  "0x6a6ff640192437a04e8be445e02dce8a82115d5f": {
+    "decimals": 18,
+    "name": "Cancore",
+    "symbol": "CNRX"
+  },
+  "0x6afb8d3f6d4a34e9cb2f217317f4dc8e05aa673b": {
+    "decimals": 6,
+    "name": "EVK Vault eUSDC-2",
+    "symbol": "eUSDC-2"
+  },
+  "0x6c2c06790b3e3e3c38e12ee22f8183b37a13ee55": {
+    "decimals": 18,
+    "name": "Dopex Governance Token",
+    "symbol": "DPX"
+  },
+  "0x6f7d514bbd4aff3bcd1140b7344b32f063dee486": {
+    "decimals": 18,
+    "name": "Compound WETH",
+    "symbol": "cWETHv3"
+  },
+  "0x6fbbbd8bfb1cd3986b1d05e7861a0f62f87db74b": {
+    "decimals": 18,
+    "name": "Vision",
+    "symbol": "VSN"
+  },
+  "0x70d95587d40a2caf56bd97485ab3eec10bee6336": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0x719a06acbe535b85ccb8c9a2b59cab9f8b9bce57": {
+    "decimals": 18,
+    "name": "Gennii",
+    "symbol": "GenZ"
+  },
+  "0x73db621cc8f0a767bed0e5c0a2920f480d77b765": {
+    "decimals": 18,
+    "name": "GTA",
+    "symbol": "GTA"
+  },
+  "0x74e6afef5705beb126c6d3bf46f8fad8f3e07825": {
+    "decimals": 6,
+    "name": "Revert Lend Arbitrum USDC,",
+    "symbol": "rlArbUSDC"
+  },
+  "0x78483d06a82ae76e0ff9c72afd80e5b2cea3b2a0": {
+    "decimals": 18,
+    "name": "alUSD/USDC",
+    "symbol": "alUSDUSDC"
+  },
+  "0x78e3e051d32157aacd550fbb78458762d8f7edff": {
+    "decimals": 18,
+    "name": "EVK Vault eWETH-1",
+    "symbol": "eWETH-1"
+  },
+  "0x7d7e4f49a29dda8b1ecdcf8a8bc85edcb234e997": {
+    "decimals": 6,
+    "name": "3S-ETH/USD",
+    "symbol": "3S-ETH/USD"
+  },
+  "0x7e97fa6893871a2751b5fe961978dccb2c201e65": {
+    "decimals": 18,
+    "name": "Gauntlet USDC Core",
+    "symbol": "gtUSDCc"
+  },
+  "0x7f6501d3b98ee91f9b9535e4b0ac710fb0f9e0bc": {
+    "decimals": 6,
+    "name": "Wrapped Aave Arbitrum USDCn",
+    "symbol": "waArbUSDCn"
+  },
+  "0x80e0dfe47b2caa9c13915931d50347a1ef350912": {
+    "decimals": 18,
+    "name": "Activo Renta Gainovo",
+    "symbol": "ARG"
+  },
+  "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": {
+    "decimals": 18,
+    "name": "Wrapped Ether",
+    "symbol": "WETH"
+  },
+  "0x845c8bc94610807fcbab5dd2bc7ac9dabaff3c55": {
+    "decimals": 18,
+    "name": "TriCRV-ARBITRUM",
+    "symbol": "crvUSDARBCRV"
+  },
+  "0x872b5d567a2469ed92d252eacb0eb3bb0769e05b": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0x876ff160d63809674e03f82dc4d3c3ae8b0acf28": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0x890a69ef363c9c7bdd5e36eb95ceb569f63acbf6": {
+    "decimals": 6,
+    "name": "Main USDC v3",
+    "symbol": "dUSDCV3"
+  },
+  "0x912ce59144191c1204e64559fe8253a0e49e6548": {
+    "decimals": 18,
+    "name": "Arbitrum",
+    "symbol": "ARB"
+  },
+  "0x9160e8d3ba7b3b19e957c065fe0302da3b3443a1": {
+    "decimals": 6,
+    "name": "EVK Vault eUSDG-1",
+    "symbol": "eUSDG-1"
+  },
+  "0x92bad31934b4becb534aa7ce9d348c367ca58346": {
+    "decimals": 18,
+    "name": "Cow Uniswap Arb WBTC-USDC",
+    "symbol": "cowUniswapArbWBTC-USDC"
+  },
+  "0x940098b108fb7d0a7e374f6eded7760787464609": {
+    "decimals": 18,
+    "name": "Spark USDC Vault",
+    "symbol": "sUSDC"
+  },
+  "0x947c521e44f727219542b0f91a85182193c1d2ad": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0x9af3aa01a7e8d2e298e186ee3a7ac29ef49303a9": {
+    "decimals": 18,
+    "name": "xRunes Token",
+    "symbol": "xRunes"
+  },
+  "0x9c4ec768c28520b50860ea7a15bd7213a9ff58bf": {
+    "decimals": 6,
+    "name": "Compound USDC",
+    "symbol": "cUSDCv3"
+  },
+  "0x9e6b748d25ed2600aa0ce7cbb42267adcf21fd9b": {
+    "decimals": 18,
+    "name": "PlsGrail by Plutus",
+    "symbol": "PlsGrail"
+  },
+  "0xa4081cbcdd886ce0dae749d4b415c36319e25f82": {
+    "decimals": 18,
+    "name": "Gainovo Trading",
+    "symbol": "GNT"
+  },
+  "0xa6d12574efb239fc1d2099732bd8b5dc6306897f": {
+    "decimals": 6,
+    "name": "Wrapped Aave Arbitrum USDT",
+    "symbol": "waArbUSDT"
+  },
+  "0xa78d8321b20c4ef90ecd72f2588aa985a4bdb684": {
+    "decimals": 18,
+    "name": "Autonomi",
+    "symbol": "ANT"
+  },
+  "0xa7a9b773f139010f284e825a74060648d91de37a": {
+    "decimals": 18,
+    "name": "EVK Vault esUSDC-1",
+    "symbol": "esUSDC-1"
+  },
+  "0xa8a455ed94b315460cff7d96966d91330f6a3ba0": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0xa978cc348a0b5de8bd564a1d8fe437787fd12664": {
+    "decimals": 18,
+    "name": "EURe-Aave USDC",
+    "symbol": "EURe-Aave USDC"
+  },
+  "0xaa846004dc01b532b63feaa0b7a0cb0990f19ed9": {
+    "decimals": 6,
+    "name": "3L-ETH/USD",
+    "symbol": "3L-ETH/USD"
+  },
+  "0xaf88d065e77c8cc2239327c5edb3a432268e5831": {
+    "decimals": 6,
+    "name": "USD Coin",
+    "symbol": "USDC"
+  },
+  "0xb0f279175c0b4950ffd8f465d5b21902ac6d5ae8": {
+    "decimals": 18,
+    "name": "Reward Cow Uniswap Arb WBTC-USDC",
+    "symbol": "rcowUniswapArbWBTC-USDC"
+  },
+  "0xb688ba096b7bb75d7841e47163cd12d18b36a5bf": {
+    "decimals": 18,
+    "name": "mPendle",
+    "symbol": "mPendle"
+  },
+  "0xb6937e531dcc95c2d8be8e9e6e44ea3a475b36ca": {
+    "decimals": 18,
+    "name": "rsETH-Aave wstETH",
+    "symbol": "rsETH-Aave wstETH"
+  },
+  "0xba0dda8762c24da9487f5fa026a9b64b695a07ea": {
+    "decimals": 18,
+    "name": "OX Coin",
+    "symbol": "OX"
+  },
+  "0xbeeff72b77e7584a450e887125f25e8d8819016a": {
+    "decimals": 18,
+    "name": "Steakhouse USDG Pro",
+    "symbol": "bbqUSDG"
+  },
+  "0xbfd18cbc1030db694c6cee3dd00d38e58ffe0102": {
+    "decimals": 18,
+    "name": "Moo Uniswap Gamma LINK-ETH",
+    "symbol": "mooUniswapGammaLINK-ETH"
+  },
+  "0xc819f084fd2dbc29d01f7e56185a17fb5f54f31d": {
+    "decimals": 9,
+    "name": "Christian Cassian",
+    "symbol": "CHR"
+  },
+  "0xcb8fa9a76b8e203d8c3797bf438d8fb81ea3326a": {
+    "decimals": 18,
+    "name": "Alchemix USD",
+    "symbol": "alUSD"
+  },
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+    "decimals": 8,
+    "name": "Coinbase Wrapped BTC",
+    "symbol": "cbBTC"
+  },
+  "0xcbd4c1b0c89d50793c5a3e8d96d98fcb4f1b1c47": {
+    "decimals": 18,
+    "name": "GMX Market",
+    "symbol": "GM"
+  },
+  "0xd09acb80c1e8f2291862c4978a008791c9167003": {
+    "decimals": 18,
+    "name": "Treehouse ETH",
+    "symbol": "tETH"
+  },
+  "0xd2cc61a36c31425b3eb9bbeecce74a82a2e32e27": {
+    "decimals": 18,
+    "name": "RATS",
+    "symbol": "RATS"
+  },
+  "0xd3443ee1e91af28e5fb858fbd0d72a63ba8046e0": {
+    "decimals": 6,
+    "name": "Gains Network USDC",
+    "symbol": "gUSDC"
+  },
+  "0xd74f5255d557944cf7dd0e45ff521520002d5748": {
+    "decimals": 18,
+    "name": "Sperax USD",
+    "symbol": "USDs"
+  },
+  "0xd85e038593d7a098614721eae955ec2022b9b91b": {
+    "decimals": 18,
+    "name": "Gains Network DAI",
+    "symbol": "gDAI"
+  },
+  "0xd98be00b5d27fc98112bde293e487f8d4ca57d07": {
+    "decimals": 6,
+    "name": "Compound USDT",
+    "symbol": "cUSDTv3"
+  },
+  "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1": {
+    "decimals": 18,
+    "name": "Dai Stablecoin",
+    "symbol": "DAI"
+  },
+  "0xddb46999f8891663a8f2828d25298f70416d7610": {
+    "decimals": 18,
+    "name": "Savings USDS",
+    "symbol": "sUSDS"
+  },
+  "0xe0e0be96ff15bd3dc7d4de458eae5b0160b443a1": {
+    "decimals": 18,
+    "name": "Reward Cow Uniswap Arb ETH-USDC",
+    "symbol": "rcowUniswapArbETH-USDC"
+  },
+  "0xe1b0dc5a21b10f1634fbfbe9976fba2ee2e1c762": {
+    "decimals": 6,
+    "name": "syrupUSDG",
+    "symbol": "syrupUSDG"
+  },
+  "0xe9f5a048103293aeeb05f1d986bb91ef38410d8e": {
+    "decimals": 18,
+    "name": "BITCOIN MISSION",
+    "symbol": "BTCM"
+  },
+  "0xfa392dbefd2d5ec891ef5aeb87397a89843a8260": {
+    "decimals": 18,
+    "name": "xETH-LINK3",
+    "symbol": "xETH-LINK3"
+  },
+  "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a": {
+    "decimals": 18,
+    "name": "GMX",
+    "symbol": "GMX"
+  },
+  "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": {
+    "decimals": 6,
+    "name": "USD₮0",
+    "symbol": "USD₮0"
+  },
+  "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8": {
+    "decimals": 6,
+    "name": "USD Coin (Arb1)",
+    "symbol": "USDC"
+  }
+}

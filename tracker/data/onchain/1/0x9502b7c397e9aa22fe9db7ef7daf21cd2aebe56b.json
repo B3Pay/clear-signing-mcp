@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x9502b7c397E9aa22FE9dB7EF7DAF21cD2AEBe56B",
+    "functions": 31,
+    "name": "StabilityPool",
+    "source": "sourcify"
+  },
+  "address": "0x9502b7c397E9aa22FE9dB7EF7DAF21cD2AEBe56B",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 8198,
+  "fetchedAt": "2026-11-06T22:50:08.317Z",
+  "format": 2,
+  "sample": {
+    "count": 40,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 38,
+    "newest": 1793982467,
+    "oldest": 1791411827,
+    "perDay": 1.2666666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0xaeb4b970": 7,
+      "0xcfddf5f5": 33
+    },
+    "senders": 24,
+    "sendersBySelector": {
+      "0xaeb4b970": 7,
+      "0xcfddf5f5": 22
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "StabilityPool",
+    "status": "verified"
+  }
+}

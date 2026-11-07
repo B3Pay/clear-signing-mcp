@@ -1,0 +1,172 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x2626664c2603336E57B271c5C0b26F421741e481"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Uniswap",
+    "contractName": "SwapRouter02",
+    "info": {
+      "url": "https://app.uniswap.org"
+    }
+  },
+  "display": {
+    "formats": {
+      "multicall(uint256 deadline,bytes[] data)": {
+        "intent": "Multicall",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          },
+          {
+            "path": "data.[]",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "@.to",
+              "amountPath": "@.value"
+            }
+          }
+        ]
+      },
+      "exactInputSingle((address tokenIn,address tokenOut,uint24 fee,address recipient,uint256 amountIn,uint256 amountOutMinimum,uint160 sqrtPriceLimitX96) params)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "params.amountIn",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.tokenIn"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "params.amountOutMinimum",
+            "label": "Minimum to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.tokenOut"
+            }
+          },
+          {
+            "path": "params.fee",
+            "label": "Fee",
+            "format": "raw"
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "params.sqrtPriceLimitX96",
+            "label": "Sqrt price limit X96",
+            "format": "raw"
+          },
+          {
+            "path": "params.tokenIn",
+            "label": "Token in",
+            "visible": "never"
+          },
+          {
+            "path": "params.tokenOut",
+            "label": "Token out",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap {params.amountIn} for at least {params.amountOutMinimum}"
+      },
+      "multicall(bytes[] data)": {
+        "intent": "Multicall",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "data.[]",
+            "label": "Action",
+            "format": "calldata",
+            "params": {
+              "calleePath": "@.to",
+              "amountPath": "@.value"
+            }
+          }
+        ]
+      },
+      "exactInput((bytes path,address recipient,uint256 amountIn,uint256 amountOutMinimum) params)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "params.amountIn",
+            "label": "Amount in",
+            "format": "raw"
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "params.amountOutMinimum",
+            "label": "Amount out minimum",
+            "format": "raw"
+          },
+          {
+            "path": "params.path",
+            "label": "Path",
+            "format": "raw"
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

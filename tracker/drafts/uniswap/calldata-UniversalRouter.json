@@ -1,0 +1,100 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x6fF5693b99212Da76ad316178A184AB56D299b43"
+        },
+        {
+          "chainId": 1,
+          "address": "0x66a9893cC07D91D95644AEDD05D03f95e1dBA8Af"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xA51afAFe0263b40EdaEf0Df8781eA9aa03E381a3"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xFdf682F51FE81Aa4898F0AE2163d8A55c127fbC7"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4C82D1fBFe28C977cBB58D8C7FF8FCF9F70a2cCA"
+        },
+        {
+          "chainId": 10,
+          "address": "0x851116D9223fabED8E56C0E6b8Ad0c31d98B3507"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x8B844f885672f333Bc0042cB669255f93a4C1E6b"
+        },
+        {
+          "chainId": 10,
+          "address": "0x8B844f885672f333Bc0042cB669255f93a4C1E6b"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "Uniswap",
+    "contractName": "UniversalRouter",
+    "info": {
+      "url": "https://app.uniswap.org"
+    }
+  },
+  "display": {
+    "formats": {
+      "execute(bytes commands,bytes[] inputs,uint256 deadline)": {
+        "intent": "Execute",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "commands",
+            "label": "Commands",
+            "format": "raw"
+          },
+          {
+            "path": "inputs.[]",
+            "label": "Inputs",
+            "format": "raw"
+          },
+          {
+            "path": "deadline",
+            "label": "Deadline",
+            "format": "date",
+            "params": {
+              "encoding": "timestamp"
+            }
+          }
+        ]
+      },
+      "execute(bytes commands,bytes[] inputs)": {
+        "intent": "Execute",
+        "fields": [
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "commands",
+            "label": "Commands",
+            "format": "raw"
+          },
+          {
+            "path": "inputs.[]",
+            "label": "Inputs",
+            "format": "raw"
+          }
+        ]
+      }
+    }
+  }
+}

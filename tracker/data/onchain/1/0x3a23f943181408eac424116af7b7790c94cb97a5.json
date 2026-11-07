@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+    "functions": 26,
+    "name": "SocketGateway",
+    "source": "sourcify"
+  },
+  "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "SocketGateway",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 24305,
+  "fetchedAt": "2026-11-06T21:48:40.274Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 36,
+    "last30Days": 1000,
+    "newest": 1793998259,
+    "oldest": 1792430963,
+    "perDay": 55.12679162072767,
+    "requested": 1000,
+    "selectors": {
+      "0x00000195": 61,
+      "0x000001b8": 4,
+      "0x000001be": 559,
+      "0x37c6145a": 376
+    },
+    "senders": 722,
+    "sendersBySelector": {
+      "0x00000195": 50,
+      "0x000001b8": 4,
+      "0x000001be": 440,
+      "0x37c6145a": 262
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SocketGateway",
+    "status": "verified"
+  }
+}

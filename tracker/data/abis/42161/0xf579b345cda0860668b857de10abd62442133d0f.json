@@ -1,0 +1,374 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_dolomiteRegistry",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_dolomiteMargin",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "version",
+          "type": "uint8"
+        }
+      ],
+      "name": "Initialized",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "DEFAULT_ACCOUNT_NUMBER",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DOLOMITE_FS_GLP",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DOLOMITE_ISOLATION_PREFIX",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DOLOMITE_MARGIN",
+      "outputs": [
+        {
+          "internalType": "contract IDolomiteMargin",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DOLOMITE_MARGIN_OWNER",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "DOLOMITE_REGISTRY",
+      "outputs": [
+        {
+          "internalType": "contract IDolomiteRegistry",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_isolationModeMarketId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_borrowAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_toAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "_collateralMarketIds",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "closeBorrowPosition",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_accountNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "isDolomiteBalance",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_isolationModeMarketId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_fromAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_toAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_marketId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum AccountBalanceLib.BalanceCheckFlag",
+          "name": "_balanceCheckFlag",
+          "type": "uint8"
+        }
+      ],
+      "name": "openBorrowPosition",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_isolationModeMarketId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_fromAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_borrowAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_marketId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum AccountBalanceLib.BalanceCheckFlag",
+          "name": "_balanceCheckFlag",
+          "type": "uint8"
+        }
+      ],
+      "name": "repayAllForBorrowPosition",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_isolationModeMarketId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_fromAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_toAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_marketId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "enum AccountBalanceLib.BalanceCheckFlag",
+          "name": "_balanceCheckFlag",
+          "type": "uint8"
+        }
+      ],
+      "name": "transferBetweenAccounts",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_isolationModeMarketId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_borrowAccountNumber",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "_recipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_recipientAccountNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferBorrowPosition",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        }
+      ],
+      "name": "ImplementationSet",
+      "type": "event"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "implementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newImplementation",
+          "type": "address"
+        }
+      ],
+      "name": "upgradeTo",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_newImplementation",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_upgradeCalldata",
+          "type": "bytes"
+        }
+      ],
+      "name": "upgradeToAndCall",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+  "merged": [
+    "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+    "0xF579b345cdA0860668b857De10ABD62442133D0F"
+  ],
+  "name": "BorrowPositionRouter",
+  "source": "sourcify"
+}

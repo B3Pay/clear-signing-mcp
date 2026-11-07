@@ -1,0 +1,56 @@
+{
+  "abi": {
+    "address": "0xDd649AdaB2e67cAdC2EC29d75ABe73f3Df08065c",
+    "functions": 67,
+    "name": "Vault",
+    "source": "sourcify"
+  },
+  "address": "0x4e0554959A631B3D3938ffC158e0a7b2124aF9c5",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 808,
+  "fetchedAt": "2026-11-06T22:50:11.420Z",
+  "format": 2,
+  "sample": {
+    "count": 74,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 73,
+    "newest": 1793994803,
+    "oldest": 1791407315,
+    "perDay": 2.433333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x47e7ef24": 1,
+      "0xaad3ec96": 37,
+      "0xf3fef3a3": 36
+    },
+    "senders": 57,
+    "sendersBySelector": {
+      "0x47e7ef24": 1,
+      "0xaad3ec96": 37,
+      "0xf3fef3a3": 36
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "MigratableEntityProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xDd649AdaB2e67cAdC2EC29d75ABe73f3Df08065c",
+          "name": "Vault"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

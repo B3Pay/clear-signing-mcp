@@ -1,0 +1,60 @@
+{
+  "abi": {
+    "address": "0x17A16747D03006c9754548AC0d0afF48783A4a45",
+    "functions": 68,
+    "name": "LiquidityPool",
+    "source": "sourcify"
+  },
+  "address": "0x308861A430be4cce5502d0A12724771Fc6DaF216",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 845,
+  "fetchedAt": "2026-11-06T22:50:09.713Z",
+  "format": 2,
+  "sample": {
+    "count": 394,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 2,
+    "last30Days": 393,
+    "newest": 1794000323,
+    "oldest": 1791403307,
+    "perDay": 13.1,
+    "requested": 1000,
+    "selectors": {
+      "0x03dcfbdc": 7,
+      "0x397a1b28": 343,
+      "0x7e3db158": 2,
+      "0xd0e30db0": 39,
+      "0xde70b59f": 3
+    },
+    "senders": 332,
+    "sendersBySelector": {
+      "0x03dcfbdc": 7,
+      "0x397a1b28": 307,
+      "0x7e3db158": 1,
+      "0xd0e30db0": 20,
+      "0xde70b59f": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UUPSProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x17A16747D03006c9754548AC0d0afF48783A4a45",
+          "name": "LiquidityPool"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "abi": {
+    "address": "0x45312ea0eFf7E09C83CBE249fa1d7598c4C8cd4e",
+    "functions": 9,
+    "name": "CurveRouterv1.2",
+    "source": "sourcify"
+  },
+  "address": "0x45312ea0eFf7E09C83CBE249fa1d7598c4C8cd4e",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 15254,
+  "fetchedAt": "2026-11-06T22:50:06.621Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 27,
+    "last30Days": 1000,
+    "newest": 1793998931,
+    "oldest": 1793491223,
+    "perDay": 170.17655817911083,
+    "requested": 1000,
+    "selectors": {
+      "0x5c9c18e2": 951,
+      "0xc872a3c5": 49
+    },
+    "senders": 466,
+    "sendersBySelector": {
+      "0x5c9c18e2": 461,
+      "0xc872a3c5": 5
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CurveRouterv1.2",
+    "status": "verified"
+  }
+}

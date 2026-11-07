@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d",
+    "functions": 12,
+    "name": "BaseBulker",
+    "source": "sourcify"
+  },
+  "address": "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 4154,
+  "fetchedAt": "2026-11-06T21:55:49.870Z",
+  "format": 2,
+  "sample": {
+    "count": 433,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 3,
+    "last30Days": 401,
+    "newest": 1793975946,
+    "oldest": 1791108029,
+    "perDay": 13.366666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x555029a6": 433
+    },
+    "senders": 122,
+    "sendersBySelector": {
+      "0x555029a6": 122
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BaseBulker",
+    "status": "verified"
+  }
+}

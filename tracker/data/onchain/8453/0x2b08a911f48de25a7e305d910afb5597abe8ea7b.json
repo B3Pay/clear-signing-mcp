@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x2B08A911f48dE25A7e305D910Afb5597aBE8ea7B",
+    "functions": 4,
+    "name": "VaultBundlesV1",
+    "source": "sourcify"
+  },
+  "address": "0x2B08A911f48dE25A7e305D910Afb5597aBE8ea7B",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 6781,
+  "fetchedAt": "2026-11-06T23:32:14.921Z",
+  "format": 2,
+  "sample": {
+    "count": 284,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 284,
+    "newest": 1794001859,
+    "oldest": 1793918795,
+    "perDay": 290.0494101515402,
+    "requested": 1000,
+    "selectors": {
+      "0x6bbba4e0": 131,
+      "0x8355f776": 1,
+      "0x932084a8": 152
+    },
+    "senders": 198,
+    "sendersBySelector": {
+      "0x6bbba4e0": 99,
+      "0x8355f776": 1,
+      "0x932084a8": 124
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "VaultBundlesV1",
+    "status": "verified"
+  }
+}

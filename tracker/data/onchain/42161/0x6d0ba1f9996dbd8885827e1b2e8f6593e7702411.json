@@ -1,0 +1,66 @@
+{
+  "abi": {
+    "address": "0x8CBb5bd2b46f993078407CEa26704aF0A901515a",
+    "functions": 32,
+    "name": "OstiumTrading",
+    "source": "sourcify"
+  },
+  "address": "0x6D0bA1f9996DBD8885827e1b2e8f6593e7702411",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x6D0bA1f9996DBD8885827e1b2e8f6593e7702411",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T21:55:52.005Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 31,
+    "last30Days": 1000,
+    "newest": 1793998694,
+    "oldest": 1793653097,
+    "perDay": 250.00217015772708,
+    "requested": 1000,
+    "selectors": {
+      "0x0a21b1a1": 5,
+      "0x1365e4e4": 429,
+      "0x4f9a9e64": 4,
+      "0x56ac637e": 1,
+      "0x9a10cc32": 35,
+      "0xbe9267be": 13,
+      "0xc444e746": 6,
+      "0xca5eb5e1": 37,
+      "0xe2441c04": 5,
+      "0xefc10755": 465
+    },
+    "senders": 59,
+    "sendersBySelector": {
+      "0x0a21b1a1": 3,
+      "0x1365e4e4": 36,
+      "0x4f9a9e64": 2,
+      "0x56ac637e": 1,
+      "0x9a10cc32": 1,
+      "0xbe9267be": 4,
+      "0xc444e746": 4,
+      "0xca5eb5e1": 8,
+      "0xe2441c04": 3,
+      "0xefc10755": 33
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x8CBb5bd2b46f993078407CEa26704aF0A901515a",
+          "name": "OstiumTrading"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

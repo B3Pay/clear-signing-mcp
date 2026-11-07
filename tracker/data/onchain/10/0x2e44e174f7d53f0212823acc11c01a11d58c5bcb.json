@@ -1,0 +1,58 @@
+{
+  "abi": {
+    "address": "0x4917850Edb144B42e74eBb573e1F2dc6F9BfcA9B",
+    "functions": 91,
+    "name": "CometWithExtendedAssetList",
+    "source": "sourcify"
+  },
+  "address": "0x2e44e174f7D53F0212823acC11C01A11d58c5bCB",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 1878,
+  "fetchedAt": "2026-11-06T23:30:54.394Z",
+  "format": 2,
+  "sample": {
+    "count": 259,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 259,
+    "newest": 1793984967,
+    "oldest": 1793354175,
+    "perDay": 34.122702417512706,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 35,
+      "0x110496e5": 2,
+      "0xf2b9fdb8": 112,
+      "0xf3fef3a3": 110
+    },
+    "senders": 105,
+    "sendersBySelector": {
+      "0x095ea7b3": 33,
+      "0x110496e5": 2,
+      "0xf2b9fdb8": 41,
+      "0xf3fef3a3": 57
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x4917850Edb144B42e74eBb573e1F2dc6F9BfcA9B",
+          "name": "CometWithExtendedAssetList"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

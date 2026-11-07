@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0xA95d9c1F655341597C94393fDdc30cf3c08E4fcE",
+    "functions": 11,
+    "name": "CctpExtension",
+    "source": "sourcify"
+  },
+  "address": "0xA95d9c1F655341597C94393fDdc30cf3c08E4fcE",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xA95d9c1F655341597C94393fDdc30cf3c08E4fcE",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 6630,
+  "fetchedAt": "2026-11-06T21:55:47.829Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 23,
+    "last30Days": 1000,
+    "newest": 1794000356,
+    "oldest": 1793972945,
+    "perDay": 3152.019262339936,
+    "requested": 1000,
+    "selectors": {
+      "0x95878db1": 1000
+    },
+    "senders": 847,
+    "sendersBySelector": {
+      "0x95878db1": 847
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CctpExtension",
+    "status": "verified"
+  }
+}

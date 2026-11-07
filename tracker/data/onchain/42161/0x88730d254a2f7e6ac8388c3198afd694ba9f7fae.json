@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x88730d254A2f7e6AC8388c3198aFd694bA9f7fae",
+    "functions": 11,
+    "name": "CometRewards",
+    "source": "sourcify"
+  },
+  "address": "0x88730d254A2f7e6AC8388c3198aFd694bA9f7fae",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x88730d254A2f7e6AC8388c3198aFd694bA9f7fae",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 3473,
+  "fetchedAt": "2026-11-06T21:55:49.932Z",
+  "format": 2,
+  "sample": {
+    "count": 3,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 2,
+    "last30Days": 1,
+    "newest": 1792617360,
+    "oldest": 1791189986,
+    "perDay": 0.03333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0xb7034f7e": 3
+    },
+    "senders": 2,
+    "sendersBySelector": {
+      "0xb7034f7e": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CometRewards",
+    "status": "verified"
+  }
+}

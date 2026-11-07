@@ -1,0 +1,58 @@
+{
+  "abi": {
+    "address": "0xDCbf4CB83d27C408B30dD7F39bfcabD7176B1Ba3",
+    "functions": 27,
+    "name": "OpenOceanExchange",
+    "source": "sourcify"
+  },
+  "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xDCbf4CB83d27C408B30dD7F39bfcabD7176B1Ba3",
+        "name": "OpenOceanExchange"
+      }
+    ],
+    "isContract": true,
+    "name": "LendFlareProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 2092,
+  "fetchedAt": "2026-11-06T20:11:29.603Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 1000,
+    "newest": 1793966355,
+    "oldest": 1791995763,
+    "perDay": 43.844692356408636,
+    "requested": 1000,
+    "selectors": {
+      "0x0a9704d5": 4,
+      "0x90411a32": 996
+    },
+    "senders": 320,
+    "sendersBySelector": {
+      "0x0a9704d5": 3,
+      "0x90411a32": 318
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "OpenOceanExchangeProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xDCbf4CB83d27C408B30dD7F39bfcabD7176B1Ba3",
+          "name": "OpenOceanExchange"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

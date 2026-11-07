@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x1B0e765F6224C21223AeA2af16c1C46E38885a40",
+    "functions": 9,
+    "name": "CometRewards",
+    "source": "sourcify"
+  },
+  "address": "0x1B0e765F6224C21223AeA2af16c1C46E38885a40",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2822,
+  "fetchedAt": "2026-11-06T22:50:07.965Z",
+  "format": 2,
+  "sample": {
+    "count": 1,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 1,
+    "newest": 1791594131,
+    "oldest": 1791594131,
+    "perDay": 0.03333333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0xb7034f7e": 1
+    },
+    "senders": 1,
+    "sendersBySelector": {
+      "0xb7034f7e": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "CometRewards",
+    "status": "verified"
+  }
+}

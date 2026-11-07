@@ -1,0 +1,60 @@
+{
+  "abi": {
+    "address": "0x77b2043768d28E9C9aB44E1aBfC95944bcE57931",
+    "functions": 44,
+    "name": "StargatePoolNative",
+    "source": "sourcify"
+  },
+  "address": "0x77b2043768d28E9C9aB44E1aBfC95944bcE57931",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "StargatePoolNative",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 22628,
+  "fetchedAt": "2026-11-06T21:00:54.553Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 29,
+    "last30Days": 402,
+    "newest": 1793976215,
+    "oldest": 1790011235,
+    "perDay": 13.4,
+    "requested": 1000,
+    "selectors": {
+      "0x": 19,
+      "0x47e7ef24": 1,
+      "0x764f6a78": 1,
+      "0x7bde82f2": 30,
+      "0xa88835d7": 1,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 243,
+      "0xcbef2aa9": 700,
+      "0xdc7ceea4": 3,
+      "0xfbcb8181": 1
+    },
+    "senders": 610,
+    "sendersBySelector": {
+      "0x": 2,
+      "0x47e7ef24": 1,
+      "0x764f6a78": 1,
+      "0x7bde82f2": 30,
+      "0xa88835d7": 1,
+      "0xb0d7ca5d": 1,
+      "0xc7c7f5b3": 60,
+      "0xcbef2aa9": 514,
+      "0xdc7ceea4": 1,
+      "0xfbcb8181": 1
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "StargatePoolNative",
+    "status": "verified"
+  }
+}

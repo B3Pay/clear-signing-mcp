@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x4DE413a26fC24c3FC27Cc983be70aA9c5C299387",
+    "functions": 62,
+    "name": "LayerZeroTellerWithRateLimiting",
+    "source": "sourcify"
+  },
+  "address": "0x4DE413a26fC24c3FC27Cc983be70aA9c5C299387",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 20352,
+  "fetchedAt": "2026-11-06T22:50:10.057Z",
+  "format": 2,
+  "sample": {
+    "count": 81,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 81,
+    "newest": 1793990231,
+    "oldest": 1791446819,
+    "perDay": 2.7,
+    "requested": 1000,
+    "selectors": {
+      "0x0efe6a8b": 81
+    },
+    "senders": 60,
+    "sendersBySelector": {
+      "0x0efe6a8b": 60
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "LayerZeroTellerWithRateLimiting",
+    "status": "verified"
+  }
+}

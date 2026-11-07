@@ -1,0 +1,1031 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_blue",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_publicAllocator",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "ApproveReturnedFalse",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "BothNativeAndToken",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DeadlinePassed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InconsistentAmountAndNative",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InconsistentBorrowInput",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InconsistentTokens",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "LtvExceeded",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NativeTransferFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "NoCode",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "PctExceeded",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "TransferFromReturnedFalse",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "TransferReturnedFalse",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "UnauthorizedCallback",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "BLUE",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "PUBLIC_ALLOCATOR",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "loanToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collateralToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oracle",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "irm",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lltv",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct MarketParams",
+          "name": "sourceMarketParams",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "loanToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collateralToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oracle",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "irm",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lltv",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct MarketParams",
+          "name": "destMarketParams",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxLtv",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint8",
+                  "name": "v",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "r",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "s",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct Signature",
+              "name": "signature",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct SignedAuthorization",
+          "name": "signedAuthorization",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "adapter",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "loanToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "collateralToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "oracle",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "irm",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lltv",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct MarketParams",
+              "name": "marketParams",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bool",
+              "name": "fromIdle",
+              "type": "bool"
+            },
+            {
+              "internalType": "address",
+              "name": "sourceAdapter",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "loanToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "collateralToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "oracle",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "irm",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lltv",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct MarketParams",
+              "name": "sourceMarketParams",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint128",
+              "name": "assets",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint64",
+              "name": "penalty",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct PublicAllocations[]",
+          "name": "reallocations",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "referralFeePct",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "referralFeeRecipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "blueBundlesV1MigrateBorrowPosition",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "loanToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collateralToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oracle",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "irm",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lltv",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct MarketParams",
+          "name": "marketParams",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "repayAssets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "repayShares",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxRepayAssets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "collateralAssets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxLtv",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "enum PermitKind",
+              "name": "kind",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct TokenPermit",
+          "name": "loanTokenPermit",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint8",
+                  "name": "v",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "r",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "s",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct Signature",
+              "name": "signature",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct SignedAuthorization",
+          "name": "signedAuthorization",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "referralFeePct",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "referralFeeRecipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "blueBundlesV1RepayAndWithdrawCollateral",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "loanToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collateralToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oracle",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "irm",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lltv",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct MarketParams",
+          "name": "marketParams",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "assets",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "enum PermitKind",
+              "name": "kind",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct TokenPermit",
+          "name": "loanTokenPermit",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "referralFeePct",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "referralFeeRecipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "blueBundlesV1Supply",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "loanToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collateralToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oracle",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "irm",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lltv",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct MarketParams",
+          "name": "marketParams",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "collateralAssets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "borrowAssets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "maxLtv",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "enum PermitKind",
+              "name": "kind",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct TokenPermit",
+          "name": "collateralPermit",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint8",
+                  "name": "v",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "r",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "s",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct Signature",
+              "name": "signature",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct SignedAuthorization",
+          "name": "signedAuthorization",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "adapter",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "loanToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "collateralToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "oracle",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "irm",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lltv",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct MarketParams",
+              "name": "marketParams",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bool",
+              "name": "fromIdle",
+              "type": "bool"
+            },
+            {
+              "internalType": "address",
+              "name": "sourceAdapter",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "loanToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "collateralToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "oracle",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "irm",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lltv",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct MarketParams",
+              "name": "sourceMarketParams",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint128",
+              "name": "assets",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint64",
+              "name": "penalty",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct PublicAllocations[]",
+          "name": "reallocations",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "referralFeePct",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "referralFeeRecipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "blueBundlesV1SupplyCollateralAndBorrow",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "loanToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "collateralToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "oracle",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "irm",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lltv",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct MarketParams",
+          "name": "marketParams",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "withdrawAssets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "withdrawShares",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "components": [
+                {
+                  "internalType": "uint8",
+                  "name": "v",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "r",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "s",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct Signature",
+              "name": "signature",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint256",
+              "name": "nonce",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "deadline",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct SignedAuthorization",
+          "name": "signedAuthorization",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "vault",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "adapter",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "loanToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "collateralToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "oracle",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "irm",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lltv",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct MarketParams",
+              "name": "marketParams",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bool",
+              "name": "fromIdle",
+              "type": "bool"
+            },
+            {
+              "internalType": "address",
+              "name": "sourceAdapter",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "loanToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "collateralToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "oracle",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "irm",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "lltv",
+                  "type": "uint256"
+                }
+              ],
+              "internalType": "struct MarketParams",
+              "name": "sourceMarketParams",
+              "type": "tuple"
+            },
+            {
+              "internalType": "uint128",
+              "name": "assets",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint64",
+              "name": "penalty",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct PublicAllocations[]",
+          "name": "reallocations",
+          "type": "tuple[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "referralFeePct",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "referralFeeRecipient",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "deadline",
+          "type": "uint256"
+        }
+      ],
+      "name": "blueBundlesV1Withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "penaltyAssets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "onMorphoFlashLoan",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "assets",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "onMorphoRepay",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "address": "0x317ca3534f8Cf92Accb4b4366F48017E596bc34a",
+  "name": "BlueBundlesV1",
+  "source": "sourcify"
+}

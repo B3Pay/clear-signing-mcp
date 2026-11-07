@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0xf23C6C04A2B88e8651FE99bbDccbB5C9D306e6B0",
+    "functions": 75,
+    "name": "OP_SpokePool",
+    "source": "sourcify"
+  },
+  "address": "0x09aea4b2242abC8bb4BB78D537A67a245A7bEC64",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x09aea4b2242abC8bb4BB78D537A67a245A7bEC64",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 680,
+  "fetchedAt": "2026-11-06T20:59:04.317Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 196,
+    "last30Days": 1000,
+    "newest": 1793994434,
+    "oldest": 1793981658,
+    "perDay": 6762.680025046963,
+    "requested": 1000,
+    "selectors": {
+      "0x7b939232": 144,
+      "0xac9650d8": 7,
+      "0xad5425c6": 46,
+      "0xdeff4b24": 803
+    },
+    "senders": 164,
+    "sendersBySelector": {
+      "0x7b939232": 109,
+      "0xac9650d8": 1,
+      "0xad5425c6": 40,
+      "0xdeff4b24": 15
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xf23C6C04A2B88e8651FE99bbDccbB5C9D306e6B0",
+          "name": "OP_SpokePool"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

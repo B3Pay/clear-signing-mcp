@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0xdc181Bd607330aeeBEF6ea62e03e5e1Fb4B6F7C7",
+    "functions": 44,
+    "name": "StargatePoolNative",
+    "source": "sourcify"
+  },
+  "address": "0xdc181Bd607330aeeBEF6ea62e03e5e1Fb4B6F7C7",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 22628,
+  "fetchedAt": "2026-11-06T23:31:02.331Z",
+  "format": 2,
+  "sample": {
+    "count": 15,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 15,
+    "newest": 1793993457,
+    "oldest": 1793919929,
+    "perDay": 15.31951109955318,
+    "requested": 1000,
+    "selectors": {
+      "0x7bde82f2": 6,
+      "0xc7c7f5b3": 5,
+      "0xcbef2aa9": 4
+    },
+    "senders": 13,
+    "sendersBySelector": {
+      "0x7bde82f2": 6,
+      "0xc7c7f5b3": 3,
+      "0xcbef2aa9": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "StargatePoolNative",
+    "status": "verified"
+  }
+}

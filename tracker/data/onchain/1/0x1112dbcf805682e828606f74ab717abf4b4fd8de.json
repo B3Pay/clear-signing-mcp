@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x1112dbCF805682e828606f74AB717abf4b4FD8DE",
+    "functions": 34,
+    "name": "Yearn4626Router",
+    "source": "sourcify"
+  },
+  "address": "0x1112dbCF805682e828606f74AB717abf4b4FD8DE",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 7711,
+  "fetchedAt": "2026-11-06T22:50:21.807Z",
+  "format": 2,
+  "sample": {
+    "count": 6,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 6,
+    "newest": 1793754203,
+    "oldest": 1791594035,
+    "perDay": 0.2,
+    "requested": 1000,
+    "selectors": {
+      "0x5b9a66ee": 4,
+      "0x9b4f09af": 2
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0x5b9a66ee": 2,
+      "0x9b4f09af": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Yearn4626Router",
+    "status": "verified"
+  }
+}

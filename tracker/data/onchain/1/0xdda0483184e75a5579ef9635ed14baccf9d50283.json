@@ -1,0 +1,56 @@
+{
+  "abi": {
+    "address": "0x98E1d95B4b3A5A082642e17274D67d62691288F1",
+    "functions": 22,
+    "name": "PufferWithdrawalManager",
+    "source": "sourcify"
+  },
+  "address": "0xDdA0483184E75a5579ef9635ED14BacCf9d50283",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 163,
+  "fetchedAt": "2026-11-06T22:50:11.192Z",
+  "format": 2,
+  "sample": {
+    "count": 246,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 36,
+    "last30Days": 243,
+    "newest": 1793957039,
+    "oldest": 1791400583,
+    "perDay": 8.1,
+    "requested": 1000,
+    "selectors": {
+      "0x6a4800a4": 116,
+      "0xa231d21b": 61,
+      "0xef027fbf": 69
+    },
+    "senders": 154,
+    "sendersBySelector": {
+      "0x6a4800a4": 54,
+      "0xa231d21b": 56,
+      "0xef027fbf": 63
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x98E1d95B4b3A5A082642e17274D67d62691288F1",
+          "name": "PufferWithdrawalManager"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

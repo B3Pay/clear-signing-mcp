@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0xCF50b810E57Ac33B91dCF525C6ddd9881B139332",
+    "functions": 37,
+    "name": "cvxRewardPool",
+    "source": "sourcify"
+  },
+  "address": "0xCF50b810E57Ac33B91dCF525C6ddd9881B139332",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 7909,
+  "fetchedAt": "2026-11-06T22:50:22.621Z",
+  "format": 2,
+  "sample": {
+    "count": 219,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 217,
+    "newest": 1793986667,
+    "oldest": 1791398687,
+    "perDay": 7.233333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x1c1c6fe5": 2,
+      "0x38d07436": 53,
+      "0xa4698feb": 77,
+      "0xa694fc3a": 79,
+      "0xf9a6e764": 8
+    },
+    "senders": 87,
+    "sendersBySelector": {
+      "0x1c1c6fe5": 2,
+      "0x38d07436": 30,
+      "0xa4698feb": 52,
+      "0xa694fc3a": 34,
+      "0xf9a6e764": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "cvxRewardPool",
+    "status": "verified"
+  }
+}

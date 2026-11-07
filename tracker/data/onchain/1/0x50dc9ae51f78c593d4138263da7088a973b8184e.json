@@ -1,0 +1,60 @@
+{
+  "abi": {
+    "address": "0x93c951D3281Cc79e9FE1B1C87e50693D202F4C17",
+    "functions": 53,
+    "name": "Vyper_contract",
+    "source": "sourcify"
+  },
+  "address": "0x50DC9aE51f78C593d4138263da7088A973b8184E",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2161,
+  "fetchedAt": "2026-11-06T22:50:40.013Z",
+  "format": 2,
+  "sample": {
+    "count": 35,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 35,
+    "newest": 1793948543,
+    "oldest": 1791578891,
+    "perDay": 1.1666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 5,
+      "0x2e1a7d4d": 12,
+      "0x38d07436": 1,
+      "0x4b820093": 1,
+      "0xb6b55f25": 16
+    },
+    "senders": 19,
+    "sendersBySelector": {
+      "0x095ea7b3": 2,
+      "0x2e1a7d4d": 6,
+      "0x38d07436": 1,
+      "0x4b820093": 1,
+      "0xb6b55f25": 12
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x93c951D3281Cc79e9FE1B1C87e50693D202F4C17",
+          "name": "Vyper_contract"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

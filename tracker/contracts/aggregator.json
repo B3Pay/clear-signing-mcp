@@ -1,0 +1,888 @@
+{
+  "protocols": [
+    {
+      "protocol": "1inch",
+      "name": "1inch",
+      "category": "aggregator",
+      "website": "https://1inch.io",
+      "notes": "AggregationRouterV6 also hosts Limit Order Protocol v4 at the same address (the 1inch README says so). Fusion and Fusion+ swaps are EIP-712 orders that resolvers fill; the transactions users send go to the router (classic swaps, order cancellations) or to NativeOrderFactory (selling native ETH through Fusion). AggregationRouterV5 is legacy (V6 is the current router since 2024) and is not listed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+          "name": "AggregationRouterV6",
+          "label": "1inch Router v6",
+          "role": "Classic swaps from the 1inch app and API; also limit-order fills and cancellations",
+          "version": "v6",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/1inch/limit-order-protocol/50bd1300315606a3d32e9021898374c9d0dc2335/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Deployments & audits' table (mixed case, EIP-55 valid)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+          "name": "AggregationRouterV6",
+          "label": "1inch Router v6",
+          "role": "Classic swaps from the 1inch app and API; also limit-order fills and cancellations",
+          "version": "v6",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/1inch/limit-order-protocol/50bd1300315606a3d32e9021898374c9d0dc2335/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Deployments & audits' table (mixed case, EIP-55 valid)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+          "name": "AggregationRouterV6",
+          "label": "1inch Router v6",
+          "role": "Classic swaps from the 1inch app and API; also limit-order fills and cancellations",
+          "version": "v6",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/1inch/limit-order-protocol/50bd1300315606a3d32e9021898374c9d0dc2335/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Deployments & audits' table (mixed case, EIP-55 valid)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+          "name": "AggregationRouterV6",
+          "label": "1inch Router v6",
+          "role": "Classic swaps from the 1inch app and API; also limit-order fills and cancellations",
+          "version": "v6",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/1inch/limit-order-protocol/50bd1300315606a3d32e9021898374c9d0dc2335/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Deployments & audits' table (mixed case, EIP-55 valid)"
+        },
+        {
+          "chainId": 1,
+          "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+          "name": "NativeOrderFactory",
+          "label": "1inch Native Order Factory",
+          "role": "Users send ETH to create a Fusion/limit order that sells native ETH (wrapped to WETH in a per-order clone)",
+          "source": "https://raw.githubusercontent.com/1inch/limit-order-protocol/50bd1300315606a3d32e9021898374c9d0dc2335/deployments/mainnet/NativeOrderFactory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployment JSON 'address' field (mixed case)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+          "name": "NativeOrderFactory",
+          "label": "1inch Native Order Factory",
+          "role": "Users send ETH to create a Fusion/limit order that sells native ETH (wrapped to WETH in a per-order clone)",
+          "source": "https://raw.githubusercontent.com/1inch/limit-order-protocol/50bd1300315606a3d32e9021898374c9d0dc2335/deployments/base/NativeOrderFactory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployment JSON 'address' field (mixed case)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+          "name": "NativeOrderFactory",
+          "label": "1inch Native Order Factory",
+          "role": "Users send ETH to create a Fusion/limit order that sells native ETH (wrapped to WETH in a per-order clone)",
+          "source": "https://raw.githubusercontent.com/1inch/limit-order-protocol/50bd1300315606a3d32e9021898374c9d0dc2335/deployments/arbitrum/NativeOrderFactory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployment JSON 'address' field (mixed case)"
+        },
+        {
+          "chainId": 10,
+          "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+          "name": "NativeOrderFactory",
+          "label": "1inch Native Order Factory",
+          "role": "Users send ETH to create a Fusion/limit order that sells native ETH (wrapped to WETH in a per-order clone)",
+          "source": "https://raw.githubusercontent.com/1inch/limit-order-protocol/50bd1300315606a3d32e9021898374c9d0dc2335/deployments/optimistic/NativeOrderFactory.json",
+          "sourceKind": "raw",
+          "sourceNote": "deployment JSON 'address' field (mixed case)"
+        }
+      ]
+    },
+    {
+      "protocol": "0x",
+      "name": "0x (Matcha)",
+      "category": "aggregator",
+      "website": "https://0x.org",
+      "notes": "Matcha is built on the 0x API. In the Swap API AllowanceHolder flow the user approves AllowanceHolder and calls AllowanceHolder.exec, which forwards to the current 0x Settler. Settler contracts are redeployed often, so their addresses rotate; 0x says never to hardcode them and to look up the current one on the deployer/registry 0x00000000000004533Fe15556B1E086BB1A72cEae with ownerOf(featureId) (2 taker-submitted, 3 metatransaction, 4 intents, 5 bridge). In the Permit2 flow the user signs a Permit2 EIP-712 message and sends the transaction straight to the current Settler, which is why no Settler address is listed. The legacy v1 Exchange Proxy is superseded by Settler and not listed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+          "name": "AllowanceHolder",
+          "label": "0x AllowanceHolder",
+          "role": "Swap entry point for 0x Swap API AllowanceHolder-flow swaps: users approve it and call exec(), which forwards to the current Settler",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/0xProject/0x-settler/3e41a1cf33f17088b8617ced8a38c17f9a45cee3/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'AllowanceHolder addresses': Cancun chains incl. Ethereum, Base, Optimism, Arbitrum (mixed case, EIP-55 valid)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+          "name": "AllowanceHolder",
+          "label": "0x AllowanceHolder",
+          "role": "Swap entry point for 0x Swap API AllowanceHolder-flow swaps: users approve it and call exec(), which forwards to the current Settler",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/0xProject/0x-settler/3e41a1cf33f17088b8617ced8a38c17f9a45cee3/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'AllowanceHolder addresses': Cancun chains incl. Ethereum, Base, Optimism, Arbitrum (mixed case, EIP-55 valid)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+          "name": "AllowanceHolder",
+          "label": "0x AllowanceHolder",
+          "role": "Swap entry point for 0x Swap API AllowanceHolder-flow swaps: users approve it and call exec(), which forwards to the current Settler",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/0xProject/0x-settler/3e41a1cf33f17088b8617ced8a38c17f9a45cee3/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'AllowanceHolder addresses': Cancun chains incl. Ethereum, Base, Optimism, Arbitrum (mixed case, EIP-55 valid)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+          "name": "AllowanceHolder",
+          "label": "0x AllowanceHolder",
+          "role": "Swap entry point for 0x Swap API AllowanceHolder-flow swaps: users approve it and call exec(), which forwards to the current Settler",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/0xProject/0x-settler/3e41a1cf33f17088b8617ced8a38c17f9a45cee3/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'AllowanceHolder addresses': Cancun chains incl. Ethereum, Base, Optimism, Arbitrum (mixed case, EIP-55 valid)"
+        }
+      ]
+    },
+    {
+      "protocol": "velora",
+      "name": "Velora (ParaSwap)",
+      "category": "aggregator",
+      "website": "https://velora.xyz",
+      "notes": "Augustus v6.2 is the current Market API router on every Market-enabled chain (Velora docs, chains and contracts). Augustus v5 is legacy ('still operational but new integrations should target v6.2') and is not listed. Velora Delta orders are EIP-712 intents that agents settle through the Delta contract.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x6A000F20005980200259B80c5102003040001068",
+          "name": "AugustusV6",
+          "label": "Augustus v6.2",
+          "role": "Swap router for the Velora (ParaSwap) app and Market API",
+          "version": "v6.2",
+          "source": "https://raw.githubusercontent.com/paraswap/paraswap-dex-lib/4f74b83bb14d9b2c951a7cda673f0cca29dcad81/src/config.ts",
+          "sourceKind": "raw",
+          "sourceNote": "augustusV6Address in Velora's paraswap-dex-lib config, printed lowercase; checksummed here. Same lowercase address on docs.velora.xyz/docs/resources/chains-and-contracts (webfetch) and in the registry. Verified contract name not checked (explorers blocked)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x6A000F20005980200259B80c5102003040001068",
+          "name": "AugustusV6",
+          "label": "Augustus v6.2",
+          "role": "Swap router for the Velora (ParaSwap) app and Market API",
+          "version": "v6.2",
+          "source": "https://raw.githubusercontent.com/paraswap/paraswap-dex-lib/4f74b83bb14d9b2c951a7cda673f0cca29dcad81/src/config.ts",
+          "sourceKind": "raw",
+          "sourceNote": "augustusV6Address in Velora's paraswap-dex-lib config, printed lowercase; checksummed here. Same lowercase address on docs.velora.xyz/docs/resources/chains-and-contracts (webfetch) and in the registry. Verified contract name not checked (explorers blocked)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x6A000F20005980200259B80c5102003040001068",
+          "name": "AugustusV6",
+          "label": "Augustus v6.2",
+          "role": "Swap router for the Velora (ParaSwap) app and Market API",
+          "version": "v6.2",
+          "source": "https://raw.githubusercontent.com/paraswap/paraswap-dex-lib/4f74b83bb14d9b2c951a7cda673f0cca29dcad81/src/config.ts",
+          "sourceKind": "raw",
+          "sourceNote": "augustusV6Address in Velora's paraswap-dex-lib config, printed lowercase; checksummed here. Same lowercase address on docs.velora.xyz/docs/resources/chains-and-contracts (webfetch) and in the registry. Verified contract name not checked (explorers blocked)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x6A000F20005980200259B80c5102003040001068",
+          "name": "AugustusV6",
+          "label": "Augustus v6.2",
+          "role": "Swap router for the Velora (ParaSwap) app and Market API",
+          "version": "v6.2",
+          "source": "https://raw.githubusercontent.com/paraswap/paraswap-dex-lib/4f74b83bb14d9b2c951a7cda673f0cca29dcad81/src/config.ts",
+          "sourceKind": "raw",
+          "sourceNote": "augustusV6Address in Velora's paraswap-dex-lib config, printed lowercase; checksummed here. Same lowercase address on docs.velora.xyz/docs/resources/chains-and-contracts (webfetch) and in the registry. Verified contract name not checked (explorers blocked)"
+        }
+      ]
+    },
+    {
+      "protocol": "kyberswap",
+      "name": "KyberSwap Aggregator",
+      "category": "aggregator",
+      "website": "https://kyberswap.com",
+      "notes": "KyberSwap's contracts page also lists a newer KSAggregationRouterV3 on Ethereum and Base. It is not listed here: the page prints it lowercase and no second source or usage evidence was found, and Coinbase's KyberSwap plugin docs still tell agents to expect MetaAggregationRouterV2.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+          "name": "MetaAggregationRouterV2",
+          "label": "KyberSwap Meta Aggregation Router v2",
+          "role": "Swap router for the KyberSwap app and Aggregator API",
+          "source": "https://docs.kyberswap.com/developer-guide/aggregator-api/contracts",
+          "sourceKind": "webfetch",
+          "sourceNote": "Quoted mixed case by two WebFetch reads (EIP-55 valid); identical to the registry entry and to docs.cdp.coinbase.com KyberSwap plugin page"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+          "name": "MetaAggregationRouterV2",
+          "label": "KyberSwap Meta Aggregation Router v2",
+          "role": "Swap router for the KyberSwap app and Aggregator API",
+          "source": "https://docs.kyberswap.com/developer-guide/aggregator-api/contracts",
+          "sourceKind": "webfetch",
+          "sourceNote": "Quoted mixed case by two WebFetch reads (EIP-55 valid); identical to the registry entry and to docs.cdp.coinbase.com KyberSwap plugin page"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+          "name": "MetaAggregationRouterV2",
+          "label": "KyberSwap Meta Aggregation Router v2",
+          "role": "Swap router for the KyberSwap app and Aggregator API",
+          "source": "https://docs.kyberswap.com/developer-guide/aggregator-api/contracts",
+          "sourceKind": "webfetch",
+          "sourceNote": "Quoted mixed case by two WebFetch reads (EIP-55 valid); identical to the registry entry and to docs.cdp.coinbase.com KyberSwap plugin page"
+        },
+        {
+          "chainId": 10,
+          "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+          "name": "MetaAggregationRouterV2",
+          "label": "KyberSwap Meta Aggregation Router v2",
+          "role": "Swap router for the KyberSwap app and Aggregator API",
+          "source": "https://docs.kyberswap.com/developer-guide/aggregator-api/contracts",
+          "sourceKind": "webfetch",
+          "sourceNote": "Quoted mixed case by two WebFetch reads (EIP-55 valid); identical to the registry entry and to docs.cdp.coinbase.com KyberSwap plugin page"
+        }
+      ]
+    },
+    {
+      "protocol": "openocean",
+      "name": "OpenOcean",
+      "category": "aggregator",
+      "website": "https://openocean.finance",
+      "defillama": "openocean",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+          "name": "OpenOceanExchangeProxy",
+          "label": "OpenOcean Exchange V2",
+          "role": "Swap router for the OpenOcean app and API",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/openocean-finance/OpenOceanExchangeV2/76c0a5a1a5b93a08c0c9ac8d6643c6b3a7b9e77e/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Contracts of Chains' (mixed case, EIP-55 valid; the Base line prints it lowercase). TransparentUpgradeableProxy over OpenOceanExchange"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+          "name": "OpenOceanExchangeProxy",
+          "label": "OpenOcean Exchange V2",
+          "role": "Swap router for the OpenOcean app and API",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/openocean-finance/OpenOceanExchangeV2/76c0a5a1a5b93a08c0c9ac8d6643c6b3a7b9e77e/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Contracts of Chains' (mixed case, EIP-55 valid; the Base line prints it lowercase). TransparentUpgradeableProxy over OpenOceanExchange"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+          "name": "OpenOceanExchangeProxy",
+          "label": "OpenOcean Exchange V2",
+          "role": "Swap router for the OpenOcean app and API",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/openocean-finance/OpenOceanExchangeV2/76c0a5a1a5b93a08c0c9ac8d6643c6b3a7b9e77e/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Contracts of Chains' (mixed case, EIP-55 valid; the Base line prints it lowercase). TransparentUpgradeableProxy over OpenOceanExchange"
+        },
+        {
+          "chainId": 10,
+          "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64",
+          "name": "OpenOceanExchangeProxy",
+          "label": "OpenOcean Exchange V2",
+          "role": "Swap router for the OpenOcean app and API",
+          "version": "v2",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/openocean-finance/OpenOceanExchangeV2/76c0a5a1a5b93a08c0c9ac8d6643c6b3a7b9e77e/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "README 'Contracts of Chains' (mixed case, EIP-55 valid; the Base line prints it lowercase). TransparentUpgradeableProxy over OpenOceanExchange"
+        }
+      ]
+    },
+    {
+      "protocol": "cow-protocol",
+      "name": "CoW Protocol (CoW Swap)",
+      "category": "aggregator",
+      "website": "https://cow.fi",
+      "notes": "Most CoW Swap orders are EIP-712 messages signed off-chain against the GPv2Settlement domain and settled by solvers; users approve tokens to GPv2VaultRelayer (0xC92E8bdf79f0507f65a392b0ab4667716BFE0110), which they never call. The transactions users do send are ETH Flow orders (native ETH) and pre-signatures or cancellations on GPv2Settlement. Both contracts are deployed on OP Mainnet too, but the CoW SDK lists OP Mainnet only as a bridge destination, not a chain CoW Protocol trades on, so it is not listed. UniswapX (not listed) works like this as well: users sign EIP-712 orders and fillers call the reactors, so users do not send transactions to them.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+          "name": "GPv2Settlement",
+          "label": "CoW Protocol Settlement",
+          "role": "Users call setPreSignature/invalidateOrder for pre-signed orders (mostly Safe and other contract wallets); solvers call settle",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/cowprotocol/contracts/ea0c36591b6da73b9ba4e2e2107897080c7f9b68/networks.json",
+          "sourceKind": "raw",
+          "sourceNote": "networks.json GPv2Settlement entry for this chain (mixed case); also SETTLEMENT_CONTRACT in cow-sdk packages/config/src/chains/const/contracts.ts"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+          "name": "GPv2Settlement",
+          "label": "CoW Protocol Settlement",
+          "role": "Users call setPreSignature/invalidateOrder for pre-signed orders (mostly Safe and other contract wallets); solvers call settle",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/cowprotocol/contracts/ea0c36591b6da73b9ba4e2e2107897080c7f9b68/networks.json",
+          "sourceKind": "raw",
+          "sourceNote": "networks.json GPv2Settlement entry for this chain (mixed case); also SETTLEMENT_CONTRACT in cow-sdk packages/config/src/chains/const/contracts.ts"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x9008D19f58AAbD9eD0D60971565AA8510560ab41",
+          "name": "GPv2Settlement",
+          "label": "CoW Protocol Settlement",
+          "role": "Users call setPreSignature/invalidateOrder for pre-signed orders (mostly Safe and other contract wallets); solvers call settle",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/cowprotocol/contracts/ea0c36591b6da73b9ba4e2e2107897080c7f9b68/networks.json",
+          "sourceKind": "raw",
+          "sourceNote": "networks.json GPv2Settlement entry for this chain (mixed case); also SETTLEMENT_CONTRACT in cow-sdk packages/config/src/chains/const/contracts.ts"
+        },
+        {
+          "chainId": 1,
+          "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+          "name": "CoWSwapEthFlow",
+          "label": "CoW Swap ETH Flow",
+          "role": "Users send native ETH with createOrder to sell ETH on CoW Swap (and invalidateOrder to cancel)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/cowprotocol/ethflowcontract/075f97812e1af13be3be0f6613a7db25ba12b3bb/broadcast/Deploy.sol/1/deployment.prod.json",
+          "sourceKind": "raw",
+          "sourceNote": "production broadcast prints it lowercase; checksummed here. Matches the mixed-case registry entry for chain 1 and ETH_FLOW_ADDRESS in cow-sdk"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+          "name": "CoWSwapEthFlow",
+          "label": "CoW Swap ETH Flow",
+          "role": "Users send native ETH with createOrder to sell ETH on CoW Swap (and invalidateOrder to cancel)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/cowprotocol/ethflowcontract/075f97812e1af13be3be0f6613a7db25ba12b3bb/broadcast/Deploy.sol/8453/deployment.prod.json",
+          "sourceKind": "raw",
+          "sourceNote": "production broadcast prints it lowercase; checksummed here. Matches the mixed-case registry entry for chain 1 and ETH_FLOW_ADDRESS in cow-sdk"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xbA3cB449bD2B4ADddBc894D8697F5170800EAdeC",
+          "name": "CoWSwapEthFlow",
+          "label": "CoW Swap ETH Flow",
+          "role": "Users send native ETH with createOrder to sell ETH on CoW Swap (and invalidateOrder to cancel)",
+          "proxy": false,
+          "source": "https://raw.githubusercontent.com/cowprotocol/ethflowcontract/075f97812e1af13be3be0f6613a7db25ba12b3bb/broadcast/Deploy.sol/42161/deployment.prod.json",
+          "sourceKind": "raw",
+          "sourceNote": "production broadcast prints it lowercase; checksummed here. Matches the mixed-case registry entry for chain 1 and ETH_FLOW_ADDRESS in cow-sdk"
+        }
+      ]
+    },
+    {
+      "protocol": "lifi",
+      "name": "LI.FI (Jumper)",
+      "category": "aggregator",
+      "website": "https://li.fi",
+      "notes": "Jumper and most LI.FI API integrators send swap and bridge transactions to the LiFiDiamond (EIP-2535 diamond; facets are upgradeable). The Permit2Proxy periphery for signature flows is not listed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+          "name": "LiFiDiamond",
+          "label": "LI.FI Diamond",
+          "role": "Entry point for LI.FI/Jumper swaps and bridges",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lifinance/contracts/865f174353eb1714d3d1701fceb28c01396e4899/deployments/mainnet.json",
+          "sourceKind": "raw",
+          "sourceNote": "LiFiDiamond key in the deployments file for this chain (mixed case, EIP-55 valid); proxy=true because it is an EIP-2535 diamond"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+          "name": "LiFiDiamond",
+          "label": "LI.FI Diamond",
+          "role": "Entry point for LI.FI/Jumper swaps and bridges",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lifinance/contracts/865f174353eb1714d3d1701fceb28c01396e4899/deployments/base.json",
+          "sourceKind": "raw",
+          "sourceNote": "LiFiDiamond key in the deployments file for this chain (mixed case, EIP-55 valid); proxy=true because it is an EIP-2535 diamond"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+          "name": "LiFiDiamond",
+          "label": "LI.FI Diamond",
+          "role": "Entry point for LI.FI/Jumper swaps and bridges",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lifinance/contracts/865f174353eb1714d3d1701fceb28c01396e4899/deployments/arbitrum.json",
+          "sourceKind": "raw",
+          "sourceNote": "LiFiDiamond key in the deployments file for this chain (mixed case, EIP-55 valid); proxy=true because it is an EIP-2535 diamond"
+        },
+        {
+          "chainId": 10,
+          "address": "0x1231DEB6f5749EF6cE6943a275A1D3E7486F4EaE",
+          "name": "LiFiDiamond",
+          "label": "LI.FI Diamond",
+          "role": "Entry point for LI.FI/Jumper swaps and bridges",
+          "proxy": true,
+          "source": "https://raw.githubusercontent.com/lifinance/contracts/865f174353eb1714d3d1701fceb28c01396e4899/deployments/optimism.json",
+          "sourceKind": "raw",
+          "sourceNote": "LiFiDiamond key in the deployments file for this chain (mixed case, EIP-55 valid); proxy=true because it is an EIP-2535 diamond"
+        }
+      ]
+    },
+    {
+      "protocol": "socket",
+      "name": "Socket (formerly Bungee)",
+      "category": "aggregator",
+      "website": "https://socket.tech",
+      "notes": "Bungee's docs now redirect to Socket. The Socket v3 API replaces the Bungee v1 and Socket v2 APIs: its transactions usually target the AllowanceHolder, which wraps a call to Open Router (0x50cFe7c1938dB66A1a6D2e86D36F39FBef3d5c4a, not usually a direct target). SocketGateway is the v2-era entry point that Bungee and Socket API integrators used. How much traffic it still gets after the v3 migration is unconfirmed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x50c4E75a512F2A14A7b304787Adf79C4531A5909",
+          "name": "AllowanceHolder",
+          "label": "Socket Allowance Holder",
+          "role": "Usual transaction target and approval spender for Socket v3 API swaps and bridges; wraps a call to Open Router",
+          "version": "v3",
+          "source": "https://docs.socket.tech/integrate/contract-addresses",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs contract table, quoted mixed case by WebFetch (EIP-55 valid); verified contract name not checked (explorers blocked), name follows the docs label"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x50c4E75a512F2A14A7b304787Adf79C4531A5909",
+          "name": "AllowanceHolder",
+          "label": "Socket Allowance Holder",
+          "role": "Usual transaction target and approval spender for Socket v3 API swaps and bridges; wraps a call to Open Router",
+          "version": "v3",
+          "source": "https://docs.socket.tech/integrate/contract-addresses",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs contract table, quoted mixed case by WebFetch (EIP-55 valid); verified contract name not checked (explorers blocked), name follows the docs label"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x50c4E75a512F2A14A7b304787Adf79C4531A5909",
+          "name": "AllowanceHolder",
+          "label": "Socket Allowance Holder",
+          "role": "Usual transaction target and approval spender for Socket v3 API swaps and bridges; wraps a call to Open Router",
+          "version": "v3",
+          "source": "https://docs.socket.tech/integrate/contract-addresses",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs contract table, quoted mixed case by WebFetch (EIP-55 valid); verified contract name not checked (explorers blocked), name follows the docs label"
+        },
+        {
+          "chainId": 10,
+          "address": "0x50c4E75a512F2A14A7b304787Adf79C4531A5909",
+          "name": "AllowanceHolder",
+          "label": "Socket Allowance Holder",
+          "role": "Usual transaction target and approval spender for Socket v3 API swaps and bridges; wraps a call to Open Router",
+          "version": "v3",
+          "source": "https://docs.socket.tech/integrate/contract-addresses",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs contract table, quoted mixed case by WebFetch (EIP-55 valid); verified contract name not checked (explorers blocked), name follows the docs label"
+        },
+        {
+          "chainId": 1,
+          "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+          "name": "SocketGateway",
+          "label": "Socket Gateway (legacy)",
+          "role": "Entry point for Bungee and Socket v2 API swaps and bridges",
+          "version": "v2 (legacy)",
+          "source": "https://registry.npmjs.org/@socket.tech/ll-core-v2/-/ll-core-v2-1.0.44.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "Official npm package @socket.tech/ll-core-v2 1.0.44 (2025-12-15), file addresses/index.js, socketGateway under ChainId.MAINNET_CHAIN_ID (mixed case; the Base entry is lowercase)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+          "name": "SocketGateway",
+          "label": "Socket Gateway (legacy)",
+          "role": "Entry point for Bungee and Socket v2 API swaps and bridges",
+          "version": "v2 (legacy)",
+          "source": "https://registry.npmjs.org/@socket.tech/ll-core-v2/-/ll-core-v2-1.0.44.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "Official npm package @socket.tech/ll-core-v2 1.0.44 (2025-12-15), file addresses/index.js, socketGateway under ChainId.BASE_CHAIN_ID (mixed case; the Base entry is lowercase)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+          "name": "SocketGateway",
+          "label": "Socket Gateway (legacy)",
+          "role": "Entry point for Bungee and Socket v2 API swaps and bridges",
+          "version": "v2 (legacy)",
+          "source": "https://registry.npmjs.org/@socket.tech/ll-core-v2/-/ll-core-v2-1.0.44.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "Official npm package @socket.tech/ll-core-v2 1.0.44 (2025-12-15), file addresses/index.js, socketGateway under ChainId.ARBITRUM_CHAIN_ID (mixed case; the Base entry is lowercase)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x3a23F943181408EAC424116Af7b7790c94Cb97a5",
+          "name": "SocketGateway",
+          "label": "Socket Gateway (legacy)",
+          "role": "Entry point for Bungee and Socket v2 API swaps and bridges",
+          "version": "v2 (legacy)",
+          "source": "https://registry.npmjs.org/@socket.tech/ll-core-v2/-/ll-core-v2-1.0.44.tgz",
+          "sourceKind": "raw",
+          "sourceNote": "Official npm package @socket.tech/ll-core-v2 1.0.44 (2025-12-15), file addresses/index.js, socketGateway under ChainId.OPTIMISM_CHAIN_ID (mixed case; the Base entry is lowercase)"
+        }
+      ]
+    },
+    {
+      "protocol": "relay",
+      "name": "Relay",
+      "category": "bridge",
+      "website": "https://relay.link",
+      "notes": "Relay redeploys its router and approval proxy as a pair (v2, v2.1, v3, v3.2) and tells integrators to use the transaction targets each quote returns; its docs announced the switch to the v3.2 pair for 2026-10-26, with v3 and v3.2 both live until then. The older Relay Receiver is no longer in Relay's docs and is not listed.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+          "name": "RelayRouter",
+          "label": "Relay Router v3.2",
+          "role": "Native-token entry for Relay swaps and bridges (multicall executed by the router)",
+          "version": "v3.2",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayRouter for this chain in addresses.json, printed lowercase; checksummed here. Same address in docs.relay.link contract-addresses (webfetch, v3.2 Cancun column)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+          "name": "RelayRouter",
+          "label": "Relay Router v3.2",
+          "role": "Native-token entry for Relay swaps and bridges (multicall executed by the router)",
+          "version": "v3.2",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayRouter for this chain in addresses.json, printed lowercase; checksummed here. Same address in docs.relay.link contract-addresses (webfetch, v3.2 Cancun column)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+          "name": "RelayRouter",
+          "label": "Relay Router v3.2",
+          "role": "Native-token entry for Relay swaps and bridges (multicall executed by the router)",
+          "version": "v3.2",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayRouter for this chain in addresses.json, printed lowercase; checksummed here. Same address in docs.relay.link contract-addresses (webfetch, v3.2 Cancun column)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x0729E2a4716d9f7dD17858d5d504426D228697f7",
+          "name": "RelayRouter",
+          "label": "Relay Router v3.2",
+          "role": "Native-token entry for Relay swaps and bridges (multicall executed by the router)",
+          "version": "v3.2",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayRouter for this chain in addresses.json, printed lowercase; checksummed here. Same address in docs.relay.link contract-addresses (webfetch, v3.2 Cancun column)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+          "name": "RelayApprovalProxy",
+          "label": "Relay Approval Proxy v3.2",
+          "role": "ERC-20 entry for Relay swaps and bridges: users approve it and call transferAndMulticall",
+          "version": "v3.2",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayApprovalProxy for this chain in addresses.json, printed lowercase; checksummed here. Same address in docs.relay.link contract-addresses (webfetch)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+          "name": "RelayApprovalProxy",
+          "label": "Relay Approval Proxy v3.2",
+          "role": "ERC-20 entry for Relay swaps and bridges: users approve it and call transferAndMulticall",
+          "version": "v3.2",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayApprovalProxy for this chain in addresses.json, printed lowercase; checksummed here. Same address in docs.relay.link contract-addresses (webfetch)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+          "name": "RelayApprovalProxy",
+          "label": "Relay Approval Proxy v3.2",
+          "role": "ERC-20 entry for Relay swaps and bridges: users approve it and call transferAndMulticall",
+          "version": "v3.2",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayApprovalProxy for this chain in addresses.json, printed lowercase; checksummed here. Same address in docs.relay.link contract-addresses (webfetch)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+          "name": "RelayApprovalProxy",
+          "label": "Relay Approval Proxy v3.2",
+          "role": "ERC-20 entry for Relay swaps and bridges: users approve it and call transferAndMulticall",
+          "version": "v3.2",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-periphery/f83bb913bf93b1122edeff141c74216672c4a6d4/deployments/v3/addresses.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayApprovalProxy for this chain in addresses.json, printed lowercase; checksummed here. Same address in docs.relay.link contract-addresses (webfetch)"
+        },
+        {
+          "chainId": 1,
+          "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+          "name": "RelayDepository",
+          "label": "Relay Depository",
+          "role": "Users deposit native ETH or ERC-20 tokens for Relay settlement-protocol orders",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-depository/458a64c310a3504aaf37e112af9a8707c9eb11ad/packages/ethereum-vm/deployments/addresses.prod.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayDepository for this chain in the (archived, merged into settlement-protocol) relay-depository repo, printed lowercase; checksummed here. Matches the mixed-case registry entry for chain 1"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+          "name": "RelayDepository",
+          "label": "Relay Depository",
+          "role": "Users deposit native ETH or ERC-20 tokens for Relay settlement-protocol orders",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-depository/458a64c310a3504aaf37e112af9a8707c9eb11ad/packages/ethereum-vm/deployments/addresses.prod.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayDepository for this chain in the (archived, merged into settlement-protocol) relay-depository repo, printed lowercase; checksummed here. Matches the mixed-case registry entry for chain 1"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+          "name": "RelayDepository",
+          "label": "Relay Depository",
+          "role": "Users deposit native ETH or ERC-20 tokens for Relay settlement-protocol orders",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-depository/458a64c310a3504aaf37e112af9a8707c9eb11ad/packages/ethereum-vm/deployments/addresses.prod.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayDepository for this chain in the (archived, merged into settlement-protocol) relay-depository repo, printed lowercase; checksummed here. Matches the mixed-case registry entry for chain 1"
+        },
+        {
+          "chainId": 10,
+          "address": "0x4cD00E387622C35bDDB9b4c962C136462338BC31",
+          "name": "RelayDepository",
+          "label": "Relay Depository",
+          "role": "Users deposit native ETH or ERC-20 tokens for Relay settlement-protocol orders",
+          "source": "https://raw.githubusercontent.com/relayprotocol/relay-depository/458a64c310a3504aaf37e112af9a8707c9eb11ad/packages/ethereum-vm/deployments/addresses.prod.json",
+          "sourceKind": "raw",
+          "sourceNote": "relayDepository for this chain in the (archived, merged into settlement-protocol) relay-depository repo, printed lowercase; checksummed here. Matches the mixed-case registry entry for chain 1"
+        }
+      ]
+    },
+    {
+      "protocol": "metamask-swaps",
+      "name": "MetaMask Swaps & Bridge",
+      "category": "aggregator",
+      "website": "https://metamask.io",
+      "notes": "Router addresses from MetaMask's bridge-controller (MetaMask/core), cross-checked against metamask-extension. MetaMask's code lists a MetaBridge address only for Ethereum, so it is listed only there.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x881D40237659C251811CEC9c364ef91dC08D300C",
+          "name": "MetaSwap",
+          "label": "MetaMask Swaps router",
+          "role": "Same-chain swaps in MetaMask (extension and mobile)",
+          "source": "https://raw.githubusercontent.com/MetaMask/core/8d460cecac3426fec6cbef6339b09609ada40504/packages/bridge-controller/src/constants/swaps.ts",
+          "sourceKind": "raw",
+          "sourceNote": "ETH_SWAPS_CONTRACT_ADDRESS, printed lowercase; checksummed here. Same value in metamask-extension shared/constants/swaps.ts"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6",
+          "name": "MetaSwap",
+          "label": "MetaMask Swaps router",
+          "role": "Same-chain swaps in MetaMask (extension and mobile)",
+          "source": "https://raw.githubusercontent.com/MetaMask/core/8d460cecac3426fec6cbef6339b09609ada40504/packages/bridge-controller/src/constants/swaps.ts",
+          "sourceKind": "raw",
+          "sourceNote": "BASE/ARBITRUM/OPTIMISM_SWAPS_CONTRACT_ADDRESS, printed lowercase; checksummed here. Same values in metamask-extension. Verified name not checked; assumed same as the Ethereum router"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6",
+          "name": "MetaSwap",
+          "label": "MetaMask Swaps router",
+          "role": "Same-chain swaps in MetaMask (extension and mobile)",
+          "source": "https://raw.githubusercontent.com/MetaMask/core/8d460cecac3426fec6cbef6339b09609ada40504/packages/bridge-controller/src/constants/swaps.ts",
+          "sourceKind": "raw",
+          "sourceNote": "BASE/ARBITRUM/OPTIMISM_SWAPS_CONTRACT_ADDRESS, printed lowercase; checksummed here. Same values in metamask-extension. Verified name not checked; assumed same as the Ethereum router"
+        },
+        {
+          "chainId": 10,
+          "address": "0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6",
+          "name": "MetaSwap",
+          "label": "MetaMask Swaps router",
+          "role": "Same-chain swaps in MetaMask (extension and mobile)",
+          "source": "https://raw.githubusercontent.com/MetaMask/core/8d460cecac3426fec6cbef6339b09609ada40504/packages/bridge-controller/src/constants/swaps.ts",
+          "sourceKind": "raw",
+          "sourceNote": "BASE/ARBITRUM/OPTIMISM_SWAPS_CONTRACT_ADDRESS, printed lowercase; checksummed here. Same values in metamask-extension. Verified name not checked; assumed same as the Ethereum router"
+        },
+        {
+          "chainId": 1,
+          "address": "0x0439e60F02a8900a951603950d8D4527f400C3f1",
+          "name": "MetaBridge",
+          "label": "MetaMask Bridge",
+          "role": "Cross-chain bridge transactions started from MetaMask on Ethereum",
+          "source": "https://raw.githubusercontent.com/MetaMask/core/8d460cecac3426fec6cbef6339b09609ada40504/packages/bridge-controller/src/constants/bridge.ts",
+          "sourceKind": "raw",
+          "sourceNote": "METABRIDGE_ETHEREUM_ADDRESS (mixed case, EIP-55 valid). MetaMask's code maps only Ethereum, so other chains are not listed. Verified name not checked"
+        }
+      ]
+    },
+    {
+      "protocol": "rainbow-swaps",
+      "name": "Rainbow Swaps",
+      "category": "aggregator",
+      "website": "https://rainbow.me",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x00000000009726632680FB29d3F7A9734E3010E2",
+          "name": "RainbowRouter",
+          "label": "Rainbow Router",
+          "role": "Swaps in the Rainbow wallet (aggregator calldata executed through the router)",
+          "source": "https://raw.githubusercontent.com/rainbow-me/swaps/a31dae44b836dbb4dc75544974542be6866c2477/smart-contracts/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "smart-contracts README deployments table (Ethereum, Optimism, Arbitrum One, Base rows print it lowercase; explorer links in the same file give this EIP-55 form). Same default RAINBOW_ROUTER_CONTRACT_ADDRESS in sdk/src/utils/constants.ts"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x00000000009726632680FB29d3F7A9734E3010E2",
+          "name": "RainbowRouter",
+          "label": "Rainbow Router",
+          "role": "Swaps in the Rainbow wallet (aggregator calldata executed through the router)",
+          "source": "https://raw.githubusercontent.com/rainbow-me/swaps/a31dae44b836dbb4dc75544974542be6866c2477/smart-contracts/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "smart-contracts README deployments table (Ethereum, Optimism, Arbitrum One, Base rows print it lowercase; explorer links in the same file give this EIP-55 form). Same default RAINBOW_ROUTER_CONTRACT_ADDRESS in sdk/src/utils/constants.ts"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x00000000009726632680FB29d3F7A9734E3010E2",
+          "name": "RainbowRouter",
+          "label": "Rainbow Router",
+          "role": "Swaps in the Rainbow wallet (aggregator calldata executed through the router)",
+          "source": "https://raw.githubusercontent.com/rainbow-me/swaps/a31dae44b836dbb4dc75544974542be6866c2477/smart-contracts/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "smart-contracts README deployments table (Ethereum, Optimism, Arbitrum One, Base rows print it lowercase; explorer links in the same file give this EIP-55 form). Same default RAINBOW_ROUTER_CONTRACT_ADDRESS in sdk/src/utils/constants.ts"
+        },
+        {
+          "chainId": 10,
+          "address": "0x00000000009726632680FB29d3F7A9734E3010E2",
+          "name": "RainbowRouter",
+          "label": "Rainbow Router",
+          "role": "Swaps in the Rainbow wallet (aggregator calldata executed through the router)",
+          "source": "https://raw.githubusercontent.com/rainbow-me/swaps/a31dae44b836dbb4dc75544974542be6866c2477/smart-contracts/README.md",
+          "sourceKind": "raw",
+          "sourceNote": "smart-contracts README deployments table (Ethereum, Optimism, Arbitrum One, Base rows print it lowercase; explorer links in the same file give this EIP-55 form). Same default RAINBOW_ROUTER_CONTRACT_ADDRESS in sdk/src/utils/constants.ts"
+        }
+      ]
+    },
+    {
+      "protocol": "okx-dex",
+      "name": "OKX DEX (OKX Wallet swaps)",
+      "category": "aggregator",
+      "website": "https://web3.okx.com",
+      "notes": "OKX redeploys its DEX routers, and its docs say to use the router the API returns rather than a hardcoded one. These are the main 'DEX router' entries on the docs page as of 2026-11-06. ExactOut swaps use separate routers, and token approvals go to a per-chain token-approval contract, not the router. The registry's two OKX Labs descriptors, named in registryDescriptors, describe the older v1.0.7 and v1.0.8 routers at other addresses; checked 2026-11-07 against the registry at ef582c2, they format every function these routers' recent calls use (dagSwapTo, dagSwapByOrderId, unxswapTo and the rest), and two these routers no longer have (smartSwapByInvest and smartSwapByInvestWithRefund).",
+      "registryDescriptors": [
+        "registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json",
+        "registry/okx/calldata-OkxDexRouterV1.0.7-multi-commission.json"
+      ],
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6",
+          "name": "DexRouter",
+          "label": "OKX DEX router",
+          "role": "Swap router for OKX Wallet and the OKX DEX API",
+          "source": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs table prints the router lowercase; three WebFetch reads (.md, HTML and the Korean page) agree, and the mixed-case approval and exactOut addresses on the same page came through EIP-55 valid. Checksummed here. Verified contract name not checked (explorers blocked)"
+        },
+        {
+          "chainId": 8453,
+          "address": "0x67d03631FE51B741C0C00c4E16eb662AC84381df",
+          "name": "DexRouter",
+          "label": "OKX DEX router",
+          "role": "Swap router for OKX Wallet and the OKX DEX API",
+          "source": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs table prints the router lowercase; three WebFetch reads (.md, HTML and the Korean page) agree, and the mixed-case approval and exactOut addresses on the same page came through EIP-55 valid. Checksummed here. Verified contract name not checked (explorers blocked)"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x09f94b5Fc68e227C323A6FbaE3Bd98C97fD8c849",
+          "name": "DexRouter",
+          "label": "OKX DEX router",
+          "role": "Swap router for OKX Wallet and the OKX DEX API",
+          "source": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs table prints the router lowercase; three WebFetch reads (.md, HTML and the Korean page) agree, and the mixed-case approval and exactOut addresses on the same page came through EIP-55 valid. Checksummed here. Verified contract name not checked (explorers blocked)"
+        },
+        {
+          "chainId": 10,
+          "address": "0x1f5B43127414E36c31eCb5Ff5567262997CD24D0",
+          "name": "DexRouter",
+          "label": "OKX DEX router",
+          "role": "Swap router for OKX Wallet and the OKX DEX API",
+          "source": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
+          "sourceKind": "webfetch",
+          "sourceNote": "Docs table prints the router lowercase; three WebFetch reads (.md, HTML and the Korean page) agree, and the mixed-case approval and exactOut addresses on the same page came through EIP-55 valid. Checksummed here. Verified contract name not checked (explorers blocked)"
+        }
+      ]
+    },
+    {
+      "protocol": "enso",
+      "name": "Enso",
+      "category": "aggregator",
+      "website": "https://www.enso.build",
+      "notes": "Users send Enso route transactions to EnsoRouter ('router' mode); smart accounts can delegatecall DelegateEnsoShortcuts instead.",
+      "contracts": [
+        {
+          "chainId": 1,
+          "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+          "name": "EnsoRouter",
+          "label": "Enso Router V2",
+          "role": "Entry point for Enso swaps, zaps and shortcuts sent from EOAs",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/EnsoBuild/shortcuts-client-contracts/788b5741835e10ab6befeefdd943970141337166/broadcast/EnsoRouterDeployer.s.sol/1/run-latest.json",
+          "sourceKind": "raw",
+          "sourceNote": "run-latest.json CREATE of EnsoRouter for this chain (contractAddress lowercase; the file also prints this EIP-55 form). docs.enso.build/pages/build/reference/deployments (webfetch) lists the same Router V2 for Ethereum, Optimism, Base and Arbitrum"
+        },
+        {
+          "chainId": 8453,
+          "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+          "name": "EnsoRouter",
+          "label": "Enso Router V2",
+          "role": "Entry point for Enso swaps, zaps and shortcuts sent from EOAs",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/EnsoBuild/shortcuts-client-contracts/788b5741835e10ab6befeefdd943970141337166/broadcast/EnsoRouterDeployer.s.sol/8453/run-latest.json",
+          "sourceKind": "raw",
+          "sourceNote": "run-latest.json CREATE of EnsoRouter for this chain (contractAddress lowercase; the file also prints this EIP-55 form). docs.enso.build/pages/build/reference/deployments (webfetch) lists the same Router V2 for Ethereum, Optimism, Base and Arbitrum"
+        },
+        {
+          "chainId": 42161,
+          "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+          "name": "EnsoRouter",
+          "label": "Enso Router V2",
+          "role": "Entry point for Enso swaps, zaps and shortcuts sent from EOAs",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/EnsoBuild/shortcuts-client-contracts/788b5741835e10ab6befeefdd943970141337166/broadcast/EnsoRouterDeployer.s.sol/42161/run-latest.json",
+          "sourceKind": "raw",
+          "sourceNote": "run-latest.json CREATE of EnsoRouter for this chain (contractAddress lowercase; the file also prints this EIP-55 form). docs.enso.build/pages/build/reference/deployments (webfetch) lists the same Router V2 for Ethereum, Optimism, Base and Arbitrum"
+        },
+        {
+          "chainId": 10,
+          "address": "0xF75584eF6673aD213a685a1B58Cc0330B8eA22Cf",
+          "name": "EnsoRouter",
+          "label": "Enso Router V2",
+          "role": "Entry point for Enso swaps, zaps and shortcuts sent from EOAs",
+          "version": "v2",
+          "source": "https://raw.githubusercontent.com/EnsoBuild/shortcuts-client-contracts/788b5741835e10ab6befeefdd943970141337166/broadcast/EnsoRouterDeployer.s.sol/10/run-latest.json",
+          "sourceKind": "raw",
+          "sourceNote": "run-latest.json CREATE of EnsoRouter for this chain (contractAddress lowercase; the file also prints this EIP-55 form). docs.enso.build/pages/build/reference/deployments (webfetch) lists the same Router V2 for Ethereum, Optimism, Base and Arbitrum"
+        }
+      ]
+    }
+  ]
+}

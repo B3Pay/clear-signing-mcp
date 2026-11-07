@@ -1,0 +1,44 @@
+{
+  "abi": {
+    "address": "0x0f542fA75c871EB1b93Ef881b73e46acF733392f",
+    "functions": 7,
+    "name": "Router",
+    "source": "blockscout"
+  },
+  "address": "0x0f542fA75c871EB1b93Ef881b73e46acF733392f",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "Router",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 2499,
+  "fetchedAt": "2026-11-06T22:51:11.133Z",
+  "format": 2,
+  "sample": {
+    "count": 473,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 1,
+    "last30Days": 473,
+    "newest": 1794000647,
+    "oldest": 1791414983,
+    "perDay": 15.766666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x44471415": 473
+    },
+    "senders": 247,
+    "sendersBySelector": {
+      "0x44471415": 247
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

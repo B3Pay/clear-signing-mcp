@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+    "functions": 6,
+    "name": "NativeOrderFactory",
+    "source": "sourcify"
+  },
+  "address": "0xe12E0f117d23a5ccc57f8935CD8c4E80cD91FF01",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 2675,
+  "fetchedAt": "2026-11-06T23:31:02.022Z",
+  "format": 2,
+  "sample": {
+    "count": 27,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 27,
+    "newest": 1794001793,
+    "oldest": 1793918065,
+    "perDay": 27.575119979195726,
+    "requested": 1000,
+    "selectors": {
+      "0x8c72b608": 27
+    },
+    "senders": 16,
+    "sendersBySelector": {
+      "0x8c72b608": 16
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "NativeOrderFactory",
+    "status": "verified"
+  }
+}

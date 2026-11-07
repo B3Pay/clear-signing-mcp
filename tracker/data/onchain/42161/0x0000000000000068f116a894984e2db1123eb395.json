@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x0000000000000068F116a894984e2DB1123eB395",
+    "functions": 18,
+    "name": "Seaport",
+    "source": "sourcify"
+  },
+  "address": "0x0000000000000068F116a894984e2DB1123eB395",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x0000000000000068F116a894984e2DB1123eB395",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 23981,
+  "fetchedAt": "2026-11-06T21:55:51.504Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 10,
+    "last30Days": 1000,
+    "newest": 1793999727,
+    "oldest": 1793543029,
+    "perDay": 189.18409977709558,
+    "requested": 1000,
+    "selectors": {
+      "0x00000000": 491,
+      "0x5b34b966": 4,
+      "0x87201b41": 7,
+      "0x88147732": 116,
+      "0xe7acab24": 14,
+      "0xf2d12b12": 38,
+      "0xfb0f3ee1": 2,
+      "0xfd9f1e10": 328
+    },
+    "senders": 193,
+    "sendersBySelector": {
+      "0x00000000": 115,
+      "0x5b34b966": 3,
+      "0x87201b41": 6,
+      "0x88147732": 25,
+      "0xe7acab24": 11,
+      "0xf2d12b12": 19,
+      "0xfb0f3ee1": 1,
+      "0xfd9f1e10": 73
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Seaport",
+    "status": "verified"
+  }
+}

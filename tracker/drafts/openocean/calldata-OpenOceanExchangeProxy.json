@@ -1,0 +1,289 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 8453,
+          "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64"
+        },
+        {
+          "chainId": 1,
+          "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64"
+        },
+        {
+          "chainId": 42161,
+          "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64"
+        },
+        {
+          "chainId": 10,
+          "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "OpenOcean",
+    "contractName": "OpenOceanExchangeProxy",
+    "info": {
+      "url": "https://openocean.finance"
+    }
+  },
+  "display": {
+    "formats": {
+      "swap(address caller,(address srcToken,address dstToken,address srcReceiver,address dstReceiver,uint256 amount,uint256 minReturnAmount,uint256 guaranteedAmount,uint256 flags,address referrer,bytes permit) desc,(uint256 target,uint256 gasLimit,uint256 value,bytes data)[] calls)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "desc.amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "desc.guaranteedAmount",
+            "label": "Guaranteed amount",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "desc.minReturnAmount",
+            "label": "Minimum to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "desc.dstToken"
+            }
+          },
+          {
+            "path": "caller",
+            "label": "Caller",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "desc.srcToken",
+            "label": "Src token",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "desc.srcReceiver",
+            "label": "Src receiver",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "desc.dstReceiver",
+            "label": "Dst receiver",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "desc.flags",
+            "label": "Flags",
+            "format": "raw"
+          },
+          {
+            "path": "desc.referrer",
+            "label": "Referrer",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "desc.permit",
+            "label": "Permit",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].target",
+            "label": "Target",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].gasLimit",
+            "label": "Gas limit",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].data",
+            "label": "Data",
+            "format": "raw"
+          },
+          {
+            "path": "desc.dstToken",
+            "label": "Dst token",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap for at least {desc.minReturnAmount}"
+      },
+      "simpleSwap(address caller,(address srcToken,address dstToken,address srcReceiver,address dstReceiver,uint256 amount,uint256 minReturnAmount,uint256 flags,address referrer,bytes permit) desc,(uint256 target,uint256 gasLimit,uint256 value,bytes data)[] calls)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "desc.amount",
+            "label": "Amount",
+            "format": "raw"
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "calls.[].value",
+            "label": "Value",
+            "format": "raw"
+          },
+          {
+            "path": "desc.minReturnAmount",
+            "label": "Minimum to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "desc.dstToken"
+            }
+          },
+          {
+            "path": "caller",
+            "label": "Caller",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "desc.srcToken",
+            "label": "Src token",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "desc.srcReceiver",
+            "label": "Src receiver",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "desc.dstReceiver",
+            "label": "Dst receiver",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "desc.flags",
+            "label": "Flags",
+            "format": "raw"
+          },
+          {
+            "path": "desc.referrer",
+            "label": "Referrer",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "desc.permit",
+            "label": "Permit",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].target",
+            "label": "Target",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].gasLimit",
+            "label": "Gas limit",
+            "format": "raw"
+          },
+          {
+            "path": "calls.[].data",
+            "label": "Data",
+            "format": "raw"
+          },
+          {
+            "path": "desc.dstToken",
+            "label": "Dst token",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap for at least {desc.minReturnAmount}"
+      }
+    }
+  }
+}

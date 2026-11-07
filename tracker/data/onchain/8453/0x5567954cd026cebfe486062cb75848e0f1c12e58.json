@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+    "functions": 19,
+    "name": "RelayApprovalProxy",
+    "source": "sourcify"
+  },
+  "address": "0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x5567954cD026CEbFE486062cb75848e0f1c12E58",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 13884,
+  "fetchedAt": "2026-11-06T20:35:01.891Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 10,
+    "last30Days": 1000,
+    "newest": 1793994411,
+    "oldest": 1793976357,
+    "perDay": 4785.643070787637,
+    "requested": 1000,
+    "selectors": {
+      "0x0a2b8f36": 378,
+      "0x745599f3": 7,
+      "0xf9e4bab4": 615
+    },
+    "senders": 539,
+    "sendersBySelector": {
+      "0x0a2b8f36": 41,
+      "0x745599f3": 1,
+      "0xf9e4bab4": 498
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RelayApprovalProxy",
+    "status": "verified"
+  }
+}

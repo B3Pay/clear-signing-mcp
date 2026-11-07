@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0xD152f549545093347A162Dce210e7293f1452150",
+    "functions": 3,
+    "name": "Disperse",
+    "source": "sourcify"
+  },
+  "address": "0xD152f549545093347A162Dce210e7293f1452150",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xD152f549545093347A162Dce210e7293f1452150",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 1780,
+  "fetchedAt": "2026-11-06T21:55:52.145Z",
+  "format": 2,
+  "sample": {
+    "count": 514,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 472,
+    "newest": 1793995597,
+    "oldest": 1791098370,
+    "perDay": 15.733333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x51ba162c": 15,
+      "0xc73a2d60": 15,
+      "0xe63d38ed": 484
+    },
+    "senders": 181,
+    "sendersBySelector": {
+      "0x51ba162c": 7,
+      "0xc73a2d60": 6,
+      "0xe63d38ed": 170
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Disperse",
+    "status": "verified"
+  }
+}

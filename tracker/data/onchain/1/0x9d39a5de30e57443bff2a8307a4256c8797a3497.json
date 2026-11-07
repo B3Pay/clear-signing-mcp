@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+    "functions": 57,
+    "name": "StakedUSDeV2",
+    "source": "sourcify"
+  },
+  "address": "0x9D39A5DE30e57443BfF2A8307A4256c8797A3497",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 17299,
+  "fetchedAt": "2026-11-06T22:50:08.960Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 6,
+    "last30Days": 1000,
+    "newest": 1794000299,
+    "oldest": 1792997795,
+    "perDay": 86.1841947762802,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 426,
+      "0x6e553f65": 92,
+      "0x9343d9e1": 212,
+      "0xa9059cbb": 77,
+      "0xd505accf": 1,
+      "0xf2888dbb": 190,
+      "0xf298f42c": 2
+    },
+    "senders": 535,
+    "sendersBySelector": {
+      "0x095ea7b3": 278,
+      "0x6e553f65": 65,
+      "0x9343d9e1": 149,
+      "0xa9059cbb": 50,
+      "0xd505accf": 1,
+      "0xf2888dbb": 139,
+      "0xf298f42c": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "StakedUSDeV2",
+    "status": "verified"
+  }
+}

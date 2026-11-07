@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x32226588378236Fd0c7c4053999F88aC0e5cAc77",
+    "functions": 47,
+    "name": "SmartRouter",
+    "source": "sourcify"
+  },
+  "address": "0x32226588378236Fd0c7c4053999F88aC0e5cAc77",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x32226588378236Fd0c7c4053999F88aC0e5cAc77",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 24316,
+  "fetchedAt": "2026-11-06T21:55:49.159Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 57,
+    "last30Days": 1000,
+    "newest": 1793943939,
+    "oldest": 1791820419,
+    "perDay": 40.6871609403255,
+    "requested": 1000,
+    "selectors": {
+      "0x04e45aaf": 77,
+      "0x5ae401dc": 253,
+      "0xac9650d8": 116,
+      "0xb4554231": 2,
+      "0xb858183f": 552
+    },
+    "senders": 64,
+    "sendersBySelector": {
+      "0x04e45aaf": 7,
+      "0x5ae401dc": 7,
+      "0xac9650d8": 28,
+      "0xb4554231": 1,
+      "0xb858183f": 22
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "SmartRouter",
+    "status": "verified"
+  }
+}

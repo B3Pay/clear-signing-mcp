@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xf49F7bB6F4F50d272A0914a671895c4384696E5A",
+    "functions": 10,
+    "name": "BeefyZapRouter",
+    "source": "sourcify"
+  },
+  "address": "0xf49F7bB6F4F50d272A0914a671895c4384696E5A",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xf49F7bB6F4F50d272A0914a671895c4384696E5A",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 10660,
+  "fetchedAt": "2026-11-06T21:55:52.504Z",
+  "format": 2,
+  "sample": {
+    "count": 884,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 61,
+    "last30Days": 773,
+    "newest": 1793989405,
+    "oldest": 1791096522,
+    "perDay": 25.766666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0xf41b2db6": 884
+    },
+    "senders": 389,
+    "sendersBySelector": {
+      "0xf41b2db6": 389
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "BeefyZapRouter",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0x7Db629f6Acc20Be49a0A7565c21CC178E9Ac21e3",
+    "functions": 36,
+    "name": "MessageTransmitterV2",
+    "source": "sourcify"
+  },
+  "address": "0x81D40F21F12A8F0E3252Bccb954D722d4c464B64",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 2175,
+  "fetchedAt": "2026-11-06T23:31:02.948Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 1,
+    "last30Days": 1000,
+    "newest": 1794002478,
+    "oldest": 1793966358,
+    "perDay": 2392.0265780730897,
+    "requested": 1000,
+    "selectors": {
+      "0x57ecfd28": 1000
+    },
+    "senders": 135,
+    "sendersBySelector": {
+      "0x57ecfd28": 135
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AdminUpgradableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x7Db629f6Acc20Be49a0A7565c21CC178E9Ac21e3",
+          "name": "MessageTransmitterV2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

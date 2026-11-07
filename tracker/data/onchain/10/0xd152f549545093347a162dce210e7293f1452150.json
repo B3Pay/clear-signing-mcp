@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0xD152f549545093347A162Dce210e7293f1452150",
+    "functions": 3,
+    "name": "Disperse",
+    "source": "sourcify"
+  },
+  "address": "0xD152f549545093347A162Dce210e7293f1452150",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 1780,
+  "fetchedAt": "2026-11-06T23:30:55.223Z",
+  "format": 2,
+  "sample": {
+    "count": 17,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 17,
+    "newest": 1793992025,
+    "oldest": 1793357509,
+    "perDay": 2.23971405829234,
+    "requested": 1000,
+    "selectors": {
+      "0x51ba162c": 1,
+      "0xe63d38ed": 16
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0x51ba162c": 1,
+      "0xe63d38ed": 3
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Disperse",
+    "status": "verified"
+  }
+}

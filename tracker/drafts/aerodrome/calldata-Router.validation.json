@@ -1,0 +1,102 @@
+{
+  "descriptor": "calldata-Router.json",
+  "tests": "testsv2/calldata-Router.tests.json",
+  "descriptorSha256": "60a05af1baa0b25ddcf908fbeb323be5dfa1ee57afee701d11c3238867dfa427",
+  "testsSha256": "291a1873b1347a33dbc5a64a89dcd4de293c8e4e024a3eae1e818182fa8d2a1b",
+  "registry": {
+    "commit": "ef582c2f03bfbd062b7e3889b55dd3b45c3d5494",
+    "displaced": []
+  },
+  "tools": {
+    "runner": "https://github.com/sourcifyeth/clear-signing-test-runner.git@277965de0599977e227f0d5e9e0e66e7690ea392",
+    "erc7730": "1.0.12.dev36+gccd51ad",
+    "chainList": {
+      "source": "chains_mini.json",
+      "sha256": "bdbf26a2b30bf7315af3b85711367d90a5d997197e1e7e980f1c32423d34f491"
+    }
+  },
+  "checks": {
+    "schema": {
+      "status": "pass",
+      "messages": [
+        "ok -- validation done",
+        "ok -- validation done"
+      ]
+    },
+    "lint": {
+      "status": "warnings",
+      "messages": [
+        "warning: Display intent too long: Display intent(s) `Swap for at least {amountOutMin}` exceed 30 characters and may be truncated on Ledger devices.",
+        "warning: Missing display field: No display field is defined for path `#.routes.[]` in function 0x12bc3aca (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43).",
+        "warning: Missing display field: No display field is defined for path `#.routes.[]` in function 0x3da5acba (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43).",
+        "warning: Missing display field: No display field is defined for path `#.routes.[]` in function 0x88cd821e (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43).",
+        "warning: Missing display field: No display field is defined for path `#.routes.[]` in function 0x903638a4 (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43).",
+        "warning: Missing display field: No display field is defined for path `#.routes.[]` in function 0xc6b7f1b6 (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43).",
+        "warning: Missing display field: No display field is defined for path `#.routes.[]` in function 0xcac88ea9 (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43).",
+        "warning: Missing display format: Function UNSAFE_swapExactTokensForTokens(uint256[],(address,address,bool,address)[],address,uint256) (selector: 0x4111d597) exists in reference ABI (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function addLiquidity(address,address,bool,uint256,uint256,uint256,uint256,address,uint256) (selector: 0x5a47ddc3) exists in reference ABI (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function addLiquidityETH(address,bool,uint256,uint256,uint256,address,uint256) (selector: 0xb7e0d4c0) exists in reference ABI (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function removeLiquidity(address,address,bool,uint256,uint256,uint256,address,uint256) (selector: 0x0dede6c4) exists in reference ABI (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function removeLiquidityETH(address,bool,uint256,uint256,uint256,address,uint256) (selector: 0xd7b0e0a5) exists in reference ABI (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function removeLiquidityETHSupportingFeeOnTransferTokens(address,bool,uint256,uint256,uint256,address,uint256) (selector: 0xfe411f14) exists in reference ABI (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function zapIn(address,uint256,uint256,(address,address,bool,address,uint256,uint256,uint256,uint256),(address,address,bool,address)[],(address,address,bool,address)[],address,bool) (selector: 0xfb49bafd) exists in reference ABI (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43) but has no display format defined in the descriptor.",
+        "warning: Missing display format: Function zapOut(address,uint256,(address,address,bool,address,uint256,uint256,uint256,uint256),(address,address,bool,address)[],(address,address,bool,address)[]) (selector: 0xa81b9159) exists in reference ABI (see https://repo.sourcify.dev/8453/0xcf77a3ba9a5ca399b7c97c74d54e5b1beb874e43) but has no display format defined in the descriptor.",
+        "warning: Owner too long: Owner `Aerodrome (legacy, now Aero)` exceeds 22 characters and may be truncated on Ledger devices."
+      ]
+    },
+    "selectorCoverage": {
+      "status": "pass",
+      "messages": [
+        "✅ registry/aerodrome/calldata-Router.json",
+        "0 of 1 descriptor(s) failed the check."
+      ]
+    },
+    "recommendedFields": {
+      "status": "suggestions",
+      "messages": [
+        "no-interpolated-intent: swapExactTokensForTokens(uint256 amountIn,uint256 amountOutMin,(address from,address to,bool stable,address factory)[] routes,address to,uint256 deadline): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads.",
+        "no-interpolated-intent: swapExactTokensForTokensSupportingFeeOnTransferTokens(uint256 amountIn,uint256 amountOutMin,(address from,address to,bool stable,address factory)[] routes,address to,uint256 deadline): The format has no interpolatedIntent. A wallet prefers it over intent, because it puts the values of the transaction in the sentence that the signer reads."
+      ]
+    },
+    "tests": {
+      "status": "pass",
+      "passed": 6,
+      "cases": [
+        {
+          "description": "swapExactTokensForTokens 0xcac88ea9 0xa93bb494",
+          "status": "pass"
+        },
+        {
+          "description": "swapExactTokensForETHSupportingFeeOnTransferTokens 0x12bc3aca 0xebb4f2ab",
+          "status": "pass"
+        },
+        {
+          "description": "swapExactETHForTokensSupportingFeeOnTransferTokens 0x3da5acba 0x5ee29a92",
+          "status": "pass"
+        },
+        {
+          "description": "swapExactETHForTokens 0x903638a4 0xc45e7897",
+          "status": "pass"
+        },
+        {
+          "description": "swapExactTokensForETH 0xc6b7f1b6 0xe0dd90ff",
+          "status": "pass"
+        },
+        {
+          "description": "swapExactTokensForTokensSupportingFeeOnTransferTokens 0x88cd821e 0xde66b379",
+          "status": "pass"
+        }
+      ],
+      "messages": [
+        "[pass] swapExactTokensForTokens 0xcac88ea9 0xa93bb494",
+        "[pass] swapExactTokensForETHSupportingFeeOnTransferTokens 0x12bc3aca 0xebb4f2ab",
+        "[pass] swapExactETHForTokensSupportingFeeOnTransferTokens 0x3da5acba 0x5ee29a92",
+        "[pass] swapExactETHForTokens 0x903638a4 0xc45e7897",
+        "[pass] swapExactTokensForETH 0xc6b7f1b6 0xe0dd90ff",
+        "[pass] swapExactTokensForTokensSupportingFeeOnTransferTokens 0x88cd821e 0xde66b379",
+        "done: 6 pass, 0 fail, 0 error, 0 skipped"
+      ]
+    }
+  },
+  "passed": true
+}

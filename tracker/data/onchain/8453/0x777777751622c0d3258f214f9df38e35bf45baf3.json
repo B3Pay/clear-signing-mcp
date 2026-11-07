@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0xbbAe128a65239c3328fAa0c70B8D5F9C961a8038",
+    "functions": 31,
+    "name": "ZoraFactoryImpl",
+    "source": "sourcify"
+  },
+  "address": "0x777777751622c0d3258f214F9DF38E35BF45baF3",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 130,
+  "fetchedAt": "2026-11-06T23:32:18.750Z",
+  "format": 2,
+  "sample": {
+    "count": 74,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 74,
+    "newest": 1794002061,
+    "oldest": 1793927242,
+    "perDay": 75.5762547577957,
+    "requested": 1000,
+    "selectors": {
+      "0xa423ada1": 74
+    },
+    "senders": 28,
+    "sendersBySelector": {
+      "0xa423ada1": 28
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ZoraFactory",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xbbAe128a65239c3328fAa0c70B8D5F9C961a8038",
+          "name": "ZoraFactoryImpl"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

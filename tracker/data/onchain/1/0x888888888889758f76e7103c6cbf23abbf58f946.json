@@ -1,0 +1,81 @@
+{
+  "abi": {
+    "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+    "functions": 0,
+    "name": "PendleRouterV4",
+    "source": "sourcify"
+  },
+  "address": "0x888888888889758F76e7103c6CbF23ABbF58F946",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 287,
+  "fetchedAt": "2026-11-06T22:50:16.364Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 7,
+    "last30Days": 1000,
+    "newest": 1794001883,
+    "oldest": 1793887199,
+    "perDay": 753.3744899026891,
+    "requested": 1000,
+    "selectors": {
+      "0x05eb5327": 38,
+      "0x0741a803": 14,
+      "0x12599ac6": 22,
+      "0x1a8631b2": 1,
+      "0x339748cb": 1,
+      "0x339a5572": 3,
+      "0x3dbe1c55": 7,
+      "0x47f1de22": 128,
+      "0x594a88cc": 35,
+      "0x60da0860": 4,
+      "0x60fc8466": 209,
+      "0x7036e052": 1,
+      "0x97ee279e": 4,
+      "0x9fa02c86": 58,
+      "0xa373cf1a": 103,
+      "0xa89eba4a": 1,
+      "0xb00f09d7": 2,
+      "0xb7d75b8b": 2,
+      "0xc81f847a": 58,
+      "0xd0f42385": 20,
+      "0xed48907e": 212,
+      "0xf06a07a0": 77
+    },
+    "senders": 546,
+    "sendersBySelector": {
+      "0x05eb5327": 29,
+      "0x0741a803": 12,
+      "0x12599ac6": 16,
+      "0x1a8631b2": 1,
+      "0x339748cb": 1,
+      "0x339a5572": 3,
+      "0x3dbe1c55": 7,
+      "0x47f1de22": 14,
+      "0x594a88cc": 24,
+      "0x60da0860": 3,
+      "0x60fc8466": 177,
+      "0x7036e052": 1,
+      "0x97ee279e": 1,
+      "0x9fa02c86": 49,
+      "0xa373cf1a": 60,
+      "0xa89eba4a": 1,
+      "0xb00f09d7": 1,
+      "0xb7d75b8b": 2,
+      "0xc81f847a": 41,
+      "0xd0f42385": 14,
+      "0xed48907e": 172,
+      "0xf06a07a0": 61
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PendleRouterV4",
+    "status": "verified"
+  }
+}

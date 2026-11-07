@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0xCe6Ced23118EDEb23054E06118a702797b13fc2F",
+    "functions": 18,
+    "name": "UmbrellaBatchHelper",
+    "source": "sourcify"
+  },
+  "address": "0xCe6Ced23118EDEb23054E06118a702797b13fc2F",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 8381,
+  "fetchedAt": "2026-11-06T22:50:07.268Z",
+  "format": 2,
+  "sample": {
+    "count": 612,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 8,
+    "last30Days": 611,
+    "newest": 1793990123,
+    "oldest": 1791403343,
+    "perDay": 20.366666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x0f198b30": 147,
+      "0x38957dd9": 258,
+      "0xac9650d8": 207
+    },
+    "senders": 381,
+    "sendersBySelector": {
+      "0x0f198b30": 82,
+      "0x38957dd9": 224,
+      "0xac9650d8": 121
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "UmbrellaBatchHelper",
+    "status": "verified"
+  }
+}

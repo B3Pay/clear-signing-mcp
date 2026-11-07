@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x100dAa78fC509Db39Ef7D04DE0c1ABD299f4C6CE",
+    "functions": 52,
+    "name": "crvUSDController",
+    "source": "sourcify"
+  },
+  "address": "0x100dAa78fC509Db39Ef7D04DE0c1ABD299f4C6CE",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 23473,
+  "fetchedAt": "2026-11-06T22:50:08.331Z",
+  "format": 2,
+  "sample": {
+    "count": 259,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 1,
+    "last30Days": 258,
+    "newest": 1793986367,
+    "oldest": 1791401639,
+    "perDay": 8.6,
+    "requested": 1000,
+    "selectors": {
+      "0x152f65cb": 9,
+      "0x23cfed03": 8,
+      "0x24049e57": 62,
+      "0x2e4af52a": 32,
+      "0x37671f93": 75,
+      "0xdd171e7c": 73
+    },
+    "senders": 39,
+    "sendersBySelector": {
+      "0x152f65cb": 2,
+      "0x23cfed03": 8,
+      "0x24049e57": 11,
+      "0x2e4af52a": 6,
+      "0x37671f93": 24,
+      "0xdd171e7c": 13
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "crvUSDController",
+    "status": "verified"
+  }
+}

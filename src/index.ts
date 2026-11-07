@@ -69,4 +69,21 @@ export {
   DATA_NOTE,
 } from "./render.js"
 export { cleanText, cleanDeep, quote, isUnsafeCodePoint } from "./text.js"
+export {
+  draftDescriptor,
+  type DraftInput,
+  type DraftResult,
+  type DraftSample,
+  type DraftToken,
+  type DraftChain,
+  type DraftRegistry,
+  type DraftDescriptor,
+  type DraftTests,
+  type DraftTestCase,
+  type DescriptorFormat,
+  type DescriptorField,
+  type FieldFormat,
+  type RenderedDisplay,
+  type RenderedField,
+} from "./draft/index.js"
 export { VERSION } from "./version.js"

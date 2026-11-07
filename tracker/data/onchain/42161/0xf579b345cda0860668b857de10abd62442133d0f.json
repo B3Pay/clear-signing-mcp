@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+    "functions": 16,
+    "name": "BorrowPositionRouter",
+    "source": "sourcify"
+  },
+  "address": "0xF579b345cdA0860668b857De10ABD62442133D0F",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0xF579b345cdA0860668b857De10ABD62442133D0F",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2976,
+  "fetchedAt": "2026-11-06T21:55:51.232Z",
+  "format": 2,
+  "sample": {
+    "count": 1,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": 1791301239,
+    "oldest": 1791301239,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {
+      "0xfcc27971": 1
+    },
+    "senders": 1,
+    "sendersBySelector": {
+      "0xfcc27971": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RouterProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+          "name": "BorrowPositionRouter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+    "functions": 16,
+    "name": "BorrowPositionRouter",
+    "source": "sourcify"
+  },
+  "address": "0xF579b345cdA0860668b857De10ABD62442133D0F",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2976,
+  "fetchedAt": "2026-11-06T22:50:08.427Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RouterProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xC3e038F87DBe4f74a8a1f3B3d21F6b3be0708B7F",
+          "name": "BorrowPositionRouter"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

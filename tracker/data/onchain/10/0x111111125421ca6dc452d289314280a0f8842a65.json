@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+    "functions": 50,
+    "name": "AggregationRouterV6",
+    "source": "sourcify"
+  },
+  "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "AggregationRouterV6",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 24151,
+  "fetchedAt": "2026-11-06T20:02:09.107Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 14,
+    "last30Days": 1000,
+    "newest": 1793993235,
+    "oldest": 1793311719,
+    "perDay": 126.77618720616978,
+    "requested": 1000,
+    "selectors": {
+      "0x07ed2379": 932,
+      "0x5816d723": 1,
+      "0x83800a8e": 4,
+      "0x89e7c650": 8,
+      "0xb68fb020": 47,
+      "0xc3cf8043": 8
+    },
+    "senders": 552,
+    "sendersBySelector": {
+      "0x07ed2379": 527,
+      "0x5816d723": 1,
+      "0x83800a8e": 4,
+      "0x89e7c650": 6,
+      "0xb68fb020": 19,
+      "0xc3cf8043": 6
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AggregationRouterV6",
+    "status": "verified"
+  }
+}

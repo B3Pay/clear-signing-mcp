@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0x7C67cb4345F66Ba2acB1c0EC0F219A060131FE02",
+    "functions": 24,
+    "name": "SolvBTCRouterV2",
+    "source": "sourcify"
+  },
+  "address": "0x92E8A4407FD1ae7a53a32f1f832184edF071080A",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x92E8A4407FD1ae7a53a32f1f832184edF071080A",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T21:55:52.786Z",
+  "format": 2,
+  "sample": {
+    "count": 3,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 3,
+    "newest": 1791970091,
+    "oldest": 1791525856,
+    "perDay": 0.1,
+    "requested": 1000,
+    "selectors": {
+      "0xd2cfd97d": 3
+    },
+    "senders": 3,
+    "sendersBySelector": {
+      "0xd2cfd97d": 3
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x7C67cb4345F66Ba2acB1c0EC0F219A060131FE02",
+          "name": "SolvBTCRouterV2"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

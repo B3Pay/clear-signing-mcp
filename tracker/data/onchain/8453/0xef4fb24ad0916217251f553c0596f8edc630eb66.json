@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0x2b426a0Ac391490e88d15B304436e7a84Df78611",
+    "functions": 55,
+    "name": "DlnSource",
+    "source": "sourcify"
+  },
+  "address": "0xeF4fB24aD0916217251F553c0596F8Edc630EB66",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 2112,
+  "fetchedAt": "2026-11-06T23:31:03.119Z",
+  "format": 2,
+  "sample": {
+    "count": 46,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 1,
+    "last30Days": 46,
+    "newest": 1794001913,
+    "oldest": 1793919509,
+    "perDay": 46.979834038629754,
+    "requested": 1000,
+    "selectors": {
+      "0xb9303701": 46
+    },
+    "senders": 42,
+    "sendersBySelector": {
+      "0xb9303701": 42
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x2b426a0Ac391490e88d15B304436e7a84Df78611",
+          "name": "DlnSource"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

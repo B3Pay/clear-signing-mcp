@@ -1,0 +1,407 @@
+{
+  "0x01bff41798a0bcf287b996046ca68b395dbc1071": {
+    "decimals": 6,
+    "name": "USD₮0",
+    "symbol": "USD₮0"
+  },
+  "0x03569cc076654f82679c4ba2124d64774781b01d": {
+    "decimals": 18,
+    "name": "BOLD Stablecoin",
+    "symbol": "BOLD"
+  },
+  "0x03771e24b7c9172d163bf447490b142a15be3485": {
+    "decimals": 18,
+    "name": "crvUSD/USDC",
+    "symbol": "crvUSDC"
+  },
+  "0x05fa06d4fb883f67f1cfea0889edbff9e8358101": {
+    "decimals": 18,
+    "name": "crvUSD/USDC.e",
+    "symbol": "crvUSDC.e"
+  },
+  "0x0994206dfe8de6ec6920ff4d779b0d950605fb53": {
+    "decimals": 18,
+    "name": "Curve DAO Token",
+    "symbol": "CRV"
+  },
+  "0x0b2c639c533813f4aa9d7837caf62653d097ff85": {
+    "decimals": 6,
+    "name": "USD Coin",
+    "symbol": "USDC"
+  },
+  "0x10398abc267496e49106b07dd6be13364d10dc71": {
+    "decimals": 18,
+    "name": "HAI Index Token",
+    "symbol": "HAI"
+  },
+  "0x1509706a6c66ca549ff0cb464de88231ddbe213b": {
+    "decimals": 18,
+    "name": "Aura",
+    "symbol": "AURA"
+  },
+  "0x1610e3c85dd44af31ed7f33a63642012dca0c5a5": {
+    "decimals": 18,
+    "name": "Metronome Synth ETH",
+    "symbol": "msETH"
+  },
+  "0x1e925de1c68ef83bd98ee3e130ef14a50309c01b": {
+    "decimals": 18,
+    "name": "exactly",
+    "symbol": "EXA"
+  },
+  "0x1f32b1c2345538c0c6f582fcb022739c4a194ebb": {
+    "decimals": 18,
+    "name": "Wrapped liquid staked Ether 2.0",
+    "symbol": "wstETH"
+  },
+  "0x221866774f8d08df45da02ed8c628985d38d6145": {
+    "decimals": 18,
+    "name": "Unified Stable Gold",
+    "symbol": "USG"
+  },
+  "0x259c1c2ed264402b5ed2f02bc7dc25a15c680c18": {
+    "decimals": 18,
+    "name": "OneRing",
+    "symbol": "RING"
+  },
+  "0x2a0e0e256425bc5152ed19949c2ee740aea2f672": {
+    "decimals": 18,
+    "name": "SushiSwap LP Token",
+    "symbol": "SLP"
+  },
+  "0x2dd1b4d4548accea497050619965f91f78b3b532": {
+    "decimals": 18,
+    "name": "Staked FRAX",
+    "symbol": "sFRAX"
+  },
+  "0x2e44e174f7d53f0212823acc11c01a11d58c5bcb": {
+    "decimals": 6,
+    "name": "Compound USDC",
+    "symbol": "cUSDCv3"
+  },
+  "0x350a791bfc2c21f9ed5d10980dad2e2638ffa7f6": {
+    "decimals": 18,
+    "name": "ChainLink Token",
+    "symbol": "LINK"
+  },
+  "0x35e90f991fa9f664661cb207493b9a6cb1bed9a3": {
+    "decimals": 18,
+    "name": "Moo Beefy Aero Optimism USDC-OP",
+    "symbol": "mooBeefyAeroOptimismUSDC-OP"
+  },
+  "0x3d63934715b6d4c4dfbbc1a00fe2a2145079dd76": {
+    "decimals": 18,
+    "name": "Re7 WETH",
+    "symbol": "Re7WETH"
+  },
+  "0x3e29d3a9316dab217754d13b28646b76607c5f04": {
+    "decimals": 18,
+    "name": "Alchemix ETH",
+    "symbol": "alETH"
+  },
+  "0x3e7ef8f50246f725885102e8238cbba33f276747": {
+    "decimals": 18,
+    "name": "BarnBridge Governance Token (Optimism)",
+    "symbol": "BOND"
+  },
+  "0x4200000000000000000000000000000000000006": {
+    "decimals": 18,
+    "name": "Wrapped Ether",
+    "symbol": "WETH"
+  },
+  "0x4200000000000000000000000000000000000042": {
+    "decimals": 18,
+    "name": "Optimism",
+    "symbol": "OP"
+  },
+  "0x42db77b3103c71059f4b997d6441cfb299fd0d94": {
+    "decimals": 18,
+    "name": "WETH v3",
+    "symbol": "dWETHV3"
+  },
+  "0x484c2d6e3cdd945a8b2df735e079178c1036578c": {
+    "decimals": 18,
+    "name": "Staked Frax Ether",
+    "symbol": "sfrxETH"
+  },
+  "0x49e75c0df48ad09a0e20e8bbded07ee60dd8bc03": {
+    "decimals": 18,
+    "name": "The Triplet Encore",
+    "symbol": "ss-sfrxETH-rETH-wstETH"
+  },
+  "0x4f13a96ec5c4cf34e442b46bbd98a0791f20edc3": {
+    "decimals": 18,
+    "name": "USDS Stablecoin",
+    "symbol": "USDS"
+  },
+  "0x4f604735c1cf31399c6e711d5962b2b3e0225ad3": {
+    "decimals": 18,
+    "name": "Glo Dollar",
+    "symbol": "USDGLO"
+  },
+  "0x528cdc92eab044e1e39fe43b9514bfdab4412b98": {
+    "decimals": 18,
+    "name": "Giveth Token",
+    "symbol": "GIV"
+  },
+  "0x57385c4b9da3a4b18bfebf87a018a68960252cdb": {
+    "decimals": 18,
+    "name": "Reward Cow Aero Optimism USDC-OP",
+    "symbol": "rcowAeroOptimismUSDC-OP"
+  },
+  "0x57d00d036485b5fee6a58c8763bdc358906e6d19": {
+    "decimals": 18,
+    "name": "Moo VeloV2 mooBIFI-ETH",
+    "symbol": "mooVeloV2mooBIFI-ETH"
+  },
+  "0x65559aa14915a70190438ef90104769e5e890a00": {
+    "decimals": 18,
+    "name": "Ethereum Name Service",
+    "symbol": "ENS"
+  },
+  "0x68f180fcce6836688e9084f035309e29bf0a2095": {
+    "decimals": 8,
+    "name": "Wrapped BTC",
+    "symbol": "WBTC"
+  },
+  "0x6985884c4392d348587b19cb9eaaf157f13271cd": {
+    "decimals": 18,
+    "name": "LayerZero",
+    "symbol": "ZRO"
+  },
+  "0x6ed6df1c23c51cb7cc67a348cc8d9e6108ea3bfe": {
+    "decimals": 18,
+    "name": "VolatileV2 AMM - WETH/mooBIFI",
+    "symbol": "vAMMV2-WETH/mooBIFI"
+  },
+  "0x749d8cc1ff63cb92cc6dd64380d68ecb72b9993f": {
+    "decimals": 18,
+    "name": "AntHive",
+    "symbol": "ANTH"
+  },
+  "0x74ccbe53f77b08632ce0cb91d3a545bf6b8e0979": {
+    "decimals": 18,
+    "name": "Fantom Bomb",
+    "symbol": "fBOMB"
+  },
+  "0x75b74fdac409409ac40cbcb67ae80f7f10c24c2f": {
+    "decimals": 18,
+    "name": "Cow Aero Optimism USDC-OP",
+    "symbol": "cowAeroOptimismUSDC-OP"
+  },
+  "0x76a50b8c7349ccddb7578c6627e79b5d99d24138": {
+    "decimals": 18,
+    "name": "Liquid staked Ether 2.0",
+    "symbol": "stETH"
+  },
+  "0x76fb31fb4af56892a25e32cfc43de717950c9278": {
+    "decimals": 18,
+    "name": "Aave Token",
+    "symbol": "AAVE"
+  },
+  "0x7e7d4467112689329f7e06571ed0e8cbad4910ee": {
+    "decimals": 18,
+    "name": "Compound",
+    "symbol": "COMP"
+  },
+  "0x7f5c764cbc14f9669b88837ca1490cca17c31607": {
+    "decimals": 6,
+    "name": "USD Coin",
+    "symbol": "USDC"
+  },
+  "0x8295a719839ba94ca1143862fa32203f936e886d": {
+    "decimals": 18,
+    "name": "Moo Aero V2 OP WETH-mooBIFI",
+    "symbol": "mooAeroV2OPWETH-mooBIFI"
+  },
+  "0x8700daec35af8ff88c16bdf0418774cb3d7599b4": {
+    "decimals": 18,
+    "name": "Synthetix Network Token",
+    "symbol": "SNX"
+  },
+  "0x870c0af8a1af0b58b4b0bd31ce4fe72864ae45be": {
+    "decimals": 18,
+    "name": "Balancer rETH-Aave wETH",
+    "symbol": "Balancer rETH-Aave wETH"
+  },
+  "0x8b21e9b7daf2c4325bf3d18c1beb79a347fe902a": {
+    "decimals": 18,
+    "name": "Collab.Land",
+    "symbol": "COLLAB"
+  },
+  "0x8c6f28f2f1a3c87f0f938b96d27520d9751ec8d9": {
+    "decimals": 18,
+    "name": "Synth sUSD (retired)",
+    "symbol": "sUSD"
+  },
+  "0x8e08617b0d66359d73aa11e11017834c29155525": {
+    "decimals": 8,
+    "name": "Moonwell USDC",
+    "symbol": "mUSDC"
+  },
+  "0x9485aca5bbbe1667ad97c7fe7c4531a624c8b1ed": {
+    "decimals": 18,
+    "name": "EURA (previously agEUR)",
+    "symbol": "EURA"
+  },
+  "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58": {
+    "decimals": 6,
+    "name": "Tether USD",
+    "symbol": "USDT"
+  },
+  "0x9560e827af36c94d2ac33a39bce1fe78631088db": {
+    "decimals": 18,
+    "name": "VelodromeV2",
+    "symbol": "VELO"
+  },
+  "0x995e394b8b2437ac8ce61ee0bc610d617962b214": {
+    "decimals": 6,
+    "name": "Compound USDT",
+    "symbol": "cUSDTv3"
+  },
+  "0x9a2e53158e12bc09270af10c16a466cb2b5d7836": {
+    "decimals": 18,
+    "name": "Metronome2",
+    "symbol": "MET"
+  },
+  "0x9bcef72be871e61ed4fbbc7630889bee758eb81d": {
+    "decimals": 18,
+    "name": "Rocket Pool ETH",
+    "symbol": "rETH"
+  },
+  "0xa210bb193ca352fa81fbd0e81cb800580b0762ee": {
+    "decimals": 6,
+    "name": "Main USDC v3",
+    "symbol": "dUSDCV3"
+  },
+  "0xa50b23cdfb2ec7c590e84f403256f67ce6dffb84": {
+    "decimals": 18,
+    "name": "BLUE",
+    "symbol": "BLU"
+  },
+  "0xaaa687e218f9b53183a6aa9639fbd9d6e69ecb73": {
+    "decimals": 18,
+    "name": "rsETH",
+    "symbol": "rsETH"
+  },
+  "0xaf9fe3b5ccdae78188b1f8b9a49da7ae9510f151": {
+    "decimals": 18,
+    "name": "dHEDGE DAO Token",
+    "symbol": "DHT"
+  },
+  "0xb4104c02bbf4e9be85aaa41a62974e4e28d59a33": {
+    "decimals": 8,
+    "name": "Moonwell WETH",
+    "symbol": "mWETH"
+  },
+  "0xb5b2dc7fd34c249f4be7fb1fcea07950784229e0": {
+    "decimals": 18,
+    "name": "Savings USDS",
+    "symbol": "sUSDS"
+  },
+  "0xc30ce6a5758786e0f640cc5f881dd96e9a1c5c59": {
+    "decimals": 18,
+    "name": "Gauntlet USDC Prime",
+    "symbol": "gtusdcp"
+  },
+  "0xc40f949f8a4e094d1b49a23ea9241d289b7b2819": {
+    "decimals": 18,
+    "name": "LUSD Stablecoin",
+    "symbol": "LUSD"
+  },
+  "0xc52d7f23a2e460248db6ee192cb23dd12bddcbf6": {
+    "decimals": 18,
+    "name": "Curve.Fi USD Stablecoin",
+    "symbol": "crvUSD"
+  },
+  "0xc55e93c62874d8100dbd2dfe307edc1036ad5434": {
+    "decimals": 18,
+    "name": "Moo BIFI",
+    "symbol": "mooBIFI"
+  },
+  "0xc5b001dc33727f8f26880b184090d3e252470d45": {
+    "decimals": 18,
+    "name": "Ethos Reserve Note",
+    "symbol": "ERN"
+  },
+  "0xc71b571aa9f06bfa096c24e9df5c45fc4fab4151": {
+    "decimals": 18,
+    "name": "VolatileV2 AMM - WETH/mooBIFI",
+    "symbol": "vAMMV2-WETH/mooBIFI"
+  },
+  "0xc756c791268d7c2728113a2ff48ca46548200906": {
+    "decimals": 18,
+    "name": "StarTax",
+    "symbol": "★TAX"
+  },
+  "0xcb8fa9a76b8e203d8c3797bf438d8fb81ea3326a": {
+    "decimals": 18,
+    "name": "Alchemix USD",
+    "symbol": "alUSD"
+  },
+  "0xcf9326e24ebffbef22ce1050007a43a3c0b6db55": {
+    "decimals": 18,
+    "name": "Spark USDC Vault",
+    "symbol": "sUSDC"
+  },
+  "0xd2aa5df152a1fbebacd2527adcc6b7113db16924": {
+    "decimals": 18,
+    "name": "Lying Token L2",
+    "symbol": "LIE-L2"
+  },
+  "0xd4dd9e2f021bb459d5a5f6c24c12fe09c5d45553": {
+    "decimals": 18,
+    "name": "Frankencoin",
+    "symbol": "ZCHF"
+  },
+  "0xd8dd9a8b2aca88e68c46af9008259d0ec04b7751": {
+    "decimals": 18,
+    "name": "TriCRV-OPTIMISM",
+    "symbol": "3CRV-OP"
+  },
+  "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1": {
+    "decimals": 18,
+    "name": "Dai Stablecoin",
+    "symbol": "DAI"
+  },
+  "0xdc6ff44d5d932cbd77b52e5612ba0529dc6226f1": {
+    "decimals": 18,
+    "name": "Worldcoin",
+    "symbol": "WLD"
+  },
+  "0xdeaddeaddeaddeaddeaddeaddeaddeaddead0000": {
+    "decimals": 18,
+    "name": "Ether",
+    "symbol": "ETH"
+  },
+  "0xdecc0c09c3b5f6e92ef4184125d5648a66e35298": {
+    "decimals": 6,
+    "name": "USD Coin-LP",
+    "symbol": "S*USDC"
+  },
+  "0xdfa46478f9e5ea86d57387849598dbfb2e964b02": {
+    "decimals": 18,
+    "name": "Mai Stablecoin",
+    "symbol": "MAI"
+  },
+  "0xe36a30d249f7761327fd973001a32010b521b6fd": {
+    "decimals": 18,
+    "name": "Compound WETH",
+    "symbol": "cWETHv3"
+  },
+  "0xef4461891dfb3ac8572ccf7c794664a8dd927945": {
+    "decimals": 18,
+    "name": "WalletConnect",
+    "symbol": "WCT"
+  },
+  "0xfaf8fd17d9840595845582fcb047df13f006787d": {
+    "decimals": 18,
+    "name": "veNFT",
+    "symbol": "veNFT"
+  },
+  "0xfdeffc7ad816bf7867c642df7ebc2cc5554ec265": {
+    "decimals": 18,
+    "name": "Beefy Velo",
+    "symbol": "BeVELO"
+  }
+}

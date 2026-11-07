@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xda00010eDA646913F273E10E7A5d1F659242757d",
+    "functions": 72,
+    "name": "PoolV3",
+    "source": "sourcify"
+  },
+  "address": "0xda00010eDA646913F273E10E7A5d1F659242757d",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 18096,
+  "fetchedAt": "2026-11-06T22:50:23.455Z",
+  "format": 2,
+  "sample": {
+    "count": 2,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 2,
+    "newest": 1792804511,
+    "oldest": 1792006823,
+    "perDay": 0.06666666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0xba087652": 2
+    },
+    "senders": 2,
+    "sendersBySelector": {
+      "0xba087652": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PoolV3",
+    "status": "verified"
+  }
+}

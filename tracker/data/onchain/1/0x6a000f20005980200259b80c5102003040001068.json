@@ -1,0 +1,126 @@
+{
+  "abi": {
+    "address": "0xfa39c1c670b48956eeF9fd0BbD0E81A290326330",
+    "functions": 53,
+    "name": "DiamondCutFacet",
+    "source": "sourcify"
+  },
+  "address": "0x6A000F20005980200259B80c5102003040001068",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xfa39c1c670b48956eeF9fd0BbD0E81A290326330",
+        "name": "DiamondCutFacet"
+      },
+      {
+        "address": "0x515D89fB6b472D56Ca065AB21b32975f6ab8da3E",
+        "name": "DiamondLoupeFacet"
+      },
+      {
+        "address": "0x61Ab356a686958fb878B0dee6e87b1b4Fc36d553",
+        "name": "OwnershipFacet"
+      },
+      {
+        "address": "0xcd8875014ac31Fcbea5890d79834c90033518192",
+        "name": "AdminFacet"
+      },
+      {
+        "address": "0x49C46f7f88110ccA234ef27Cd664510f7bbF5998",
+        "name": "BackwardCompatibilityFacet"
+      },
+      {
+        "address": "0xa1686Ee049A745211D64ef2B305495D9425e7BD3",
+        "name": "VersionFacet"
+      },
+      {
+        "address": "0x61e71FB007743684830BB7c9e452D202425a7BDF",
+        "name": "MakerPSMRouterFacet"
+      },
+      {
+        "address": "0xB00300C01C00A230b0DC106140047040a20b0c00",
+        "name": "ProPartnerFacet"
+      }
+    ],
+    "isContract": true,
+    "name": "AugustusV6",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 24562,
+  "fetchedAt": "2026-11-06T20:02:36.628Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 45,
+    "last30Days": 1000,
+    "newest": 1793994971,
+    "oldest": 1793934227,
+    "perDay": 1422.3627024891348,
+    "requested": 1000,
+    "selectors": {
+      "0x0d893d62": 230,
+      "0x1a01c532": 19,
+      "0x5e94e28d": 3,
+      "0x7f457675": 11,
+      "0x876a02f6": 63,
+      "0x987e7d8e": 10,
+      "0xe3ead59e": 657,
+      "0xe8bb3b6c": 7
+    },
+    "senders": 505,
+    "sendersBySelector": {
+      "0x0d893d62": 174,
+      "0x1a01c532": 13,
+      "0x5e94e28d": 3,
+      "0x7f457675": 10,
+      "0x876a02f6": 41,
+      "0x987e7d8e": 7,
+      "0xe3ead59e": 283,
+      "0xe8bb3b6c": 6
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AugustusV6",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xfa39c1c670b48956eeF9fd0BbD0E81A290326330",
+          "name": "DiamondCutFacet"
+        },
+        {
+          "address": "0x515D89fB6b472D56Ca065AB21b32975f6ab8da3E",
+          "name": "DiamondLoupeFacet"
+        },
+        {
+          "address": "0x61Ab356a686958fb878B0dee6e87b1b4Fc36d553",
+          "name": "OwnershipFacet"
+        },
+        {
+          "address": "0xcd8875014ac31Fcbea5890d79834c90033518192",
+          "name": "AdminFacet"
+        },
+        {
+          "address": "0x49C46f7f88110ccA234ef27Cd664510f7bbF5998",
+          "name": "BackwardCompatibilityFacet"
+        },
+        {
+          "address": "0xa1686Ee049A745211D64ef2B305495D9425e7BD3",
+          "name": "VersionFacet"
+        },
+        {
+          "address": "0x61e71FB007743684830BB7c9e452D202425a7BDF",
+          "name": "MakerPSMRouterFacet"
+        },
+        {
+          "address": "0xB00300C01C00A230b0DC106140047040a20b0c00",
+          "name": "ProPartnerFacet"
+        }
+      ],
+      "type": "DiamondProxy"
+    },
+    "status": "verified"
+  }
+}

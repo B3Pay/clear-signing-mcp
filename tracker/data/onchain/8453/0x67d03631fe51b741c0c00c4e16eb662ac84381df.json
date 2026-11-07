@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x67d03631FE51B741C0C00c4E16eb662AC84381df",
+    "functions": 22,
+    "name": "DexRouter",
+    "source": "sourcify"
+  },
+  "address": "0x67d03631FE51B741C0C00c4E16eb662AC84381df",
+  "blockscout": {
+    "reason": "HTTP 403 from https://base.blockscout.com/api/v2/addresses/0x67d03631FE51B741C0C00c4E16eb662AC84381df",
+    "status": "error"
+  },
+  "chainId": 8453,
+  "codeBytes": 13322,
+  "fetchedAt": "2026-11-06T20:43:37.045Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 74,
+    "last30Days": 1000,
+    "newest": 1793994438,
+    "oldest": 1793993047,
+    "perDay": 62113.587347232206,
+    "requested": 1000,
+    "selectors": {
+      "0x08298b5a": 3,
+      "0x0c307f76": 893,
+      "0xf2c42696": 104
+    },
+    "senders": 86,
+    "sendersBySelector": {
+      "0x08298b5a": 2,
+      "0x0c307f76": 74,
+      "0xf2c42696": 11
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "DexRouter",
+    "status": "verified"
+  }
+}

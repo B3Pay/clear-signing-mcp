@@ -1,0 +1,57 @@
+{
+  "abi": {
+    "address": "0x90551c1795392094FE6D29B758EcCD233cFAa260",
+    "functions": 59,
+    "name": "fTokenNativeUnderlying",
+    "source": "sourcify"
+  },
+  "address": "0x90551c1795392094FE6D29B758EcCD233cFAa260",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 21098,
+  "fetchedAt": "2026-11-06T22:50:08.382Z",
+  "format": 2,
+  "sample": {
+    "count": 119,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 119,
+    "newest": 1794001283,
+    "oldest": 1791418883,
+    "perDay": 3.966666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 10,
+      "0x2126e91e": 11,
+      "0x33bb7f91": 47,
+      "0x3badef91": 43,
+      "0x6e553f65": 1,
+      "0xa9059cbb": 1,
+      "0xb460af94": 1,
+      "0xba087652": 5
+    },
+    "senders": 80,
+    "sendersBySelector": {
+      "0x095ea7b3": 10,
+      "0x2126e91e": 9,
+      "0x33bb7f91": 43,
+      "0x3badef91": 39,
+      "0x6e553f65": 1,
+      "0xa9059cbb": 1,
+      "0xb460af94": 1,
+      "0xba087652": 5
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "fTokenNativeUnderlying",
+    "status": "verified"
+  }
+}

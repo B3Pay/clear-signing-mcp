@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63",
+    "functions": 30,
+    "name": "PublicResolver",
+    "source": "sourcify"
+  },
+  "address": "0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 12336,
+  "fetchedAt": "2026-11-06T22:50:09.297Z",
+  "format": 2,
+  "sample": {
+    "count": 887,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 2,
+    "last30Days": 886,
+    "newest": 1794000647,
+    "oldest": 1791402815,
+    "perDay": 29.533333333333335,
+    "requested": 1000,
+    "selectors": {
+      "0x10f13a8c": 166,
+      "0x304e6ade": 229,
+      "0x8b95dd71": 221,
+      "0xac9650d8": 164,
+      "0xd5fa2b00": 107
+    },
+    "senders": 330,
+    "sendersBySelector": {
+      "0x10f13a8c": 76,
+      "0x304e6ade": 54,
+      "0x8b95dd71": 153,
+      "0xac9650d8": 74,
+      "0xd5fa2b00": 12
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PublicResolver",
+    "status": "verified"
+  }
+}

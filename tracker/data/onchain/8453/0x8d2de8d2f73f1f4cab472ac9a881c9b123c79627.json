@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0x24850c6f61C438823F01B7A3BF2B89B72174Fa9d",
+    "functions": 43,
+    "name": "BridgeImplementation",
+    "source": "sourcify"
+  },
+  "address": "0x8d2de8d2f73F1F4cAB472AC9A881C9b123C79627",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 680,
+  "fetchedAt": "2026-11-06T23:31:03.222Z",
+  "format": 2,
+  "sample": {
+    "count": 88,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 88,
+    "newest": 1794001380,
+    "oldest": 1793918050,
+    "perDay": 89.87446511737866,
+    "requested": 1000,
+    "selectors": {
+      "0x0f5287b0": 36,
+      "0xc6878519": 52
+    },
+    "senders": 22,
+    "sendersBySelector": {
+      "0x0f5287b0": 10,
+      "0xc6878519": 18
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "TokenBridge",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x24850c6f61C438823F01B7A3BF2B89B72174Fa9d",
+          "name": "BridgeImplementation"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

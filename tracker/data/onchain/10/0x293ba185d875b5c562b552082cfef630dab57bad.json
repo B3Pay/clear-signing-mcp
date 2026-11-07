@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x293Ba185d875B5c562B552082cfef630dab57baD",
+    "functions": 2,
+    "name": "LpMigrator",
+    "source": "sourcify"
+  },
+  "address": "0x293Ba185d875B5c562B552082cfef630dab57baD",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 5906,
+  "fetchedAt": "2026-11-06T23:30:53.103Z",
+  "format": 2,
+  "sample": {
+    "count": 24,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 1,
+    "last30Days": 24,
+    "newest": 1793972371,
+    "oldest": 1793348429,
+    "perDay": 3.1619492587656564,
+    "requested": 1000,
+    "selectors": {
+      "0x0553db0c": 24
+    },
+    "senders": 16,
+    "sendersBySelector": {
+      "0x0553db0c": 16
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "LpMigrator",
+    "status": "verified"
+  }
+}

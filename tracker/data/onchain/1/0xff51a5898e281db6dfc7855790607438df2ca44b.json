@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0xFf51A5898e281Db6DfC7855790607438dF2ca44b",
+    "functions": 31,
+    "name": "Safe",
+    "source": "sourcify"
+  },
+  "address": "0xFf51A5898e281Db6DfC7855790607438dF2ca44b",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 21451,
+  "fetchedAt": "2026-11-06T22:50:09.372Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Safe",
+    "status": "verified"
+  }
+}

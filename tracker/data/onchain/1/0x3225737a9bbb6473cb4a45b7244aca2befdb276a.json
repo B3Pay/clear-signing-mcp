@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x3225737a9Bbb6473CB4a45b7244ACa2BeFdB276A",
+    "functions": 6,
+    "name": "DaiUsds",
+    "source": "sourcify"
+  },
+  "address": "0x3225737a9Bbb6473CB4a45b7244ACa2BeFdB276A",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 1428,
+  "fetchedAt": "2026-11-06T22:50:07.460Z",
+  "format": 2,
+  "sample": {
+    "count": 274,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 20,
+    "last30Days": 274,
+    "newest": 1793891015,
+    "oldest": 1791417527,
+    "perDay": 9.133333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x68f30150": 90,
+      "0xf2c07aae": 184
+    },
+    "senders": 34,
+    "sendersBySelector": {
+      "0x68f30150": 12,
+      "0xf2c07aae": 27
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "DaiUsds",
+    "status": "verified"
+  }
+}

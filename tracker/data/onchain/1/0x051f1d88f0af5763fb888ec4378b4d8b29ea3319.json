@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0xF0e003F0dE2d583Ae28FA8cBF66aa096CdAce3ff",
+    "functions": 48,
+    "name": "TokenBridge",
+    "source": "sourcify"
+  },
+  "address": "0x051F1D88f0aF5763fB888eC4378b4D8B29ea3319",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2227,
+  "fetchedAt": "2026-11-06T22:50:05.965Z",
+  "format": 2,
+  "sample": {
+    "count": 24,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 24,
+    "newest": 1793974823,
+    "oldest": 1791481655,
+    "perDay": 0.8,
+    "requested": 1000,
+    "selectors": {
+      "0x522ea81a": 24
+    },
+    "senders": 15,
+    "sendersBySelector": {
+      "0x522ea81a": 15
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xF0e003F0dE2d583Ae28FA8cBF66aa096CdAce3ff",
+          "name": "TokenBridge"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

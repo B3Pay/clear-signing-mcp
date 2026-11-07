@@ -1,0 +1,59 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 1,
+          "address": "0x881D40237659C251811CEC9c364ef91dC08D300C"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "MetaMask Swaps & Bridge",
+    "contractName": "MetaSwap",
+    "info": {
+      "url": "https://metamask.io"
+    }
+  },
+  "display": {
+    "formats": {
+      "swap(string aggregatorId,address tokenFrom,uint256 amount,bytes data)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "amount",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "tokenFrom",
+              "nativeCurrencyAddress": "0x0000000000000000000000000000000000000000"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "aggregatorId",
+            "label": "Aggregator ID",
+            "format": "raw"
+          },
+          {
+            "path": "data",
+            "label": "Data",
+            "format": "raw"
+          },
+          {
+            "path": "tokenFrom",
+            "label": "Token from",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap {amount}"
+      }
+    }
+  }
+}

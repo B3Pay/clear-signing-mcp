@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x1Bc4d50d8785587f0d44f4296408e20f592Ae347",
+    "functions": 11,
+    "name": "AuraClaimZapV3",
+    "source": "sourcify"
+  },
+  "address": "0x1Bc4d50d8785587f0d44f4296408e20f592Ae347",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 5590,
+  "fetchedAt": "2026-11-06T22:50:22.993Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AuraClaimZapV3",
+    "status": "verified"
+  }
+}

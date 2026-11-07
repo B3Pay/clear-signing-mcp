@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+    "functions": 0,
+    "name": "AllowanceHolder",
+    "source": "sourcify"
+  },
+  "address": "0x0000000000001fF3684f28c67538d4D072C22734",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "AllowanceHolder",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 10,
+  "codeBytes": 1009,
+  "fetchedAt": "2026-11-06T20:02:31.337Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 101,
+    "last30Days": 1000,
+    "newest": 1793994469,
+    "oldest": 1793469029,
+    "perDay": 164.43361753958587,
+    "requested": 1000,
+    "selectors": {
+      "0x2213bc0b": 1000
+    },
+    "senders": 474,
+    "sendersBySelector": {
+      "0x2213bc0b": 474
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "AllowanceHolder",
+    "status": "verified"
+  }
+}

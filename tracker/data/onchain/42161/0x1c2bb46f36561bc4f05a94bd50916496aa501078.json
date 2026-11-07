@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x1c2bB46f36561bc4F05A94BD50916496aa501078",
+    "functions": 12,
+    "name": "FluidVaultT1",
+    "source": "sourcify"
+  },
+  "address": "0x1c2bB46f36561bc4F05A94BD50916496aa501078",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x1c2bB46f36561bc4F05A94BD50916496aa501078",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 23759,
+  "fetchedAt": "2026-11-06T21:55:50.553Z",
+  "format": 2,
+  "sample": {
+    "count": 33,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 30,
+    "newest": 1793829427,
+    "oldest": 1791214764,
+    "perDay": 1,
+    "requested": 1000,
+    "selectors": {
+      "0x032d2276": 33
+    },
+    "senders": 15,
+    "sendersBySelector": {
+      "0x032d2276": 15
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "FluidVaultT1",
+    "status": "verified"
+  }
+}

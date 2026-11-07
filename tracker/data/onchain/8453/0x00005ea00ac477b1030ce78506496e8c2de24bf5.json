@@ -1,0 +1,45 @@
+{
+  "abi": {
+    "address": "0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+    "functions": 24,
+    "name": "SeaDrop",
+    "source": "sourcify"
+  },
+  "address": "0x00005EA00Ac477B1030CE78506496e8C2dE24bf5",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 21081,
+  "fetchedAt": "2026-11-06T23:32:17.708Z",
+  "format": 2,
+  "sample": {
+    "count": 392,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 1,
+    "last30Days": 392,
+    "newest": 1793995588,
+    "oldest": 1793919690,
+    "perDay": 400.34989006832313,
+    "requested": 1000,
+    "selectors": {
+      "0x161ac21f": 352,
+      "0x4b61cd6f": 40
+    },
+    "senders": 115,
+    "sendersBySelector": {
+      "0x161ac21f": 114,
+      "0x4b61cd6f": 10
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "SeaDrop",
+    "status": "verified"
+  }
+}

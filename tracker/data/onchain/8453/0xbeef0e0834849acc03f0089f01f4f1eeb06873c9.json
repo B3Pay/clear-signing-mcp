@@ -1,0 +1,51 @@
+{
+  "abi": {
+    "address": "0xbeef0e0834849aCC03f0089F01f4F1Eeb06873C9",
+    "functions": 97,
+    "name": "VaultV2",
+    "source": "sourcify"
+  },
+  "address": "0xbeef0e0834849aCC03f0089F01f4F1Eeb06873C9",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 21808,
+  "fetchedAt": "2026-11-06T23:32:15.339Z",
+  "format": 2,
+  "sample": {
+    "count": 20,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 1,
+    "last30Days": 20,
+    "newest": 1793993389,
+    "oldest": 1793921235,
+    "perDay": 20.42601479940424,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 9,
+      "0x6e553f65": 3,
+      "0xa9059cbb": 1,
+      "0xb460af94": 5,
+      "0xba087652": 2
+    },
+    "senders": 15,
+    "sendersBySelector": {
+      "0x095ea7b3": 9,
+      "0x6e553f65": 2,
+      "0xa9059cbb": 1,
+      "0xb460af94": 2,
+      "0xba087652": 2
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "VaultV2",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x0fEf9e88A7b76BCDBF451780C6774FE32965Ee98",
+    "functions": 15,
+    "name": "Metarouter",
+    "source": "sourcify"
+  },
+  "address": "0x0fEf9e88A7b76BCDBF451780C6774FE32965Ee98",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 22172,
+  "fetchedAt": "2026-11-06T23:31:03.395Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 28,
+    "last30Days": 1000,
+    "newest": 1794002490,
+    "oldest": 1793993224,
+    "perDay": 9324.411828189079,
+    "requested": 1000,
+    "selectors": {
+      "0x3593564c": 1000
+    },
+    "senders": 200,
+    "sendersBySelector": {
+      "0x3593564c": 200
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "Metarouter",
+    "status": "verified"
+  }
+}

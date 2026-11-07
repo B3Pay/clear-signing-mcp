@@ -1,0 +1,41 @@
+{
+  "abi": {
+    "address": "0xAC4c6e212A361c968F1725b4d055b47E63F80b75",
+    "functions": 3,
+    "name": "RedSnwapper",
+    "source": "sourcify"
+  },
+  "address": "0xAC4c6e212A361c968F1725b4d055b47E63F80b75",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 4978,
+  "fetchedAt": "2026-11-06T22:50:07.096Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 39,
+    "last30Days": 1000,
+    "newest": 1794001259,
+    "oldest": 1793649191,
+    "perDay": 245.40713725757527,
+    "requested": 1000,
+    "selectors": {
+      "0x5f3bd1c8": 770,
+      "0xd33721a5": 230
+    },
+    "senders": 431,
+    "sendersBySelector": {
+      "0x5f3bd1c8": 354,
+      "0xd33721a5": 111
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "RedSnwapper",
+    "status": "verified"
+  }
+}

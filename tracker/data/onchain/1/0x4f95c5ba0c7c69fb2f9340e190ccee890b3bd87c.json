@@ -1,0 +1,53 @@
+{
+  "abi": {
+    "address": "0x0A2D27A86a2eA07bcc34e457c65AECA7631c0f10",
+    "functions": 49,
+    "name": "FrxUSDCustodianUsdc",
+    "source": "sourcify"
+  },
+  "address": "0x4F95C5bA0C7c69FB2f9340E190cCeE890B3bd87c",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0x0A2D27A86a2eA07bcc34e457c65AECA7631c0f10",
+        "name": "FrxUSDCustodianUsdc"
+      }
+    ],
+    "isContract": true,
+    "name": "TransparentUpgradeableProxy",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 1488,
+  "fetchedAt": "2026-11-06T22:50:10.320Z",
+  "format": 2,
+  "sample": {
+    "count": 51,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 51,
+    "newest": 1793910599,
+    "oldest": 1791441707,
+    "perDay": 1.7,
+    "requested": 1000,
+    "selectors": {
+      "0x6e553f65": 30,
+      "0x9db216eb": 8,
+      "0xba087652": 13
+    },
+    "senders": 16,
+    "sendersBySelector": {
+      "0x6e553f65": 9,
+      "0x9db216eb": 1,
+      "0xba087652": 6
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

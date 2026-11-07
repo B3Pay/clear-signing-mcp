@@ -1,0 +1,62 @@
+{
+  "abi": {
+    "address": "0x4e7991e5C547ce825BdEb665EE14a3274f9F61e0",
+    "functions": 50,
+    "name": "SUsds",
+    "source": "sourcify"
+  },
+  "address": "0xa3931d71877C0E7a3148CB7Eb4463524FEc27fbD",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 170,
+  "fetchedAt": "2026-11-06T22:50:07.676Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 32,
+    "last30Days": 1000,
+    "newest": 1793997431,
+    "oldest": 1792336163,
+    "perDay": 52.00846582249221,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 321,
+      "0x216740a0": 1,
+      "0x6e553f65": 13,
+      "0x94bf804d": 1,
+      "0x9b8d6d38": 195,
+      "0xa9059cbb": 134,
+      "0xb460af94": 122,
+      "0xba087652": 213
+    },
+    "senders": 487,
+    "sendersBySelector": {
+      "0x095ea7b3": 168,
+      "0x216740a0": 1,
+      "0x6e553f65": 9,
+      "0x94bf804d": 1,
+      "0x9b8d6d38": 118,
+      "0xa9059cbb": 82,
+      "0xb460af94": 81,
+      "0xba087652": 153
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x4e7991e5C547ce825BdEb665EE14a3274f9F61e0",
+          "name": "SUsds"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

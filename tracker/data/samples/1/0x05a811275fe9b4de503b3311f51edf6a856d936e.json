@@ -1,0 +1,23 @@
+{
+  "address": "0x05A811275fE9b4DE503B3311F51edF6A856D936e",
+  "chainId": 1,
+  "txs": [
+    {
+      "blockNumber": 26348035,
+      "chainId": 1,
+      "from": "0xe0A68A5650C72f2d65B8B5de386234420B90Afed",
+      "gas": "153966",
+      "gasPrice": "651665940",
+      "hash": "0xa2a13efc56c10510ae9cb31af1ffb0ffac97f5f3dbbbe0fff8683ab268c48542",
+      "input": "0xba087652000000000000000000000000000000000000000000000000000000000046cb33000000000000000000000000e0a68a5650c72f2d65b8b5de386234420b90afed000000000000000000000000e0a68a5650c72f2d65b8b5de386234420b90afed",
+      "maxFeePerGas": "672100000",
+      "maxPriorityFeePerGas": "600000000",
+      "nonce": 236,
+      "status": "success",
+      "timestamp": 1793874515,
+      "to": "0x05A811275fE9b4DE503B3311F51edF6A856D936e",
+      "type": "eip1559",
+      "value": "0"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "abi": {
+    "address": "0x881D40237659C251811CEC9c364ef91dC08D300C",
+    "functions": 14,
+    "name": "MetaSwap",
+    "source": "sourcify"
+  },
+  "address": "0x881D40237659C251811CEC9c364ef91dC08D300C",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "MetaSwap",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 8320,
+  "fetchedAt": "2026-11-06T21:48:41.165Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 5,
+    "last30Days": 1000,
+    "newest": 1794001391,
+    "oldest": 1793981243,
+    "perDay": 4288.266825491363,
+    "requested": 1000,
+    "selectors": {
+      "0x5f575529": 1000
+    },
+    "senders": 777,
+    "sendersBySelector": {
+      "0x5f575529": 777
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "MetaSwap",
+    "status": "verified"
+  }
+}

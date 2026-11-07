@@ -1,0 +1,52 @@
+{
+  "abi": {
+    "address": "0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84",
+    "functions": 65,
+    "name": "Ethereum_SpokePool",
+    "source": "sourcify"
+  },
+  "address": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 680,
+  "fetchedAt": "2026-11-06T22:50:04.627Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 291,
+    "last30Days": 1000,
+    "newest": 1794002495,
+    "oldest": 1793981423,
+    "perDay": 4100.227790432802,
+    "requested": 1000,
+    "selectors": {
+      "0x7b939232": 227,
+      "0xad5425c6": 67,
+      "0xdeff4b24": 706
+    },
+    "senders": 251,
+    "sendersBySelector": {
+      "0x7b939232": 176,
+      "0xad5425c6": 63,
+      "0xdeff4b24": 12
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84",
+          "name": "Ethereum_SpokePool"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

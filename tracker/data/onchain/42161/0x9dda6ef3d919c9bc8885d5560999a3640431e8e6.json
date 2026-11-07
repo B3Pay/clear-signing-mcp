@@ -1,0 +1,32 @@
+{
+  "abi": null,
+  "address": "0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x9dDA6Ef3D919c9bC8885D5560999A3640431e8e6",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 7707,
+  "fetchedAt": "2026-11-06T20:39:13.104Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1793994150,
+    "oldest": 1793805120,
+    "perDay": 457.0703063005872,
+    "requested": 1000,
+    "selectors": {
+      "0x5f575529": 1000
+    },
+    "senders": 764,
+    "sendersBySelector": {
+      "0x5f575529": 764
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

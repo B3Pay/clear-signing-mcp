@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0xa58E81fe9b61B5c3fE2AFD33CF304c454AbFc7Cb",
+    "functions": 14,
+    "name": "ReverseRegistrar",
+    "source": "sourcify"
+  },
+  "address": "0xa58E81fe9b61B5c3fE2AFD33CF304c454AbFc7Cb",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 3382,
+  "fetchedAt": "2026-11-06T22:50:09.126Z",
+  "format": 2,
+  "sample": {
+    "count": 500,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 498,
+    "newest": 1793998871,
+    "oldest": 1791406931,
+    "perDay": 16.6,
+    "requested": 1000,
+    "selectors": {
+      "0x0f5a5466": 1,
+      "0x1e83409a": 2,
+      "0x7a806d6b": 6,
+      "0xc47f0027": 491
+    },
+    "senders": 429,
+    "sendersBySelector": {
+      "0x0f5a5466": 1,
+      "0x1e83409a": 2,
+      "0x7a806d6b": 2,
+      "0xc47f0027": 425
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ReverseRegistrar",
+    "status": "verified"
+  }
+}

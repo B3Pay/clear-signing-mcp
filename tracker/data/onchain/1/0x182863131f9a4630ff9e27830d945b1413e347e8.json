@@ -1,0 +1,55 @@
+{
+  "abi": {
+    "address": "0xcA78AF7443f3F8FA0148b746Cb18FF67383CDF3f",
+    "functions": 90,
+    "name": "YearnV3Vault",
+    "source": "sourcify"
+  },
+  "address": "0x182863131F9a4630fF9E27830d945B1413e347E8",
+  "blockscout": {
+    "implementations": [
+      {
+        "address": "0xcA78AF7443f3F8FA0148b746Cb18FF67383CDF3f",
+        "name": "YearnV3Vault"
+      }
+    ],
+    "isContract": true,
+    "name": "USDS-1 yVault",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 45,
+  "fetchedAt": "2026-11-06T22:51:26.457Z",
+  "format": 2,
+  "sample": {
+    "count": 15,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 15,
+    "newest": 1793960291,
+    "oldest": 1792022015,
+    "perDay": 0.5,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 4,
+      "0x6e553f65": 4,
+      "0xa9059cbb": 2,
+      "0xba087652": 5
+    },
+    "senders": 9,
+    "sendersBySelector": {
+      "0x095ea7b3": 4,
+      "0x6e553f65": 2,
+      "0xa9059cbb": 1,
+      "0xba087652": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "status": "not_verified"
+  }
+}

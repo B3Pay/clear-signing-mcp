@@ -1,0 +1,232 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        {
+          "chainId": 1,
+          "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251"
+        },
+        {
+          "chainId": 10,
+          "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "deBridge (DLN)",
+    "contractName": "DeBridgeRouter",
+    "info": {
+      "url": "https://debridge.finance"
+    }
+  },
+  "display": {
+    "formats": {
+      "strictlySwapAndCall(address _srcTokenIn,uint256 _srcAmountIn,bytes _srcTokenInPermitEnvelope,address _srcSwapRouter,bytes _srcSwapCalldata,address _srcTokenOut,uint256 _srcTokenExpectedAmountOut,address _srcTokenRefundRecipient,address _target,bytes _targetData)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "_srcAmountIn",
+            "label": "Src amount in",
+            "format": "raw"
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_srcTokenExpectedAmountOut",
+            "label": "Src token expected amount out",
+            "format": "raw"
+          },
+          {
+            "path": "_srcTokenIn",
+            "label": "Src token in",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "_srcTokenInPermitEnvelope",
+            "label": "Src token in permit envelope",
+            "format": "raw"
+          },
+          {
+            "path": "_srcSwapRouter",
+            "label": "Src swap router",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_srcSwapCalldata",
+            "label": "Src swap calldata",
+            "format": "calldata",
+            "params": {
+              "calleePath": "_target"
+            }
+          },
+          {
+            "path": "_srcTokenOut",
+            "label": "Src token out",
+            "format": "tokenTicker"
+          },
+          {
+            "path": "_srcTokenRefundRecipient",
+            "label": "Src token refund recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_target",
+            "label": "Target",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_targetData",
+            "label": "Target data",
+            "format": "calldata",
+            "params": {
+              "calleePath": "_target"
+            }
+          }
+        ]
+      },
+      "swap(address _tokenIn,uint256 _amountIn,bytes _tokenInPermitEnvelope,(address allowanceAggregator,address swapRouter,bytes swapCalldata,address tokenOut,uint256 tokenOutMinAmount,uint16 surplusShareBps,bytes affiliateFeeEnvelope,address recipient) _swapDetails,uint32 _referralCode)": {
+        "intent": "Swap",
+        "fields": [
+          {
+            "path": "_amountIn",
+            "label": "Amount to send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "_tokenIn",
+              "nativeCurrencyAddress": "0x0000000000000000000000000000000000000000"
+            }
+          },
+          {
+            "path": "@.value",
+            "label": "Value sent",
+            "format": "amount"
+          },
+          {
+            "path": "_swapDetails.tokenOutMinAmount",
+            "label": "Minimum to receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "_swapDetails.tokenOut"
+            }
+          },
+          {
+            "path": "_tokenInPermitEnvelope",
+            "label": "Token in permit envelope",
+            "format": "raw"
+          },
+          {
+            "path": "_swapDetails.allowanceAggregator",
+            "label": "Allowance aggregator",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_swapDetails.swapRouter",
+            "label": "Swap router",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_swapDetails.swapCalldata",
+            "label": "Swap calldata",
+            "format": "raw"
+          },
+          {
+            "path": "_swapDetails.surplusShareBps",
+            "label": "Surplus share bps",
+            "format": "raw"
+          },
+          {
+            "path": "_swapDetails.affiliateFeeEnvelope",
+            "label": "Affiliate fee envelope",
+            "format": "raw"
+          },
+          {
+            "path": "_swapDetails.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": [
+                "eoa",
+                "contract"
+              ],
+              "sources": [
+                "local",
+                "ens"
+              ]
+            }
+          },
+          {
+            "path": "_referralCode",
+            "label": "Referral code",
+            "format": "raw"
+          },
+          {
+            "path": "_tokenIn",
+            "label": "Token in",
+            "visible": "never"
+          },
+          {
+            "path": "_swapDetails.tokenOut",
+            "label": "Token out",
+            "visible": "never"
+          }
+        ],
+        "interpolatedIntent": "Swap {_amountIn} for at least {_swapDetails.tokenOutMinAmount}"
+      }
+    }
+  }
+}

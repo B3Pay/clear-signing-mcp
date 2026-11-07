@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+    "functions": 10,
+    "name": "MetaAggregationRouterV2",
+    "source": "sourcify"
+  },
+  "address": "0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x6131B5fae19EA4f9D964eAc0408E4408b66337b5",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 18652,
+  "fetchedAt": "2026-11-06T20:03:57.596Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 133,
+    "last30Days": 1000,
+    "newest": 1793994266,
+    "oldest": 1793949034,
+    "perDay": 1910.152104704634,
+    "requested": 1000,
+    "selectors": {
+      "0xe21fd0e9": 1000
+    },
+    "senders": 159,
+    "sendersBySelector": {
+      "0xe21fd0e9": 159
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "MetaAggregationRouterV2",
+    "status": "verified"
+  }
+}

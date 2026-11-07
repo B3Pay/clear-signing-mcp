@@ -1,0 +1,48 @@
+{
+  "abi": {
+    "address": "0x3FFf9BdC3ce99d3D587b0d06Aa7C4a10075193b4",
+    "functions": 25,
+    "name": "Outbox",
+    "source": "sourcify"
+  },
+  "address": "0x0B9857ae2D4A3DBe74ffE1d7DF045bb7F96E4840",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2147,
+  "fetchedAt": "2026-11-06T22:50:05.004Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 3,
+    "last30Days": 1000,
+    "newest": 1793998775,
+    "oldest": 1793498855,
+    "perDay": 172.8276524243879,
+    "requested": 1000,
+    "selectors": {
+      "0x08635a95": 1000
+    },
+    "senders": 81,
+    "sendersBySelector": {
+      "0x08635a95": 81
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x3FFf9BdC3ce99d3D587b0d06Aa7C4a10075193b4",
+          "name": "Outbox"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

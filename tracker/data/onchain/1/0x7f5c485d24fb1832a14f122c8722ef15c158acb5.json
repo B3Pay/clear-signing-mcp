@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x7F5c485D24fB1832A14f122C8722ef15C158Acb5",
+    "functions": 21,
+    "name": "Depositor",
+    "source": "sourcify"
+  },
+  "address": "0x7F5c485D24fB1832A14f122C8722ef15C158Acb5",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 7373,
+  "fetchedAt": "2026-11-06T22:50:39.766Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Depositor",
+    "status": "verified"
+  }
+}

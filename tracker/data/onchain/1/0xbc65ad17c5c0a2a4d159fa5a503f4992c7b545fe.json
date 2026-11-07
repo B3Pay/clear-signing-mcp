@@ -1,0 +1,68 @@
+{
+  "abi": {
+    "address": "0xf943Cb8D5f06f2bBF352878ebEF3Ec5C537A20bA",
+    "functions": 52,
+    "name": "UsdcVault",
+    "source": "sourcify"
+  },
+  "address": "0xBc65ad17c5C0a2A4D159fa5a503f4992c7B545FE",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 163,
+  "fetchedAt": "2026-11-06T22:50:07.466Z",
+  "format": 2,
+  "sample": {
+    "count": 187,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 3,
+    "last30Days": 187,
+    "newest": 1793994083,
+    "oldest": 1791422291,
+    "perDay": 6.233333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 15,
+      "0x0c71b121": 28,
+      "0x6e553f65": 21,
+      "0x94bf804d": 1,
+      "0x9f40a7b3": 71,
+      "0xa318c1a4": 2,
+      "0xa9059cbb": 14,
+      "0xb460af94": 16,
+      "0xba087652": 19
+    },
+    "senders": 58,
+    "sendersBySelector": {
+      "0x095ea7b3": 14,
+      "0x0c71b121": 6,
+      "0x6e553f65": 3,
+      "0x94bf804d": 1,
+      "0x9f40a7b3": 20,
+      "0xa318c1a4": 2,
+      "0xa9059cbb": 3,
+      "0xb460af94": 1,
+      "0xba087652": 17
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "ERC1967Proxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xf943Cb8D5f06f2bBF352878ebEF3Ec5C537A20bA",
+          "name": "UsdcVault"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

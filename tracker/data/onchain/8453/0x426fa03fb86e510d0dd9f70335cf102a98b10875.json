@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x426fA03fB86E510d0Dd9F70335Cf102a98b10875",
+    "functions": 0,
+    "name": "TransparentUpgradeableProxy",
+    "source": "sourcify"
+  },
+  "address": "0x426fA03fB86E510d0Dd9F70335Cf102a98b10875",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 8453,
+  "codeBytes": 1201,
+  "fetchedAt": "2026-11-06T23:32:17.950Z",
+  "format": 2,
+  "sample": {
+    "count": 7,
+    "covered": {
+      "since": 1793917898,
+      "until": 1794002496
+    },
+    "failed": 0,
+    "last30Days": 7,
+    "newest": 1794000601,
+    "oldest": 1793928377,
+    "perDay": 7.149105179791484,
+    "requested": 1000,
+    "selectors": {
+      "0xe32954eb": 7
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0xe32954eb": 4
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "status": "verified"
+  }
+}

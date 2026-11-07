@@ -1,0 +1,55 @@
+{
+  "abi": {
+    "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+    "functions": 38,
+    "name": "NonfungiblePositionManager",
+    "source": "sourcify"
+  },
+  "address": "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 24384,
+  "fetchedAt": "2026-11-06T23:30:52.647Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 0,
+    "last30Days": 1000,
+    "newest": 1793998739,
+    "oldest": 1793574097,
+    "perDay": 203.46550741565835,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 1,
+      "0x0c49ccbe": 31,
+      "0x219f5d17": 89,
+      "0x42966c68": 96,
+      "0x88316456": 134,
+      "0xa22cb465": 7,
+      "0xac9650d8": 461,
+      "0xb88d4fde": 33,
+      "0xfc6f7865": 148
+    },
+    "senders": 277,
+    "sendersBySelector": {
+      "0x095ea7b3": 1,
+      "0x0c49ccbe": 8,
+      "0x219f5d17": 23,
+      "0x42966c68": 6,
+      "0x88316456": 31,
+      "0xa22cb465": 5,
+      "0xac9650d8": 216,
+      "0xb88d4fde": 12,
+      "0xfc6f7865": 63
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "NonfungiblePositionManager",
+    "status": "verified"
+  }
+}

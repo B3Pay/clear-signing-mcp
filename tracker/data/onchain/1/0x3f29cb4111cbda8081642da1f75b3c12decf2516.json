@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0x3f29cB4111CbdA8081642DA1f75B3c12DECf2516",
+    "functions": 12,
+    "name": "ClaimZap",
+    "source": "sourcify"
+  },
+  "address": "0x3f29cB4111CbdA8081642DA1f75B3c12DECf2516",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 5750,
+  "fetchedAt": "2026-11-06T22:50:39.642Z",
+  "format": 2,
+  "sample": {
+    "count": 532,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 4,
+    "last30Days": 529,
+    "newest": 1793994539,
+    "oldest": 1791402491,
+    "perDay": 17.633333333333333,
+    "requested": 1000,
+    "selectors": {
+      "0x5a7b87f2": 532
+    },
+    "senders": 247,
+    "sendersBySelector": {
+      "0x5a7b87f2": 247
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "ClaimZap",
+    "status": "verified"
+  }
+}

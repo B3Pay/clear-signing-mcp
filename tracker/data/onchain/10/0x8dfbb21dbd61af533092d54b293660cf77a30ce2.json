@@ -1,0 +1,39 @@
+{
+  "abi": {
+    "address": "0x8dFBb21dbD61af533092d54B293660CF77A30Ce2",
+    "functions": 59,
+    "name": "Comptroller",
+    "source": "sourcify"
+  },
+  "address": "0x8dFBb21dbD61af533092d54B293660CF77A30Ce2",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 10,
+  "codeBytes": 17178,
+  "fetchedAt": "2026-11-06T23:30:54.195Z",
+  "format": 2,
+  "sample": {
+    "count": 0,
+    "covered": {
+      "since": 1793346573,
+      "until": 1794002371
+    },
+    "failed": 0,
+    "last30Days": 0,
+    "newest": null,
+    "oldest": null,
+    "perDay": 0,
+    "requested": 1000,
+    "selectors": {},
+    "senders": 0,
+    "sendersBySelector": {},
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "Comptroller",
+    "status": "verified"
+  }
+}

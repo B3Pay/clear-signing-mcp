@@ -1,0 +1,50 @@
+{
+  "abi": {
+    "address": "0x1Ea8629E1A4E31485E4A39D90699D0c59daC5beB",
+    "functions": 54,
+    "name": "L1Bridgehub",
+    "source": "sourcify"
+  },
+  "address": "0x303a465B659cBB0ab36eE643eA362c509EEb5213",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2837,
+  "fetchedAt": "2026-11-06T22:50:05.616Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 36,
+    "last30Days": 1000,
+    "newest": 1794002495,
+    "oldest": 1791920927,
+    "perDay": 41.50717151685652,
+    "requested": 1000,
+    "selectors": {
+      "0x24fd57fb": 76,
+      "0xd52471c1": 924
+    },
+    "senders": 215,
+    "sendersBySelector": {
+      "0x24fd57fb": 17,
+      "0xd52471c1": 199
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0x1Ea8629E1A4E31485E4A39D90699D0c59daC5beB",
+          "name": "L1Bridgehub"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

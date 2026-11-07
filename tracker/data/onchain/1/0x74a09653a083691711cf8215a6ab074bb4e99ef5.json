@@ -1,0 +1,54 @@
+{
+  "abi": {
+    "address": "0xD5B3Be349ed0b7C82Dbd9271ce3739a381Fc7aa0",
+    "functions": 39,
+    "name": "RestakeManager",
+    "source": "sourcify"
+  },
+  "address": "0x74a09653A083691711cF8215a6ab074BB4e99ef5",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 2739,
+  "fetchedAt": "2026-11-06T22:50:10.789Z",
+  "format": 2,
+  "sample": {
+    "count": 284,
+    "covered": {
+      "since": 1791398471,
+      "until": 1794002519
+    },
+    "failed": 0,
+    "last30Days": 284,
+    "newest": 1794002507,
+    "oldest": 1791444491,
+    "perDay": 9.466666666666667,
+    "requested": 1000,
+    "selectors": {
+      "0x47e7ef24": 281,
+      "0xf6326fb3": 3
+    },
+    "senders": 4,
+    "sendersBySelector": {
+      "0x47e7ef24": 1,
+      "0xf6326fb3": 3
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "TransparentUpgradeableProxy",
+    "proxy": {
+      "implementations": [
+        {
+          "address": "0xD5B3Be349ed0b7C82Dbd9271ce3739a381Fc7aa0",
+          "name": "RestakeManager"
+        }
+      ],
+      "type": "EIP1967Proxy"
+    },
+    "status": "verified"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "abi": {
+    "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+    "functions": 50,
+    "name": "AggregationRouterV6",
+    "source": "sourcify"
+  },
+  "address": "0x111111125421cA6dc452d289314280a0f8842A65",
+  "blockscout": {
+    "implementations": [],
+    "isContract": true,
+    "name": "AggregationRouterV6",
+    "status": "ok",
+    "verified": true
+  },
+  "chainId": 1,
+  "codeBytes": 24294,
+  "fetchedAt": "2026-11-06T20:02:27.770Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 32,
+    "last30Days": 1000,
+    "newest": 1793994863,
+    "oldest": 1793968247,
+    "perDay": 3246.1677186654642,
+    "requested": 1000,
+    "selectors": {
+      "0x07ed2379": 730,
+      "0x0d2c7c16": 4,
+      "0x19367472": 1,
+      "0x56a75868": 2,
+      "0x5816d723": 4,
+      "0x83800a8e": 25,
+      "0x8770ba91": 13,
+      "0x89e7c650": 71,
+      "0x9fda64bd": 4,
+      "0xa76dfc3b": 3,
+      "0xb68fb020": 114,
+      "0xc3cf8043": 27,
+      "0xe2c95c82": 1,
+      "0xf497df75": 1
+    },
+    "senders": 561,
+    "sendersBySelector": {
+      "0x07ed2379": 487,
+      "0x0d2c7c16": 1,
+      "0x19367472": 1,
+      "0x56a75868": 2,
+      "0x5816d723": 4,
+      "0x83800a8e": 24,
+      "0x8770ba91": 6,
+      "0x89e7c650": 3,
+      "0x9fda64bd": 3,
+      "0xa76dfc3b": 3,
+      "0xb68fb020": 33,
+      "0xc3cf8043": 25,
+      "0xe2c95c82": 1,
+      "0xf497df75": 1
+    },
+    "source": "blockscout-txlist"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "AggregationRouterV6",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "abi": {
+    "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+    "functions": 21,
+    "name": "RocketTokenRETH",
+    "source": "sourcify"
+  },
+  "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 8800,
+  "fetchedAt": "2026-11-06T22:50:09.608Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 7,
+    "last30Days": 1000,
+    "newest": 1794002351,
+    "oldest": 1791724511,
+    "perDay": 37.93067116215362,
+    "requested": 1000,
+    "selectors": {
+      "0x095ea7b3": 592,
+      "0x42966c68": 165,
+      "0xa9059cbb": 243
+    },
+    "senders": 682,
+    "sendersBySelector": {
+      "0x095ea7b3": 427,
+      "0x42966c68": 137,
+      "0xa9059cbb": 150
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "RocketTokenRETH",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "abi": {
+    "address": "0x72a19342e8F1838460eBFCCEf09F6585e32db86E",
+    "functions": 67,
+    "name": "CvxLockerV2",
+    "source": "sourcify"
+  },
+  "address": "0x72a19342e8F1838460eBFCCEf09F6585e32db86E",
+  "blockscout": {
+    "reason": "Sourcify has the verified source and ABI",
+    "status": "skipped"
+  },
+  "chainId": 1,
+  "codeBytes": 19602,
+  "fetchedAt": "2026-11-06T22:50:59.603Z",
+  "format": 2,
+  "sample": {
+    "count": 1000,
+    "failed": 4,
+    "last30Days": 1000,
+    "newest": 1794001235,
+    "oldest": 1791448379,
+    "perDay": 33.84444716035687,
+    "requested": 1000,
+    "selectors": {
+      "0x312ff839": 654,
+      "0x7050ccd9": 2,
+      "0x887c7dc5": 2,
+      "0xc00007b0": 11,
+      "0xe2ab691d": 331
+    },
+    "senders": 517,
+    "sendersBySelector": {
+      "0x312ff839": 437,
+      "0x7050ccd9": 2,
+      "0x887c7dc5": 1,
+      "0xc00007b0": 6,
+      "0xe2ab691d": 215
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "match",
+    "name": "CvxLockerV2",
+    "status": "verified"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "abi": {
+    "address": "0x2B05F8e1cACC6974fD79A673a341Fe1f58d27266",
+    "functions": 24,
+    "name": "PSM3",
+    "source": "sourcify"
+  },
+  "address": "0x2B05F8e1cACC6974fD79A673a341Fe1f58d27266",
+  "blockscout": {
+    "reason": "HTTP 403 from https://arbitrum.blockscout.com/api/v2/addresses/0x2B05F8e1cACC6974fD79A673a341Fe1f58d27266",
+    "status": "error"
+  },
+  "chainId": 42161,
+  "codeBytes": 8131,
+  "fetchedAt": "2026-11-06T21:55:49.692Z",
+  "format": 2,
+  "sample": {
+    "count": 168,
+    "covered": {
+      "since": 1791092274,
+      "until": 1794000430
+    },
+    "failed": 0,
+    "last30Days": 146,
+    "newest": 1793970090,
+    "oldest": 1791121339,
+    "perDay": 4.866666666666666,
+    "requested": 1000,
+    "selectors": {
+      "0x051f86b5": 52,
+      "0x1a019e37": 112,
+      "0x8340f549": 1,
+      "0xd9caed12": 3
+    },
+    "senders": 72,
+    "sendersBySelector": {
+      "0x051f86b5": 23,
+      "0x1a019e37": 61,
+      "0x8340f549": 1,
+      "0xd9caed12": 1
+    },
+    "source": "sqd-portal"
+  },
+  "sourcify": {
+    "match": "exact_match",
+    "name": "PSM3",
+    "status": "verified"
+  }
+}
