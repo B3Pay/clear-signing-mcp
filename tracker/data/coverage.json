@@ -3,8 +3,8 @@
     "aggregator": {
       "contracts": 59,
       "covered": 21,
-      "describedElsewhere": 2,
-      "drafts": 10,
+      "describedElsewhere": 6,
+      "drafts": 6,
       "label": "Aggregators",
       "partial": 0,
       "perDay": 167455.4,
@@ -185,8 +185,8 @@
     "1": {
       "contracts": 232,
       "covered": 33,
-      "describedElsewhere": 3,
-      "drafts": 14,
+      "describedElsewhere": 4,
+      "drafts": 13,
       "name": "Ethereum",
       "partial": 20,
       "perDay": 146220.4,
@@ -197,8 +197,8 @@
     "10": {
       "contracts": 93,
       "covered": 12,
-      "describedElsewhere": 6,
-      "drafts": 10,
+      "describedElsewhere": 7,
+      "drafts": 9,
       "name": "OP Mainnet",
       "partial": 2,
       "perDay": 75852.5,
@@ -209,8 +209,8 @@
     "8453": {
       "contracts": 126,
       "covered": 12,
-      "describedElsewhere": 8,
-      "drafts": 17,
+      "describedElsewhere": 9,
+      "drafts": 16,
       "name": "Base",
       "partial": 6,
       "perDay": 496445.3,
@@ -221,8 +221,8 @@
     "42161": {
       "contracts": 113,
       "covered": 11,
-      "describedElsewhere": 8,
-      "drafts": 12,
+      "describedElsewhere": 9,
+      "drafts": 11,
       "name": "Arbitrum One",
       "partial": 2,
       "perDay": 63165.2,
@@ -231,7 +231,7 @@
       "uncovered": 100
     }
   },
-  "generatedAt": "2026-11-06T23:58:04.244Z",
+  "generatedAt": "2026-11-07T00:12:10.214Z",
   "protocols": [
     {
       "category": "dex",
@@ -3267,48 +3267,18 @@
           "addressSource": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
           "chainId": 8453,
           "descriptor": null,
-          "draft": {
-            "functions": 3,
-            "lint": "warnings",
-            "preview": {
-              "fields": [
-                {
-                  "label": "From token amount",
-                  "value": "394628751974723538700"
-                },
-                {
-                  "label": "Value sent",
-                  "value": "0 ETH"
-                },
-                {
-                  "label": "Minimum to receive",
-                  "value": "49.921804 USDC"
-                },
-                {
-                  "label": "Order ID",
-                  "value": "1002475560"
-                },
-                {
-                  "label": "From token",
-                  "value": "524677840931985408431554984255696976458223670762"
-                },
-                {
-                  "label": "Deadline",
-                  "value": "2026-11-06 20:46:42Z"
-                },
-                {
-                  "label": "From token",
-                  "value": "524677840931985408431554984255696976458223670762"
-                }
-              ],
-              "intent": "Swap for at least 49.921804 USDC",
-              "txHash": "0xbf4d62d5f41af1f7ca740c28852426c8c8c660c15237150204369c0c4712445c"
-            },
+          "draft": null,
+          "elsewhere": {
+            "address": "0xC8F6b8Ba0DC0f175B568B99440B0867F69A29265",
+            "chainId": 8453,
+            "chainName": "Base",
+            "label": "OKX DEX router",
+            "path": "registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json",
+            "sameAddress": false,
             "signerShareCovered": 1,
-            "testedTxs": 3,
-            "txShareCovered": 1
+            "txShareCovered": 1,
+            "url": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/ef582c2f03bfbd062b7e3889b55dd3b45c3d5494/registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json"
           },
-          "elsewhere": null,
           "explorerUrl": "https://basescan.org/address/0x67d03631FE51B741C0C00c4E16eb662AC84381df",
           "functions": {
             "formatted": 0,
@@ -3356,48 +3326,18 @@
           "addressSource": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
           "chainId": 1,
           "descriptor": null,
-          "draft": {
-            "functions": 3,
-            "lint": "warnings",
-            "preview": {
-              "fields": [
-                {
-                  "label": "From token amount",
-                  "value": "394628751974723538700"
-                },
-                {
-                  "label": "Value sent",
-                  "value": "0 ETH"
-                },
-                {
-                  "label": "Minimum to receive",
-                  "value": "49.921804 USDC"
-                },
-                {
-                  "label": "Order ID",
-                  "value": "1002475560"
-                },
-                {
-                  "label": "From token",
-                  "value": "524677840931985408431554984255696976458223670762"
-                },
-                {
-                  "label": "Deadline",
-                  "value": "2026-11-06 20:46:42Z"
-                },
-                {
-                  "label": "From token",
-                  "value": "524677840931985408431554984255696976458223670762"
-                }
-              ],
-              "intent": "Swap for at least 49.921804 USDC",
-              "txHash": "0xbf4d62d5f41af1f7ca740c28852426c8c8c660c15237150204369c0c4712445c"
-            },
-            "signerShareCovered": 0.7583,
-            "testedTxs": 3,
-            "txShareCovered": 0.885
+          "draft": null,
+          "elsewhere": {
+            "address": "0x28b1Dc1a5E3699A428BC51d234DFab7C9CB2a183",
+            "chainId": 1,
+            "chainName": "Ethereum",
+            "label": "OKX DEX router",
+            "path": "registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json",
+            "sameAddress": false,
+            "signerShareCovered": 1,
+            "txShareCovered": 1,
+            "url": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/ef582c2f03bfbd062b7e3889b55dd3b45c3d5494/registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json"
           },
-          "elsewhere": null,
           "explorerUrl": "https://etherscan.io/address/0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6",
           "functions": {
             "formatted": 0,
@@ -3459,48 +3399,18 @@
           "addressSource": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
           "chainId": 42161,
           "descriptor": null,
-          "draft": {
-            "functions": 3,
-            "lint": "warnings",
-            "preview": {
-              "fields": [
-                {
-                  "label": "From token amount",
-                  "value": "394628751974723538700"
-                },
-                {
-                  "label": "Value sent",
-                  "value": "0 ETH"
-                },
-                {
-                  "label": "Minimum to receive",
-                  "value": "49.921804 USDC"
-                },
-                {
-                  "label": "Order ID",
-                  "value": "1002475560"
-                },
-                {
-                  "label": "From token",
-                  "value": "524677840931985408431554984255696976458223670762"
-                },
-                {
-                  "label": "Deadline",
-                  "value": "2026-11-06 20:46:42Z"
-                },
-                {
-                  "label": "From token",
-                  "value": "524677840931985408431554984255696976458223670762"
-                }
-              ],
-              "intent": "Swap for at least 49.921804 USDC",
-              "txHash": "0xbf4d62d5f41af1f7ca740c28852426c8c8c660c15237150204369c0c4712445c"
-            },
-            "signerShareCovered": 0.8632,
-            "testedTxs": 3,
-            "txShareCovered": 0.885
+          "draft": null,
+          "elsewhere": {
+            "address": "0x7CF6b330b437E9fb432B1400DE17B03357Cf049A",
+            "chainId": 42161,
+            "chainName": "Arbitrum One",
+            "label": "OKX DEX router",
+            "path": "registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json",
+            "sameAddress": false,
+            "signerShareCovered": 1,
+            "txShareCovered": 1,
+            "url": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/ef582c2f03bfbd062b7e3889b55dd3b45c3d5494/registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json"
           },
-          "elsewhere": null,
           "explorerUrl": "https://arbiscan.io/address/0x09f94b5Fc68e227C323A6FbaE3Bd98C97fD8c849",
           "functions": {
             "formatted": 0,
@@ -3562,48 +3472,18 @@
           "addressSource": "https://web3.okx.com/onchainos/dev-docs/trade/dex-smart-contract",
           "chainId": 10,
           "descriptor": null,
-          "draft": {
-            "functions": 3,
-            "lint": "warnings",
-            "preview": {
-              "fields": [
-                {
-                  "label": "From token amount",
-                  "value": "394628751974723538700"
-                },
-                {
-                  "label": "Value sent",
-                  "value": "0 ETH"
-                },
-                {
-                  "label": "Minimum to receive",
-                  "value": "49.921804 USDC"
-                },
-                {
-                  "label": "Order ID",
-                  "value": "1002475560"
-                },
-                {
-                  "label": "From token",
-                  "value": "524677840931985408431554984255696976458223670762"
-                },
-                {
-                  "label": "Deadline",
-                  "value": "2026-11-06 20:46:42Z"
-                },
-                {
-                  "label": "From token",
-                  "value": "524677840931985408431554984255696976458223670762"
-                }
-              ],
-              "intent": "Swap for at least 49.921804 USDC",
-              "txHash": "0xbf4d62d5f41af1f7ca740c28852426c8c8c660c15237150204369c0c4712445c"
-            },
-            "signerShareCovered": 0.9123,
-            "testedTxs": 3,
-            "txShareCovered": 0.972
+          "draft": null,
+          "elsewhere": {
+            "address": "0xDd5E9B947c99Aa60bab00ca4631Dce63b49983E7",
+            "chainId": 10,
+            "chainName": "OP Mainnet",
+            "label": "OKX DEX router",
+            "path": "registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json",
+            "sameAddress": false,
+            "signerShareCovered": 1,
+            "txShareCovered": 1,
+            "url": "https://github.com/ethereum/clear-signing-erc7730-registry/blob/ef582c2f03bfbd062b7e3889b55dd3b45c3d5494/registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json"
           },
-          "elsewhere": null,
           "explorerUrl": "https://optimistic.etherscan.io/address/0x1f5B43127414E36c31eCb5Ff5567262997CD24D0",
           "functions": {
             "formatted": 0,
@@ -3653,8 +3533,8 @@
       "totals": {
         "contracts": 4,
         "covered": 0,
-        "describedElsewhere": 0,
-        "drafts": 4,
+        "describedElsewhere": 4,
+        "drafts": 0,
         "partial": 0,
         "perDay": 67632.9,
         "signerShareCovered": 0,
@@ -33455,7 +33335,7 @@
     "repo": "ethereum/clear-signing-erc7730-registry"
   },
   "sources": {
-    "defillama": "2026-11-06T23:57:58.804Z",
+    "defillama": "2026-11-07T00:12:05.845Z",
     "onchain": {
       "newest": "2026-11-06T23:32:29.331Z",
       "oldest": "2026-11-06T20:02:09.107Z"
@@ -33464,8 +33344,8 @@
   "totals": {
     "contracts": 564,
     "covered": 68,
-    "describedElsewhere": 25,
-    "drafts": 53,
+    "describedElsewhere": 29,
+    "drafts": 49,
     "partial": 30,
     "perDay": 781683.5,
     "protocols": 96,
