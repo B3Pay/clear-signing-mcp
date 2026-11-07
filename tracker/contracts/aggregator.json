@@ -783,7 +783,11 @@
       "name": "OKX DEX (OKX Wallet swaps)",
       "category": "aggregator",
       "website": "https://web3.okx.com",
-      "notes": "OKX redeploys its DEX routers (the registry covers older v1.0.7 and v1.0.8 routers at other addresses), and its docs say to use the router the API returns rather than a hardcoded one. These are the main 'DEX router' entries on the docs page as of 2026-11-06. ExactOut swaps use separate routers, and token approvals go to a per-chain token-approval contract, not the router.",
+      "notes": "OKX redeploys its DEX routers, and its docs say to use the router the API returns rather than a hardcoded one. These are the main 'DEX router' entries on the docs page as of 2026-11-06. ExactOut swaps use separate routers, and token approvals go to a per-chain token-approval contract, not the router. The registry's two OKX Labs descriptors, named in registryDescriptors, describe the older v1.0.7 and v1.0.8 routers at other addresses; checked 2026-11-07 against the registry at ef582c2, they format every function these routers' recent calls use (dagSwapTo, dagSwapByOrderId, unxswapTo and the rest), and two these routers no longer have (smartSwapByInvest and smartSwapByInvestWithRefund).",
+      "registryDescriptors": [
+        "registry/okx/calldata-OkxDexRouterV1.0.8-suffix-compat.json",
+        "registry/okx/calldata-OkxDexRouterV1.0.7-multi-commission.json"
+      ],
       "contracts": [
         {
           "chainId": 1,
