@@ -20,6 +20,14 @@
   format. Contracts found shut down, sunset or not signed to on review are
   left out, and their protocol's notes say why.
 
+### Fixed
+
+- The tracker's draft previews: a draft that lists the same contract on
+  several chains, or several deployments, showed the call it was tested on
+  under every one of them, so 29 deployments showed a call sent on another
+  chain or to another contract, linked to the wrong explorer. Each
+  deployment now shows only a call made to it.
+
 ## 0.1.0 (unreleased)
 
 First version: an MCP server over stdio with four read-only tools.

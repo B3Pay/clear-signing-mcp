@@ -176,5 +176,8 @@ node tracker/dist/tracker/cli.js check-drafts --registry <clone> \
   readable count: one that shows an amount besides the value sent, or no raw
   `bytes`. A Universal Router's `execute(commands, inputs)` passes every
   check yet shows its commands as raw bytes, so it is not counted, and a
-  draft with nothing else is not listed. A change to `drafts/` runs
-  the `Tracker fetch` workflow again, so its report includes them.
+  draft with nothing else is not listed. Each deployment's preview is a
+  test sent to that deployment, on its chain: a draft that lists several
+  deployments but was tested on one of them shows its call there only, and
+  the others are listed without one. A change to `drafts/` runs the
+  `Tracker fetch` workflow again, so its report includes them.

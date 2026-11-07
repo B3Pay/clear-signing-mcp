@@ -13,9 +13,11 @@ import { basename, dirname, join } from "node:path"
 import {
   getAddress,
   parseAbiItem,
+  parseTransaction,
   toFunctionSelector,
   type Abi,
   type AbiFunction,
+  type Hex,
 } from "viem"
 import { describe } from "../src/draft/abi.js"
 import {
@@ -536,7 +538,6 @@ export function writeSummary(draftsDir: string): Record<string, DraftSummary> {
         const shown = tests.tests.filter(
           (test) => !opaque.has(test.description.split(" ")[1] ?? "")
         )
-        const first = choosePreview(shown)
         const functions = readable.length
         const testedTxs =
           validation.checks.tests.passed - (tests.tests.length - shown.length)
@@ -546,8 +547,24 @@ export function writeSummary(draftsDir: string): Record<string, DraftSummary> {
           selectors: readable.map((format) => selectorOfFormat(format)).sort(),
           testedTxs,
           lint,
-          ...(first
+        }
+        for (const d of descriptor.context.contract.deployments) {
+          // A deployment's preview is a call made to it: the page names the
+          // deployment's chain beside the call and links it to that chain's
+          // explorer, so a call sent on another chain, or to another
+          // deployment of the draft, is not shown there.
+          const own = shown.filter((test) => {
+            const target = testTarget(test.rawTx)
+            return (
+              target !== null &&
+              target.chainId === d.chainId &&
+              target.to === d.address.toLowerCase()
+            )
+          })
+          const first = choosePreview(own)
+          out[deploymentKey(d.chainId, d.address)] = first
             ? {
+                ...summary,
                 preview: {
                   txHash: first.txHash,
                   intent: publicText(
@@ -561,15 +578,30 @@ export function writeSummary(draftsDir: string): Record<string, DraftSummary> {
                   ),
                 },
               }
-            : {}),
+            : summary
         }
-        for (const d of descriptor.context.contract.deployments)
-          out[deploymentKey(d.chainId, d.address)] = summary
       }
     }
   }
   writeText(join(draftsDir, "summary.json"), stableJson(out))
   return out
+}
+
+/**
+ * The chain and contract a test's raw transaction was sent to (the address in
+ * lower case), or null when it does not parse or creates a contract.
+ */
+export function testTarget(
+  rawTx: string
+): { readonly chainId: number; readonly to: string } | null {
+  try {
+    const tx = parseTransaction(rawTx as Hex)
+    return tx.chainId !== undefined && tx.to
+      ? { chainId: tx.chainId, to: tx.to.toLowerCase() }
+      : null
+  } catch {
+    return null
+  }
 }
 
 /**
