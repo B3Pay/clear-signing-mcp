@@ -12,8 +12,10 @@ import { fileURLToPath } from "node:url"
 import { afterEach, describe, expect, it } from "vitest"
 import {
   encodeFunctionData,
+  getAddress,
   parseAbi,
   parseAbiItem,
+  serializeTransaction,
   toFunctionSelector,
 } from "viem"
 import {
@@ -136,6 +138,19 @@ describe("chooseSelectors", () => {
   })
 })
 
+/** A transaction to `to` on `chainId`, serialized as a test's rawTx carries it. */
+const rawTxTo = (chainId: number, to: string) =>
+  serializeTransaction({
+    chainId,
+    to: getAddress(to),
+    data: "0x",
+    type: "eip1559",
+    maxFeePerGas: 1n,
+    maxPriorityFeePerGas: 1n,
+    gas: 21_000n,
+    nonce: 0,
+  })
+
 describe("writeSummary", () => {
   let dir: string | undefined
   afterEach(() => {
@@ -169,13 +184,13 @@ describe("writeSummary", () => {
         tests: [
           {
             description: "a",
-            rawTx: "0x",
+            rawTx: rawTxTo(8453, ADDRESS),
             txHash: `0x${"cd".repeat(32)}`,
             expected: { intent: "Do a", fields: [] },
           },
           {
             description: "b",
-            rawTx: "0x",
+            rawTx: rawTxTo(8453, ADDRESS),
             txHash: HASH,
             expected: {
               intent: "Swap",
@@ -337,7 +352,7 @@ describe("readableFormat", () => {
         )
         const cases = Object.keys(formats).map((key, i) => ({
           description: `${key.split("(")[0]} ${toFunctionSelector(`function ${key}`)} 0x${String(i).repeat(8)}`,
-          rawTx: "0x",
+          rawTx: rawTxTo(name === "both" ? 8453 : 10, ADDRESS),
           txHash: `0x${String(i + 1).repeat(64)}`,
           expected: {
             intent: key.split("(")[0],

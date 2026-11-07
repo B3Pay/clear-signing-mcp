@@ -5,7 +5,9 @@ import { afterEach, describe, expect, it, vi } from "vitest"
 import {
   encodeFunctionData,
   getAddress,
+  keccak256,
   parseAbi,
+  serializeTransaction,
   toFunctionSelector,
   type Hex,
 } from "viem"
@@ -15,7 +17,13 @@ import {
   summarize,
   type ListedTx,
 } from "../tracker/fetch.js"
-import { choosePreview, draftCandidates } from "../tracker/draft.js"
+import {
+  choosePreview,
+  draftCandidates,
+  sha256File,
+  testTarget,
+  writeSummary,
+} from "../tracker/draft.js"
 import {
   draftRegistry,
   type DescribedFunctions,
@@ -594,6 +602,121 @@ describe("choosePreview", () => {
     expect(choosePreview([scam, link])).toBeUndefined()
     const ok = test("Swap 2 ETH", [["Send", "2 ETH"]], false)
     expect(choosePreview([scam, ok])).toBe(ok)
+  })
+})
+
+describe("writeSummary: previews", () => {
+  const router = getAddress("0x9ee35bf1bd69a03c6f0393582030fce8bb93d418")
+  const sibling = "0x1111111111111111111111111111111111111111"
+  const abi = parseAbi(["function transfer(address to, uint256 amount)"])
+  const data = encodeFunctionData({
+    abi,
+    functionName: "transfer",
+    args: [sibling, 1_500_000n],
+  })
+  const rawTx = (chainId: number, to: string) =>
+    serializeTransaction({
+      chainId,
+      to: to as Hex,
+      data,
+      type: "eip1559",
+      maxFeePerGas: 1n,
+      maxPriorityFeePerGas: 1n,
+      gas: 100_000n,
+      nonce: 1,
+    })
+  const test = (chainId: number, to: string, intent: string) => {
+    const raw = rawTx(chainId, to)
+    return {
+      description: `transfer 0xa9059cbb ${keccak256(raw).slice(0, 10)}`,
+      rawTx: raw,
+      txHash: keccak256(raw),
+      expected: {
+        intent,
+        interpolatedIntent: intent,
+        fields: [{ label: "Amount", value: "1.5 USDC" }],
+      },
+    }
+  }
+
+  function draftsDir(tests: readonly ReturnType<typeof test>[]): string {
+    const dir = mkdtempSync(join(tmpdir(), "drafts-"))
+    const protocol = join(dir, "example")
+    mkdirSync(join(protocol, "testsv2"), { recursive: true })
+    const descriptor = {
+      context: {
+        contract: {
+          deployments: [
+            { chainId: 1, address: router },
+            { chainId: 8453, address: router },
+            { chainId: 8453, address: sibling },
+          ],
+        },
+      },
+      display: {
+        formats: {
+          "transfer(address to,uint256 amount)": {
+            intent: "Send",
+            fields: [
+              { path: "amount", label: "Amount", format: "tokenAmount" },
+            ],
+          },
+        },
+      },
+    }
+    writeFileSync(
+      join(protocol, "calldata-Example.json"),
+      JSON.stringify(descriptor)
+    )
+    writeFileSync(
+      join(protocol, "testsv2", "calldata-Example.tests.json"),
+      JSON.stringify({ tests })
+    )
+    writeFileSync(
+      join(protocol, "calldata-Example.validation.json"),
+      JSON.stringify({
+        passed: true,
+        descriptor: "calldata-Example.json",
+        tests: "testsv2/calldata-Example.tests.json",
+        descriptorSha256: sha256File(join(protocol, "calldata-Example.json")),
+        testsSha256: sha256File(
+          join(protocol, "testsv2", "calldata-Example.tests.json")
+        ),
+        checks: {
+          lint: { status: "pass" },
+          tests: { status: "pass", passed: tests.length },
+        },
+      })
+    )
+    return dir
+  }
+
+  it("reads a test's chain and contract from its raw transaction", () => {
+    expect(testTarget(rawTx(8453, router))).toEqual({
+      chainId: 8453,
+      to: router.toLowerCase(),
+    })
+    expect(testTarget("0x1234")).toBeNull()
+  })
+
+  it("shows each deployment only a call made to it", () => {
+    const summary = writeSummary(
+      draftsDir([
+        test(8453, router, "Send 1.5 USDC on Base"),
+        test(8453, sibling, "Send 1.5 USDC to the sibling"),
+      ])
+    )
+    expect(summary[`8453:${router.toLowerCase()}`]?.preview?.intent).toBe(
+      "Send 1.5 USDC on Base"
+    )
+    expect(summary[`8453:${sibling.toLowerCase()}`]?.preview?.intent).toBe(
+      "Send 1.5 USDC to the sibling"
+    )
+    // No test was sent on Ethereum: the draft is listed there, without a preview.
+    const ethereum = summary[`1:${router.toLowerCase()}`]
+    expect(ethereum?.functions).toBe(1)
+    expect(ethereum?.testedTxs).toBe(2)
+    expect(ethereum?.preview).toBeUndefined()
   })
 })
 
