@@ -103,7 +103,16 @@ calls of each function whose format has a `mustMatch` field, and counts the
 calls that the descriptor refuses and the values that make it refuse them. A
 `mustMatch` field lets a wallet clear sign a call only when the field holds one
 of the listed values, so these are the real calls that get an error instead of
-a screen. The two portal readers share `tools/portal.mjs`.
+a screen.
+
+`tools/dln-orders.mjs` reads, from the same portal, the latest orders created
+at deBridge's DlnSource on each chain, for the deBridge draft being finished:
+the chains they go to, the tokens given, how often each part an order can
+leave empty is set, and who holds the order's authorities. With `--pick` it
+prints the newest orders to each chain the tracker reads in the form the
+tracker's samples keep a transaction, read back from a public RPC, for tests
+the tracker's few samples cannot give. The three portal readers share
+`tools/portal.mjs`.
 
 `tools/verified-sources.mjs` prints what Sourcify has verified at each
 deployment of a descriptor, through a proxy to its implementations, and how
@@ -112,17 +121,17 @@ are written from one deployment's code and hold on another only where it runs
 the same code. With `--print` it prints a source file's text, for a protocol
 whose public repository is not what it deployed.
 
-The `Registry submission checks` workflow runs `check.sh` and the
-transaction check on every change here, against the registry's latest commit:
-the linter against live Sourcify, both test runners and the transaction
-check, then a deliberate fault (a wrong expected value, two swapped
-transaction hashes, a batch action named as another action of its batch)
-that both runners and the transaction check must report. A job of its own
-beside them runs the source comparison. The batch-call count and the count
-of refused calls have their own workflow, `Registry submission batches`,
-which reads for an hour or more, so a new push waits for a run in progress
-instead of cancelling it. The source comparison and the two counts never fail
-a run.
+The `Registry submission checks` workflow runs `check.sh` and the transaction
+check on every change here, against the registry's latest commit: the linter
+against live Sourcify, both test runners and the transaction check, then a
+deliberate fault (a wrong expected value, two swapped transaction hashes, a
+batch action named as another action of its batch) that both runners and the
+transaction check must report. A job of its own beside them runs the source
+comparison, and another reads the deployed code that the drafts being finished
+describe. The batch-call count, the count of refused calls and the reading of
+deBridge's orders have their own workflow, `Registry submission batches`, which
+reads for an hour or more, so a new push waits for a run in progress instead of
+cancelling it. None of these fails a run.
 
 Where Sourcify, chainid.network and public RPCs are out of reach, `check.sh
 --offline` lints with the tracker's ABIs (`tracker/data/abis/`) instead and

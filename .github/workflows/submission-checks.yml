@@ -206,13 +206,30 @@ jobs:
       - name: What each deployment runs
         run: node submissions/tools/verified-sources.mjs submissions/registry/*/*.json
 
-      # The drafts being finished: the deployed code their screens describe.
-      - name: The code of the drafts being finished
+  # The drafts being finished: the deployed code their screens describe, in a
+  # job of its own so that its log stays whole. Never fails the run.
+  drafts:
+    name: The code of the drafts being finished
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Across's spoke pools
         run: |
-          # Across: the code of the spoke pools that depositNative calls, the
-          # token each one wraps ETH into, and the WETH on Robinhood Chain
-          # that two Across tests receive, whose symbol and decimals the
-          # tests take from Across's constants.
+          # The spoke pools that depositNative calls, the token each one
+          # wraps ETH into, and the WETH on Robinhood Chain that two Across
+          # tests receive, whose symbol and decimals the tests take from
+          # Across's constants.
           cat > "$RUNNER_TEMP/calldata-SpokePools.json" <<'EOF'
           { "context": { "contract": { "deployments": [
             { "chainId": 1, "address": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5" },
@@ -220,7 +237,7 @@ jobs:
             { "chainId": 8453, "address": "0x09aea4b2242abC8bb4BB78D537A67a245A7bEC64" },
             { "chainId": 42161, "address": "0xe35e9842fceaCA96570B734083f4a58e8F7C5f2A" } ] } } }
           EOF
-          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-SpokePools.json" --files --print SpokePool.sol
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-SpokePools.json" --files
           node --input-type=module -e '
             const rpc = { 1: "https://ethereum-rpc.publicnode.com", 10: "https://optimism-rpc.publicnode.com",
               8453: "https://base-rpc.publicnode.com", 42161: "https://arbitrum-one-rpc.publicnode.com",
@@ -240,5 +257,21 @@ jobs:
             const [symbol, name, decimals] = await Promise.all(["0x95d89b41", "0x06fdde03", "0x313ce567"].map((data) => call(4663, weth, data)))
             console.log(`chain 4663, ${weth}: symbol ${text(symbol)}, name ${text(name)}, decimals ${Number(decimals)}`)
           ' "$(cat "$RUNNER_TEMP/calldata-SpokePools.json")" || echo "::warning::The Across spoke pools or Robinhood Chain WETH could not be read"
-          node submissions/tools/verified-sources.mjs tracker/drafts/debridge/calldata-DeBridgeRouter.json --files \
-            --print DeBridgeRouter.sol --print DeBridgeRouterBase.sol --print Permit.sol --print ERC20Utils.sol
+
+      - name: deBridge's DlnSource, DlnDestination and router
+        run: |
+          # The DLN contracts and deBridge's router, at one address on each
+          # chain (dln-contracts' README; the router from deBridge's
+          # dln-client), whatever Sourcify has verified behind their proxies.
+          deployments() {
+            node -e 'console.log(JSON.stringify({ context: { contract: { deployments:
+              [1, 10, 8453, 42161].map((chainId) => ({ chainId, address: process.argv[1] })) } } }))' "$1"
+          }
+          deployments 0xeF4fB24aD0916217251F553c0596F8Edc630EB66 > "$RUNNER_TEMP/calldata-DlnSource.json"
+          deployments 0xE7351Fd770A37282b91D153Ee690B63579D6dd7f > "$RUNNER_TEMP/calldata-DlnDestination.json"
+          deployments 0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251 > "$RUNNER_TEMP/calldata-DeBridgeRouter.json"
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DlnSource.json" --files \
+            --print DlnSource.sol --print DlnOrderLib.sol --print DlnBase.sol
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DlnDestination.json" \
+            --print DlnDestination.sol
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DeBridgeRouter.json"
