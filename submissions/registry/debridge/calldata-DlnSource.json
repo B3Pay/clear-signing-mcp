@@ -12,7 +12,23 @@
     "owner": "deBridge",
     "contractName": "DlnSource",
     "info": { "url": "https://debridge.finance/" },
-    "enums": { "dlnChainId": { "7565164": "Solana" } }
+    "enums": {
+      "dlnChainId": {
+        "7565164": "Solana",
+        "100000001": "Neon",
+        "100000002": "Gnosis",
+        "100000003": "LightLink",
+        "100000004": "Metis",
+        "100000005": "Bitrock",
+        "100000013": "Story",
+        "100000019": "Cronos",
+        "100000022": "HyperEVM",
+        "100000026": "Tron",
+        "100000029": "Injective",
+        "100000030": "Monad",
+        "100000031": "MegaETH"
+      }
+    }
   },
   "display": {
     "formats": {
@@ -33,14 +49,30 @@
             "path": "_orderCreation.takeChainId",
             "label": "Destination Chain",
             "format": "chainId",
-            "visible": { "ifNotIn": [7565164, 100000022] }
+            "visible": {
+              "ifNotIn": [
+                7565164,
+                100000001,
+                100000002,
+                100000003,
+                100000004,
+                100000005,
+                100000013,
+                100000019,
+                100000022,
+                100000026,
+                100000029,
+                100000030,
+                100000031
+              ]
+            }
           },
           {
             "path": "_orderCreation.takeChainId",
             "label": "Destination Chain",
             "format": "enum",
             "params": { "$ref": "$.metadata.enums.dlnChainId" },
-            "visible": { "ifNotIn": [1, 10, 56, 137, 324, 8453, 42161, 43114, 59144] }
+            "visible": { "ifNotIn": [1, 10, 56, 137, 4663, 5042, 8453, 42161, 43114, 59144] }
           },
           { "path": "_orderCreation.receiverDst", "label": "Recipient", "format": "raw" },
           {
