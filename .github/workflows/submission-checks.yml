@@ -129,9 +129,11 @@ jobs:
         run: node submissions/tools/verify-txs.mjs
 
       # A check seen only passing proves nothing. Run them again with one
-      # expected value changed, two transaction hashes swapped and a batch
-      # action sent alone named as another action of its batch, and require
-      # that both runners and the transaction check report exactly those.
+      # expected value changed, two transaction hashes swapped, a batch action
+      # sent alone named as another action of its batch, and a deployment
+      # that Sourcify has not verified and submissions/UNVERIFIED does not
+      # list added to the router's descriptor, and require that both runners,
+      # the transaction check and the linter check report exactly those.
       # The transaction check reads only the three faulted tests again: the
       # step above has read every test, and reading the rest again made this
       # step fail on the first run of #6's checks, when Blockscout answered
@@ -175,6 +177,15 @@ jobs:
             if (file.tests.length !== 1) throw new Error(`not one test named ${description}`)
             fs.writeFileSync(to, JSON.stringify(file, null, 2))
           ' "submissions/registry/$lifted" "$fault/txs/$lifted" "$moved"
+          router=debridge/calldata-DeBridgeRouter.json
+          dead=0x000000000000000000000000000000000000dEaD
+          node -e '
+            const fs = require("fs")
+            const [file, address] = process.argv.slice(1)
+            const d = JSON.parse(fs.readFileSync(file, "utf8"))
+            d.context.contract.deployments.push({ chainId: 1, address })
+            fs.writeFileSync(file, JSON.stringify(d, null, 2))
+          ' "$fault/submissions/registry/$router" "$dead"
 
           set +e
           GITHUB_STEP_SUMMARY="" bash "$fault/submissions/tools/check.sh" --registry "$RUNNER_TEMP/registry" \
@@ -191,6 +202,10 @@ jobs:
           grep -q "❌ sourcify runner" "$fault/check.log" || { echo "::error::The Sourcify runner missed the wrong expected value"; ok=0; }
           grep -q "❌ rust runner" "$fault/check.log" || { echo "::error::The Rust runner missed the wrong expected value"; ok=0; }
           [ "$(grep -c "^   $wanted:" "$fault/check.log")" -eq 2 ] || { echo "::error::The runners did not both name the changed case, $wanted"; ok=0; }
+          lint=$(grep "❌ Descriptors pass the ERC-7730 linter" "$fault/check.log" || true)
+          grep -qi "registry/$router: Contract not verified: contract $dead on chain 1 " <<< "$lint" \
+            && ! grep -qi "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251" <<< "$lint" \
+            || { echo "::error::The linter check did not fail for the unlisted deployment $dead alone"; ok=0; }
           [ "$txs" -ne 0 ] && [ "$(grep -c '❌' "$fault/txs.log")" -eq 3 ] \
             && [ "$(grep -c "❌ $file: .*calldata differs" "$fault/txs.log")" -eq 2 ] \
             && grep -q "❌ $lifted: $moved: the calldata is not action" "$fault/txs.log" \

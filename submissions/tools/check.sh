@@ -143,19 +143,35 @@ if [ "$offline" -eq 1 ]; then
   fi
   [ -n "$skipped" ] && note "Not linted offline, already in the registry: $skipped"
 else
-  if "$(dirname "$python")/erc7730" lint --require-verified "${descriptors[@]}" > "$out/lint.log" 2>&1; then
-    pass "Descriptors pass the ERC-7730 linter (--require-verified, ABIs from Sourcify)"
+  # As the registry's CI runs it. A deployment listed in submissions/UNVERIFIED
+  # waits for its owner to verify it on Sourcify: its "not verified" error, and
+  # no other error, is let through (lint-verdict.mjs).
+  "$(dirname "$python")/erc7730" lint --require-verified "${descriptors[@]}" --gha > "$out/lint.log" 2>&1
+  status=$?
+  if verdict=$(node "$repo/submissions/tools/lint-verdict.mjs" "$out/lint.log" "$status" 2> "$out/lint-verdict.log"); then
+    field() { node -e 'const x = JSON.parse(process.argv[1])[process.argv[2]]; console.log(Array.isArray(x) ? x.join("; ") : String(x))' "$verdict" "$1"; }
+    if [ "$(field pass)" = true ]; then
+      pass "Descriptors pass the ERC-7730 linter (--require-verified, ABIs from Sourcify)"
+    else
+      fail "Descriptors pass the ERC-7730 linter: $(field errors | tr '\n' ' ' | cut -c1-1000)"
+    fi
+    waiting=$(field waiting) verified=$(field verified)
+    [ -n "$waiting" ] && note "Not verified on Sourcify, listed in submissions/UNVERIFIED as waiting for its owner: $waiting"
+    [ -n "$verified" ] && note "Verified on Sourcify since it was listed: remove it from submissions/UNVERIFIED: $verified"
   else
-    fail "Descriptors pass the ERC-7730 linter: $(grep -iE 'error|could not fetch' "$out/lint.log" | head -5 | tr '\n' ' ')"
+    fail "Descriptors pass the ERC-7730 linter: lint-verdict.mjs failed: $(tail -3 "$out/lint-verdict.log" | tr '\n' ' ')"
   fi
   if grep -qi "could not fetch abi" "$out/lint.log"; then
     fail "The linter could not fetch an ABI: verify the contract on Sourcify"
   fi
+  # Shown below without the leading "::", which would make each line an
+  # annotation on the pull request.
+  sed -E 's/^::(error|warning|notice) /\1 /; s/%0A/\n    /g' "$out/lint.log" > "$out/lint-shown.log"
 fi
 # On GitHub Actions, the linter's report and the registry's suggestions are
 # shown in full, for the pull request text.
 show() { [ -n "${GITHUB_ACTIONS:-}" ] && [ -f "$2" ] && { echo "::group::$1"; cat "$2"; echo "::endgroup::"; }; }
-show "erc7730 lint output" "$out/lint.log"
+show "erc7730 lint output" "$out/lint-shown.log"
 
 # Every function has a test case.
 if node .github/scripts/check-selector-coverage.js "${descriptors[@]}" > "$out/coverage.log" 2>&1; then

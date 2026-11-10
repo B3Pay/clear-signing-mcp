@@ -17,6 +17,7 @@ these.
 | `cases/`        | For each test file, the real transactions its tests are made from                                                              |
 | `pr/`           | The title and text of each registry pull request                                                                               |
 | `REGISTRY_BASE` | The registry commit that copies of files the registry already has were made from                                               |
+| `UNVERIFIED`    | The deployments of submitted files that Sourcify has not verified, which wait for their owner to verify them there             |
 | `tools/`        | The scripts below                                                                                                              |
 
 ## Status
@@ -96,6 +97,13 @@ status call asked together, which must agree when both answer, and the result
 says which answered. A test that is a batch action sent alone is checked
 against its batch: the batch succeeded, has the test's chain, sender nonce and
 target, and that action is the test's calldata.
+
+The registry's linter fails a deployment that Sourcify has not verified, so a
+descriptor with one is not submitted until its owner verifies it there. Such a
+deployment is listed in `UNVERIFIED`, and `check.sh` lets its "not verified"
+error through, and no other error (`tools/lint-verdict.mjs`); the result names
+each listed deployment as waiting, or as verified since it was listed, to be
+taken off the list.
 
 `tools/multicall-actions.mjs` reads, from the SQD Network portal, the latest
 successful batch calls (`multicall`) to each submitted contract that has one,

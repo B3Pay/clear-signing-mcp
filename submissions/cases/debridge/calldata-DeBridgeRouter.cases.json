@@ -1,0 +1,51 @@
+{
+  "descriptor": "calldata-DeBridgeRouter.json",
+  "keep": false,
+  "tests": [
+    {
+      "description": "Swap ETH for USDC and bridge it to HyperEVM for HYPE - chain 1",
+      "chainId": 1,
+      "txHash": "0xa1c4f07d71ed574effbdd8345d8dfa52c936c3a3fa8a05dd697f1299229f8a62"
+    },
+    {
+      "description": "Swap ETH for USDC and bridge it to Cronos for CRO - chain 1",
+      "chainId": 1,
+      "txHash": "0x64754e6cab96cdcc094a77dc7ca60760d02ec52a9efb72b724ee941d4d4fd305"
+    },
+    {
+      "description": "Swap a token for USDC and bridge it to Ethereum, to another recipient - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xe37c018fce5802b1424dfd41ff4ab18b9c7207f52c53f8c0ebc57c0d29d8677b"
+    },
+    {
+      "description": "Swap cbBTC for USDC and bridge it to BNB Chain, with a refund address - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x260018206a9df2ec54d70a58ab69d58999429d5f128c805dc044b03ecec7da58"
+    },
+    {
+      "description": "Swap ETH for USDT - chain 1",
+      "chainId": 1,
+      "txHash": "0xdada87f17bccfc14d451021295d1ba550423156ccc2f80fcb340ddee8e80c791"
+    },
+    {
+      "description": "Swap USDC for USDT - chain 1",
+      "chainId": 1,
+      "txHash": "0x49c1d72fa5c0ea146046be7d123dcb994337c2291783490db818a3ad951d6381"
+    },
+    {
+      "description": "Swap a token for WETH - chain 10",
+      "chainId": 10,
+      "txHash": "0xdcc2c3a7ff0fa7320ebf7b75ff05b37f72bf9c92841cdc5a4f82972b8c129bc6"
+    },
+    {
+      "description": "Swap USDC for ETH, with an affiliate fee - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xd9f8c6ce1e5d26140a441b51e3777253468863d61d3a3c75e724e30d852e044a"
+    },
+    {
+      "description": "Swap WBTC for USDC - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x0d4e06e0f22bcb0f1e4e249f1f4167ff8d1b420f44210c8ab214350ff138a3fb"
+    }
+  ]
+}

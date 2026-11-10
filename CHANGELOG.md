@@ -25,12 +25,16 @@
   SwapRouter and NonfungiblePositionManager on the same four chains,
   PancakeSwap's Smart Router on Ethereum, Base and Arbitrum One, the OpenOcean
   Exchange on Ethereum, OP Mainnet, Base and Arbitrum One, the ETH deposits of
-  Across's SpokePoolPeriphery on Ethereum, Base and Arbitrum One, and deBridge's
-  DlnSource orders on Ethereum and Base, finished by hand from the tracker's
-  drafts, with 75 new test cases made from real transactions (4 of them a
-  batch's action sent alone) and the text of each registry pull request.
-  `check.sh` runs the registry's pull-request checks on them with the tools it
-  pins, `verify-txs.mjs` reads every test transaction back from its chain,
+  Across's SpokePoolPeriphery on Ethereum, Base and Arbitrum One, deBridge's
+  DlnSource orders on Ethereum and Base, and the swaps of deBridge's router, and
+  its swaps that create a DlnSource order, on Ethereum, OP Mainnet, Base and
+  Arbitrum One, finished by hand from the tracker's drafts, with 84 new test
+  cases made from real transactions (4 of them a batch's action sent alone) and
+  the text of each registry pull request. `check.sh` runs the registry's
+  pull-request checks on them with the tools it pins, and lets through only the
+  "not verified" errors of the deployments that `UNVERIFIED` lists as waiting
+  for their owner to verify them on Sourcify (`lint-verdict.mjs`),
+  `verify-txs.mjs` reads every test transaction back from its chain,
   `multicall-actions.mjs` counts the actions in each contract's latest batch
   calls, `must-match.mjs` counts the latest calls that a descriptor's
   `mustMatch` fields refuse and who sent them, `dln-orders.mjs` reads what

@@ -1,0 +1,15 @@
+# Deployments of submitted descriptors that Sourcify has not verified, which
+# wait for their owner to verify them there. The registry's linter
+# (erc7730 lint --require-verified) fails such a deployment, so a descriptor
+# that has one is not submitted until it is verified. check.sh lets the
+# linter's "not verified" error for a deployment listed here through, and no
+# other error, and says when a listed deployment has been verified since
+# (tools/lint-verdict.mjs).
+#
+# <chainId>:<address> <descriptor under submissions/registry/>
+
+# deBridge's router: Sourcify has verified its implementation,
+# 0xCe56012E880851baa234cD092aF516A0fcA9CFe3, on OP Mainnet only.
+1:0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251 debridge/calldata-DeBridgeRouter.json
+8453:0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251 debridge/calldata-DeBridgeRouter.json
+42161:0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251 debridge/calldata-DeBridgeRouter.json
