@@ -32,8 +32,19 @@ The periphery is not a proxy, and Sourcify has verified it on Ethereum, OP
 Mainnet, Base and Arbitrum One with one source (`SpokePoolPeriphery`, Solidity
 0.8.30, exact match).
 
-**Still to be filled from CI:** what Sourcify has verified at each spoke pool
-(a proxy) and what each one's `wrappedNativeToken()` returns.
+Each spoke pool is a proxy (`ERC1967Proxy`, UUPS) whose admin can upgrade it.
+Sourcify has verified the three proxies and their implementations:
+`Ethereum_SpokePool` at `0x456Ac26E5ec083EE9889eBa0d1a0A582502B8e84` (exact
+match), `OP_SpokePool` on Base at `0xf23C6C04A2B88e8651FE99bbDccbB5C9D306e6B0`
+(match) and `Arbitrum_SpokePool` at
+`0xcfCDA84333431BCC9155f2368B8362F0d1dfF8c9` (exact match), Solidity 0.8.30.
+The three have the same `contracts/spoke-pools/SpokePool.sol`, and their
+chain-specific contracts change no deposit or fill code. These files are the
+ones in across-protocol/contracts at `d0725ea`, except Base's
+`Ovm_SpokePool.sol`, which is that repository's version before `ef83a5e` and
+defines the same functions. Each pool's `wrappedNativeToken()` returns the
+WETH above. If the admin upgrades a spoke pool, the descriptor needs checking
+again.
 
 ## Scope
 
@@ -77,8 +88,9 @@ One, the `depositNative` calls. Those that carry a message are refused
 
 ## What the screens say, and why
 
-From the periphery's verified source (`contracts/periphery/SpokePoolPeriphery.sol`)
-and the spoke pool's (`SpokePool.sol`).
+From the verified source of the periphery
+(`contracts/periphery/SpokePoolPeriphery.sol`) and of the spoke pools
+(`contracts/spoke-pools/SpokePool.sol`).
 
 `depositNative` calls `deposit` of the spoke pool named in `spokePool` with
 the ETH sent and its own arguments, `depositor` as the depositor. The screen
@@ -143,24 +155,23 @@ Each screen's Recipient and Depositor are the transaction's sender.
 The output token of the two tests to Robinhood Chain (4663) is its WETH,
 `0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73` (`WETH` for that chain in
 Across's `generated/constants.json`), which no token list the tests use has.
-Its symbol and decimals in the tests are to be checked against the token on
-chain by CI.
+Its `symbol()`, `name()` and `decimals()` on Robinhood Chain return WETH,
+WETH and 18, as in the tests.
 
 ## Checks
 
-On the registry at `ef582c2`, with the tools its CI pins:
+On the registry at `8e484f1`, its latest commit on 2026-11-10, with the tools
+its CI pins:
 
 - Schemas (check-jsonschema 0.38.0): pass.
 - `generate-index.js --validate`: no deployment is claimed twice.
-- `erc7730 lint` (python-erc7730 `ccd51ad`): no errors, with the ABIs the
-  tracker read from Sourcify; to be run by CI with `--require-verified`
-  against live Sourcify. Warnings:
+- `erc7730 lint --require-verified` (python-erc7730 `ccd51ad`, ABIs from
+  Sourcify): no errors. Warnings:
   - "Missing display format" for the functions left out (Scope).
   - "Display label too long": the depositor's label, the SpokePool file's.
   - "Display intent too long": the interpolated intent, the SpokePool file's,
-    is over Ledger's 30 characters, as are 441 of the 775 interpolated intents
-    in the registry's v2 calldata descriptors.
+    is over Ledger's 30 characters, as are 495 of the 838 interpolated
+    intents in the registry's v2 calldata descriptors.
 - `check-selector-coverage.js`: every format has a test case.
-- Sourcify runner `277965d`: 4 of 4 cases pass. Rust runner `8bfe6b4`: to be
-  run by CI.
+- Sourcify runner `277965d` and Rust runner `8bfe6b4`: 4 of 4 cases pass.
 - `check-recommended-fields.js`: no suggestion.

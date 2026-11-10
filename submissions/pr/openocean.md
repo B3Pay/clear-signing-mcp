@@ -142,7 +142,8 @@ Every screen's Recipient is the transaction's sender.
 
 ## Checks
 
-On the registry at `ef582c2`, with the tools its CI pins:
+On the registry at `8e484f1`, its latest commit on 2026-11-10, with the tools
+its CI pins:
 
 - Schemas (check-jsonschema 0.38.0): pass.
 - `generate-index.js --validate`: no deployment is claimed twice.
@@ -152,7 +153,7 @@ On the registry at `ef582c2`, with the tools its CI pins:
   - "Deployment ABIs differ": Base's implementation has fewer functions than
     the other three. The fields are checked against each ABI.
   - "Display intent too long": the interpolated intent is over Ledger's 30
-    characters, as are 441 of the 775 interpolated intents in the registry's
+    characters, as are 495 of the 838 interpolated intents in the registry's
     v2 calldata descriptors.
 - `check-selector-coverage.js`: every format has a test case.
 - Sourcify runner `277965d` and Rust runner `8bfe6b4`: 9 of 9 cases pass.
