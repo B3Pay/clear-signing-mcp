@@ -132,6 +132,10 @@ jobs:
       # expected value changed, two transaction hashes swapped and a batch
       # action sent alone named as another action of its batch, and require
       # that both runners and the transaction check report exactly those.
+      # The transaction check reads only the three faulted tests again: the
+      # step above has read every test, and reading the rest again made this
+      # step fail on the first run of #6's checks, when Blockscout answered
+      # for an unchanged test only with timeouts and HTTP 500.
       - name: The checks catch a deliberate fault
         run: |
           fault="$RUNNER_TEMP/fault"
@@ -149,11 +153,11 @@ jobs:
             fs.writeFileSync(wrongValue, JSON.stringify(a, null, 2))
             const b = read()
             ;[b.tests[0].txHash, b.tests[1].txHash] = [b.tests[1].txHash, b.tests[0].txHash]
+            b.tests = b.tests.slice(0, 2)
             fs.writeFileSync(swappedHashes, JSON.stringify(b, null, 2))
           ' "submissions/registry/$file" "$fault/submissions/registry/$file" "$fault/txs/$file"
           wanted=$(node -e 'console.log(require(process.argv[1]).tests[0].description)' "$PWD/submissions/registry/$file")
           lifted=pancakeswap/testsv2/calldata-SmartRouter.tests.json
-          cp "submissions/registry/$lifted" "$fault/txs/$lifted"
           moved=$(node -e '
             const fs = require("fs")
             const file = process.argv[1]
@@ -163,6 +167,14 @@ jobs:
             fs.writeFileSync(file, JSON.stringify(cases, null, 2))
             console.log(c.description)
           ' "$fault/submissions/cases/pancakeswap/calldata-SmartRouter.cases.json")
+          node -e '
+            const fs = require("fs")
+            const [from, to, description] = process.argv.slice(1)
+            const file = JSON.parse(fs.readFileSync(from, "utf8"))
+            file.tests = file.tests.filter((t) => t.description === description)
+            if (file.tests.length !== 1) throw new Error(`not one test named ${description}`)
+            fs.writeFileSync(to, JSON.stringify(file, null, 2))
+          ' "submissions/registry/$lifted" "$fault/txs/$lifted" "$moved"
 
           set +e
           GITHUB_STEP_SUMMARY="" bash "$fault/submissions/tools/check.sh" --registry "$RUNNER_TEMP/registry" \
@@ -180,6 +192,7 @@ jobs:
           grep -q "❌ rust runner" "$fault/check.log" || { echo "::error::The Rust runner missed the wrong expected value"; ok=0; }
           [ "$(grep -c "^   $wanted:" "$fault/check.log")" -eq 2 ] || { echo "::error::The runners did not both name the changed case, $wanted"; ok=0; }
           [ "$txs" -ne 0 ] && [ "$(grep -c '❌' "$fault/txs.log")" -eq 3 ] \
+            && [ "$(grep -c "❌ $file: .*calldata differs" "$fault/txs.log")" -eq 2 ] \
             && grep -q "❌ $lifted: $moved: the calldata is not action" "$fault/txs.log" \
             || { echo "::error::verify-txs did not report exactly the two swapped hashes and the moved batch action, $moved"; ok=0; }
           [ "$ok" -eq 1 ]
