@@ -53,13 +53,15 @@ const BLOCKSCOUT = {
 }
 
 // Whether Blockscout records the transaction as mined and successful. An
-// answer of 429 or 5xx, or none, is asked again twice, 5 and then 15 seconds
-// later: eth.blockscout.com has answered 500 for minutes at a time.
+// answer of 429 or 5xx, or none, is asked again four times, after 5, 15, 30
+// and 60 seconds. eth.blockscout.com has answered 500 for minutes at a time,
+// and on 2026-11-10 it answered 500 three times in 20 seconds for a
+// transaction it answered for seconds later.
 async function blockscoutSucceeded(chainId, hash) {
   const base = BLOCKSCOUT[chainId]
   if (!base) throw new Error(`no Blockscout for chain ${chainId}`)
   let last
-  for (const wait of [0, 5_000, 15_000]) {
+  for (const wait of [0, 5_000, 15_000, 30_000, 60_000]) {
     if (wait > 0) await sleep(wait)
     try {
       const response = await fetch(`${base}/api/v2/transactions/${hash}`, {
