@@ -1,0 +1,81 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        { "chainId": 1, "address": "0xeF4fB24aD0916217251F553c0596F8Edc630EB66" },
+        { "chainId": 8453, "address": "0xeF4fB24aD0916217251F553c0596F8Edc630EB66" }
+      ]
+    }
+  },
+  "metadata": {
+    "owner": "deBridge",
+    "contractName": "DlnSource",
+    "info": { "url": "https://debridge.finance/" },
+    "enums": { "dlnChainId": { "7565164": "Solana" } }
+  },
+  "display": {
+    "formats": {
+      "createSaltedOrder((address giveTokenAddress,uint256 giveAmount,bytes takeTokenAddress,uint256 takeAmount,uint256 takeChainId,bytes receiverDst,address givePatchAuthoritySrc,bytes orderAuthorityAddressDst,bytes allowedTakerDst,bytes externalCall,bytes allowedCancelBeneficiarySrc) _orderCreation,uint64 _salt,bytes _affiliateFee,uint32 _referralCode,bytes _permitEnvelope,bytes _metadata)": {
+        "intent": "Bridge",
+        "interpolatedIntent": "Bridge {_orderCreation.giveAmount} to {_orderCreation.receiverDst} on the destination chain; the taker must send {_orderCreation.takeAmount}",
+        "fields": [
+          {
+            "path": "_orderCreation.giveAmount",
+            "label": "Amount to Send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "#._orderCreation.giveTokenAddress",
+              "nativeCurrencyAddress": ["0x0000000000000000000000000000000000000000"]
+            }
+          },
+          {
+            "path": "_orderCreation.takeChainId",
+            "label": "Destination Chain",
+            "format": "chainId",
+            "visible": { "ifNotIn": [7565164] }
+          },
+          {
+            "path": "_orderCreation.takeChainId",
+            "label": "Destination Chain",
+            "format": "enum",
+            "params": { "$ref": "$.metadata.enums.dlnChainId" },
+            "visible": { "ifNotIn": [1, 10, 56, 137, 324, 8453, 42161, 43114, 59144] }
+          },
+          { "path": "_orderCreation.receiverDst", "label": "Recipient", "format": "raw" },
+          {
+            "path": "_orderCreation.takeAmount",
+            "label": "Taker Must Send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "#._orderCreation.takeTokenAddress",
+              "chainIdPath": "#._orderCreation.takeChainId",
+              "nativeCurrencyAddress": ["0x0000000000000000000000000000000000000000"]
+            }
+          },
+          { "path": "_orderCreation.takeTokenAddress", "label": "Token to Receive (dest.)", "format": "raw" },
+          {
+            "path": "_orderCreation.orderAuthorityAddressDst",
+            "label": "Order Authority (can cancel; picks refund address if none set)",
+            "format": "raw"
+          },
+          {
+            "path": "_orderCreation.allowedCancelBeneficiarySrc",
+            "label": "Refund Address (if cancelled)",
+            "format": "raw",
+            "visible": { "ifNotIn": ["0x"] }
+          },
+          { "path": "@.value", "label": "Native Value Sent", "format": "amount" },
+          { "path": "_orderCreation.externalCall", "label": "External Call", "format": "raw", "visible": { "mustMatch": ["0x"] } },
+          { "path": "_orderCreation.givePatchAuthoritySrc", "label": "Give Patch Authority", "visible": "never" },
+          { "path": "_orderCreation.allowedTakerDst", "label": "Allowed Taker", "visible": "never" },
+          { "path": "_salt", "label": "Salt", "visible": "never" },
+          { "path": "_affiliateFee", "label": "Affiliate Fee", "visible": "never" },
+          { "path": "_referralCode", "label": "Referral Code", "visible": "never" },
+          { "path": "_permitEnvelope", "label": "Permit Envelope", "visible": "never" },
+          { "path": "_metadata", "label": "Metadata", "visible": "never" }
+        ]
+      }
+    }
+  }
+}

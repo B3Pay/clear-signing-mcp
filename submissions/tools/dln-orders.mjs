@@ -5,13 +5,16 @@
 // to show: the chains the orders go to, the tokens given, whether the parts
 // an order can leave empty are set (a call to run on the destination chain,
 // an affiliate fee, a permit, an allowed taker, a cancel beneficiary), and
-// who holds the order's two authorities. With --pick it prints, for each
-// chain, the newest orders to each EVM chain the tracker reads, read back
-// from a public RPC in the form tracker/data/samples keeps a transaction,
-// one JSON object per line after "sample: ", for the cases files' samples
-// (submissions/README.md). It also prints deBridge's own list of the chains
-// DLN serves, from its API, whose ids name a destination chain where DLN
-// numbers a chain itself. Read-only, network; runs in CI.
+// who holds the order's two authorities. With --pick n it prints, for each
+// chain, the newest n orders to each EVM chain the tracker reads and to
+// Solana, given in the native currency and in a token, the newest order with
+// each part an order can leave empty set, and the newest n createOrder
+// calls, read back from a public RPC in the form tracker/data/samples keeps
+// a transaction: one JSON object per line, after "sample (<why it was
+// picked>): ", for a cases file's samples (submissions/README.md). It also
+// prints deBridge's own list of the chains DLN serves, from its API, whose
+// ids name a destination chain where DLN numbers a chain itself. Read-only,
+// network; runs in CI.
 //
 //   node submissions/tools/dln-orders.mjs [--count 300] [--minutes 3] [--pick 2]
 
@@ -49,6 +52,8 @@ const RPC = {
 }
 const CHAINS = Object.keys(RPC).map(Number)
 const NATIVE = "0x0000000000000000000000000000000000000000"
+// DLN's own number for Solana (@debridge-finance/dln-client, ChainId).
+const SOLANA = 7565164
 
 const ORDER =
   "(address giveTokenAddress, uint256 giveAmount, bytes takeTokenAddress, uint256 takeAmount, uint256 takeChainId, bytes receiverDst, address givePatchAuthoritySrc, bytes orderAuthorityAddressDst, bytes allowedTakerDst, bytes externalCall, bytes allowedCancelBeneficiarySrc)"
@@ -275,22 +280,43 @@ for (const chainId of CHAINS) {
     )
     line("referral code", top(orders.map((o) => String(o._referralCode))))
 
-    // The newest orders to each EVM chain the tracker reads, given in the
-    // native currency and in a token, read back in full.
-    if (PICK > 0 && fn.name === "createSaltedOrder") {
-      const picked = []
-      for (const destination of CHAINS)
-        for (const native of [true, false])
-          picked.push(
-            ...orders
-              .filter(
-                ({ order }) =>
-                  order.takeChainId === BigInt(destination) &&
-                  (order.giveTokenAddress === NATIVE) === native
-              )
-              .slice(0, PICK)
-          )
-      for (const { tx } of picked) {
+    // The newest orders to each EVM chain the tracker reads and to Solana,
+    // given in the native currency and in a token, the newest with each part
+    // an order can leave empty set, and the newest createOrder calls, read
+    // back in full.
+    if (PICK > 0) {
+      const picks =
+        fn.name === "createOrder"
+          ? [["createOrder", () => true, PICK]]
+          : [
+              ...[...CHAINS, SOLANA].flatMap((destination) =>
+                [true, false].map((native) => [
+                  `to chain ${destination}, ${native ? "native currency" : "a token"} given`,
+                  ({ order }) =>
+                    order.takeChainId === BigInt(destination) &&
+                    (order.giveTokenAddress === NATIVE) === native,
+                  PICK,
+                ])
+              ),
+              ...[
+                ["externalCall", ({ order }) => order.externalCall !== "0x"],
+                ["affiliate fee", (o) => o._affiliateFee !== "0x"],
+                ["permit", (o) => o._permitEnvelope !== "0x"],
+                [
+                  "allowedTakerDst",
+                  ({ order }) => order.allowedTakerDst !== "0x",
+                ],
+                [
+                  "allowedCancelBeneficiarySrc",
+                  ({ order }) => order.allowedCancelBeneficiarySrc !== "0x",
+                ],
+              ].map(([part, test]) => [`${part} set`, test, 1]),
+            ]
+      const picked = new Map()
+      for (const [why, test, n] of picks)
+        for (const o of orders.filter(test).slice(0, n))
+          if (!picked.has(o.tx.hash)) picked.set(o.tx.hash, { ...o, why })
+      for (const { tx, why } of picked.values()) {
         let full
         try {
           full = await client.getTransaction({ hash: tx.hash })
@@ -331,7 +357,7 @@ for (const chainId of CHAINS) {
             : {}),
           status: "success",
         }
-        console.log(`sample: ${JSON.stringify(sample)}`)
+        console.log(`sample (${why}): ${JSON.stringify(sample)}`)
       }
     }
   }

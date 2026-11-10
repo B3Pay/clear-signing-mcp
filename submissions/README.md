@@ -29,6 +29,7 @@ these.
 | [pancakeswap: Smart Router on Ethereum, Base, Arbitrum One](pr/pancakeswap.md)                                       | `pancakeswap/calldata-SmartRouter.json` (new)                                                                                                                | 3               | 15       | Ready; not submitted                                                       |
 | [openocean: OpenOcean Exchange on Ethereum, OP Mainnet, Base, Arbitrum One](pr/openocean.md)                         | `openocean/calldata-OpenOceanExchange.json` (new)                                                                                                            | 4               | 9        | Ready but for the count of refused calls; not submitted                    |
 | [across: SpokePoolPeriphery's ETH deposits on Ethereum, Base, Arbitrum One](pr/across.md)                            | `across/calldata-Ethereum_SpokePoolPeriphery.json`, `across/calldata-Base_SpokePoolPeriphery.json`, `across/calldata-Arbitrum_SpokePoolPeriphery.json` (new) | 3               | 4        | Ready but for the count of refused calls; not submitted                    |
+| debridge: DlnSource on Ethereum and Base                                                                             | `debridge/calldata-DlnSource.json` (new)                                                                                                                     | 2               | 4        | Draft: tests and text in progress                                          |
 
 ## The registry's process
 
@@ -68,8 +69,11 @@ keeping it. Each token the transaction names gets its symbol and decimals from
 the tracker's token lists, the case's chain first, then the other chains the
 tracker reads, where a bridge's output token is. A token on a chain the tracker
 does not read goes in the cases file's `tokens`, with the source of its symbol
-and decimals. `--chains` serves the runner's chain list from a file, for a
-machine that cannot reach chainid.network.
+and decimals. A transaction the tracker has not sampled goes in the cases
+file's `samples`, in the form the tracker keeps a sample, as `dln-orders.mjs
+--pick` prints it; the transaction check compares it with the chain like any
+other. `--chains` serves the runner's chain list from a file, for a machine
+that cannot reach chainid.network.
 
 The registry wants a test that calls each formatted function at the top level
 (`check-selector-coverage.js`). A function that real transactions call only
@@ -109,7 +113,8 @@ a screen.
 at deBridge's DlnSource on each chain, for the deBridge draft being finished:
 the chains they go to, the tokens given, how often each part an order can
 leave empty is set, and who holds the order's authorities. With `--pick` it
-prints the newest orders to each chain the tracker reads in the form the
+prints the newest orders to each chain the tracker reads and to Solana, and
+the newest with each part an order can leave empty set, in the form the
 tracker's samples keep a transaction, read back from a public RPC, for tests
 the tracker's few samples cannot give. The three portal readers share
 `tools/portal.mjs`.

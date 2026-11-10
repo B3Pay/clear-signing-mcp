@@ -25,11 +25,17 @@
 // batch has none. No such transaction is on chain, so its test has no txHash;
 // verify-txs.mjs checks the action against the batch on chain instead.
 //
+// A transaction the tracker has not sampled goes in the cases file's
+// "samples", in the form tracker/data/samples keeps one (as dln-orders.mjs
+// --pick prints it); verify-txs.mjs compares every test with the chain, so
+// a sample given here is checked like any other.
+//
 // "keep": true keeps the test cases already in the registry's file for that
 // descriptor (a change to an existing descriptor). Tokens for the data
-// provider are every token whose address is the transaction's target or a
-// word of its calldata, from the tracker's token lists: the case's chain
-// first, then the tracker's other chains, where a bridge's output token is.
+// provider are every token whose address is the transaction's target, a word
+// of its calldata or a 20-byte bytes value in it (how DLN names a token on
+// another chain), from the tracker's token lists: the case's chain first,
+// then the tracker's other chains, where a bridge's output token is.
 // A token on a chain the tracker does not read goes in the cases file's
 // "tokens", by address, with its symbol, decimals, name, chain and the
 // source that says so:
@@ -92,6 +98,7 @@ for (const chain of readdirSync(samplesDir))
     const data = JSON.parse(readFileSync(join(samplesDir, chain, file), "utf8"))
     for (const tx of data.txs) samples.set(tx.hash.toLowerCase(), tx)
   }
+for (const tx of spec.samples ?? []) samples.set(tx.hash.toLowerCase(), tx)
 
 // The chains the tracker keeps token lists for (tracker/data/tokens/).
 const TRACKER_CHAINS = readdirSync(join(repo, "tracker", "data", "tokens"))
@@ -120,8 +127,9 @@ function tokensOf(chainId) {
 }
 
 /**
- * Token addresses a call can name: its target and every 20-byte word of its
- * calldata and, when it is a batch, of each of its actions.
+ * Token addresses a call can name: its target, every 20-byte word of its
+ * calldata and every 20-byte bytes value in it, and, when it is a batch, the
+ * same in each of its actions.
  */
 function addressesIn(tx) {
   const out = new Set([tx.to.toLowerCase()])
@@ -137,6 +145,10 @@ function addressesIn(tx) {
       const word = body.slice(i, i + 64)
       if (/^0{24}[0-9a-f]{40}$/i.test(word))
         out.add(`0x${word.slice(24).toLowerCase()}`)
+      // A bytes value of 20 bytes: its length, then the bytes on the left.
+      const next = body.slice(i + 64, i + 128)
+      if (/^0{62}14$/.test(word) && /^[0-9a-f]{40}0{24}$/i.test(next))
+        out.add(`0x${next.slice(0, 40).toLowerCase()}`)
     }
   }
   return out
