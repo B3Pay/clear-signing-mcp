@@ -1,0 +1,67 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "$id": "Permit2",
+    "contract": {
+      "deployments": [
+        { "chainId": 1, "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3" },
+        { "chainId": 10, "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3" },
+        { "chainId": 8453, "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3" },
+        { "chainId": 42161, "address": "0x000000000022D473030F116dDEE9F6B43aC78BA3" }
+      ]
+    }
+  },
+  "metadata": { "owner": "Uniswap Labs", "contractName": "Permit2", "info": { "url": "https://uniswap.org/" } },
+  "display": {
+    "formats": {
+      "approve(address token,address spender,uint160 amount,uint48 expiration)": {
+        "intent": "Authorize spending of token",
+        "interpolatedIntent": "Authorize {spender} to spend {amount}",
+        "fields": [
+          { "path": "spender", "label": "Spender", "format": "addressName", "params": { "types": ["contract", "eoa"] } },
+          {
+            "path": "amount",
+            "label": "Amount allowance",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "token", "threshold": "0xffffffffffffffffffffffffffffffffffffffff", "message": "Unlimited" }
+          },
+          { "path": "token", "label": "Token", "format": "addressName", "params": { "types": ["token"] } },
+          { "path": "expiration", "label": "Approval expires", "format": "date", "params": { "encoding": "timestamp" } }
+        ]
+      },
+      "lockdown((address token,address spender)[] approvals)": {
+        "intent": "Revoke token approvals",
+        "fields": [
+          {
+            "iteration": "bundled",
+            "fields": [
+              {
+                "path": "approvals.[].token",
+                "label": "Token",
+                "format": "addressName",
+                "separator": "Approval {index}",
+                "params": { "types": ["token"] }
+              },
+              { "path": "approvals.[].spender", "label": "Spender", "format": "addressName", "params": { "types": ["contract", "eoa"] } }
+            ]
+          }
+        ]
+      },
+      "invalidateNonces(address token,address spender,uint48 newNonce)": {
+        "intent": "Cancel signed approvals",
+        "fields": [
+          { "path": "token", "label": "Token", "format": "addressName", "params": { "types": ["token"] } },
+          { "path": "spender", "label": "Spender", "format": "addressName", "params": { "types": ["contract", "eoa"] } },
+          { "path": "newNonce", "label": "New nonce", "format": "raw" }
+        ]
+      },
+      "invalidateUnorderedNonces(uint256 wordPos,uint256 mask)": {
+        "intent": "Cancel signed transfers",
+        "fields": [
+          { "path": "wordPos", "label": "Nonce word", "format": "raw", "visible": "never" },
+          { "path": "mask", "label": "Nonce bits", "format": "raw", "visible": "never" }
+        ]
+      }
+    }
+  }
+}

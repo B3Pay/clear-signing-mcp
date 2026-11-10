@@ -14,7 +14,7 @@ import { isUnsafeCodePoint } from "../src/text.js"
 const root = fileURLToPath(new URL("..", import.meta.url))
 const SKIP = new Set(["node_modules", ".git", "dist", "coverage", "fixtures"])
 const TEXT =
-  /\.(ts|js|mjs|json|md|sol|ya?ml)$|^\.[a-z]+rc$|^\.(gitignore|prettierignore)$|^LICENSE$/
+  /\.(ts|js|mjs|json|md|sol|ya?ml|sh)$|^\.[a-z]+rc$|^\.(gitignore|prettierignore)$|^LICENSE$/
 
 function files(dir: string): string[] {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {

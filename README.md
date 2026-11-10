@@ -145,6 +145,15 @@ by its recent transactions, with drafts for the biggest gaps checked the way
 the registry's CI checks a submission. Its report is published at
 [b3pay.net/clear-signing/coverage](https://b3pay.net/clear-signing/coverage/).
 
+## Registry submissions
+
+[`submissions/`](submissions/README.md) holds descriptors finished by hand from
+those drafts for pull requests to the registry, each with tests made from real
+transactions, and the scripts that check them: the registry's own pull-request
+checks with the tools it pins, and every test transaction read back from its
+chain. The `Registry submission checks` workflow runs them. Nothing is
+submitted without Behrad's approval of that pull request.
+
 ## Configuration
 
 Environment variables only, so no secret is ever written to a tracked file.

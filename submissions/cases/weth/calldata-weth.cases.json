@@ -1,0 +1,26 @@
+{
+  "descriptor": "calldata-weth.json",
+  "keep": true,
+  "tests": [
+    {
+      "description": "Wrap - chain 10",
+      "chainId": 10,
+      "txHash": "0xdee1f6483281b1f3f557f5d436540314b47dad89f8a7cd81788612934a252e51"
+    },
+    {
+      "description": "Unwrap - chain 10",
+      "chainId": 10,
+      "txHash": "0x1735e161f3b3931fda40e4287291982ea38f9ff80f7955427764607081ea55ae"
+    },
+    {
+      "description": "Wrap - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xf6f6493f3c60f7a625619bbb156e51a36dceed06239dab853acee2cd79ad1f00"
+    },
+    {
+      "description": "Unwrap - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x6a5465258132db4e9f26318a8656b92480e9247754af76ae7be8da8e5991dc1e"
+    }
+  ]
+}
