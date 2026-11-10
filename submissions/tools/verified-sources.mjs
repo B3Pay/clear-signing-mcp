@@ -9,9 +9,9 @@
 //   node submissions/tools/verified-sources.mjs <descriptor.json>... [--files] [--print <name>]...
 //
 // --files lists every source file with its sha256. --print <name> prints the
-// text of the first deployment's source files named <name> (a file name, or
-// the end of a path): the code the screens describe, when the protocol's own
-// repository is not what is deployed. A difference is reported, not a
+// text of the source files named <name> (a file name, or the end of a path)
+// of the first deployment that has one verified: the code the screens
+// describe, when the protocol's own repository is not what is deployed. A difference is reported, not a
 // failure; exit status 1 only when Sourcify has no answer for a deployment.
 
 import { execFileSync } from "node:child_process"
@@ -128,6 +128,9 @@ function counterpart(path, other) {
   return named.length === 1 ? named[0] : undefined
 }
 
+// How b differs from a, ignoring line endings and changes in the amount of
+// white space, which do not change what Solidity compiles; empty when that
+// is all.
 function diff(a, b, labelA, labelB) {
   const work = mkdtempSync(join(tmpdir(), "verified-sources-"))
   try {
@@ -138,8 +141,18 @@ function diff(a, b, labelA, labelB) {
     try {
       execFileSync(
         "diff",
-        ["-u", "--label", labelA, "--label", labelB, fileA, fileB],
-        { encoding: "utf8" }
+        [
+          "-u",
+          "--strip-trailing-cr",
+          "--ignore-space-change",
+          "--label",
+          labelA,
+          "--label",
+          labelB,
+          fileA,
+          fileB,
+        ],
+        { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 }
       )
       return ""
     } catch (error) {
@@ -234,6 +247,7 @@ for (const path of positionals) {
       if (base.name !== unit.name)
         changes.push(`- ${unit.role}: ${unit.name}, not ${base.name}`)
       const matched = new Set()
+      const spacing = []
       for (const [p, text] of base.sources) {
         const q = counterpart(p, unit.sources)
         if (!q) {
@@ -241,30 +255,47 @@ for (const path of positionals) {
           continue
         }
         matched.add(q)
-        if (base.files.get(p) !== unit.files.get(q))
-          changes.push(
-            diff(
-              text,
-              unit.sources.get(q),
-              `chain ${first.chainId} ${p}`,
-              `${where} ${q}`
-            ).trimEnd()
-          )
+        if (base.files.get(p) === unit.files.get(q)) continue
+        const change = diff(
+          text,
+          unit.sources.get(q),
+          `chain ${first.chainId} ${p}`,
+          `${where} ${q}`
+        ).trimEnd()
+        if (change) changes.push(change)
+        else spacing.push(q)
       }
       for (const q of unit.sources.keys())
         if (!matched.has(q)) changes.push(`- ${unit.role}: also ${q}`)
+      if (spacing.length)
+        changes.push(
+          `- ${unit.role}: ${spacing.length === 1 ? "1 file differs" : `${spacing.length} files differ`} only in white space or line endings: ${spacing.join(", ")}`
+        )
     }
     console.log(
       `\n### ${chains(group)} against chain ${first.chainId}\n${changes.length ? changes.join("\n") : "- the same files, under other paths"}`
     )
   }
 
-  for (const name of printNames)
-    for (const unit of first.units)
+  // Each named file from the first deployment that has it verified.
+  const named = (p, name) => p === name || p.endsWith(`/${name}`)
+  for (const name of printNames) {
+    const deployment = read.find((d) =>
+      d.units.some((u) =>
+        [...(u.sources ?? new Map()).keys()].some((p) => named(p, name))
+      )
+    )
+    if (!deployment) {
+      console.log(`\n### ${name}: in no verified source`)
+      continue
+    }
+    for (const unit of deployment.units)
       for (const [p, text] of unit.sources ?? [])
-        if (p === name || p.endsWith(`/${name}`))
+        if (named(p, name))
           console.log(
-            `\n### ${p}, chain ${first.chainId}, ${unit.address}\n\n${text.trimEnd()}\n\n### end of ${p}`
+            `\n### ${p}, chain ${deployment.chainId}, ${unit.address}\n\n${text.trimEnd()}\n\n### end of ${p}`
           )
+  }
 }
-process.exit(unreadable ? 1 : 0)
+// Not process.exit(): it drops what is still buffered for a piped stdout.
+process.exitCode = unreadable ? 1 : 0

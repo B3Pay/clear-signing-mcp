@@ -210,6 +210,7 @@ jobs:
       - name: The code of the drafts being finished
         run: |
           node submissions/tools/verified-sources.mjs tracker/drafts/openocean/calldata-OpenOceanExchangeProxy.json \
-            --files --print OpenOceanExchange.sol --print Permitable.sol --print UniversalERC20.sol --print IOpenOceanCaller.sol
-          node submissions/tools/verified-sources.mjs tracker/drafts/across/calldata-SpokePoolPeriphery.json \
-            tracker/drafts/debridge/calldata-DeBridgeRouter.json --files
+            --print OpenOceanExchange.sol
+          node submissions/tools/verified-sources.mjs tracker/drafts/across/calldata-SpokePoolPeriphery.json --files
+          node submissions/tools/verified-sources.mjs tracker/drafts/debridge/calldata-DeBridgeRouter.json --files \
+            --print DeBridgeRouter.sol --print DeBridgeRouterBase.sol --print Permit.sol --print ERC20Utils.sol
