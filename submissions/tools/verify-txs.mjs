@@ -5,8 +5,11 @@
 //
 //   node submissions/tools/verify-txs.mjs [--root <dir like submissions/registry>]
 //
-// RPC_URL_<chainId> overrides a chain's public endpoints. Exit status 1 when
-// a case does not match, or a chain's endpoints all fail.
+// Public endpoints are full nodes, which prune old receipts: when none has a
+// mined transaction's receipt, its status is read from the chain's Blockscout,
+// and the line says so. RPC_URL_<chainId> overrides a chain's public
+// endpoints. Exit status 1 when a case does not match, or its chain cannot be
+// read.
 
 import { readdirSync, readFileSync, statSync } from "node:fs"
 import { dirname, join, relative, resolve } from "node:path"
@@ -27,6 +30,27 @@ const PUBLIC_RPC = {
     "https://arbitrum-one-rpc.publicnode.com",
     "https://arb1.arbitrum.io/rpc",
   ],
+}
+
+// The explorers the tracker reads (tracker/fetch.ts).
+const BLOCKSCOUT = {
+  1: "https://eth.blockscout.com",
+  10: "https://optimism.blockscout.com",
+  8453: "https://base.blockscout.com",
+  42161: "https://arbitrum.blockscout.com",
+}
+
+// Whether Blockscout records the transaction as mined and successful.
+async function blockscoutSucceeded(chainId, hash) {
+  const base = BLOCKSCOUT[chainId]
+  if (!base) throw new Error(`no Blockscout for chain ${chainId}`)
+  const response = await fetch(`${base}/api/v2/transactions/${hash}`, {
+    headers: { accept: "application/json" },
+    signal: AbortSignal.timeout(20_000),
+  })
+  if (!response.ok) throw new Error(`Blockscout: HTTP ${response.status}`)
+  const body = await response.json()
+  return body.status === "ok" && body.result === "success"
 }
 
 function endpoints(chainId) {
@@ -93,6 +117,7 @@ for (const file of testFiles(root)) {
         rpc(chainId, "eth_getTransactionReceipt", [test.txHash]),
       ])
       const problems = []
+      const notes = []
       if (!mined) problems.push("not found on chain")
       else {
         if (Number(mined.chainId ?? chainId) !== chainId)
@@ -105,8 +130,24 @@ for (const file of testFiles(root)) {
           problems.push("calldata differs")
         if (Number(mined.nonce) !== Number(tx.nonce ?? 0))
           problems.push(`nonce ${Number(mined.nonce)}`)
-        if (!receipt) problems.push("no endpoint has its receipt")
-        else if (receipt.status !== "0x1")
+        if (mined.blockNumber == null) problems.push("pending, not mined")
+        else if (!receipt) {
+          const block = Number(mined.blockNumber)
+          try {
+            if (await blockscoutSucceeded(chainId, test.txHash))
+              notes.push(
+                `block ${block}: status from Blockscout, the RPC endpoints have pruned its receipt`
+              )
+            else
+              problems.push(
+                `block ${block}: Blockscout does not record it as successful`
+              )
+          } catch (error) {
+            problems.push(
+              `block ${block}: no receipt from the RPC endpoints, and ${error.message}`
+            )
+          }
+        } else if (receipt.status !== "0x1")
           problems.push(
             `did not succeed (status ${receipt.status}, block ${Number(receipt.blockNumber)})`
           )
@@ -116,7 +157,9 @@ for (const file of testFiles(root)) {
         console.log(`- ❌ ${where}: ${problems.join(", ")}`)
       } else {
         matched++
-        console.log(`- ✅ ${where}`)
+        console.log(
+          `- ✅ ${where}${notes.length ? ` (${notes.join("; ")})` : ""}`
+        )
       }
     } catch (error) {
       failed++

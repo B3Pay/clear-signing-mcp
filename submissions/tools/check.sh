@@ -152,6 +152,10 @@ else
     fail "The linter could not fetch an ABI: verify the contract on Sourcify"
   fi
 fi
+# On GitHub Actions, the linter's report and the registry's suggestions are
+# shown in full, for the pull request text.
+show() { [ -n "${GITHUB_ACTIONS:-}" ] && [ -f "$2" ] && { echo "::group::$1"; cat "$2"; echo "::endgroup::"; }; }
+show "erc7730 lint output" "$out/lint.log"
 
 # Every function has a test case.
 if node .github/scripts/check-selector-coverage.js "${descriptors[@]}" > "$out/coverage.log" 2>&1; then
@@ -216,6 +220,7 @@ done
 CHANGED_FILES="${descriptors[*]}" node .github/scripts/check-recommended-fields.js > "$out/recommendations.json" 2>/dev/null &&
   n=$(node -e 'console.log(JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).items.length)' "$out/recommendations.json") &&
   note "Registry suggestions (not failures): $n"
+show "Registry suggestions" "$out/recommendations.json"
 
 echo "Logs: $out"
 [ -n "${GITHUB_STEP_SUMMARY:-}" ] && cat "$summary" >> "$GITHUB_STEP_SUMMARY"
