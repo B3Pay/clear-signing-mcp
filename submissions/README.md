@@ -113,10 +113,11 @@ pull request text states.
 
 `tools/must-match.mjs` reads, from the same portal, the latest successful
 calls of each function whose format has a `mustMatch` field, and counts the
-calls that the descriptor refuses and the values that make it refuse them. A
-`mustMatch` field lets a wallet clear sign a call only when the field holds one
-of the listed values, so these are the real calls that get an error instead of
-a screen.
+calls that the descriptor refuses and the values that make it refuse them,
+whether the field is the call's or the transaction's, like its chain
+(`@.chainId`). A `mustMatch` field lets a wallet clear sign a call only when
+the field holds one of the listed values, so these are the real calls that get
+an error instead of a screen.
 
 `tools/dln-orders.mjs` reads, from the same portal, the latest orders created
 at deBridge's DlnSource on each chain, for the deBridge draft being finished:

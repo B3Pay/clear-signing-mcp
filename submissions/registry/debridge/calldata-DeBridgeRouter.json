@@ -47,6 +47,7 @@
             "format": "raw",
             "visible": { "mustMatch": ["0xeF4fB24aD0916217251F553c0596F8Edc630EB66"] }
           },
+          { "path": "@.chainId", "label": "Chain", "format": "raw", "visible": { "mustMatch": [1, 8453] } },
           { "path": "_srcTokenInPermitEnvelope", "label": "Permit Envelope", "visible": "never" },
           { "path": "_srcSwapRouter", "label": "Swap Router", "visible": "never" },
           { "path": "_srcSwapCalldata", "label": "Swap Calldata", "visible": "never" }

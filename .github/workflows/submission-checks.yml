@@ -130,10 +130,12 @@ jobs:
 
       # A check seen only passing proves nothing. Run them again with one
       # expected value changed, two transaction hashes swapped, a batch action
-      # sent alone named as another action of its batch, and a deployment
-      # that Sourcify has not verified and submissions/UNVERIFIED does not
-      # list added to the router's descriptor, and require that both runners,
-      # the transaction check and the linter check report exactly those.
+      # sent alone named as another action of its batch, a deployment that
+      # Sourcify has not verified and submissions/UNVERIFIED does not list
+      # added to the router's descriptor, and one of the router's swaps then
+      # bridges moved to OP Mainnet, where its screen must be refused, and
+      # require that both runners, the transaction check and the linter check
+      # report exactly those.
       # The transaction check reads only the three faulted tests again: the
       # step above has read every test, and reading the rest again made this
       # step fail on the first run of #6's checks, when Blockscout answered
@@ -186,6 +188,16 @@ jobs:
             d.context.contract.deployments.push({ chainId: 1, address })
             fs.writeFileSync(file, JSON.stringify(d, null, 2))
           ' "$fault/submissions/registry/$router" "$dead"
+          chained=$(node -e '
+            const fs = require("fs")
+            const { parseTransaction, serializeTransaction } = require("viem")
+            const file = process.argv[1]
+            const cases = JSON.parse(fs.readFileSync(file, "utf8"))
+            const c = cases.tests.find((t) => / and bridge it .* - chain 8453$/.test(t.description))
+            c.rawTx = serializeTransaction({ ...parseTransaction(c.rawTx), chainId: 10 })
+            fs.writeFileSync(file, JSON.stringify(cases, null, 2))
+            console.log(c.description)
+          ' "$fault/submissions/registry/debridge/testsv2/calldata-DeBridgeRouter.tests.json")
 
           set +e
           GITHUB_STEP_SUMMARY="" bash "$fault/submissions/tools/check.sh" --registry "$RUNNER_TEMP/registry" \
@@ -202,6 +214,8 @@ jobs:
           grep -q "❌ sourcify runner" "$fault/check.log" || { echo "::error::The Sourcify runner missed the wrong expected value"; ok=0; }
           grep -q "❌ rust runner" "$fault/check.log" || { echo "::error::The Rust runner missed the wrong expected value"; ok=0; }
           [ "$(grep -c "^   $wanted:" "$fault/check.log")" -eq 2 ] || { echo "::error::The runners did not both name the changed case, $wanted"; ok=0; }
+          [ "$(grep -F "   $chained: " "$fault/check.log" | grep -F "'Chain'" | grep -ci "mustmatch")" -eq 2 ] \
+            || { echo "::error::The runners did not both refuse the router's swap then bridge on OP Mainnet, $chained"; ok=0; }
           lint=$(grep "❌ Descriptors pass the ERC-7730 linter" "$fault/check.log" || true)
           grep -qi "registry/$router: Contract not verified: contract $dead on chain 1 " <<< "$lint" \
             && ! grep -qi "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251" <<< "$lint" \
@@ -313,7 +327,11 @@ jobs:
           # version, its fee treasury and swap fee, its DlnDestination,
           # whether DlnSource is a target it may call, and whether its fee
           # treasury and 0x502ea3d9…, which every sampled strictlySwapAndCall
-          # names as the swap's refund recipient, are contracts.
+          # names as the swap's refund recipient, are contracts. Then the
+          # implementation and admin in the proxy's EIP-1967 slots, and the
+          # SHA-256 of the implementation's code: the same on every chain
+          # means the code Sourcify has verified on OP Mainnet is the code
+          # the other chains run.
           node --input-type=module -e '
             const rpc = { 1: "https://ethereum-rpc.publicnode.com", 10: "https://optimism-rpc.publicnode.com",
               8453: "https://base-rpc.publicnode.com", 42161: "https://arbitrum-one-rpc.publicnode.com" }
@@ -339,5 +357,15 @@ jobs:
                 `swapVariableFeeBps ${Number(feeBps)}, dlnDestination ${address(destination)}, ` +
                 `supportedRouters(DlnSource) isSupported ${Number("0x" + word(supported, 0)) === 1}, allowanceAggregator ${address(supported, 1)}, ` +
                 `${refund} ${await code(chainId, refund)} bytes of code`)
+            }
+            const { createHash } = await import("node:crypto")
+            const slot = async (chainId, s) => address(await ask(chainId, "eth_getStorageAt", [router, s, "latest"]))
+            for (const chainId of [1, 10, 8453, 42161]) {
+              const implementation = await slot(chainId, "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc")
+              const admin = await slot(chainId, "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103")
+              const runtime = await ask(chainId, "eth_getCode", [implementation, "latest"])
+              const sha = createHash("sha256").update(Buffer.from(runtime.slice(2), "hex")).digest("hex")
+              console.log(`chain ${chainId}: implementation ${implementation}, ${(runtime.length - 2) / 2} bytes of code, SHA-256 ${sha}; ` +
+                `admin ${admin} (${await code(chainId, admin)} bytes of code)`)
             }
           ' || echo "::warning::The router's settings could not be read"
