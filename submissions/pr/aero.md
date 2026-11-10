@@ -145,23 +145,25 @@ function with a `mustMatch` field, sent to the contract itself, up to 200 on
 each chain. Only the price limit refuses calls, and only in the router's
 `exactInputSingle`:
 
-| Function            | Chain        | Calls read (senders) | From (UTC)                                 | Refused     | Refused calls by sender |
-| ------------------- | ------------ | -------------------- | ------------------------------------------ | ----------- | ----------------------- |
-| `exactInputSingle`  | Ethereum     | 200 (5)              | 2026-11-10 01:29                           | 4 (2%)      | 4                       |
-| `exactInputSingle`  | OP Mainnet   | 200 (3)              | 2026-11-10 12:33                           | 200 (100%)  | 159, 21 and 20          |
-| `exactInputSingle`  | Base         | 200 (22)             | 2026-11-10 13:00                           | 119 (59.5%) | 105, 9, 3 and 2         |
-| `exactInputSingle`  | Arbitrum One | 200 (4)              | 2026-11-09 17:50                           | 4 (2%)      | 4                       |
-| `exactOutputSingle` | Ethereum     | not read             | the portal answered that it was overloaded |             |                         |
-| `exactOutputSingle` | OP Mainnet   | none                 | 2026-11-10 09:15                           |             |                         |
-| `exactOutputSingle` | Base         | 200 (7)              | 2026-11-10 12:21                           | none        |                         |
-| `exactOutputSingle` | Arbitrum One | 3 (2)                | 2026-11-04 17:44                           | none        |                         |
+| Function            | Chain        | Calls read (senders) | From (UTC)       | Refused     | Refused calls by sender |
+| ------------------- | ------------ | -------------------- | ---------------- | ----------- | ----------------------- |
+| `exactInputSingle`  | Ethereum     | 200 (5)              | 2026-11-10 01:29 | 4 (2%)      | 4                       |
+| `exactInputSingle`  | OP Mainnet   | 200 (3)              | 2026-11-10 12:33 | 200 (100%)  | 159, 21 and 20          |
+| `exactInputSingle`  | Base         | 200 (22)             | 2026-11-10 13:00 | 119 (59.5%) | 105, 9, 3 and 2         |
+| `exactInputSingle`  | Arbitrum One | 200 (4)              | 2026-11-09 17:50 | 4 (2%)      | 4                       |
+| `exactOutputSingle` | Ethereum     | none                 | 2026-11-08 22:26 |             |                         |
+| `exactOutputSingle` | OP Mainnet   | none                 | 2026-11-10 09:15 |             |                         |
+| `exactOutputSingle` | Base         | 200 (7)              | 2026-11-10 12:21 | none        |                         |
+| `exactOutputSingle` | Arbitrum One | 3 (2)                | 2026-11-04 17:44 | none        |                         |
 
-Each span ends between 13:09 and 13:17 UTC on 2026-11-10. On OP Mainnet the
-200 calls came in 36 minutes, and on Base in 10 minutes, with 10 and 53 more
-that failed in the blocks read. The position manager's `decreaseLiquidity`,
-`collect` and `burn`, whose ETH Sent must be 0, refuse none of their latest
-calls: 5, 24 and 2 on Ethereum, 50, 196 and 16 on Base, and 28, 15 and 26 on
-Arbitrum One, while OP Mainnet had none in the 4 to 13 hours read.
+Each span ends between 13:09 and 13:17 UTC on 2026-11-10, but that of
+`exactOutputSingle` on Ethereum, which the portal did not answer for then and a
+read at 14:33 UTC covers. On OP Mainnet the 200 calls came in 36 minutes, and on
+Base in 10 minutes, with 10 and 53 more that failed in the blocks read. The
+position manager's `decreaseLiquidity`, `collect` and `burn`, whose ETH Sent
+must be 0, refuse none of their latest calls: 5, 24 and 2 on Ethereum, 50, 196
+and 16 on Base, and 28, 15 and 26 on Arbitrum One, while OP Mainnet had none in
+the 4 to 13 hours read.
 
 ## Tests
 

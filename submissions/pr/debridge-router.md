@@ -178,11 +178,22 @@ listed as a contract the router may call (`supportedRouters`).
 
 ## Refused calls
 
-To be measured by the `Registry submission batches` workflow
-(`must-match.mjs`): of the latest `strictlySwapAndCall` calls on Ethereum and
-Base, those whose target is not DlnSource, and on OP Mainnet and Arbitrum One,
-all of them, which the sample above puts at 33 calls from 20 senders and 302
-from 220.
+Measured by the `Registry submission batches` workflow (`must-match.mjs`) on
+2026-11-10, from the SQD Network portal: the latest successful
+`strictlySwapAndCall` calls sent to the router, up to 200 on each chain. Every
+one of them calls DlnSource, so the rule on the target refuses none. The rule
+on the chain refuses every one on OP Mainnet and Arbitrum One:
+
+| Chain        | Calls read (senders) | From (UTC)       | Refused           |
+| ------------ | -------------------- | ---------------- | ----------------- |
+| Ethereum     | 57 (46)              | 2026-11-10 01:37 | none              |
+| OP Mainnet   | 2 (1)                | 2026-11-10 01:42 | 2, for its chain  |
+| Base         | 5 (5)                | 2026-11-10 13:28 | none              |
+| Arbitrum One | 54 (47)              | 2026-11-04 19:20 | 54, for its chain |
+
+Each span ends between 14:40 and 14:46 UTC on 2026-11-10. The calls were read
+before the rule on the chain was added, so their refusal for it follows from
+the rule rather than from the count.
 
 ## Tests
 
