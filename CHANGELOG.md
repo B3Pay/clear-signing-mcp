@@ -23,16 +23,18 @@
 - Registry submissions (`submissions/`): WETH on OP Mainnet, Base and
   Arbitrum One, Permit2 on Ethereum, OP Mainnet, Base and Arbitrum One,
   Aero's Slipstream SwapRouter and NonfungiblePositionManager on the same
-  four chains, and PancakeSwap's Smart Router on Ethereum, Base and Arbitrum
-  One, finished by hand from the tracker's drafts, with 53 new test cases
-  made from real transactions (4 of them a batch's action sent alone) and the
-  text of each registry pull request. `check.sh` runs the registry's
-  pull-request checks on them with the tools it pins, `verify-txs.mjs` reads
-  every test transaction back from its chain, `multicall-actions.mjs` counts
-  the actions in each contract's latest batch calls, `verified-sources.mjs`
+  four chains, PancakeSwap's Smart Router on Ethereum, Base and Arbitrum One,
+  and the OpenOcean Exchange on Ethereum, OP Mainnet, Base and Arbitrum One,
+  finished by hand from the tracker's drafts, with 62 new test cases made
+  from real transactions (4 of them a batch's action sent alone) and the text
+  of each registry pull request. `check.sh` runs the registry's pull-request
+  checks on them with the tools it pins, `verify-txs.mjs` reads every test
+  transaction back from its chain, `multicall-actions.mjs` counts the actions
+  in each contract's latest batch calls, `must-match.mjs` counts the latest
+  calls that a descriptor's `mustMatch` fields refuse, `verified-sources.mjs`
   compares the source Sourcify has verified at each deployment of a
   descriptor, through its proxy, and the `Registry submission checks` and
-  `Registry submission batches` workflows run all four, with the Rust test
+  `Registry submission batches` workflows run all five, with the Rust test
   runner and the linter against live Sourcify, then require that a
   deliberate fault is caught.
 

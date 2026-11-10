@@ -209,8 +209,6 @@ jobs:
       # The drafts being finished: the deployed code their screens describe.
       - name: The code of the drafts being finished
         run: |
-          node submissions/tools/verified-sources.mjs tracker/drafts/openocean/calldata-OpenOceanExchangeProxy.json \
-            --print OpenOceanExchange.sol
           node submissions/tools/verified-sources.mjs tracker/drafts/across/calldata-SpokePoolPeriphery.json --files
           node submissions/tools/verified-sources.mjs tracker/drafts/debridge/calldata-DeBridgeRouter.json --files \
             --print DeBridgeRouter.sol --print DeBridgeRouterBase.sol --print Permit.sol --print ERC20Utils.sol

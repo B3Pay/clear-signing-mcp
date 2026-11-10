@@ -27,6 +27,7 @@ these.
 | [uniswap: Permit2 on Ethereum, OP Mainnet, Base, Arbitrum One](pr/uniswap.md)                                        | `uniswap/calldata-Permit2.json` (new)                                                  | 4               | 13       | Branch `uniswap-permit2-calldata` on the fork; pull request not opened yet |
 | [aero: Slipstream SwapRouter and NonfungiblePositionManager on Ethereum, OP Mainnet, Base, Arbitrum One](pr/aero.md) | `aero/calldata-SwapRouter.json`, `aero/calldata-NonfungiblePositionManager.json` (new) | 8               | 19       | Ready; not submitted                                                       |
 | [pancakeswap: Smart Router on Ethereum, Base, Arbitrum One](pr/pancakeswap.md)                                       | `pancakeswap/calldata-SmartRouter.json` (new)                                          | 3               | 15       | Ready; not submitted                                                       |
+| [openocean: OpenOcean Exchange on Ethereum, OP Mainnet, Base, Arbitrum One](pr/openocean.md)                         | `openocean/calldata-OpenOceanExchange.json` (new)                                      | 4               | 9        | Ready; not submitted                                                       |
 
 ## The registry's process
 
@@ -92,6 +93,13 @@ decodes their actions, and counts which sequences occur and which actions the
 descriptor has no format for: what a batch screen would show, for the scope a
 pull request text states.
 
+`tools/must-match.mjs` reads, from the same portal, the latest successful
+calls of each function whose format has a `mustMatch` field, and counts the
+calls that the descriptor refuses and the values that make it refuse them. A
+`mustMatch` field lets a wallet clear sign a call only when the field holds one
+of the listed values, so these are the real calls that get an error instead of
+a screen. The two portal readers share `tools/portal.mjs`.
+
 `tools/verified-sources.mjs` prints what Sourcify has verified at each
 deployment of a descriptor, through a proxy to its implementations, and how
 the deployments of one descriptor differ, file by file. A descriptor's screens
@@ -105,10 +113,11 @@ the linter against live Sourcify, both test runners and the transaction
 check, then a deliberate fault (a wrong expected value, two swapped
 transaction hashes, a batch action named as another action of its batch)
 that both runners and the transaction check must report. A job of its own
-beside them runs the source comparison. The batch-call count has its own
-workflow, `Registry submission batches`, which reads for an hour or more, so
-a new push waits for a run in progress instead of cancelling it. Neither of
-these two ever fails.
+beside them runs the source comparison. The batch-call count and the count
+of refused calls have their own workflow, `Registry submission batches`,
+which reads for an hour or more, so a new push waits for a run in progress
+instead of cancelling it. The source comparison and the two counts never fail
+a run.
 
 Where Sourcify, chainid.network and public RPCs are out of reach, `check.sh
 --offline` lints with the tracker's ABIs (`tracker/data/abis/`) instead and

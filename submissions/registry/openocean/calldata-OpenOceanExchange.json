@@ -1,0 +1,119 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        { "chainId": 1, "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64" },
+        { "chainId": 10, "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64" },
+        { "chainId": 8453, "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64" },
+        { "chainId": 42161, "address": "0x6352a56caadC4F1E25CD6c75970Fa768A3304e64" }
+      ]
+    }
+  },
+  "metadata": { "owner": "OpenOcean", "contractName": "OpenOcean Exchange", "info": { "url": "https://openocean.finance" } },
+  "display": {
+    "formats": {
+      "swap(address caller,(address srcToken,address dstToken,address srcReceiver,address dstReceiver,uint256 amount,uint256 minReturnAmount,uint256 guaranteedAmount,uint256 flags,address referrer,bytes permit) desc,(uint256 target,uint256 gasLimit,uint256 value,bytes data)[] calls)": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap {desc.amount} for at least {desc.minReturnAmount}",
+        "fields": [
+          {
+            "path": "desc.amount",
+            "label": "Amount to Send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "desc.srcToken",
+              "nativeCurrencyAddress": [
+                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+                "0x0000000000000000000000000000000000000000",
+                "0x0000000000000000000000000000000000001010"
+              ]
+            }
+          },
+          {
+            "path": "desc.minReturnAmount",
+            "label": "Minimum to Receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "desc.dstToken",
+              "nativeCurrencyAddress": [
+                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+                "0x0000000000000000000000000000000000000000",
+                "0x0000000000000000000000000000000000001010"
+              ]
+            }
+          },
+          {
+            "path": "desc.dstReceiver",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": ["eoa", "contract"],
+              "sources": ["local", "ens"],
+              "senderAddress": ["0x0000000000000000000000000000000000000000"]
+            }
+          },
+          { "path": "desc.flags", "label": "Flags", "format": "raw", "visible": { "mustMatch": [0, 2] } },
+          { "path": "desc.permit", "label": "Permit", "format": "raw", "visible": { "mustMatch": ["0x"] } },
+          { "path": "desc.srcToken", "label": "Token to Send", "visible": "never" },
+          { "path": "desc.dstToken", "label": "Token to Receive", "visible": "never" },
+          { "path": "caller", "label": "Executor", "visible": "never" },
+          { "path": "desc.srcReceiver", "label": "Source Receiver", "visible": "never" },
+          { "path": "desc.guaranteedAmount", "label": "Quoted Amount", "visible": "never" },
+          { "path": "desc.referrer", "label": "Referrer", "visible": "never" },
+          { "path": "calls", "label": "Executor Calls", "visible": "never" }
+        ]
+      },
+      "simpleSwap(address caller,(address srcToken,address dstToken,address srcReceiver,address dstReceiver,uint256 amount,uint256 minReturnAmount,uint256 flags,address referrer,bytes permit) desc,(uint256 target,uint256 gasLimit,uint256 value,bytes data)[] calls)": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap {desc.amount} for at least {desc.minReturnAmount}",
+        "fields": [
+          {
+            "path": "desc.amount",
+            "label": "Amount to Send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "desc.srcToken",
+              "nativeCurrencyAddress": [
+                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+                "0x0000000000000000000000000000000000000000",
+                "0x0000000000000000000000000000000000001010"
+              ]
+            }
+          },
+          {
+            "path": "desc.minReturnAmount",
+            "label": "Minimum to Receive",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "desc.dstToken",
+              "nativeCurrencyAddress": [
+                "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
+                "0x0000000000000000000000000000000000000000",
+                "0x0000000000000000000000000000000000001010"
+              ]
+            }
+          },
+          {
+            "path": "desc.dstReceiver",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": ["eoa", "contract"],
+              "sources": ["local", "ens"],
+              "senderAddress": ["0x0000000000000000000000000000000000000000"]
+            }
+          },
+          { "path": "desc.flags", "label": "Flags", "format": "raw", "visible": { "mustMatch": [0, 2] } },
+          { "path": "desc.permit", "label": "Permit", "format": "raw", "visible": { "mustMatch": ["0x"] } },
+          { "path": "desc.srcToken", "label": "Token to Send", "visible": "never" },
+          { "path": "desc.dstToken", "label": "Token to Receive", "visible": "never" },
+          { "path": "caller", "label": "Executor", "visible": "never" },
+          { "path": "desc.srcReceiver", "label": "Source Receiver", "visible": "never" },
+          { "path": "desc.referrer", "label": "Referrer", "visible": "never" },
+          { "path": "calls", "label": "Executor Calls", "visible": "never" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "descriptor": "calldata-OpenOceanExchange.json",
+  "keep": false,
+  "tests": [
+    {
+      "description": "Swap ETH for a token - chain 1",
+      "chainId": 1,
+      "txHash": "0x5c3b58910f4d5377a24b20c54c133c59a650c78c5e6a3b3cce59952e2971bed8"
+    },
+    {
+      "description": "Swap a token for ETH - chain 1",
+      "chainId": 1,
+      "txHash": "0xcb633b0340c3dc533a10bafc126b4114b7b2e37d16cbb4b3bb2122b883599070"
+    },
+    {
+      "description": "Swap a token for ETH - chain 10",
+      "chainId": 10,
+      "txHash": "0x8740d3953ec1d554ab1b97e48b0c9caa237b141dd575a8ff8c88ad2d05ddffa7"
+    },
+    {
+      "description": "Swap a token for WETH - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x8102c653df40d3b303eebeb6b4a819996ee80a9317866afeb245a116872ed4fa"
+    },
+    {
+      "description": "Swap a token for ETH - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x0103eaa5dd9ea3b309283cae13ef6b0d7cfae9b1c95862df92aab5a223ff756f"
+    },
+    {
+      "description": "Simple swap, token for token - chain 1",
+      "chainId": 1,
+      "txHash": "0xbb731d4d4dc6515b9638545e6dfc22e824a9700e715fadc8bab63f2b07e147f0"
+    },
+    {
+      "description": "Simple swap, a token for ETH - chain 10",
+      "chainId": 10,
+      "txHash": "0x2f67500bc1305b969008fddc8a25f5d95f0542a04c4c9afa6b7795cda1106637"
+    },
+    {
+      "description": "Simple swap, token for token - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x23971fc04b3afa3152412dc1d5b17e8cdad22d15e0f853eb571de9f0650d5f1d"
+    },
+    {
+      "description": "Simple swap, a token for ETH - chain 42161",
+      "chainId": 42161,
+      "txHash": "0xc0a51e3ba54417e28bb62ad2239b6adda52981ba8b998b345090c87f56fc3fdf"
+    }
+  ]
+}
