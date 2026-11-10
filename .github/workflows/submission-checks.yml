@@ -209,6 +209,36 @@ jobs:
       # The drafts being finished: the deployed code their screens describe.
       - name: The code of the drafts being finished
         run: |
-          node submissions/tools/verified-sources.mjs tracker/drafts/across/calldata-SpokePoolPeriphery.json --files
+          # Across: the code of the spoke pools that depositNative calls, the
+          # token each one wraps ETH into, and the WETH on Robinhood Chain
+          # that two Across tests receive, whose symbol and decimals the
+          # tests take from Across's constants.
+          cat > "$RUNNER_TEMP/calldata-SpokePools.json" <<'EOF'
+          { "context": { "contract": { "deployments": [
+            { "chainId": 1, "address": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5" },
+            { "chainId": 10, "address": "0x6f26Bf09B1C792e3228e5467807a900A503c0281" },
+            { "chainId": 8453, "address": "0x09aea4b2242abC8bb4BB78D537A67a245A7bEC64" },
+            { "chainId": 42161, "address": "0xe35e9842fceaCA96570B734083f4a58e8F7C5f2A" } ] } } }
+          EOF
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-SpokePools.json" --files --print SpokePool.sol
+          node --input-type=module -e '
+            const rpc = { 1: "https://ethereum-rpc.publicnode.com", 10: "https://optimism-rpc.publicnode.com",
+              8453: "https://base-rpc.publicnode.com", 42161: "https://arbitrum-one-rpc.publicnode.com",
+              4663: "https://rpc.mainnet.chain.robinhood.com" }
+            async function call(chainId, to, data) {
+              const answer = await fetch(rpc[chainId], { method: "POST", headers: { "content-type": "application/json" },
+                body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_call", params: [{ to, data }, "latest"] }) })
+              const { result, error } = await answer.json()
+              if (!result) throw new Error(`chain ${chainId}, ${to}, ${data}: ${JSON.stringify(error)}`)
+              return result
+            }
+            const word = (hex, i) => hex.slice(2 + 64 * i, 2 + 64 * (i + 1))
+            const text = (hex) => Buffer.from(hex.slice(130, 130 + 2 * Number("0x" + word(hex, 1))), "hex").toString()
+            for (const { chainId, address } of JSON.parse(process.argv[1]).context.contract.deployments)
+              console.log(`chain ${chainId}, spoke pool ${address}: wrappedNativeToken() 0x${word(await call(chainId, address, "0x17fcb39b"), 0).slice(24)}`)
+            const weth = "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73"
+            const [symbol, name, decimals] = await Promise.all(["0x95d89b41", "0x06fdde03", "0x313ce567"].map((data) => call(4663, weth, data)))
+            console.log(`chain 4663, ${weth}: symbol ${text(symbol)}, name ${text(name)}, decimals ${Number(decimals)}`)
+          ' "$(cat "$RUNNER_TEMP/calldata-SpokePools.json")" || echo "::warning::The Across spoke pools or Robinhood Chain WETH could not be read"
           node submissions/tools/verified-sources.mjs tracker/drafts/debridge/calldata-DeBridgeRouter.json --files \
             --print DeBridgeRouter.sol --print DeBridgeRouterBase.sol --print Permit.sol --print ERC20Utils.sol

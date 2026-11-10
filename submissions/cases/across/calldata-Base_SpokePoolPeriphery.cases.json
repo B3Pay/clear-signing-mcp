@@ -1,0 +1,16 @@
+{
+  "descriptor": "calldata-Base_SpokePoolPeriphery.json",
+  "keep": false,
+  "tests": [
+    {
+      "description": "Bridge ETH to Ethereum - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xf4a97a2b4d20117e065808503c35ac870c55bcd6c612acc062689b9251eeb741"
+    },
+    {
+      "description": "Bridge ETH to Ethereum, another - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x965eba733f4f238e3a5559023879c1c263bcaaac75cb67f476c3b71920c3467c"
+    }
+  ]
+}

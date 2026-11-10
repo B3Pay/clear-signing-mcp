@@ -27,8 +27,15 @@
 //
 // "keep": true keeps the test cases already in the registry's file for that
 // descriptor (a change to an existing descriptor). Tokens for the data
-// provider are every token the tracker knows on the case's chain whose
-// address is the transaction's target or a word of its calldata.
+// provider are every token whose address is the transaction's target or a
+// word of its calldata, from the tracker's token lists: the case's chain
+// first, then the tracker's other chains, where a bridge's output token is.
+// A token on a chain the tracker does not read goes in the cases file's
+// "tokens", by address, with its symbol, decimals, name, chain and the
+// source that says so:
+//
+//   "tokens": { "0x...": { "symbol": "WETH", "decimals": 18, "name": "WETH",
+//     "chainId": 4663, "source": "..." } }
 
 import { execFileSync } from "node:child_process"
 import {
@@ -85,6 +92,20 @@ for (const chain of readdirSync(samplesDir))
     const data = JSON.parse(readFileSync(join(samplesDir, chain, file), "utf8"))
     for (const tx of data.txs) samples.set(tx.hash.toLowerCase(), tx)
   }
+
+// The chains the tracker keeps token lists for (tracker/data/tokens/).
+const TRACKER_CHAINS = readdirSync(join(repo, "tracker", "data", "tokens"))
+  .filter((file) => /^\d+\.json$/.test(file))
+  .map((file) => Number(file.replace(/\.json$/, "")))
+// The cases file's own tokens, by lowercase address.
+const listed = Object.fromEntries(
+  Object.entries(spec.tokens ?? {}).map(([address, token]) => {
+    for (const key of ["symbol", "decimals", "name", "chainId", "source"])
+      if (token[key] === undefined)
+        throw new Error(`tokens.${address}: no ${key}`)
+    return [address.toLowerCase(), token]
+  })
+)
 
 const tokensByChain = new Map()
 function tokensOf(chainId) {
@@ -150,12 +171,16 @@ for (const c of spec.tests) {
         }
   const raw = unsignedRawTx(call)
   if ("skip" in raw) throw new Error(`${c.description}: ${raw.skip}`)
-  const known = tokensOf(tx.chainId)
-  for (const address of addressesIn(call))
-    if (known[address]) {
-      const { symbol, decimals, name: tokenName } = known[address]
+  for (const address of addressesIn(call)) {
+    const found =
+      [tx.chainId, ...TRACKER_CHAINS.filter((id) => id !== tx.chainId)]
+        .map((id) => tokensOf(id)[address])
+        .find(Boolean) ?? listed[address]
+    if (found) {
+      const { symbol, decimals, name: tokenName } = found
       tokens[address] = { symbol, decimals, name: tokenName }
     }
+  }
   built.push({
     description: c.description,
     rawTx: raw.rawTx,

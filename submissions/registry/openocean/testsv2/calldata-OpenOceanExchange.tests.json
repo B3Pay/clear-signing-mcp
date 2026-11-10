@@ -3,66 +3,18 @@
   "descriptor": "../calldata-OpenOceanExchange.json",
   "dataProvider": {
     "tokens": {
-      "0x4200000000000000000000000000000000000006": {
-        "symbol": "WETH",
-        "decimals": 18,
-        "name": "Wrapped Ether"
-      },
-      "0x590830dfdf9a3f68afcdde2694773debdf267774": {
-        "symbol": "GIZA",
-        "decimals": 18,
-        "name": "Giza"
-      },
-      "0x68f180fcce6836688e9084f035309e29bf0a2095": {
-        "symbol": "WBTC",
-        "decimals": 8,
-        "name": "Wrapped BTC"
-      },
-      "0x6b175474e89094c44da98b954eedeac495271d0f": {
-        "symbol": "DAI",
-        "decimals": 18,
-        "name": "Dai Stablecoin"
-      },
-      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": {
-        "symbol": "USDC",
-        "decimals": 6,
-        "name": "USD Coin"
-      },
-      "0x912ce59144191c1204e64559fe8253a0e49e6548": {
-        "symbol": "ARB",
-        "decimals": 18,
-        "name": "Arbitrum"
-      },
-      "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58": {
-        "symbol": "USDT",
-        "decimals": 6,
-        "name": "Tether USD"
-      },
-      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
-        "symbol": "USDC",
-        "decimals": 6,
-        "name": "USD Coin"
-      },
-      "0xaf88d065e77c8cc2239327c5edb3a432268e5831": {
-        "symbol": "USDC",
-        "decimals": 6,
-        "name": "USD Coin"
-      },
-      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
-        "symbol": "WETH",
-        "decimals": 18,
-        "name": "Wrapped Ether"
-      },
-      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
-        "symbol": "cbBTC",
-        "decimals": 8,
-        "name": "Coinbase Wrapped BTC"
-      },
-      "0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55": {
-        "symbol": "SUPER",
-        "decimals": 18,
-        "name": "SuperFarm"
-      }
+      "0x4200000000000000000000000000000000000006": { "symbol": "WETH", "decimals": 18, "name": "Wrapped Ether" },
+      "0x590830dfdf9a3f68afcdde2694773debdf267774": { "symbol": "GIZA", "decimals": 18, "name": "Giza" },
+      "0x68f180fcce6836688e9084f035309e29bf0a2095": { "symbol": "WBTC", "decimals": 8, "name": "Wrapped BTC" },
+      "0x6b175474e89094c44da98b954eedeac495271d0f": { "symbol": "DAI", "decimals": 18, "name": "Dai Stablecoin" },
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0x912ce59144191c1204e64559fe8253a0e49e6548": { "symbol": "ARB", "decimals": 18, "name": "Arbitrum" },
+      "0x94b008aa00579c1307b0ef2c499ad98a8ce58e58": { "symbol": "USDT", "decimals": 6, "name": "Tether USD" },
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0xaf88d065e77c8cc2239327c5edb3a432268e5831": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": { "symbol": "WETH", "decimals": 18, "name": "Wrapped Ether" },
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": { "symbol": "cbBTC", "decimals": 8, "name": "Coinbase Wrapped BTC" },
+      "0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55": { "symbol": "SUPER", "decimals": 18, "name": "SuperFarm" }
     }
   },
   "tests": [
@@ -75,18 +27,9 @@
         "interpolatedIntent": "Swap 2.705 ETH for at least 5832.766688 USDC",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "2.705 ETH"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "5832.766688 USDC"
-          },
-          {
-            "label": "Recipient",
-            "value": "0x285fbe8D062a1441B41519F5CE410Ad2C1C1C6c1"
-          }
+          { "label": "Amount to Send", "value": "2.705 ETH" },
+          { "label": "Minimum to Receive", "value": "5832.766688 USDC" },
+          { "label": "Recipient", "value": "0x285fbe8D062a1441B41519F5CE410Ad2C1C1C6c1" }
         ]
       }
     },
@@ -99,18 +42,9 @@
         "interpolatedIntent": "Swap 1.4855862 DAI for at least 0.000629717590444853 ETH",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "1.4855862 DAI"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "0.000629717590444853 ETH"
-          },
-          {
-            "label": "Recipient",
-            "value": "0x67a2B590217A29F4ce195a87f088b886460C698b"
-          }
+          { "label": "Amount to Send", "value": "1.4855862 DAI" },
+          { "label": "Minimum to Receive", "value": "0.000629717590444853 ETH" },
+          { "label": "Recipient", "value": "0x67a2B590217A29F4ce195a87f088b886460C698b" }
         ]
       }
     },
@@ -123,18 +57,9 @@
         "interpolatedIntent": "Swap 0.05 USDT for at least 0.00002201864066108 ETH",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "0.05 USDT"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "0.00002201864066108 ETH"
-          },
-          {
-            "label": "Recipient",
-            "value": "0x981d5f8D0B3Be79a99dEC92682Ae7015356BFdAc"
-          }
+          { "label": "Amount to Send", "value": "0.05 USDT" },
+          { "label": "Minimum to Receive", "value": "0.00002201864066108 ETH" },
+          { "label": "Recipient", "value": "0x981d5f8D0B3Be79a99dEC92682Ae7015356BFdAc" }
         ]
       }
     },
@@ -147,18 +72,9 @@
         "interpolatedIntent": "Swap 0.0049557 cbBTC for at least 0.167955610003510963 WETH",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "0.0049557 cbBTC"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "0.167955610003510963 WETH"
-          },
-          {
-            "label": "Recipient",
-            "value": "0x6935b868Ed35B95E38dAb32043362dFdfc18a427"
-          }
+          { "label": "Amount to Send", "value": "0.0049557 cbBTC" },
+          { "label": "Minimum to Receive", "value": "0.167955610003510963 WETH" },
+          { "label": "Recipient", "value": "0x6935b868Ed35B95E38dAb32043362dFdfc18a427" }
         ]
       }
     },
@@ -171,18 +87,9 @@
         "interpolatedIntent": "Swap 0.241624607355051419 ARB for at least 0.000017983070351541 ETH",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "0.241624607355051419 ARB"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "0.000017983070351541 ETH"
-          },
-          {
-            "label": "Recipient",
-            "value": "0x626f4B53476720E5b1f64B97aC7e5D6b86f71937"
-          }
+          { "label": "Amount to Send", "value": "0.241624607355051419 ARB" },
+          { "label": "Minimum to Receive", "value": "0.000017983070351541 ETH" },
+          { "label": "Recipient", "value": "0x626f4B53476720E5b1f64B97aC7e5D6b86f71937" }
         ]
       }
     },
@@ -195,18 +102,9 @@
         "interpolatedIntent": "Swap 544.6638 SUPER for at least 100.945797 USDC",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "544.6638 SUPER"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "100.945797 USDC"
-          },
-          {
-            "label": "Recipient",
-            "value": "0xBA516aa02Ed374596b1C928DAcD481A2248E9d7F"
-          }
+          { "label": "Amount to Send", "value": "544.6638 SUPER" },
+          { "label": "Minimum to Receive", "value": "100.945797 USDC" },
+          { "label": "Recipient", "value": "0xBA516aa02Ed374596b1C928DAcD481A2248E9d7F" }
         ]
       }
     },
@@ -219,18 +117,9 @@
         "interpolatedIntent": "Swap 0.00320418 WBTC for at least 0.103518655238863103 ETH",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "0.00320418 WBTC"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "0.103518655238863103 ETH"
-          },
-          {
-            "label": "Recipient",
-            "value": "0x011b0a055E02425461A1ae95B30F483c4fF05bE7"
-          }
+          { "label": "Amount to Send", "value": "0.00320418 WBTC" },
+          { "label": "Minimum to Receive", "value": "0.103518655238863103 ETH" },
+          { "label": "Recipient", "value": "0x011b0a055E02425461A1ae95B30F483c4fF05bE7" }
         ]
       }
     },
@@ -243,18 +132,9 @@
         "interpolatedIntent": "Swap 1300876.26034300211 GIZA for at least 142.001083 USDC",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "1300876.26034300211 GIZA"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "142.001083 USDC"
-          },
-          {
-            "label": "Recipient",
-            "value": "0xaC379208646FF0E9AF259313e42145161C5cc034"
-          }
+          { "label": "Amount to Send", "value": "1300876.26034300211 GIZA" },
+          { "label": "Minimum to Receive", "value": "142.001083 USDC" },
+          { "label": "Recipient", "value": "0xaC379208646FF0E9AF259313e42145161C5cc034" }
         ]
       }
     },
@@ -267,18 +147,9 @@
         "interpolatedIntent": "Swap 3612.727801 USDC for at least 1.504556395371886696 ETH",
         "owner": "OpenOcean",
         "fields": [
-          {
-            "label": "Amount to Send",
-            "value": "3612.727801 USDC"
-          },
-          {
-            "label": "Minimum to Receive",
-            "value": "1.504556395371886696 ETH"
-          },
-          {
-            "label": "Recipient",
-            "value": "0x270d1C8C0f13fF925f710dFf38BF806BDbb4e6B2"
-          }
+          { "label": "Amount to Send", "value": "3612.727801 USDC" },
+          { "label": "Minimum to Receive", "value": "1.504556395371886696 ETH" },
+          { "label": "Recipient", "value": "0x270d1C8C0f13fF925f710dFf38BF806BDbb4e6B2" }
         ]
       }
     }

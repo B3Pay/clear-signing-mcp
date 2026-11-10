@@ -21,13 +21,14 @@ these.
 
 ## Status
 
-| Registry pull request                                                                                                | Files                                                                                  | New deployments | Tests    | State                                                                      |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------- | -------- | -------------------------------------------------------------------------- |
-| [weth: WETH on OP Mainnet, Base and Arbitrum One](pr/weth.md)                                                        | `weth/calldata-weth.json` (two deployments added), `weth/calldata-aeWETH.json` (new)   | 3               | 8, 6 new | Branch `weth-op-base-arbitrum` on the fork; pull request not opened yet    |
-| [uniswap: Permit2 on Ethereum, OP Mainnet, Base, Arbitrum One](pr/uniswap.md)                                        | `uniswap/calldata-Permit2.json` (new)                                                  | 4               | 13       | Branch `uniswap-permit2-calldata` on the fork; pull request not opened yet |
-| [aero: Slipstream SwapRouter and NonfungiblePositionManager on Ethereum, OP Mainnet, Base, Arbitrum One](pr/aero.md) | `aero/calldata-SwapRouter.json`, `aero/calldata-NonfungiblePositionManager.json` (new) | 8               | 19       | Ready; not submitted                                                       |
-| [pancakeswap: Smart Router on Ethereum, Base, Arbitrum One](pr/pancakeswap.md)                                       | `pancakeswap/calldata-SmartRouter.json` (new)                                          | 3               | 15       | Ready; not submitted                                                       |
-| [openocean: OpenOcean Exchange on Ethereum, OP Mainnet, Base, Arbitrum One](pr/openocean.md)                         | `openocean/calldata-OpenOceanExchange.json` (new)                                      | 4               | 9        | Ready; not submitted                                                       |
+| Registry pull request                                                                                                | Files                                                                                                                                                        | New deployments | Tests    | State                                                                      |
+| -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | -------- | -------------------------------------------------------------------------- |
+| [weth: WETH on OP Mainnet, Base and Arbitrum One](pr/weth.md)                                                        | `weth/calldata-weth.json` (two deployments added), `weth/calldata-aeWETH.json` (new)                                                                         | 3               | 8, 6 new | Branch `weth-op-base-arbitrum` on the fork; pull request not opened yet    |
+| [uniswap: Permit2 on Ethereum, OP Mainnet, Base, Arbitrum One](pr/uniswap.md)                                        | `uniswap/calldata-Permit2.json` (new)                                                                                                                        | 4               | 13       | Branch `uniswap-permit2-calldata` on the fork; pull request not opened yet |
+| [aero: Slipstream SwapRouter and NonfungiblePositionManager on Ethereum, OP Mainnet, Base, Arbitrum One](pr/aero.md) | `aero/calldata-SwapRouter.json`, `aero/calldata-NonfungiblePositionManager.json` (new)                                                                       | 8               | 19       | Ready; not submitted                                                       |
+| [pancakeswap: Smart Router on Ethereum, Base, Arbitrum One](pr/pancakeswap.md)                                       | `pancakeswap/calldata-SmartRouter.json` (new)                                                                                                                | 3               | 15       | Ready; not submitted                                                       |
+| [openocean: OpenOcean Exchange on Ethereum, OP Mainnet, Base, Arbitrum One](pr/openocean.md)                         | `openocean/calldata-OpenOceanExchange.json` (new)                                                                                                            | 4               | 9        | Ready; not submitted                                                       |
+| [across: SpokePoolPeriphery's ETH deposits on Ethereum, Base, Arbitrum One](pr/across.md)                            | `across/calldata-Ethereum_SpokePoolPeriphery.json`, `across/calldata-Base_SpokePoolPeriphery.json`, `across/calldata-Arbitrum_SpokePoolPeriphery.json` (new) | 3               | 4        | In progress: CI evidence and the refused-call count to add to the text     |
 
 ## The registry's process
 
@@ -61,9 +62,13 @@ node submissions/tools/build-tests.mjs submissions/cases/weth/calldata-weth.case
 For each case, `build-tests.mjs` takes the transaction from the tracker's
 samples (`tracker/data/samples/`), checks that it went to a deployment of the
 descriptor on that chain and succeeded, rebuilds it unsigned, and writes the
-test with the text the Sourcify test runner renders for it, which it prints.
-It records what the runner shows, not what is right: read each rendering
-before keeping it. `--chains` serves the runner's chain list from a file, for a
+test with the text the Sourcify test runner renders for it, which it prints. It
+records what the runner shows, not what is right: read each rendering before
+keeping it. Each token the transaction names gets its symbol and decimals from
+the tracker's token lists, the case's chain first, then the other chains the
+tracker reads, where a bridge's output token is. A token on a chain the tracker
+does not read goes in the cases file's `tokens`, with the source of its symbol
+and decimals. `--chains` serves the runner's chain list from a file, for a
 machine that cannot reach chainid.network.
 
 The registry wants a test that calls each formatted function at the top level
