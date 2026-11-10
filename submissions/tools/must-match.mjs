@@ -5,7 +5,9 @@
 // deployment of each descriptor under submissions/registry/ and each format
 // with such a field, it reads the latest successful calls of that function
 // from the SQD Network portal, decodes them, and counts the calls the
-// descriptor refuses and the values that make it refuse them. Read-only,
+// descriptor refuses, the values that make it refuse them, and the senders of
+// those calls, with how many each sent: a few senders with many calls each
+// are likely programs rather than people signing in a wallet. Read-only,
 // network; runs in CI. It never fails a run: it measures what a pull request
 // text says the descriptor leaves out.
 //
@@ -109,6 +111,28 @@ const show = (value) =>
     ? `${(value.length - 2) / 2} bytes`
     : String(value)
 
+// Who sent the refused calls, and how many each sent: "from 2 of the 9
+// senders (40 and 3 calls)", with the five that sent the most when there are
+// more.
+function bySender(refusedBy, all) {
+  const counts = [...refusedBy.values()].sort((a, b) => b - a)
+  const who =
+    all === 1
+      ? "the only sender"
+      : refusedBy.size === all
+        ? `all ${all} senders`
+        : `${refusedBy.size} of the ${all} senders`
+  if (counts.length > 1 && counts[0] === 1) return `from ${who} (one call each)`
+  const shown = counts.slice(0, 5)
+  const list =
+    shown.length === 1
+      ? plural(shown[0], "call", "calls")
+      : `${shown.slice(0, -1).join(", ")} and ${shown.at(-1)} calls`
+  return counts.length > shown.length
+    ? `from ${who} (the five that sent the most: ${list})`
+    : `from ${who} (${list})`
+}
+
 const lines = []
 const say = (line = "") => {
   lines.push(line)
@@ -148,7 +172,7 @@ for (const path of descriptors) {
       } catch (error) {
         say(`Not read: ${error.message}`)
         say()
-        table.push([where, fn.name, "not read", ""])
+        table.push([where, fn.name, "not read", "", ""])
         continue
       }
       const { calls, failed, since, until } = result
@@ -157,6 +181,8 @@ for (const path of descriptors) {
       const refusing = new Map(checks.map(({ path }) => [path, new Map()]))
       const unread = new Set()
       let refused = 0
+      // The calls refused, by sender.
+      const refusedBy = new Map()
       let undecodable = 0
       for (const tx of calls) {
         let args
@@ -179,7 +205,11 @@ for (const path of descriptors) {
               .set(show(value), (refusing.get(field).get(show(value)) ?? 0) + 1)
           if (found.some((value) => !matches(value, list))) refuses = true
         }
-        if (refuses) refused += 1
+        if (refuses) {
+          refused += 1
+          const from = tx.from.toLowerCase()
+          refusedBy.set(from, (refusedBy.get(from) ?? 0) + 1)
+        }
       }
       say(
         `${plural(calls.length, "successful call", "successful calls")} from ${plural(senders.size, "sender", "senders")}, ${day(since)} to ${day(until)} UTC` +
@@ -204,7 +234,7 @@ for (const path of descriptors) {
         say(
           refused === 0
             ? "The descriptor refuses none of them."
-            : `The descriptor refuses ${refused} of them (${Math.round((100 * refused) / calls.length)}%): ${why.join("; ")}.`
+            : `The descriptor refuses ${refused} of them (${Math.round((100 * refused) / calls.length)}%), ${bySender(refusedBy, senders.size)}: ${why.join("; ")}.`
         )
       if (unread.size > 0)
         say(`Not checked: ${[...unread].map((f) => `\`${f}\``).join(", ")}.`)
@@ -214,12 +244,13 @@ for (const path of descriptors) {
         fn.name,
         String(calls.length),
         calls.length > 0 ? String(refused) : "",
+        refused > 0 ? `${refusedBy.size} of ${senders.size}` : "",
       ])
     }
   }
 }
-say("| Deployment | Function | Calls read | Refused |")
-say("| --- | --- | --- | --- |")
+say("| Deployment | Function | Calls read | Refused | Their senders |")
+say("| --- | --- | --- | --- | --- |")
 for (const row of table) say(`| ${row.join(" | ")} |`)
 if (process.env.GITHUB_STEP_SUMMARY)
   appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join("\n") + "\n")
