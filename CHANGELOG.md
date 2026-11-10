@@ -31,9 +31,10 @@
   every test transaction back from its chain, `multicall-actions.mjs` counts
   the actions in each contract's latest batch calls, `verified-sources.mjs`
   compares the source Sourcify has verified at each deployment of a
-  descriptor, through its proxy, and the `Registry submission checks`
-  workflow runs all four, with the Rust test runner and the linter against
-  live Sourcify, then requires that a deliberate fault is caught.
+  descriptor, through its proxy, and the `Registry submission checks` and
+  `Registry submission batches` workflows run all four, with the Rust test
+  runner and the linter against live Sourcify, then require that a
+  deliberate fault is caught.
 
 - The tracker's report names a real call for each of a contract's
   most-called functions (`exampleTx`): the newest transaction in its kept

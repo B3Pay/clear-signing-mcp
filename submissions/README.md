@@ -99,13 +99,16 @@ are written from one deployment's code and hold on another only where it runs
 the same code. With `--print` it prints a source file's text, for a protocol
 whose public repository is not what it deployed.
 
-The `Registry submission checks` workflow runs all four on every change here,
-against the registry's latest commit: the linter against live Sourcify, both
-test runners and the transaction check, then a deliberate fault (a wrong
-expected value, two swapped transaction hashes, a batch action named as
-another action of its batch) that both runners and the transaction check
-must report. The batch-call count and the source comparison run beside them,
-each in its own job, which never fails the run.
+The `Registry submission checks` workflow runs `check.sh` and the
+transaction check on every change here, against the registry's latest commit:
+the linter against live Sourcify, both test runners and the transaction
+check, then a deliberate fault (a wrong expected value, two swapped
+transaction hashes, a batch action named as another action of its batch)
+that both runners and the transaction check must report. A job of its own
+beside them runs the source comparison. The batch-call count has its own
+workflow, `Registry submission batches`, which reads for an hour or more, so
+a new push waits for a run in progress instead of cancelling it. Neither of
+these two ever fails.
 
 Where Sourcify, chainid.network and public RPCs are out of reach, `check.sh
 --offline` lints with the tracker's ABIs (`tracker/data/abis/`) instead and

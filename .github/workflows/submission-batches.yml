@@ -1,0 +1,49 @@
+name: Registry submission batches
+
+# What the batch calls to the submitted contracts carry (submissions/README.md):
+# the actions in their latest multicalls, read from the SQD Network portal,
+# and those the descriptor has no format for. It measures the scope a pull
+# request text states, so it never fails. It reads for up to three minutes per
+# contract, chain and batch function, an hour or more in all, so a new push
+# does not cancel a run in progress: the newest waits for it, and any run
+# waiting before it is dropped. Read-only, and no secret.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - submissions/registry/**
+      - submissions/tools/multicall-actions.mjs
+      - .github/workflows/submission-batches.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  batches:
+    name: What batch calls carry
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: What batch calls carry
+        run: node submissions/tools/multicall-actions.mjs --count 200 --minutes 3

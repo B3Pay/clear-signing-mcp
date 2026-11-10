@@ -119,8 +119,23 @@ The three with a recipient send to it as given: none of them reads
 
 ## Batches
 
-To be filled in from the batch-call count of the `Registry submission checks`
-workflow.
+A batch (`multicall`) shows each action on a screen of its own, through this
+file's formats, so a batch's screen is whole only when every action in it has
+a format. The latest successful batches to the router, read on 2026-11-10
+from the SQD Network portal for two minutes per chain and batch function,
+which covers hours to days:
+
+| Chain        | `multicall(deadline, data)`                                                        | `multicall(data)`                                                                                                   |
+| ------------ | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Ethereum     | 3 since 2026-11-08 16:59 UTC: `exactOutput, refundETH` (2), `exactInputSingle` (1) | None since 2026-11-08 16:59 UTC                                                                                     |
+| Base         | 13 since 05:13 UTC that day, each `exactInputSingle` alone                         | Not read: the portal answered that it was overloaded                                                                |
+| Arbitrum One | Not read: the portal answered that it was overloaded                               | 3 since 2026-11-04 14:06 UTC: `exactInputSingle, sweepTokenWithFee` (2), `exactInputSingle, unwrapWETH9WithFee` (1) |
+
+`multicall(previousBlockhash, data)` had no call in the same spans.
+
+Every action has a format in 17 of these 19 batches. The other 2, from one
+sender, swap with `exactOutput`, which is left out (Scope), so a wallet cannot
+show them whole.
 
 ## Tests
 
