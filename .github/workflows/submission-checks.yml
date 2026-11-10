@@ -6,7 +6,9 @@ name: Registry submission checks
 # checks, the erc7730 linter with --require-verified against live Sourcify,
 # selector coverage, and both test runners it pins, Sourcify's and the Rust
 # one. Then every test transaction is read back from its chain over public
-# RPCs. Read-only, and no secret.
+# RPCs. Beside them, two jobs that never fail the run count what batch calls
+# carry and compare the source Sourcify has verified at each deployment.
+# Read-only, and no secret.
 on:
   pull_request:
     branches: [main]
@@ -210,3 +212,33 @@ jobs:
 
       - name: What batch calls carry
         run: node submissions/tools/multicall-actions.mjs --count 200 --minutes 2
+
+  # What Sourcify has verified at each deployment, through any proxy, and how
+  # the deployments of one descriptor differ (submissions/README.md). Never
+  # fails the run: a difference is for the pull request text to explain.
+  sources:
+    name: What each deployment runs
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: What each deployment runs
+        run: node submissions/tools/verified-sources.mjs submissions/registry/*/*.json
+
+      # The drafts being finished: the deployed code their screens describe.
+      - name: The code of the drafts being finished
+        run: |
+          node submissions/tools/verified-sources.mjs tracker/drafts/openocean/calldata-OpenOceanExchangeProxy.json \
+            --files --print OpenOceanExchange.sol --print Permitable.sol --print UniversalERC20.sol --print IOpenOceanCaller.sol
+          node submissions/tools/verified-sources.mjs tracker/drafts/across/calldata-SpokePoolPeriphery.json \
+            tracker/drafts/debridge/calldata-DeBridgeRouter.json --files

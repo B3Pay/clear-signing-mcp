@@ -29,10 +29,11 @@
   text of each registry pull request. `check.sh` runs the registry's
   pull-request checks on them with the tools it pins, `verify-txs.mjs` reads
   every test transaction back from its chain, `multicall-actions.mjs` counts
-  the actions in each contract's latest batch calls, and the `Registry
-submission checks` workflow runs all three, with the Rust test runner and
-  the linter against live Sourcify, then requires that a deliberate fault is
-  caught.
+  the actions in each contract's latest batch calls, `verified-sources.mjs`
+  compares the source Sourcify has verified at each deployment of a
+  descriptor, through its proxy, and the `Registry submission checks`
+  workflow runs all four, with the Rust test runner and the linter against
+  live Sourcify, then requires that a deliberate fault is caught.
 
 - The tracker's report names a real call for each of a contract's
   most-called functions (`exampleTx`): the newest transaction in its kept

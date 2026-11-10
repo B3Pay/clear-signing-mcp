@@ -92,13 +92,20 @@ decodes their actions, and counts which sequences occur and which actions the
 descriptor has no format for: what a batch screen would show, for the scope a
 pull request text states.
 
-The `Registry submission checks` workflow runs all three on every change here,
+`tools/verified-sources.mjs` prints what Sourcify has verified at each
+deployment of a descriptor, through a proxy to its implementations, and how
+the deployments of one descriptor differ, file by file. A descriptor's screens
+are written from one deployment's code and hold on another only where it runs
+the same code. With `--print` it prints a source file's text, for a protocol
+whose public repository is not what it deployed.
+
+The `Registry submission checks` workflow runs all four on every change here,
 against the registry's latest commit: the linter against live Sourcify, both
 test runners and the transaction check, then a deliberate fault (a wrong
 expected value, two swapped transaction hashes, a batch action named as
 another action of its batch) that both runners and the transaction check
-must report. The batch-call count runs beside them in its own job, which
-never fails the run.
+must report. The batch-call count and the source comparison run beside them,
+each in its own job, which never fails the run.
 
 Where Sourcify, chainid.network and public RPCs are out of reach, `check.sh
 --offline` lints with the tracker's ABIs (`tracker/data/abis/`) instead and
