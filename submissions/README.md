@@ -91,10 +91,11 @@ over a scratch clone of the registry, with the tools the registry pins.
 public RPCs and compares it with the test's `rawTx`: chain, sender nonce,
 target, value and calldata, and that it succeeded. Public endpoints are full
 nodes that prune old receipts, so for an older transaction the status comes
-from the chain's Blockscout, and the result says so. A test that is a batch
-action sent alone is checked against its batch: the batch succeeded, has the
-test's chain, sender nonce and target, and that action is the test's
-calldata.
+from the chain's Blockscout, from its API v2 and its lighter Etherscan-style
+status call asked together, which must agree when both answer, and the result
+says which answered. A test that is a batch action sent alone is checked
+against its batch: the batch succeeded, has the test's chain, sender nonce and
+target, and that action is the test's calldata.
 
 `tools/multicall-actions.mjs` reads, from the SQD Network portal, the latest
 successful batch calls (`multicall`) to each submitted contract that has one,
