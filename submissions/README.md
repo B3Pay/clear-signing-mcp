@@ -3,11 +3,13 @@
 Descriptors B3Pay proposes to the Ethereum Foundation's
 [ERC-7730 registry](https://github.com/ethereum/clear-signing-erc7730-registry),
 finished by hand from the tracker's drafts (`tracker/drafts/`), each with tests
-made from real transactions. Nothing here has been submitted: a pull request to
-the registry is opened only after Behrad approves that pull request. None of
-these descriptors is attested. Merging does not attest a descriptor, and the
-registry's auditors attest one only when its submitter is plausibly affiliated
-with the protocol, which B3Pay is not for these.
+made from real transactions. A pull request to the registry is opened only
+after Behrad approves that pull request, from B3Pay's fork of the registry,
+[`B3Pay/clear-signing-erc7730-registry`](https://github.com/B3Pay/clear-signing-erc7730-registry),
+one branch per pull request. None of these descriptors is attested. Merging
+does not attest a descriptor, and the registry's auditors attest one only when
+its submitter is plausibly affiliated with the protocol, which B3Pay is not for
+these.
 
 | Path            | What it holds                                                                                                                  |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -19,10 +21,11 @@ with the protocol, which B3Pay is not for these.
 
 ## Status
 
-| Registry pull request                                                         | Files                                                                                | New deployments | Tests    | State              |
-| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | --------------- | -------- | ------------------ |
-| [weth: WETH on OP Mainnet, Base and Arbitrum One](pr/weth.md)                 | `weth/calldata-weth.json` (two deployments added), `weth/calldata-aeWETH.json` (new) | 3               | 8, 6 new | Waiting for review |
-| [uniswap: Permit2 on Ethereum, OP Mainnet, Base, Arbitrum One](pr/uniswap.md) | `uniswap/calldata-Permit2.json` (new)                                                | 4               | 13       | Waiting for review |
+| Registry pull request                                                                                                | Files                                                                                  | New deployments | Tests    | State                                                                      |
+| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------- | -------- | -------------------------------------------------------------------------- |
+| [weth: WETH on OP Mainnet, Base and Arbitrum One](pr/weth.md)                                                        | `weth/calldata-weth.json` (two deployments added), `weth/calldata-aeWETH.json` (new)   | 3               | 8, 6 new | Branch `weth-op-base-arbitrum` on the fork; pull request not opened yet    |
+| [uniswap: Permit2 on Ethereum, OP Mainnet, Base, Arbitrum One](pr/uniswap.md)                                        | `uniswap/calldata-Permit2.json` (new)                                                  | 4               | 13       | Branch `uniswap-permit2-calldata` on the fork; pull request not opened yet |
+| [aero: Slipstream SwapRouter and NonfungiblePositionManager on Ethereum, OP Mainnet, Base, Arbitrum One](pr/aero.md) | `aero/calldata-SwapRouter.json`, `aero/calldata-NonfungiblePositionManager.json` (new) | 8               | 19       | Ready; not submitted                                                       |
 
 ## The registry's process
 
@@ -71,10 +74,18 @@ target, value and calldata, and that it succeeded. Public endpoints are full
 nodes that prune old receipts, so for an older transaction the status comes
 from the chain's Blockscout, and the result says so.
 
-The `Registry submission checks` workflow runs both on every change here,
+`tools/multicall-actions.mjs` reads, from the SQD Network portal, the latest
+successful batch calls (`multicall`) to each submitted contract that has one,
+decodes their actions, and counts which sequences occur and which actions the
+descriptor has no format for: what a batch screen would show, for the scope a
+pull request text states.
+
+The `Registry submission checks` workflow runs all three on every change here,
 against the registry's latest commit: the linter against live Sourcify, both
-test runners, and then a deliberate fault (a wrong expected value, two swapped
-transaction hashes) that both runners and the transaction check must report.
+test runners and the transaction check, then a deliberate fault (a wrong
+expected value, two swapped transaction hashes) that both runners and the
+transaction check must report, and last the batch-call count, which never
+fails the run.
 
 Where Sourcify, chainid.network and public RPCs are out of reach, `check.sh
 --offline` lints with the tracker's ABIs (`tracker/data/abis/`) instead and
