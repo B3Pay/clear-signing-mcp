@@ -41,7 +41,6 @@
         "fields": [
           { "label": "Amount to Send", "value": "1048.7 USDC" },
           { "label": "Destination Chain", "value": "100000022" },
-          { "label": "Destination Chain", "value": "100000022" },
           { "label": "Recipient", "value": "0xd1550c54d60f2e783170b4411739f39aafcb7afe" },
           { "label": "Taker Must Send", "value": "13326497411676627465" },
           { "label": "Token to Receive (dest.)", "value": "0x0000000000000000000000000000000000000000" },
@@ -86,7 +85,6 @@
         "owner": "deBridge",
         "fields": [
           { "label": "Amount to Send", "value": "300.473775 USDC" },
-          { "label": "Destination Chain", "value": "100000022" },
           { "label": "Destination Chain", "value": "100000022" },
           { "label": "Recipient", "value": "0x5b4a24501dcc7cf8cff580dbce4a2a50b7865ff1" },
           { "label": "Taker Must Send", "value": "299760050" },

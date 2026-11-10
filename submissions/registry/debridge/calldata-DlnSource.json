@@ -33,7 +33,7 @@
             "path": "_orderCreation.takeChainId",
             "label": "Destination Chain",
             "format": "chainId",
-            "visible": { "ifNotIn": [7565164] }
+            "visible": { "ifNotIn": [7565164, 100000022] }
           },
           {
             "path": "_orderCreation.takeChainId",
@@ -47,11 +47,7 @@
             "path": "_orderCreation.takeAmount",
             "label": "Taker Must Send",
             "format": "tokenAmount",
-            "params": {
-              "tokenPath": "#._orderCreation.takeTokenAddress",
-              "chainIdPath": "#._orderCreation.takeChainId",
-              "nativeCurrencyAddress": ["0x0000000000000000000000000000000000000000"]
-            }
+            "params": { "tokenPath": "#._orderCreation.takeTokenAddress", "chainIdPath": "#._orderCreation.takeChainId" }
           },
           { "path": "_orderCreation.takeTokenAddress", "label": "Token to Receive (dest.)", "format": "raw" },
           {
