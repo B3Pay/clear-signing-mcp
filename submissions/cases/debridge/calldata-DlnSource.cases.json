@@ -1,0 +1,26 @@
+{
+  "descriptor": "calldata-DlnSource.json",
+  "keep": false,
+  "tests": [
+    {
+      "description": "Bridge USDC to Solana - chain 1",
+      "chainId": 1,
+      "txHash": "0xab704fc3b3adb036bb80e5ff661e9c6d5503120d09d2bc9b9b7a1c7abc2e7852"
+    },
+    {
+      "description": "Bridge USDC to chain 100000022 - chain 1",
+      "chainId": 1,
+      "txHash": "0xb316c4b3edd467854a42e9002db6f4cab72a577a602bf26501970d2f47621f98"
+    },
+    {
+      "description": "Bridge USDC to Solana - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xec814f7fbce2c359fcd3935974f6e8ff736681dd8725207106204d393e229690"
+    },
+    {
+      "description": "Bridge USDC to chain 100000022 - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xd6b3514f275014430275d5624610bb014412913dfd2b6828620da071f9051d06"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+name: Registry submission batches
+
+# What real calls to the submitted contracts send, read from the SQD Network
+# portal (submissions/README.md): the actions in their latest batch calls,
+# and those the descriptor has no format for; how many of their latest calls
+# a mustMatch field of the descriptor refuses; and what deBridge's latest DLN
+# orders carry, for the draft being finished. It measures the scope a pull
+# request text states, so it never fails. It reads for minutes per
+# contract, chain and function, an hour or more in all, so a new push does
+# not cancel a run in progress: the newest waits for it, and any run waiting
+# before it is dropped. Read-only, and no secret.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - submissions/registry/**
+      - submissions/tools/multicall-actions.mjs
+      - submissions/tools/must-match.mjs
+      - submissions/tools/portal.mjs
+      - submissions/tools/dln-orders.mjs
+      - .github/workflows/submission-batches.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  batches:
+    name: What batch calls carry
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: What batch calls carry
+        run: node submissions/tools/multicall-actions.mjs --count 200 --minutes 3
+
+  refusals:
+    name: What the mustMatch fields refuse
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: What the mustMatch fields refuse
+        run: node submissions/tools/must-match.mjs --count 200 --minutes 2
+
+  dln:
+    name: What deBridge's DLN orders carry
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      - name: What deBridge's DLN orders carry
+        run: node submissions/tools/dln-orders.mjs --count 300 --minutes 3 --pick 2

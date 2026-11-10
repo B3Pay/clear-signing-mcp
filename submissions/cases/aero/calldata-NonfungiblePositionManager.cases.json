@@ -1,0 +1,76 @@
+{
+  "descriptor": "calldata-NonfungiblePositionManager.json",
+  "keep": false,
+  "tests": [
+    {
+      "description": "Open liquidity position - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xed9143c2b0d4ce57b70c06d41e895941457c46df6d25e0940224f359d1602b07"
+    },
+    {
+      "description": "Open liquidity position - chain 1",
+      "chainId": 1,
+      "txHash": "0x3345eaa1facf5a6b1e191c88f87b9edb24691f36abb108a3e9bfe7f70329d958"
+    },
+    {
+      "description": "Add to liquidity position - chain 10",
+      "chainId": 10,
+      "txHash": "0x4e78d30540b6dab68a55e0a96fdaf4979c96291ad50fe7872181088d3253a966"
+    },
+    {
+      "description": "Add to liquidity position - chain 42161",
+      "chainId": 42161,
+      "txHash": "0xf23c6711cbbf914463cbfb13346b82f532496a5c65549c7b0d84d52c3fca4658"
+    },
+    {
+      "description": "Decrease liquidity - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x4e14bc8436be6971666a32ae461e5c231fce9ca2aa0016c938bf7fdfe9dab517"
+    },
+    {
+      "description": "Collect from position - chain 42161",
+      "chainId": 42161,
+      "txHash": "0xca2821815f48425669a45e1f33fdec9dcf5f48dfcf5042ba588080922b90875e"
+    },
+    {
+      "description": "Collect from position - chain 10",
+      "chainId": 10,
+      "txHash": "0x3d7bdf88ebefe7ea629463793a37f8b577969e3bfa3ddaa27b5514e675c7a4c5"
+    },
+    {
+      "description": "Burn empty position NFT - chain 1",
+      "chainId": 1,
+      "txHash": "0x9533af33a6bcf256f944f6143d5b8ba8bbb4557c18ba25bd772b9b2f157c57c7"
+    },
+    {
+      "description": "Approve position operator - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xdf97f913e4c4b4db395e325020f4da0c3e1f1ede4f23f07bff400317b0e3d76d"
+    },
+    {
+      "description": "Set operator for all NFTs, grant - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x544bea3ff10313774c826308c0898bd9092576719de77b6d68c60679bec774f1"
+    },
+    {
+      "description": "Set operator for all NFTs, revoke - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x05a2cf7d70bef01f982c389abe08f4786efd075a4806360ed1bdf33aa4288238"
+    },
+    {
+      "description": "Batch position actions - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x4dc74b0d509a847e4e64985ceefbe4ea4d15433f3184bb6d4b1ec8225b0d12c5"
+    },
+    {
+      "description": "Batch position actions - chain 10",
+      "chainId": 10,
+      "txHash": "0xb71e3ce45b1b4914796f70a319397ecc1fb0bd569153bddfedac7a6ca4317ab3"
+    },
+    {
+      "description": "Batch position actions - chain 1",
+      "chainId": 1,
+      "txHash": "0x3280d1570d84bcf9a3b5a33c53e887efdc2af08f4d2735248404ca4d3d8fd511"
+    }
+  ]
+}

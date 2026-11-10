@@ -1,0 +1,77 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        { "chainId": 1, "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418" },
+        { "chainId": 10, "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418" },
+        { "chainId": 8453, "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418" },
+        { "chainId": 42161, "address": "0x9Ee35Bf1bd69a03c6F0393582030fCe8Bb93D418" }
+      ]
+    }
+  },
+  "metadata": { "owner": "Aero", "contractName": "Slipstream Swap Router", "info": { "url": "https://aero.xyz" } },
+  "display": {
+    "formats": {
+      "exactInputSingle((address tokenIn,address tokenOut,int24 tickSpacing,address recipient,uint256 deadline,uint256 amountIn,uint256 amountOutMinimum,uint160 sqrtPriceLimitX96) params)": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap {params.amountIn} for at least {params.amountOutMinimum}",
+        "fields": [
+          { "path": "params.amountIn", "label": "Amount to Send", "format": "tokenAmount", "params": { "tokenPath": "params.tokenIn" } },
+          {
+            "path": "params.amountOutMinimum",
+            "label": "Minimum to Receive",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "params.tokenOut" }
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": { "types": ["eoa", "contract"], "sources": ["local", "ens"] }
+          },
+          { "path": "params.deadline", "label": "Deadline", "format": "date", "params": { "encoding": "timestamp" } },
+          { "path": "params.tickSpacing", "label": "Pool Tick Spacing", "format": "raw" },
+          { "path": "@.value", "label": "ETH Sent", "format": "amount" },
+          { "path": "params.tokenIn", "label": "Token In", "visible": "never" },
+          { "path": "params.tokenOut", "label": "Token Out", "visible": "never" },
+          { "path": "params.sqrtPriceLimitX96", "label": "Price Limit", "format": "raw", "visible": { "mustMatch": [0] } }
+        ]
+      },
+      "exactOutputSingle((address tokenIn,address tokenOut,int24 tickSpacing,address recipient,uint256 deadline,uint256 amountOut,uint256 amountInMaximum,uint160 sqrtPriceLimitX96) params)": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap at most {params.amountInMaximum} for {params.amountOut}",
+        "fields": [
+          {
+            "path": "params.amountOut",
+            "label": "Amount to Receive",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "params.tokenOut" }
+          },
+          {
+            "path": "params.amountInMaximum",
+            "label": "Maximum to Send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.tokenIn",
+              "threshold": "0x8000000000000000000000000000000000000000000000000000000000000000",
+              "message": "Unlimited"
+            }
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": { "types": ["eoa", "contract"], "sources": ["local", "ens"] }
+          },
+          { "path": "params.deadline", "label": "Deadline", "format": "date", "params": { "encoding": "timestamp" } },
+          { "path": "params.tickSpacing", "label": "Pool Tick Spacing", "format": "raw" },
+          { "path": "@.value", "label": "ETH Sent", "format": "amount" },
+          { "path": "params.sqrtPriceLimitX96", "label": "Price Limit", "format": "raw", "visible": { "mustMatch": [0] } },
+          { "path": "params.tokenIn", "label": "Token In", "visible": "never" },
+          { "path": "params.tokenOut", "label": "Token Out", "visible": "never" }
+        ]
+      }
+    }
+  }
+}

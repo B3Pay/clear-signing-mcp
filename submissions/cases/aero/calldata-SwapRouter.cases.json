@@ -1,0 +1,31 @@
+{
+  "descriptor": "calldata-SwapRouter.json",
+  "keep": false,
+  "tests": [
+    {
+      "description": "Swap exact input - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x71377f7790158d03afe99828d1d16e7cda59ff556f79dbd2f9c047e657278627"
+    },
+    {
+      "description": "Swap exact input - chain 42161",
+      "chainId": 42161,
+      "txHash": "0xf9859584fa252d7f3c7daaf3b2a698f3d4f07ef1876f7f1952d2754569fd0592"
+    },
+    {
+      "description": "Swap exact input - chain 1",
+      "chainId": 1,
+      "txHash": "0xc786700aa1038fdd070d8d8021c42e6d6494aa58f9909a8802510c99026b164b"
+    },
+    {
+      "description": "Swap exact output - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x6e089e0e7714b0a61edecc563fd7377b5d103c6ec80db97222e5088b5fad3d12"
+    },
+    {
+      "description": "Swap exact output - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x6248d2273e147a6aec77718e1d570ec249c807ef31847015441a0093978bafcd"
+    }
+  ]
+}

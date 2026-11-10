@@ -1,0 +1,277 @@
+name: Registry submission checks
+
+# The ERC-7730 registry's own pull-request checks, run on the descriptors and
+# tests under submissions/registry/ laid over the registry's latest commit
+# (submissions/README.md): its schema, index, file-name and attestation
+# checks, the erc7730 linter with --require-verified against live Sourcify,
+# selector coverage, and both test runners it pins, Sourcify's and the Rust
+# one. Then every test transaction is read back from its chain over public
+# RPCs. Beside them, a job that never fails the run compares the source
+# Sourcify has verified at each deployment. What batch calls carry is counted
+# by the Registry submission batches workflow. Read-only, and no secret.
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - submissions/**
+      - .github/workflows/submission-checks.yml
+  push:
+    branches: [main]
+    paths:
+      - submissions/**
+      - .github/workflows/submission-checks.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  check:
+    name: Registry checks and on-chain transactions
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
+      # The registry's latest commit, which a pull request there is checked
+      # against, and the commit the whole-file copies were made from
+      # (submissions/REGISTRY_BASE), which check.sh compares them with.
+      - name: Clone the registry
+        run: |
+          git clone --depth 1 https://github.com/ethereum/clear-signing-erc7730-registry.git "$RUNNER_TEMP/registry"
+          git -C "$RUNNER_TEMP/registry" fetch --depth 1 origin "$(cat submissions/REGISTRY_BASE)"
+          git -C "$RUNNER_TEMP/registry" log -1 --format='Registry at %H (%cd)' HEAD
+
+      # The test runners at the commits the registry's own actions pin.
+      - name: Read the registry's runner pins
+        id: pins
+        working-directory: ${{ runner.temp }}/registry/.github/actions
+        run: |
+          pin() { sed -n 's/^ *ref: *\([0-9a-f]\{40\}\).*/\1/p' "$1" | head -1; }
+          sourcify=$(pin run-sourcify-tests/action.yml)
+          rust=$(pin run-rust-tests/action.yml)
+          if [ -z "$sourcify" ] || [ -z "$rust" ]; then
+            echo "::error::Could not read the runner commits from the registry's actions"
+            exit 1
+          fi
+          echo "Sourcify runner $sourcify, Rust runner $rust"
+          echo "sourcify=$sourcify" >> "$GITHUB_OUTPUT"
+          echo "rust=$rust" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Python
+        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+        with:
+          python-version: "3.12"
+
+      # erc7730 and check-jsonschema, at the versions the registry pins.
+      - name: Install the registry's Python tools
+        run: pip install -r "$RUNNER_TEMP/registry/.github/requirements.txt" -r "$RUNNER_TEMP/registry/.github/requirements-schema.txt"
+
+      - name: Install the registry's script dependencies
+        working-directory: ${{ runner.temp }}/registry
+        run: npm ci --ignore-scripts
+
+      - name: Build the Sourcify test runner
+        env:
+          REF: ${{ steps.pins.outputs.sourcify }}
+        run: |
+          dir="$RUNNER_TEMP/sourcify-runner"
+          git init -q "$dir"
+          git -C "$dir" fetch -q --depth 1 https://github.com/sourcifyeth/clear-signing-test-runner.git "$REF"
+          git -C "$dir" checkout -q FETCH_HEAD
+          cd "$dir"
+          npm ci --ignore-scripts
+          npm run build
+
+      - name: Cache the Rust test runner
+        id: cs-test-cache
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/cs-test
+          key: cs-test-${{ runner.os }}-${{ steps.pins.outputs.rust }}
+
+      - name: Build the Rust test runner
+        if: steps.cs-test-cache.outputs.cache-hit != 'true'
+        timeout-minutes: 30
+        env:
+          REF: ${{ steps.pins.outputs.rust }}
+        run: |
+          dir="$RUNNER_TEMP/cs-runner"
+          git init -q "$dir"
+          git -C "$dir" fetch -q --depth 1 https://github.com/llbartekll/clear-signing.git "$REF"
+          git -C "$dir" checkout -q FETCH_HEAD
+          rustup toolchain install stable --profile minimal
+          cargo +stable install --path "$dir/crates/cs-test" --locked --root "$RUNNER_TEMP/cs-test"
+
+      - name: Registry checks
+        run: |
+          submissions/tools/check.sh --registry "$RUNNER_TEMP/registry" --python "$(command -v python)" \
+            --runner "$RUNNER_TEMP/sourcify-runner" --rust "$RUNNER_TEMP/cs-test/bin/cs-test"
+
+      - name: Test transactions match the chain
+        run: node submissions/tools/verify-txs.mjs
+
+      # A check seen only passing proves nothing. Run them again with one
+      # expected value changed, two transaction hashes swapped and a batch
+      # action sent alone named as another action of its batch, and require
+      # that both runners and the transaction check report exactly those.
+      - name: The checks catch a deliberate fault
+        run: |
+          fault="$RUNNER_TEMP/fault"
+          mkdir -p "$fault/txs/weth/testsv2" "$fault/txs/pancakeswap/testsv2"
+          cp -R submissions "$fault/"
+          git -C "$RUNNER_TEMP/registry" checkout -q -- registry
+          git -C "$RUNNER_TEMP/registry" clean -fdq -- registry
+          file=weth/testsv2/calldata-weth.tests.json
+          node -e '
+            const fs = require("fs")
+            const [from, wrongValue, swappedHashes] = process.argv.slice(1)
+            const read = () => JSON.parse(fs.readFileSync(from, "utf8"))
+            const a = read()
+            a.tests[0].expected.fields[0].value += " (fault)"
+            fs.writeFileSync(wrongValue, JSON.stringify(a, null, 2))
+            const b = read()
+            ;[b.tests[0].txHash, b.tests[1].txHash] = [b.tests[1].txHash, b.tests[0].txHash]
+            fs.writeFileSync(swappedHashes, JSON.stringify(b, null, 2))
+          ' "submissions/registry/$file" "$fault/submissions/registry/$file" "$fault/txs/$file"
+          wanted=$(node -e 'console.log(require(process.argv[1]).tests[0].description)' "$PWD/submissions/registry/$file")
+          lifted=pancakeswap/testsv2/calldata-SmartRouter.tests.json
+          cp "submissions/registry/$lifted" "$fault/txs/$lifted"
+          moved=$(node -e '
+            const fs = require("fs")
+            const file = process.argv[1]
+            const cases = JSON.parse(fs.readFileSync(file, "utf8"))
+            const c = cases.tests.find((t) => t.action !== undefined)
+            c.action = c.action === 1 ? 2 : 1
+            fs.writeFileSync(file, JSON.stringify(cases, null, 2))
+            console.log(c.description)
+          ' "$fault/submissions/cases/pancakeswap/calldata-SmartRouter.cases.json")
+
+          set +e
+          GITHUB_STEP_SUMMARY="" bash "$fault/submissions/tools/check.sh" --registry "$RUNNER_TEMP/registry" \
+            --python "$(command -v python)" --runner "$RUNNER_TEMP/sourcify-runner" \
+            --rust "$RUNNER_TEMP/cs-test/bin/cs-test" > "$fault/check.log" 2>&1
+          check=$?
+          node submissions/tools/verify-txs.mjs --root "$fault/txs" --cases "$fault/submissions/cases" > "$fault/txs.log" 2>&1
+          txs=$?
+          set -e
+          cat "$fault/check.log" "$fault/txs.log"
+
+          ok=1
+          [ "$check" -ne 0 ] || { echo "::error::check.sh passed a wrong expected value"; ok=0; }
+          grep -q "❌ sourcify runner" "$fault/check.log" || { echo "::error::The Sourcify runner missed the wrong expected value"; ok=0; }
+          grep -q "❌ rust runner" "$fault/check.log" || { echo "::error::The Rust runner missed the wrong expected value"; ok=0; }
+          [ "$(grep -c "^   $wanted:" "$fault/check.log")" -eq 2 ] || { echo "::error::The runners did not both name the changed case, $wanted"; ok=0; }
+          [ "$txs" -ne 0 ] && [ "$(grep -c '❌' "$fault/txs.log")" -eq 3 ] \
+            && grep -q "❌ $lifted: $moved: the calldata is not action" "$fault/txs.log" \
+            || { echo "::error::verify-txs did not report exactly the two swapped hashes and the moved batch action, $moved"; ok=0; }
+          [ "$ok" -eq 1 ]
+
+  # What Sourcify has verified at each deployment, through any proxy, and how
+  # the deployments of one descriptor differ (submissions/README.md). Never
+  # fails the run: a difference is for the pull request text to explain.
+  sources:
+    name: What each deployment runs
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: What each deployment runs
+        run: node submissions/tools/verified-sources.mjs submissions/registry/*/*.json
+
+  # The drafts being finished: the deployed code their screens describe, in a
+  # job of its own so that its log stays whole. Never fails the run.
+  drafts:
+    name: The code of the drafts being finished
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Across's spoke pools
+        run: |
+          # The spoke pools that depositNative calls, the token each one
+          # wraps ETH into, and the WETH on Robinhood Chain that two Across
+          # tests receive, whose symbol and decimals the tests take from
+          # Across's constants.
+          cat > "$RUNNER_TEMP/calldata-SpokePools.json" <<'EOF'
+          { "context": { "contract": { "deployments": [
+            { "chainId": 1, "address": "0x5c7BCd6E7De5423a257D81B442095A1a6ced35C5" },
+            { "chainId": 10, "address": "0x6f26Bf09B1C792e3228e5467807a900A503c0281" },
+            { "chainId": 8453, "address": "0x09aea4b2242abC8bb4BB78D537A67a245A7bEC64" },
+            { "chainId": 42161, "address": "0xe35e9842fceaCA96570B734083f4a58e8F7C5f2A" } ] } } }
+          EOF
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-SpokePools.json" --files
+          node --input-type=module -e '
+            const rpc = { 1: "https://ethereum-rpc.publicnode.com", 10: "https://optimism-rpc.publicnode.com",
+              8453: "https://base-rpc.publicnode.com", 42161: "https://arbitrum-one-rpc.publicnode.com",
+              4663: "https://rpc.mainnet.chain.robinhood.com" }
+            async function call(chainId, to, data) {
+              const answer = await fetch(rpc[chainId], { method: "POST", headers: { "content-type": "application/json" },
+                body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_call", params: [{ to, data }, "latest"] }) })
+              const { result, error } = await answer.json()
+              if (!result) throw new Error(`chain ${chainId}, ${to}, ${data}: ${JSON.stringify(error)}`)
+              return result
+            }
+            const word = (hex, i) => hex.slice(2 + 64 * i, 2 + 64 * (i + 1))
+            const text = (hex) => Buffer.from(hex.slice(130, 130 + 2 * Number("0x" + word(hex, 1))), "hex").toString()
+            for (const { chainId, address } of JSON.parse(process.argv[1]).context.contract.deployments)
+              console.log(`chain ${chainId}, spoke pool ${address}: wrappedNativeToken() 0x${word(await call(chainId, address, "0x17fcb39b"), 0).slice(24)}`)
+            const weth = "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73"
+            const [symbol, name, decimals] = await Promise.all(["0x95d89b41", "0x06fdde03", "0x313ce567"].map((data) => call(4663, weth, data)))
+            console.log(`chain 4663, ${weth}: symbol ${text(symbol)}, name ${text(name)}, decimals ${Number(decimals)}`)
+          ' "$(cat "$RUNNER_TEMP/calldata-SpokePools.json")" || echo "::warning::The Across spoke pools or Robinhood Chain WETH could not be read"
+
+      - name: deBridge's DlnSource, DlnDestination and router
+        run: |
+          # The DLN contracts and deBridge's router, at one address on each
+          # chain (dln-contracts' README; the router from deBridge's
+          # dln-client), whatever Sourcify has verified behind their proxies.
+          deployments() {
+            node -e 'console.log(JSON.stringify({ context: { contract: { deployments:
+              [1, 10, 8453, 42161].map((chainId) => ({ chainId, address: process.argv[1] })) } } }))' "$1"
+          }
+          deployments 0xeF4fB24aD0916217251F553c0596F8Edc630EB66 > "$RUNNER_TEMP/calldata-DlnSource.json"
+          deployments 0xE7351Fd770A37282b91D153Ee690B63579D6dd7f > "$RUNNER_TEMP/calldata-DlnDestination.json"
+          deployments 0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251 > "$RUNNER_TEMP/calldata-DeBridgeRouter.json"
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DlnSource.json" --files \
+            --print DlnSource.sol --print DlnOrderLib.sol --print DlnBase.sol
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DlnDestination.json" \
+            --print DlnDestination.sol
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DeBridgeRouter.json"

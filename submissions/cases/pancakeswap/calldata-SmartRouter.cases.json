@@ -1,0 +1,85 @@
+{
+  "descriptor": "calldata-SmartRouter.json",
+  "keep": false,
+  "tests": [
+    {
+      "description": "Swap exact input - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x1f409ca2b9bf7d51f1883e0aa704489ab6b82453781b47c6fad4bba331f09cfc"
+    },
+    {
+      "description": "Swap exact input, paid in ETH - chain 1",
+      "chainId": 1,
+      "txHash": "0x479b4c8ee0c05d0d8becf6cc7b5a8e492645166eca5e86dd5ad5728564cf1ffe"
+    },
+    {
+      "description": "Swap exact output - chain 1",
+      "chainId": 1,
+      "txHash": "0x1b42bb9538d19b5073c6a16828b6878f8a8199b7386dbd17ea752a891fafebdb"
+    },
+    {
+      "description": "Batch with a deadline, swap - chain 8453",
+      "chainId": 8453,
+      "txHash": "0xb38ab37cbcab65acf91e10f598f5ab4b48e07b1d6f053937e67e69a9e5489d04"
+    },
+    {
+      "description": "Batch with a deadline, swap - chain 42161",
+      "chainId": 42161,
+      "txHash": "0xfd01edfb5854e99ead24fe245de8f971619c6ea5e795148e396e619ff8372812"
+    },
+    {
+      "description": "Batch with a deadline, swap to another account - chain 42161",
+      "chainId": 42161,
+      "txHash": "0xd65640298f02808f6e2cc78de126c170a45834d16ea0d9011aa847c3714ba87a"
+    },
+    {
+      "description": "Batch, swap and unwrap - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x3aa70615331f55758c1a9a8ab16f5ce1c440742907feee770155a81e5aedce38"
+    },
+    {
+      "description": "Batch, swap and unwrap - chain 1",
+      "chainId": 1,
+      "txHash": "0xe0a7686c0e5b35ed6afc84434a9f938e8ff23901ea5ad14a87a1d0c2ad5d2527"
+    },
+    {
+      "description": "Batch, swap paid in ETH and refund - chain 1",
+      "chainId": 1,
+      "txHash": "0xc2797ddebd7001db517ee39d21e1a0c1ddc51d60d11a105cdc74c5b187583269"
+    },
+    {
+      "description": "Batch, swap and unwrap minus a fee - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x5bf7237fe3b149f9af1556f1574a9ad575ef7686a8b44654a180fa542392dbff"
+    },
+    {
+      "description": "Batch, swap paid in ETH and send minus a fee - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x7bb770c4dfeb37ec1031106c571fbe043b144240d264dc548b6c770d424c378a"
+    },
+    {
+      "description": "Refund leftover ETH, a batch action sent alone - chain 1",
+      "chainId": 1,
+      "txHash": "0xc2797ddebd7001db517ee39d21e1a0c1ddc51d60d11a105cdc74c5b187583269",
+      "action": 2
+    },
+    {
+      "description": "Unwrap WETH to ETH, a batch action sent alone - chain 8453",
+      "chainId": 8453,
+      "txHash": "0x3aa70615331f55758c1a9a8ab16f5ce1c440742907feee770155a81e5aedce38",
+      "action": 2
+    },
+    {
+      "description": "Unwrap WETH minus a fee, a batch action sent alone - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x5bf7237fe3b149f9af1556f1574a9ad575ef7686a8b44654a180fa542392dbff",
+      "action": 2
+    },
+    {
+      "description": "Send tokens minus a fee, a batch action sent alone - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x7bb770c4dfeb37ec1031106c571fbe043b144240d264dc548b6c770d424c378a",
+      "action": 2
+    }
+  ]
+}

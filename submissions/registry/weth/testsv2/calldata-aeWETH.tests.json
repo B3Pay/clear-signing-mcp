@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-aeWETH.json",
+  "dataProvider": { "tokens": { "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": { "symbol": "WETH", "decimals": 18, "name": "Wrapped Ether" } } },
+  "tests": [
+    {
+      "description": "Wrap - chain 42161",
+      "rawTx": "0x02f182a4b112808402dc6c0082e5a49482af49447d8a07e3bd95bd0d56f35241523fbab188019bdbe6db85800084d0e30db0c0",
+      "txHash": "0x71b16b4e348e15dada346e4521624edbecc8a07b0dafebc6360722b6cc7a0be4",
+      "expected": { "intent": "Wrap", "owner": "WETH", "fields": [{ "label": "Amount", "value": "0.115928 ETH" }] }
+    },
+    {
+      "description": "Unwrap - chain 42161",
+      "rawTx": "0x02f84982a4b115808402dee98082c6849482af49447d8a07e3bd95bd0d56f35241523fbab180a42e1a7d4d000000000000000000000000000000000000000000000000019b6291dbdea7d4c0",
+      "txHash": "0x7186a91afd69d2fbe0976cd214c449fc34c76b3135984a9e3c2234758348dd1c",
+      "expected": { "intent": "Unwrap", "owner": "WETH", "fields": [{ "label": "Amount", "value": "0.115794594026661844 WETH" }] }
+    }
+  ]
+}

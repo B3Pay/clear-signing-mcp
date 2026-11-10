@@ -1,0 +1,154 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        { "chainId": 1, "address": "0x13f4EA83D0bd40E75C8222255bc855a974568Dd4" },
+        { "chainId": 8453, "address": "0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86" },
+        { "chainId": 42161, "address": "0x32226588378236Fd0c7c4053999F88aC0e5cAc77" }
+      ]
+    }
+  },
+  "metadata": { "owner": "PancakeSwap", "contractName": "Smart Router", "info": { "url": "https://pancakeswap.finance" } },
+  "display": {
+    "formats": {
+      "exactInputSingle((address tokenIn,address tokenOut,uint24 fee,address recipient,uint256 amountIn,uint256 amountOutMinimum,uint160 sqrtPriceLimitX96) params)": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap {params.amountIn} for at least {params.amountOutMinimum}",
+        "fields": [
+          { "path": "params.amountIn", "label": "Amount to Send", "format": "tokenAmount", "params": { "tokenPath": "params.tokenIn" } },
+          {
+            "path": "params.amountOutMinimum",
+            "label": "Minimum to Receive",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "params.tokenOut" }
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": ["eoa", "contract"],
+              "sources": ["local", "ens"],
+              "senderAddress": ["0x0000000000000000000000000000000000000001"]
+            }
+          },
+          { "path": "params.fee", "label": "Pool Fee", "format": "unit", "params": { "decimals": 4, "base": "%", "prefix": false } },
+          { "path": "@.value", "label": "ETH Sent", "format": "amount", "visible": { "ifNotIn": [0] } },
+          { "path": "params.sqrtPriceLimitX96", "label": "Price Limit", "format": "raw", "visible": { "mustMatch": [0] } },
+          { "path": "params.tokenIn", "label": "Token In", "visible": "never" },
+          { "path": "params.tokenOut", "label": "Token Out", "visible": "never" }
+        ]
+      },
+      "exactOutputSingle((address tokenIn,address tokenOut,uint24 fee,address recipient,uint256 amountOut,uint256 amountInMaximum,uint160 sqrtPriceLimitX96) params)": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap at most {params.amountInMaximum} for {params.amountOut}",
+        "fields": [
+          {
+            "path": "params.amountOut",
+            "label": "Amount to Receive",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "params.tokenOut" }
+          },
+          {
+            "path": "params.amountInMaximum",
+            "label": "Maximum to Send",
+            "format": "tokenAmount",
+            "params": {
+              "tokenPath": "params.tokenIn",
+              "threshold": "0x8000000000000000000000000000000000000000000000000000000000000000",
+              "message": "Unlimited"
+            }
+          },
+          {
+            "path": "params.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": ["eoa", "contract"],
+              "sources": ["local", "ens"],
+              "senderAddress": ["0x0000000000000000000000000000000000000001"]
+            }
+          },
+          { "path": "params.fee", "label": "Pool Fee", "format": "unit", "params": { "decimals": 4, "base": "%", "prefix": false } },
+          { "path": "@.value", "label": "ETH Sent", "format": "amount", "visible": { "ifNotIn": [0] } },
+          { "path": "params.sqrtPriceLimitX96", "label": "Price Limit", "format": "raw", "visible": { "mustMatch": [0] } },
+          { "path": "params.tokenIn", "label": "Token In", "visible": "never" },
+          { "path": "params.tokenOut", "label": "Token Out", "visible": "never" }
+        ]
+      },
+      "multicall(uint256 deadline,bytes[] data)": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send {@.value} and run every action below in one transaction, before {deadline}; if one action fails, the whole transaction reverts",
+        "fields": [
+          { "path": "@.value", "label": "ETH Sent", "format": "amount" },
+          { "path": "deadline", "label": "Deadline", "format": "date", "params": { "encoding": "timestamp" } },
+          { "path": "data.[]", "label": "Action", "format": "calldata", "params": { "calleePath": "@.to", "amountPath": "@.value" } }
+        ]
+      },
+      "multicall(bytes[] data)": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send {@.value} and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "fields": [
+          { "path": "@.value", "label": "ETH Sent", "format": "amount" },
+          { "path": "data.[]", "label": "Action", "format": "calldata", "params": { "calleePath": "@.to", "amountPath": "@.value" } }
+        ]
+      },
+      "refundETH()": { "intent": "Refund leftover ETH", "interpolatedIntent": "Send the ETH held by this contract to you", "fields": [] },
+      "sweepTokenWithFee(address token,uint256 amountMinimum,address recipient,uint256 feeBips,address feeRecipient)": {
+        "intent": "Send tokens, minus a fee",
+        "interpolatedIntent": "Send the token balance held by this contract, at least {amountMinimum} before the fee: {feeBips} of it to {feeRecipient} and the rest to {recipient}",
+        "fields": [
+          { "path": "amountMinimum", "label": "Minimum Before Fee", "format": "tokenAmount", "params": { "tokenPath": "token" } },
+          {
+            "path": "recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": { "types": ["eoa", "wallet"], "sources": ["local", "ens"] }
+          },
+          { "path": "feeBips", "label": "Fee", "format": "unit", "params": { "decimals": 2, "base": "%", "prefix": false } },
+          {
+            "path": "feeRecipient",
+            "label": "Fee Recipient",
+            "format": "addressName",
+            "params": { "types": ["eoa", "wallet", "contract"], "sources": ["local", "ens"] }
+          },
+          { "path": "token", "label": "Token", "visible": "never" }
+        ]
+      },
+      "unwrapWETH9(uint256 amountMinimum,address recipient)": {
+        "intent": "Unwrap WETH to ETH",
+        "interpolatedIntent": "Unwrap the WETH held by this contract, at least {amountMinimum}, and send the ETH to {recipient}",
+        "fields": [
+          { "path": "amountMinimum", "label": "Minimum to Unwrap", "format": "amount" },
+          {
+            "path": "recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": { "types": ["eoa", "wallet"], "sources": ["local", "ens"] }
+          }
+        ]
+      },
+      "unwrapWETH9WithFee(uint256 amountMinimum,address recipient,uint256 feeBips,address feeRecipient)": {
+        "intent": "Unwrap WETH, minus a fee",
+        "interpolatedIntent": "Unwrap the WETH held by this contract, at least {amountMinimum} before the fee, and send {feeBips} of the ETH to {feeRecipient} and the rest to {recipient}",
+        "fields": [
+          { "path": "amountMinimum", "label": "Minimum Before Fee", "format": "amount" },
+          {
+            "path": "recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": { "types": ["eoa", "wallet"], "sources": ["local", "ens"] }
+          },
+          { "path": "feeBips", "label": "Fee", "format": "unit", "params": { "decimals": 2, "base": "%", "prefix": false } },
+          {
+            "path": "feeRecipient",
+            "label": "Fee Recipient",
+            "format": "addressName",
+            "params": { "types": ["eoa", "wallet", "contract"], "sources": ["local", "ens"] }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -10,3 +10,5 @@ tracker/dist
 tracker/data
 # Drafts keep the key order of the descriptors they are compared with.
 tracker/drafts
+# Registry files as submitted, in the registry's own format (erc7730 format).
+submissions/registry

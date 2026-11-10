@@ -1,0 +1,108 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-SwapRouter.json",
+  "dataProvider": {
+    "tokens": {
+      "0x004b506865409877c9fa29bfb1eba929984b9bbc": { "symbol": "USDG", "decimals": 6, "name": "Global Dollar" },
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": { "symbol": "WBTC", "decimals": 8, "name": "Wrapped BTC" },
+      "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f": { "symbol": "WBTC", "decimals": 8, "name": "Wrapped BTC" },
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0xaf88d065e77c8cc2239327c5edb3a432268e5831": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0xb200000000000000000000d9192b6b456483c2e8": { "symbol": "AMZNc", "decimals": 8, "name": "Amazon.com Inc." },
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": { "symbol": "cbBTC", "decimals": 8, "name": "Coinbase Wrapped BTC" },
+      "0xdac17f958d2ee523a2206206994597c13d831ec7": { "symbol": "USDT", "decimals": 6, "name": "Tether USD" }
+    }
+  },
+  "tests": [
+    {
+      "description": "Swap exact input - chain 8453",
+      "rawTx": "0x02f901318221058302c57d8398968083fbc520830e9aa6949ee35bf1bd69a03c6f0393582030fce8bb93d41880b90104a026383e000000000000000000000000b200000000000000000000d9192b6b456483c2e8000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000005feea8f691be66225cb7add010d9ec04333f2289000000000000000000000000000000000000000000000000000000006aee4eac000000000000000000000000000000000000000000000000000000006e5468ea000000000000000000000000000000000000000000000000000000011e6a4a190000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x71377f7790158d03afe99828d1d16e7cda59ff556f79dbd2f9c047e657278627",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap 18.51025642 AMZNc for at least 4805.249561 USDC",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Amount to Send", "value": "18.51025642 AMZNc" },
+          { "label": "Minimum to Receive", "value": "4805.249561 USDC" },
+          { "label": "Recipient", "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289" },
+          { "label": "Deadline", "value": "2026-11-06 22:03:24Z" },
+          { "label": "Pool Tick Spacing", "value": "10" },
+          { "label": "ETH Sent", "value": "0 ETH" }
+        ]
+      }
+    },
+    {
+      "description": "Swap exact input - chain 42161",
+      "rawTx": "0x02f9013182a4b1821d63831e84808401abb8e0830d1a30949ee35bf1bd69a03c6f0393582030fce8bb93d41880b90104a026383e000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e5831000000000000000000000000004b506865409877c9fa29bfb1eba929984b9bbc00000000000000000000000000000000000000000000000000000000000000010000000000000000000000005feea8f691be66225cb7add010d9ec04333f2289000000000000000000000000000000000000000000000000000000006aee46a000000000000000000000000000000000000000000000000000000000c286cc3000000000000000000000000000000000000000000000000000000000c1f144ef0000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xf9859584fa252d7f3c7daaf3b2a698f3d4f07ef1876f7f1952d2754569fd0592",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap 3263.614 USDC for at least 3253.814511 USDG",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Amount to Send", "value": "3263.614 USDC" },
+          { "label": "Minimum to Receive", "value": "3253.814511 USDG" },
+          { "label": "Recipient", "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289" },
+          { "label": "Deadline", "value": "2026-11-06 21:29:04Z" },
+          { "label": "Pool Tick Spacing", "value": "1" },
+          { "label": "ETH Sent", "value": "0 ETH" }
+        ]
+      }
+    },
+    {
+      "description": "Swap exact input - chain 1",
+      "rawTx": "0x02f90130018233e58401312d0084089d6832830e8cd2949ee35bf1bd69a03c6f0393582030fce8bb93d41880b90104a026383e0000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c599000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000005feea8f691be66225cb7add010d9ec04333f2289000000000000000000000000000000000000000000000000000000006aee4de2000000000000000000000000000000000000000000000000000000000013bb3a000000000000000000000000000000000000000000000000000000003a713b7f0000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xc786700aa1038fdd070d8d8021c42e6d6494aa58f9909a8802510c99026b164b",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap 0.01293114 WBTC for at least 980.499327 USDT",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Amount to Send", "value": "0.01293114 WBTC" },
+          { "label": "Minimum to Receive", "value": "980.499327 USDT" },
+          { "label": "Recipient", "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289" },
+          { "label": "Deadline", "value": "2026-11-06 22:00:02Z" },
+          { "label": "Pool Tick Spacing", "value": "10" },
+          { "label": "ETH Sent", "value": "0 ETH" }
+        ]
+      }
+    },
+    {
+      "description": "Swap exact output - chain 8453",
+      "rawTx": "0xf9012d825f638389667c830f4240949ee35bf1bd69a03c6f0393582030fce8bb93d41880b90104c714e838000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000cbb7c0000ab88b473b1f5afd9ef808440eed33bf0000000000000000000000000000000000000000000000000000000000000032000000000000000000000000e155f50c62c94b843fae0b1dabecb4acce113b18000000000000000000000000000000000000000000000000000000006aee4e5c00000000000000000000000000000000000000000000000000000000000927c0000000000000000000000000000000000000000000000000000000001c38cdc600000000000000000000000000000000000000000000000000000000000000008221058080",
+      "txHash": "0x6e089e0e7714b0a61edecc563fd7377b5d103c6ec80db97222e5088b5fad3d12",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap at most 473.484742 USDC for 0.006 cbBTC",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Amount to Receive", "value": "0.006 cbBTC" },
+          { "label": "Maximum to Send", "value": "473.484742 USDC" },
+          { "label": "Recipient", "value": "0xe155F50C62c94B843FaE0b1dABecB4AccE113B18" },
+          { "label": "Deadline", "value": "2026-11-06 22:02:04Z" },
+          { "label": "Pool Tick Spacing", "value": "50" },
+          { "label": "ETH Sent", "value": "0 ETH" }
+        ]
+      }
+    },
+    {
+      "description": "Swap exact output - chain 42161",
+      "rawTx": "0x02f9012d82a4b18195808402625a00830d8d7f949ee35bf1bd69a03c6f0393582030fce8bb93d41880b90104c714e838000000000000000000000000004b506865409877c9fa29bfb1eba929984b9bbc0000000000000000000000002f2a2543b76a4166549f7aab2e75bef0aefc5b0f000000000000000000000000000000000000000000000000000000000000003200000000000000000000000002be6e27c73fb7782cb9d8099e1997db02a125b5000000000000000000000000000000000000000000000000000000006aedb97d000000000000000000000000000000000000000000000000000000000015a1eb0000000000000000000000000000000000000000000000000000000040696a1c0000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x6248d2273e147a6aec77718e1d570ec249c807ef31847015441a0093978bafcd",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap at most 1080.650268 USDG for 0.01417707 WBTC",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Amount to Receive", "value": "0.01417707 WBTC" },
+          { "label": "Maximum to Send", "value": "1080.650268 USDG" },
+          { "label": "Recipient", "value": "0x02bE6e27C73Fb7782CB9d8099E1997Db02A125b5" },
+          { "label": "Deadline", "value": "2026-11-06 11:26:53Z" },
+          { "label": "Pool Tick Spacing", "value": "50" },
+          { "label": "ETH Sent", "value": "0 ETH" }
+        ]
+      }
+    }
+  ]
+}

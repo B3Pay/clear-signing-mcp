@@ -1,0 +1,342 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-NonfungiblePositionManager.json",
+  "dataProvider": {
+    "tokens": {
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": { "symbol": "WBTC", "decimals": 8, "name": "Wrapped BTC" },
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0xb200000000000000000000d9192b6b456483c2e8": { "symbol": "AMZNc", "decimals": 8, "name": "Amazon.com Inc." },
+      "0xdac17f958d2ee523a2206206994597c13d831ec7": { "symbol": "USDT", "decimals": 6, "name": "Tether USD" }
+    }
+  },
+  "tests": [
+    {
+      "description": "Open liquidity position - chain 8453",
+      "rawTx": "0x02f901b18221058302c57e8398968083fbc520830dd9c0944857db576ee0e45f10525ec59527bfd10beec60b80b90184b5007d1f000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000b200000000000000000000d9192b6b456483c2e8000000000000000000000000000000000000000000000000000000000000000affffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdab2ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdabc000000000000000000000000000000000000000000000000000000011e22be33000000000000000000000000000000000000000000000000000000002fc5afcd00000000000000000000000000000000000000000000000000000000510decaf00000000000000000000000000000000000000000000000000000000000000000000000000000000000000005feea8f691be66225cb7add010d9ec04333f2289000000000000000000000000000000000000000000000000000000006aee4eb10000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xed9143c2b0d4ce57b70c06d41e895941457c46df6d25e0940224f359d1602b07",
+      "expected": {
+        "intent": "Open liquidity position",
+        "interpolatedIntent": "Add up to 4800.560691 USDC and up to 8.01484749 AMZNc to a new position for 0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Maximum to Add", "value": "4800.560691 USDC" },
+          { "label": "Maximum to Add", "value": "8.01484749 AMZNc" },
+          { "label": "Minimum to Add", "value": "1359.867055 USDC" },
+          { "label": "Minimum to Add", "value": "0 AMZNc" },
+          { "label": "ETH Sent", "value": "0 ETH" },
+          { "label": "Pool Tick Spacing", "value": "10" },
+          { "label": "Position Recipient", "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289" },
+          { "label": "Deadline", "value": "2026-11-06 22:03:29Z" },
+          { "label": "Lower Tick", "value": "-9550" },
+          { "label": "Upper Tick", "value": "-9540" }
+        ]
+      }
+    },
+    {
+      "description": "Open liquidity position - chain 1",
+      "rawTx": "0x02f901ae018221a48221248411e1a300830a46eb944857db576ee0e45f10525ec59527bfd10beec60b80b90184b5007d1f0000000000000000000000002260fac5e5542a773aa44fbcfedf7c193bc2c599000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7000000000000000000000000000000000000000000000000000000000000000a0000000000000000000000000000000000000000000000000000000000010306000000000000000000000000000000000000000000000000000000000001031a0000000000000000000000000000000000000000000000000000000000157d57000000000000000000000000000000000000000000000000000000005b239d4f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000049bd7f11015d460b3258eea3bc3611d92264aea5000000000000000000000000000000000000000000000000000000006aee52490000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x3345eaa1facf5a6b1e191c88f87b9edb24691f36abb108a3e9bfe7f70329d958",
+      "expected": {
+        "intent": "Open liquidity position",
+        "interpolatedIntent": "Add up to 0.01408343 WBTC and up to 1529.060687 USDT to a new position for 0x49BD7F11015d460b3258Eea3bC3611D92264AEA5",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Maximum to Add", "value": "0.01408343 WBTC" },
+          { "label": "Maximum to Add", "value": "1529.060687 USDT" },
+          { "label": "Minimum to Add", "value": "0 WBTC" },
+          { "label": "Minimum to Add", "value": "0 USDT" },
+          { "label": "ETH Sent", "value": "0 ETH" },
+          { "label": "Pool Tick Spacing", "value": "10" },
+          { "label": "Position Recipient", "value": "0x49BD7F11015d460b3258Eea3bC3611D92264AEA5" },
+          { "label": "Deadline", "value": "2026-11-06 22:18:49Z" },
+          { "label": "Lower Tick", "value": "66310" },
+          { "label": "Upper Tick", "value": "66330" }
+        ]
+      }
+    },
+    {
+      "description": "Add to liquidity position - chain 10",
+      "rawTx": "0x02f8ed0a820bc4830f4240830f45488305634f944857db576ee0e45f10525ec59527bfd10beec60b80b8c4219f5d17000000000000000000000000000000000000000000000000000000000001b3b6000000000000000000000000000000000000000000000000000000000074f2fb00000000000000000000000000000000000000000000000000719eff2615312200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006aecddcfc0",
+      "txHash": "0x4e78d30540b6dab68a55e0a96fdaf4979c96291ad50fe7872181088d3253a966",
+      "expected": {
+        "intent": "Add to liquidity position",
+        "interpolatedIntent": "Add up to 7664379 token0 and up to 31981491061076258 token1 (raw units) to position 111542",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Position", "value": "111542" },
+          { "label": "Max Token0 (raw)", "value": "7664379" },
+          { "label": "Max Token1 (raw)", "value": "31981491061076258" },
+          { "label": "Min Token0 (raw)", "value": "0" },
+          { "label": "Min Token1 (raw)", "value": "0" },
+          { "label": "ETH Sent", "value": "0 ETH" },
+          { "label": "Deadline", "value": "2026-11-05 19:49:35Z" }
+        ]
+      }
+    },
+    {
+      "description": "Add to liquidity position - chain 42161",
+      "rawTx": "0x02f8ed82a4b1821e3e8084016e52208305af9d944857db576ee0e45f10525ec59527bfd10beec60b80b8c4219f5d170000000000000000000000000000000000000000000000000000000000008dee00000000000000000000000000000000000000000000000000000000000d167e00000000000000000000000000000000000000000000000001a592d19dad8e0a00000000000000000000000000000000000000000000000000000000000021810000000000000000000000000000000000000000000000000004373a6a896a61000000000000000000000000000000000000000000000000000000006aee4145c0",
+      "txHash": "0xf23c6711cbbf914463cbfb13346b82f532496a5c65549c7b0d84d52c3fca4658",
+      "expected": {
+        "intent": "Add to liquidity position",
+        "interpolatedIntent": "Add up to 857726 token0 and up to 118662394186403338 token1 (raw units) to position 36334",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Position", "value": "36334" },
+          { "label": "Max Token0 (raw)", "value": "857726" },
+          { "label": "Max Token1 (raw)", "value": "118662394186403338" },
+          { "label": "Min Token0 (raw)", "value": "8577" },
+          { "label": "Min Token1 (raw)", "value": "1186623941864033" },
+          { "label": "ETH Sent", "value": "0 ETH" },
+          { "label": "Deadline", "value": "2026-11-06 21:06:13Z" }
+        ]
+      }
+    },
+    {
+      "description": "Decrease liquidity - chain 8453",
+      "rawTx": "0x02f8cf82210582077a830f424083a7d8c0830583c6944857db576ee0e45f10525ec59527bfd10beec60b80b8a40c49ccbe00000000000000000000000000000000000000000000000000000000001a014a00000000000000000000000000000000000000000000000000000005e8fe7441000000000000000000000000000000000000000000000000000000000257655e000000000000000000000000000000000000000000000000000000000d36bc7e000000000000000000000000000000000000000000000000000000006aee4e8fc0",
+      "txHash": "0x4e14bc8436be6971666a32ae461e5c231fce9ca2aa0016c938bf7fdfe9dab517",
+      "expected": {
+        "intent": "Decrease liquidity",
+        "interpolatedIntent": "Remove 25383826497 liquidity from position 1704266: at least 39282014 token0 and 221691006 token1 (raw units) become owed to the position; nothing is transferred until collect",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Position", "value": "1704266" },
+          { "label": "Liquidity to Remove", "value": "25383826497" },
+          { "label": "Min Token0 Due (raw)", "value": "39282014" },
+          { "label": "Min Token1 Due (raw)", "value": "221691006" },
+          { "label": "Deadline", "value": "2026-11-06 22:02:55Z" }
+        ]
+      }
+    },
+    {
+      "description": "Collect from position - chain 42161",
+      "rawTx": "0x02f8ab82a4b10b808402644e0083061a80944857db576ee0e45f10525ec59527bfd10beec60b80b884fc6f78650000000000000000000000000000000000000000000000000000000000008820000000000000000000000000ae30e938993d823bb2781e83ac36b8926c12ae8d00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffffc0",
+      "txHash": "0xca2821815f48425669a45e1f33fdec9dcf5f48dfcf5042ba588080922b90875e",
+      "expected": {
+        "intent": "Collect from position",
+        "interpolatedIntent": "Collect up to 340282366920938463463374607431768211455 token0 and up to 340282366920938463463374607431768211455 token1 (raw units) owed to position 34848, sent to 0xAe30E938993D823bB2781e83ac36b8926c12Ae8d. The zero address keeps them in this contract, where any caller can sweep them",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Position", "value": "34848" },
+          { "label": "Max Token0 (raw)", "value": "340282366920938463463374607431768211455" },
+          { "label": "Max Token1 (raw)", "value": "340282366920938463463374607431768211455" },
+          { "label": "Recipient", "value": "0xAe30E938993D823bB2781e83ac36b8926c12Ae8d" }
+        ]
+      }
+    },
+    {
+      "description": "Collect from position - chain 10",
+      "rawTx": "0x02f8ab0a15830f4240830f43bd8302ed24944857db576ee0e45f10525ec59527bfd10beec60b80b884fc6f7865000000000000000000000000000000000000000000000000000000000000b34e000000000000000000000000196f1e004f3fa4998fc06d0bd802ca801d825bee00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffffc0",
+      "txHash": "0x3d7bdf88ebefe7ea629463793a37f8b577969e3bfa3ddaa27b5514e675c7a4c5",
+      "expected": {
+        "intent": "Collect from position",
+        "interpolatedIntent": "Collect up to 340282366920938463463374607431768211455 token0 and up to 340282366920938463463374607431768211455 token1 (raw units) owed to position 45902, sent to 0x196F1e004F3fa4998fC06D0bD802cA801d825BEE. The zero address keeps them in this contract, where any caller can sweep them",
+        "owner": "Aero",
+        "fields": [
+          { "label": "Position", "value": "45902" },
+          { "label": "Max Token0 (raw)", "value": "340282366920938463463374607431768211455" },
+          { "label": "Max Token1 (raw)", "value": "340282366920938463463374607431768211455" },
+          { "label": "Recipient", "value": "0x196F1e004F3fa4998fC06D0bD802cA801d825BEE" }
+        ]
+      }
+    },
+    {
+      "description": "Burn empty position NFT - chain 1",
+      "rawTx": "0x02f84d0181aa8401c9c380840f9e6b2083030d40944857db576ee0e45f10525ec59527bfd10beec60b80a442966c68000000000000000000000000000000000000000000000000000000000000370ec0",
+      "txHash": "0x9533af33a6bcf256f944f6143d5b8ba8bbb4557c18ba25bd772b9b2f157c57c7",
+      "expected": {
+        "intent": "Burn empty position NFT",
+        "interpolatedIntent": "Burn empty position NFT 14094",
+        "owner": "Aero",
+        "fields": [{ "label": "Position", "value": "14094" }]
+      }
+    },
+    {
+      "description": "Approve position operator - chain 8453",
+      "rawTx": "0x02f87082210582caa4830f42408403d0900083011588944857db576ee0e45f10525ec59527bfd10beec60b80b844095ea7b3000000000000000000000000abb3fb6659e05847631896cb87a6d1b8bc0c6d8c00000000000000000000000000000000000000000000000000000000001a9fa0c0",
+      "txHash": "0xdf97f913e4c4b4db395e325020f4da0c3e1f1ede4f23f07bff400317b0e3d76d",
+      "expected": {
+        "intent": "Approve position operator",
+        "interpolatedIntent": "Allow 0xAbb3fb6659e05847631896cB87A6D1b8bc0c6D8C to withdraw and transfer position NFT 1744800",
+        "owner": "Aero",
+        "fields": [{ "label": "Operator", "value": "0xAbb3fb6659e05847631896cB87A6D1b8bc0c6D8C" }, { "label": "Position", "value": "1744800" }]
+      }
+    },
+    {
+      "description": "Set operator for all NFTs, grant - chain 8453",
+      "rawTx": "0x02f86d8221054c8307b638836712b8830111fc944857db576ee0e45f10525ec59527bfd10beec60b80b844a22cb4650000000000000000000000000fef9e88a7b76bcdbf451780c6774fe32965ee980000000000000000000000000000000000000000000000000000000000000001c0",
+      "txHash": "0x544bea3ff10313774c826308c0898bd9092576719de77b6d68c60679bec774f1",
+      "expected": {
+        "intent": "Set operator for all NFTs",
+        "interpolatedIntent": "Grant 0x0fEf9e88A7b76BCDBF451780C6774FE32965Ee98 access to withdraw and transfer all your position NFTs",
+        "owner": "Aero",
+        "fields": [{ "label": "Access", "value": "Grant" }, { "label": "Operator", "value": "0x0fEf9e88A7b76BCDBF451780C6774FE32965Ee98" }]
+      }
+    },
+    {
+      "description": "Set operator for all NFTs, revoke - chain 42161",
+      "rawTx": "0x02f86d82a4b1820706808402641f20830493e0944857db576ee0e45f10525ec59527bfd10beec60b80b844a22cb46500000000000000000000000012430b2f1e1f9d90de0909aa51e5dd4943a989470000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x05a2cf7d70bef01f982c389abe08f4786efd075a4806360ed1bdf33aa4288238",
+      "expected": {
+        "intent": "Set operator for all NFTs",
+        "interpolatedIntent": "Revoke 0x12430B2f1E1f9D90DE0909aA51E5dD4943A98947 access to withdraw and transfer all your position NFTs",
+        "owner": "Aero",
+        "fields": [{ "label": "Access", "value": "Revoke" }, { "label": "Operator", "value": "0x12430B2f1E1f9D90DE0909aA51E5dD4943A98947" }]
+      }
+    },
+    {
+      "description": "Batch position actions - chain 42161",
+      "rawTx": "0x02f902d182a4b1822e8d831e84808401abb8e0830aebb1944857db576ee0e45f10525ec59527bfd10beec60b80b902a4ac9650d80000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a40c49ccbe0000000000000000000000000000000000000000000000000000000000008dc90000000000000000000000000000000000000000000000000000002d93657ec300000000000000000000000000000000000000000000000000000000010f00e20000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006aee46a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000084fc6f78650000000000000000000000000000000000000000000000000000000000008dc90000000000000000000000009e683f64917a6e1ca9f09c3eba9008bcdf9e099900000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002442966c680000000000000000000000000000000000000000000000000000000000008dc900000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x4dc74b0d509a847e4e64985ceefbe4ea4d15433f3184bb6d4b1ec8225b0d12c5",
+      "expected": {
+        "intent": "Batch position actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "owner": "Aero",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Decrease liquidity",
+              "fields": [
+                { "label": "Position", "value": "36297" },
+                { "label": "Liquidity to Remove", "value": "195746430659" },
+                { "label": "Min Token0 Due (raw)", "value": "17760482" },
+                { "label": "Min Token1 Due (raw)", "value": "0" },
+                { "label": "Deadline", "value": "2026-11-06 21:29:04Z" }
+              ],
+              "interpolatedIntent": "Remove 195746430659 liquidity from position 36297: at least 17760482 token0 and 0 token1 (raw units) become owed to the position; nothing is transferred until collect",
+              "owner": "Aero"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Collect from position",
+              "fields": [
+                { "label": "Position", "value": "36297" },
+                { "label": "Max Token0 (raw)", "value": "340282366920938463463374607431768211455" },
+                { "label": "Max Token1 (raw)", "value": "340282366920938463463374607431768211455" },
+                { "label": "Recipient", "value": "0x9e683F64917A6e1ca9F09c3Eba9008bCdf9e0999" }
+              ],
+              "interpolatedIntent": "Collect up to 340282366920938463463374607431768211455 token0 and up to 340282366920938463463374607431768211455 token1 (raw units) owed to position 36297, sent to 0x9e683F64917A6e1ca9F09c3Eba9008bCdf9e0999. The zero address keeps them in this contract, where any caller can sweep them",
+              "owner": "Aero"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Burn empty position NFT",
+              "fields": [{ "label": "Position", "value": "36297" }],
+              "interpolatedIntent": "Burn empty position NFT 36297",
+              "owner": "Aero"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch position actions - chain 10",
+      "rawTx": "0x02f902ce0a820c05830f4240830f4492830b71b0944857db576ee0e45f10525ec59527bfd10beec60b80b902a4ac9650d80000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a40c49ccbe000000000000000000000000000000000000000000000000000000000001d5460000000000000000000000000000000000000000000000000015cfc6ada78c3e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006aee488d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000084fc6f7865000000000000000000000000000000000000000000000000000000000001d546000000000000000000000000fdec89f67b3baa276d3d59628c8041bbbe3efbed00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002442966c68000000000000000000000000000000000000000000000000000000000001d54600000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xb71e3ce45b1b4914796f70a319397ecc1fb0bd569153bddfedac7a6ca4317ab3",
+      "expected": {
+        "intent": "Batch position actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "owner": "Aero",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Decrease liquidity",
+              "fields": [
+                { "label": "Position", "value": "120134" },
+                { "label": "Liquidity to Remove", "value": "6139426734836798" },
+                { "label": "Min Token0 Due (raw)", "value": "0" },
+                { "label": "Min Token1 Due (raw)", "value": "0" },
+                { "label": "Deadline", "value": "2026-11-06 21:37:17Z" }
+              ],
+              "interpolatedIntent": "Remove 6139426734836798 liquidity from position 120134: at least 0 token0 and 0 token1 (raw units) become owed to the position; nothing is transferred until collect",
+              "owner": "Aero"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Collect from position",
+              "fields": [
+                { "label": "Position", "value": "120134" },
+                { "label": "Max Token0 (raw)", "value": "340282366920938463463374607431768211455" },
+                { "label": "Max Token1 (raw)", "value": "340282366920938463463374607431768211455" },
+                { "label": "Recipient", "value": "0xFdEC89f67B3BAa276D3D59628C8041BBbE3EfBeD" }
+              ],
+              "interpolatedIntent": "Collect up to 340282366920938463463374607431768211455 token0 and up to 340282366920938463463374607431768211455 token1 (raw units) owed to position 120134, sent to 0xFdEC89f67B3BAa276D3D59628C8041BBbE3EfBeD. The zero address keeps them in this contract, where any caller can sweep them",
+              "owner": "Aero"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Burn empty position NFT",
+              "fields": [{ "label": "Position", "value": "120134" }],
+              "interpolatedIntent": "Burn empty position NFT 120134",
+              "owner": "Aero"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch position actions - chain 1",
+      "rawTx": "0x02f902d0018233ef8401312d00840a7deff8830aedb8944857db576ee0e45f10525ec59527bfd10beec60b80b902a4ac9650d80000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000140000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000a40c49ccbe0000000000000000000000000000000000000000000000000000000000003c3f00000000000000000000000000000000000000000000000000e30b3e881319da00000000000000000000000000000000000000000000000000000001c19f62e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006aee4eba000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000084fc6f78650000000000000000000000000000000000000000000000000000000000003c3f0000000000000000000000005feea8f691be66225cb7add010d9ec04333f228900000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000ffffffffffffffffffffffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002442966c680000000000000000000000000000000000000000000000000000000000003c3f00000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x3280d1570d84bcf9a3b5a33c53e887efdc2af08f4d2735248404ca4d3d8fd511",
+      "expected": {
+        "intent": "Batch position actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "owner": "Aero",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Decrease liquidity",
+              "fields": [
+                { "label": "Position", "value": "15423" },
+                { "label": "Liquidity to Remove", "value": "63907182912149978" },
+                { "label": "Min Token0 Due (raw)", "value": "7543415520" },
+                { "label": "Min Token1 Due (raw)", "value": "0" },
+                { "label": "Deadline", "value": "2026-11-06 22:03:38Z" }
+              ],
+              "interpolatedIntent": "Remove 63907182912149978 liquidity from position 15423: at least 7543415520 token0 and 0 token1 (raw units) become owed to the position; nothing is transferred until collect",
+              "owner": "Aero"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Collect from position",
+              "fields": [
+                { "label": "Position", "value": "15423" },
+                { "label": "Max Token0 (raw)", "value": "340282366920938463463374607431768211455" },
+                { "label": "Max Token1 (raw)", "value": "340282366920938463463374607431768211455" },
+                { "label": "Recipient", "value": "0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289" }
+              ],
+              "interpolatedIntent": "Collect up to 340282366920938463463374607431768211455 token0 and up to 340282366920938463463374607431768211455 token1 (raw units) owed to position 15423, sent to 0x5fEeA8f691bE66225cB7aDD010D9EC04333F2289. The zero address keeps them in this contract, where any caller can sweep them",
+              "owner": "Aero"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Burn empty position NFT",
+              "fields": [{ "label": "Position", "value": "15423" }],
+              "interpolatedIntent": "Burn empty position NFT 15423",
+              "owner": "Aero"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

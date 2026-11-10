@@ -1,0 +1,20 @@
+{
+  "descriptor": "calldata-Arbitrum_SpokePoolPeriphery.json",
+  "keep": false,
+  "tokens": {
+    "0x0bd7d308f8e1639fab988df18a8011f41eacad73": {
+      "symbol": "WETH",
+      "decimals": 18,
+      "name": "WETH",
+      "chainId": 4663,
+      "source": "WETH and WRAPPED_NATIVE_TOKENS for chain 4663 (ROBINHOOD) in generated/constants.json of across-protocol/contracts at d0725ea"
+    }
+  },
+  "tests": [
+    {
+      "description": "Bridge ETH to Robinhood Chain - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x3862e698c6e593531663267438f02035af025131e5b6e48c0f9090bc19e968ab"
+    }
+  ]
+}

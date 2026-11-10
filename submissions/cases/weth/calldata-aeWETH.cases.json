@@ -1,0 +1,16 @@
+{
+  "descriptor": "calldata-aeWETH.json",
+  "keep": false,
+  "tests": [
+    {
+      "description": "Wrap - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x71b16b4e348e15dada346e4521624edbecc8a07b0dafebc6360722b6cc7a0be4"
+    },
+    {
+      "description": "Unwrap - chain 42161",
+      "chainId": 42161,
+      "txHash": "0x7186a91afd69d2fbe0976cd214c449fc34c76b3135984a9e3c2234758348dd1c"
+    }
+  ]
+}
