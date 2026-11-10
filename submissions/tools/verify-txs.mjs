@@ -34,8 +34,12 @@ function endpoints(chainId) {
   return override ? [override] : (PUBLIC_RPC[chainId] ?? [])
 }
 
+// The first endpoint that has the answer. A null result (no such transaction
+// or receipt) is taken only when every endpoint that answered says so: a node
+// can lag behind, or have pruned old history.
 async function rpc(chainId, method, params) {
   let last
+  let answered = false
   for (const url of endpoints(chainId)) {
     try {
       const response = await fetch(url, {
@@ -47,11 +51,13 @@ async function rpc(chainId, method, params) {
       if (!response.ok) throw new Error(`HTTP ${response.status}`)
       const body = await response.json()
       if (body.error) throw new Error(body.error.message)
-      return body.result
+      if (body.result != null) return body.result
+      answered = true
     } catch (error) {
       last = error
     }
   }
+  if (answered) return null
   throw new Error(
     `chain ${chainId}: ${endpoints(chainId).length ? `every endpoint failed (${last?.message})` : "no endpoint"}`
   )
@@ -99,8 +105,11 @@ for (const file of testFiles(root)) {
           problems.push("calldata differs")
         if (Number(mined.nonce) !== Number(tx.nonce ?? 0))
           problems.push(`nonce ${Number(mined.nonce)}`)
-        if (!receipt || receipt.status !== "0x1")
-          problems.push("did not succeed")
+        if (!receipt) problems.push("no endpoint has its receipt")
+        else if (receipt.status !== "0x1")
+          problems.push(
+            `did not succeed (status ${receipt.status}, block ${Number(receipt.blockNumber)})`
+          )
       }
       if (problems.length) {
         failed++
