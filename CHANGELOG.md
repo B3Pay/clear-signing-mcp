@@ -30,7 +30,8 @@
   Ethereum, OP Mainnet, Base and Arbitrum One, and its swaps that create a
   DlnSource order on Ethereum and Base, finished by hand from the tracker's
   drafts, with 84 new test cases made from real transactions (4 of them a
-  batch's action sent alone) and the text of each registry pull request. `check.sh` runs the registry's
+  batch's action sent alone) and the text of each registry pull request, with
+  the latest real calls each descriptor refuses. `check.sh` runs the registry's
   pull-request checks on them with the tools it pins, and lets through only the
   "not verified" errors of the deployments that `UNVERIFIED` lists as waiting
   for their owner to verify them on Sourcify (`lint-verdict.mjs`),

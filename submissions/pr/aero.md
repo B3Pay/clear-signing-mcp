@@ -101,8 +101,8 @@ its two tokens and its tick spacing, shown as Pool Tick Spacing.
 - Both require `sqrtPriceLimitX96` to be 0 (`mustMatch`), as #3146 did for
   `calldata-UniswapV3Router02.json`: with a limit, a swap can stop at the
   limit price, and `exactOutputSingle` checks that it delivered `amountOut`
-  only when the limit is 0 (`exactOutputInternal`). A call with a limit gets
-  a warning instead of a clean screen.
+  only when the limit is 0 (`exactOutputInternal`). A call with a limit is
+  refused: a wallet shows an error instead of its screen (Refused calls).
 - Both end with `refundETH()`, which sends the router's whole ETH balance to
   the caller, so ETH sent with a swap and not used comes back. ETH Sent is
   shown, as in Uniswap's file.
@@ -136,6 +136,32 @@ the SQD Network portal (200 on each chain but OP Mainnet, which had 11 in the
 
 A `deadline` of `type(uint256).max`, which some callers send, renders as
 `NaN-NaN-NaN NaN:NaN:NaNZ` in the Sourcify runner. No test case has one.
+
+## Refused calls
+
+Measured by the `Registry submission batches` workflow (`must-match.mjs`) on
+2026-11-10, from the SQD Network portal: the latest successful calls of each
+function with a `mustMatch` field, sent to the contract itself, up to 200 on
+each chain. Only the price limit refuses calls, and only in the router's
+`exactInputSingle`:
+
+| Function            | Chain        | Calls read (senders) | From (UTC)                                 | Refused     | Refused calls by sender |
+| ------------------- | ------------ | -------------------- | ------------------------------------------ | ----------- | ----------------------- |
+| `exactInputSingle`  | Ethereum     | 200 (5)              | 2026-11-10 01:29                           | 4 (2%)      | 4                       |
+| `exactInputSingle`  | OP Mainnet   | 200 (3)              | 2026-11-10 12:33                           | 200 (100%)  | 159, 21 and 20          |
+| `exactInputSingle`  | Base         | 200 (22)             | 2026-11-10 13:00                           | 119 (59.5%) | 105, 9, 3 and 2         |
+| `exactInputSingle`  | Arbitrum One | 200 (4)              | 2026-11-09 17:50                           | 4 (2%)      | 4                       |
+| `exactOutputSingle` | Ethereum     | not read             | the portal answered that it was overloaded |             |                         |
+| `exactOutputSingle` | OP Mainnet   | none                 | 2026-11-10 09:15                           |             |                         |
+| `exactOutputSingle` | Base         | 200 (7)              | 2026-11-10 12:21                           | none        |                         |
+| `exactOutputSingle` | Arbitrum One | 3 (2)                | 2026-11-04 17:44                           | none        |                         |
+
+Each span ends between 13:09 and 13:17 UTC on 2026-11-10. On OP Mainnet the
+200 calls came in 36 minutes, and on Base in 10 minutes, with 10 and 53 more
+that failed in the blocks read. The position manager's `decreaseLiquidity`,
+`collect` and `burn`, whose ETH Sent must be 0, refuse none of their latest
+calls: 5, 24 and 2 on Ethereum, 50, 196 and 16 on Base, and 28, 15 and 26 on
+Arbitrum One, while OP Mainnet had none in the 4 to 13 hours read.
 
 ## Tests
 

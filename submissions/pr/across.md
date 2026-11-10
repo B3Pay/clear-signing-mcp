@@ -134,9 +134,21 @@ screen as ETH.
 
 ## Refused calls
 
-To be measured by the `Registry submission batches` workflow
-(`must-match.mjs`): how many of the latest `depositNative` calls on each chain
-have a spoke pool, input token or message that the descriptor refuses.
+Measured by the `Registry submission batches` workflow (`must-match.mjs`) on
+2026-11-10, from the SQD Network portal: the latest successful `depositNative`
+calls sent to the periphery, up to 200 on each chain. The descriptor refuses
+those that carry a message, and none for its spoke pool or input token:
+
+| Chain        | Calls read (senders) | From (UTC)       | Refused  | Their senders |
+| ------------ | -------------------- | ---------------- | -------- | ------------- |
+| Ethereum     | 200 (166)            | 2026-11-10 00:11 | 76 (38%) | 69            |
+| Base         | 72 (72)              | 2026-11-10 08:38 | 8 (11%)  | 8             |
+| Arbitrum One | 200 (156)            | 2026-11-09 06:33 | 34 (17%) | 33            |
+
+Each span ends at about 12:38 UTC on 2026-11-10. No sender sent more than 3 of
+the refused calls, and 105 of their 118 messages are 2,048 bytes long. A
+wallet shows these deposits an error instead of a screen, as the SpokePool
+file does for a deposit with a message.
 
 ## Tests
 
