@@ -290,4 +290,39 @@ jobs:
           node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DlnDestination.json" \
             --print DlnDestination.sol
           node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DeBridgeRouter.json" --files \
-            --print DeBridgeRouter.sol
+            --print DeBridgeRouter.sol --print DeBridgeRouterBase.sol --print Permit.sol --print SignatureUtil.sol
+
+      - name: deBridge's router settings
+        run: |
+          # What the router's screens depend on, read from each chain: its
+          # version, its fee treasury and swap fee, its DlnDestination,
+          # whether DlnSource is a target it may call, and whether its fee
+          # treasury and 0x502ea3d9…, which every sampled strictlySwapAndCall
+          # names as the swap's refund recipient, are contracts.
+          node --input-type=module -e '
+            const rpc = { 1: "https://ethereum-rpc.publicnode.com", 10: "https://optimism-rpc.publicnode.com",
+              8453: "https://base-rpc.publicnode.com", 42161: "https://arbitrum-one-rpc.publicnode.com" }
+            const router = "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251"
+            const dlnSource = "0xeF4fB24aD0916217251F553c0596F8Edc630EB66"
+            const refund = "0x502ea3d95122b5914850E7A4A4CB9e96cF75A35f"
+            async function ask(chainId, method, params) {
+              const answer = await fetch(rpc[chainId], { method: "POST", headers: { "content-type": "application/json" },
+                body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }) })
+              const { result, error } = await answer.json()
+              if (result === undefined) throw new Error(`chain ${chainId}, ${method}: ${JSON.stringify(error)}`)
+              return result
+            }
+            const call = (chainId, data) => ask(chainId, "eth_call", [{ to: router, data }, "latest"])
+            const word = (hex, i = 0) => hex.slice(2 + 64 * i, 2 + 64 * (i + 1))
+            const address = (hex, i = 0) => "0x" + word(hex, i).slice(24)
+            const code = async (chainId, a) => ((await ask(chainId, "eth_getCode", [a, "latest"])).length - 2) / 2
+            for (const chainId of [1, 10, 8453, 42161]) {
+              const [version, treasury, feeBps, destination, supported] = await Promise.all([
+                call(chainId, "0x54fd4d50"), call(chainId, "0x60dc2340"), call(chainId, "0xedc8fef6"),
+                call(chainId, "0x8d0e48d7"), call(chainId, "0x9879c48d" + dlnSource.slice(2).toLowerCase().padStart(64, "0"))])
+              console.log(`chain ${chainId}: version ${Number(version)}, feeTreasury ${address(treasury)} (${await code(chainId, address(treasury))} bytes of code), ` +
+                `swapVariableFeeBps ${Number(feeBps)}, dlnDestination ${address(destination)}, ` +
+                `supportedRouters(DlnSource) isSupported ${Number("0x" + word(supported, 0)) === 1}, allowanceAggregator ${address(supported, 1)}, ` +
+                `${refund} ${await code(chainId, refund)} bytes of code`)
+            }
+          ' || echo "::warning::The router's settings could not be read"
