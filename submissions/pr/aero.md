@@ -61,18 +61,23 @@ position manager's 4,000.
   multi-pool path as Uniswap V3 does, and a path's last token can be spoofed
   with appended bytes, which is why #3136 dropped these two functions from
   `calldata-UniswapV3Router02.json`. The router's `multicall` is left out
-  with them: the batches in the sample wrapped `exactInput`.
+  with them: of its latest 200 batches on Base, read on 2026-11-10, 183
+  carry `exactInput`, and the other 17 are `exactInputSingle` after
+  `selfPermitIfNecessary` (9) or before `unwrapWETH9` (8). The sample above
+  has no router batch on the other three chains.
 - The position manager's `safeTransferFrom(from, to, tokenId, data)`. The 5
   of these 8 calls that the sample kept each send a position to a contract,
   one of three, with 736 to 4,480 bytes of `data` for it to act on. A screen
   that hides `data`, as the Uniswap position manager's does, would not say
   what the receiving contract is told to do with the position.
-- The functions that no transaction in the sample called, at the top level or
-  inside a batch, so that no real transaction can test them: `refundETH`,
-  `sweepToken`, `unwrapWETH9` and the four `selfPermit` functions on both
-  contracts, `sweepTokenWithFee` and `unwrapWETH9WithFee` on the router, and
-  `permit`, `transferFrom` and `safeTransferFrom(from, to, tokenId)` on the
-  position manager.
+- The functions that no transaction in the sample called at the top level,
+  so that no real transaction can test them: `refundETH`, `sweepToken`,
+  `unwrapWETH9` and the four `selfPermit` functions on both contracts,
+  `sweepTokenWithFee` and `unwrapWETH9WithFee` on the router, and `permit`,
+  `transferFrom` and `safeTransferFrom(from, to, tokenId)` on the position
+  manager. None of them is in the position manager's batches read (below);
+  the router's batches, left out above, call its `unwrapWETH9` and
+  `selfPermitIfNecessary`.
 - The pool callbacks (`uniswapV3SwapCallback`, `uniswapV3MintCallback`) and
   the position manager's owner functions (`setOwner`, `setTokenDescriptor`).
 
@@ -124,8 +129,10 @@ where any caller can sweep the tokens, and its intent says so; `approve` and
 `setApprovalForAll` say "withdraw and transfer", because an approved operator
 passes `isAuthorizedForToken` for `decreaseLiquidity`, `collect` and `burn`,
 and can transfer the NFT. `multicall` is "Batch position actions", with each
-action on its own screen. Every batch in the sample was `decreaseLiquidity`
-and `collect`, most of them then `burn`, all of which have a format.
+action on its own screen. Its latest 611 batches, read on 2026-11-10 from
+the SQD Network portal (200 on each chain but OP Mainnet, which had 11 in the
+13 hours read), are all `decreaseLiquidity` and `collect`, 437 of them then
+`burn`, all of which have a format.
 
 A `deadline` of `type(uint256).max`, which some callers send, renders as
 `NaN-NaN-NaN NaN:NaN:NaNZ` in the Sourcify runner. No test case has one.

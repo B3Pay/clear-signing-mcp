@@ -26,6 +26,7 @@ these.
 | [weth: WETH on OP Mainnet, Base and Arbitrum One](pr/weth.md)                                                        | `weth/calldata-weth.json` (two deployments added), `weth/calldata-aeWETH.json` (new)   | 3               | 8, 6 new | Branch `weth-op-base-arbitrum` on the fork; pull request not opened yet    |
 | [uniswap: Permit2 on Ethereum, OP Mainnet, Base, Arbitrum One](pr/uniswap.md)                                        | `uniswap/calldata-Permit2.json` (new)                                                  | 4               | 13       | Branch `uniswap-permit2-calldata` on the fork; pull request not opened yet |
 | [aero: Slipstream SwapRouter and NonfungiblePositionManager on Ethereum, OP Mainnet, Base, Arbitrum One](pr/aero.md) | `aero/calldata-SwapRouter.json`, `aero/calldata-NonfungiblePositionManager.json` (new) | 8               | 19       | Ready; not submitted                                                       |
+| [pancakeswap: Smart Router on Ethereum, Base, Arbitrum One](pr/pancakeswap.md)                                       | `pancakeswap/calldata-SmartRouter.json` (new)                                          | 3               | 15       | Ready; not submitted                                                       |
 
 ## The registry's process
 
@@ -64,6 +65,14 @@ It records what the runner shows, not what is right: read each rendering
 before keeping it. `--chains` serves the runner's chain list from a file, for a
 machine that cannot reach chainid.network.
 
+The registry wants a test that calls each formatted function at the top level
+(`check-selector-coverage.js`). A function that real transactions call only
+inside a batch, like a router's `unwrapWETH9` after a swap, has none: a case
+with `"action": n` is then the nth action of the batch its `txHash` names,
+sent alone, with the batch's chain, sender nonce and target and no value. No
+such transaction is on chain, so its test has no `txHash`, and the pull
+request text says which tests these are.
+
 ## Checking
 
 `tools/check.sh` runs the registry's pull-request checks on `registry/` laid
@@ -72,7 +81,10 @@ over a scratch clone of the registry, with the tools the registry pins.
 public RPCs and compares it with the test's `rawTx`: chain, sender nonce,
 target, value and calldata, and that it succeeded. Public endpoints are full
 nodes that prune old receipts, so for an older transaction the status comes
-from the chain's Blockscout, and the result says so.
+from the chain's Blockscout, and the result says so. A test that is a batch
+action sent alone is checked against its batch: the batch succeeded, has the
+test's chain, sender nonce and target, and that action is the test's
+calldata.
 
 `tools/multicall-actions.mjs` reads, from the SQD Network portal, the latest
 successful batch calls (`multicall`) to each submitted contract that has one,
@@ -83,9 +95,10 @@ pull request text states.
 The `Registry submission checks` workflow runs all three on every change here,
 against the registry's latest commit: the linter against live Sourcify, both
 test runners and the transaction check, then a deliberate fault (a wrong
-expected value, two swapped transaction hashes) that both runners and the
-transaction check must report, and last the batch-call count, which never
-fails the run.
+expected value, two swapped transaction hashes, a batch action named as
+another action of its batch) that both runners and the transaction check
+must report. The batch-call count runs beside them in its own job, which
+never fails the run.
 
 Where Sourcify, chainid.network and public RPCs are out of reach, `check.sh
 --offline` lints with the tracker's ABIs (`tracker/data/abis/`) instead and

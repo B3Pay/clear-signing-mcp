@@ -18,6 +18,13 @@
 //   { "descriptor": "calldata-X.json", "keep": false,
 //     "tests": [{ "description": "...", "chainId": 1, "txHash": "0x..." }] }
 //
+// A case with "action": n is the nth action (from 1) of the batch that txHash
+// names, sent alone: the batch's transaction with that action's calldata and
+// no value. The registry wants a test that calls each formatted function at
+// the top level, and a function that real transactions call only inside a
+// batch has none. No such transaction is on chain, so its test has no txHash;
+// verify-txs.mjs checks the action against the batch on chain instead.
+//
 // "keep": true keeps the test cases already in the registry's file for that
 // descriptor (a change to an existing descriptor). Tokens for the data
 // provider are every token the tracker knows on the case's chain whose
@@ -38,6 +45,7 @@ import { tmpdir } from "node:os"
 import { basename, dirname, join, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import { parseArgs } from "node:util"
+import { batchAction, batchActions } from "./batch-action.mjs"
 
 const repo = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..")
 const { unsignedRawTx } = await import(
@@ -90,14 +98,25 @@ function tokensOf(chainId) {
   return tokensByChain.get(chainId)
 }
 
-/** Token addresses a call can name: its target and every 20-byte word. */
+/**
+ * Token addresses a call can name: its target and every 20-byte word of its
+ * calldata and, when it is a batch, of each of its actions.
+ */
 function addressesIn(tx) {
   const out = new Set([tx.to.toLowerCase()])
-  const body = tx.input.slice(10)
-  for (let i = 0; i + 64 <= body.length; i += 64) {
-    const word = body.slice(i, i + 64)
-    if (/^0{24}[0-9a-f]{40}$/i.test(word))
-      out.add(`0x${word.slice(24).toLowerCase()}`)
+  let actions = []
+  try {
+    actions = batchActions(repo, tx.chainId, tx.to, tx.input)
+  } catch {
+    // Not a batch.
+  }
+  for (const input of [tx.input, ...actions]) {
+    const body = input.slice(10)
+    for (let i = 0; i + 64 <= body.length; i += 64) {
+      const word = body.slice(i, i + 64)
+      if (/^0{24}[0-9a-f]{40}$/i.test(word))
+        out.add(`0x${word.slice(24).toLowerCase()}`)
+    }
   }
   return out
 }
@@ -121,15 +140,27 @@ for (const c of spec.tests) {
     throw new Error(
       `${c.description}: ${tx.to} on ${tx.chainId} is not a deployment of ${spec.descriptor}`
     )
-  const raw = unsignedRawTx(tx)
+  const call =
+    c.action === undefined
+      ? tx
+      : {
+          ...tx,
+          input: batchAction(repo, tx.chainId, tx.to, tx.input, c.action),
+          value: "0",
+        }
+  const raw = unsignedRawTx(call)
   if ("skip" in raw) throw new Error(`${c.description}: ${raw.skip}`)
   const known = tokensOf(tx.chainId)
-  for (const address of addressesIn(tx))
+  for (const address of addressesIn(call))
     if (known[address]) {
       const { symbol, decimals, name: tokenName } = known[address]
       tokens[address] = { symbol, decimals, name: tokenName }
     }
-  built.push({ description: c.description, rawTx: raw.rawTx, txHash: tx.hash })
+  built.push({
+    description: c.description,
+    rawTx: raw.rawTx,
+    ...(c.action === undefined ? { txHash: tx.hash } : {}),
+  })
 }
 
 const testsName = `${name}.tests.json`
@@ -239,7 +270,9 @@ try {
   mkdirSync(dirname(existingPath), { recursive: true })
   writeFileSync(existingPath, `${JSON.stringify(out, null, 2)}\n`)
   for (const t of tests.slice(keptTests.length)) {
-    console.log(`\n${t.description}  (${t.txHash})`)
+    console.log(
+      `\n${t.description}  (${t.txHash ?? "a batch action sent alone, no txHash"})`
+    )
     console.log(
       `  ${t.expected.intent}${t.expected.interpolatedIntent ? `  |  ${t.expected.interpolatedIntent}` : ""}  [${t.expected.owner}]`
     )

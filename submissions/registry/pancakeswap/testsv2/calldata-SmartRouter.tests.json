@@ -1,0 +1,405 @@
+{
+  "$schema": "../../../specs/erc7730-tests-v2.schema.json",
+  "descriptor": "../calldata-SmartRouter.json",
+  "dataProvider": {
+    "tokens": {
+      "0x11e969e9b3f89cb16d686a03cd8508c9fc0361af": { "symbol": "LAVA", "decimals": 6, "name": "Axelar Wrapped LAVA" },
+      "0x4200000000000000000000000000000000000006": { "symbol": "WETH", "decimals": 18, "name": "Wrapped Ether" },
+      "0x82af49447d8a07e3bd95bd0d56f35241523fbab1": { "symbol": "WETH", "decimals": 18, "name": "Wrapped Ether" },
+      "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0x853a7c99227499dba9db8c3a02aa691afdebf841": { "symbol": "PLAY", "decimals": 18, "name": "Play" },
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0xaf88d065e77c8cc2239327c5edb3a432268e5831": { "symbol": "USDC", "decimals": 6, "name": "USD Coin" },
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": { "symbol": "WETH", "decimals": 18, "name": "Wrapped Ether" },
+      "0xd8a271974e8edae9d7b58e3370dc1669427503f4": { "symbol": "BLEND", "decimals": 18, "name": "Fluent" },
+      "0xdac17f958d2ee523a2206206994597c13d831ec7": { "symbol": "USDT", "decimals": 6, "name": "Tether USD" },
+      "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9": { "symbol": "USD\u20ae0", "decimals": 6, "name": "USD\u20ae0" }
+    }
+  },
+  "tests": [
+    {
+      "description": "Swap exact input - chain 42161",
+      "rawTx": "0xf9010e8303537c84015ef3c0834c4b409432226588378236fd0c7c4053999f88ac0e5cac7780b8e404e45aaf000000000000000000000000fd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb900000000000000000000000011e969e9b3f89cb16d686a03cd8508c9fc0361af00000000000000000000000000000000000000000000000000000000000009c4000000000000000000000000464fc339add314932920d3e060745bd7ea3e92ad0000000000000000000000000000000000000000000000000000000002625a00000000000000000000000000000000000000000000000000000000009f21e904000000000000000000000000000000000000000000000000000000000000000082a4b18080",
+      "txHash": "0x1f409ca2b9bf7d51f1883e0aa704489ab6b82453781b47c6fad4bba331f09cfc",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap 40 USD\u20ae0 for at least 2669.799684 LAVA",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "Amount to Send", "value": "40 USD\u20ae0" },
+          { "label": "Minimum to Receive", "value": "2669.799684 LAVA" },
+          { "label": "Recipient", "value": "0x464fC339aDD314932920d3e060745bd7Ea3e92AD" },
+          { "label": "Pool Fee", "value": "0.25%" }
+        ]
+      }
+    },
+    {
+      "description": "Swap exact input, paid in ETH - chain 1",
+      "rawTx": "0x02f9011401038403dc2f9184115ca52f8303aa579413f4ea83d0bd40e75c8222255bc855a974568dd4871fc78ecaaab9ecb8e404e45aaf000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec70000000000000000000000000000000000000000000000000000000000000064000000000000000000000000f8954fdf703758354a589b1e22cf518bf5a01e93000000000000000000000000000000000000000000000000001fc78ecaaab9ec00000000000000000000000000000000000000000000000000000000012eb3090000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x479b4c8ee0c05d0d8becf6cc7b5a8e492645166eca5e86dd5ad5728564cf1ffe",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap 0.00894514037750014 WETH for at least 19.837705 USDT",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "Amount to Send", "value": "0.00894514037750014 WETH" },
+          { "label": "Minimum to Receive", "value": "19.837705 USDT" },
+          { "label": "Recipient", "value": "0xf8954fDF703758354A589b1e22cf518Bf5a01E93" },
+          { "label": "Pool Fee", "value": "0.01%" },
+          { "label": "ETH Sent", "value": "0.00894514037750014 ETH" }
+        ]
+      }
+    },
+    {
+      "description": "Swap exact output - chain 1",
+      "rawTx": "0x02f9010e018208c583989680840aa61b3c8303834a9413f4ea83d0bd40e75c8222255bc855a974568dd480b8e45023b4df000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb48000000000000000000000000d8a271974e8edae9d7b58e3370dc1669427503f400000000000000000000000000000000000000000000000000000000000009c40000000000000000000000007d213f93e6ca2e071d30c64417c88ac12f2ac9a30000000000000000000000000000000000000000000000583e4ac3186363189300000000000000000000000000000000000000000000000000000000060523400000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x1b42bb9538d19b5073c6a16828b6878f8a8199b7386dbd17ea752a891fafebdb",
+      "expected": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap at most 101 USDC for 1627.802092974582732947 BLEND",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "Amount to Receive", "value": "1627.802092974582732947 BLEND" },
+          { "label": "Maximum to Send", "value": "101 USDC" },
+          { "label": "Recipient", "value": "0x7D213F93e6cA2E071d30C64417c88AC12F2Ac9A3" },
+          { "label": "Pool Fee", "value": "0.25%" }
+        ]
+      }
+    },
+    {
+      "description": "Batch with a deadline, swap - chain 8453",
+      "rawTx": "0x02f901d2822105822fe98404d89dbb840571343b83080c4c94678aa4bf4e210cf2166753e054d5b7c31cc7fa8680b901a45ae401dc000000000000000000000000000000000000000000000000000000006aee485800000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e404e45aaf000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000853a7c99227499dba9db8c3a02aa691afdebf84100000000000000000000000000000000000000000000000000000000000000640000000000000000000000003d63c340fa1735637e962e3b0b7d0f7cf1f722a100000000000000000000000000000000000000000000000000000000083374f00000000000000000000000000000000000000000000002706e17ae72ae400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xb38ab37cbcab65acf91e10f598f5ab4b48e07b1d6f053937e67e69a9e5489d04",
+      "expected": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction, before 2026-11-06 21:36:24Z; if one action fails, the whole transaction reverts",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          { "label": "Deadline", "value": "2026-11-06 21:36:24Z" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "fields": [
+                { "label": "Amount to Send", "value": "137.59 USDC" },
+                { "label": "Minimum to Receive", "value": "11518.701303070969561088 PLAY" },
+                { "label": "Recipient", "value": "0x3D63c340fA1735637e962e3b0B7D0F7cF1F722a1" },
+                { "label": "Pool Fee", "value": "0.01%" }
+              ],
+              "interpolatedIntent": "Swap 137.59 USDC for at least 11518.701303070969561088 PLAY",
+              "owner": "PancakeSwap"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch with a deadline, swap - chain 42161",
+      "rawTx": "0x02f901ce82a4b18201498084017d7840830563a39432226588378236fd0c7c4053999f88ac0e5cac7780b901a45ae401dc000000000000000000000000000000000000000000000000000000006ae35fa300000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e404e45aaf00000000000000000000000082af49447d8a07e3bd95bd0d56f35241523fbab1000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e583100000000000000000000000000000000000000000000000000000000000001f4000000000000000000000000af47a88b99f0a5bf09cc02f6846a8c1cc3bc6e9c0000000000000000000000000000000000000000000000000311a16f607b07c0000000000000000000000000000000000000000000000000000000001ead10fd000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xfd01edfb5854e99ead24fe245de8f971619c6ea5e795148e396e619ff8372812",
+      "expected": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction, before 2026-10-29 15:00:51Z; if one action fails, the whole transaction reverts",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          { "label": "Deadline", "value": "2026-10-29 15:00:51Z" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "fields": [
+                { "label": "Amount to Send", "value": "0.2211353564499824 WETH" },
+                { "label": "Minimum to Receive", "value": "514.658557 USDC" },
+                { "label": "Recipient", "value": "0xAF47A88b99f0A5BF09cc02F6846A8c1CC3bC6e9c" },
+                { "label": "Pool Fee", "value": "0.05%" }
+              ],
+              "interpolatedIntent": "Swap 0.2211353564499824 WETH for at least 514.658557 USDC",
+              "owner": "PancakeSwap"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch with a deadline, swap to another account - chain 42161",
+      "rawTx": "0x02f901d182a4b18199840136e8588402d3591c83066d6a9432226588378236fd0c7c4053999f88ac0e5cac7780b901a45ae401dc000000000000000000000000000000000000000000000000000000006ae5ee6000000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e404e45aaf000000000000000000000000fd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e58310000000000000000000000000000000000000000000000000000000000000064000000000000000000000000738669167a3ac7056ead008252e8809c16cb69dc000000000000000000000000000000000000000000000000000000000016bf2a000000000000000000000000000000000000000000000000000000000016b306000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xd65640298f02808f6e2cc78de126c170a45834d16ea0d9011aa847c3714ba87a",
+      "expected": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction, before 2026-10-31 13:34:24Z; if one action fails, the whole transaction reverts",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          { "label": "Deadline", "value": "2026-10-31 13:34:24Z" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "fields": [
+                { "label": "Amount to Send", "value": "1.49073 USD\u20ae0" },
+                { "label": "Minimum to Receive", "value": "1.487622 USDC" },
+                { "label": "Recipient", "value": "0x738669167A3aC7056eaD008252e8809C16Cb69dc" },
+                { "label": "Pool Fee", "value": "0.01%" }
+              ],
+              "interpolatedIntent": "Swap 1.49073 USD\u20ae0 for at least 1.487622 USDC",
+              "owner": "PancakeSwap"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch, swap and unwrap - chain 8453",
+      "rawTx": "0xf9024d820d7183a824808303e76c94678aa4bf4e210cf2166753e054d5b7c31cc7fa8680b90224ac9650d8000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000016000000000000000000000000000000000000000000000000000000000000000e404e45aaf000000000000000000000000833589fcd6edb6e08f4c7c32d4f71b54bda02913000000000000000000000000420000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000001f40000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000328b74000000000000000000000000000000000000000000000000000539a69b016591d000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004449404b7c00000000000000000000000000000000000000000000000000539a69b016591d000000000000000000000000a68eef15515249e82e25abb5e09e78f4435fc1ef000000000000000000000000000000000000000000000000000000008221058080",
+      "txHash": "0x3aa70615331f55758c1a9a8ab16f5ce1c440742907feee770155a81e5aedce38",
+      "expected": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "fields": [
+                { "label": "Amount to Send", "value": "53 USDC" },
+                { "label": "Minimum to Receive", "value": "0.023532201783482653 WETH" },
+                { "label": "Recipient", "value": "0x0000000000000000000000000000000000000002" },
+                { "label": "Pool Fee", "value": "0.05%" }
+              ],
+              "interpolatedIntent": "Swap 53 USDC for at least 0.023532201783482653 WETH",
+              "owner": "PancakeSwap"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Unwrap WETH to ETH",
+              "fields": [
+                { "label": "Minimum to Unwrap", "value": "0.023532201783482653 ETH" },
+                { "label": "Recipient", "value": "0xa68eEf15515249e82e25Abb5e09e78F4435fc1Ef" }
+              ],
+              "interpolatedIntent": "Unwrap the WETH held by this contract, at least 0.023532201783482653 ETH, and send the ETH to 0xa68eEf15515249e82e25Abb5e09e78F4435fc1Ef",
+              "owner": "PancakeSwap"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch, swap and unwrap - chain 1",
+      "rawTx": "0x02f9024e015d840d73ae9a843f37f3998303bc5b9413f4ea83d0bd40e75c8222255bc855a974568dd480b90224ac9650d8000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000016000000000000000000000000000000000000000000000000000000000000000e404e45aaf000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec7000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000000000000000000000000000000000000000006400000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000006eb8ba000000000000000000000000000000000000000000000000000b7447546445066000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004449404b7c00000000000000000000000000000000000000000000000000b74475464450660000000000000000000000001221ad01b4043cd14aa00d8edd0fe5b5014c4c8c00000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xe0a7686c0e5b35ed6afc84434a9f938e8ff23901ea5ad14a87a1d0c2ad5d2527",
+      "expected": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "fields": [
+                { "label": "Amount to Send", "value": "116.1 USDT" },
+                { "label": "Minimum to Receive", "value": "0.051585191218794598 WETH" },
+                { "label": "Recipient", "value": "0x0000000000000000000000000000000000000002" },
+                { "label": "Pool Fee", "value": "0.01%" }
+              ],
+              "interpolatedIntent": "Swap 116.1 USDT for at least 0.051585191218794598 WETH",
+              "owner": "PancakeSwap"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Unwrap WETH to ETH",
+              "fields": [
+                { "label": "Minimum to Unwrap", "value": "0.051585191218794598 ETH" },
+                { "label": "Recipient", "value": "0x1221Ad01B4043cD14aa00d8eDd0FE5B5014C4C8c" }
+              ],
+              "interpolatedIntent": "Unwrap the WETH held by this contract, at least 0.051585191218794598 ETH, and send the ETH to 0x1221Ad01B4043cD14aa00d8eDd0FE5B5014C4C8c",
+              "owner": "PancakeSwap"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch, swap paid in ETH and refund - chain 1",
+      "rawTx": "0x02f9021701158443c791eb85027d3cbca28307918c9413f4ea83d0bd40e75c8222255bc855a974568dd4883e333523dc02764fb901e4ac9650d8000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000016000000000000000000000000000000000000000000000000000000000000000e45023b4df000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000dac17f958d2ee523a2206206994597c13d831ec700000000000000000000000000000000000000000000000000000000000001f400000000000000000000000036eaeb8ff952cab7080102fcb78e0e2d504fd51e00000000000000000000000000000000000000000000000000000002540be4000000000000000000000000000000000000000000000000003e82d2d884ca278a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000412210e8a00000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0xc2797ddebd7001db517ee39d21e1a0c1ddc51d60d11a105cdc74c5b187583269",
+      "expected": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send 4.481984482295051855 ETH and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "ETH Sent", "value": "4.481984482295051855 ETH" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "fields": [
+                { "label": "Amount to Receive", "value": "10000 USDT" },
+                { "label": "Maximum to Send", "value": "4.504394404706527114 WETH" },
+                { "label": "Recipient", "value": "0x36eAeb8fF952cab7080102Fcb78E0E2D504fd51e" },
+                { "label": "Pool Fee", "value": "0.05%" },
+                { "label": "ETH Sent", "value": "4.481984482295051855 ETH" }
+              ],
+              "interpolatedIntent": "Swap at most 4.504394404706527114 WETH for 10000 USDT",
+              "owner": "PancakeSwap"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Refund leftover ETH",
+              "fields": [],
+              "interpolatedIntent": "Send the ETH held by this contract to you",
+              "owner": "PancakeSwap"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch, swap and unwrap minus a fee - chain 42161",
+      "rawTx": "0x02f9028d82a4b181e2018402726761830543a89432226588378236fd0c7c4053999f88ac0e5cac7780b90264ac9650d8000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000016000000000000000000000000000000000000000000000000000000000000000e404e45aaf000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e583100000000000000000000000082af49447d8a07e3bd95bd0d56f35241523fbab1000000000000000000000000000000000000000000000000000000000000006400000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000002710000000000000000000000000000000000000000000000000000003f319a0969600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000849b2c0a37000000000000000000000000000000000000000000000000000003f319a09696000000000000000000000000abfff0e03468c4ee951074364aba3a01d2813e3d0000000000000000000000000000000000000000000000000000000000000023000000000000000000000000fec697fc2d4323ae7618bff2347c01e29653fb5700000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x5bf7237fe3b149f9af1556f1574a9ad575ef7686a8b44654a180fa542392dbff",
+      "expected": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send 0 ETH and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "ETH Sent", "value": "0 ETH" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "fields": [
+                { "label": "Amount to Send", "value": "0.01 USDC" },
+                { "label": "Minimum to Receive", "value": "0.000004342641890966 WETH" },
+                { "label": "Recipient", "value": "0x0000000000000000000000000000000000000002" },
+                { "label": "Pool Fee", "value": "0.01%" }
+              ],
+              "interpolatedIntent": "Swap 0.01 USDC for at least 0.000004342641890966 WETH",
+              "owner": "PancakeSwap"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Unwrap WETH, minus a fee",
+              "fields": [
+                { "label": "Minimum Before Fee", "value": "0.000004342641890966 ETH" },
+                { "label": "Recipient", "value": "0xABFFF0E03468c4EE951074364AbA3A01d2813E3D" },
+                { "label": "Fee", "value": "0.35%" },
+                { "label": "Fee Recipient", "value": "0xfec697fc2D4323aE7618BFF2347C01E29653FB57" }
+              ],
+              "interpolatedIntent": "Unwrap the WETH held by this contract, at least 0.000004342641890966 ETH before the fee, and send 0.35% of the ETH to 0xfec697fc2D4323aE7618BFF2347C01E29653FB57 and the rest to 0xABFFF0E03468c4EE951074364AbA3A01d2813E3D",
+              "owner": "PancakeSwap"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Batch, swap paid in ETH and send minus a fee - chain 42161",
+      "rawTx": "0x02f902b382a4b181de018402673c01830543a89432226588378236fd0c7c4053999f88ac0e5cac77861b48eb57e000b90284ac9650d8000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000016000000000000000000000000000000000000000000000000000000000000000e404e45aaf00000000000000000000000082af49447d8a07e3bd95bd0d56f35241523fbab1000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e583100000000000000000000000000000000000000000000000000000000000009c4000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000001b48eb57e00000000000000000000000000000000000000000000000000000000000000107fc00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a4e0e189a0000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e583100000000000000000000000000000000000000000000000000000000000107fc000000000000000000000000abfff0e03468c4ee951074364aba3a01d2813e3d0000000000000000000000000000000000000000000000000000000000000023000000000000000000000000fec697fc2d4323ae7618bff2347c01e29653fb5700000000000000000000000000000000000000000000000000000000c0",
+      "txHash": "0x7bb770c4dfeb37ec1031106c571fbe043b144240d264dc548b6c770d424c378a",
+      "expected": {
+        "intent": "Batch swap actions",
+        "interpolatedIntent": "Send 0.00003 ETH and run every action below in one transaction; if one action fails, the whole transaction reverts",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "ETH Sent", "value": "0.00003 ETH" },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Swap",
+              "fields": [
+                { "label": "Amount to Send", "value": "0.00003 WETH" },
+                { "label": "Minimum to Receive", "value": "0.06758 USDC" },
+                { "label": "Recipient", "value": "0x0000000000000000000000000000000000000002" },
+                { "label": "Pool Fee", "value": "0.25%" },
+                { "label": "ETH Sent", "value": "0.00003 ETH" }
+              ],
+              "interpolatedIntent": "Swap 0.00003 WETH for at least 0.06758 USDC",
+              "owner": "PancakeSwap"
+            }
+          },
+          {
+            "label": "Action",
+            "value": {
+              "intent": "Send tokens, minus a fee",
+              "fields": [
+                { "label": "Minimum Before Fee", "value": "0.06758 USDC" },
+                { "label": "Recipient", "value": "0xABFFF0E03468c4EE951074364AbA3A01d2813E3D" },
+                { "label": "Fee", "value": "0.35%" },
+                { "label": "Fee Recipient", "value": "0xfec697fc2D4323aE7618BFF2347C01E29653FB57" }
+              ],
+              "interpolatedIntent": "Send the token balance held by this contract, at least 0.06758 USDC before the fee: 0.35% of it to 0xfec697fc2D4323aE7618BFF2347C01E29653FB57 and the rest to 0xABFFF0E03468c4EE951074364AbA3A01d2813E3D",
+              "owner": "PancakeSwap"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "description": "Refund leftover ETH, a batch action sent alone - chain 1",
+      "rawTx": "0x02ed01158443c791eb85027d3cbca28307918c9413f4ea83d0bd40e75c8222255bc855a974568dd4808412210e8ac0",
+      "expected": {
+        "intent": "Refund leftover ETH",
+        "interpolatedIntent": "Send the ETH held by this contract to you",
+        "owner": "PancakeSwap",
+        "fields": []
+      }
+    },
+    {
+      "description": "Unwrap WETH to ETH, a batch action sent alone - chain 8453",
+      "rawTx": "0xf86c820d7183a824808303e76c94678aa4bf4e210cf2166753e054d5b7c31cc7fa8680b84449404b7c00000000000000000000000000000000000000000000000000539a69b016591d000000000000000000000000a68eef15515249e82e25abb5e09e78f4435fc1ef8221058080",
+      "expected": {
+        "intent": "Unwrap WETH to ETH",
+        "interpolatedIntent": "Unwrap the WETH held by this contract, at least 0.023532201783482653 ETH, and send the ETH to 0xa68eEf15515249e82e25Abb5e09e78F4435fc1Ef",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "Minimum to Unwrap", "value": "0.023532201783482653 ETH" },
+          { "label": "Recipient", "value": "0xa68eEf15515249e82e25Abb5e09e78F4435fc1Ef" }
+        ]
+      }
+    },
+    {
+      "description": "Unwrap WETH minus a fee, a batch action sent alone - chain 42161",
+      "rawTx": "0x02f8ac82a4b181e2018402726761830543a89432226588378236fd0c7c4053999f88ac0e5cac7780b8849b2c0a37000000000000000000000000000000000000000000000000000003f319a09696000000000000000000000000abfff0e03468c4ee951074364aba3a01d2813e3d0000000000000000000000000000000000000000000000000000000000000023000000000000000000000000fec697fc2d4323ae7618bff2347c01e29653fb57c0",
+      "expected": {
+        "intent": "Unwrap WETH, minus a fee",
+        "interpolatedIntent": "Unwrap the WETH held by this contract, at least 0.000004342641890966 ETH before the fee, and send 0.35% of the ETH to 0xfec697fc2D4323aE7618BFF2347C01E29653FB57 and the rest to 0xABFFF0E03468c4EE951074364AbA3A01d2813E3D",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "Minimum Before Fee", "value": "0.000004342641890966 ETH" },
+          { "label": "Recipient", "value": "0xABFFF0E03468c4EE951074364AbA3A01d2813E3D" },
+          { "label": "Fee", "value": "0.35%" },
+          { "label": "Fee Recipient", "value": "0xfec697fc2D4323aE7618BFF2347C01E29653FB57" }
+        ]
+      }
+    },
+    {
+      "description": "Send tokens minus a fee, a batch action sent alone - chain 42161",
+      "rawTx": "0x02f8cc82a4b181de018402673c01830543a89432226588378236fd0c7c4053999f88ac0e5cac7780b8a4e0e189a0000000000000000000000000af88d065e77c8cc2239327c5edb3a432268e583100000000000000000000000000000000000000000000000000000000000107fc000000000000000000000000abfff0e03468c4ee951074364aba3a01d2813e3d0000000000000000000000000000000000000000000000000000000000000023000000000000000000000000fec697fc2d4323ae7618bff2347c01e29653fb57c0",
+      "expected": {
+        "intent": "Send tokens, minus a fee",
+        "interpolatedIntent": "Send the token balance held by this contract, at least 0.06758 USDC before the fee: 0.35% of it to 0xfec697fc2D4323aE7618BFF2347C01E29653FB57 and the rest to 0xABFFF0E03468c4EE951074364AbA3A01d2813E3D",
+        "owner": "PancakeSwap",
+        "fields": [
+          { "label": "Minimum Before Fee", "value": "0.06758 USDC" },
+          { "label": "Recipient", "value": "0xABFFF0E03468c4EE951074364AbA3A01d2813E3D" },
+          { "label": "Fee", "value": "0.35%" },
+          { "label": "Fee Recipient", "value": "0xfec697fc2D4323aE7618BFF2347C01E29653FB57" }
+        ]
+      }
+    }
+  ]
+}

@@ -127,12 +127,13 @@ jobs:
         run: node submissions/tools/verify-txs.mjs
 
       # A check seen only passing proves nothing. Run them again with one
-      # expected value changed and two transaction hashes swapped, and require
+      # expected value changed, two transaction hashes swapped and a batch
+      # action sent alone named as another action of its batch, and require
       # that both runners and the transaction check report exactly those.
       - name: The checks catch a deliberate fault
         run: |
           fault="$RUNNER_TEMP/fault"
-          mkdir -p "$fault/txs/weth/testsv2"
+          mkdir -p "$fault/txs/weth/testsv2" "$fault/txs/pancakeswap/testsv2"
           cp -R submissions "$fault/"
           git -C "$RUNNER_TEMP/registry" checkout -q -- registry
           git -C "$RUNNER_TEMP/registry" clean -fdq -- registry
@@ -149,13 +150,24 @@ jobs:
             fs.writeFileSync(swappedHashes, JSON.stringify(b, null, 2))
           ' "submissions/registry/$file" "$fault/submissions/registry/$file" "$fault/txs/$file"
           wanted=$(node -e 'console.log(require(process.argv[1]).tests[0].description)' "$PWD/submissions/registry/$file")
+          lifted=pancakeswap/testsv2/calldata-SmartRouter.tests.json
+          cp "submissions/registry/$lifted" "$fault/txs/$lifted"
+          moved=$(node -e '
+            const fs = require("fs")
+            const file = process.argv[1]
+            const cases = JSON.parse(fs.readFileSync(file, "utf8"))
+            const c = cases.tests.find((t) => t.action !== undefined)
+            c.action = c.action === 1 ? 2 : 1
+            fs.writeFileSync(file, JSON.stringify(cases, null, 2))
+            console.log(c.description)
+          ' "$fault/submissions/cases/pancakeswap/calldata-SmartRouter.cases.json")
 
           set +e
           GITHUB_STEP_SUMMARY="" bash "$fault/submissions/tools/check.sh" --registry "$RUNNER_TEMP/registry" \
             --python "$(command -v python)" --runner "$RUNNER_TEMP/sourcify-runner" \
             --rust "$RUNNER_TEMP/cs-test/bin/cs-test" > "$fault/check.log" 2>&1
           check=$?
-          node submissions/tools/verify-txs.mjs --root "$fault/txs" > "$fault/txs.log" 2>&1
+          node submissions/tools/verify-txs.mjs --root "$fault/txs" --cases "$fault/submissions/cases" > "$fault/txs.log" 2>&1
           txs=$?
           set -e
           cat "$fault/check.log" "$fault/txs.log"
@@ -165,14 +177,36 @@ jobs:
           grep -q "❌ sourcify runner" "$fault/check.log" || { echo "::error::The Sourcify runner missed the wrong expected value"; ok=0; }
           grep -q "❌ rust runner" "$fault/check.log" || { echo "::error::The Rust runner missed the wrong expected value"; ok=0; }
           [ "$(grep -c "^   $wanted:" "$fault/check.log")" -eq 2 ] || { echo "::error::The runners did not both name the changed case, $wanted"; ok=0; }
-          [ "$txs" -ne 0 ] && [ "$(grep -c '❌' "$fault/txs.log")" -eq 2 ] || { echo "::error::verify-txs did not report exactly the two swapped hashes"; ok=0; }
+          [ "$txs" -ne 0 ] && [ "$(grep -c '❌' "$fault/txs.log")" -eq 3 ] \
+            && grep -q "❌ $lifted: $moved: the calldata is not action" "$fault/txs.log" \
+            || { echo "::error::verify-txs did not report exactly the two swapped hashes and the moved batch action, $moved"; ok=0; }
           [ "$ok" -eq 1 ]
 
-      # What the batch calls to the submitted contracts carry: the actions in
-      # their latest multicalls, read from the SQD Network portal, and those
-      # the descriptor has no format for. It measures the scope a pull request
-      # text states, so it never fails the run.
+  # What the batch calls to the submitted contracts carry: the actions in
+  # their latest multicalls, read from the SQD Network portal, and those the
+  # descriptor has no format for. It measures the scope a pull request text
+  # states, so it never fails the run. Its own job, beside the checks: it reads
+  # for up to two minutes per contract, chain and batch function.
+  batches:
+    name: What batch calls carry
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile
+
       - name: What batch calls carry
-        continue-on-error: true
-        timeout-minutes: 25
         run: node submissions/tools/multicall-actions.mjs --count 200 --minutes 2

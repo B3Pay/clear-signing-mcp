@@ -21,16 +21,18 @@
   left out, and their protocol's notes say why.
 
 - Registry submissions (`submissions/`): WETH on OP Mainnet, Base and
-  Arbitrum One, Permit2 on Ethereum, OP Mainnet, Base and Arbitrum One, and
+  Arbitrum One, Permit2 on Ethereum, OP Mainnet, Base and Arbitrum One,
   Aero's Slipstream SwapRouter and NonfungiblePositionManager on the same
-  four chains, finished by hand from the tracker's drafts, with 38 new test
-  cases made from real transactions and the text of each registry pull
-  request. `check.sh` runs the registry's pull-request checks on them with
-  the tools it pins, `verify-txs.mjs` reads every test transaction back from
-  its chain, `multicall-actions.mjs` counts the actions in each contract's
-  latest batch calls, and the `Registry submission checks` workflow runs all
-  three, with the Rust test runner and the linter against live Sourcify, then
-  requires that a deliberate fault is caught.
+  four chains, and PancakeSwap's Smart Router on Ethereum, Base and Arbitrum
+  One, finished by hand from the tracker's drafts, with 53 new test cases
+  made from real transactions (4 of them a batch's action sent alone) and the
+  text of each registry pull request. `check.sh` runs the registry's
+  pull-request checks on them with the tools it pins, `verify-txs.mjs` reads
+  every test transaction back from its chain, `multicall-actions.mjs` counts
+  the actions in each contract's latest batch calls, and the `Registry
+submission checks` workflow runs all three, with the Rust test runner and
+  the linter against live Sourcify, then requires that a deliberate fault is
+  caught.
 
 - The tracker's report names a real call for each of a contract's
   most-called functions (`exampleTx`): the newest transaction in its kept
