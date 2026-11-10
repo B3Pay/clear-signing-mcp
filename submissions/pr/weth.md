@@ -80,7 +80,16 @@ On the registry at `ef582c2`, with the tools its CI pins:
 - Schemas (check-jsonschema 0.38.0): pass.
 - `generate-index.js --validate`: no deployment is claimed twice.
 - `erc7730 lint --require-verified` (python-erc7730 `ccd51ad`, ABIs from
-  Sourcify): CI_RESULT_LINT
+  Sourcify): no errors, so Sourcify has verified source for every
+  deployment, and the three WETH9 deployments expose the same functions.
+  The warnings are all "Missing display format", for the functions left
+  out: `approve`, `transfer` and `transferFrom` in `calldata-weth.json`, as
+  on mainnet today, and in `calldata-aeWETH.json` those three and 14 more:
+  `depositTo` and `withdrawTo` (above), `permit`, `increaseAllowance`,
+  `decreaseAllowance`, `transferAndCall`, the bridge's `bridgeMint` and
+  `bridgeBurn`, `initialize`, and the proxy's five admin functions.
 - `check-selector-coverage.js`: every format has a test case.
-- Sourcify runner `277965d`: 8 of 8 cases pass. Rust runner `8bfe6b4`:
-  CI_RESULT_RUST
+- Sourcify runner `277965d` and Rust runner `8bfe6b4`: 8 of 8 cases pass.
+- `check-recommended-fields.js` suggests an `interpolatedIntent` for the
+  four Wrap and Unwrap formats. They are kept as `calldata-weth.json` has
+  them on mainnet, so the screens are the same on every chain.

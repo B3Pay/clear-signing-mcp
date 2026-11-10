@@ -50,8 +50,10 @@ From the Permit2 source (`AllowanceTransfer.sol`, `SignatureTransfer.sol`,
 
 - `approve(token, spender, amount, expiration)`: "Authorize {spender} to
   spend {amount}", then Spender, Amount allowance, Token and Approval
-  expires. The intent and labels are those of the `PermitSingle` screen in
-  `eip712-uniswap-permit2.json`, which sets the same allowance by signature.
+  expires. The intent, "Authorize spending of token", and the labels
+  Spender, Amount allowance and Approval expires are those of the
+  `PermitSingle` screen in `eip712-uniswap-permit2.json`, which sets the same
+  allowance by signature; Token is shown because the call names it.
   The call replaces the caller's allowance for `token` and `spender` with
   `amount` and `expiration`. `transferFrom` never decrements an allowance of
   `type(uint160).max`, so that amount shows as "Unlimited" (the 40-digit
@@ -105,7 +107,22 @@ On the registry at `ef582c2`, with the tools its CI pins:
 - Schemas (check-jsonschema 0.38.0): pass.
 - `generate-index.js --validate`: no deployment is claimed twice.
 - `erc7730 lint --require-verified` (python-erc7730 `ccd51ad`, ABIs from
-  Sourcify): CI_RESULT_LINT
+  Sourcify): no errors, so Sourcify has verified source for all four
+  deployments. Ten warnings:
+  - "Missing display format" for the eight functions left out (Scope).
+  - "Display intent too long": `Authorize {spender} to spend {amount}` is
+    over Ledger's 30 characters, as are 441 of the 775 interpolated intents
+    in the registry's v2 calldata descriptors.
+  - "Missing display field" for `#.approvals.[]` in `lockdown`. The linter
+    counts an array of tuples as a path of its own, so a screen that shows
+    each member, here Token and Spender of each pair, still gets it. Run on
+    the format signatures of the files already in the registry, its path
+    check finds the same in 86 formats of 25 files, Safe's
+    `calldata-BatchExecutor.json` and Seaport 1.6 among them.
 - `check-selector-coverage.js`: every format has a test case.
-- Sourcify runner `277965d`: 13 of 13 cases pass. Rust runner `8bfe6b4`:
-  CI_RESULT_RUST
+- Sourcify runner `277965d` and Rust runner `8bfe6b4`: 13 of 13 cases pass.
+- `check-recommended-fields.js` suggests an `interpolatedIntent` for
+  `lockdown`, `invalidateNonces` and `invalidateUnorderedNonces`, which have
+  none: `lockdown` shows a list of pairs, and `invalidateUnorderedNonces`
+  hides its two values. `invalidateNonces` could have one, and shows its
+  token, spender and nonce as fields instead.

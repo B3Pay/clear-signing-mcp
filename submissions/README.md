@@ -67,7 +67,9 @@ machine that cannot reach chainid.network.
 over a scratch clone of the registry, with the tools the registry pins.
 `tools/verify-txs.mjs` reads every test's transaction back from its chain over
 public RPCs and compares it with the test's `rawTx`: chain, sender nonce,
-target, value and calldata, and that it succeeded.
+target, value and calldata, and that it succeeded. Public endpoints are full
+nodes that prune old receipts, so for an older transaction the status comes
+from the chain's Blockscout, and the result says so.
 
 The `Registry submission checks` workflow runs both on every change here,
 against the registry's latest commit: the linter against live Sourcify, both
