@@ -28,6 +28,11 @@ read on 2026-11-06 from the SQD Network portal:
 The rest are the ERC-20 `approve` and `transfer`, which `calldata-weth.json`
 leaves out on mainnet as well.
 
+#3208, opened on 2026-11-11, adds `approve`, `transfer` and interpolated
+intents to `calldata-weth.json`. This pull request changes only that file's
+deployments and adds tests, so the two do not depend on each other. If #3208
+merges first, this one will be rebased onto it.
+
 ## OP Mainnet and Base
 
 `0x4200…0006` is the OP Stack's WETH9 predeploy. Sourcify has its source
@@ -75,7 +80,8 @@ sender nonce, target, value and calldata), and each transaction succeeded.
 
 ## Checks
 
-On the registry at `ef582c2`, with the tools its CI pins:
+On the registry at `3bebbd0`, its latest commit on 2026-11-13, with the tools
+its CI pins:
 
 - Schemas (check-jsonschema 0.38.0): pass.
 - `generate-index.js --validate`: no deployment is claimed twice.

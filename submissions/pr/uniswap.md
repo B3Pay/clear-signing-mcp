@@ -102,7 +102,8 @@ succeeded.
 
 ## Checks
 
-On the registry at `ef582c2`, with the tools its CI pins:
+On the registry at `3bebbd0`, its latest commit on 2026-11-13, with the tools
+its CI pins:
 
 - Schemas (check-jsonschema 0.38.0): pass.
 - `generate-index.js --validate`: no deployment is claimed twice.
@@ -111,13 +112,13 @@ On the registry at `ef582c2`, with the tools its CI pins:
   deployments. Ten warnings:
   - "Missing display format" for the eight functions left out (Scope).
   - "Display intent too long": `Authorize {spender} to spend {amount}` is
-    over Ledger's 30 characters, as are 441 of the 775 interpolated intents
+    over Ledger's 30 characters, as are 495 of the 838 interpolated intents
     in the registry's v2 calldata descriptors.
   - "Missing display field" for `#.approvals.[]` in `lockdown`. The linter
     counts an array of tuples as a path of its own, so a screen that shows
     each member, here Token and Spender of each pair, still gets it. Run on
-    the format signatures of the files already in the registry, its path
-    check finds the same in 86 formats of 25 files, Safe's
+    the format signatures of the files in the registry at `ef582c2`, its
+    path check finds the same in 86 formats of 25 files, Safe's
     `calldata-BatchExecutor.json` and Seaport 1.6 among them.
 - `check-selector-coverage.js`: every format has a test case.
 - Sourcify runner `277965d` and Rust runner `8bfe6b4`: 13 of 13 cases pass.
