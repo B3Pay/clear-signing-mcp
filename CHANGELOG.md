@@ -21,23 +21,30 @@
   left out, and their protocol's notes say why.
 
 - Registry submissions (`submissions/`): WETH on OP Mainnet, Base and Arbitrum
-  One, Permit2 on Ethereum, OP Mainnet, Base and Arbitrum One, Aero's
-  Slipstream SwapRouter and NonfungiblePositionManager on the same four
-  chains, PancakeSwap's Smart Router on Ethereum, Base and Arbitrum One, the
-  OpenOcean Exchange on Ethereum, OP Mainnet, Base and Arbitrum One, and the
-  ETH deposits of Across's SpokePoolPeriphery on Ethereum, Base and Arbitrum
-  One, finished by hand from the tracker's drafts, with 66 new test cases made
-  from real transactions (4 of them a batch's action sent alone) and the text
-  of each registry pull request. `check.sh` runs the registry's pull-request
-  checks on them with the tools it pins, `verify-txs.mjs` reads every test
-  transaction back from its chain, `multicall-actions.mjs` counts the actions
-  in each contract's latest batch calls, `must-match.mjs` counts the latest
-  calls that a descriptor's `mustMatch` fields refuse, `verified-sources.mjs`
-  compares the source Sourcify has verified at each deployment of a
-  descriptor, through its proxy, and the `Registry submission checks` and
-  `Registry submission batches` workflows run all five, with the Rust test
-  runner and the linter against live Sourcify, then require that a deliberate
-  fault is caught.
+  One, Permit2 on Ethereum, OP Mainnet, Base and Arbitrum One, Aero's Slipstream
+  SwapRouter and NonfungiblePositionManager on the same four chains,
+  PancakeSwap's Smart Router on Ethereum, Base and Arbitrum One, the OpenOcean
+  Exchange on Ethereum, OP Mainnet, Base and Arbitrum One, the ETH deposits of
+  Across's SpokePoolPeriphery on Ethereum, Base and Arbitrum One, deBridge's
+  DlnSource orders on Ethereum and Base, and the swaps of deBridge's router on
+  Ethereum, OP Mainnet, Base and Arbitrum One, and its swaps that create a
+  DlnSource order on Ethereum and Base, finished by hand from the tracker's
+  drafts, with 84 new test cases made from real transactions (4 of them a
+  batch's action sent alone) and the text of each registry pull request, with
+  the latest real calls each descriptor refuses. `check.sh` runs the registry's
+  pull-request checks on them with the tools it pins, and lets through only the
+  "not verified" errors of the deployments that `UNVERIFIED` lists as waiting
+  for their owner to verify them on Sourcify (`lint-verdict.mjs`),
+  `verify-txs.mjs` reads every test transaction back from its chain,
+  `multicall-actions.mjs` counts the actions in each contract's latest batch
+  calls, `must-match.mjs` counts the latest calls that a descriptor's
+  `mustMatch` fields refuse and who sent them, `dln-orders.mjs` reads what
+  deBridge's latest DLN orders carry and picks real ones to test with,
+  `verified-sources.mjs` compares the source Sourcify has verified at each
+  deployment of a descriptor, through its proxy, and the
+  `Registry submission checks` and `Registry submission batches` workflows run
+  all six, with the Rust test runner and the linter against live Sourcify, then
+  require that a deliberate fault is caught.
 
 - The tracker's report names a real call for each of a contract's
   most-called functions (`exampleTx`): the newest transaction in its kept

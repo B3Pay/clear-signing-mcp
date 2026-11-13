@@ -17,19 +17,21 @@ these.
 | `cases/`        | For each test file, the real transactions its tests are made from                                                              |
 | `pr/`           | The title and text of each registry pull request                                                                               |
 | `REGISTRY_BASE` | The registry commit that copies of files the registry already has were made from                                               |
+| `UNVERIFIED`    | The deployments of submitted files that Sourcify has not verified, which wait for their owner to verify them there             |
 | `tools/`        | The scripts below                                                                                                              |
 
 ## Status
 
-| Registry pull request                                                                                                | Files                                                                                                                                                        | New deployments | Tests    | State                                                                      |
-| -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | -------- | -------------------------------------------------------------------------- |
-| [weth: WETH on OP Mainnet, Base and Arbitrum One](pr/weth.md)                                                        | `weth/calldata-weth.json` (two deployments added), `weth/calldata-aeWETH.json` (new)                                                                         | 3               | 8, 6 new | Branch `weth-op-base-arbitrum` on the fork; pull request not opened yet    |
-| [uniswap: Permit2 on Ethereum, OP Mainnet, Base, Arbitrum One](pr/uniswap.md)                                        | `uniswap/calldata-Permit2.json` (new)                                                                                                                        | 4               | 13       | Branch `uniswap-permit2-calldata` on the fork; pull request not opened yet |
-| [aero: Slipstream SwapRouter and NonfungiblePositionManager on Ethereum, OP Mainnet, Base, Arbitrum One](pr/aero.md) | `aero/calldata-SwapRouter.json`, `aero/calldata-NonfungiblePositionManager.json` (new)                                                                       | 8               | 19       | Ready; not submitted                                                       |
-| [pancakeswap: Smart Router on Ethereum, Base, Arbitrum One](pr/pancakeswap.md)                                       | `pancakeswap/calldata-SmartRouter.json` (new)                                                                                                                | 3               | 15       | Ready; not submitted                                                       |
-| [openocean: OpenOcean Exchange on Ethereum, OP Mainnet, Base, Arbitrum One](pr/openocean.md)                         | `openocean/calldata-OpenOceanExchange.json` (new)                                                                                                            | 4               | 9        | Ready but for the count of refused calls; not submitted                    |
-| [across: SpokePoolPeriphery's ETH deposits on Ethereum, Base, Arbitrum One](pr/across.md)                            | `across/calldata-Ethereum_SpokePoolPeriphery.json`, `across/calldata-Base_SpokePoolPeriphery.json`, `across/calldata-Arbitrum_SpokePoolPeriphery.json` (new) | 3               | 4        | Ready but for the count of refused calls; not submitted                    |
-| debridge: DlnSource on Ethereum and Base                                                                             | `debridge/calldata-DlnSource.json` (new)                                                                                                                     | 2               | 4        | Draft: tests and text in progress                                          |
+| Registry pull request                                                                                                | Files                                                                                                                                                        | New deployments | Tests    | State                                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| [weth: WETH on OP Mainnet, Base and Arbitrum One](pr/weth.md)                                                        | `weth/calldata-weth.json` (two deployments added), `weth/calldata-aeWETH.json` (new)                                                                         | 3               | 8, 6 new | Branch `weth-op-base-arbitrum` on the fork; pull request not opened yet                                                                    |
+| [uniswap: Permit2 on Ethereum, OP Mainnet, Base, Arbitrum One](pr/uniswap.md)                                        | `uniswap/calldata-Permit2.json` (new)                                                                                                                        | 4               | 13       | Branch `uniswap-permit2-calldata` on the fork; pull request not opened yet                                                                 |
+| [aero: Slipstream SwapRouter and NonfungiblePositionManager on Ethereum, OP Mainnet, Base, Arbitrum One](pr/aero.md) | `aero/calldata-SwapRouter.json`, `aero/calldata-NonfungiblePositionManager.json` (new)                                                                       | 8               | 19       | Ready; not submitted                                                                                                                       |
+| [pancakeswap: Smart Router on Ethereum, Base, Arbitrum One](pr/pancakeswap.md)                                       | `pancakeswap/calldata-SmartRouter.json` (new)                                                                                                                | 3               | 15       | Ready; not submitted                                                                                                                       |
+| [openocean: OpenOcean Exchange on Ethereum, OP Mainnet, Base, Arbitrum One](pr/openocean.md)                         | `openocean/calldata-OpenOceanExchange.json` (new)                                                                                                            | 4               | 9        | Ready; not submitted                                                                                                                       |
+| [across: SpokePoolPeriphery's ETH deposits on Ethereum, Base, Arbitrum One](pr/across.md)                            | `across/calldata-Ethereum_SpokePoolPeriphery.json`, `across/calldata-Base_SpokePoolPeriphery.json`, `across/calldata-Arbitrum_SpokePoolPeriphery.json` (new) | 3               | 4        | Ready; not submitted                                                                                                                       |
+| [debridge: DlnSource on Ethereum and Base](pr/debridge.md)                                                           | `debridge/calldata-DlnSource.json` (new)                                                                                                                     | 2               | 9        | Ready; not submitted                                                                                                                       |
+| [debridge: DeBridgeRouter on Ethereum, OP Mainnet, Base, Arbitrum One](pr/debridge-router.md)                        | `debridge/calldata-DeBridgeRouter.json` (new)                                                                                                                | 4               | 9        | Waits for Sourcify to verify its implementation on Ethereum, Base and Arbitrum One (`UNVERIFIED`), then follows DlnSource's; not submitted |
 
 ## The registry's process
 
@@ -91,10 +93,18 @@ over a scratch clone of the registry, with the tools the registry pins.
 public RPCs and compares it with the test's `rawTx`: chain, sender nonce,
 target, value and calldata, and that it succeeded. Public endpoints are full
 nodes that prune old receipts, so for an older transaction the status comes
-from the chain's Blockscout, and the result says so. A test that is a batch
-action sent alone is checked against its batch: the batch succeeded, has the
-test's chain, sender nonce and target, and that action is the test's
-calldata.
+from the chain's Blockscout, from its API v2 and its lighter Etherscan-style
+status call asked together, which must agree when both answer, and the result
+says which answered. A test that is a batch action sent alone is checked
+against its batch: the batch succeeded, has the test's chain, sender nonce and
+target, and that action is the test's calldata.
+
+The registry's linter fails a deployment that Sourcify has not verified, so a
+descriptor with one is not submitted until its owner verifies it there. Such a
+deployment is listed in `UNVERIFIED`, and `check.sh` lets its "not verified"
+error through, and no other error (`tools/lint-verdict.mjs`); the result names
+each listed deployment as waiting, or as verified since it was listed, to be
+taken off the list.
 
 `tools/multicall-actions.mjs` reads, from the SQD Network portal, the latest
 successful batch calls (`multicall`) to each submitted contract that has one,
@@ -104,10 +114,11 @@ pull request text states.
 
 `tools/must-match.mjs` reads, from the same portal, the latest successful
 calls of each function whose format has a `mustMatch` field, and counts the
-calls that the descriptor refuses and the values that make it refuse them. A
-`mustMatch` field lets a wallet clear sign a call only when the field holds one
-of the listed values, so these are the real calls that get an error instead of
-a screen.
+calls that the descriptor refuses and the values that make it refuse them,
+whether the field is the call's or the transaction's, like its chain
+(`@.chainId`). A `mustMatch` field lets a wallet clear sign a call only when
+the field holds one of the listed values, so these are the real calls that get
+an error instead of a screen.
 
 `tools/dln-orders.mjs` reads, from the same portal, the latest orders created
 at deBridge's DlnSource on each chain, for the deBridge draft being finished:

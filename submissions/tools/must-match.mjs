@@ -70,9 +70,13 @@ function mustMatchFields(fields, prefix = "") {
 }
 
 // The values a path names in a decoded call: one, or one per element under
-// "[]". null when the path is not one this tool reads.
-function valuesAt(path, fn, args, tx) {
+// "[]". null when the path is not one this tool reads. A path under "@." is
+// the transaction's: its value, chain, target or sender.
+function valuesAt(path, fn, args, tx, chainId, address) {
   if (path === "@.value") return [BigInt(tx.value ?? 0)]
+  if (path === "@.chainId") return [BigInt(chainId)]
+  if (path === "@.to") return [address]
+  if (path === "@.from") return [tx.from]
   if (path.startsWith("@.")) return null
   const [name, ...rest] = path.replace(/^#\./, "").split(".")
   const index = fn.inputs.findIndex((input) => input.name === name)
@@ -194,7 +198,8 @@ for (const path of descriptors) {
         }
         let refuses = args === null
         for (const { path: field, list } of checks) {
-          const found = args === null ? [] : valuesAt(field, fn, args, tx)
+          const found =
+            args === null ? [] : valuesAt(field, fn, args, tx, chainId, address)
           if (found === null) {
             unread.add(field)
             continue

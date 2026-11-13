@@ -1,0 +1,112 @@
+{
+  "$schema": "../../specs/erc7730-v2.schema.json",
+  "context": {
+    "contract": {
+      "deployments": [
+        { "chainId": 1, "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251" },
+        { "chainId": 10, "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251" },
+        { "chainId": 8453, "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251" },
+        { "chainId": 42161, "address": "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251" }
+      ]
+    }
+  },
+  "metadata": { "owner": "deBridge", "contractName": "DeBridgeRouter", "info": { "url": "https://debridge.finance/" } },
+  "display": {
+    "formats": {
+      "strictlySwapAndCall(address _srcTokenIn,uint256 _srcAmountIn,bytes _srcTokenInPermitEnvelope,address _srcSwapRouter,bytes _srcSwapCalldata,address _srcTokenOut,uint256 _srcTokenExpectedAmountOut,address _srcTokenRefundRecipient,address _target,bytes _targetData)": {
+        "intent": "Swap and bridge",
+        "interpolatedIntent": "Swap {_srcAmountIn} for {_srcTokenExpectedAmountOut} and bridge it",
+        "fields": [
+          {
+            "path": "_srcAmountIn",
+            "label": "Amount to Swap",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "_srcTokenIn", "nativeCurrencyAddress": ["0x0000000000000000000000000000000000000000"] }
+          },
+          {
+            "path": "_srcTokenExpectedAmountOut",
+            "label": "Swap Output",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "_srcTokenOut", "nativeCurrencyAddress": ["0x0000000000000000000000000000000000000000"] }
+          },
+          {
+            "path": "_srcTokenRefundRecipient",
+            "label": "Swap Surplus To",
+            "format": "addressName",
+            "params": { "types": ["eoa", "wallet", "contract"], "sources": ["local", "ens"] }
+          },
+          {
+            "path": "_targetData",
+            "label": "Bridge Order",
+            "format": "calldata",
+            "params": { "calleePath": "_target", "amountPath": "@.value" }
+          },
+          {
+            "path": "_target",
+            "label": "Order Contract",
+            "format": "raw",
+            "visible": { "mustMatch": ["0xeF4fB24aD0916217251F553c0596F8Edc630EB66"] }
+          },
+          { "path": "@.chainId", "label": "Chain", "format": "raw", "visible": { "mustMatch": [1, 8453] } },
+          { "path": "_srcTokenInPermitEnvelope", "label": "Permit Envelope", "visible": "never" },
+          { "path": "_srcSwapRouter", "label": "Swap Router", "visible": "never" },
+          { "path": "_srcSwapCalldata", "label": "Swap Calldata", "visible": "never" }
+        ]
+      },
+      "swap(address _tokenIn,uint256 _amountIn,bytes _tokenInPermitEnvelope,(address allowanceAggregator,address swapRouter,bytes swapCalldata,address tokenOut,uint256 tokenOutMinAmount,uint16 surplusShareBps,bytes affiliateFeeEnvelope,address recipient) _swapDetails,uint32 _referralCode)": {
+        "intent": "Swap",
+        "interpolatedIntent": "Swap {_amountIn} for at least {_swapDetails.tokenOutMinAmount}",
+        "fields": [
+          {
+            "path": "_amountIn",
+            "label": "Amount to Swap",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "_tokenIn", "nativeCurrencyAddress": ["0x0000000000000000000000000000000000000000"] }
+          },
+          {
+            "path": "_swapDetails.tokenOutMinAmount",
+            "label": "Minimum to Receive",
+            "format": "tokenAmount",
+            "params": { "tokenPath": "_swapDetails.tokenOut", "nativeCurrencyAddress": ["0x0000000000000000000000000000000000000000"] }
+          },
+          {
+            "path": "_swapDetails.recipient",
+            "label": "Recipient",
+            "format": "addressName",
+            "params": {
+              "types": ["eoa", "wallet", "contract"],
+              "sources": ["local", "ens"],
+              "senderAddress": ["0x0000000000000000000000000000000000000000"]
+            }
+          },
+          {
+            "path": "_swapDetails.affiliateFeeEnvelope.[0:2]",
+            "label": "Affiliate Fee",
+            "format": "unit",
+            "params": { "base": "%", "decimals": 2 },
+            "visible": { "ifNotIn": [0] }
+          },
+          {
+            "path": "_swapDetails.affiliateFeeEnvelope.[2:22]",
+            "label": "Affiliate Fee To",
+            "format": "addressName",
+            "params": { "types": ["eoa", "wallet", "contract"], "sources": ["local", "ens"] },
+            "visible": { "ifNotIn": ["0x"] }
+          },
+          {
+            "path": "_swapDetails.surplusShareBps",
+            "label": "Recipient's Surplus",
+            "format": "unit",
+            "params": { "base": "%", "decimals": 2 },
+            "visible": { "ifNotIn": [10000] }
+          },
+          { "path": "_tokenInPermitEnvelope", "label": "Permit Envelope", "visible": "never" },
+          { "path": "_swapDetails.allowanceAggregator", "label": "Allowance Aggregator", "visible": "never" },
+          { "path": "_swapDetails.swapRouter", "label": "Swap Router", "visible": "never" },
+          { "path": "_swapDetails.swapCalldata", "label": "Swap Calldata", "visible": "never" },
+          { "path": "_referralCode", "label": "Referral Code", "visible": "never" }
+        ]
+      }
+    }
+  }
+}

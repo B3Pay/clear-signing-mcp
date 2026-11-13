@@ -81,8 +81,8 @@ of `calldata-UniswapV3Router02.json` as #3146 left it.
 - Both require `sqrtPriceLimitX96` to be 0 (`mustMatch`), as #3146 did: with a
   limit, a swap can stop at the limit price, and `exactOutputSingle` checks
   that it delivered `amountOut` only when the limit is 0
-  (`exactOutputInternal`). A call with a limit gets a warning instead of a
-  clean screen.
+  (`exactOutputInternal`). A call with a limit is refused: a wallet shows an
+  error instead of its screen (Refused calls).
 - Pool Fee is the pool's fee tier in hundredths of a basis point, shown as a
   percentage, as Uniswap's file shows its fee.
 - The router reads `address(1)` as the caller and `address(2)` as itself
@@ -136,6 +136,26 @@ which covers hours to days:
 Every action has a format in 17 of these 19 batches. The other 2, from one
 sender, swap with `exactOutput`, which is left out (Scope), so a wallet cannot
 show them whole.
+
+## Refused calls
+
+Measured by the `Registry submission batches` workflow (`must-match.mjs`) on
+2026-11-10, from the SQD Network portal: the latest successful single swaps
+sent to the router itself, not as a batch's action, up to 200 on each chain.
+The price limit refuses nearly all of them on Base and none elsewhere:
+
+| Function            | Chain        | Calls read (senders) | From (UTC)       | Refused     | Refused calls by sender |
+| ------------------- | ------------ | -------------------- | ---------------- | ----------- | ----------------------- |
+| `exactInputSingle`  | Ethereum     | 2 (1)                | 2026-11-10 00:40 | none        |                         |
+| `exactInputSingle`  | Base         | 200 (5)              | 2026-11-10 13:36 | 199 (99.5%) | 128, 53, 16 and 2       |
+| `exactInputSingle`  | Arbitrum One | 2 (1)                | 2026-11-04 18:18 | none        |                         |
+| `exactOutputSingle` | Ethereum     | none                 | 2026-11-10 00:46 |             |                         |
+| `exactOutputSingle` | Base         | 200 (5)              | 2026-11-10 13:39 | 199 (99.5%) | 135, 53, 10 and 1       |
+| `exactOutputSingle` | Arbitrum One | none                 | 2026-11-04 18:25 |             |                         |
+
+Each span ends between 13:42 and 13:55 UTC on 2026-11-10. On Base the 200
+calls of each function came in 12 and 16 minutes, with 300 and 415 more that
+failed in the blocks read.
 
 ## Tests
 

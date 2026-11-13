@@ -52,33 +52,72 @@ const BLOCKSCOUT = {
   42161: "https://arbitrum.blockscout.com",
 }
 
-// Whether Blockscout records the transaction as mined and successful. An
-// answer of 429 or 5xx, or none, is asked again four times, after 5, 15, 30
-// and 60 seconds. eth.blockscout.com has answered 500 for minutes at a time,
-// and on 2026-11-10 it answered 500 three times in 20 seconds for a
-// transaction it answered for seconds later.
-async function blockscoutSucceeded(chainId, hash) {
+// Whether Blockscout records the transaction as mined and successful, from
+// two of its APIs asked together: API v2, and the lighter Etherscan-style
+// receipt status call. When both answer they must agree; when neither does,
+// an answer of 429 or 5xx, or none, is asked again four times, after 5, 15,
+// 30 and 60 seconds. eth.blockscout.com has answered 500 for minutes at a
+// time: on 2026-11-10 its API v2 answered 500 three times in 20 seconds for a
+// transaction it answered for seconds later, and five times in two and a half
+// minutes for another.
+const BLOCKSCOUT_ASKS = [
+  {
+    name: "API v2",
+    path: (hash) => `/api/v2/transactions/${hash}`,
+    read: (body) => body.status === "ok" && body.result === "success",
+  },
+  {
+    name: "status call",
+    path: (hash) =>
+      `/api?module=transaction&action=gettxreceiptstatus&txhash=${hash}`,
+    read: (body) => {
+      if (body.result?.status === "1") return true
+      if (body.result?.status === "0") return false
+      throw new Error(body.message ?? "no receipt status")
+    },
+  },
+]
+
+async function blockscoutStatus(chainId, hash) {
   const base = BLOCKSCOUT[chainId]
   if (!base) throw new Error(`no Blockscout for chain ${chainId}`)
-  let last
+  const failures = new Map()
+  const retried = new Set(BLOCKSCOUT_ASKS)
   for (const wait of [0, 5_000, 15_000, 30_000, 60_000]) {
+    if (retried.size === 0) break
     if (wait > 0) await sleep(wait)
-    try {
-      const response = await fetch(`${base}/api/v2/transactions/${hash}`, {
-        headers: { accept: "application/json" },
-        signal: AbortSignal.timeout(20_000),
+    const answers = new Map()
+    await Promise.all(
+      [...retried].map(async (ask) => {
+        try {
+          const response = await fetch(base + ask.path(hash), {
+            headers: { accept: "application/json" },
+            signal: AbortSignal.timeout(20_000),
+          })
+          if (response.ok) {
+            answers.set(ask.name, ask.read(await response.json()))
+            return
+          }
+          failures.set(ask.name, `HTTP ${response.status}`)
+          if (response.status !== 429 && response.status < 500)
+            retried.delete(ask)
+        } catch (error) {
+          failures.set(ask.name, error.message)
+        }
       })
-      if (response.ok) {
-        const body = await response.json()
-        return body.status === "ok" && body.result === "success"
-      }
-      last = new Error(`Blockscout: HTTP ${response.status}`)
-      if (response.status !== 429 && response.status < 500) break
-    } catch (error) {
-      last = new Error(`Blockscout: ${error.message}`)
+    )
+    if (answers.size > 0) {
+      const said = new Set(answers.values())
+      if (said.size > 1)
+        throw new Error(
+          `Blockscout's ${[...answers.keys()].join(" and ")} disagree`
+        )
+      return { succeeded: [...said][0], from: [...answers.keys()] }
     }
   }
-  throw last
+  throw new Error(
+    `Blockscout: ${[...failures].map(([name, why]) => `${name} ${why}`).join(", ")}`
+  )
 }
 
 function endpoints(chainId) {
@@ -144,13 +183,14 @@ async function checkStatus(chainId, hash, mined, receipt, problems, notes) {
   else if (!receipt) {
     const block = Number(mined.blockNumber)
     try {
-      if (await blockscoutSucceeded(chainId, hash))
+      const { succeeded, from } = await blockscoutStatus(chainId, hash)
+      if (succeeded)
         notes.push(
-          `block ${block}: status from Blockscout, the RPC endpoints have pruned its receipt`
+          `block ${block}: status from Blockscout's ${from.join(" and ")}, the RPC endpoints have pruned its receipt`
         )
       else
         problems.push(
-          `block ${block}: Blockscout does not record it as successful`
+          `block ${block}: Blockscout does not record it as successful (its ${from.join(" and ")})`
         )
     } catch (error) {
       problems.push(

@@ -129,9 +129,17 @@ jobs:
         run: node submissions/tools/verify-txs.mjs
 
       # A check seen only passing proves nothing. Run them again with one
-      # expected value changed, two transaction hashes swapped and a batch
-      # action sent alone named as another action of its batch, and require
-      # that both runners and the transaction check report exactly those.
+      # expected value changed, two transaction hashes swapped, a batch action
+      # sent alone named as another action of its batch, a deployment that
+      # Sourcify has not verified and submissions/UNVERIFIED does not list
+      # added to the router's descriptor, and one of the router's swaps then
+      # bridges moved to OP Mainnet, where its screen must be refused, and
+      # require that both runners, the transaction check and the linter check
+      # report exactly those.
+      # The transaction check reads only the three faulted tests again: the
+      # step above has read every test, and reading the rest again made this
+      # step fail on the first run of #6's checks, when Blockscout answered
+      # for an unchanged test only with timeouts and HTTP 500.
       - name: The checks catch a deliberate fault
         run: |
           fault="$RUNNER_TEMP/fault"
@@ -149,11 +157,11 @@ jobs:
             fs.writeFileSync(wrongValue, JSON.stringify(a, null, 2))
             const b = read()
             ;[b.tests[0].txHash, b.tests[1].txHash] = [b.tests[1].txHash, b.tests[0].txHash]
+            b.tests = b.tests.slice(0, 2)
             fs.writeFileSync(swappedHashes, JSON.stringify(b, null, 2))
           ' "submissions/registry/$file" "$fault/submissions/registry/$file" "$fault/txs/$file"
           wanted=$(node -e 'console.log(require(process.argv[1]).tests[0].description)' "$PWD/submissions/registry/$file")
           lifted=pancakeswap/testsv2/calldata-SmartRouter.tests.json
-          cp "submissions/registry/$lifted" "$fault/txs/$lifted"
           moved=$(node -e '
             const fs = require("fs")
             const file = process.argv[1]
@@ -163,6 +171,33 @@ jobs:
             fs.writeFileSync(file, JSON.stringify(cases, null, 2))
             console.log(c.description)
           ' "$fault/submissions/cases/pancakeswap/calldata-SmartRouter.cases.json")
+          node -e '
+            const fs = require("fs")
+            const [from, to, description] = process.argv.slice(1)
+            const file = JSON.parse(fs.readFileSync(from, "utf8"))
+            file.tests = file.tests.filter((t) => t.description === description)
+            if (file.tests.length !== 1) throw new Error(`not one test named ${description}`)
+            fs.writeFileSync(to, JSON.stringify(file, null, 2))
+          ' "submissions/registry/$lifted" "$fault/txs/$lifted" "$moved"
+          router=debridge/calldata-DeBridgeRouter.json
+          dead=0x000000000000000000000000000000000000dEaD
+          node -e '
+            const fs = require("fs")
+            const [file, address] = process.argv.slice(1)
+            const d = JSON.parse(fs.readFileSync(file, "utf8"))
+            d.context.contract.deployments.push({ chainId: 1, address })
+            fs.writeFileSync(file, JSON.stringify(d, null, 2))
+          ' "$fault/submissions/registry/$router" "$dead"
+          chained=$(node -e '
+            const fs = require("fs")
+            const { parseTransaction, serializeTransaction } = require("viem")
+            const file = process.argv[1]
+            const cases = JSON.parse(fs.readFileSync(file, "utf8"))
+            const c = cases.tests.find((t) => / and bridge it .* - chain 8453$/.test(t.description))
+            c.rawTx = serializeTransaction({ ...parseTransaction(c.rawTx), chainId: 10 })
+            fs.writeFileSync(file, JSON.stringify(cases, null, 2))
+            console.log(c.description)
+          ' "$fault/submissions/registry/debridge/testsv2/calldata-DeBridgeRouter.tests.json")
 
           set +e
           GITHUB_STEP_SUMMARY="" bash "$fault/submissions/tools/check.sh" --registry "$RUNNER_TEMP/registry" \
@@ -179,7 +214,14 @@ jobs:
           grep -q "❌ sourcify runner" "$fault/check.log" || { echo "::error::The Sourcify runner missed the wrong expected value"; ok=0; }
           grep -q "❌ rust runner" "$fault/check.log" || { echo "::error::The Rust runner missed the wrong expected value"; ok=0; }
           [ "$(grep -c "^   $wanted:" "$fault/check.log")" -eq 2 ] || { echo "::error::The runners did not both name the changed case, $wanted"; ok=0; }
+          [ "$(grep -F "   $chained: " "$fault/check.log" | grep -F "'Chain'" | grep -ci "mustmatch")" -eq 2 ] \
+            || { echo "::error::The runners did not both refuse the router's swap then bridge on OP Mainnet, $chained"; ok=0; }
+          lint=$(grep "❌ Descriptors pass the ERC-7730 linter" "$fault/check.log" || true)
+          grep -qi "registry/$router: Contract not verified: contract $dead on chain 1 " <<< "$lint" \
+            && ! grep -qi "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251" <<< "$lint" \
+            || { echo "::error::The linter check did not fail for the unlisted deployment $dead alone"; ok=0; }
           [ "$txs" -ne 0 ] && [ "$(grep -c '❌' "$fault/txs.log")" -eq 3 ] \
+            && [ "$(grep -c "❌ $file: .*calldata differs" "$fault/txs.log")" -eq 2 ] \
             && grep -q "❌ $lifted: $moved: the calldata is not action" "$fault/txs.log" \
             || { echo "::error::verify-txs did not report exactly the two swapped hashes and the moved batch action, $moved"; ok=0; }
           [ "$ok" -eq 1 ]
@@ -263,6 +305,8 @@ jobs:
           # The DLN contracts and deBridge's router, at one address on each
           # chain (dln-contracts' README; the router from deBridge's
           # dln-client), whatever Sourcify has verified behind their proxies.
+          # Sourcify has the router's implementation from OP Mainnet only, so
+          # its code is printed from there.
           deployments() {
             node -e 'console.log(JSON.stringify({ context: { contract: { deployments:
               [1, 10, 8453, 42161].map((chainId) => ({ chainId, address: process.argv[1] })) } } }))' "$1"
@@ -274,4 +318,54 @@ jobs:
             --print DlnSource.sol --print DlnOrderLib.sol --print DlnBase.sol
           node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DlnDestination.json" \
             --print DlnDestination.sol
-          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DeBridgeRouter.json"
+          node submissions/tools/verified-sources.mjs "$RUNNER_TEMP/calldata-DeBridgeRouter.json" --files \
+            --print DeBridgeRouter.sol --print DeBridgeRouterBase.sol --print Permit.sol --print SignatureUtil.sol
+
+      - name: deBridge's router settings
+        run: |
+          # What the router's screens depend on, read from each chain: its
+          # version, its fee treasury and swap fee, its DlnDestination,
+          # whether DlnSource is a target it may call, and whether its fee
+          # treasury and 0x502ea3d9…, which every sampled strictlySwapAndCall
+          # names as the swap's refund recipient, are contracts. Then the
+          # implementation and admin in the proxy's EIP-1967 slots, and the
+          # SHA-256 of the implementation's code: the same on every chain
+          # means the code Sourcify has verified on OP Mainnet is the code
+          # the other chains run.
+          node --input-type=module -e '
+            const rpc = { 1: "https://ethereum-rpc.publicnode.com", 10: "https://optimism-rpc.publicnode.com",
+              8453: "https://base-rpc.publicnode.com", 42161: "https://arbitrum-one-rpc.publicnode.com" }
+            const router = "0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251"
+            const dlnSource = "0xeF4fB24aD0916217251F553c0596F8Edc630EB66"
+            const refund = "0x502ea3d95122b5914850E7A4A4CB9e96cF75A35f"
+            async function ask(chainId, method, params) {
+              const answer = await fetch(rpc[chainId], { method: "POST", headers: { "content-type": "application/json" },
+                body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }) })
+              const { result, error } = await answer.json()
+              if (result === undefined) throw new Error(`chain ${chainId}, ${method}: ${JSON.stringify(error)}`)
+              return result
+            }
+            const call = (chainId, data) => ask(chainId, "eth_call", [{ to: router, data }, "latest"])
+            const word = (hex, i = 0) => hex.slice(2 + 64 * i, 2 + 64 * (i + 1))
+            const address = (hex, i = 0) => "0x" + word(hex, i).slice(24)
+            const code = async (chainId, a) => ((await ask(chainId, "eth_getCode", [a, "latest"])).length - 2) / 2
+            for (const chainId of [1, 10, 8453, 42161]) {
+              const [version, treasury, feeBps, destination, supported] = await Promise.all([
+                call(chainId, "0x54fd4d50"), call(chainId, "0x60dc2340"), call(chainId, "0xedc8fef6"),
+                call(chainId, "0x8d0e48d7"), call(chainId, "0x9879c48d" + dlnSource.slice(2).toLowerCase().padStart(64, "0"))])
+              console.log(`chain ${chainId}: version ${Number(version)}, feeTreasury ${address(treasury)} (${await code(chainId, address(treasury))} bytes of code), ` +
+                `swapVariableFeeBps ${Number(feeBps)}, dlnDestination ${address(destination)}, ` +
+                `supportedRouters(DlnSource) isSupported ${Number("0x" + word(supported, 0)) === 1}, allowanceAggregator ${address(supported, 1)}, ` +
+                `${refund} ${await code(chainId, refund)} bytes of code`)
+            }
+            const { createHash } = await import("node:crypto")
+            const slot = async (chainId, s) => address(await ask(chainId, "eth_getStorageAt", [router, s, "latest"]))
+            for (const chainId of [1, 10, 8453, 42161]) {
+              const implementation = await slot(chainId, "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc")
+              const admin = await slot(chainId, "0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103")
+              const runtime = await ask(chainId, "eth_getCode", [implementation, "latest"])
+              const sha = createHash("sha256").update(Buffer.from(runtime.slice(2), "hex")).digest("hex")
+              console.log(`chain ${chainId}: implementation ${implementation}, ${(runtime.length - 2) / 2} bytes of code, SHA-256 ${sha}; ` +
+                `admin ${admin} (${await code(chainId, admin)} bytes of code)`)
+            }
+          ' || echo "::warning::The router's settings could not be read"

@@ -116,9 +116,26 @@ Minimum to Receive and Recipient.
 
 ## Refused calls
 
-To be measured by the `Registry submission batches` workflow
-(`must-match.mjs`): how many of the latest calls of each function, on each
-chain, have a `flags` or `permit` value that the descriptor refuses.
+Measured by the `Registry submission batches` workflow (`must-match.mjs`) on
+2026-11-10, from the SQD Network portal: the latest successful calls of each
+function sent to the exchange, up to 200 on each chain. No call is refused for
+its `flags`. Four `swap` calls are refused for their permit, each 384 bytes
+long, which the exchange takes as a Permit2 `permitTransferFrom`:
+
+| Function     | Chain        | Calls read (senders) | From (UTC)       | Refused (senders) |
+| ------------ | ------------ | -------------------- | ---------------- | ----------------- |
+| `swap`       | Ethereum     | 135 (56)             | 2026-11-08 21:16 | none              |
+| `swap`       | OP Mainnet   | 38 (9)               | 2026-11-10 00:25 | 1 (1)             |
+| `swap`       | Base         | 200 (38)             | 2026-11-10 07:32 | 1 (1)             |
+| `swap`       | Arbitrum One | 200 (124)            | 2026-11-05 02:34 | 2 (1)             |
+| `simpleSwap` | Ethereum     | none                 | 2026-11-10 00:34 |                   |
+| `simpleSwap` | OP Mainnet   | none                 | 2026-11-10 11:11 |                   |
+| `simpleSwap` | Base         | 8 (3)                | 2026-11-10 09:42 | none              |
+| `simpleSwap` | Arbitrum One | none                 | 2026-11-04 18:09 |                   |
+
+Each span ends between 13:23 and 13:42 UTC on 2026-11-10, but that of
+`simpleSwap` on OP Mainnet, which the portal did not answer for then and a
+read at 15:11 UTC covers.
 
 ## Tests
 
